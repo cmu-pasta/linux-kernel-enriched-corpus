@@ -60,3 +60,14 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Git Tag
+      run: |
+        git tag v${{ steps.version.outputs.version }}
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        automatic_release_tag: ${{ steps.version.outputs.version }}
+        files: |
+          LICENSE
+          *.db
