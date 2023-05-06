@@ -38,7 +38,8 @@ jobs:
       run: |
         zip --junk-paths enriched-corpus *.db
     - name: Git Version
-      uses: codacy/git-version@2.4.0
+      id: version
+      uses: codacy/git-version@2.8.0
       with:
         release-branch: main
     - uses: "marvinpinto/action-automatic-releases@latest"
