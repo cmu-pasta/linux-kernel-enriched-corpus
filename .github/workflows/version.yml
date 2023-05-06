@@ -5,6 +5,10 @@ on:
   push:
     tags:
       - "v*"
+  schedule:
+  - cron: '2 2 * * *'
+  workflow_dispatch:
+
 
 jobs:
   build:
