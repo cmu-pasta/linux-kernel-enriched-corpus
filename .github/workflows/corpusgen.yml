@@ -40,7 +40,7 @@ jobs:
     - name: Get current date
       id: date
       run: |
-        echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
+        echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_ENV
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -54,7 +54,7 @@ jobs:
     - name: Remove Zip
       run: |
         rm -v enriched-corpus.zip
-#    - name: Commit & Push changes
-#      uses: actions-js/push@master
-#      with:
-#        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
