@@ -39,12 +39,6 @@ jobs:
     - name: zip artifacts
       run: |
         zip --junk-paths enriched-corpus *.db
-    - name: Git Version
-      id: version
-      uses: codacy/git-version@2.8.0
-      with:
-        release-branch: main
-        log-path: ./
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -64,7 +58,9 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Create Git Tag
-      run: |
-        git tag v${{ steps.version.outputs.version }}
-        git push --tags
+    - name: Git Version
+      id: version
+      uses: paulhatch/semantic-version@v5.0.2
+      with:
+        change_path: ./
+        bump_each_commit: true
