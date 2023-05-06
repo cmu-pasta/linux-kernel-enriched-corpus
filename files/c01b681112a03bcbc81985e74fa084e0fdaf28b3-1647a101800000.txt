@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c01b681112a03bcbc81985e74fa084e0fdaf28b3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = add_key$keyring(&(0x7f0000f8c000-0x8)='keyring\x00', &(0x7f0000f37000-0x5)={0x73, 0x79, 0x7a, 0x0, 0x0}, 0x0, 0x0, 0x0)
+r1 = add_key$user(&(0x7f0000338000-0x5)='user\x00', &(0x7f0000394000)={0x73, 0x79, 0x7a, 0x0, 0x0}, &(0x7f0000e4f000-0x2)="0005", 0x2, r0)
+r2 = add_key$user(&(0x7f0000893000)='user\x00', &(0x7f0000062000)={0x73, 0x79, 0x7a, 0x3, 0x0}, &(0x7f000078a000-0x139)="b33ab70078ebe0d94f729cf853e520c19ad7d97fe21769e7c4db44c249b544230ba287fb8bd6ed266ccf59ef709908000000ecd3fff32853747eda22d2818d08ca27e0ec821620e365a0e6b9485f2d925493f60c01e33e5f8c7eba67fc19a94908000000df9d2e875b066cd640b336616fe0f3c3002813b4627ee7597689525e8e81f750a86eb580fb4690ea52246bd3d32b1a91f944edb74b1f50ae08c5387ed8000000a400579f3af3f864e1c324f6928f6672f987ca149be31bd78b6e8b96", 0xc0, r0)
+keyctl$dh_compute(0x17, &(0x7f00004c9000-0xc)={r1, r2, r1}, &(0x7f0000c2d000-0x1)=""/1, 0x1, &(0x7f00008e7000-0x2c)={&(0x7f0000622000-0x16)={'hmac(sha3-512-generic)'}, &(0x7f0000842000)="", 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]})

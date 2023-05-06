@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=fd180b6731eeb53c5978c5c6c5ed712cebcb14fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000001a00)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000300)={"6e72300100", 0x1132})
+r1 = perf_event_open(&(0x7f000025c000)={0x2, 0x70, 0x3e2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_config_ext}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+close(r1)
+socket$kcm(0x2, 0x3, 0x2)
+r2 = openat$null(0xffffffffffffff9c, &(0x7f0000000000)='/dev/null\x00', 0x100, 0x0)
+setsockopt$bt_hci_HCI_DATA_DIR(r2, 0x0, 0x1, &(0x7f00000000c0)=0x2, 0x4)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r1, 0x8914, &(0x7f0000000780)="6e7230010060a19ef9d2c673d9a1571cb9e1369bcd61ef7e49793ae18712eceb1daa769497800b7fbbd35b170c10751d39aeb660d863e49b8c4f3b3dad48902b5b2d6cfd0abd372c63bcf5d70df3fd4d2e8d443c88bc0e5637dd82fc3435bed4de5d693c9a781c863e05d8a6f8689a5be29216061f3ff53f8b6b396678e7ba155ef9152d7e43b1eccb2331eb8eb1ed5586dcf8b3b0b999361a44ff2c22c2abbef42dd24eabe6723346a6e46c0499a21442d8d00dcb57f013ff7595edd0ff076930de3675d34117a44eb0e4f832936da44e57e43a3e36bd48d2a85bf4fd4a804e83f2f3cf378a435af5e287d4e27337b4ada11b26219832ec6b2b38446b3b95fe3771e9f42ca30fb21e12f0a3d8bc2d85454af9fcc0232d8fd909448b01f46c593d31ea1c926465e35a4199079c3ca41128b17cb01fbf5b522be0fd02022ada37fecc14b6c8c8831883b85a1106f2f867020d529f17a350f20dd3bf51a98cfda70c2e3638a483fd3f87940bb478b07c4c110394c0093d17955089f2ca97bbe075124c9b1ff6500d536a95d96f03d48596e008bf0a028b539cec796cec9bf585eb80fe3e0d26")
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000080)={'veth1_to_bridge\x00', 0x200})
+r3 = openat$tun(0xffffffffffffff9c, &(0x7f0000001a00)='/dev/net/tun\x00', 0x2, 0x0)
+sendmsg$IPVS_CMD_NEW_SERVICE(0xffffffffffffffff, &(0x7f0000000440)={&(0x7f0000000280), 0xc, &(0x7f0000000400)={&(0x7f0000000340)={0x14}, 0x14}}, 0x0)
+ioctl$TUNSETIFF(r3, 0x400454ca, &(0x7f0000000300)={"6e72300100", 0x1132})
+write$binfmt_misc(r3, &(0x7f0000000180)=ANY=[@ANYBLOB="73797a31e3bc841f37e62e3598801a53c3087830e46200009e1c52d8b10f5dea6cf3c7c724e008398571316604ed44d0b14aaec411dad743612010a299001a72ec207082ae2034541a8ad980a90f"], 0x4e)
+getsockopt$inet_sctp6_SCTP_LOCAL_AUTH_CHUNKS(r2, 0x84, 0x1b, &(0x7f0000000480)={<r4=>0x0, 0xc5, "14ba3c02219ae0106a8db3c8091973f3067cafe3067eb01033dc0c2ca707d7a56ad179789181b17a4c8f933a0d9f47f30fc353e8119f70ac3d3f8e6c0c05e430dc01b1db51116e6fdee8672e353d98290941bef6d5877b25d8c445bb743933e8631f0b6c0cf2b2660eccd035a0394d4f6e6bf834eb5162d028b160b834cc18c357a09c06ca408298527a53664afbd057c6965a34100523309da57415ec0f8f384f75782b8ec007deebb99486c2129910c32758d953fa4689f56691b3e5fa251ff0b6179827"}, &(0x7f0000000100)=0xcd)
+setsockopt$inet_sctp_SCTP_RESET_ASSOC(r2, 0x84, 0x78, &(0x7f0000000140)=r4, 0x4)
+openat$vhci(0xffffffffffffff9c, &(0x7f0000000040)='/dev/vhci\x00', 0x0, 0x0)

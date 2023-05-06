@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=df1627594ef123f71d415a6a11b388e53c310fa3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000001880), 0x0, 0x0)
+prlimit64(0x0, 0x7, &(0x7f0000000280), 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)

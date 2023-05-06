@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d0617fe0b11081fa373fb9ca08c8a0bc8ea26bb8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+connect$l2tp(r1, &(0x7f00005fafd2)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x4e21, @multicast2=0xe0000002}, 0x4, 0x0, 0x2}}, 0x2e)
+close(r0)
+close(r1)

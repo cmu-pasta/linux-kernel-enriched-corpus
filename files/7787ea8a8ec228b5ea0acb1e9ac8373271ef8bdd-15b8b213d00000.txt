@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=7787ea8a8ec228b5ea0acb1e9ac8373271ef8bdd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000002180)=0xfc, 0x3c3)
+r1 = socket(0x10, 0x3, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(r1, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000340)=@newqdisc={0x3c, 0x24, 0xe0b, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_cake={{0x9}, {0xc, 0x2, [@TCA_CAKE_TARGET={0x8}]}}]}, 0x3c}}, 0x0)
+bind$packet(r0, &(0x7f0000000300)={0x11, 0x0, r3, 0x1, 0x0, 0x6, @link_local}, 0x14)
+sendto$inet6(r0, &(0x7f0000000080)="03042a015c0060004003002cfff57b016d2763bd56373780398d537503e50602591f031ee616d5c0184374a7ffe4ec55e0654786a70100935ba514d40808efa000801601842fd08d49a47eff71bc4131fe4c1f99bf00a900000008d1843e770afd6e9ef5837dbd0000000053", 0x3287, 0x4000002, 0x0, 0x2ff)

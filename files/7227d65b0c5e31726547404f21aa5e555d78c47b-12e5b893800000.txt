@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7227d65b0c5e31726547404f21aa5e555d78c47b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = syz_open_dev$dspn(&(0x7f000000bff6)='/dev/dsp#\x00', 0x1, 0x2)
+ioctl$int_in(r0, 0x800000c0045005, &(0x7f0000000080)=0x20)
+mmap$binder(&(0x7f00004be000/0x1000)=nil, 0x1000, 0x100000f, 0x52, r0, 0x0)

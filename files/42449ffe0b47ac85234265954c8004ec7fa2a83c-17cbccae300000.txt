@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socketpair(0x27, 0x5, 0x7, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=01b33168320de6a151ec997be395d50b9dbdbbf4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket(0x1e, 0x4, 0x0)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000100)=@req3={0x7ff, 0x0, 0x0, 0xfff}, 0x161)
+r1 = socket$netlink(0x10, 0x3, 0x4)
+getsockopt$inet_sctp_SCTP_LOCAL_AUTH_CHUNKS(0xffffffffffffffff, 0x84, 0x1b, &(0x7f0000000180)={<r2=>0x0}, &(0x7f0000000cc0)=0x8)
+setsockopt$inet_sctp_SCTP_RESET_STREAMS(0xffffffffffffffff, 0x84, 0x77, &(0x7f0000000d00)={r2, 0x0, 0x3, [0x40, 0x3, 0x1]}, 0xe)
+sendmsg$nl_generic(r1, &(0x7f0000000040)={&(0x7f0000000000), 0xc, &(0x7f000000d379)={&(0x7f0000000200)={0x18, 0x14, 0x301, 0x0, 0x0, {0x1e}, [@generic="c1"]}, 0x18}}, 0x0)

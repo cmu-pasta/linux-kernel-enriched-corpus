@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=667f1bd0ab632a49ca3daaa6967cc023b1c5b0c6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet(0x2, 0x3, 0x2)
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @local}, 0xfffffffffffffffa)
+setsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x23, &(0x7f0000000000)={{{@in=@multicast2, @in=@multicast1}}, {{@in6}, 0x0, @in6=@loopback}}, 0xe8)
+syz_emit_ethernet(0x2a, &(0x7f0000000240)={@random="b100485caa2a", @link_local={0x1, 0x80, 0xc2, 0x0, 0x88470000}, [], {@ipv4={0x800, {{0x5, 0x4, 0x0, 0x0, 0x1c, 0x0, 0x0, 0x0, 0x2, 0x0, @rand_addr, @broadcast}, @igmp={0x11, 0x0, 0x0, @multicast1}}}}}, &(0x7f0000000140))

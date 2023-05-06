@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":7,"fault_nth":32,"leak":true,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket(0x10, 0x3, 0x0)
+ioctl$sock_ifreq(r0, 0x89f0, &(0x7f0000000080)={'ip_vti0\x00', @ifru_data=&(0x7f0000000000)="b06f31673d3da2b793d4f9a507e3c9133ba7ce8f5e6e538ecf8829b08f7f4aae"})
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r1 = fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+r2 = socket$inet6_udplite(0xa, 0x2, 0x88)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r2, 0x29, 0x20, &(0x7f0000000000)={@rand_addr="0000000019a100f15700", 0x0, 0x0, 0x2, 0x1}, 0x20)
+ioctl$sock_ifreq(r0, 0x89f1, &(0x7f0000000080)={'sit0\x00', @ifru_flags})

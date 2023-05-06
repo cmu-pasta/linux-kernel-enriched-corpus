@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7f159bcdfc352416ad3e2f126dfb22704b3bc177
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+add_key(&(0x7f0000000380)='dns_resolver\x00', &(0x7f00000003c0)={0x73, 0x79, 0x7a, 0x1}, &(0x7f0000000400), 0x0, 0xfffffffffffffff9)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000100)='./cgroup.cpu\x00', 0x200002, 0x0)
+fchdir(r0)
+mkdir(&(0x7f0000000200)='./file0\x00', 0x0)
+mount(&(0x7f000000a000)='./file0\x00', &(0x7f0000026ff8)='./file0\x00', &(0x7f00000001c0)='ramfs\x00', 0x80, &(0x7f00000007c0))
+mount(&(0x7f0000d04000)='./file0\x00', &(0x7f0000903000)='./file0\x00', &(0x7f0000000340)='bdev\x00', 0x100000, &(0x7f00000002c0))
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f00000000c0)='.', &(0x7f0000000140)='vxfs\x00', 0x3080, &(0x7f0000000200))

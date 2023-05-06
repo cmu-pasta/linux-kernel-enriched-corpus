@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=28f0ae018677f0e643f2ccc28af0ceced69556ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+ioctl(0xffffffffffffffff, 0x400000000008912, &(0x7f0000000480))
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f0000000380)='./file0\x00', &(0x7f00000003c0)='9p\x00', 0x0, &(0x7f00000004c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@noextend='noextend'}]}})
+write$P9_RREADDIR(r1, &(0x7f00000002c0)=ANY=[@ANYBLOB="2a000000290100000000000000000000000000000000000000000000000000000007002e2f66696c6530"], 0x2a)
+write$P9_RGETATTR(r1, &(0x7f0000000200)={0xa0, 0x19, 0x1}, 0xa0)
+write$P9_RWRITE(r1, &(0x7f0000000180)={0xb, 0x77, 0x1}, 0xb)
+write$P9_RGETATTR(r1, &(0x7f0000000640)={0xa0, 0x19, 0x1}, 0xa0)
+write$P9_RWALK(r1, &(0x7f0000000940)={0x9, 0x6f, 0x1}, 0x9)
+write$P9_RREAD(r1, &(0x7f0000000440)={0xb, 0x75, 0x1}, 0xb)
+write$P9_RREAD(r1, &(0x7f0000000980)=ANY=[@ANYBLOB], 0x0)
+getsockopt$IP6T_SO_GET_ENTRIES(0xffffffffffffffff, 0x29, 0x41, &(0x7f0000000040)={'security\x00'}, &(0x7f0000000600)=0x24)
+creat(&(0x7f0000000300)='./file0/file0\x00', 0x0)

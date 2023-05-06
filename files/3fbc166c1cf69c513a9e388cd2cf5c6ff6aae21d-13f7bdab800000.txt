@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3fbc166c1cf69c513a9e388cd2cf5c6ff6aae21d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:true FaultCall:2 FaultNth:37 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mkdir(&(0x7f0000000080)='./file0\x00', 0xfffffffffffffffd)
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f0000000280)='./file0\x00', &(0x7f0000000040)='proc\x00', 0x0, &(0x7f0000000740))
+mount(&(0x7f0000000300)='./file0\x00', &(0x7f0000000140)='./file0/bus\x00', &(0x7f0000000180)="7270635f706970656673008c7c647f0399287d03b74f09f3ebb5030000009df9a59c06000000000000f90ef07834c1c4", 0x0, &(0x7f0000000880))
+bpf$OBJ_GET_PROG(0x7, &(0x7f0000000100)={&(0x7f00000000c0)='./file0\x00'}, 0x10)

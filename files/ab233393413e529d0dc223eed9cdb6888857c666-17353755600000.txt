@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=ab233393413e529d0dc223eed9cdb6888857c666
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"binfmt_misc":true,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000e5b000)={0x2, 0x4e20, @multicast1}, 0x10)
+connect$inet(r0, &(0x7f0000000100)={0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x11}}, 0x10)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000eb0fb8)={0x1, 0x3, &(0x7f00009ff000)=@framed, &(0x7f00002bf000)='syzkaller\x00', 0x4, 0xb7, &(0x7f00006ab000)=""/183}, 0x48)
+r2 = socket$kcm(0x29, 0x2, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r2, 0x89e0, &(0x7f000031aff8)={r0, r1})
+ioctl$sock_kcm_SIOCKCMCLONE(r2, 0x89e2, &(0x7f00000002c0)={<r3=>0xffffffffffffffff})
+sendmsg$nl_xfrm(r3, &(0x7f0000000780)={0x0, 0x0, &(0x7f0000000740)={&(0x7f0000000480)=@updpolicy={0xb8, 0x19, 0x0, 0x0, 0x0, {{@in=@loopback, @in6=@mcast1}}}, 0xb8}}, 0x0)

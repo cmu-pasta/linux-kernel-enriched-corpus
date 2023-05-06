@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0dc78f032d6dc7c10ecb7d0a59267d3cf801a70e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000400)=ANY=[@ANYBLOB="5400000030000100000000000000000000000000400001003c00010008000100696665002c0002801c0001000000000000000000020000000000000000000000000000000c00060004000100040004000400060018682c994aa02937d9719b26109f55755d964ed15386eac6ac81da3a7b075c62824d14d2bf1d4e857deb4168e876552c9bdd96d081bdc37c65f952a7f17aacc39b7ca7780bb12bcb0cc613fd421ccd6776dd441d4c72742b8c527bf730c9860a413af599265e9e7d186599251dc5481aac8c893b19d7bcb6ce5794ac26efe5feeeba2d95d90082d18dd329508beb59a7edc07e47ec8c83a6d638f88e"], 0x54}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000000)=@deltaction={0x24, 0x31, 0x101, 0x0, 0x0, {}, [@TCA_ACT_TAB={0x10, 0x1, [{0xc, 0x1, 0x0, 0x0, @TCA_ACT_KIND={0x8, 0x1, 'ife\x00'}}]}]}, 0x24}}, 0x0)

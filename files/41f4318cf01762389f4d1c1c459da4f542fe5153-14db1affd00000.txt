@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=41f4318cf01762389f4d1c1c459da4f542fe5153
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$kcm(0x2b, 0x1, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000040)={0x0, r1}, 0x10)
+r2 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x11, 0x3, &(0x7f00000002c0)=@framed, &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000040)={&(0x7f0000000180)='ext4_es_find_extent_range_exit\x00', r2}, 0x10)

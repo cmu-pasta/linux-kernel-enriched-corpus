@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d03abd8b42847f7f69b1d1d7f97208ae425b1163
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$autofs(0xffffffffffffff9c, &(0x7f0000000040)='/dev/autofs\x00', 0x0, 0x0)
+ioctl(r0, 0x8000000000009374, &(0x7f0000000080)="0100000000000000180000000001000000555d040f45426d0270ec78dfd849832f")

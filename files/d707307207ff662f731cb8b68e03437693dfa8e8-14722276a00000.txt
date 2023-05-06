@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d707307207ff662f731cb8b68e03437693dfa8e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+mkdir(&(0x7f00000001c0)='./file0\x00', 0x0)
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+r1 = fanotify_init(0x0, 0x0)
+fanotify_mark(r1, 0x105, 0x4000000a, r0, 0x0)
+r2 = openat$dir(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+r3 = fanotify_init(0x8000000000260, 0x1800)
+fanotify_mark(r3, 0x105, 0x4000000a, r2, 0x0)

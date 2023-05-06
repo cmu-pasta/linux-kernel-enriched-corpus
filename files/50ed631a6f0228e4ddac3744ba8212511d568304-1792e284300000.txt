@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=50ed631a6f0228e4ddac3744ba8212511d568304
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+openat$snapshot(0xffffffffffffff9c, &(0x7f00000003c0), 0x20601, 0x0)
+getpid()
+r0 = openat(0xffffffffffffffff, &(0x7f00000002c0)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r0, 0x0)
+syz_usb_connect(0x0, 0x36, &(0x7f0000000140)=ANY=[@ANYBLOB="1201090097e61d084c05c10666d500000001090281000100000000090400000218afbade09058e02000200000009050a8a"], 0x0)
+syz_usb_connect(0x0, 0x36, &(0x7f00000000c0)=ANY=[@ANYBLOB], 0x0)

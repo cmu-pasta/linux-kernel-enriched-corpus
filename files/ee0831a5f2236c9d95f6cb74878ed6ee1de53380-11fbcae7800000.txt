@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ee0831a5f2236c9d95f6cb74878ed6ee1de53380
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+mmap(&(0x7f0000ffc000/0x3000)=nil, 0x3000, 0x0, 0x2811, r0, 0x0)
+r1 = socket$inet6(0xa, 0x802, 0x0)
+setsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f00000001c0)={{{@in6=@remote={0xfe, 0x80, [], 0xbb}, @in=@rand_addr, 0x0, 0x0, 0x0, 0x0, 0xa}}, {{@in=@local={0xac, 0x14, 0x14, 0xaa}, 0x0, 0xff}, 0x0, @in6=@mcast2={0xff, 0x2, [], 0x1}}}, 0xe8)

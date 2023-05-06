@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=737a192d45b90420ee837241d390e65fcdec7371
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$vcsn(&(0x7f00000002c0)='/dev/vcs#\x00', 0xc2, 0x40080)
+read(r0, &(0x7f0000000400)=""/240, 0xf0)

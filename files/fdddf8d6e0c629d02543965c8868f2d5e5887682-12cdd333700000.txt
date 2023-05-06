@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=fdddf8d6e0c629d02543965c8868f2d5e5887682
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000840), 0x802, 0x0)
+r0 = syz_io_uring_setup(0x2de7, &(0x7f0000001600), &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffb000/0x3000)=nil, &(0x7f0000000100)=<r1=>0x0, &(0x7f0000000000)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f00000001c0)=@IORING_OP_WRITEV={0x2, 0x0, 0x0, @fd_index=0x3, 0x0, 0x0}, 0x0)
+io_uring_enter(r0, 0x302, 0x0, 0x0, 0x0, 0x0)

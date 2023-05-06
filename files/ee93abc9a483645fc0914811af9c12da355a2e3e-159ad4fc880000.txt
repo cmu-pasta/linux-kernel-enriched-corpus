@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ee93abc9a483645fc0914811af9c12da355a2e3e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.net/syz1\x00', 0x1ff)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_freezer_state(r0, &(0x7f0000000280), 0x2, 0x0)
+write$cgroup_freezer_state(r1, &(0x7f0000000040)='FROZEN\x00', 0x7)

@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000040)={0x1, &(0x7f0000000140)=[{0x6, 0x0, 0x0, 0x7fffff7a}]})
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+write$sndseq(0xffffffffffffffff, &(0x7f00000000c0)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0xaa, &(0x7f0000002300)="c4c691019919da078a0098d1e0a593b040f762910000000000000022addee07bee0d6333b5cacd893169b618322ff6602022511253508b5a4496728c2a46e1bc340e29b9ab9b7136283e350808ffdb2dc4a7410b363de4fb357baa16dacdcfac32957dc8bb44e203c4b1bc83d8c0b29f75bcf2e3482945fef116371f8c8c0c4db583a208718e3cccd9dd3bf7a0b9daf36c29d2d3e73af34a91a4a8844ee497e66452419a30843900bb4f"}}], 0x1c)
+wait4(0x0, 0x0, 0x80000000, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x17)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+gettid()

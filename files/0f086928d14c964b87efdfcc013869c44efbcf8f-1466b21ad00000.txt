@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0f086928d14c964b87efdfcc013869c44efbcf8f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000140)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x28a)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000005c0)=ANY=[@ANYBLOB="380000001000050700"/20, @ANYRES32, @ANYBLOB="000000016f0000001800120008000100736974000c00020008000300", @ANYRES32=r2], 0x38}}, 0x0)

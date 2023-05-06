@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8869bc1c5a1b787c023bb419926f8f02119592ed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+openat$dsp1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/dsp1\x00', 0x40582, 0x0)

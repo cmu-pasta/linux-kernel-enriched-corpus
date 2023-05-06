@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=98799903537cb8ae8be110083004df85361984eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+socket$netlink(0x10, 0x3, 0x0)
+r0 = syz_io_uring_setup(0x2ff8, 0x0, &(0x7f0000ffa000/0x3000)=nil, &(0x7f0000ffb000/0x3000)=nil, 0x0, 0x0)
+syz_io_uring_setup(0x88, 0x0, &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, 0x0, 0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(0x0, 0x40, 0x0, 0x0, 0x4)
+syz_io_uring_submit(0x0, 0x0, 0x0, 0x0)
+syz_io_uring_setup(0x6f59, &(0x7f00000003c0)={0x0, 0x81b8, 0x2, 0x1, 0x340, 0x0, r0}, &(0x7f0000ff9000/0x2000)=nil, &(0x7f0000ffe000/0x2000)=nil, 0x0, 0x0)

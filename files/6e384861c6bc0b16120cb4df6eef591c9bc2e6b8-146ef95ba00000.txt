@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6e384861c6bc0b16120cb4df6eef591c9bc2e6b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r0, 0x29, 0x20, &(0x7f0000000000)={@local}, 0xfdf7)

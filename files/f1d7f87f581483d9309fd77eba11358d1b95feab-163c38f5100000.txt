@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f1d7f87f581483d9309fd77eba11358d1b95feab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$qrtrtun(0xffffff9c, &(0x7f00000001c0)='/dev/qrtr-tun\x00', 0x1)
+pwritev(r0, &(0x7f0000000440)=[{&(0x7f0000000380)="03d44be7", 0x4}], 0x1, 0x0)

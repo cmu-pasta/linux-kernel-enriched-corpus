@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d35e6e87b80e5a6c58e1efc948feeda006b7adb3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000200)=@newqdisc={0x170, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_choke={{0xa, 0x1, 'choke\x00'}, {0x140, 0x2, [@TCA_CHOKE_PARMS={0x14, 0x1, {0x23474499, 0xffffffe0, 0xede5, 0xf, 0x1, 0x17, 0x3}}, @TCA_CHOKE_STAB={0x104, 0x2, "c30c74c0f51993e0956d3bb2e192bc52abcb6c7df23faf7f5df5eacc0554148140eab0d85c4a2d3c1b145cdbccd8b97bd9e167d100feffa90da5aa6a29b75ec5ba6447fb4d9ec653e0d7c5013cb0df42f95e0d432ce1284f7651189ea4968894a12101f4613744cff533a964a23fff84001d49089f2dfc075071bb4b7278bc41191366c26c9db2d32f70a75a8ab14f22778b1450022c93ed342eb2e6c3374c6bf6531cb786e68af3322b1112c9822c4e26eea30b9f563aa0903ed1df21b78b9ce7609107ffc02314feb72e572c3ff606c3a80bea48ed7290c9409224cb10a07902bbc817323920c0e5aca0d23ccb44c164fd71a2f9d78557c8038054dfa2c235"}, @TCA_CHOKE_MAX_P={0x8, 0x3, 0xfff}, @TCA_CHOKE_MAX_P={0x8, 0x3, 0x81}, @TCA_CHOKE_PARMS={0x14, 0x1, {0x0, 0x0, 0x81, 0x5, 0xc, 0x1c, 0x7}}]}}]}, 0x170}}, 0x0)

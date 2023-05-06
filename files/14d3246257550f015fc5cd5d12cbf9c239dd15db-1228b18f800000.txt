@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=14d3246257550f015fc5cd5d12cbf9c239dd15db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"segv":true,"waitrepeat":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f000065ffa8)={0x26, 'hash\x00', 0x0, 0x0, 'vmac(aes-generic)\x00'}, 0x58)
+r1 = accept(r0, 0x0, &(0x7f0000000080))
+getsockopt$inet_sctp_SCTP_PR_SUPPORTED(0xffffffffffffffff, 0x84, 0x71, &(0x7f0000000240)={<r2=>0x0, 0x1000}, &(0x7f0000000280)=0x8)
+setsockopt$inet_sctp_SCTP_AUTH_KEY(r1, 0x84, 0x17, &(0x7f00000002c0)={r2, 0xfffffffffffffff7}, 0x8)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000000100)='\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 0x10)
+r3 = accept$alg(r0, 0x0, 0x0)
+setsockopt$inet_mreq(r1, 0x0, 0x23, &(0x7f00000004c0)={@multicast2=0xe0000002, @dev={0xac, 0x14, 0x14, 0x11}}, 0x8)
+getsockopt$inet_sctp_SCTP_DEFAULT_PRINFO(r1, 0x84, 0x72, &(0x7f00000001c0)={r2, 0x2, 0x10}, &(0x7f0000000200)=0xc)
+sendto$ipx(r1, &(0x7f0000000380)="984a7c4b7625b521b20832a23ca4933bce97bde31bf9459e1fbcfa9f630f510ce5fafce5b3e4d24aeee12826b8d8ce2c6966055cf184f7c4ea79b73995f5bc71ca7a0fefd19566df077ee73df35c02b45f7f0a6e15387c11c622a4a4055d10d05c368ed4d71d79bb1a56ac0fed73c81f9f125e49cb762d39232cbec7771e4bb41bb1aae432c9d8bd28061e38aef1e33434c211d1e45e4bbdaf4e8b59c0a819f3cbd9686f11666f9898b5c6be58ba9e78d6f8aba63623603c8a6d801b194ca39d97cd37acdeeeb28cbb8d0b08a2959ec32e52f0f0dab68645c080c3463bd77c949a4a4682b038b6c93ad601f22976de21f6fa8d314e6192ec3e", 0xf9, 0x804, &(0x7f0000000480)={0x4, 0x6, 0x6, "2b13d531c8cd", 0x7ff}, 0x10)
+sendmsg(r3, &(0x7f00000000c0)={&(0x7f0000000000)=@pptp={0x18, 0x2, {0x0, @dev={0xac, 0x14, 0x14}}}, 0x80, &(0x7f0000002680)=[{&(0x7f0000000140)="71a03be63d7a013cf2ec76dd93e01b55c056fcfd8c84692e4667c1754f7403a244aaf669001ac2d61c2c4cf2f7cf9c5aa936cc819e62238f5f88280a0bb7900f23aa506614ccfc5eadac2bbd01b0b1779006990a1ca5518557a93167dc916711ce1325c9d22482fe818cfc", 0x6b}], 0x1, &(0x7f00000004c0)}, 0x0)

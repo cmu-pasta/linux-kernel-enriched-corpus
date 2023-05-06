@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=98114a02eef27c6b35fe4aad71435f52d65d2057
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x3a)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+sendmsg$nl_route(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000080)=ANY=[@ANYBLOB="800000001300"/19, @ANYRES32=0x0, @ANYBLOB], 0xffd8}}, 0x0)

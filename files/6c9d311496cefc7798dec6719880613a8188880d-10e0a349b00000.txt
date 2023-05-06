@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6c9d311496cefc7798dec6719880613a8188880d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false,"ieee802154":true,"sysctl":true,"tmpdir":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000000c0)={'wlan0\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)={0x24, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x3}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_START_AP(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000240)={0x74, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@beacon=[@NL80211_ATTR_BEACON_HEAD={0x28, 0xe, {@wo_ht={{}, {}, @broadcast, @device_a, @from_mac}, 0x0, @default, 0x1, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void}}], @chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8}], @NL80211_ATTR_BEACON_INTERVAL={0x8}, @NL80211_ATTR_DTIM_PERIOD={0x8}, @NL80211_ATTR_SSID={0xa, 0x34, @default_ap_ssid}, @NL80211_ATTR_AUTH_TYPE={0x8}, @NL80211_ATTR_EXTERNAL_AUTH_SUPPORT={0x4}]}, 0x74}}, 0x0) (fail_nth: 10)

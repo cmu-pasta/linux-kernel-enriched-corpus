@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=61318630f216fec89e9be95e621470084000d7bc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_init_net_socket$llc(0x1a, 0x2, 0x0)
+sendto$llc(r0, 0x0, 0x0, 0x0, &(0x7f0000000000)={0x1a, 0x300, 0x0, 0x0, 0x1000000000, 0x0, @random="af7fa6f18eea"}, 0x10)

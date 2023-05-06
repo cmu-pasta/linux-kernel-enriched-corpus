@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=b7a8168db3fab38ac2e43c070d0c05c41561df2e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+openat$selinux_relabel(0xffffffffffffff9c, &(0x7f0000ff1000-0x11)='/selinux/relabel\x00', 0x2, 0x0)
+socketpair$inet6_udp(0xa, 0x2, 0x0, &(0x7f0000ab9000-0x8)={0x0, 0x0})
+ioctl$sock_netdev_private(0xffffffffffffffff, 0x0, &(0x7f0000e83000)="")
+mmap(&(0x7f0000000000/0x8000)=nil, 0x8000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(&(0x7f0000005000)='/dev/binder#\x00', 0x0, 0x0)
+r1 = syz_open_dev$binder(&(0x7f0000009000-0xd)='/dev/binder#\x00', 0x0, 0x0)
+mmap(&(0x7f0000008000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000000000/0x2000)=nil, 0x2000, 0x0, 0x20011, r1, 0x0)
+mq_unlink(&(0x7f0000009000-0x11)='/selinux/relabel\x00')
+mmap(&(0x7f0000009000/0x1000)=nil, 0x1000, 0x0, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000007000)={0x4, 0x0, &(0x7f0000006000-0x2c)=[@acquire_done={0x40486311, 0x0, 0x0}], 0x0, 0x0, &(0x7f0000002000)=""})
+close(r1)

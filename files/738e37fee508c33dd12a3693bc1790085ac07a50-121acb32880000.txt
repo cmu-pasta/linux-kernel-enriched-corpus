@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=738e37fee508c33dd12a3693bc1790085ac07a50
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28012, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r0, &(0x7f0000000180)={0xa, 0x4001, 0x0, @dev={0xfe, 0x80, '\x00', 0x1c}, 0xd}, 0x1c)
+setsockopt$inet6_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000000)='cdg\x00', 0x4)

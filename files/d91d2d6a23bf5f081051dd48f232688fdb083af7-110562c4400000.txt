@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d91d2d6a23bf5f081051dd48f232688fdb083af7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+r1 = socket$packet(0x11, 0x10000000002, 0x300)
+read(r0, &(0x7f0000000000)=""/25, 0x19)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000040)={'ip6gre0\x00', <r2=>0x0})
+sendmmsg(r1, &(0x7f0000003080)=[{{&(0x7f00000000c0)=@ll={0x11, 0x0, r2, 0x1, 0x0, 0x6, @local}, 0x80, &(0x7f0000000480), 0x0, &(0x7f0000000500)}}], 0x1, 0x0)
+clock_gettime(0x0, &(0x7f0000000000))

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"tmpdir":true,"segv":true}
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x80100900, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+wait4(0x0, 0x0, 0x80000002, 0x0)
+vmsplice(0xffffffffffffffff, &(0x7f0000000100)=[{&(0x7f0000000000)="0f34", 0x2}], 0x1, 0x0)
+bpf$BPF_BTF_LOAD(0x12, 0x0, 0x0)
+process_vm_writev(0x0, &(0x7f0000000080)=[{0x0}, {0x0}, {&(0x7f00000193c0)=""/102389, 0x18ff5}], 0x3, 0x0, 0x0, 0x0)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+ptrace$cont(0x7, r0, 0x0, 0x0)

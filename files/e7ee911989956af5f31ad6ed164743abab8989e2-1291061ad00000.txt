@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e7ee911989956af5f31ad6ed164743abab8989e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true,"segv":true}
+connect$inet6(0xffffffffffffffff, 0x0, 0x0)
+clone(0x4412c580, 0x0, 0x0, 0x0, 0x0)

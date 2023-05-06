@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=2b50dd7e9d79da3a1949141a7f38c2af0d01ddf3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+socket$packet(0x11, 0x3, 0x300)
+pipe(&(0x7f0000000180)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r1, &(0x7f0000000040)={0xa, 0x8000002, 0x0, @loopback}, 0x1c)
+sendto$inet6(r1, 0x0, 0x0, 0x22004001, &(0x7f0000b63fe4)={0xa, 0x2, 0x0, @loopback}, 0x1c)
+write$binfmt_elf64(r1, &(0x7f00000004c0)=ANY=[@ANYBLOB], 0x78)
+sendto$inet6(r1, &(0x7f00000003c0)="44f9b128b1cdc885c9c533b21f47b85d9cdbf1df1e2da71e578dc6b91d09f7ab15378571d8e27546090000006e75436914ab717528ee4b7a9beaf908d11137c11903064e83b4951f4d433a5404970c85d92d7083fd38844cbb0c6c5eb508ddc2dc7a590aa7941b1e9eeb5affffffff00000000bfa784cbf550bf3074fb0d775da4df5a3f48bbdf452eeb6b923da9d0e25b80f76a873664b57534446c3cd6af10f0cd571ea4e14f986953be018f0c6f57f926ac959a5628c65088fbe0c87fbe6cbcda4662d2a12f6d00"/215, 0xd7, 0x1, 0x0, 0x0)
+splice(r1, 0x0, r0, 0x0, 0x406f40a, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7ee911989956af5f31ad6ed164743abab8989e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"sysctl":true}
+socket$inet(0x2, 0x4000000000000001, 0x0)
+unshare(0x6c060000)
+sendmsg$inet6(0xffffffffffffffff, 0x0, 0x0)
+bind$inet(0xffffffffffffffff, &(0x7f0000000440)={0x2, 0x4e23, @local}, 0x10)

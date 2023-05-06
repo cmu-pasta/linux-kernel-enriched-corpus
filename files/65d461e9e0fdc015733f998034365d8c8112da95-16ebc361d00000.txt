@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f00000000c0)=0x2000000000000074, 0x25d)
+bind$inet(r0, &(0x7f0000000440)={0x2, 0x4e23, @broadcast}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000480)={0x1, &(0x7f0000000400)=[{0x6, 0x0, 0x0, 0xe8}]}, 0x10)
+socket$packet(0x11, 0x3, 0x300)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000100)='bbr\x00', 0x4)
+sendmmsg(r0, &(0x7f0000004800)=[{{0x0, 0x0, &(0x7f0000002d00)=[{&(0x7f0000000200)="046837a94c18418c35f9fed27f3f1b0ac0e5d3127ce99d08bde4fb5e148532910895d8d492510fbc626ae415bf2bb16ba6aff62613a4e16d1081cbbcf04dfa425c52db999c72fb355ac34fe9848d3ae03b6a66da5501992ed3457ce9abbe094afb982c78025d321b2f0b96e2c5bad1d816fa44e95923c19cdec8dca5a4f540cf40f16924760af50631b90ea49c76d3d0a42991339bd4ba97ed666c4601be6586a12a86a7bcef4ad3a859cc8f075972259f3d9a4cb40c56ece56a67ecdc924b2cdee2946b2d83c43ac3", 0xc9}], 0x1}}, {{0x0, 0x0, 0x0}}, {{0x0, 0x0, &(0x7f0000002540)=[{&(0x7f00000011c0)="6c10689ac3c9c658fab101e16a2dc6bfac9679163d14c25364ec7d05766389129452489ce51a6050a2da6346b0bb13229ba7a09cef5604", 0x37}], 0x1}}, {{0x0, 0x0, &(0x7f0000002800)=[{0x0}, {0x0}], 0x2}}, {{0x0, 0x0, 0x0}}], 0x5, 0x0)

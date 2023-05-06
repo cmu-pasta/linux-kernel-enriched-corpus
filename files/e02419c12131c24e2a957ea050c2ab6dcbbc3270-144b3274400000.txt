@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e02419c12131c24e2a957ea050c2ab6dcbbc3270
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000a, 0x31, 0xffffffffffffffff, 0x0)
+r0 = openat$ashmem(0xffffffffffffff9c, &(0x7f0000b4508a)='/dev/ashmem\x00', 0x0, 0x0)
+ioctl$ASHMEM_SET_SIZE(r0, 0x40087703, 0xfffffffa)
+mmap(&(0x7f00006ff000/0x3000)=nil, 0x3000, 0x0, 0x12, r0, 0x0)
+ioctl$ASHMEM_SET_NAME(r0, 0x40087708, &(0x7f00000011c0)="000000800000800000")
+ioctl$ASHMEM_PURGE_ALL_CACHES(r0, 0x770a, 0x0)

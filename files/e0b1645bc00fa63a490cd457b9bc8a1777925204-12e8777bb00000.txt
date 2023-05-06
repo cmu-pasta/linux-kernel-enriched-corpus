@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=e0b1645bc00fa63a490cd457b9bc8a1777925204
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x26e1, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='memory.events\x00', 0x7a05, 0x1700)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40086602, &(0x7f00000002c0)=0x2000000)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='memory.events\x00', 0x7a05, 0x1700)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='memory.events\x00', 0x7a05, 0x1700)
+write$cgroup_int(r2, &(0x7f0000000340)=0xffffffffffffffbc, 0x12)
+r4 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r4, 0x6, 0x80000000000002, &(0x7f0000000000)=0x200, 0x4)
+bind$inet(r4, &(0x7f00000003c0)={0x2, 0x200000000004e23, @multicast2}, 0x10)
+setsockopt$inet_tcp_TCP_MD5SIG(r4, 0x6, 0xe, &(0x7f0000000480)={@in={{0x2, 0x0, @local}}, 0x0, 0x40, 0x31, 0x0, "000000000000000000000000000000225f15d80700000000000000000003008000000000080000000000000003080000e7ffffff000000000000000000000000002000"}, 0xd8)
+setsockopt$inet_tcp_TCP_CONGESTION(r4, 0x6, 0xd, 0x0, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+sendto$inet(r4, 0x0, 0x0, 0x200007fd, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$sock_int(r4, 0x1, 0x8, &(0x7f0000000100), 0x4)
+recvmsg(r4, &(0x7f0000000240)={&(0x7f0000000040)=@nfc, 0xf012, &(0x7f0000000180)=[{&(0x7f0000003ac0)=""/4096, 0xdc00}], 0x1, &(0x7f0000000200)=""/20, 0x31, 0xd571012c}, 0x100)
+setsockopt$SO_BINDTODEVICE(0xffffffffffffffff, 0x1, 0x19, 0x0, 0x0)
+ioctl$FITHAW(0xffffffffffffffff, 0xc0045878)
+write$binfmt_elf64(r4, &(0x7f00000006c0)=ANY=[@ANYRES16=r4, @ANYRES32=r3, @ANYRES64=r0, @ANYBLOB="5b75f0be238665acb734a49d491cf029d3bdbc26191e4e64c1f8842d5510341f41f70f3758c7de20058ada77f6b2370381ead19d6bf62ae88ab7cb5d7967cbf795448c9c58c498a89e330c3a122d1d5d6537103fd40150a1f940db88aedc7a13d05242408acd252ababea01c0e2a9870d576381e427813dc18ec0000000000000000a606114f6778ab261484bc1da1d885523671b1931a7a63e97c4aaa988706eaf662e3e40cf12ce3e15a3bd10954df4639ad564f0326be6f582e0d052e4ec187754ba66c462456e03c13dfb3bfe8da67c2145793db75c28322e936c27ad67676e9eebce390c25adcfcf9744a93a1fbd2d05fb7d31cb1fde29c0aa2305047ffe565476e9b613c9b7fe57ea3d8e7df6ea5590ff873fb7a61a1da1e8bb600"/298, @ANYRES64], 0x100000530)

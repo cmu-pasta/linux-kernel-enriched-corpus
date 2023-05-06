@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+unshare(0x6c060000)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f00000000c0)={'lo\x00@\x00\x00\x00\x00\x00\x05\x00', 0x4001})
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+setsockopt$inet_tcp_int(0xffffffffffffffff, 0x6, 0x80000000000002, 0x0, 0x0)
+sendto$inet(0xffffffffffffffff, 0x0, 0x0, 0x200007fd, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+socket$alg(0x26, 0x5, 0x0)
+recvmsg(0xffffffffffffffff, &(0x7f0000000240)={&(0x7f0000000040)=@nfc, 0x80, &(0x7f0000000180)=[{0x0}], 0x1, &(0x7f0000000200)=""/20, 0x14, 0x3e8}, 0x100)

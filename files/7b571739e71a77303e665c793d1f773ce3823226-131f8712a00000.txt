@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7b571739e71a77303e665c793d1f773ce3823226
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+syz_emit_ethernet(0x36, &(0x7f0000000000)={@local, @local, [], {@ipv4={0x800, {{0x5, 0x4, 0x0, 0x0, 0x28, 0x3000000, 0x0, 0x0, 0x0, 0x0, @dev, @remote={0xac, 0x14, 0x223}}, @icmp=@timestamp_reply}}}}, &(0x7f0000000100)={0x0, 0x3, [0x0, 0xe, 0xd77]})
+recvfrom$packet(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x41)

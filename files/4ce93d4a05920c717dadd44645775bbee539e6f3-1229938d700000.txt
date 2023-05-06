@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4ce93d4a05920c717dadd44645775bbee539e6f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":true}
+syz_emit_ethernet(0x20a7, &(0x7f0000000000)={@broadcast, @random="beac74949016", @val, {@ipv6}}, 0x0)
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000bc0)={'syz_tun\x00'})

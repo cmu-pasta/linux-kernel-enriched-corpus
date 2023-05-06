@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=323e25c8773ffd26993fef93a0c7abd053747c4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+syz_emit_ethernet(0x140, &(0x7f0000000640)={@local, @remote, [], {@ipv6={0x86dd, {0x0, 0x6, "50a09c", 0x8, 0xffffff2b, 0x0, @remote={0xfe, 0x80, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xffffa888]}, @local, {[], @udp={0x0, 0x4e20, 0x8}}}}}}, 0x0)
+r0 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x4e24, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+sendmmsg(r0, &(0x7f00000092c0), 0x3ffffffffff0600, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=33bc463a99d8af2e848dc3073d67a40857a65574
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"close_fds":true}
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="3800000024000705a99a004007a2a30005000000", @ANYRES32=r1, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000300)=@newtfilter={0x44, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {}, {0x4, 0x8}}, [@filter_kind_options=@f_tcindex={{0xc, 0x1, 'tcindex\x00'}, {0x14, 0x2, [@TCA_TCINDEX_CLASSID={0x8, 0x5, {0x0, 0x5}}, @TCA_TCINDEX_MASK={0x6}]}}]}, 0x44}}, 0x0)
+r2 = socket(0x10, 0x80002, 0x0)
+sendmmsg$alg(r2, &(0x7f0000000200)=[{0x6, 0x0, &(0x7f0000000100), 0x9, &(0x7f00000005c0)=[@iv={0x0, 0x117, 0x2, 0x0, "15dc91768c78ba00960b7a5e4e7907526d7c7c8aee968a562b00cb905e1826a8f9ee0ac480576a7134801fc070041984c5c23fa0f93b59075853f70545ce9c61b15ff65cde5078b4209217f0220f0810f739bd470d405272edb16434a11869d08d8fef065de94710ee553b410c3c02a96c156836af8d11c4af4a77e766f9ed8ec43830fe02bb22babf9b41d4e5027b49ba3f720465bf4ee9b63892030f4fea97d94bc6cd1a7d4d6869cb3185e5da3ca0da"}, @op, @assoc, @assoc, @op, @op={0x35}]}], 0x4924924924924b3, 0x0)

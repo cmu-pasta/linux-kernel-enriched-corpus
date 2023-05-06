@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6cd217d3878763ebef28a8fd279c88e791c1c9ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+r0 = socket$unix(0x1, 0x1, 0x0)
+setsockopt$sock_int(r0, 0x1, 0x10, &(0x7f0000000240)=0x400071f, 0x4)
+r1 = socket$unix(0x1, 0x1, 0x0)
+bind$unix(r1, &(0x7f00000001c0)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x56)
+listen(r1, 0x0)
+connect$unix(r0, &(0x7f0000000140)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)
+r2 = accept(r1, 0x0, 0x0)
+sendto$inet6(r2, &(0x7f0000000280)="fa0f3a504212b0571fdcf701a17ad5e4aef3e577a38f1e20cc63f3d10f7751480fa1a70a897f42f3b044e0249257187082000000000000001f4e16f19b07a12ef59069f6fdf866370bb36ff4b471137fdbc60b9c6039523bd05da9a44523d194d5a14e877b17069f3cca62692bfe342b8342a77cd5320db871f696c1a9b72aaf61b6c107a9da4c87648a489ebb46e1ebfd52331984f4db30f4a9fc6903c103e9448dcd5f40288a4123bd4d5b6fa7c2c081cd68b808e478d85bb0683bb33226da561d35bddd1278", 0xc7, 0x44845, 0x0, 0x0)

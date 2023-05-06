@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=3ee265f0311f15eba80b6276044716b4fe020d70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"binfmt_misc":true,"close_fds":false}
+fsopen(&(0x7f0000000080)='gfs2meta\x00', 0x0)

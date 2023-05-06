@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=be2e39518462291fd049f665261632ded34b79fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+r1 = socket(0xa, 0x1, 0x5)
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDR_INFO(0xffffffffffffff9c, 0x84, 0xf, &(0x7f000061d000-0xa0)={<r2=>0x0, @in={{0x2, 0x0, @broadcast=0xffffffff, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x4, 0xfffffffffffffffe, 0x0, 0x6, 0x27}, &(0x7f000048f000-0x4)=0xa0)
+getsockopt$inet_sctp_SCTP_RTOINFO(r1, 0x84, 0x0, &(0x7f0000dcf000-0x10)={r2, 0xffffffff00000000, 0x1, 0x2}, &(0x7f0000150000)=0x10)
+r3 = socket$inet(0x2, 0x80805, 0x8c9a)
+setsockopt$inet_sctp_SCTP_ADAPTATION_LAYER(r3, 0x84, 0x7, &(0x7f0000340000-0x4)={0xffa}, 0x4)
+bind$alg(r0, &(0x7f0000e34000-0x58)={0x26, 'hash\x00', 0x0, 0x0, 'hmac(sha1)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f000000a000)="29593829b279bb195743557a6bbf063c241e6c54a3b277f25501d31eb41a519c1f3e0c8acf53c24f28ded2ca3a3f4a2eab391e7731b460c5ca800364713dd1a67ebff3c263a28598b823fc44123ea38befc2ce7fd40ef6ae9cdd4bf3e9f47d086f8d0d43615fff24f364409d9c1e0284fc87b3e6eae7bba91792c7e37bf960b1de8c9e368289d23a3ec259ea6eb97220e9c5b4996202efa4cd28f015e57be955b0bf09de681cdd190f9f4539f3be1a0c572a704daa433f929262f4f3c25262fc6fbbf03b93f840bb36c1f63fb4f546a8b1a2c5c4b3f5b6b0803c3e6de90f7b7647c82d0f1a90cc36c8f004cab02a68b8e557b03ba067319200f54d58fb267bcf", 0x100)
+socket(0x19, 0x80806, 0x8b6e)

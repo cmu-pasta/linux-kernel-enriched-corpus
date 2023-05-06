@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=d6106a0bf9404452b6941ef76ae4f3b4d27ea33a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+iopl(0x3)

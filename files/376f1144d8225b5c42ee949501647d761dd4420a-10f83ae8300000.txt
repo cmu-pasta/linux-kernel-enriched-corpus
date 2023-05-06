@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=376f1144d8225b5c42ee949501647d761dd4420a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+sendmsg$netlink(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000480)=[{&(0x7f0000000740)=ANY=[@ANYBLOB="1c0000002a00050000000000000000000600008008000100", @ANYRES32=0x0, @ANYBLOB], 0x1c}], 0x1}, 0x0)

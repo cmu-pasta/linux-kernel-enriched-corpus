@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=02617ac69815ae324053c954118c2dc7ba0e59b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000040)=0x100000001, 0x76dc)
+setsockopt$inet6_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000000)=0x1, 0x4)
+connect$inet6(r0, &(0x7f0000000080), 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f00000000c0), 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x2, &(0x7f00000001c0)=@ccm_128={{0x304}, '\x00', "b68b0e0805f3fddac634a0a02335f879", "fb8a5ca9", "4cdb9dd493102d1c"}, 0x28)
+sendto$inet6(r0, &(0x7f0000000140)="03", 0x1, 0x0, 0x0, 0x0) (rerun: 64)
+sendmsg$sock(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000001a80)=[{&(0x7f0000000280)="a4b140cdceaa3f6978ed3eaaf574f1522b44f88947668e0bae6d38a23426507e9dbb1e761b5e6e70d21a67924dc35d0abd95e0a5bd97303ed55f378856f569aba1672e35c974192e1e89a9c0068e969890cc22a5d4bcbae741efa170547761", 0x5f}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}], 0x9}, 0x20000000) (rerun: 64)
+recvmmsg(r0, &(0x7f0000002900)=[{{0x0, 0x0, &(0x7f0000000580)=[{&(0x7f0000000640)=""/218, 0xda}], 0x1}}], 0x1, 0x0, 0x0)

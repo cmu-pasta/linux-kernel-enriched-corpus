@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7c7245f9088053e9e49b97a341dee26c9ed40a2c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket(0x11, 0x800000003, 0x0)
+bind(r1, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r1, &(0x7f0000005400)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000005c0)=ANY=[@ANYBLOB="4001000024000b0f00e400000000f10febca0746", @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000f6090001006e6574656d00180010010200ca000000b0"], 0x140}}, 0x0)
+r3 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_rx_ring(r3, 0x107, 0x5, &(0x7f0000000040)=@req3={0x8000, 0x200, 0x80, 0x20000}, 0x1c)
+setsockopt$packet_int(r3, 0x107, 0x7, &(0x7f0000000e00)=0x3, 0x4)
+recvmsg(r3, &(0x7f0000000500)={0x0, 0x0, 0x0}, 0x0)

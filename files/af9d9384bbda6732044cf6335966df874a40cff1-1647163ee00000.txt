@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"devlinkpci":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000180)=ANY=[@ANYBLOB="300000001000010800"/20, @ANYRES32=0x0, @ANYBLOB="812601000000000008001b0000000000020010000500000073659a4a0c6765e2ffd7e3ba461b765bb7df0ebfb532c2c8452a12fb6fff0ac29c437ed176c1f0cee3ec590bbb5b5becd0ddee4762a0a80cdc3650960646743beb2b5a3e1d8830f5feb94f4e02d4416f891eae43d18d7a6424548686a62ba52927928e8186256a"], 0x30}, 0x1, 0x0, 0x0, 0xc800}, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+connect$inet6(r1, &(0x7f0000000000)={0xa, 0x0, 0x0, @ipv4={[], [], @local}}, 0x1c)
+connect$inet6(r1, &(0x7f0000000140)={0xa, 0x0, 0x0, @dev, 0x5}, 0x1c)

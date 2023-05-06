@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=dac215157cdf29ade72d0436f902d39988cb0edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = syz_io_uring_setup(0x532a, &(0x7f0000000080)={0x0, 0x3f0e, 0x1cd60cb783f1054a, 0x3, 0x3bb}, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000000140), &(0x7f0000000240))
+r1 = syz_io_uring_setup(0x87, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, r0}, &(0x7f0000ffb000/0x3000)=nil, &(0x7f0000fff000/0x1000)=nil, &(0x7f0000000040)=<r2=>0x0, &(0x7f0000000100)=<r3=>0x0)
+syz_io_uring_submit(r2, r3, 0x0, 0x0)
+ioctl$KVM_CREATE_DEVICE(r1, 0xc00caee0, &(0x7f0000000000)={0x6})
+io_uring_enter(r1, 0x450c, 0x0, 0x0, 0x0, 0x700)

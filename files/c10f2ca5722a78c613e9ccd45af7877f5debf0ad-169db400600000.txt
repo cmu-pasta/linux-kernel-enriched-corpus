@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c10f2ca5722a78c613e9ccd45af7877f5debf0ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":true}
+r0 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhci\x00', 0x102)
+write$vhci(r0, &(0x7f0000000100)=@HCI_VENDOR_PKT={0xff, 0x80}, 0x2)

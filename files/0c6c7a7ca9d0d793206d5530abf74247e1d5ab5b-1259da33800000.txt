@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0c6c7a7ca9d0d793206d5530abf74247e1d5ab5b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:true FaultCall:1 FaultNth:9 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+perf_event_open(&(0x7f0000940000)={0x2, 0x78, 0xd68, 0x1}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+socketpair$inet_smc(0x2b, 0x1, 0x0, &(0x7f0000000040))

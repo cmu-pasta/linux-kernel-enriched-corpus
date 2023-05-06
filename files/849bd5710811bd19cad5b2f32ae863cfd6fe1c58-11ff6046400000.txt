@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=849bd5710811bd19cad5b2f32ae863cfd6fe1c58
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000300)={&(0x7f0000000000), 0xc, &(0x7f00000002c0)={&(0x7f0000000100)=ANY=[@ANYBLOB="540000001e00070f0000000000ffffffff0000000000000000000000000000000000000000000000fe000000000000000000b78a5f6b00000c001500000000000000000008000c00000000000000000000000000ac82866034d26aa4b4cdfb63511ebe69702b86f67370428721b2a7c5"], 0x1}}, 0x0)
+getsockname(r0, &(0x7f0000000540)=@can={0x1d, <r1=>0x0}, &(0x7f0000000180)=0x80)
+sendmsg$nl_xfrm(r0, &(0x7f0000000500)={&(0x7f00000000c0)={0x10, 0x0, 0x0, 0x20000000}, 0xc, &(0x7f0000000280)={&(0x7f0000000340)=@updpolicy={0x17c, 0x19, 0x309, 0x70bd26, 0x25dfdbfe, {{@in6=@ipv4={[], [], @multicast1}, @in6=@loopback, 0x4e23, 0xf11, 0x4e20, 0x1ff, 0xa, 0x20, 0x80, 0x2b, r1}, {0x6a, 0xfffffffffffffff8, 0x4, 0x8, 0x200000, 0x1, 0x17c, 0xffffffffffffffff}, {0x9, 0xc3ef, 0x4, 0x400}, 0x0, 0x6e6bb6, 0x2, 0x1}, [@algo_comp={0x48, 0x3, {{'deflate\x00'}}}, @algo_comp={0x74, 0x3, {{'lzjh\x00'}, 0x148, "a01578640efaf256e0b60cdae03f8a181dabf5f77e38ee9724edf55815ccad5c15d211ba63be9c2b44"}}, @tfcpad={0x8, 0x16, 0x8}]}, 0x17c}, 0x1, 0x0, 0x0, 0x880}, 0xc800)

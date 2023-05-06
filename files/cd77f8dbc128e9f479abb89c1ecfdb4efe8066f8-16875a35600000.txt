@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cd77f8dbc128e9f479abb89c1ecfdb4efe8066f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+membarrier(0x10, 0x0)
+membarrier(0x100000008, 0x0)

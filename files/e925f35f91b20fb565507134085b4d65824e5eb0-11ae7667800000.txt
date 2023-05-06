@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e925f35f91b20fb565507134085b4d65824e5eb0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = creat(&(0x7f0000000080)='./file0\x00', 0x0)
+syz_mount_image$jfs(&(0x7f0000000780)='jfs\x00', &(0x7f0000000300)='./file0\x00', 0x80000, 0x8, &(0x7f0000000700)=[{&(0x7f0000000200), 0x0, 0x7fff}, {&(0x7f0000000340), 0x0, 0x1}, {&(0x7f0000000440)}, {&(0x7f00000004c0), 0x0, 0x3ff}, {&(0x7f0000000580), 0x0, 0x7}, {&(0x7f0000000280), 0x0, 0x2}, {&(0x7f0000000640), 0x0, 0xfffffffffffffff9}, {&(0x7f0000000680), 0x0, 0xca}], 0x1000, &(0x7f0000000ac0)=ANY=[@ANYBLOB])
+chown(&(0x7f0000000d00)='./file0\x00', 0x0, 0x0)
+lsetxattr(&(0x7f0000712ff8)='./file0\x00', &(0x7f0000faffe7)=@known='security.capability\x00', &(0x7f0000000100)="0000000201000000000000010400000000000000", 0x14, 0x0)
+write$cgroup_pid(r0, &(0x7f0000000b80)={[0x38, 0x37, 0x39]}, 0x3)

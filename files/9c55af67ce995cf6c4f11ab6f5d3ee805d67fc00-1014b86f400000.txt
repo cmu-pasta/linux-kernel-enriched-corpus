@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9c55af67ce995cf6c4f11ab6f5d3ee805d67fc00
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet6(0xa, 0x3, 0x3e)
+connect$inet6(r0, &(0x7f0000000300)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+sendmsg(r0, &(0x7f00000000c0)={0x0, 0x0, 0x0}, 0xc100)
+sendmsg(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000240)=[{&(0x7f0000000200)="b10b9386", 0x4}], 0x1}, 0x0)
+setsockopt$inet6_int(r0, 0x29, 0x4a, &(0x7f0000000000)=0xe2b, 0x4)
+recvmsg(r0, &(0x7f0000000140)={0x0, 0x0, 0x0}, 0x2)

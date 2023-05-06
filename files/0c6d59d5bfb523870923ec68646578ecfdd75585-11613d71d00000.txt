@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=0c6d59d5bfb523870923ec68646578ecfdd75585
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000000000)=[@in6={0xa, 0x0, 0x0, @ipv4={'\x00', '\xff\xff', @empty}}], 0x1c)
+setsockopt$inet_sctp6_SCTP_AUTO_ASCONF(r0, 0x84, 0x1e, &(0x7f0000000100)=0xffffffbe, 0x4)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r3 = fcntl$dupfd(r1, 0x0, r2)
+r4 = socket$inet_tcp(0x2, 0x1, 0x0)
+r5 = fcntl$dupfd(r4, 0x0, r3)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r5, 0x8916, &(0x7f00000000c0)='lo:|T{\xdcD\xd2\xaf>o\xd6Q\x00\x19\x02\x00\xdd\xd4\b\xbb\xbb\xb0]\t\x0f\x89d:\x8f\xecb6\xd6\xd7AF,\xa3\x00\x00\x00\x00\x91\xed\x05\x00\x00\x00C\xeb&\xc6\xd6\xcb\x85\x9a\xb6OFl\xd3\x00'/79)

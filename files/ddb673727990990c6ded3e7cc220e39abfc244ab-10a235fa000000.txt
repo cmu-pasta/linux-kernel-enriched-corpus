@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=ddb673727990990c6ded3e7cc220e39abfc244ab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$tun(&(0x7f0000b90000)="2f6465762f6e65742f74756e00", 0x0, 0x8100)
+ioctl$TUNSETIFINDEX(r0, 0x400454da, &(0x7f00002d1000)=0xb)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000533000)={@generic="02f50000000000000000000200e9bc22", @ifru_settings={0x10001, 0x0, @fr=&(0x7f0000013000-0x18)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}})
+r1 = socket(0x11, 0x80803, 0x80000001)
+dup3(r1, r0, 0x80000)
+r2 = socket$inet_dccp(0x2, 0x6, 0x0)
+ioctl$sock_SIOCGIFBR(r2, 0x8940, &(0x7f0000fdf000)=@add_del={0x2, &(0x7f0000e9a000)=@generic="2564664327845a4bc7ec9afd1bbfe03c", 0x1000003a8d})

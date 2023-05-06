@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fe183f468438bfa4ec2bf11909fa4bf5c3cd9f8e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket(0xa, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f00000001c0)={0x0, "76657468315f746f956189f093ffa175", 0xfffffffffffffffc}, 0x18)

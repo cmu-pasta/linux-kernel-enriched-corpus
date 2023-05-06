@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0084fd109a7a10011e183a357715c91cff2cacb0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"segv":true}
+set_mempolicy(0x8002, &(0x7f00000000c0)=0x101, 0x8f9)
+clone(0x0, &(0x7f0000000380), 0x0, 0x0, 0x0)

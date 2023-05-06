@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2baaaa12862ec89e780a45b8a5439ead99b02294
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socketpair(0x8000000000001e, 0x1, 0x0, &(0x7f0000000140)={<r0=>0xffffffffffffffff})
+sendmmsg$alg(r0, &(0x7f0000003240), 0x492492492492619, 0x0)

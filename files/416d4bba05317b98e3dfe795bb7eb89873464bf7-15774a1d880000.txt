@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=416d4bba05317b98e3dfe795bb7eb89873464bf7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000000), 0x40241, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000200)={'syzkaller1\x00', 0xc201})
+ioctl$TUNSETLINK(r0, 0x400454cd, 0x118)
+r1 = socket$kcm(0x2, 0xa, 0x2)
+ioctl$SIOCSIFHWADDR(r1, 0x8914, &(0x7f0000000180)={'syzkaller1\x00', @link_local})
+write$tun(r0, &(0x7f0000000040)={@val={0x0, 0xd}, @val, @ipv6=@tipc_packet={0x0, 0x6, "008000", 0x20, 0x6, 0x0, @mcast2, @ipv4={'\x00', '\xff\xff', @remote}, {[@hopopts={0x62}], @payload_conn={{{0x18, 0x0, 0x0, 0x0, 0x0, 0x6}}}}}}, 0x56)

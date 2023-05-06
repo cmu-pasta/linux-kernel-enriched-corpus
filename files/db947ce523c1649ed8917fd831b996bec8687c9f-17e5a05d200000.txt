@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=db947ce523c1649ed8917fd831b996bec8687c9f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$tipc(0x1e, 0x2, 0x0)
+setsockopt$TIPC_GROUP_JOIN(r0, 0x10f, 0x87, &(0x7f0000000100)={0x40}, 0x10)

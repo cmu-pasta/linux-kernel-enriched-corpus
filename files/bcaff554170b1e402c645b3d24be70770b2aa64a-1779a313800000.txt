@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=bcaff554170b1e402c645b3d24be70770b2aa64a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r0, &(0x7f00004b5fc8)={&(0x7f0000c61ff4)={0x10, 0x34000, 0x0, 0x2000000}, 0xc, &(0x7f0000813ff2)={&(0x7f0000000000)={0xb4, 0x1e, 0x829, 0xffffffffffffffff, 0xffffffffffffffff, {0x4}, [@nested={0xa0, 0x11, [@generic="d74a51e14a99b2d3493c85259ab342da590d7527b3ad632f1547cae8b0b8a76c87c2181c63e518cc662f9f10b202f1b794719a22efd5af86f351bf2281ee92471b62a36598bf46c6622bfdef304363d77ebae04fc798d4b012e5e2a3c899cd0187d691dea83a558fdfd2563ddb4615d660b49f090039a1f836059c78b769aadd05de550abe37b5ec270cc75187b99ec43c04d2faab748bea5ecfd996"]}]}, 0xb4}, 0x1}, 0x0)

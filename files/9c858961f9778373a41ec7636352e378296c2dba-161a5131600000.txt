@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=9c858961f9778373a41ec7636352e378296c2dba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000400)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f0000000240)={0x0, <r3=>0x0}, &(0x7f0000000280)=0x5)
+setuid(r3)
+r4 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r4, &(0x7f0000000000/0x18000)=nil, &(0x7f00000000c0)=[@text64={0x40, &(0x7f00000002c0)="b959080000b868cd678dba000000000f300f01b00000000048b80c000000000000000f23d80f21f835800000a00f23f866440f3881bf10f64b3966b8c3008ee8b9800000c00f3235000400000f30c443895de000480fc7284a0fc72ca9c74424009d000000c7442402cd000000ff2c24", 0x70}], 0x1, 0x8, &(0x7f0000000080)=[@dstype3], 0x1)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000000000/0x18000)=nil, 0x0, 0x0, 0x0, 0x0, 0x0)
+lsetxattr$security_capability(&(0x7f0000000000)='./file0\x00', 0x0, 0x0, 0x0, 0x0)
+ioctl$KVM_RUN(r4, 0xae80, 0x0)

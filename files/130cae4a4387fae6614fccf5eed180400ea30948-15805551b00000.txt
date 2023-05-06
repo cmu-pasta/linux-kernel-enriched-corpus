@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=130cae4a4387fae6614fccf5eed180400ea30948
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_WITH_BTFID_LOAD(0x5, &(0x7f0000000280)=@bpf_lsm={0x6, 0x3, &(0x7f00000003c0)=ANY=[@ANYBLOB="18000000003f000000000000000000f195"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x1b, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+bpf$BPF_PROG_TEST_RUN(0x1c, &(0x7f0000000240)={r0, 0x30, 0x25, 0x4, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x40)
+openat$cgroup_ro(0xffffffffffffffff, &(0x7f0000000180)='blkio.bfq.io_service_time\x00', 0x0, 0x0)
+bpf$LINK_GET_FD_BY_ID(0x1e, &(0x7f0000000080), 0x4)
+openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x0, 0x0)

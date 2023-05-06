@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ce80a10f7234f816218d7c257396c00d575b52d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+syz_mount_image$vfat(&(0x7f0000000000)='vfat\x00', &(0x7f00000004c0)='./file0\x00', 0x0, 0x0, &(0x7f0000000300), 0x0, &(0x7f0000000240)=ANY=[])
+mount$9p_tcp(&(0x7f0000000080)='127.0.0.1\x00', &(0x7f0000000100)='./file1\x00', &(0x7f0000000140)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=tcp,', {'port'}})
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)=ANY=[])

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7331a7affd4e92581d5267d26e989e5b157a9cd4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8b04, &(0x7f0000000000)={'wlan1\x00'})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0e93739cdd4799ad72795c612cca7658e7607e7f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f00000000c0)=0x2000000000000074, 0x25d)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e23, @multicast1}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000002c0)={0x1, &(0x7f0000000280)=[{0x6, 0x0, 0x0, 0xe4}]}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000100)='bbr\x00', 0x4)
+write$binfmt_elf64(r0, &(0x7f00000000c0)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, [{}], "", ['\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00']}, 0x978) (fail_nth: 44)

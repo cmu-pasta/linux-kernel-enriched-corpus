@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=03f29b6252786a6f17661d727c03c83a7f70c86e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+futex(&(0x7f000000cffc)=0x4, 0x80000000000b, 0x4, 0x0, &(0x7f0000048000), 0x0)
+futex(&(0x7f000000cffc), 0xc, 0x1, 0x0, &(0x7f0000048000), 0x0)

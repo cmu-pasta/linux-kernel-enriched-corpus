@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1e32c5b7e3876954b2923984a921f62e0c3b5dfb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_mount_image$bfs(&(0x7f00000002c0)='bfs\x00', 0x0, 0x0, 0x1, &(0x7f00000003c0)=[{0x0, 0x0, 0x51f00000000}], 0x8000, 0x0)
+flock(r0, 0x4)
+r1 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r2 = dup(r1)
+r3 = io_uring_setup(0x13ef, &(0x7f0000000000)={0x0, 0x0, 0x2, 0x3})
+setsockopt$inet_sctp6_SCTP_DEFAULT_SEND_PARAM(r2, 0x84, 0xa, 0x0, 0x0)
+r4 = socket$can_bcm(0x1d, 0x2, 0x2)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, 0x0)
+dup3(r2, r3, 0x0)

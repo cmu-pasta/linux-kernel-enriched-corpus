@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":4,"fault_nth":29,"leak":true,"close_fds":false,"devlinkpci":true}
+socketpair$unix(0x1, 0x1, 0x0, 0x0)
+r0 = dup2(0xffffffffffffffff, 0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000040)=0x11)

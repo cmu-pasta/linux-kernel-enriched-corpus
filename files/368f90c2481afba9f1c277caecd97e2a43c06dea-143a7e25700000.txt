@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=368f90c2481afba9f1c277caecd97e2a43c06dea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+bind$llc(r0, &(0x7f0000000000)={0x1a, 0x0, 0x9, 0x0, 0x0, 0x2}, 0x10)
+sendmmsg(r0, &(0x7f0000001380), 0x3fffffffffffeed, 0x0)
+bind$llc(r0, 0x0, 0x0)

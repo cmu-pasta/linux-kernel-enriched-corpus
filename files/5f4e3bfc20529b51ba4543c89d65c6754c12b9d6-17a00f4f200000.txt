@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5f4e3bfc20529b51ba4543c89d65c6754c12b9d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000002740)={0xa, 0x0, 0x0, @dev, 0x4}, 0x1c)
+sendmmsg(r0, &(0x7f0000007e00), 0x136a88c8311572c, 0x0)
+ioctl$UFFDIO_API(0xffffffffffffffff, 0xc018aa3f, 0x0)
+socket$inet6(0xa, 0x2, 0x0)
+setsockopt$IP_VS_SO_SET_ADD(0xffffffffffffffff, 0x0, 0x482, 0x0, 0x0)
+clone(0x101ffb, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+socket$inet(0x2, 0x0, 0x0)

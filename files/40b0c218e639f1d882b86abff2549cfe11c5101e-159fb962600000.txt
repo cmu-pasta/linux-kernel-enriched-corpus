@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+bpf$PROG_LOAD(0x5, &(0x7f0000000440)={0x1, 0x4, &(0x7f0000000400)=@framed={{0xffffffb4, 0x0, 0x0, 0x0, 0x97500000, 0x1c, 0x11, 0x1a001000000}, [@ldst={0x6, 0x5, 0x2000cf66, 0x0, 0xf001}], {0x95, 0x602c0000000000}}, &(0x7f0000000080)='GPL\x00', 0x4, 0x3f7, &(0x7f000000cf3d)=""/195}, 0x48)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=316ecfd071c79a4654861c1cf6a93d4ac0693de0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+io_setup(0x3, &(0x7f0000000080))
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+getsockname$inet(r0, &(0x7f0000000000)={0x0, 0x0, @multicast1}, &(0x7f00000000c0)=0x10)
+listen(r0, 0x7ff)
+shutdown(r0, 0x0)

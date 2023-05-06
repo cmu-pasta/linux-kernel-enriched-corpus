@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x800000003, 0x8)
+bind(r0, 0x0, 0x0)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r1, 0x6, 0x80000000000002, &(0x7f0000000040)=0x76, 0x4)
+bind$inet(r1, &(0x7f0000000280)={0x2, 0x4e23, @broadcast}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000480)={0x1, &(0x7f0000000100)=[{0x6, 0x0, 0x0, 0xea}]}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+sendto$inet(r1, &(0x7f00000012c0)="1a268a927f1f6588b967481241ba7860ac5cf65ac60aded8974895abaff4b4834ff930b3f1e0b02bd67aa030595eecc7a9541aa3b77e758044ab4ea6f7ae55d88fecf90809750ba6746bec66ba", 0x88012, 0x20c49a, 0x0, 0x16)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4a34894fea0d35908bf6cd90a82764b6d382e4a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = openat$ion(0xffffffffffffff9c, &(0x7f0000000140)='/dev/ion\x00', 0x0, 0x0)
+ioctl$ION_IOC_ALLOC(r0, 0xc0184900, &(0x7f0000000040)={0x3, 0x1, 0x0, <r1=>0xffffffffffffffff})
+r2 = dup(r1)
+r3 = syz_open_dev$dri(&(0x7f0000000000)='/dev/dri/card#\x00', 0x0, 0x0)
+ioctl$DRM_IOCTL_PRIME_FD_TO_HANDLE(r3, 0xc00c642e, &(0x7f0000000240)={<r4=>0x0, 0x0, r2})
+ioctl$DRM_IOCTL_PRIME_HANDLE_TO_FD(r3, 0xc10c5541, &(0x7f0000000200)={r4})
+ioctl$DMA_BUF_IOCTL_SYNC(r2, 0x40086200, &(0x7f0000000000)=0x2)
+poll(&(0x7f0000000100)=[{r1, 0x6005}], 0x1, 0x0)
+dup3(r2, r3, 0x0)

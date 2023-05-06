@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1ace85e8fc9b0d5a45c08c2656c3e91762daa9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$caif_seqpacket(0x25, 0x5, 0x0)
+sendmmsg(r0, &(0x7f0000007600)=[{{0x0, 0x0, 0x0}}], 0x1, 0x0)

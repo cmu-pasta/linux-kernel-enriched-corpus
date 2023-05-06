@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7646a2204f385fb619275e834be62c2a4c422f13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":false,"devlinkpci":true}
+perf_event_open(&(0x7f000001d000)={0x1, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0xe, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x81, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_bp={0x0, 0xd429c0fd682991c2}, 0x10010}, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_emit_ethernet(0x207843, &(0x7f0000000200)=ANY=[@ANYBLOB="aaaaaeaaaaaa00000000000086dd60b409000002000000000000000600000000ffffe00000023e0200000000000001830090780009040060b680de0000000000000000000000000000ffffffffffff00000000000000000000ffffac1408bb000000000000007c6958e0d09dd089a53bf20961ee5fcfd5b4ccb5dfbd8c7c57b71215de6e84b0fb52044c5d879151e53012a03f239717b241266b9279200e80d14983187e9fc4f4201e923407989ad135bd2067e56ab9f438b33975e4b80177256ff1258220ca36feb6714140f47f857d7e6eeed86f7b11c5123bdb6f07004b3f0457960ecc913edfefea0a398b4d0dded08e8e5e"], 0x0)

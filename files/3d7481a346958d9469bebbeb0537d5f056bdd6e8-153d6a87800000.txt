@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3d7481a346958d9469bebbeb0537d5f056bdd6e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x2, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00003b3fdc))
+write(r0, &(0x7f00000006c0)="7717481445c0c253773e00d49ba39063e2432e8de58f5930fd07bc54b70c0ea17b4728dde5f9eedfc811ff1f75642558334444c9fe3d13004dcb05c019e547d1fe0e54a0f99ebb124bbcfe2485a833957b2ffed598202afda9a2aa136b659ddc9b8b3b6d3faa47969ba4865539f6213e4c7ce5ecf48bb3725bbcc4fb892ab09394397480431fac813244fe077fccda5913868a3513fb2ffb17222894ccc9e009e659c9ec71460000000000000000000000000000000000000000000000000000000087e4957fe4753d90856aba015ed78861f6a908fd9cca07f75d75b1fc8c704499a3a95c8a7072a8f70cdf47955351b9ac1493e8ba700000000000000000000000d5cddb8898eb56798b08605b941bb0592509adb2abd386e19e88947a3d5515f3946009b86933e83aa86efcba2651f33227f3c83defeb43f385000000000000", 0x141)
+r1 = syz_open_pts(r0, 0x0)
+ioctl$TCSETS(r1, 0x5412, &(0x7f00000000c0)={0x12})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=163414c0fc6f717973e0a832acfba3dfc184707b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000780)='./file0\x00', 0x0)
+mkdir(&(0x7f00000004c0)='./file1\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./file0\x00', &(0x7f00000000c0)='overlay\x00', 0x0, &(0x7f0000000100)={[{@upperdir={'upperdir', 0x3d, './file0'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@workdir={'workdir', 0x3d, './file1'}, 0x5c}]})
+r0 = open(&(0x7f0000021000)='./file0\x00', 0x0, 0x0)
+acct(&(0x7f0000000040)='./bus\x00')
+fchdir(r0)
+open(&(0x7f00000001c0)='./bus\x00', 0x141042, 0x0)

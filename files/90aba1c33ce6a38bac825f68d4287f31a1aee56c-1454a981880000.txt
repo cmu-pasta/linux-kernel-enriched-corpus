@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=90aba1c33ce6a38bac825f68d4287f31a1aee56c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$kcm(0x2b, 0x1, 0x0)
+sendmsg$inet(r0, &(0x7f00000000c0)={&(0x7f0000000000)={0x2, 0x4001, @local}, 0x10, 0x0, 0x0, 0x0, 0x0, 0x300}, 0x2000c81c)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$l2tp(&(0x7f0000000000), 0xffffffffffffffff)
+sendmsg$L2TP_CMD_TUNNEL_CREATE(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000040)={0x3c, r2, 0x923, 0x0, 0x0, {}, [@L2TP_ATTR_PROTO_VERSION={0x5}, @L2TP_ATTR_CONN_ID={0x8}, @L2TP_ATTR_ENCAP_TYPE={0x6, 0x2, 0x1}, @L2TP_ATTR_PEER_CONN_ID={0x8}, @L2TP_ATTR_FD={0x8, 0x17, @l2tp}]}, 0x3c}}, 0x0)

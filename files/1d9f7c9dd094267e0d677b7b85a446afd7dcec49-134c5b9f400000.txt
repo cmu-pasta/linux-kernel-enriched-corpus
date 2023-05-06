@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1d9f7c9dd094267e0d677b7b85a446afd7dcec49
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+seccomp(0x1, 0x0, &(0x7f0000000080)={0x1, &(0x7f0000000000)=[{0x6, 0x0, 0x0, 0xffffff7f7ffffffe}]})
+seccomp(0x1, 0x9, &(0x7f0000000140)={0x1, &(0x7f0000000080)=[{0x200000006}]})

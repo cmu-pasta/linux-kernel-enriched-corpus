@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=d04f9c2ec11ab2678f7427795ff5170cb9eb2220
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+r1 = accept4(r0, &(0x7f0000000040)=@pptp={0x18, 0x2, {0x0, @multicast1}}, 0x0, 0x800)
+ioctl$IMGETCOUNT(r1, 0x80044943, &(0x7f0000000100))
+r2 = accept(r0, 0x0, 0x0)
+ioctl$sock_FIOGETOWN(r0, 0x8903, 0x0)
+getuid()
+getsockopt$sock_cred(r2, 0x1, 0x11, 0x0, 0x0)
+ioctl$sock_SIOCGPGRP(r2, 0x8904, &(0x7f00000007c0))
+gettid()
+getsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x11, &(0x7f0000000a80)={{{@in=@dev, @in6=@ipv4={[], [], @local}}}, {{@in=@dev}, 0x0, @in6=@loopback}}, 0x0)
+sendmmsg$unix(r1, &(0x7f00000011c0)=[{&(0x7f0000000140)=@file={0x33067b129236bd92, './file0\x00'}, 0x6e, &(0x7f0000000300)=[{0x0}], 0x1, 0x0, 0x0, 0x2c6d8426789fea68}, {0x0, 0x0, &(0x7f0000001100)=[{0x0}, {0x0}, {&(0x7f0000000e40)}, {0x0}, {&(0x7f0000001000)="1731721952b1c98f96d9e1050f796d8899bdd0dc1e4948e51ea31728ec9242284a76d7847d7c1a7327b76a5f912fe1f8caab5043ae2575d10f39470388dc0191dce72f74e76501e410924cba9b091be8e370eb49038032069e06d3b07149a4ec052c83c207faeb74b610a35ef2b2bbb43ce95e7e8453391a33b1783dbce96f01f5ce5edd952d79500f82bd7875b578422b79df9563283ee7d88ac5e2f4dc800b2053c284cdcda372716a7724ecc99b2de6c908e1a41fc56147104af4fbcbb8ce390fddb57b5148125353d7b1d84da734f532887525e3999e67896c70de2e80", 0xdf}], 0x5, 0x0, 0x0, 0x40080}], 0x2, 0x40044)
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDRS(r1, 0x84, 0x6c, 0x0, &(0x7f0000000440))
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_STATS(r2, 0x84, 0x70, &(0x7f0000000600)={0x0, @in={{0x2, 0x4e24, @rand_addr=0x4}}, [0x101, 0x6, 0x10001, 0x3, 0x2f24, 0x1, 0x3ff, 0x852, 0x4a8, 0x1, 0x8, 0x9, 0x6, 0x4000, 0xa2]}, 0x0)
+getsockopt$inet_sctp6_SCTP_DEFAULT_SEND_PARAM(r1, 0x84, 0xa, 0x0, &(0x7f0000000880))
+getsockopt$inet_sctp6_SCTP_PEER_AUTH_CHUNKS(0xffffffffffffffff, 0x84, 0x1a, &(0x7f00000008c0)={<r3=>0x0}, &(0x7f0000000800)=0x8)
+setsockopt$inet_tcp_TCP_ULP(r2, 0x6, 0x1f, 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDRS(r2, 0x84, 0x6c, &(0x7f0000001700)={r3, 0x8a, "51264d15dd7d01ebc60b58a9fb94f1c4e1c271bf7f8e0eb36c9652fb73d56e3d69fcdbcf6c6024bbab20eedf3e2c283d492419de4abfa03e567bc407921515e06308f7fbb2b493982bb4354068a0481ce16fc5421002f83d991fb56129e3c12ce1af4aeba343094c278e3b813f4f832eae6c31e0b6094368efa87c29a8170c3c01c14be3b93dd2dafda5"}, &(0x7f00000017c0)=0x92)
+ioctl(r2, 0x1000008912, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000200)={0xe, 0xe, &(0x7f0000000480)=ANY=[@ANYBLOB="b702000003440200bfa30000000000000702000000feffff7a03f0ff01ffffff79a4f0ff00000000b7060000ffffffff2d640500000000006502faff03be01000404000001007d60b7030000001000006a0a00fe00000000850000002b000000cf000000000000009500000000000000a81bbfa3982de7b0efc5733ed236ff0f000000000000aaa6912a8b2ce571c45841e41f44ae7c5e84e6e3a94b574d2eb38a748355f0b886bd00537cdf1d394fdd860db5808942b7de2243533ef6d62a46b3009a54f4fd7db0d4968a384b0f59c7919b10a43b0c58acbdd1e423899d5fdb68832e980100ff0a7edfa0cb2339cd"], &(0x7f0000000340)='syzkaller\x00'}, 0x48)

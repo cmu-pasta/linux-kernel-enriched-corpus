@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+r0 = socket$inet(0x2, 0x2000080001, 0x84)
+sendmsg(r0, &(0x7f0000001800)={0x0, 0x0, 0x0}, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e21, @loopback}, 0x10)

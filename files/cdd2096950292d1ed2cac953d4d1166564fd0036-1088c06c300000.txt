@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=cdd2096950292d1ed2cac953d4d1166564fd0036
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+openat$vim2m(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+syz_io_uring_setup(0x1, &(0x7f0000001500)={0x0, 0x96d5, 0x2, 0x4, 0x66}, &(0x7f0000ffe000/0x2000)=nil, &(0x7f0000ee7000/0x4000)=nil, &(0x7f0000000100)=<r0=>0x0, &(0x7f0000000140)=<r1=>0x0)
+syz_io_uring_submit(r0, r1, &(0x7f0000000200)=@IORING_OP_POLL_ADD={0x6, 0x0, 0x0, @fd_index=0x5}, 0x0)

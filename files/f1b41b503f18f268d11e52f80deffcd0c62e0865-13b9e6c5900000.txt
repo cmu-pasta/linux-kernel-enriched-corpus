@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f1b41b503f18f268d11e52f80deffcd0c62e0865
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true,"wifi":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000040)={'wlan0\x00', <r2=>0x0})
+bind$packet(r0, &(0x7f0000000100)={0x11, 0x18, r2, 0x1, 0x80, 0x6, @local}, 0x14)
+sendto$inet6(r0, &(0x7f00000000c0)="030472c127c14f3ede91e5d1c324", 0xe, 0x40800, 0x0, 0x0)

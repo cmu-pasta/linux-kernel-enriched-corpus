@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$evdev(&(0x7f0000000080), 0x0, 0x0)
+ioctl$EVIOCSKEYCODE_V2(r0, 0x80104592, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x101, "ed105400000000003ec13e2000"})
+r1 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000180)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x38e38e38e38e1ba, [{{0x9, 0x2, 0x48}}]}}, 0x0)
+syz_open_dev$evdev(0x0, 0x0, 0x0)
+syz_usb_ep_write$ath9k_ep2(r1, 0x83, 0x10, &(0x7f0000000140)=@ready={0x0, 0x0, 0x8, "bfb5cf70", {0x1, 0x0, 0x81, 0x2, 0xf0}})
+syz_usb_ep_write$ath9k_ep2(r1, 0x83, 0x4c, &(0x7f0000000200)=ANY=[@ANYBLOB])
+syz_usb_ep_write$ath9k_ep2(r1, 0x83, 0xffffffffffffff9c, &(0x7f0000000040)=@conn_svc_rsp={0x0, 0x0, 0xa, "0712706e", {0x3, 0x100}})

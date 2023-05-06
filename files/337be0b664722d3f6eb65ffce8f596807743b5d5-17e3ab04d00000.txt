@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = fsopen(&(0x7f0000000040)='bpf\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+vmsplice(0xffffffffffffffff, 0x0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6dbabd1e485b2043113e7ac8b0cb12de85b2be75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_mreqn(r0, 0x0, 0x23, &(0x7f0000000740)={@multicast2, @loopback}, 0xc)
+setsockopt$inet_msfilter(r0, 0x0, 0x29, &(0x7f0000000080)={@multicast2, @loopback, 0x1, 0x1, [@multicast1]}, 0x14)

@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=38efa4618c3379cf98642b9379d6e340b14d2702
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_io_uring_setup(0x4959, &(0x7f00000002c0)={0x0, 0x0, 0x1}, &(0x7f0000ee7000/0x2000)=nil, &(0x7f0000002000/0x1000)=nil, &(0x7f0000000380)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000008540)=@IORING_OP_REMOVE_BUFFERS, 0x10001)
+r3 = mmap$IORING_OFF_SQES(&(0x7f0000ee7000/0x3000)=nil, 0x3000, 0x6, 0x11, r0, 0x10000000)
+syz_io_uring_submit(r1, r2, &(0x7f0000000140)=@IORING_OP_RECV=@use_registered_buffer, 0x0)
+syz_io_uring_submit(r1, r3, &(0x7f00000000c0)=@IORING_OP_SYNC_FILE_RANGE={0x8, 0x0, 0x0, @fd_index}, 0x0)
+syz_io_uring_setup(0x2de7, &(0x7f0000001600)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, &(0x7f0000002000/0x2000)=nil, &(0x7f0000003000/0x1000)=nil, &(0x7f0000000100), &(0x7f0000000000)=<r4=>0x0)
+syz_io_uring_submit(r1, r4, &(0x7f0000000cc0)=@IORING_OP_READ=@pass_buffer={0x16, 0x0, 0x0, @fd, 0x0, 0x0}, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000000)=@IORING_OP_READ=@use_registered_buffer, 0x0)
+syz_io_uring_submit(r1, r3, &(0x7f0000000580)=@IORING_OP_CLOSE, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000280), 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000080)=@IORING_OP_WRITE={0x17, 0x0, 0x0, @fd, 0x0, 0x0}, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000040)=@IORING_OP_WRITE={0x17, 0x0, 0x0, @fd_index, 0x0, 0x0}, 0x0)
+syz_io_uring_submit(r1, r3, &(0x7f0000000340)=@IORING_OP_WRITE={0x17, 0x0, 0x0, @fd, 0x0, 0x0}, 0x0)
+io_uring_enter(r0, 0x63f4, 0x0, 0x0, 0x0, 0x0)

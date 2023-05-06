@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=ee0dc3e7ce224b8359225bb7da0c168cf8c8283d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f0000000200)=ANY=[@ANYBLOB, @ANYPTR=&(0x7f00000004c0)=ANY=[@ANYRES32=<r1=>0xffffffff], @ANYBLOB], 0x8)
+write$rdma_cm(r0, &(0x7f0000000540)=@resolve_ip={0x3, 0x40, 0xfa00, {{0xa}, {0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}}, r1}}, 0x48)
+write$rdma_cm(r0, &(0x7f0000000fc0)=@create_id={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000f80), 0x106, 0xb}}, 0x20)
+write$rdma_cm(r0, &(0x7f0000002280)=@create_id={0x0, 0x18, 0xfa00, {0x1, &(0x7f0000002240)}}, 0x20)
+write$rdma_cm(r0, &(0x7f0000004200)=@create_id={0x0, 0x18, 0xfa00, {0x2, &(0x7f00000041c0)={<r2=>0xffffffff}, 0x13f, 0x9}}, 0x20)
+write$rdma_cm(r0, &(0x7f00000022c0)=@query={0x13, 0x10, 0xfa00, {&(0x7f0000002400), r2}}, 0x18)
+close(r0)

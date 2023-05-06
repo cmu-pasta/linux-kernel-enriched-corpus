@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0041bf1423916e9ae458b08b760e269a33c14960
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1,"tmpdir":true}
+r0 = openat$rtc(0xffffffffffffff9c, &(0x7f0000000040)='/dev/rtc0\x00', 0x0, 0x0)
+ioctl$RTC_UIE_ON(r0, 0x7003)
+ioctl$RTC_SET_TIME(r0, 0x4024700a, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x1f, 0x0, 0xa0})

@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=e7ee911989956af5f31ad6ed164743abab8989e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+unshare(0x6c060000)
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = socket$inet6(0xa, 0x3, 0x6)
+connect$inet6(r1, &(0x7f0000000280)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+sendmmsg(r1, &(0x7f0000000480), 0x2e9, 0x0)
+recvmmsg(0xffffffffffffffff, &(0x7f0000000900)=[{{&(0x7f0000000080)=@nl=@unspec, 0x80, &(0x7f0000000400)=[{&(0x7f0000000200)=""/117, 0x75}, {&(0x7f00000002c0)=""/243, 0xf3}, {0x0}, {&(0x7f00000003c0)=""/18, 0x12}], 0x4, &(0x7f0000000440)=""/255, 0xff}, 0x200}, {{&(0x7f0000000540)=@sco={0x1f, @fixed}, 0x80, &(0x7f0000000840)=[{&(0x7f00000005c0)=""/122, 0x7a}, {&(0x7f0000000640)=""/247, 0xf7}, {&(0x7f0000000740)=""/51, 0x33}, {0x0}], 0x4, &(0x7f0000000880)=""/78, 0x4e}, 0xa914eda4}], 0x2, 0x40, &(0x7f0000000980)={0x77359400})
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000040)={'vxcan1\x00'})
+recvmmsg(r0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$SO_BINDTODEVICE_wg(r0, 0x1, 0x19, 0x0, 0x0)
+connect$inet6(r0, 0x0, 0x0)
+sendmmsg(r0, &(0x7f0000000240), 0x5c3, 0x0)
+bind$alg(0xffffffffffffffff, &(0x7f0000000080)={0x26, 'hash\x00', 0x0, 0x0, 'sha512\x00'}, 0x58)
+r2 = accept4(0xffffffffffffffff, 0x0, 0x0, 0x0)
+sendmsg$inet(r2, 0x0, 0x0)
+bind(r2, 0x0, 0x0)
+ioctl$sock_inet_SIOCGIFNETMASK(r1, 0x891b, 0x0)

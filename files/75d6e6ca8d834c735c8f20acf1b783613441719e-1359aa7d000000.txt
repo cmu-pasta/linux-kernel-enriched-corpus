@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=75d6e6ca8d834c735c8f20acf1b783613441719e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfec000)=nil, 0xfec000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = inotify_init1(0x80000)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f000003d000-0xc)={<r1=>0x0, 0x0, 0x0}, &(0x7f0000feb000)=0xc)
+fcntl$setown(r0, 0x8, r1)
+fcntl$getownex(r0, 0x10, &(0x7f0000f9d000-0x8)={0x0, <r2=>0x0})
+ptrace(0x10, r2)
+ioctl$PIO_UNISCRNMAP(0xffffffffffffffff, 0x4b6a, &(0x7f0000f9e000)="")
+ptrace$setopts(0x4200, r2, 0x40000012, 0x100012)

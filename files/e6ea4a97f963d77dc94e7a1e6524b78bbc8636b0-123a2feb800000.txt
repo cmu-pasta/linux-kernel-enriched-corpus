@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e6ea4a97f963d77dc94e7a1e6524b78bbc8636b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:namespace Fault:true FaultCall:3 FaultNth:52 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mkdir(&(0x7f00000001c0)='./file0\x00', 0x0)
+mount(&(0x7f00000003c0)='./file0\x00', &(0x7f0000000380)='./file0\x00', &(0x7f0000000300)='cgroup2\x00', 0x0, 0x0)
+r0 = open$dir(&(0x7f000001bff4)='./file0\x00', 0x0, 0x0)
+mkdirat(r0, &(0x7f0000000280)='./file0\x00', 0x20)
+getdents64(r0, &(0x7f00000007c0)=""/250, 0x1015a)

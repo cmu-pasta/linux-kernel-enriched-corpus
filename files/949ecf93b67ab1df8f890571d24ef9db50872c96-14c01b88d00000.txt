@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=949ecf93b67ab1df8f890571d24ef9db50872c96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+unshare(0x42040080)
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r0, 0x0, 0x0)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0xb)
+sendto$inet6(r0, &(0x7f0000000000)="09a299e5fc4c723ecb546a14c174c545985bceeb21271e6fb8daf0c4ffab8918", 0x20, 0x10, 0x0, 0x0)
+bpf$BPF_MAP_GET_FD_BY_ID(0xe, 0x0, 0x0)
+socket$alg(0x26, 0x5, 0x0)
+unshare(0x40000000)

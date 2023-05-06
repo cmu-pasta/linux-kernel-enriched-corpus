@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=01960f604c9e139580b9b2af9103a3f2da7eac4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000017c0)=@bloom_filter={0x1e, 0x0, 0xaf7, 0xde2a, 0x0, 0x1}, 0x48)
+bpf$MAP_GET_NEXT_KEY(0x4, &(0x7f0000000200)={r0, 0x0, 0x0}, 0x20)

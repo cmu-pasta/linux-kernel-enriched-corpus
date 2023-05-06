@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5f9ebbe93c13f1b568ad870c32571e836d17d40f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+sendto$inet6(r0, &(0x7f0000000140)="f9", 0x1, 0x0, &(0x7f00009e1000)={0xa, 0x4e18, 0xfffffffe, @loopback={0x0, 0x1}}, 0x1c)

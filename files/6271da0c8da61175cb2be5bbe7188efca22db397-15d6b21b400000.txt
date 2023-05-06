@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6271da0c8da61175cb2be5bbe7188efca22db397
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$vim2m(0xffffffffffffff9c, &(0x7f0000000100)='/dev/video35\x00', 0x2, 0x0)
+ioctl$VIDIOC_DQEVENT(r0, 0x80885659, &(0x7f0000000000)={0x0, @src_change})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r0, 0x4020565a, &(0x7f00000000c0)={0x3, 0x980914, 0xfdfd})

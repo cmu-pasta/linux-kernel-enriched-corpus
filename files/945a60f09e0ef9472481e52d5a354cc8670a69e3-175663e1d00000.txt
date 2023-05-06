@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=945a60f09e0ef9472481e52d5a354cc8670a69e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$v7(&(0x7f0000000000), &(0x7f0000000040)='./file0\x00', 0x0, 0x1, &(0x7f0000000540)=[{&(0x7f0000000100)="b82953d2f785ce8d3d10941313c3afae88bbf763f72b62abd0a1cedc8f8c3cff20efb579887a1b8b17396dbf5d02bcfe7a544c29bbe6fb8461e9b4935ce2547b4100000273eea3e0", 0x48, 0x401}], 0x0, &(0x7f0000000c00)=ANY=[])
+mkdir(&(0x7f0000000080)='./file0/file0\x00', 0x23)

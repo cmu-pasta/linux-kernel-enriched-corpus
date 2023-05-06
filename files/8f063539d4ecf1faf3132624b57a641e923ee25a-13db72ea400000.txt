@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=8f063539d4ecf1faf3132624b57a641e923ee25a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+setsockopt$SO_VM_SOCKETS_BUFFER_SIZE(0xffffffffffffffff, 0x28, 0x2, &(0x7f0000000140), 0x7)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000100)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_ENABLE_CAP_CPU(r2, 0x4080aebf, &(0x7f0000000140)={0x7b, 0xbff, [0xffffffffffffffff, 0xfffffffffffffffe, 0x0, 0x19]})
+memfd_create(&(0x7f00000002c0)="000000000000000000000000000000768e05f7c155ad7dc6947c573e5a69244e76382c0aa63d575ea3597f8b1728277ef76b30544d7ba92dcf978f1f81dc1b7f8f7b3451dada02ecb4f1ddcc8b5241da8945666e0073c25a6287c64dbea37a", 0x0)
+syz_open_dev$mouse(&(0x7f0000000400)='/dev/input/mouse#\x00', 0x0, 0xc800)
+read$FUSE(0xffffffffffffffff, &(0x7f00000020c0), 0x1000)
+write$FUSE_INIT(0xffffffffffffffff, &(0x7f0000000100)={0x50, 0x0, 0x1}, 0x50)
+ioctl$EXT4_IOC_MIGRATE(0xffffffffffffffff, 0x6609)
+ioctl(0xffffffffffffffff, 0x0, &(0x7f0000000280))
+pread64(0xffffffffffffffff, &(0x7f0000002640)=""/207, 0xfffffede, 0x0)
+sendfile(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f0000000000), 0x0)

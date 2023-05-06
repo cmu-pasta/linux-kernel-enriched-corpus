@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1ac7a7a8440522302ccb634ba69f8e1e6f203902
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+mknod$loop(&(0x7f0000000040)='./file0\x00', 0x6242, 0x0)
+clone(0x8000000101, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+mount(&(0x7f0000000000)=@filename='./file0\x00', &(0x7f0000000100)='./file0\x00', &(0x7f0000000140)='f2fs\x00', 0x0, 0x0)

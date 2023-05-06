@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=dcf9952b9a45b106ab44a8f10f607bda54c789dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x3, 0x0, 0x0)
+r0 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+mmap$IORING_OFF_SQES(&(0x7f0000d36000/0x2000)=nil, 0x1fffff, 0xfeffffff, 0x82031, 0xffffffffffffffff, 0x10000000)
+syz_io_uring_setup(0x4477, &(0x7f0000000000), &(0x7f0000ffe000/0x1000)=nil, &(0x7f0000d36000/0x4000)=nil, &(0x7f0000000080), &(0x7f00000000c0))

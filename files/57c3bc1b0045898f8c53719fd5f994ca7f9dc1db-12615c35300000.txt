@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=57c3bc1b0045898f8c53719fd5f994ca7f9dc1db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true}
+syz_io_uring_setup(0x187, &(0x7f0000000080)={0x0, 0x0, 0x2, 0xffff}, &(0x7f000015e000/0xc000)=nil, &(0x7f0000355000/0x1000)=nil, &(0x7f00000001c0)=<r0=>0x0, &(0x7f0000000100)=<r1=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r0, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+syz_io_uring_submit(r0, r1, &(0x7f0000000200)=@IORING_OP_READ=@use_registered_buffer={0x16, 0x4}, 0x0)
+syz_io_uring_submit(r0, r1, &(0x7f0000002f80)=@IORING_OP_SENDMSG={0x9, 0x2, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x14883}, 0x10000007)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2987ec035b602681b9c84de888615ea144f3c8ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x10, 0x3, 0x0)
+setsockopt$netlink_NETLINK_TX_RING(r0, 0x10e, 0xc, &(0x7f0000000040)={0x7ff}, 0x10)
+write(r0, &(0x7f0000000000)="1c0000001a009b8a14e5f407000904001e000000ff00000000020000", 0x1c)

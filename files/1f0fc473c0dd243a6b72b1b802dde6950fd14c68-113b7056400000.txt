@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1f0fc473c0dd243a6b72b1b802dde6950fd14c68
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"tmpdir":true}
+r0 = socket(0x40000000015, 0x5, 0x0)
+setsockopt$SO_RDS_TRANSPORT(r0, 0x114, 0x8, &(0x7f00000007c0)=0x800000000000002, 0x4)
+bind$inet(r0, &(0x7f00000002c0)={0x2, 0x4e1c, @remote}, 0x10)
+write$cgroup_type(0xffffffffffffffff, &(0x7f0000000240)='threaded\x00', 0x9)

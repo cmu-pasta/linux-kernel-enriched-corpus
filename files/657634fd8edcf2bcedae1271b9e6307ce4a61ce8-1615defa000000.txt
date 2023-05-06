@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=657634fd8edcf2bcedae1271b9e6307ce4a61ce8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x18000)=nil, 0x18000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2000000000005, 0x0, &(0x7f0000008000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000015000)={0x2, &(0x7f0000014000)=[{0x20, 0x0, 0x0, 0xeffffffffffff034}, {0x6, 0x0, 0x0, 0x0}]}, 0x10)
+sendto(r1, &(0x7f000000d000-0x25)="", 0x0, 0x0, &(0x7f0000018000-0xa)=@un=@file={0x0, "2e2f66696c653000"}, 0xa)

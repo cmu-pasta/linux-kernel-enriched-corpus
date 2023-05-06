@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6(0xa, 0x401000000001, 0x0)
+close(r0)
+openat$sysfs(0xffffff9c, &(0x7f0000000080)='/sys/kernel/profiling', 0x2, 0x0)
+r1 = open(&(0x7f00000000c0)='./bus\x00', 0x10600c2, 0x0)
+r2 = creat(&(0x7f0000000240)='./bus\x00', 0x0)
+write$cgroup_int(r2, &(0x7f0000000000), 0x12)
+sendfile(r0, r1, 0x0, 0x20007904)

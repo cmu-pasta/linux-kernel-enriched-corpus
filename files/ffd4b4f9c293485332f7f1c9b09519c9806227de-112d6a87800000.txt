@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ffd4b4f9c293485332f7f1c9b09519c9806227de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$loop(&(0x7f0000000140)='/dev/loop#\x00', 0x0, 0x1)
+ioctl$LOOP_SET_DIRECT_IO(r0, 0x4c05, 0x0)

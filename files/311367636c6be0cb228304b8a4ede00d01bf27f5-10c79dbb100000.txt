@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=311367636c6be0cb228304b8a4ede00d01bf27f5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mkdir(&(0x7f0000000240)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+creat(&(0x7f00000000c0)='./bus/file1\x00', 0x0)
+mkdir(&(0x7f0000000180)='./file0\x00', 0x0)
+mount$overlay(0x400002, &(0x7f0000000000)='./bus\x00', &(0x7f0000000100)='overlay\x00', 0x0, &(0x7f0000000340)={[{@upperdir={'upperdir', 0x3d, './file1'}}, {@lowerdir={'lowerdir', 0x3d, './bus'}}, {@workdir={'workdir', 0x3d, './file0'}}, {@metacopy_on='metacopy=on'}]})
+link(&(0x7f0000000200)='./bus/file1\x00', &(0x7f00000002c0)='./bus/file0\x00')
+open(&(0x7f0000000080)='./bus/file0\x00', 0xb, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)

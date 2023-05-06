@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x0, @local}, 0x10)
+connect$inet(r0, &(0x7f0000000280)={0x2, 0x0, @multicast2}, 0x10)
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x25, 0x0, 0x0)
+sendmmsg(r0, &(0x7f00000038c0), 0x4000000000000a8, 0x0)
+fcntl$setstatus(r0, 0x4, 0x2000)
+bpf$MAP_CREATE(0x0, &(0x7f00000000c0)={0x0, 0x0, 0x10000}, 0x40)
+r1 = syz_open_dev$evdev(&(0x7f0000001140), 0x0, 0x929301)
+write$char_usb(r1, &(0x7f0000000040)="e2", 0x35000)

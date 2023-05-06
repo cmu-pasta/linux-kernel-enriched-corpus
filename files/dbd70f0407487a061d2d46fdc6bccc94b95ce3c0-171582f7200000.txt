@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=dbd70f0407487a061d2d46fdc6bccc94b95ce3c0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000380)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)

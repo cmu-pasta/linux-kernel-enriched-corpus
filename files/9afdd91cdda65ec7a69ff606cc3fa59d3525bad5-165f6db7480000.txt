@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9afdd91cdda65ec7a69ff606cc3fa59d3525bad5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = creat(&(0x7f0000000240)='./file0\x00', 0x0)
+fallocate(r0, 0x100000011, 0x0, 0x2811fdff)
+syz_clone(0x60000000, 0x0, 0x0, 0x0, 0x0, 0x0)

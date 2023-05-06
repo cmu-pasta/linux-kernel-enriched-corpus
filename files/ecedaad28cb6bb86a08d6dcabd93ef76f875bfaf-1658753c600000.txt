@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ecedaad28cb6bb86a08d6dcabd93ef76f875bfaf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x80000000000001, 0x84)
+setsockopt$inet_sctp6_SCTP_ENABLE_STREAM_RESET(r0, 0x84, 0x76, &(0x7f0000444ff8)={0x0, 0x7}, 0x8)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000cf6fe4)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)
+setsockopt$inet_sctp6_SCTP_RECONFIG_SUPPORTED(r0, 0x84, 0x75, &(0x7f0000107ff8)={0x0, 0x10040000}, 0x8)
+connect$inet6(r0, &(0x7f00008c0000)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendmmsg(r0, &(0x7f000060d000)=[{{0x0, 0x0, &(0x7f0000c38ff0)=[{&(0x7f0000000080)='\x00', 0x1}], 0x1}}], 0x1, 0x8000)
+setsockopt$inet_sctp6_SCTP_RESET_STREAMS(r0, 0x84, 0x77, &(0x7f0000000000)={0x0, 0xb, 0x1, [0x0]}, 0xa)

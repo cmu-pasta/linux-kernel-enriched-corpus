@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=426083b1e91873f7dc28032bfa16cbd46695cc17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+sendmsg$TIPC_NL_BEARER_ENABLE(0xffffffffffffffff, &(0x7f0000000c00)={0x0, 0x0, &(0x7f0000000bc0)={0x0}, 0x1, 0x0, 0x0, 0x4040}, 0xc000)

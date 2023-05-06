@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b66d8de2cec1e3878a0524807b93d96bba182fba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$PERF_EVENT_IOC_SET_FILTER(0xffffffffffffffff, 0x40082406, &(0x7f0000000080)='cpu\t\t&6\n\x00\xff\x00\xdc.\xdf\xbbk\xad\x1b\xf3\xf6_|S\x93>\xb4\x15#b\x91\xec\xf2\x12\xbb\xd0\xcd0\xa4\xda\xa8\xe1o+\xbd}EV\xba6\xae\xee(4K\\\x9f?\xf8S\xc2\x1d\xc28\xfb\x19\x94\xdf\x11JE\x02\x98Pm\x0f(\x98\xff\x05[\xd9\xad|\xa3\xc9Y~\xf4\xf7\xf9F\x9c\xf0\x83H\xb5\x12\xdeM\x802\x1f\xa6\x8a\x89\x1c')
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f00000000c0)={'syzkaller1\x00'})
+ioctl$TUNSETLINK(r0, 0x400454cd, 0x118)

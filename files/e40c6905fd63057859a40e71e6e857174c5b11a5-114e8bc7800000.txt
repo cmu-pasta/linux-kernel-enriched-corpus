@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e40c6905fd63057859a40e71e6e857174c5b11a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f00000000c0)=0x100000001, 0x1d4)
+connect$inet6(r0, &(0x7f0000000080)={0xa}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000040)='tls\x00', 0x13a)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x2, &(0x7f0000000100)={0x303, 0x33}, 0x28)
+syz_emit_ethernet(0x4, &(0x7f0000000100)=ANY=[@ANYBLOB, @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB], &(0x7f00000002c0))

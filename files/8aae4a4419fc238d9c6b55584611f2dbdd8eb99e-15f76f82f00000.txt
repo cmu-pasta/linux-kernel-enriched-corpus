@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8aae4a4419fc238d9c6b55584611f2dbdd8eb99e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+mlock2(&(0x7f0000ffb000/0x2000)=nil, 0x2000, 0x0)
+mlockall(0x3)

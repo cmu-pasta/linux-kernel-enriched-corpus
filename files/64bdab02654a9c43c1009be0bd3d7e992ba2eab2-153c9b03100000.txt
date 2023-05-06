@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64bdab02654a9c43c1009be0bd3d7e992ba2eab2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$devlink(&(0x7f0000000280)='devlink\x00')
+sendmsg$DEVLINK_CMD_GET(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000000)={0x34, r1, 0xc91add0bf88807dd, 0x80000000, 0x0, {0x2e}, [@nsim={{0xe, 0x1, 'netdevsim\x00'}, {0xf, 0x2, {'netdevsim', 0x0}}}]}, 0x34}}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0540b60313a5559f649e9940e45c9a320c885806
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet(0x11, 0x40000000000803, 0x0)
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x25, &(0x7f0000000240)=0x150, 0x4)
+sendmsg(r0, &(0x7f000087dfc8)={&(0x7f000005e000)=@nfc_llcp={0x27, 0x9, 0x0, 0x0, 0x0, 0x0, "f0aeec0d840130e5c5485e44a7627f9a8864abed4d4460dd5b1a0182c6c84a143e64f31d1c11349c949054860b9c131950a610e2736612827582530c3c1df9"}, 0x60, &(0x7f0000000380), 0x9c}, 0x0)
+syz_emit_ethernet(0x4, &(0x7f00000013c0)=ANY=[@ANYBLOB, @ANYPTR64, @ANYRES32=0x41424344, @ANYBLOB], &(0x7f0000000080)={0x1, 0x2, [0x762, 0xa32, 0x4d7, 0x306]})

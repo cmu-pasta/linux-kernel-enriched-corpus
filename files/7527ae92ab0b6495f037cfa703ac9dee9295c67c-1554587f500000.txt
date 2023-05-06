@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=7527ae92ab0b6495f037cfa703ac9dee9295c67c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":false}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000080)={'syz_tun\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000002c80)=@newqdisc={0x150, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_red={{0x8, 0x1, 'red\x00'}, {0x124, 0x2, [@TCA_RED_MAX_P={0x8, 0x3, 0x77}, @TCA_RED_STAB={0x104, 0x2, "1fc3aad2a437370d6d097ebfd52aedbb1655a58f2aa0af35cd00195caa3e3d0b98a32e2639261316f0985a29d96c82106a94f123296f511e69f7085723a7388c5e88fc0a24bef98af5c922f2bc9c7c3400bbfff5445bada28d3909cf31e78b902254ba8b9bea56ab331a79c37588e84cab1940a713b016f641a36624ce7a39038b8205d648a6ba37ea07ba06eef4ffe1ff5ac5bbef85af149841d9d71f626ed2ad93e0dda0e3b3e4a19b3a4c46bacd966ad0c6cf56bd217c3ddf1882fbb53a6b3ccf10804087607838843f3cd4470de33d27e2d2dc582633cdc76ab229ee387e2c5a9b6b7fd7d13c27d35533b22845c884bf0746cd84b0fb06e31f80dce1386d"}, @TCA_RED_PARMS={0x14, 0x1, {0x7}}]}}]}, 0x150}}, 0x0)
+r3 = socket$inet_udp(0x2, 0x2, 0x0)
+bind$inet(r3, &(0x7f00000001c0)={0x2, 0x0, @local}, 0x10)
+connect$inet(r3, &(0x7f0000000480)={0x2, 0x0, @multicast1}, 0x10)
+sendmmsg(r3, &(0x7f0000007fc0), 0x800001d, 0x0)

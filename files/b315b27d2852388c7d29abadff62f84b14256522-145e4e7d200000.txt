@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b315b27d2852388c7d29abadff62f84b14256522
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$binder(&(0x7f0000000400)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$binder(0x0, 0x0, 0x800)
+mmap(&(0x7f0000001000/0x3000)=nil, 0x3000, 0x0, 0x20011, r1, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000440)={0x44, 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB='\x00c@@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', @ANYPTR=&(0x7f0000000000)=ANY=[@ANYBLOB="0000000002000000cd246e4720bfd7aac80990b012bdbf70c4b86730d2c4311fb245b00d8bd4d34da867c609e48033c984b90aac7577631fd5f83006438fb48324e06cb4"]], 0x0, 0x0, 0x0})

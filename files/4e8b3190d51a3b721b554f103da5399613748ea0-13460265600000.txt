@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4e8b3190d51a3b721b554f103da5399613748ea0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+bind$llc(r0, &(0x7f0000000040)={0x1a, 0x0, 0x1f}, 0x10)
+writev(r0, &(0x7f0000002240)=[{&(0x7f0000000100)='D', 0x1}], 0x1)

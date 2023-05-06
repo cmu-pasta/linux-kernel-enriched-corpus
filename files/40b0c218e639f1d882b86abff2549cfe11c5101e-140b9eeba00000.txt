@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0x13, 0x3, &(0x7f0000001fd8)=@framed={{0xffffff85, 0x0, 0x0, 0x0, 0x18, 0x65}}, &(0x7f0000000000)='PL \x00L\xf7\xd1*\xf1\x1c\xe9%7\xb5\xe3\x19\x1ef\xde]N\xc1\x8eL-\xf0\x14\x84\xa8mw\x84/bIF\xea\xe3\x10yL\x8c\x96\xff\x14f#.%\x95\x119\xbd\xa5\xd2\x99\x0eR?\x8e\xc3\b\x0f\xfc\x12$\xd8\xdcL\x84\xa9\xc8\xe8\xab1Wh\x06qU#\xfat\x9e\x86\x15\xc6\x10I\xb8\xb1\xbej\xa7t\a\x02\xccZ\xdd', 0x5, 0x487, &(0x7f000000cf3d)=""/195}, 0x48)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

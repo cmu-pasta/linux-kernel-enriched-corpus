@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=48416b0e063ad24428bf04ec2da5b59711dc0eb3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xaff000)=nil, 0xaff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000aeb000)="2f6465762f6b766d00", 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000afe000-0x20)={0x0, 0x2, 0x0, 0x2000, &(0x7f00005b3000/0x2000)=nil})
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f00005b3000/0x18000)=nil, &(0x7f0000afe000-0x18)=[@text64={0x40, &(0x7f00005a0000)="c7442400d38f7c83c744240200000000c7442406000000000f01142466bad104edf30f1aad260000008f290892b000200000d9feda4800c7442400a7df0000c744240200000000c7442406000000000f0114246766440f38827f00a90300000066b805018ee0", 0x66}], 0x1, 0x0, &(0x7f0000aff000-0x10)=[], 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

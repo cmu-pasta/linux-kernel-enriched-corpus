@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f8a2405cdc200ef0c01d2ebe2dc22173c7a7ee9e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x0, 0x0, @remote, 0xb}, 0x1c)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+connect$l2tp(r1, &(0x7f00005fafd2)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x0, @multicast2}, 0x4}}, 0x2e)
+sendmmsg(r1, &(0x7f0000005fc0)=[{{&(0x7f0000005680)=@sco, 0x80, &(0x7f0000005b00)}}, {{&(0x7f0000005b80)=@l2, 0x80, &(0x7f0000005c40), 0x1f4, &(0x7f0000005c80), 0x3a00}}], 0x3e8, 0x0)
+sendmmsg(r0, &(0x7f0000001b00), 0xb8, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$ext4(0x0, &(0x7f0000000440)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000))
+pipe2$9p(&(0x7f00000000c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000700)=ANY=[@ANYBLOB="3801"], 0x138) (async, rerun: 32)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000280), 0x0, &(0x7f0000000480)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1])
+openat(0xffffffffffffff9c, &(0x7f0000002000)='./file0\x00', 0x4400, 0x0)

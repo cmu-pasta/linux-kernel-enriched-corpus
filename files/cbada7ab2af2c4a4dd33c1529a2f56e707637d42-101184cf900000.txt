@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=cbada7ab2af2c4a4dd33c1529a2f56e707637d42
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":true,"wifi":true,"segv":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000040)=ANY=[@ANYBLOB="3c0000001000010400"/20, @ANYRES32, @ANYBLOB="01000000010000001c0012000c000100627269646765"], 0x3c}}, 0x0)
+sendmsg$IPVS_CMD_ZERO(0xffffffffffffffff, &(0x7f0000000340)={&(0x7f0000000280)={0x10, 0x0, 0x0, 0x2000000}, 0xc, 0x0, 0x1, 0x0, 0x0, 0x40044}, 0x4044854)
+sendmsg$nl_route_sched(r0, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000240)=ANY=[@ANYBLOB="4c00000024000b0e00"/20, @ANYRES32, @ANYBLOB="00000000ffffffff000000000a0001006e6574656d0000001c00020000000000feff01000000bcd5"], 0x4c}}, 0x0)

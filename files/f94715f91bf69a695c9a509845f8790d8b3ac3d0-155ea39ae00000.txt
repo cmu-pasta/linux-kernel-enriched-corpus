@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f94715f91bf69a695c9a509845f8790d8b3ac3d0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000100)='comm\x00(\xb6u\x86S\xca\xe6\x12n\xa1\x80u\xba|\xb8\xeaI\xcd\x88,\xaa\tE\x10x\xfc\xf6\xbc\x93\x8a\x05\x00\x00\x00\x02rI\xe2\xd5\xc7\xdbl+\x8d\x9da\xd8\x87')
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000300)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000080)=0x1)
+r2 = dup3(r1, r0, 0x0)
+ioctl$PERF_EVENT_IOC_PAUSE_OUTPUT(r2, 0x8926, 0x710000)

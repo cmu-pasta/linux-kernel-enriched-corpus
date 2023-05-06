@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=67d3719a7490d99812faae7f9c2c26e9f386c1a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$hfs(&(0x7f00000003c0), &(0x7f0000000140)='./bus\x00', 0x1200408, &(0x7f0000000100)={[{@dir_umask={'dir_umask', 0x3d, 0xfffffffffffffff8}}, {@iocharset={'iocharset', 0x3d, 'maccroatian'}}]}, 0x1, 0x287, &(0x7f0000000940)="$eJzs3UFr1EAYxvFnkrS72lJjWyl4EasFT9LWi3hRpJ9BPIio3RVKlwpawfYknkW8Cd69eRY/gyfxC+jJkydB6S0yk4nbtEl2u2U31v5/sNu0mTfzTifJ5F0oFYBj6+bK13dXvtuXkUKFkq5JgaSmFEk6o7nm043Ntc1Ou1V1oNBF2JdRGmn2tVndaBeF2jgX4cX2u0iTu3+G4UiSJPnWs9XPkeSC+rirv0AgNfzV6fY3R57ZcDyvO4GamR3tSGaq7jwAAPXy63/g1/lJ//weBNKCX/b/q/V/p+4EaubW/2eayiqvxCi8df6U29Wt91wJZ/cHWZU4SF/jSs+s3AOm6VVVulyCEw/XOu3Lq486rUAvdN3b1WzWvbfSUzfTI9v5gtq0wuBjn3BjGLNjWC7Jf2aAHs+9OXgqf5lP5rO5a2K9VUvZ81+UGDtNbqbiPTOV5r9YfkQ3yjhtVTLK066Ts74HfXzfxyibCm0uRcb9MXMfEMRZnq/HK6Km90Slo1va1zjKRc0URi2XZJ5Fze6N6p7N5ZHDZl6Z22ZeP/RBK+o+/wd20hdUfmXm7vzGtfRnRuV4IteyZB5zggMPBYN7qQe6qqknW9vr9zud9uMBN379lg4RzkZfG5FG0deYPzW2ttdDezFWRw1v3m0ONyT9C7/5Q2w0JBXsylaEQ3YRqqGhjqK+WxNGpzvpmrtTdzKog73VG1v/5eqVRVci2be44jk96XXwXUdcKqkNpt37yQNVcBPlFVy/NdeFS9LF/nuMfZ5HXMN/NSv6onvi838AAAAAAAAAAAAAAAAAAIAjZhR/C1H3GAEAAAAAAAAAAAAAAAAAAAAAOOr4/7/A8fUnAAD//75ndWo=")
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='pids.events\x00', 0x275a, 0x0)
+writev(r0, &(0x7f00000004c0)=[{&(0x7f0000000180)="f4a590b31db9", 0x6}], 0x1) (rerun: 64)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x800001, 0x28011, r0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='pids.events\x00', 0x275a, 0x0)

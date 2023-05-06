@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=fb9c5979c8ee9be6c3cc6b58630d9becfdbbb0f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f00002ac000)='/dev/vhost-net\x00', 0x2, 0x0)
+ioctl$int_in(r0, 0x40000000af01, &(0x7f0000c97ff8))
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f0000000040)='/dev/audio\x00', 0x0, 0x0)
+close(r1)
+r2 = socket$packet(0x11, 0x3, 0x300)
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000b04000)={0x0, 0x0, &(0x7f0000ae5f44)=""/188, &(0x7f0000034000)=""/95, &(0x7f0000ce1f30)=""/208})
+read(r2, &(0x7f0000000140)=""/212, 0xd4)
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000ee1000)=ANY=[])
+ioctl$VHOST_NET_SET_BACKEND(r0, 0x4008af30, &(0x7f0000d7c000)={0x0, r1})
+ioctl$VHOST_SET_VRING_BUSYLOOP_TIMEOUT(r0, 0x4008af23, &(0x7f0000000100)={0x1, 0x7})
+syz_emit_ethernet(0x2a, &(0x7f000037c000)={@link_local={0x1, 0x80, 0xc2}, @empty=[0x0, 0x0, 0x14], [], {@ipv4={0x800, {{0x5, 0x4, 0x0, 0x0, 0x1c, 0xffffffffffffffff}, @udp={0x4e20, 0x4e20, 0x8}}}}}, 0x0)

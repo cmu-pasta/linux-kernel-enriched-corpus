@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":28,"leak":true,"tun":true,"netdev":true,"cgroups":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x11, 0x800000003, 0x0)
+bind(r1, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r1, &(0x7f00000001c0)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000140)=0x14)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x544ed, &(0x7f0000000000)={&(0x7f0000000200)=@newlink={0x3c, 0x10, 0x581, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x14, 0x12, @macsec={{0xc, 0x1, 'macsec\x00'}, {0x4}}}, @IFLA_LINK={0x8, 0x5, r2}]}, 0x3c}}, 0x0)

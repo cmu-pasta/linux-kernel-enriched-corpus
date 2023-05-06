@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a07f33328b23bb0709dbdf741355a4197a247690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+clone(0x54041bc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = getpid()
+r1 = gettid()
+tkill(r1, 0x14)
+ptrace(0x4206, r0)
+ptrace$poke(0x8, r1, 0x0, 0x0)
+clone(0x7a900, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

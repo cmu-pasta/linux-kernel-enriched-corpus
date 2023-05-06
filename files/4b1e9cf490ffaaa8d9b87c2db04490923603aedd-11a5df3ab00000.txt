@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4b1e9cf490ffaaa8d9b87c2db04490923603aedd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","cgroups":true,"close_fds":true,"tmpdir":true}
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup/syz0\x00', 0x1ff)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_pressure(r0, &(0x7f0000000080)='cpu.pressure\x00', 0x2, 0x0)
+write$cgroup_pressure(r1, &(0x7f0000001340)={'some', 0x20, 0x2, 0x20, 0x100000}, 0x2f)
+r2 = epoll_create(0x10001)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r1, &(0x7f0000000040))
+write$cgroup_pressure(r1, &(0x7f0000001340)={'some', 0x20, 0x2, 0x20, 0x100000}, 0x2f)

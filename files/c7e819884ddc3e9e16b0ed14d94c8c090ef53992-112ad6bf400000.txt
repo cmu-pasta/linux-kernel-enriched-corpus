@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c7e819884ddc3e9e16b0ed14d94c8c090ef53992
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$XDP_UMEM_FILL_RING(r0, 0x11b, 0x5, 0x0, 0x0)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000000040)=[@in={0x2, 0x4e24, @empty}, @in={0x2, 0x4e20, @empty}, @in={0x2, 0x4e22, @empty}], 0x4920a1cf)

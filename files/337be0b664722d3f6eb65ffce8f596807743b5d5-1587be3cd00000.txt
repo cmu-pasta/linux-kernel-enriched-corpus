@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+mount$bpf(0x0, &(0x7f0000000540)='./file0\x00', &(0x7f0000000580)='bpf\x00', 0x0, 0x0)
+mount(0x0, 0x0, 0x0, 0x2146000, 0x0)

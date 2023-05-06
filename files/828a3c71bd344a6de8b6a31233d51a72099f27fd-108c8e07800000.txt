@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=828a3c71bd344a6de8b6a31233d51a72099f27fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$snapshot(0xffffffffffffff9c, &(0x7f0000000440)='/dev/snapshot\x00', 0x40001, 0x0)
+write$rdma_cm(r0, &(0x7f0000000040)=@create_id={0x0, 0x18, 0xfa00, {0x1, &(0x7f0000000000), 0x111, 0xb}}, 0x20)
+ioctl(r0, 0x3305, &(0x7f0000000080))

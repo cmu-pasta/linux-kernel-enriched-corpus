@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=309aabd28c4c07b45df55b4bd48ffd6703979a55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$wireguard(&(0x7f0000000480)='wireguard\x00')
+sendmsg$WG_CMD_GET_DEVICE(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000240)={0x28, r1, 0xb01, 0x0, 0x0, {}, [@WGDEVICE_A_IFNAME={0x14, 0x2, 'wg1\x00'}]}, 0x28}}, 0x0)

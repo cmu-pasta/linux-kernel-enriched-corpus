@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b3dc989f84068f0d7b59f01722e2bf2dc0db65e1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$packet(0x11, 0x2, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xa, &(0x7f0000000140)=0x2, 0x4)
+setsockopt$packet_tx_ring(r0, 0x107, 0xd, &(0x7f00000000c0)=@req3={0x10000, 0x100000001, 0x10000, 0x1, 0x0, 0x2}, 0x1c)

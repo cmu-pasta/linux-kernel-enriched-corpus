@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=de6519e18a472f06a6b530c84c3be8a29c554900
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000042000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = bpf$PROG_LOAD(0x5, &(0x7f0000b4d000-0x30)={0x1, 0x2, &(0x7f0000ef3000)=[@generic={0x8db7, 0x0, 0x0, 0x0}, @generic={0xd395, 0x0, 0x0, 0x0}], &(0x7f0000b4d000)="737973654f00", 0x1, 0x80, &(0x7f000000a000)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x0, 0x0}, 0x30)
+r3 = socket$kcm(0x29, 0x5, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r3, 0x89e0, &(0x7f0000d73000)={r1, r2})
+sendmsg(r0, &(0x7f00003a3000)={0x0, 0x0, &(0x7f00004bb000-0x70)=[{&(0x7f00001c5000-0x63)="", 0x0}, {&(0x7f00005b6000-0x4b)="", 0x0}, {&(0x7f000058e000-0xae)="", 0x0}, {&(0x7f0000e8b000)="", 0x0}, {&(0x7f000044d000-0x1000)="", 0x0}, {&(0x7f0000ec4000-0xed)="", 0x0}, {&(0x7f0000a19000-0x99)="5621ef6032cb7fd79bee63a76665fdd9e5aa3e2b6b58de16102e3453b4175a23d64effca1c6433f86249f7393d379c0ff9136976bae06d4b474bc0877585bcd97854e9510d3737c7444f735efe892584ee2ac8e7814f982a2311711cce8b18dd8be5aaa9a443c3c89dc8c2c3bb8c8918a518bd4a6a7d0eea9f5c6c4830a2720a13bbe68bf6fb6ff8d3ac302d6db79a647ea0cc4dee68a8c8c2", 0x99}], 0x7, &(0x7f00001e6000)=[{0x10, 0x11d, 0x3, ""}, {0x10, 0x117, 0x6, ""}, {0x10, 0x117, 0x7, ""}, {0x10, 0x103, 0x7, ""}, {0x10, 0x117, 0x1, ""}, {0x10, 0x10a, 0x401, ""}], 0x6, 0x20000000}, 0x8080)

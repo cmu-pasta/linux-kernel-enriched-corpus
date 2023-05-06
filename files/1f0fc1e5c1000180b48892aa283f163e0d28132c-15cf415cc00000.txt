@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1f0fc1e5c1000180b48892aa283f163e0d28132c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+sendto$inet(r0, 0x0, 0x0, 0x20048000, &(0x7f0000000080)={0x2, 0x4e23, @local}, 0x10)
+sendmmsg(r0, &(0x7f0000007fc0), 0x400000000000284, 0x0)

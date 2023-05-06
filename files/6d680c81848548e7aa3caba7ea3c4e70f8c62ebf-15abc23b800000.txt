@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6d680c81848548e7aa3caba7ea3c4e70f8c62ebf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket(0x1e, 0x1, 0x0)
+bind(r0, &(0x7f0000d80f80)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a43a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb31f1314a8ef151622ca5bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+bind(r0, &(0x7f0000afb000)=@generic={0x1e, "0100000000000000000000004700000000a979f321b30c7bc8790405c7bad62e0a63a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb3151d24acef1f1622ca5bdb9c8ea31000077aeb81c90001d6d7c980400000000f70dc136cb184a"}, 0x80)
+unshare(0x60000000)

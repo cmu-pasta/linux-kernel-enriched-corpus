@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=548715a620e3431f354833696735b51b6f043b0d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$sg(0x0, 0xfffffffffffffffe, 0x0)
+r1 = syz_open_dev$vcsu(&(0x7f0000000c40), 0x6, 0x0)
+ioctl$PTP_SYS_OFFSET_PRECISE(r1, 0xc0403d08, &(0x7f00000000c0))
+ioctl$SCSI_IOCTL_BENCHMARK_COMMAND(r0, 0x3)
+r2 = openat$kvm(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+r3 = ioctl$KVM_CREATE_VM(r2, 0xae01, 0x0)
+dup3(r2, r3, 0x0)

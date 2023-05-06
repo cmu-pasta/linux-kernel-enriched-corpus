@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=08ae6024cb10831ddb3c04eabbbebc96918d5a94
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000140), 0x40241, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000000)={'syzkaller1\x00', 0x511})
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000040)={'veth1\x00', 0x400})
+r1 = socket$kcm(0x2, 0xa, 0x2)
+ioctl$SIOCSIFHWADDR(r1, 0x8914, &(0x7f0000000180)={'syzkaller1\x00', @link_local})
+write$tun(r0, &(0x7f00000001c0)={@void, @val={0x2, 0x80, 0x0, 0xfff, 0xf3d, 0x7}, @eth={@multicast, @random="4f791b3509a8", @void, {@llc_tr={0x11, {@llc={0x7e, 0x8e, ']'}}}}}}, 0x1b)

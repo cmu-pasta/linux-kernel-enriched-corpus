@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4462b73f1e909dcd0f6e0d5d2f0b3e8be5191b69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x800000000000002, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x8000, &(0x7f0000000040)={0xa, 0x400000000004e22, 0x0, @mcast2}, 0x1c)
+setsockopt$sock_linger(r0, 0x1, 0x3c, &(0x7f0000005140)={0x1}, 0x8)
+sendto$inet6(r0, &(0x7f00000000c0)='\b', 0x1, 0x4000000, 0x0, 0x0)

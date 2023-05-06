@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3ee265f0311f15eba80b6276044716b4fe020d70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount(&(0x7f0000000180)=@nbd={'/dev/nbd', 0x0}, &(0x7f0000000300)='./file0\x00', &(0x7f0000000340)='gfs2meta\x00', 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=aaa35b314220404bbc2b1c66067b0f9a623baa89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)=@migrate={0xf8, 0x21, 0x1, 0x0, 0x0, {{@in=@remote, @in=@remote, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}}, [@policy={0xa8, 0x7, {{@in=@empty, @in6=@private0}}}]}, 0xf8}}, 0x0)

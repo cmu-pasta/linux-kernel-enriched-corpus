@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = socket$inet6(0xa, 0x2, 0x0)
+getsockopt$IP_VS_SO_GET_DAEMON(r1, 0x0, 0xe, 0x0, &(0x7f00000002c0))
+bind$inet6(r1, &(0x7f0000000440)={0xa, 0x4e21, 0x59, @initdev={0xfe, 0x88, [], 0x1, 0x0}, 0xff}, 0x1c)
+getsockopt$inet_sctp6_SCTP_PEER_ADDR_PARAMS(r0, 0x84, 0x9, 0x0, &(0x7f0000000180))
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r0, 0x8933, &(0x7f0000000040)={'batadv0\x00'})
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x26e1, 0x0)
+write$cgroup_int(r3, &(0x7f0000000200), 0x400086)
+syz_genetlink_get_family_id$devlink(&(0x7f0000000080)='devlink\x00')
+splice(r3, &(0x7f0000000600)=0x6, 0xffffffffffffffff, 0x0, 0x2, 0x4)
+r4 = openat$cgroup_ro(r3, &(0x7f00000004c0)='cpu.stat\x00', 0x0, 0x0)
+sendmsg$BATADV_CMD_GET_GATEWAYS(r4, &(0x7f00000005c0)={0x0, 0x0, &(0x7f0000000580)={&(0x7f0000000540)={0x2c, 0x0, 0x20, 0x70bd2d, 0x25dfdbfb, {}, [@BATADV_ATTR_AGGREGATED_OGMS_ENABLED={0x5, 0x29, 0x1}, @BATADV_ATTR_ISOLATION_MASK={0x8, 0x2c, 0x8}, @BATADV_ATTR_NETWORK_CODING_ENABLED={0x5}]}, 0x2c}, 0x1, 0x0, 0x0, 0x4080}, 0x4008840)
+setsockopt$inet_tcp_TCP_ULP(0xffffffffffffffff, 0x6, 0x1f, 0x0, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000001c0)={0x0, 0x64}}, 0x0)

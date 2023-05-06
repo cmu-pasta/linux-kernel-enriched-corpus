@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a945be0a987628fc4e56b428c34d10f3db54426d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = creat(&(0x7f0000002540)='./file0\x00', 0x0)
+ioctl$fiemap(r0, 0x8004587d, &(0x7f0000000a80)=ANY=[])

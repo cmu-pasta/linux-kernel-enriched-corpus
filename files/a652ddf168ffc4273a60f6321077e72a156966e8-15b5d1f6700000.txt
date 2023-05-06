@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x4)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r1, &(0x7f0000847fff)='P', 0x1, 0x0, &(0x7f0000000000)={0xa, 0x0, 0x0, @private0}, 0x1c)
+writev(r0, &(0x7f00000002c0)=[{&(0x7f0000000340)="480000001400190d09004beafd0d36020a8447000b4e230f00000000a2bc5603ca00000f7f89000000200000000101ff0000000309ff5bffff04000000000000005839c97b910000", 0x48}], 0x1)
+syz_genetlink_get_family_id$batadv(&(0x7f00000000c0), r0)

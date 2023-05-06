@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ce7226d0055c5f3d4aab54c658cdce7f39f21222
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$6lowpan_enable(0xffffffffffffff9c, &(0x7f0000001480)='/sys/kernel/debug/bluetooth/6lowpan_enable\x00', 0x2, 0x0)
+write$binfmt_script(r0, &(0x7f0000000200)=ANY=[@ANYRESHEX], 0x4b)

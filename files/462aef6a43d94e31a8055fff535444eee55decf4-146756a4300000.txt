@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=462aef6a43d94e31a8055fff535444eee55decf4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+pipe(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000480)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000080)={'bridge_slave_1\x00', <r3=>0x0})
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000000)=@newlink={0x3c, 0x10, 0x0, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x1c, 0x12, 0x0, 0x1, @bond={{0x9}, {0xc, 0x2, 0x0, 0x1, [@IFLA_BOND_PRIMARY={0x8, 0xb, r3}]}}}]}, 0x3c}}, 0x0)
+r4 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r4)
+socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000000)=ANY=[@ANYBLOB="4800000010005fff000005000000000000000000", @ANYRES32, @ANYBLOB="01f8ffff00000000280012800a00010076786c616e"], 0x3}}, 0x0)
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[], 0xfffffecc)
+splice(r0, 0x0, r4, 0x0, 0x4ffe2, 0x0)
+r5 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r5, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)=ANY=[@ANYBLOB="840000001000030500"/20, @ANYRES32=0x0, @ANYBLOB="11400000000000004c0012800b0001006970766c616e00003c000280060001000000000006000200010000000600020003000000060001000200000006000200010000000600010000000000060001000000000008000500", @ANYRES32], 0x84}}, 0x0)

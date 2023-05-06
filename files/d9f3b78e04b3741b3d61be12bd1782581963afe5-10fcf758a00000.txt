@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d9f3b78e04b3741b3d61be12bd1782581963afe5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"tmpdir":true}
+clone(0x4105, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+futex(0x0, 0x0, 0x100000002, 0x0, 0x0, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x40)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c14270323f22e896228f470164aac59114d388be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+mkdir(&(0x7f0000fd5ff8)='./file0\x00', 0x0)
+r0 = epoll_create1(0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='mounts\x00')
+mount$9p_fd(0x0, &(0x7f0000001140)='./file0\x00', &(0x7f0000000000)='9p\x00', 0x1, &(0x7f0000001340)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})
+mount(&(0x7f0000fb6000)='./file0\x00', &(0x7f0000d78000)='.', &(0x7f0000fdb000)='ubifs\x00', 0x1003, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=2bf7b7983c2398ec6f0c4c6c87cb50223e8873f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000b5b000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f00005e3000/0x18000)=nil, &(0x7f0000c4d000-0x18)=[@textreal={0x8, &(0x7f0000c61000)="66f30fbddc360f013ff2a7262e26660f01dff20f0016838c66b9800000c00fa76635008000000fdb3bf30f00910000baf80c66b8e6217a8d66b9800000c00f326635010000000f30bafc0cb8ed47ef", 0x4f}], 0x1, 0xfffffffffffffffc, &(0x7f0000f24000-0x10)=[@cr4={0x1, 0x12200}], 0x1)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+syz_open_dev$mice(&(0x7f0000964000)='/dev/input/mice\x00', 0x0, 0x111201)

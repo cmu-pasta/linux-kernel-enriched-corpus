@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=28cccdd18b4bb8670d077937fb8d4849dca96230
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_usbip_server_init(0x4)

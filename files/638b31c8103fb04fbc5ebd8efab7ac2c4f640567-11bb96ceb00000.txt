@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=638b31c8103fb04fbc5ebd8efab7ac2c4f640567
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","binfmt_misc":true,"close_fds":true,"vhci":true}
+syz_mount_image$vfat(&(0x7f0000000000), &(0x7f00000001c0)='./file0\x00', 0x0, 0x4, &(0x7f0000000500)=[{0x0}, {0x0, 0x0, 0x1e4}, {0x0, 0x0, 0x600}, {0x0, 0x0, 0x1000}], 0x0, &(0x7f0000010d00)=ANY=[])
+writev(0xffffffffffffffff, 0x0, 0x0)
+r0 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000001580)='/sys/power/resume', 0x121a02, 0x0)
+write$cgroup_int(r0, &(0x7f0000000000)=0x905, 0x2000fdef)
+r1 = syz_open_procfs(0x0, &(0x7f00000001c0)='mounts\x00')
+r2 = memfd_create(&(0x7f0000000000), 0x0)
+sendfile(r2, r1, 0x0, 0xfffffffe)

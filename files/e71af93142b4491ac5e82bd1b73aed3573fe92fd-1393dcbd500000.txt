@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e71af93142b4491ac5e82bd1b73aed3573fe92fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = syz_open_dev$loop(&(0x7f0000000380)='/dev/loop#\x00', 0x0, 0x0)
+sysinfo(&(0x7f00000007c0)=""/142)
+ioctl$BLKPG(r0, 0x1269, &(0x7f0000000240)={0x1, 0x0, 0x0, &(0x7f0000000800)})
+syz_read_part_table(0x0, 0x0, 0x0)

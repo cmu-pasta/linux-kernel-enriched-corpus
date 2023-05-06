@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f9c716f55f8a9fad5210d442edb0834d09ce25b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+clone(0x20002100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+syz_genetlink_get_family_id$ipvs(&(0x7f0000000300), 0xffffffffffffffff)

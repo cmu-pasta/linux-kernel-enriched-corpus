@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=db947ce523c1649ed8917fd831b996bec8687c9f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+socketpair(0x1e, 0x1, 0x0, &(0x7f0000000140)={0x0, <r0=>0x0})
+setsockopt$sock_attach_bpf(r0, 0x10f, 0x87, &(0x7f0000000180), 0x4bd)

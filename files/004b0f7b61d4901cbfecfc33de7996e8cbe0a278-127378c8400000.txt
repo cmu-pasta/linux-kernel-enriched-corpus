@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$inet(0x2b, 0x801, 0x0)
+setsockopt$inet_int(r0, 0x0, 0x17, &(0x7f0000000240)=0xffffffffffffff00, 0x4)

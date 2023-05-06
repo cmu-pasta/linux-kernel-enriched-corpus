@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=58a9ea219ead1c108b3c0112bd680305b2397c22
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","cgroups":true,"close_fds":true,"tmpdir":true}
+mount$binderfs(0x0, &(0x7f0000000080)='./binderfs\x00', &(0x7f00000000c0), 0x0, 0x0) (fail_nth: 29)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=299ee54dcbcc5a4da36a0e57a09e0e3cfeaa335b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x8000000004)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r1, &(0x7f00001fefe4)={0xa, 0x4e22}, 0x1c)
+sendto$inet6(r1, &(0x7f0000000100), 0x8d2d601e8976aa5, 0x20000004, &(0x7f000031e000)={0xa, 0x4e22}, 0x1c)
+r2 = accept4$packet(0xffffffffffffff9c, &(0x7f0000000000)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000040)=0x14, 0x800)
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f00000003c0)={{{@in=@local, @in=@rand_addr, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in=@multicast1}, 0x0, @in6}}, &(0x7f0000000080)=0xe8)
+recvfrom$packet(r2, &(0x7f0000000300)=""/188, 0xbc, 0x3, &(0x7f00000000c0)={0x11, 0x1f, r3, 0x1, 0x5, 0x6, @local}, 0x14)
+writev(r0, &(0x7f0000000100)=[{&(0x7f0000000140)="580000001400192340834b80040d8c560a067fffffff81004e220000000058000b4824ca944f64009400050028925aa8000000000000008000f0fffeffff09000000fff5dd00000010000100000c0900fcff0000040e05a5fbc0f0450d2b6ad15216b3676876366b86318ab996484fc3f5c3559ae8f6f1f467d82baf7b0af220709f732d68e34e6c0c7d23421eb1f130939f5ae960ae90dd6022a93ddfc47b71b1848e038f990dc266c47f577f26322a0a8dbfc72b04f18cd517a110e95d60136308dafbb73f510114296809de785ae107e239c63aa35d5cc4aac0a1f08b7dc6d8de30e6a8c95114762c0a34b2909abbab38fe98ffcb441e2f123ed227804299db9a4dea8ef7ce31f6a7bb9b3ae22a2063fd15e74897c2ea2b8475a4fbd65c51ed08ae1275abc2dbf16dd0216d87b2a140d37369c8ccf249625b2c1a3f62949d6f47794a7c847d522cdf6629bd394b0556b331ca5465b6902487c67d7dc7beb4c2d00f9765bcb891c925d9660ff7237ec8b5c355cce34b03adc2de85aa56990908f5ea48e04af8cbea2fc957cb88ea925136911c23ff765d710c88cd0a3ce690a2f75502f0c70e32c1e0", 0x1aa}], 0x1)

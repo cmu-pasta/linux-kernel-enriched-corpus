@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dfafb7077bc462b11e884471895339e5e70559d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_io_uring_setup(0xa53, 0x0, &(0x7f0000000000/0x11000)=nil, &(0x7f0000008000/0x1000)=nil, &(0x7f0000000180), 0x0)
+r0 = io_uring_setup(0x17d6, &(0x7f0000000040)={0x0, 0x0, 0x2})
+io_uring_register$IORING_UNREGISTER_EVENTFD(r0, 0x13, 0x20004000, 0x2)

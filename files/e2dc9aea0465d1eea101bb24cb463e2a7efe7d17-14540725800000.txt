@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e2dc9aea0465d1eea101bb24cb463e2a7efe7d17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000f8c000-0x58)={0x26, 'skcipher\x00', 0x0, 0x0, 'lrw-twofish-avx\x00'}, 0x58)
+r1 = accept$alg(r0, 0x0, 0x0)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000330000+0xd27)="d3ab27191a01002356ba602dff05000bfef9f3d2a4b20079fffffffffffffe000225070097c11ed4c2c4dc42ffa86eb9", 0x30)
+sendto(r1, &(0x7f0000c3c000)="43761c2dd37eacb1aebb81125316fe4a95f862fb501fed3d2d4e71757b1e96de2fe526deeb396405d2e5eb92f68aadaa5d4c8ca9eaa8894bb2374da89bc086889631d2f9529b82232f240f765ca6266c56f2d0262b9f3f2973a5a0adbd501356297bad02ec8b2cc1ce2b44d9cf1d9081", 0x70, 0x0, 0x0, 0x0)
+recvmsg(r1, &(0x7f0000a4a000)={&(0x7f0000300000-0x60)=@nfc_llcp={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ""/63, 0x0}, 0x60, &(0x7f0000dc6000)=[{&(0x7f0000fe4000)=""/26, 0x1a}, {&(0x7f000058e000-0x74)=""/116, 0x74}], 0x2, &(0x7f00003f7000-0xbd)=""/0, 0x0, 0x0}, 0x0)

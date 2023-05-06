@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b5eaa5732faf04eb48906a4c81eca89eed449da7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6(0xa, 0x800000000000002, 0x0)
+close(r0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x1e, &(0x7f0000000080)=0x400000001, 0x4)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x22, &(0x7f0000356000)=0x1, 0x4)
+connect$inet6(r0, &(0x7f0000d83fe4)={0xa, 0x4e20, 0x0, @loopback}, 0x1c)
+shutdown(r0, 0x1)

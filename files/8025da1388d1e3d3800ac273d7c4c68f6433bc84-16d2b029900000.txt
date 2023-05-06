@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000000180)='/dev/adsp1\x00', 0xaa002, 0x0)
+write$binfmt_elf32(r0, &(0x7f00000002c0)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x38}, [{}], "", [[]]}, 0x158)

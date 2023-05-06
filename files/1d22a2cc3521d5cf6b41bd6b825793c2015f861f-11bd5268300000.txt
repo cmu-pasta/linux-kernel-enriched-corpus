@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$rds(0x15, 0x5, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000000)={'netdevsim0\x00', &(0x7f0000000040)=ANY=[@ANYBLOB="33000000000000002e000000000000000000000000000000000000000000000000000000000000002c5e00000000000000000000000000000000000000000000000000000000000000000024fa47cd2a00"/94]})

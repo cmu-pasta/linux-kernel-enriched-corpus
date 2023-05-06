@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e8616085ae2398519d922bdd9c2d97cd18a66d29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false}
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+connect$inet6(r0, &(0x7f0000000040)={0xa, 0x0, 0x0, @dev, 0x6}, 0x1c)
+setsockopt$inet6_IPV6_HOPOPTS(r0, 0x29, 0x36, &(0x7f0000000100)=ANY=[@ANYBLOB="52b3"], 0x5a0)
+sendmmsg$inet(r0, &(0x7f00000002c0)=[{{0x0, 0x0, &(0x7f0000000000)=[{&(0x7f00000000c0)="1d2d", 0xfa5f}], 0x1}}], 0x1, 0xfe80)

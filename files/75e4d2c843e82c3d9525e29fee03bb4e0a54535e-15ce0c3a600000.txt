@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=75e4d2c843e82c3d9525e29fee03bb4e0a54535e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":65,"cgroups":true,"close_fds":true,"tmpdir":true}
+mkdir(&(0x7f0000000100)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000380)='./file0\x00', &(0x7f0000000300)='cgroup2\x00', 0x0, 0x0)
+rmdir(&(0x7f0000000240)='./file0//ile0\x00')
+mkdir(&(0x7f0000000000)='./file0//ile0\x00', 0x0)

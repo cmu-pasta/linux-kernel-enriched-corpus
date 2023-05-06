@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=224f304431abbbe0dc290277e84981992be389bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mount$9p_unix(&(0x7f00000003c0)='./file0\x00', &(0x7f0000000400)='./file0\x00', &(0x7f0000000440)='9p\x00', 0x1020000, &(0x7f00000006c0)={'trans=unix,', {[{@access_client='access=client', 0x2c}, {@nodevmap='nodevmap', 0x2c}, {@access_client='access=client', 0x2c}, {@aname={'aname', 0x3d, 'vboxnet1:em0+cpuset'}, 0x2c}]}})
+mkdir(&(0x7f0000000380)='./file0\x00', 0x8)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f00000006c0)=ANY=[])

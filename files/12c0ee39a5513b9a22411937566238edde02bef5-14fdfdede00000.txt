@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=12c0ee39a5513b9a22411937566238edde02bef5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+fsetxattr$smack_xattr_label(r0, &(0x7f00000001c0)='security.SMACK64IPOUT\x00', &(0x7f0000000200)={'batadv0\x00'}, 0x9, 0x3)

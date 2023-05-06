@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=8c0c68130548c7ec737d9ccc018a7589a768c0a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+socket$inet(0x2, 0x0, 0x0)
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR(0xffffffffffffffff, 0x6, 0x13, 0x0, 0x0)
+r0 = socket$inet6(0xa, 0x803, 0x2)
+connect$inet6(r0, 0x0, 0x0)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, 0x0, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000480)=ANY=[@ANYBLOB="380100001a000108cf4dac26306b0d8cda0562726835397c1e7fac00000000000000007485ac7f97e3daef21b274a924bab3659673862f5d0000000000000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="00000000000000000000000000000000000000006c47980b1300000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000006000001000000000000000000000200000000000000fcffffffffffffff0000000000000000000000000000000000000000000002000000000000000000000000000000000000000000020001000000070000000000480003006465666c617465"], 0x138}}, 0x0)

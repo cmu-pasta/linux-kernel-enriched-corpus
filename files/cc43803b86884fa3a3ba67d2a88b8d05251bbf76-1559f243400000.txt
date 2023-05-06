@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=cc43803b86884fa3a3ba67d2a88b8d05251bbf76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x4, 0x5c832, 0xffffffffffffffff, 0x0)
+r0 = socket$xdp(0x2c, 0x3, 0x0)
+write$binfmt_elf64(r0, &(0x7f0000000380)={{0x7f, 0x45, 0x4c, 0x46, 0x7, 0x1, 0x2, 0x962b, 0x401, 0x3, 0x0, 0x6, 0xf3, 0x40, 0x329, 0x6, 0x9, 0x38, 0x1, 0x1000, 0x1f, 0x100}, [{0x70000000, 0xffffffffb6a55cfc, 0x1, 0x7, 0x9, 0x4, 0x1ff, 0xe9}, {0x4, 0x200, 0x8, 0x9, 0x8, 0x5, 0x8001, 0x7fffffff}], "3e05f030cb0367468bd2c6c3c4e8c62a034eba1f08895b97465fd51888e133183006d223592c90267926a8e5689f3401012a9982be7cfbf53f685f34168ca15bbe1dc8a5efe1685f292fec367981b8f5a9914e4f4e016c7b716e08e7e5bdaec5f05c8ca29c6ceaca9439a24f80998294485b08f543f156d1a895b9e27fb20e1bf552a78d8c05b047420d8956bef879c16829716764aa386f8df7e3a2b40a243a9ccd79c83f49992643a384da17a3767ebd1baefbd7cb64c8201106b647d0c87dc04ae046d84d24de5f54730130263dbdfa87335e83d1e45de89722f529db674303de9d", [[]]}, 0x293)
+ioctl$FS_IOC_GETVERSION(0xffffffffffffffff, 0x80087601, &(0x7f0000000180))
+pipe(&(0x7f0000000240)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+r3 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x26e1, 0x0)
+r4 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='memory.events\x00', 0x7a05, 0x1700)
+write$binfmt_misc(r2, &(0x7f0000000040)=ANY=[@ANYRES32=r3, @ANYPTR, @ANYRESDEC=r2, @ANYRES32=r4, @ANYBLOB="febce63a04be09b131baf036109c4da6bd6731e0f32ff28431a0dee322e3b192e892d783d84c7d", @ANYRESDEC=r4, @ANYRESOCT=r4], 0x76)
+splice(r1, 0x0, r4, 0x0, 0x100000000000a, 0x0)

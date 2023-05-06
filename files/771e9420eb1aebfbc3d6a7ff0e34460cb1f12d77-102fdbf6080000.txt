@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=771e9420eb1aebfbc3d6a7ff0e34460cb1f12d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","close_fds":true,"wifi":true,"ieee802154":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$netlbl_mgmt(&(0x7f0000000040), r1)
+sendmsg$NLBL_MGMT_C_REMOVEDEF(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000040)={0x48, r2, 0x1, 0x70bd25, 0x25dfdbfb, {}, [@NLBL_MGMT_A_FAMILY={0x6, 0xb, 0x3}, @NLBL_MGMT_A_CLPDOI={0x8, 0xc, 0x2}, @NLBL_MGMT_A_FAMILY={0x6, 0xb, 0xb}, @NLBL_MGMT_A_PROTOCOL={0x8, 0x2, 0x3}, @NLBL_MGMT_A_IPV6ADDR={0x14, 0x5, @ipv4={'\x00', '\xff\xff', @multicast1}}]}, 0x48}, 0x1, 0x0, 0x0, 0x800}, 0x24000000)

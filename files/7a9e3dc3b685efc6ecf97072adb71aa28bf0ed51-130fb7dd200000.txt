@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7a9e3dc3b685efc6ecf97072adb71aa28bf0ed51
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+r1 = socket(0x2, 0x3, 0xff)
+setsockopt$SO_BINDTODEVICE(r1, 0x1, 0x19, &(0x7f0000000280)='ip6_vti0\x00 \x00', 0xfd7a)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x0, @initdev}, 0x10)
+write$binfmt_elf32(r0, &(0x7f00000002c0)=ANY=[@ANYBLOB="6000000100000000000a00"/20], 0x14)

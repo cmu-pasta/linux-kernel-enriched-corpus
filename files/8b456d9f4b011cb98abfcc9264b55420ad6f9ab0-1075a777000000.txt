@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8b456d9f4b011cb98abfcc9264b55420ad6f9ab0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$loop(&(0x7f0000000000)="2f6465762f6c6f6f702300", 0x0, 0x2)
+fallocate(r0, 0x11, 0x0, 0x44400004)
+r1 = syz_open_dev$loop(&(0x7f0000fb7000-0xb)="2f6465762f6c6f6f702300", 0x0, 0x2)
+r2 = memfd_create(&(0x7f0000346000)="2f6465762f72666b696c6c00", 0x2)
+pwritev(r2, &(0x7f0000fe7000-0x50)=[{&(0x7f0000e3f000-0x1000)="", 0x0}, {&(0x7f0000fa2000)="e51d66e035978e51b988b65662ee358deb7785b668ba77ec71717aac2f67c641772d3a4b00d1df92e2dd49b622cb9ff53e66717cf2e5b828cb70e3eb72ff51b6fccc1b1092402052ab2aa256297296da9f1e9a34c7731abb0ede9f546e6c050f931505b100a19f443e90e9d16cab2b9cb171023d6b65945d5218e4b600f92899158a41405121dd90d20bd1063ee4c1a70725", 0x92}, {&(0x7f0000c0c000)="", 0x0}, {&(0x7f0000adc000-0x23)="", 0x0}, {&(0x7f0000102000+0x79f)="318106079590d39b8f0965042c8eca0dc8740d85f6f003cc40fc350e53c384816d0328d6cbae796b577b4e51c3aff87434f195cdf484d929fac177fdf6bc5a06377598af2fea4ca63a536a5c322c96cdb1569e14d2b5bb4399a426157994eb9a64959ff82f33b74f2e1a4da75287c8f2240101c0300b1a0b251b26049a47bc8b9bc4c6d7de117dd6357a0a30abc495613bd058b97a5b52c01a1216e41c9de1ede29fb95206a53e5b91f1db21", 0xac}], 0x5, 0xfc)
+ioctl$LOOP_CHANGE_FD(r1, 0x4c00, r2)

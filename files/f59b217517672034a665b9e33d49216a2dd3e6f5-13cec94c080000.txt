@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f59b217517672034a665b9e33d49216a2dd3e6f5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000040)={'netpci0\x00', 0x2512})
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f00000001c0)={'caif0\x00', 0x400})
+ioctl$TUNATTACHFILTER(r0, 0x401054d5, 0x0)

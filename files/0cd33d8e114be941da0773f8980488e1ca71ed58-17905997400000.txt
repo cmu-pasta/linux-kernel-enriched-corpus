@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0cd33d8e114be941da0773f8980488e1ca71ed58
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true}
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+bind$rxrpc(r0, &(0x7f0000000000)=@in6={0x21, 0x4, 0x2, 0x1c}, 0x24)
+listen(r0, 0x0)
+recvfrom$rxrpc(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$rxrpc(r0, 0x0, 0x0, 0x2, 0x0, 0x0)

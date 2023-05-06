@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b7d494bb6ccf2d4ddaf2b5fabb63ef67d944048c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000027000)='./file0\x00', 0x0)
+ioctl(0xffffffffffffffff, 0x8912, &(0x7f0000000280)="153f6234488dd25d766070")
+sendmsg$IPVS_CMD_SET_CONFIG(0xffffffffffffffff, &(0x7f00000002c0)={&(0x7f0000000180), 0xc, &(0x7f0000000240)={&(0x7f0000000200)={0x14}, 0x14}}, 0x0)
+r0 = syz_open_dev$mouse(&(0x7f0000000040)='/dev/input/mouse#\x00', 0xffff, 0x34000)
+r1 = syz_open_dev$usb(&(0x7f00000000c0)='/dev/bus/usb/00#/00#\x00', 0x400, 0x420000)
+renameat2(r0, &(0x7f0000000080)='./file0\x00', r1, &(0x7f0000000100)='./file0\x00', 0x5)
+clone(0x20002100, 0x0, 0xfffffffffffffffe, &(0x7f0000000340), 0xffffffffffffffff)
+mount(&(0x7f0000000000)=@nullb='/dev/nullb0\x00', &(0x7f00000002c0)='./file0\x00', &(0x7f0000000300)='gfs2\x00', 0x0, 0x0)

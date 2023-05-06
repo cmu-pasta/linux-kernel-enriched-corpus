@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=fbfc3552d97e318404e40b42b360de0b2c5865e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_open_procfs(0x0, &(0x7f0000000040)='net/nf_conntrack\x00')
+preadv(0xffffffffffffffff, &(0x7f00000012c0)=[{&(0x7f0000000100)=""/4096, 0x1000}], 0x1, 0x0, 0x0)
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f00000000c0)={'syzkaller1\x00'})

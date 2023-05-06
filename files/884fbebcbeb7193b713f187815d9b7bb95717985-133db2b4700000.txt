@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=884fbebcbeb7193b713f187815d9b7bb95717985
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"cgroups":true,"close_fds":true,"wifi":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = open(&(0x7f0000000180)='./file0\x00', 0x440, 0x0)
+ioctl$FS_IOC_ENABLE_VERITY(r0, 0x4004662b, &(0x7f00000001c0)={0x1, 0x0, 0x1000, 0x0, 0x0, 0x0, 0x0, 0x0})

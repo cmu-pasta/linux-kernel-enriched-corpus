@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=924b5574f42ebeddc94fad06f2fa329b199d58d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket(0x200000000000011, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000240)={'hsr0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000000)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @random="65ed59501ed8"}, 0x14)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r2, 0x1000008912, &(0x7f0000000040))
+sendmmsg(r0, &(0x7f0000004e80)=[{{0x0, 0x0, &(0x7f00000000c0)=[{&(0x7f0000000040)="896ba0bb6f5e94a3ee474c8b240b", 0xe}], 0x1}}], 0x1, 0x0)

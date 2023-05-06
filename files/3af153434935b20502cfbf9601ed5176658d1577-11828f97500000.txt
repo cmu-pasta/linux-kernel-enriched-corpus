@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=3af153434935b20502cfbf9601ed5176658d1577
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+add_key$user(&(0x7f00000000c0)='user\x00', 0x0, &(0x7f0000000340)="585ccbe4ed83b836c1a6474914dc55e72206297b6895b66147b3c7218a9169a85ea0bdc9e1587a050000000000000042e33089754c8107c3cd3923dd4a71c2ff06007b6b4816122d2550829eaa9435c99926022b8753a188748c569f435fb3bae96efb74b50ec93c152f5e8e198a29e5c0d0c60000ce0637ce003d661ff5ff70e48884ca000018cea71fcfacf40d32e4b58a8d2725561f6110fd7b06f90b5274cc5c1e", 0xa3, 0xfffffffffffffffe)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=422a020e119fbac4c15d8fed114cc1696fe5c51a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true,"segv":true}
+pipe(&(0x7f0000000140)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+write(r1, &(0x7f00000001c0), 0xfffffef3)
+read(r0, &(0x7f0000000200)=""/250, 0x50c7e3e3)
+fcntl$setpipe(r1, 0x407, 0x0)

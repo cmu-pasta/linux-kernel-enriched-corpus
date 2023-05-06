@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1c2132cc5a2f0d05091adc4f2ed088020522f73a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+connect$llc(r0, &(0x7f00000048c0)={0x1a, 0x1, 0x0, 0x0, 0x40, 0xff, @link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0x2}}, 0x10)

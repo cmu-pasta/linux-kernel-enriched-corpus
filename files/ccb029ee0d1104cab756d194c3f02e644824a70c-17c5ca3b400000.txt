@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ccb029ee0d1104cab756d194c3f02e644824a70c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":1}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, 0x0, 0x0)
+ioctl(0xffffffffffffffff, 0x0, 0x0)
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000140)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000080)=0x6)

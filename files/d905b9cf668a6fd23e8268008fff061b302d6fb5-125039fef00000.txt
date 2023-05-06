@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d905b9cf668a6fd23e8268008fff061b302d6fb5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","cgroups":true,"close_fds":true,"tmpdir":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='cgroup2\x00', 0x0, 0x0)
+r0 = open(&(0x7f0000000140)='./file0\x00', 0x0, 0x0)
+r1 = openat$cgroup_subtree(r0, &(0x7f00000001c0), 0x2, 0x0)
+write$cgroup_subtree(r1, &(0x7f0000000100)={[{0x2d, 'pids'}]}, 0x6)
+write$cgroup_subtree(r1, &(0x7f00000000c0)={[{0x2b, 'pids'}]}, 0x6) (fail_nth: 22)

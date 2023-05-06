@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=1557fb40b5ed0a1ed2ba18268e04da194674d770
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket(0x10, 0x802, 0x0)
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+connect$inet(r1, &(0x7f0000593000)={0x2, 0x0, @remote}, 0x10)
+sendto(r1, &(0x7f0000000000), 0x0, 0x0, 0x0, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f00000001c0)={'erspan0\x00'})
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_TCP_MD5SIG(r2, 0x6, 0xe, &(0x7f0000000280)={@in6={{0xa, 0x0, 0x0, @loopback}}, 0x0, 0x4, 0x0, "bb3e3c09b49a97d5c8a15f5ed755689b13698a6f0e57992796f65ed15cc179711461f1616ca2a4eb03e92e99fca3bc38549aa1c684ed4775b99d7f1d49893b8dd323ec537e8ba6672ce33ededba8bf7d"}, 0xd8)
+setsockopt$inet6_tcp_int(r2, 0x6, 0x13, &(0x7f00000000c0)=0x100000001, 0x151)
+connect$inet6(r2, &(0x7f0000000140)={0xa, 0x0, 0x0, @ipv4={[], [], @dev={0xac, 0x14, 0x14, 0x17}}}, 0x1c)
+setsockopt$inet6_IPV6_ADDRFORM(r2, 0x29, 0x1, &(0x7f0000000240), 0x4)
+setsockopt$inet6_tcp_TCP_ULP(r2, 0x6, 0x1f, &(0x7f0000000080)='tls\x00', 0x152)
+setsockopt$inet6_tcp_TLS_TX(r2, 0x11a, 0x1, &(0x7f0000000100), 0x28)
+sendto$inet6(r2, &(0x7f00000005c0), 0xfffffdef, 0x40, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote}, 0x1c)

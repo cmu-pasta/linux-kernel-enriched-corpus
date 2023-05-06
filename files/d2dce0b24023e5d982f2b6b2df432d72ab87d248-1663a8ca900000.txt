@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d2dce0b24023e5d982f2b6b2df432d72ab87d248
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+clone(0x103, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+bpf$BPF_GET_PROG_INFO(0xf, &(0x7f0000000100)={0xffffffffffffffff, 0x0, 0x0}, 0x10)
+ptrace$setopts(0x4200, 0x0, 0x0, 0x100004)

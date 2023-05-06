@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d04f9c2ec11ab2678f7427795ff5170cb9eb2220
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_open_dev$binder(0x0, 0xffffffffffffffff, 0x2)
+capset(0x0, 0x0)
+ioctl(0xffffffffffffffff, 0x1000008912, 0x0)
+ioctl$UI_BEGIN_FF_UPLOAD(0xffffffffffffffff, 0xc06855c8, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x1, 0x4, &(0x7f0000001fd8)=@framed={{0xffffffb4, 0x0, 0x0, 0x0, 0x0, 0xffffff9c}, [@ldst={0x3fd, 0x3}]}, &(0x7f0000000080)='GPL\x04\x9c5\x14\xbfw-\xa0z\xe8.vY\n6\xf6I>\xc1\xab\x91\xb3\x97\xe4*\xbf\x1e\xa6\xcd\x8c\xd7t\'\xfc\x9a\x9e+qe\xf5+A\a\xbf\bP\xd8\x99\xdcR\xd0\x13\x17]\xdb\x1b/F <*\x05\xb7\"\xe3>Uo\xb2\xe3\xf3\x9a<\xde\x1f\xcaSd\x037\xec\x95aF\xbd\xbf\xcb\x11Pp\x19V1\xde]!\xa5\xea\x9ec\x8c+\xdbx\xa5\x01\xcaKn\xa3\x13\xd8%h\xf98,,?o\xab\xa6\xb4\xeeTy;N\xd2m\xae>R\"P)\xbb*\xc0\x00\x7fwuL?#\xce\xda\x98\t\xb9\xa9hJ\x94\n\xbc\xaa\x8c\xfc\xc7\x13>\xc4\"\xe9\xc88\x881\x8dA\xe9\xa4\x93\xf0\x19_\xe2Y\x96Q\xb8\x95\x04\xf5\xdb\xa1F%\xce#f\xf3=\x95\xdb\xa9/\x86ry\xca\xbfJ\xce\xdd\xc8Z\x8a\xf7\xa0\xfah\xd7g\xceQ6\xb9\xd0\xd1\x96lI\x9c\xb6\xbf4\xc2\x98\x86f\x97\x00'/248}, 0x48)
+syz_open_dev$loop(0x0, 0x0, 0x0)

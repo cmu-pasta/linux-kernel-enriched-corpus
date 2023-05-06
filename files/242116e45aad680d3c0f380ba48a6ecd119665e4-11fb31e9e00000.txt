@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=242116e45aad680d3c0f380ba48a6ecd119665e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"binfmt_misc":true,"close_fds":false,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f00000002c0)=ANY=[@ANYBLOB="4c0000006d000507000000000033000000000000", @ANYRES32=0x0, @ANYBLOB="0000000000000000140003006c6f00000000000000000000000000001800348014003500636169663000"/52], 0x4c}}, 0x0)

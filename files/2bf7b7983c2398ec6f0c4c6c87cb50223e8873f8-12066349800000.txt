@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=2bf7b7983c2398ec6f0c4c6c87cb50223e8873f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000f90000+0x6c)={0x26, 'skcipher\x00', 0x0, 0x0, 'kw(camellia-generic)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00003c1000)="0a0775b0d5e383e5b3b60ced5c54dbb7", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+readv(r1, &(0x7f0000b8a000-0x10)=[{&(0x7f000060c000-0x86)=""/134, 0x86}], 0x1)
+r2 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+r3 = ioctl$KVM_CREATE_VM(r2, 0xae01, 0x0)
+r4 = ioctl$KVM_CREATE_VCPU(r3, 0xae41, 0x0)
+openat$selinux_load(0xffffffffffffff9c, &(0x7f0000c40000)='/selinux/load\x00', 0x2, 0x0)
+syz_kvm_setup_cpu$x86(r3, 0xffffffffffffffff, &(0x7f000054b000/0x18000)=nil, &(0x7f0000828000-0x18)=[@text32={0x20, &(0x7f0000ae8000)="c4c17d2b461a66ba2000ec26670ff29f775466b804008ee8c744240000900000c7442402b0000000c7442406000000000f01142466baa000b87b0000000f23d00f21f835100000020f23f8f6774666baa000ed66ba42ecc4e27d2a85a2a50000", 0x60}], 0x1, 0x0, &(0x7f0000aed000)=[], 0x10000012)
+ioctl$KVM_SET_MSRS(r4, 0x4008ae89, &(0x7f0000c7c000-0x28)={0x1, 0x0, [{0x4b564d01, 0x0, 0x101}]})
+ioctl$KVM_RUN(r4, 0xae80, 0x0)

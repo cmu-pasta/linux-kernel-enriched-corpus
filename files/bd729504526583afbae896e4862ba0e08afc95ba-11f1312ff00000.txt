@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bd729504526583afbae896e4862ba0e08afc95ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000140)='/proc/bus/input/devices\x00', 0x0, 0x0)
+r1 = syz_io_uring_setup(0x77b, &(0x7f0000000080)={0x0, 0x80000000, 0x10}, &(0x7f0000ffc000/0x1000)=nil, &(0x7f0000ee7000/0x4000)=nil, &(0x7f0000000000)=<r2=>0x0, &(0x7f0000000040)=<r3=>0x0)
+syz_io_uring_submit(r2, r3, &(0x7f0000000200)=@IORING_OP_SPLICE={0x1e, 0x0, 0x0, @fd=r0, 0x0, {}, 0x0, 0x0, 0x0, {0x0, 0x0, r1}}, 0x0)
+io_uring_enter(r1, 0x450e, 0x0, 0x0, 0x0, 0x0)

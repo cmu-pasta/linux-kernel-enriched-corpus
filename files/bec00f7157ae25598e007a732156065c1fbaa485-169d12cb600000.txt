@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bec00f7157ae25598e007a732156065c1fbaa485
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ppp\x00', 0x0, 0x0)
+ioctl$EVIOCGPROP(r0, 0xc004743e, &(0x7f0000000540)=""/246)
+ioctl$PPPIOCSPASS(r0, 0x40107447, &(0x7f00000000c0)={0x8200, &(0x7f0000000080)=[{}]})

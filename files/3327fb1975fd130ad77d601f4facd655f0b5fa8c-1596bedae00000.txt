@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3327fb1975fd130ad77d601f4facd655f0b5fa8c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$sg(&(0x7f0000000240)='/dev/sg#\x00', 0x0, 0x5)
+r1 = dup2(r0, r0)
+write$P9_RSTAT(r1, &(0x7f0000000680)=ANY=[@ANYBLOB="6b0000007d0005000064000000f98700000000000000000000000000000000000008000000000000000000"], 0x2b)

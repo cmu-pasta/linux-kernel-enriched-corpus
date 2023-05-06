@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d97d08a129b1f62da5b97b4a66e59f62b65e0a24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0x16, 0x4, &(0x7f0000000040)=@framed={{0xffffffb4, 0x0, 0x0, 0x0, 0x0, 0x79, 0x10, 0x90}, [@ldst={0x2, 0x0, 0xb}]}, &(0x7f0000003ff6)='G\x00', 0x5, 0xfd90, &(0x7f000000cf3d)=""/195}, 0x48)
+bpf$BPF_PROG_ATTACH(0x8, &(0x7f0000000080)={r0, r0, 0x11, 0x3}, 0x10)
+syz_emit_ethernet(0x1, &(0x7f0000000000)=ANY=[@ANYBLOB="aaaaaaaaaaaaaaaaaaaaaa0008004500001c00000000006c907800000000e00000010810907800000000"], 0x0)

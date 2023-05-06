@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=372543ad5abd4ebcb24fc9dad9f893f4407d8740
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nfc_llcp(0x27, 0x801, 0x1)
+bind$nfc_llcp(r0, &(0x7f0000000080)={0x27, 0x0, 0x0, 0x0, 0x0, 0x0, "8811e78754a531d39c2bd64000000000000000cdc834bc921c0525fec2541e21ccf67e1d7b55cabe9e068dd58ce565aa9a9d325ebac7627ffe7a54cdbd77b3", 0x2b}, 0x60)
+listen(r0, 0x0)
+r1 = syz_init_net_socket$nfc_llcp(0x27, 0x801, 0x1)
+bind$nfc_llcp(r1, &(0x7f0000000080)={0x27, 0x0, 0x0, 0x0, 0x0, 0x0, "8811e78754a531d39c2bd64000000000000000cdc834bc921c0525fec2541e21ccf67e1d7b55cabe9e068dd58ce565aa9a9d325ebac7627ffe7a54cdbd77b3", 0x2b}, 0x60)
+bind$nfc_llcp(r1, 0x0, 0x0)

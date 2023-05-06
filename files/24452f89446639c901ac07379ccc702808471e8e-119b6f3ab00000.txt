@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=24452f89446639c901ac07379ccc702808471e8e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000140)={0x1e, 0x0, 0xfffffffe, 0x1c00, 0x0, 0x1, 0xfffffffb}, 0x40)
+bpf$MAP_LOOKUP_ELEM(0x1, &(0x7f0000000100)={r0, 0x0, 0x0}, 0x20)

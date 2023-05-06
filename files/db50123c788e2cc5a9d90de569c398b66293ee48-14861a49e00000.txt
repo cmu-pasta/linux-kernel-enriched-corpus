@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=db50123c788e2cc5a9d90de569c398b66293ee48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true,"segv":true}
+r0 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000200)='/dev/video6\x00', 0x2, 0x0)
+write$binfmt_elf32(r0, &(0x7f0000000140)=ANY=[@ANYBLOB="4d436634fd89b9af0d59a2834cfd3e647c96cd59f23a18a3814922c0c1bf02a5505fcb48920ef3dcff85b78421abef313db1b65dbf078eee5e7c7332f49d1e626b6aa07473e6ca1bdb7aca76d837b8d9"], 0x8)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(0xffffffffffffffff, 0x29, 0x20, 0x0, 0x0)
+r1 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x8447, 0x0)
+ioctl$VIDIOC_S_CTRL(r1, 0xc008561c, 0x0)
+preadv(r1, &(0x7f0000000800)=[{&(0x7f0000000000)=""/31, 0x1f}, {0x0}, {0x0}, {0x0}, {0x0}], 0x5, 0x0)
+add_key$keyring(0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffa)

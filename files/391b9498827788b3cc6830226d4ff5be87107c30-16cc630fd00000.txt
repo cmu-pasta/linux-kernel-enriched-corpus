@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=391b9498827788b3cc6830226d4ff5be87107c30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$packet(0x11, 0x2, 0x300)
+setsockopt$packet_fanout(r0, 0x107, 0x12, &(0x7f0000000180)={0x0, 0x8007}, 0x4)
+getsockopt$packet_int(0xffffffffffffffff, 0x107, 0x0, 0x0, 0x0)
+r1 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_mtu(r1, 0x0, 0xa, &(0x7f0000000000)=0x8000000000004, 0x4)
+sendto$inet(r1, &(0x7f0000865000), 0xffe4, 0x0, &(0x7f0000fd9ff0)={0x2, 0x4e20}, 0x10)
+perf_event_open$cgroup(0x0, 0xffffffffffffffff, 0x6, 0xffffffffffffffff, 0x4)
+syz_80211_join_ibss(0x0, 0x0, 0x0, 0x0)
+socket$can_bcm(0x1d, 0x2, 0x2)

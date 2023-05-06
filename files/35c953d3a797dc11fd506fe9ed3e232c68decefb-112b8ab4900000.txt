@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=35c953d3a797dc11fd506fe9ed3e232c68decefb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$can_j1939(0x1d, 0x2, 0x7)
+getsockname(r0, &(0x7f0000000100)=@ax25={{0x3, @rose}, [@rose, @null, @netrom, @remote, @null, @rose]}, &(0x7f0000000240)=0x80)

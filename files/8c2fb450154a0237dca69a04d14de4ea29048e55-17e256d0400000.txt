@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8c2fb450154a0237dca69a04d14de4ea29048e55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$inet6(0xa, 0x3, 0x3c)
+connect$inet6(r0, &(0x7f0000000180)={0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}, 0x9}, 0x1c)
+sendto$inet6(r0, &(0x7f0000000200)='!', 0x1, 0x8000, 0x0, 0x0)
+sendmsg(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000080)=[{&(0x7f0000000300)="119a0e63c9476288b671afdbd53a5994e137381f62021d1951b627b8dda57a5d17d744648c81c5703ed8146ab1b0171f89091b1dd323ff07dbb633fb3804849f7768e586df460963245dedb4013ee555af99499e44ad420dbf65fd46fbc9ba1274429e2d5783751815828ec8cb3553110cca66460215353d19f6d8bbd8fb08ad0491634ac2fd10e2cd30bcd7fede24263a7fff16e53ea293f3551b7147c33a44ea437fb1f77f94db4e65807582990a0a5efddf12de3caea6611173f964de99645e2c02bef138b406ca0644146ae4bb91e0438f8c47beddb0ed22f56bc0851def35824ca6c7258c", 0xe7}], 0x1, &(0x7f0000003b40)}, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e4be30826c1b7777d69a9e3e20bc7b708ee8f82c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = add_key$user(&(0x7f0000000040)='user\x00', &(0x7f00000002c0)={0x73, 0x79, 0x7a}, &(0x7f0000000300)="848432503e1ac2bae9d92c5d144121fbb1962144eae8978bd4f065eadead9ca85fd3c49e925de4007488bf80a2152f25efb149bbddc4493ad0c625b2e5cfabf2f745b9a6586673f693fc49f3b2e10e38afb34f9befefa874c9e7033ccc0e967bec6de22d59ece236cb34ca95781888a02e9796e3342b40b123e5f81ff5e36b907efecba4cfbf634fd3fe7f546dba4cdcc4fe13ac83893eef8276820db8efd0e90729fb71a71d96dd945238acddb8375d4b349d571748902d266efb9ab909b8b6", 0xc0, 0xfffffffffffffffd)
+r1 = add_key$user(&(0x7f0000000140)='user\x00', &(0x7f00000001c0)={0x73, 0x79, 0x7a}, &(0x7f0000000200)="1f", 0x1, 0xfffffffffffffffe)
+keyctl$dh_compute(0x17, &(0x7f0000000080)={r1, r0, r0}, &(0x7f00000003c0)=""/155, 0x9b, &(0x7f0000000600)={&(0x7f0000000000)={'sha384-generic\x00'}, &(0x7f00000000c0)="51dfe3160f324acf000000000000ecec9b971cb850e691170bbb28a2074de3fb4f1eb7661200000000000000000a000000", 0x31})

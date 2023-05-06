@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ecaca4a9ff4433a03763c176e958ecb8d2b27b4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":19,"leak":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = open(0x0, 0x141042, 0x0)
+mmap(&(0x7f0000001000/0xa000)=nil, 0xa000, 0x0, 0x11, r0, 0x0)
+mkdir(&(0x7f00000000c0)='./file0\x00', 0x0)
+openat$fuse(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+mount$fuse(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000300)='fuse\x00', 0x0, 0x0)

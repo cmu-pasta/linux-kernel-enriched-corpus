@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2820deb61d92a8d7ab17a56ced58e963e65d76d0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"segv":true}
+r0 = openat$ttyprintk(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ttyprintk\x00', 0x0, 0x0)
+ioctl$TIOCGPGRP(r0, 0x5437, 0x0)

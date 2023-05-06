@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6d600a0ff2cc263bc4edbddf0f597e456e303978
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = creat(&(0x7f0000000240)='./file0\x00', 0x0)
+r1 = fanotify_init(0x201, 0x0)
+read(r1, &(0x7f0000000000)=""/107, 0x6b)
+fanotify_mark(r1, 0x11, 0x2, r0, 0x0)
+write$UHID_SET_REPORT_REPLY(r0, &(0x7f0000000080)=ANY=[@ANYBLOB], 0x1)

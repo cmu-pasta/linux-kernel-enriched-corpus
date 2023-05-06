@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=76715a05746cd5db16bc8a77c1e65591953c8dae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000040)=ANY=[@ANYBLOB="240000001100010000000000000000002a2f9cca13"], 0x24}}, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000500)=ANY=[@ANYBLOB="3c00000010008506000000ff0100000000000000", @ANYRES32, @ANYBLOB="01000000000000001c0012000c000100626f6e64000000000c0002000800010006"], 0x3c}}, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000300)={&(0x7f00000003c0)=ANY=[@ANYBLOB="5000000010001fff00"/20, @ANYRES32=0x0, @ANYBLOB="00000000000000002800128009000100766574680000f0ff130002801400ff0000000000", @ANYRES32=0x0, @ANYBLOB="000e00000000000008000a00", @ANYRES32], 0x50}}, 0x0)
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+r2 = socket(0x10, 0x80002, 0x0)
+sendmmsg$alg(r2, &(0x7f00000000c0), 0x492492492492627, 0x0)
+sendmsg$nl_route(r2, 0x0, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000001c0)=ANY=[@ANYBLOB="2800000010005fba000000070000000000000000", @ANYRES32=0x0, @ANYBLOB="030000000000000008001b"], 0x28}}, 0x0)

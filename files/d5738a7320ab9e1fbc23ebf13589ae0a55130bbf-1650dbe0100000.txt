@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d5738a7320ab9e1fbc23ebf13589ae0a55130bbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+ioctl(0xffffffffffffffff, 0x1000008912, &(0x7f00000001c0)="080db5055e0bcfe847a071")
+mremap(&(0x7f0000ffe000/0x1000)=nil, 0x1000, 0x1000, 0x7, &(0x7f0000ffc000/0x1000)=nil)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=369d7776ffde266ffe528cf8740346435362f37f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket(0x2000000000000021, 0x2, 0x10000000000002)
+connect$rxrpc(r0, &(0x7f0000000040)=@in6={0x21, 0x0, 0x2, 0x1c, {0xa, 0x0, 0x0, @rand_addr="af597583887fc4958636fb64ca2b24a7"}}, 0x24)
+r1 = socket(0x2000000000000021, 0x2, 0x10000000000002)
+connect$rxrpc(r1, 0x0, 0x0)
+sendmmsg(r1, 0x0, 0x0, 0x0)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0xfffffffffffffd95, 0x0, 0x0, &(0x7f0000000000)=[{0x18, 0x110, 0x1, "ec"}], 0x18}}], 0x1, 0x0)

@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=fc7503c25f77e149f4a351e493b42f6a1846a9c5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$dspn(&(0x7f0000000080)='/dev/dsp#\x00', 0x28001, 0x2)
+ioctl$int_in(r0, 0x800000c0045002, &(0x7f0000000100))
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r2 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+r3 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000280)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r3, 0x5423, &(0x7f0000000040)=0xf)
+ioctl$KDADDIO(r3, 0x400455c8, 0x1)
+r4 = fcntl$dupfd(r1, 0x0, r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r4, 0x8912, 0x400200)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)

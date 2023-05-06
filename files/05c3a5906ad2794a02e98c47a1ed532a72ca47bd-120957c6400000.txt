@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=05c3a5906ad2794a02e98c47a1ed532a72ca47bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f0000000300)='/dev/vhost-vsock\x00', 0x2, 0x0)
+ioctl$VHOST_VSOCK_SET_GUEST_CID(r0, 0x4008af60, &(0x7f0000000040)={@my=0x0})
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_dgram(r1, &(0x7f0000000200)={0x28, 0x0, 0x0, @my=0x0}, 0x10)
+r2 = gettid()
+timer_create(0x0, &(0x7f0000044000)={0x0, 0x12}, &(0x7f0000000000))
+r3 = socket$rds(0x15, 0x5, 0x0)
+connect(r1, &(0x7f0000000400)=@nfc, 0x80)
+ioctl$KVM_GET_REG_LIST(r3, 0xc008aeb0, &(0x7f0000000080)={0x4, [0x10000, 0x8, 0x0, 0x32]})
+timer_settime(0x0, 0x0, &(0x7f00000000c0)={{0x0, 0x8}, {0x0, 0x9}}, &(0x7f0000040000))
+tkill(r2, 0x1004000000016)

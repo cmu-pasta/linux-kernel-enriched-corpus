@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":3,"leak":true,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000180)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000040)={'vet\x00\x00\x00\x00\x00\x00\x00\x00\x00\xbdh\x00', 0x43732e5398416f1a})
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000100)={'\x00\x00\x00\x00\x00\x00\x14\x00', 0x400})
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000440)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000080)={'vet\x00\x00\x00\x00\x00\x00\x00\x00\x00\xbdh\x00', 0x43732e5398416f1a})
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000000)={'syzkaller0\x00', 0x200})

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cac7a645a844d56d3e663f808ee2942b9dd48341
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r0, &(0x7f0000000080)={&(0x7f0000000480)={0x10, 0x23de4e66}, 0xc, &(0x7f0000000040)={&(0x7f00000019c0)={0x74, 0x22, 0x1, 0x0, 0x0, {0x4}, [@typed={0x8, 0x30, @uid}, @typed={0x14, 0x9, @ipv6}, @typed={0x14, 0xf, @ipv6=@dev={0xfe, 0x80, [], 0x13}}, @typed={0x8, 0x73, @pid}, @generic, @generic, @generic, @nested={0x28, 0x60, [@generic, @generic, @typed={0x10, 0x6, @str='vboxnet1\x00'}, @generic, @typed={0x4, 0xb, @binary}, @typed={0x8, 0x6d, @ipv4=@loopback}, @generic, @typed={0x8, 0x4a, @ipv4}, @generic, @generic]}]}, 0x74}}, 0x0)

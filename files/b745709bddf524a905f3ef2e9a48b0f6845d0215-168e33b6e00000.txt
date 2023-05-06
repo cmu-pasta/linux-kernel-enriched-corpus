@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b745709bddf524a905f3ef2e9a48b0f6845d0215
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"devlinkpci":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000600)={'bridge_slave_1\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000280)=ANY=[@ANYBLOB="600000002400070500"/20, @ANYRES32=r2, @ANYBLOB="00000000ffffffff0000000007000100667100003400020008000b000000000008000600000000000800030000000080e6ff07400c000000080001000000000008040000000000"], 0x60}}, 0x0)

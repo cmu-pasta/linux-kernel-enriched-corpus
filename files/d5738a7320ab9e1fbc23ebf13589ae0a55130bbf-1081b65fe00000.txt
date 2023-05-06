@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d5738a7320ab9e1fbc23ebf13589ae0a55130bbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+getsockopt$inet6_int(0xffffffffffffffff, 0x29, 0x17, 0x0, &(0x7f0000000140))
+mremap(&(0x7f0000b43000/0x2000)=nil, 0x2000, 0x2000, 0x7, &(0x7f0000739000/0x2000)=nil)

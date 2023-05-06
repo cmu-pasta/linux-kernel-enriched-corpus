@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4c7b2703501a755b74d25903a98b413083b45ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$audion(&(0x7f00000000c0)='/dev/audio#\x00', 0x2, 0x80000)
+ioctl$GIO_UNIMAP(r0, 0x4b66, &(0x7f0000000140)={0x3ffffffffffffd47, &(0x7f0000000100)=[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]})
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000480)='/dev/ptmx\x00', 0x1, 0x0)
+ioctl$TCSETS(r1, 0x40045431, &(0x7f0000000040))
+r2 = syz_open_pts(r1, 0x0)
+write(r1, &(0x7f0000c34fff), 0xffffff0b)
+ioctl$TIOCSSOFTCAR(r2, 0x5412, &(0x7f0000000000))

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=64ddc3ca5b0483292839d44b37ddb920e05ffd30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000080)={0x1, &(0x7f0000000040)=[{0x6, 0x0, 0x0, 0x7ffffffa}]})
+ustat(0x8, 0x0)

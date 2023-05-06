@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=38d36d1b26b4299bf964d50af4d79688d39ab960
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000100)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000080)={0x0, 0x0, 0xfa00, {0x10000000, &(0x7f0000000440)={<r1=>0xffffffffffffffff}, 0x2}}, 0x20)
+r2 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vhci\x00', 0x7d, 0x0)
+ioctl$KVM_GET_FPU(r2, 0x81a0ae8c, &(0x7f0000000280))
+ioctl$DRM_IOCTL_AGP_ALLOC(0xffffffffffffffff, 0xc0206434, &(0x7f0000000180)={0x100000000, <r3=>0x0})
+ioctl$DRM_IOCTL_AGP_UNBIND(r2, 0x40106437, &(0x7f0000000240)={r3, 0x119})
+write$RDMA_USER_CM_CMD_SET_OPTION(r0, &(0x7f0000000000)={0xe, 0x11, 0xfa00, @id_resuseaddr={&(0x7f00000001c0)=0x1, r1, 0x0, 0x1, 0x4}}, 0x6a)
+write$RDMA_USER_CM_CMD_LISTEN(r0, &(0x7f00000000c0)={0x7, 0x8, 0xfa00, {r1, 0x3}}, 0x10)
+write$RDMA_USER_CM_CMD_LISTEN(r0, &(0x7f0000000200)={0x7, 0x8, 0xfa00, {r1}}, 0x10)

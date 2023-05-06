@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fbbef66d9e4d096242f3617de5d14d12705b4659
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$minix(&(0x7f00000015c0), &(0x7f0000000040)='./file1\x00', 0x2208018, &(0x7f0000000000)=ANY=[], 0x1, 0x231, &(0x7f0000000500)="$eJzs201LVG8UAPAzOn+Ff7taGQRBQQXlaGLlIkgwy17IXr6A6GTS+ELWQhEyCoK+QitXQft2fYU+QtY6cBG0atGE1xidS9Jtarw2/n5wuc+Z5x7O8wyce+/mBrB3FSMKUYihiKhWq4/vHY3l5c3ZR6P7u/JcHdBE1Zzrf6s2qJDcr4A/0r7ehh/zXgWw89YGk/6PuYj48HlpfP2YHVkaH8r4/F4bbEvOF7bkrx8Xs+Y/KSTng8X6/OGIuLRNysDqp1pQXdnIP5aqf/k36/+fyh/JnL+x/+NH6vOvRMTViLgWEdc7N669ERGjEXHzJ/UnUvXvZKwPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwtxSiOx3X/dAWd6cq5Z5a/F8S99bijiQ+vSUe+nL4RF8t7kzmu8dnKxPN2gLQoLZf9H97qv+Lqf4H/l3zC4v3xyqV8oO9Oyju7J/Q0fn2wLNX7w/tir3nPXg5OfN03+r5rt2ynhYeDK+8eP7665uTWbPyvjMBzVZ6OD1Xml9YPDU1PTZZnizP9PYOnD3X33Omv6+UvPmX6t//gdax+dDPeyUAAAAAAAAAQKNuRcTtbebe7fBaAACA5sr28VDhx9WNfXuU8xYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAHfAwAA///r3c+X")
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000080)=ANY=[@ANYBLOB="1500000065ffff097b000008003950323030302e4c"], 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000280)=ANY=[@ANYBLOB="a8"], 0xa8)
+write$FUSE_DIRENTPLUS(r2, &(0x7f00000005c0)=ANY=[@ANYBLOB="32000000000000001c"], 0x10)
+mount$9p_fd(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000b80), 0x0, &(0x7f0000000140)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c, {[{@posixacl}]}})

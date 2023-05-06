@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fdc3d4dae8a0a78587603e1c288f3014c6d2b60b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000000)={0x26, 'aead\x00', 0x0, 0x0, 'pcrypt(generic-gcm-aesni)\x00'}, 0x58)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r1, &(0x7f0000000140), 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f0000000540)='tls\x00', 0x4)
+setsockopt$inet6_tcp_TLS_TX(r1, 0x11a, 0x1, &(0x7f0000000040)=@gcm_128={{0x303}, "1fece379d6386f36", "fc780f99cd9966da8622f116ee4a058d", "31f1f25b", "30048c872dc03f59"}, 0x28)
+sendto$inet6(r1, &(0x7f00000005c0), 0xffffffffffffff7f, 0x0, 0x0, 0x0)

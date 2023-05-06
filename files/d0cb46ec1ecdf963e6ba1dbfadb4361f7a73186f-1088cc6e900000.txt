@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d0cb46ec1ecdf963e6ba1dbfadb4361f7a73186f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = syz_io_uring_setup(0x6ad4, &(0x7f0000000080), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000180)=<r1=>0x0, &(0x7f0000000040)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000100)=@IORING_OP_WRITE={0x17, 0x0, 0x2000, @fd=r0, 0x200, &(0x7f0000000240)="3ca4cc61495c0ded257f14162ce64ec9986489b37ef47cae38d9e0863faff7c36697053b39b6ed47af9e2d52856df29eac46574a0068f8cf15355fd8cfbb3393031c13cf13dba6e591f65ac81502bf709fd2357c498a6a7cc1d1f29ec5cf76a7192364aff86875dacbcb7ef91f2f27a06249816a758f7443a05431152bec6e3f0b146fa1a529c081e2d76fa73dbb4af4fc620c4ee04a75c8c9df5741bab57d9e59e44b", 0xa3, 0x2}, 0x0)
+io_uring_enter(r0, 0x450c, 0x0, 0x0, 0x0, 0x0)

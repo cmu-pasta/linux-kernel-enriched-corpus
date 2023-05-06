@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=660cabc1b8bdb5a0a68e37cc37ed4c9229199e9e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+setsockopt$SO_TIMESTAMPING(0xffffffffffffffff, 0x1, 0x25, &(0x7f0000000180)=0x110, 0x4)

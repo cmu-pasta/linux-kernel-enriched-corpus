@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0084fd109a7a10011e183a357715c91cff2cacb0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+set_mempolicy(0x2, &(0x7f0000000200)=0xd273, 0x3)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+getsockopt$inet6_tcp_int(r0, 0x6, 0x5, &(0x7f0000d11000), &(0x7f0000000000)=0x4)

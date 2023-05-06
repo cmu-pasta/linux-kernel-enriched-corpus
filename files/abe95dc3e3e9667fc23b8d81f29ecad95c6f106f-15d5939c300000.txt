@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=abe95dc3e3e9667fc23b8d81f29ecad95c6f106f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+sendto(r0, &(0x7f0000000140)="4bb06807506512ee3873996a0800", 0xe, 0x0, &(0x7f00000000c0)=@nfc_llcp={0x27, 0x41, 0x0, 0x0, 0x0, 0x0, "79bebc804c882f2ae0328947bcd64d20fae19bbedfaad06cfe974bc323efe457ea83f23a3b04f7c7e5fa8f4ceec9404451bf2424ba860417b6a0cf9be51022"}, 0x80)

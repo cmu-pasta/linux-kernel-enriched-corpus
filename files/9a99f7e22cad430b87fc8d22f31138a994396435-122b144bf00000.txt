@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9a99f7e22cad430b87fc8d22f31138a994396435
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","binfmt_misc":true,"close_fds":false,"usb":true,"vhci":true,"sysctl":true}
+r0 = socket(0x10, 0x3, 0x0)
+setsockopt$netlink_NETLINK_TX_RING(r0, 0x10e, 0xc, &(0x7f0000000280)={0x4000}, 0x10)
+sendmsg$nl_generic(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000002780)={0x18, 0x3a, 0xa01, 0x0, 0x0, {0xa}, [@generic='\t']}, 0x18}}, 0x0)

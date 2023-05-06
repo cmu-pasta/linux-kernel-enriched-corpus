@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b961a4e9af0d706116c20db327ee3e7d76bcbb84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false,"sysctl":true}
+r0 = syz_io_uring_setup(0x3773, &(0x7f00000005c0), &(0x7f0000002000/0x3000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000000200), &(0x7f0000000140)=<r1=>0x0)
+syz_io_uring_setup(0x6ae6, &(0x7f00000002c0), &(0x7f00006d5000/0x2000)=nil, &(0x7f00006d6000/0x3000)=nil, &(0x7f0000000000)=<r2=>0x0, &(0x7f0000000100))
+syz_io_uring_submit(r2, r1, &(0x7f0000000000)=@IORING_OP_PROVIDE_BUFFERS={0x1f, 0x4, 0x0, 0x7ffd, 0x0, 0x0, 0x6}, 0x0)
+sendmmsg(0xffffffffffffffff, &(0x7f0000002040)=[{{&(0x7f0000001380)=@in6={0xa, 0x0, 0x0, @private0}, 0x80, 0x0}}], 0x1, 0x0)
+io_uring_enter(r0, 0x2ff, 0x0, 0x0, 0x0, 0x0)

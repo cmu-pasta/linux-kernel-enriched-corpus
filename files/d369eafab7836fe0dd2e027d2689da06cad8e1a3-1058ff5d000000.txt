@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d369eafab7836fe0dd2e027d2689da06cad8e1a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xaf4000)=nil, 0xaf4000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000aee000)="2f6465762f6b766d00", 0x100, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_GUEST_DEBUG(0xffffffffffffffff, 0x4048ae9b, &(0x7f0000af0000-0x48)={0x80002, 0x0, [0x0, 0x0, 0xfffffffffffffffb, 0x10000000000, 0x8, 0x0, 0x3, 0xb5]})
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f00001b3000/0x18000)=nil, &(0x7f000092d000)=[@text32={0x20, &(0x7f0000001000-0x3c)="2e0f380a494b6b26a50f01d10f01b30058000066b8de008ec866ba4000ed66b8ae008ee8670f01370f01c9b9bc0b0000b80e000000ba000000000f30", 0x3c}], 0x1, 0x1, &(0x7f0000366000)=[@cr4={0x1, 0x400}, @cstype3={0x5, 0x5}], 0x2)
+ioctl$KVM_RUN(0xffffffffffffffff, 0xae80, 0x0)
+ioctl$KVM_SET_TSC_KHZ(0xffffffffffffffff, 0xaea2, 0x101)
+ioctl$KVM_S390_UCAS_UNMAP(0xffffffffffffffff, 0x4018ae51, &(0x7f0000aed000)={0x0, 0x10000, 0x0})

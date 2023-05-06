@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=424c53bca1b19e6a742443e90e4338427a17ccb3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$tmpfs(&(0x7f00000002c0)='tmpfs\x00', &(0x7f0000000400)='./bus\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f00000005c0)=ANY=[@ANYBLOB='huge=always'])
+r0 = creat(&(0x7f00000000c0)='./bus/file0\x00', 0x0)
+write$binfmt_elf32(r0, &(0x7f0000000540)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x38}}, 0xfffffdef)
+ftruncate(r0, 0x1ff)
+mmap(&(0x7f0000000000/0xfda000)=nil, 0xfda000, 0x1000003, 0x4031, 0xffffffffffffffff, 0x0)
+r1 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r1, 0xc020aa00, &(0x7f0000000040)={{&(0x7f00000e2000/0xc00000)=nil, 0xc00000}, 0x1})
+ioctl$UFFDIO_REGISTER(r1, 0xc028aa03, &(0x7f00000a0fe0)={{&(0x7f00005e3000/0x800000)=nil, 0x20ce6000}, 0x200000})

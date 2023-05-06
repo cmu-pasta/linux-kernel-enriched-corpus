@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=282e2b3c76b4d2fc3e28d16518b757336a40b4f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmsg$IPVS_CMD_DEL_DAEMON(r0, &(0x7f0000000240)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x20000800}, 0xc, &(0x7f0000000200)={&(0x7f0000000180)={0x70, 0x0, 0x400, 0x70bd28, 0x25dfdbfd, {}, [@IPVS_CMD_ATTR_DEST={0x1c, 0x2, [@IPVS_DEST_ATTR_U_THRESH={0x8}, @IPVS_DEST_ATTR_PORT={0x8, 0x2, 0x4e22}, @IPVS_DEST_ATTR_L_THRESH={0x8, 0x6, 0x7}]}, @IPVS_CMD_ATTR_TIMEOUT_UDP={0x8, 0x6, 0x5}, @IPVS_CMD_ATTR_DEST={0x30, 0x2, [@IPVS_DEST_ATTR_ADDR={0x14, 0x1, @ipv6=@remote}, @IPVS_DEST_ATTR_PORT={0x8, 0x2, 0x4e24}, @IPVS_DEST_ATTR_INACT_CONNS={0x8, 0x8, 0x7fff}, @IPVS_DEST_ATTR_ACTIVE_CONNS={0x8, 0x7, 0x2}]}, @IPVS_CMD_ATTR_TIMEOUT_TCP={0x8, 0x4, 0x2}]}, 0x70}}, 0x20000000)
+listen(r0, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=92c7a10270ed8cc8a362dea644c043e1aa070566
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false,"segv":true}
+r0 = syz_io_uring_setup(0x3ede, &(0x7f0000000240), &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffe000/0x2000)=nil, &(0x7f0000000100)=<r1=>0x0, &(0x7f0000000140)=<r2=>0x0)
+r3 = bpf$MAP_CREATE(0x100000000000000, &(0x7f0000000100)={0x12, 0x4, 0x8, 0x4}, 0x40)
+r4 = socket(0x1, 0x1, 0x0)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000200)={r3, &(0x7f00000003c0), &(0x7f00000000c0)=@udp=r4}, 0x20)
+syz_io_uring_submit(r1, r2, &(0x7f0000000000)=@IORING_OP_READ=@pass_buffer={0x16, 0x0, 0x0, @fd_index=0x5, 0x0, &(0x7f0000000040)=""/18, 0x12}, 0x0)
+sendmmsg(0xffffffffffffffff, &(0x7f0000002040)=[{{&(0x7f0000001380)=@can, 0x80, 0x0, 0x13}}], 0x1, 0x0)
+io_uring_enter(r0, 0x2ff, 0x0, 0x0, 0x0, 0x36)

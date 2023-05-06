@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f0e3afa4b267343489abc3ccb1dfd55a562961e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000000), 0x40000000000003, 0x0)
+ioctl$VIDIOC_S_SELECTION(r0, 0xc040565f, &(0x7f00000001c0)={0x1})
+ioctl$VIDIOC_S_INPUT(r0, 0xc0045627, &(0x7f0000000040)=0x3)
+ioctl$VIDIOC_S_SELECTION(0xffffffffffffffff, 0xc040565f, &(0x7f00000001c0)={0x1, 0x100, 0x0, {0x1000, 0xe7fb}})
+r1 = syz_open_dev$video(&(0x7f0000000000), 0x40000000000003, 0x0)
+ioctl$VIDIOC_S_SELECTION(r1, 0xc040565f, &(0x7f0000000080)={0x1, 0x0, 0x31345f54edffcadf, {0x0, 0x0, 0x1000, 0x1fe}})
+r2 = syz_open_dev$video(&(0x7f0000000000), 0x40000000000003, 0x0)
+preadv(r2, &(0x7f0000000100)=[{&(0x7f0000000200)=""/4096, 0x1000}, {0x0}, {0x0}], 0x3, 0x8, 0x5)

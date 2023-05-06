@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0bd93ae08a4397ac1836f9e0e12c5e9eeb9d6d99
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r0, 0x400448dd, 0x0)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+ioctl$HCIINQUIRY(r0, 0x800448f0, &(0x7f00000000c0)={0x0, 0x0, "f008a7", 0x81})

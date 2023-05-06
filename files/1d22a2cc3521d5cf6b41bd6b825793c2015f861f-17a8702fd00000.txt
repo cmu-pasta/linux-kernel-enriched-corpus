@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = accept(r0, 0x0, 0x0)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040), 0xffffffffffffffff)
+setsockopt$inet6_MRT6_ADD_MFC_PROXY(r1, 0x29, 0xd2, 0x0, 0x0)
+sendmsg$NL80211_CMD_GET_POWER_SAVE(r2, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000300)={0x20, r3, 0x121, 0x0, 0x0, {{0x7e}, {@void, @val={0xc}}}}, 0x20}}, 0x0)

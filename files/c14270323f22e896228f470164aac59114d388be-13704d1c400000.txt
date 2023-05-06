@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=c14270323f22e896228f470164aac59114d388be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"segv":true,"waitrepeat":true}
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000040)={0x7, 0x4d}, 0x7)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f0000000740)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})
+write$P9_RGETATTR(r1, &(0x7f0000000200)={0xa0, 0x19, 0x1}, 0xa0)
+write$P9_RWALK(r1, &(0x7f0000000140)={0x16, 0x6f, 0x1, {0x1, [{}]}}, 0x16)
+write$P9_RGETATTR(r1, &(0x7f0000000380)={0xa0, 0x19, 0x1}, 0xa0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000900)='9p\x00', 0x0, &(0x7f0000000600)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c, {[{@access_uid={'access', 0x3d}, 0x2c}]}})
+openat$sequencer(0xffffffffffffff9c, &(0x7f0000000180)='/dev/sequencer\x00', 0x800, 0x0)
+mknod(&(0x7f0000000080)='./file0\x00', 0x2, 0x4)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3c9bb30407ff4bb00a9da9804f108fd148687280
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket(0x2, 0x5, 0x0)
+ioctl$sock_inet_SIOCADDRT(r0, 0x89a0, &(0x7f0000000080)={0x28, {0x2, 0x0, @local}, {0x2, 0x0, @loopback}, {0x2, 0x0, @multicast1}})
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000100)={<r1=>0xffffffffffffffff})
+ioctl$sock_ifreq(r1, 0x89a2, &(0x7f0000000000)={'bridge0\x00', @ifru_settings={0x0, 0x0, @fr=0x0}})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b5f9aa7dda79773fb7a8eeb90816e8d5980656e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$tmpfs(&(0x7f00000002c0)='tmpfs\x00', &(0x7f0000000100)='./bus\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='huge=always'])
+chdir(&(0x7f0000000380)='./bus\x00')
+r0 = creat(&(0x7f0000000400)='./bus\x00', 0x0)
+ftruncate(r0, 0x208200)
+r1 = open(&(0x7f0000000200)='./bus\x00', 0x10103e, 0x0)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x7ffffe, 0x4002011, r1, 0x0)
+truncate(&(0x7f0000000040)='./bus\x00', 0x6)

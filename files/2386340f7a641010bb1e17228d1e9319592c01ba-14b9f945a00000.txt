@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2386340f7a641010bb1e17228d1e9319592c01ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = accept(0xffffffffffffffff, 0x0, 0x0)
+r1 = openat$hwrng(0xffffffffffffff9c, 0x0, 0x80, 0x0)
+ioctl$TIOCGPGRP(r1, 0x540f, 0x0)
+getsockopt$inet_int(r0, 0x0, 0x12, 0x0, &(0x7f00000002c0))
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r2, 0x1000008912, &(0x7f0000000040))
+fcntl$addseals(r2, 0x409, 0x9)
+r3 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0x1, 0x4, &(0x7f00000001c0)=@framed={{0xffffffb4, 0x4000, 0x7000000, 0x200000000000000, 0x0, 0x15, 0x0, 0x20001}, [@ldst={0x7}]}, &(0x7f0000000000)='\x00\x00\x00j\xff\xff\x9b\xff\xff\xf1s\x94\x9f\xaa!\xccQ\xd7\xa9\xcc\r1\xc2\a\x8f\xf8Ov\xbd\xd2\xef\xb2\xad\x1bd/\x10\xfebn\xdc#\xee\xfcl3w\x9d\xc3\xc7\f:\x98R\x9b?\xcfDl\x93Krp\xa1Z\x11H_\x89C\xa3#N\x9dHM\x17\xa6^\x80\xed\xd2\x02=U`rw\xcbtTEP\xbd\xb4\xaf\x93\x97\xea@\xb1\xa4\xe4\xe7Y\xa1\xcf,', 0x5, 0x410, &(0x7f00000000c0)=""/195}, 0x48)
+dup3(r2, r3, 0x80000)

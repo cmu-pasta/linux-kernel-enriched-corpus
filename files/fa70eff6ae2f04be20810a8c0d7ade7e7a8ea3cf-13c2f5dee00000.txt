@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=fa70eff6ae2f04be20810a8c0d7ade7e7a8ea3cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"devlinkpci":true}
+syz_mount_image$reiserfs(&(0x7f0000000100)='reiserfs\x00', &(0x7f0000000240)='./file1\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000001880)={[{@jdev={'jdev', 0x3d, './file1'}, 0x22}]})

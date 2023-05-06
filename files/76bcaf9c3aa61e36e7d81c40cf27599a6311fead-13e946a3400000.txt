@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=76bcaf9c3aa61e36e7d81c40cf27599a6311fead
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='F:::'], 0x0, &(0x7f00000001c0)='ceph\x00', 0x0, 0x0)

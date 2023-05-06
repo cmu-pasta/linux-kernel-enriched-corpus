@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c8fcdf433d735192086a8c3280ba5a2473663bd6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":false}
+r0 = socket$kcm(0x11, 0x2, 0x0)
+setsockopt$sock_attach_bpf(r0, 0x107, 0x14, &(0x7f0000000080), 0x4)
+sendmsg$kcm(r0, &(0x7f0000000a00)={&(0x7f00000000c0)=@phonet={0x23, 0x0, 0x0, 0x40}, 0x80, 0x0}, 0x0)

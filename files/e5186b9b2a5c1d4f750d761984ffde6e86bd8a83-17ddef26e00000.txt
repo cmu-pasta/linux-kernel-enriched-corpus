@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e5186b9b2a5c1d4f750d761984ffde6e86bd8a83
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"resetnet":true,"cgroups":true,"close_fds":true,"devlinkpci":true,"tmpdir":true}
+io_uring_setup(0xdf3, &(0x7f00000005c0)={0x0, 0x0, 0x3, 0x0, 0xfffffffd, [], {0x0, 0x0, 0x0, 0x0, 0x0, 0x2}})

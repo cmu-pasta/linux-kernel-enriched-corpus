@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":39,"leak":true,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000100)={0x0, 0x10420300, &(0x7f00000000c0)={&(0x7f0000000040)=@newlink={0x44, 0x10, 0x501, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x24, 0x12, @bond={{0xc, 0x1, 'bond\x00'}, {0x14, 0x2, [@IFLA_BOND_AD_LACP_RATE={0x8}, @IFLA_BOND_MODE={0x8, 0x1, 0x4}]}}}]}, 0x44}}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8af2597890938b642c3bf44a85859691fb9d5cfa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+connect$l2tp(r1, &(0x7f00005fafd2)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x4e21, @remote={0xac, 0x14, 0x0, 0xbb}}, 0x4, 0x0, 0x2}}, 0x2e)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x4e20, 0x1000, @ipv4={[], [0xff, 0xff], @loopback=0x7f000001}, 0x1}, 0x1c)
+sendto(r1, &(0x7f0000de7000), 0x0, 0xc3fe68eda9554f8b, &(0x7f000064eff0)=@ipx={0x4, 0x0, 0x800, "86462eb966dc", 0x8}, 0x80)
+syz_extract_tcp_res$synack(&(0x7f00000001c0), 0x1, 0x0)

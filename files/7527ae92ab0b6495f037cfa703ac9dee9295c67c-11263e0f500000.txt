@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7527ae92ab0b6495f037cfa703ac9dee9295c67c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false,"usb":true,"wifi":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f00000007c0)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000bc0)=@newqdisc={0x148, 0x24, 0xe09, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_red={{0x8, 0x1, 'red\x00'}, {0x11c, 0x2, [@TCA_RED_STAB={0x104, 0x2, "d277f96b0226e704b186e57e690c84da78c60bf175b2f327d2bd85ee43637608dcdef7ea93edfad1d87df851643906f3d824a342f8c3e9a63618d304228a31f391c7e2fed2f607b5b6e075a3eb3fe38d28d3e145172b92f67a722f0796784134938879aeb0deeb0c2e9936df0f4f219b69c0e8569590a3dbdd91b6ea849297b55ba61e015485743f9263df385744d2ef1ce1c5cdf65f610177b0bd91f74f33dc99542ed995e5552b37d178049ca15884fbc555904f951898a54647c091758f29c38bcad01e8fcaccebf9c2699350b87c3d5cdda727c4422a5690d79f382ae37e3a413654fb8c63f448bef317124aa36dfc4e32f1206f93163d869b04ddc05541"}, @TCA_RED_PARMS={0x14, 0x1, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6}}]}}]}, 0x148}}, 0x0)

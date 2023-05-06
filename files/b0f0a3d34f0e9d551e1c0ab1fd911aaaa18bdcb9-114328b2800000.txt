@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b0f0a3d34f0e9d551e1c0ab1fd911aaaa18bdcb9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:5 FaultNth:10 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+openat$rfkill(0xffffffffffffff9c, &(0x7f0000fd8000-0xc)="2f6465762f72666b696c6c00", 0x0, 0x0)
+ioctl$TUNSETQUEUE(0xffffffffffffffff, 0x400454d9, &(0x7f0000000000)={@generic="cf114f3e17ab82b32acf9585813689bc", @ifru_names=@common="695a01007674691b0000e2ffffff0000"})
+r0 = add_key(&(0x7f00005a9000-0x5)="7573657200", &(0x7f0000fcd000-0x5)={0x73, 0x79, 0x7a, 0x0, 0x0}, &(0x7f0000d46000)="a9753f2f58213ed3fe15d36831283049fe768d0ab3c55d0a6b20e350a7d07c2b79efab14a1906e0b034ca4f5820ab4c6f29505c0cd1657ff8c79ecac99212baf268ab56f4a557b398780ad06277b2c223ff5b9da9632cbc78a9faf14410e4e94527321b5728b09dc732494a3df57b827a388b2ccbe728b89b180669439e5acb42924f91b378b8b7076231a8ef5d5c3c8986737ce07ea00066895ece4f7e22bf37955dd94e3324198baae9d98d935d5cc507bc435173064dcda4df5054d361067", 0xc0, 0xffffffffffffffff)
+ioctl$TCSETAF(0xffffffffffffffff, 0x5404, &(0x7f0000603000)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+keyctl$dh_compute(0x17, &(0x7f000046d000-0xc)={r0, r0, r0}, &(0x7f00002e4000)="", 0x0, &(0x7f0000497000-0x38)={&(0x7f0000a46000)="726d6431323800", 0x0, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=970f32ab977bb0045d69da7132a7ad5cd885c014
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+syz_emit_ethernet(0x1, &(0x7f0000000040)=ANY=[@ANYBLOB], &(0x7f0000000000))
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e21, @multicast2=0xe0000002}, 0x10)
+sendto$inet(r0, &(0x7f0000588fff), 0xffffffffffffff3e, 0x20020003, &(0x7f0000385ff0)={0x2, 0x4e21, @loopback=0x7f000001}, 0x10)
+sendto$inet(r0, &(0x7f000000b240)="e7", 0x1, 0x0, &(0x7f000000b340)={0x2, 0x0, @multicast1=0xe0000001}, 0x10)
+connect(r0, &(0x7f00003cd000)=@ethernet, 0x10)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e21, @loopback=0x7f000001}, 0x10)

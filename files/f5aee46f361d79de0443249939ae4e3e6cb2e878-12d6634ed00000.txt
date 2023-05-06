@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f5aee46f361d79de0443249939ae4e3e6cb2e878
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$BATADV_CMD_GET_MESH(r1, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000180)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000000c0)=0x14)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000500)={&(0x7f0000001400)=ANY=[@ANYBLOB="440000001000390400"/20, @ANYRES32, @ANYBLOB="8304040000000000240012800b000100697036746e6c00001400028008000100", @ANYRES32=r2], 0x44}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6(0x10, 0x3, 0x0)
+sendto$inet6(r0, &(0x7f0000000000)='.', 0x10a73, 0x800, 0x0, 0x4b6ae4f95a5de35b)

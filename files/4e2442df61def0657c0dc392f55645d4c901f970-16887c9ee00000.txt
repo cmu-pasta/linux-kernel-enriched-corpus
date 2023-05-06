@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4e2442df61def0657c0dc392f55645d4c901f970
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false,"devlinkpci":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_inet_SIOCSIFPFLAGS(0xffffffffffffffff, 0x8934, &(0x7f0000000040)={'virt_wifi0\x00'})
+ioctl(r0, 0x800000000008b24, &(0x7f0000000040))

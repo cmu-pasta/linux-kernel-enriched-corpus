@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4330ceda236ce503797ca3e7469ae720ca6329cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000440)='ethtool\x00')
+sendmsg$ETHTOOL_MSG_LINKMODES_GET(r0, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000400)={0x14, r1, 0x305}, 0x14}}, 0x0)

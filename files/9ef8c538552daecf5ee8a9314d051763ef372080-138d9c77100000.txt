@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9ef8c538552daecf5ee8a9314d051763ef372080
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$unix(0x1, 0x2, 0x0)
+bind$unix(r0, &(0x7f0000003000)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)
+close(r0)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000300)='/dev/ptmx\x00', 0x0, 0x0)
+clone(0x40000000007fc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r1 = fanotify_init(0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='\xe9\x1fq\x89Y\x1e\x923aK\x00', &(0x7f0000000040)='9p\x00', 0x1000000, &(0x7f0000000080)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})

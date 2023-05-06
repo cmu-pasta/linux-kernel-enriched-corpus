@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=5015e2627c0565b479938624b4dc218ec4aac7db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mount$fuse(0x20000000, 0x0, 0x0, 0xfa04, 0x0)
+chdir(0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6(0xa, 0x400000000001, 0x0)
+close(r0)
+open(0x0, 0x141042, 0x0)
+getpid()
+ftruncate(r0, 0x200002)
+syz_usbip_server_init(0x5)

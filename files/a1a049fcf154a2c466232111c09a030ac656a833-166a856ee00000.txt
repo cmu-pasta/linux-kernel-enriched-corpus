@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a1a049fcf154a2c466232111c09a030ac656a833
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r0, 0x8922, &(0x7f0000001880)={'wg0\x00'})

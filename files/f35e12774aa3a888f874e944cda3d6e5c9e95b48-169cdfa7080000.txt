@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)={0x38, 0x1403, 0x3, 0x0, 0x0, "", [{{0x9, 0x2, 'syz0\x00'}, {0x8, 0x41, 'siw\x00'}, {0x14, 0x33, 'team_slave_1\x00'}}]}, 0x38}}, 0x0)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="18010000070000000000000000000000850000006d00000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000001400)={&(0x7f00000013c0)='ext4_es_find_extent_range_enter\x00', r1}, 0x10)

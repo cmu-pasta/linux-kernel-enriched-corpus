@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a3c5f6dc8ee7d04e8531e92b2bcef857aba69d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+syz_mount_image$btrfs(&(0x7f0000000080)='btrfs\x00', &(0x7f00000000c0)='./file0\x00', 0x0, 0x1, &(0x7f0000000400)=[{&(0x7f0000000500)="8da4363a00000000000000000000004d01000000000000000000000000000000ecf6f2a2299748aeb81e1b00920efd9a000001000000000001000000000000005f42485266535f4dd2f873574f257e0a01e2a6a02f5e071383fa5a669a53f2fe9eb4eb7918628af41b035fd98372e7c2a6970f550441f0b263dca46c12ce6aaa994fbb4b3493ca901878bb330d2db8e953fc883f9c754f419e963874199295a945ec867b4f224fde52268a81e1154b80f7076f32b6eb8614c672ecdecd385a1a7b8cac7cca0eb0cdbf1c5ee539c37d1f", 0xd0, 0x10000}], 0x0, &(0x7f00000003c0)=ANY=[@ANYBLOB])
+write$binfmt_script(0xffffffffffffffff, &(0x7f0000000780)=ANY=[@ANYBLOB], 0x0)
+r0 = openat$null(0xffffffffffffff9c, &(0x7f0000000040)='/dev/null\x00', 0x0, 0x0)
+ioctl$KDSKBMODE(r0, 0x4b45, &(0x7f0000000340)=0x4)

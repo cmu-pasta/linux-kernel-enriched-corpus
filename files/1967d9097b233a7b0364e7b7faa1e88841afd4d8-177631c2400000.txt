@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=1967d9097b233a7b0364e7b7faa1e88841afd4d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000040)={0xffffffffffffffca, 0x4d}, 0x7)
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})
+write$P9_RREADDIR(r1, &(0x7f0000000480)=ANY=[@ANYBLOB="2a000000290100000000000000000000000000000000000000000007002e2f66696c6530000000000000"], 0x2a)
+write$P9_RGETATTR(r1, &(0x7f0000000200)={0xa0, 0x19, 0x1}, 0xa0)
+write$P9_RREADDIR(r1, &(0x7f00000003c0)={0x2a, 0x29, 0x1, {0x0, [{{}, 0x0, 0x0, 0x7, './file0'}]}}, 0x2a)
+write$P9_RREADLINK(r1, &(0x7f0000000080)={0x10, 0x17, 0x1, {0x7, './file0'}}, 0x10)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000900)='9p\x00', 0x0, &(0x7f0000000400)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})
+getxattr(&(0x7f00000004c0)='./file0\x00', &(0x7f0000000500)=@known='security.capability\x00', &(0x7f00000002c0)=""/19, 0x143)

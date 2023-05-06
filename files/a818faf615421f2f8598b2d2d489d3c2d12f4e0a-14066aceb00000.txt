@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=a818faf615421f2f8598b2d2d489d3c2d12f4e0a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket(0x10, 0x3, 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x803, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000240)=@gettfilter={0x24}, 0x24}}, 0x0)
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000008c0)=ANY=[@ANYBLOB="4800000010000507000000000000004000000000", @ANYRES32=r3, @ANYBLOB="0000000000000000280012000c00010076657468"], 0x48}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000340)=@newqdisc={0x4c, 0x24, 0xf1d, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {0xfff1, 0xffff}}, [@qdisc_kind_options=@q_netem={{0xa}, {0x1c}}]}, 0x4c}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000001c0)=ANY=[@ANYBLOB="3400000024000b0f00"/20, @ANYRES32=r3, @ANYBLOB="000000000000ffff000000000b00010066715f706965"], 0x34}}, 0x0)

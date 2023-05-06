@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=fad1ef9d54f922a4e7015c8abba9151370a75b3a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000380)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f0000000000/0x18000)=nil, &(0x7f0000000280)=[@text64={0x40, &(0x7f0000000500)="0f0866b8ed008ec066ba4000b000eed2a807000000410f01cab98e0b0000b862000000ba000000000f30b90b0800000f320fc72a8f2a60128f00000000003000000fc7aa00100000", 0x48}], 0xaaaaaaaaaaaab97, 0xfffffffffffffffc, &(0x7f0000000580), 0x0)
+ioctl$KVM_SET_CPUID(0xffffffffffffffff, 0x4008ae8a, &(0x7f0000000080)=ANY=[@ANYBLOB="01000fc77f"])
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ccf34b892706ff6f3321da526329476eab23d5a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":6,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000280))
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x1, 0x31, 0xffffffffffffffff, 0x0)
+futex(&(0x7f0000001000), 0x89, 0x0, &(0x7f0000000000), &(0x7f0000000180), 0x2)

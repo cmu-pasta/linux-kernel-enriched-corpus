@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+unshare(0x40000000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xfba1133f8fc07f7b, 0x8031, 0xffffffffffffffff, 0x0)
+pipe(&(0x7f00000000c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+write$binfmt_misc(r0, &(0x7f0000000140)=ANY=[], 0x37cb1133)
+r1 = openat$cgroup_ro(r0, 0x0, 0x0, 0x0)
+r2 = accept4(r0, 0x0, &(0x7f0000000000), 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000680)='TIPCv2\x00')
+sendmsg$TIPC_NL_KEY_SET(r3, &(0x7f0000000100)={0x0, 0x2, &(0x7f00000000c0)={&(0x7f0000000200)={0x54, r4, 0x94d, 0x0, 0x0, {}, [@TIPC_NLA_NODE={0x40, 0x6, 0x0, 0x1, [@TIPC_NLA_NODE_KEY={0x3c, 0x4, {'gcm(aes)\x00', 0x14, "5e1a0a6f2a97bb00"/20}}]}]}, 0x54}}, 0x0)
+mmap(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x6, 0x13, r3, 0x6d95d000)
+sendmsg$TIPC_NL_NAME_TABLE_GET(r2, &(0x7f00000001c0)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x2}, 0xc, &(0x7f0000000140)={&(0x7f0000000a00)=ANY=[@ANYBLOB="fc020000", @ANYRES16=r4, @ANYBLOB], 0x2fc}}, 0x51)
+socket(0x0, 0x0, 0x0)
+r5 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPCTNL_MSG_TIMEOUT_NEW(r5, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000006c0)=ANY=[@ANYBLOB="3400000000080101000000000000000000000000060002400000000005000300212e1d639e31824c21e98e9f8cacc2e83080433cd979bc0c16996573f1263693c058dd10660f31658f533274910df9448247e445e81a289d5230a32953fbba302caa8a3a871b43df7db7a9d739bd911863c456a4fb02606d1a522f19a661617d39c5db8ac40defa8053dac2d27b6a4fd8f7b53e2fa030f099ddd199e85027c1dca3b78c123ec171d8caa1e25f0b8fbda9518ff43d10878e83627b83cc38aa6be7f780f7bf83e7d011eed643133af98a4dfb0e6103a9f3699ee015f875aae608152432637a78749c8c80fbb97089e08cbb1b0e793cc90a513e478626328cae832880849731a43fbe8cd6ecc9966403a2ebe1f3ccd5c057aa06138b20ed71f51540b6a2fe591af186f5aa29f420da336cbfaab87e1c3112018123967c88b4ddb98368467c0e7e120a2ebc5bc456d621193d9ff9f27bab6599a8654f8cfbc89125e02a35a687da9693c9bfaf107311b6acc6521f1e071ab3a21491dde29c839ce6b296363b049453fdc62f5b18459e00e8573db1e83d5391fdf2a5c07ae1eb72242715c9d3202174fff5b289f573132f7d00ba1fa21c44b70c59306ca61f7c856719b68bdad3f617e63b357f2408c510a1facc173546c995ef84f5ee50b76a0792626631c3ce61d3999d103d5d3a00c8e506d2b6ed2f0bc7784da931b93a08b69e85313f008b003a331af78a520a084255c8b9a010506d7def5f9380c9255cad9fd602f06912eef3b9108e8238e9580a2137c60ca4583213e97df710762a5b9b4fdd0991846cb00dae87fc581e672076528f4cf57ff446484a90b8cfe71a6c8030d35fd979d454f0dda0a5e57706f91c91755a5639eb6ed4eaf906d1d6e235148659822969b36ded233de1a899a440997"], 0x34}}, 0x0)
+sendmsg$IPCTNL_MSG_TIMEOUT_DELETE(r5, &(0x7f0000000580)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000040)=ANY=[@ANYBLOB="1400000002080101000000090000000000000000"], 0x14}}, 0x0)
+getsockopt$EBT_SO_GET_INFO(r0, 0x0, 0x80, &(0x7f00000002c0)={'filter\x00'}, &(0x7f0000000340)=0x78)
+setsockopt$netlink_NETLINK_DROP_MEMBERSHIP(r3, 0x10e, 0x2, &(0x7f0000000280)=0x15, 0x4)
+ioctl$TUNDETACHFILTER(0xffffffffffffffff, 0x401054d6, 0x0)
+getsockopt$inet_IP_XFRM_POLICY(r1, 0x0, 0x11, &(0x7f0000002ec0)={{{@in6=@ipv4={[], [], @local}, @in=@local}}, {{@in=@private}, 0x0, @in6}}, &(0x7f0000002fc0)=0xe8)
+sendmsg$can_raw(0xffffffffffffffff, &(0x7f0000003100)={0x0, 0x0, &(0x7f00000030c0)={&(0x7f0000003040)=@canfd={{0x2, 0x1}, 0xa, 0x3, 0x0, 0x0, "fb827ecd033bdec94dc137de5e8cc9855d14ba20ad93394f3323a5e291e386de0739f52597d8e2f871ec0b023a5c17fd5a438682ae6d5219d217c404f9ec9c32"}, 0x48}, 0x1, 0x0, 0x0, 0x4040}, 0x4804)

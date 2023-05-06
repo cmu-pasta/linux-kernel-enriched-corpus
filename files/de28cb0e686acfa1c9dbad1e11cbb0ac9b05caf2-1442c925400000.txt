@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=de28cb0e686acfa1c9dbad1e11cbb0ac9b05caf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+listen(r0, 0x80)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0x0, 0x20000004, 0x0, 0x0)
+write(r1, &(0x7f0000000380), 0xfffffffe)
+recvfrom$inet6(r1, &(0x7f0000001840)=""/31, 0xfffffe0e, 0x100, &(0x7f0000001880), 0x1c)
+ioctl$sock_inet_SIOCSIFFLAGS(0xffffffffffffffff, 0x8914, &(0x7f0000000000)={'lo\x00'})
+sendto$inet6(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=60b96a0afacea940396a2f76e03b4bcab2f4b800
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$packet(0x11, 0x3, 0x300)
+openat$tun(0xffffffffffffff9c, &(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x0)
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+bind$vsock_stream(r0, &(0x7f0000000140)={0x28, 0x0, 0x0, @host}, 0x10)
+listen(r0, 0x0)
+pipe(&(0x7f0000000080))
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r1, &(0x7f0000000040), 0x10)
+pselect6(0x40, &(0x7f00000000c0), 0x0, &(0x7f0000000140)={0x1ff}, &(0x7f0000000200), 0x0)

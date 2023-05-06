@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$tmpfs(0x0, &(0x7f0000000080)='./file0\x00', 0x0, 0x0, &(0x7f0000000000), 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f0000000180)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f00000004c0)=ANY=[@ANYBLOB="1500000061ffff"], 0x15)
+r2 = dup(r1)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f00000001c0), 0x0, &(0x7f0000000440)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}})
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000240)=ANY=[@ANYBLOB="b00000000000006b2e7fb3f373251028e47955a604c609000000a7a35e950c87046622f34749"], 0xb0)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x137)
+mount$9p_fd(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000140), 0x0, &(0x7f0000000340)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})
+mkdir(&(0x7f00000002c0)='./file0/file0\x00', 0x0)

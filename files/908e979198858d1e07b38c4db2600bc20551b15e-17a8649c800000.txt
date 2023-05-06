@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=908e979198858d1e07b38c4db2600bc20551b15e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x6000)=nil, 0x6000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socketpair(0x8000000000001e, 0x2, 0x0, &(0x7f0000000000)={<r0=>0xffffffffffffffff, 0xffffffffffffffff})
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000002000-0x1c)=@req3={0x37b7, 0x21, 0x7, 0x8, 0x7, 0xffffffff00000000, 0xc843}, 0x1c)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0d259373da8be7356652213543e1efc254a5abf0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000750000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f0000844000/0x18000)=nil, &(0x7f000059e000-0x18)=[@text64={0x40, &(0x7f00001aa000)="f04e090166ba610066b8ca8266ef410f001bc744240000300000c744240201000000c7442406000000000f011424c4e2f1ab09b9c20000000f32b9b20200000f320f00d6640fad705a0f20e035000001000f22e0", 0x54}], 0x1, 0xc, &(0x7f00007b0000)=[@dstype3={0x7, 0xc}, @vmwrite={0x8, 0x0, 0x7, 0x0, 0x2, 0x0, 0x890, 0x0, 0x20}], 0x2)

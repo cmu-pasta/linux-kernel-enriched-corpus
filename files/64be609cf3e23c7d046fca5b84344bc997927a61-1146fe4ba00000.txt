@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"close_fds":true}
+r0 = openat$pfkey(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+write$P9_RXATTRCREATE(r0, 0x0, 0x0)
+clone(0x70024100, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6db7d39c6de11d462f40f9984b81bee53d4827b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":1,"fault_nth":1}
+r0 = gettid()
+capset(&(0x7f0000000440)={0x20080522, r0}, &(0x7f0000000480))

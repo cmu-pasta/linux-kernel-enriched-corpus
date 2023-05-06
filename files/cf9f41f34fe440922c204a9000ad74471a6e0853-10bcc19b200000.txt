@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cf9f41f34fe440922c204a9000ad74471a6e0853
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+sendmsg$nl_generic(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000680)={&(0x7f0000000340)=ANY=[@ANYBLOB="130000005e000901000000000000000007000000e10cfc425f1cd77b625e5f6aaf3512cec13cec2ff9d1bf5f2b3b59edad56b1578e5217d6a0a5bc10082b31036e596d27c94261e680a520cfdf13598da51102b5d7ecc629cf7a0c7507d5520b4d80c986ab004f685c03b3a7df3e8dd39d642319ec15131388e880168dc7c0275bbb557f10d9f7aedfef396152c7f01df344d43c1a7079a33914127223dbe2763f6b03268b87cf1a6a51f64e46a208d94451c32435f1c2de71f786a0506aab01040000a8d1d853bfe056ffc2b366c24170a4bc2b464f2137ca57fe67394c91c683e5f5a16ff5bc90bf2d6f5f86d7d18d8a724ae45fb6bf915991134b773073df3f529be033ed18d1677a59ca25fa4427f82ebdcdfa7ee858e45339a6372da84ee9bca0d2fc"], 0x1}}, 0x0)
+r0 = socket(0x10, 0x80002, 0x0)
+sendmmsg$alg(r0, &(0x7f0000000140)=[{0x0, 0x0, &(0x7f0000000100), 0x0, &(0x7f0000000100)}], 0x492492492492805, 0x0)

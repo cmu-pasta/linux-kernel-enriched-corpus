@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d204aaca3ac260c553e053c566b529f350ea6454
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = open(&(0x7f0000000080)='./bus\x00', 0x141042, 0x0)
+write$binfmt_elf32(r0, &(0x7f0000000100)=ANY=[@ANYBLOB="7f454c460000000000000000000900000000000000000000000000003872f433582c05b16a000000000000b1b100001a00002c8c1711000000000000002b97a4940000000000010000000000000002000000ff0300000000"], 0x58)
+sendfile(r0, r0, &(0x7f0000000040), 0x80000001)

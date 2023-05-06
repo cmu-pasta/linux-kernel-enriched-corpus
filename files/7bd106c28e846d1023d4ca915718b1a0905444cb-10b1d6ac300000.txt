@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7bd106c28e846d1023d4ca915718b1a0905444cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+setsockopt$netlink_NETLINK_TX_RING(0xffffffffffffffff, 0x10e, 0xc, &(0x7f0000000000)={0x9}, 0x3c33)
+write(0xffffffffffffffff, &(0x7f00000000c0), 0x0)
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+ioctl$LOOP_CTL_REMOVE(r0, 0x4c81, 0x0)
+sendfile(0xffffffffffffffff, 0xffffffffffffffff, 0x0, 0x0)
+ioctl$BTRFS_IOC_DEV_REPLACE(0xffffffffffffffff, 0xca289435, 0x0)
+syz_mount_image$tmpfs(&(0x7f0000000180), &(0x7f00000010c0)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+setreuid(0x0, 0x0)
+ioctl$LOOP_CTL_ADD(r0, 0x4c80, 0x0)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000200)={0x3, 0xe, &(0x7f00000006c0)=ANY=[@ANYBLOB="b702000003000000bfa30000000000000703000000feffff7a0af0fff8fdfffe79a4f0ff00000000b7060000ffffffff2d6405000000000065040400010000000404000001007d60b7030000000000006a0a00fe00000000850000000d000000b7000000000000009500000000000000cacbf0b9c4b88449c3a926042512e17e46f7071a463143fb42c20e017feec42107f2e6ddbe1150296c6a6db4afa7c81b2636b1c5fbe24ec88317795e156dc83b9a0c76767e01d6d047a0842260751647d8a4b82384f08d35a2681c838dcf59c21334d04c01635f62de27c2049ac57ee9dfe5a1b3fc0239290e8b536b2ec6bf794f0c420ee70daf5fd4c4"], &(0x7f0000000340)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x300}, 0x48)
+perf_event_open(&(0x7f000001d000)={0x1, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_bp={0x0}}, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000080)={r0, 0x18000000000002a0, 0xe80, 0xe000000, &(0x7f00000000c0)="b9ff0a0000ffffff7f9e14f005051fffffff10144000630677fbac141433e000000162079f4b4d2f87e5feca6aab840413f2325f1a390101051a010001000000720edf74e30d7eabe773afef6f6e4798ab117e9f84fa406b913de8ad827a022e1faee50887dc302819a8a3d0cde36b67f337ce8eee124e061f8fea8ab95f1e8f99c7edea980697449b78569ea293c3eed3b28fc3205db63b2c65e77f19ab28c632cc80d9f2f37f9ba67174fffcb5244b0c909eb8e12116bebc47cf97d2ea8acadfb34ca580b64df7c800113e53bae401cd22f50072deabf93dd4d3e626", 0x0, 0x100, 0x0, 0x296, 0x0, &(0x7f0000000000), &(0x7f0000000040)}, 0x28)
+r1 = gettid()
+r2 = perf_event_open(0x0, r1, 0x1, 0xffffffffffffffff, 0x0)
+r3 = perf_event_open(0x0, 0x0, 0x10, 0xffffffffffffffff, 0x0)
+ioctl$PERF_EVENT_IOC_REFRESH(r3, 0x2402, 0x8)
+perf_event_open(0x0, r1, 0xd, r3, 0x1)
+ioctl$PERF_EVENT_IOC_PERIOD(r2, 0x40082404, &(0x7f00000001c0)=0xdde)
+r4 = bpf$PROG_LOAD(0x5, 0x0, 0x0)
+r5 = getpid()
+perf_event_open(0x0, r5, 0x5, 0xffffffffffffffff, 0x3)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000080)={r4, 0x18000000000002a0, 0xdd, 0x0, &(0x7f00000000c0)="b9ff030000ffffff7f9e14f005051fffffff00004000630677fbac141433e000000162079f4b4d2f87e5feca6aab840213f2325f1a390101050a0100010000000000df74e30d7eabe773afef6f6e4798ab117e9f84fa406b913de8ad827a022e1faee50887dc302819a8a3d0cde36b67f337ce8eee124e061f8fea8ab95f1e8f99c7edea980697449b78569ea293c3eed3b28fc3205db63b2c65e77f19ab28c632cc80d9f2f37f9ba67174fffcb5244b0c909eb8e12116bebc47cf97d2ea8acadfb34ca580b64df7c800113e53bae401cd22f50072deabf93dd4d3e626", 0x0, 0x100, 0x0, 0x0, 0x0, 0x0, &(0x7f0000000040)}, 0x48)

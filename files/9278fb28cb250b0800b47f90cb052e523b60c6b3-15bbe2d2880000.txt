@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9278fb28cb250b0800b47f90cb052e523b60c6b3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$tmpfs(0x0, &(0x7f0000000080)='./file0\x00', 0x0, 0x0, &(0x7f00000000c0), 0x10002, &(0x7f0000000280)=ANY=[@ANYBLOB='size=,\x00\x00\x00\x00\x00'], 0x0)
+mount(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='hugetlbfs\x00', 0x0, &(0x7f0000000280))

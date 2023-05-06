@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0b5da7af1edc95677e6a4eb483c0eefcd4db4c55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000040)=0xf)
+ioctl$KDADDIO(r0, 0x400455c8, 0x1)
+r1 = add_key$user(&(0x7f0000000040)='user\x00', &(0x7f0000000000)={'syz'}, &(0x7f00000002c0)="585ccbe4ed83b836c1a6474914dc55e72206297b6895b66147b3c7218a9169a85ea0bdc9e1587a050000000000000042e33089754c8107c3cd3923dd4a71c2ff06007b6b4816122d2550829eaa9435c99926022b8753a188748c569f435fb3bae96efb74b50ec93c152f5e8e198a29e5c0d0c60000ce0637ce0000b4ec24c53d3d661ff5ff70e48884ca000018cea71fcfacf40d32e4b58a8d2725561f6110fd7b06f90b5274cc5c1e298a16324fe27da2a9d5ba9ff3c009d308bd73f4772539", 0xc0, 0xfffffffffffffffe)
+r2 = add_key$user(&(0x7f0000000200)='user\x00', &(0x7f00000005c0)={'syz'}, &(0x7f00000000c0), 0x9a, 0xfffffffffffffffd)
+keyctl$dh_compute(0x17, &(0x7f00000000c0)={r2, r1, r2}, 0xfffffffffffffffe, 0xf9ffffff, 0x0)

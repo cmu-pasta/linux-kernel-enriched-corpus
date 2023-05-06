@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=4fa11e2f5ab9a65a32c8366d39d0915b433b48af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+sendmsg$NFT_MSG_GETCHAIN(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, 0x0, 0x8}, 0x0)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x210000000013, &(0x7f0000000040)=0x100000001, 0x4)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e21, @local}, 0x10)
+connect$inet(r0, &(0x7f0000000180)={0x2, 0x4e21, @local}, 0x10)
+setsockopt$inet_msfilter(0xffffffffffffffff, 0x0, 0x29, &(0x7f0000000240)=ANY=[@ANYBLOB="ac1e1301ac1e00010300000004000000ac1e0001"], 0x14)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r1, &(0x7f0000000280)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r1, 0x0, 0x74, 0x200087bd, &(0x7f0000000040)={0x2, 0x4e23, @empty}, 0x10)
+sendto$inet(r1, &(0x7f0000000000)='\f', 0xfb386d1f6a4fd57d, 0x400800a, 0x0, 0xae19fea218018fd)
+recvfrom$inet(r1, &(0x7f0000000080)=""/8, 0xfffffffffffffe6a, 0xf00, 0x0, 0xb84608a41099d4b8)
+setsockopt$inet_tcp_TCP_REPAIR_OPTIONS(r0, 0x6, 0x16, &(0x7f0000000240), 0xb2)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f0000000200), 0x88)
+sendto$inet(r0, &(0x7f0000000640)="e046385738d0b6e2f17050c3002a9fe3e2f4bbc226e39bf35204d275a8fadde37aab3905bbacaf04d57fb246d660ea69d755b5fa4e9dcdda9919e7cfdd2fd6f2ffd8ca8b450d8b0646e2d9363d42c096c630e57a2bfd2c36cec695821437e9d3554f3eb5c048236b4b4adb7e302a1588fa2daa0101000000000000f38fe3b4bded81207efe8fd987bd3b2cc76b79deb96df13c5456630d4cfb858f6dbcdd4f199a5164ba2fde0014d7f98d9251bbc07bca2b6710308dddc540dfb44b0f9a5f27d73e1c33d091ce5c7f8e57291112231b051a2af634f381203b6b98cb0c0a1291bd094e861061a5a7cd4777d447690e4ce2c07c13e8be18014070681395d0b0c385e39ce7d422637255c6d13229f280b57064ba62d52e7bfe695f75de4854fdef56f93ca9d237175aa0197b0e6850bd4158666d28006da6a35362b29ed6895507ab4064c7fcece12dfb9411b1274080915c0d3a124ae1b77be2d7c8c9c86c4d7a7589d7fc9c922ac84b411d0c219816f586b6fc7d2452ff4c5eb64f913598968cfae6f30fb0dc0ee08865739ed8aef27a1d973860531ae8a8c5dd6263e690a5be08e6732a2d526a6455ab9a9fcd36140462021416cc8d43c5b09215d8e4c221ea58fc6974edb8e258c738811f523b25c3d94c91b7d080b5466cbe699b2123cac02430e01d4b57c0dc794268f9b172694745678fcc68c569d01e821113d76b090ac0740cd35f82bfc027bfd500904bc62e260dc9d60d1545396141cff61bf720d5aff18c58278cc2778eae68f3ead53a4adae3b68c5344c3a982939d84661a042622fc9414ee873a78548299340d8fdef879802c636400"/611, 0xffffffffffffff67, 0x40007bd, 0x0, 0xffffffffffffff4f)
+recvfrom$inet(r0, &(0x7f00000198c0)=""/102387, 0x19000, 0x0, 0x0, 0x3e)

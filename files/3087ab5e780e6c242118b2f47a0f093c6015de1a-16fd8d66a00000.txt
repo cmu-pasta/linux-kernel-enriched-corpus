@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=3087ab5e780e6c242118b2f47a0f093c6015de1a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000180)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000140)={'ip\x8ei0\x00\x00@\x00', 0xc205})
+ioctl$TUNSETLINK(r0, 0x400454cd, 0x8000000001)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f00000007c0)={0xffffffffffffffff, 0x0, 0x21, 0x0, &(0x7f0000000000)="3f006671d7af52f647750500080089ea010000000000f109a708f78293c8744e1a", 0x0}, 0x28)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='net/arp\x00')
+fsetxattr$trusted_overlay_redirect(r1, 0x0, 0x0, 0x0, 0x2)
+r2 = syz_open_procfs(0x0, &(0x7f00000000c0)='comm\x00')
+r3 = socket$inet(0x2, 0x4000000000000001, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(r3, 0x8955, &(0x7f0000000000)=0x2)
+sendfile(r2, r1, 0x0, 0x80000000)

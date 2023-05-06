@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"close_fds":true,"tmpdir":true}
+openat$adsp1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/adsp1\x00', 0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+r1 = openat$cuse(0xffffffffffffff9c, &(0x7f0000000200)='/dev/cuse\x00', 0x82, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000080)='9p\x00', 0x0, &(0x7f0000000140)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1, @ANYBLOB])

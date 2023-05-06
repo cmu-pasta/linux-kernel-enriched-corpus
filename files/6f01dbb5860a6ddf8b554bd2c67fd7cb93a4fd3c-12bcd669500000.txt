@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6f01dbb5860a6ddf8b554bd2c67fd7cb93a4fd3c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":1,"netdev":true,"close_fds":true,"sysctl":true}
+r0 = socket(0x1d, 0x2, 0x6)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000100)={'vxcan1\x00', <r1=>0x0})
+bind$can_j1939(r0, &(0x7f0000000000)={0x1d, r1, 0x2}, 0x18)

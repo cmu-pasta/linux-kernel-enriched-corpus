@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=413121f25a7a81d0b2d05f76ff673538842d1cd6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":7,"fault_nth":9,"leak":true,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, 0x0)
+sendmsg(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000200)}, 0x0)
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f0000000080)={'bpq0\x00', 0x21})
+r1 = syz_open_procfs(0x0, &(0x7f0000000240)='ns\x00')
+getdents(r1, &(0x7f0000000040)=""/46, 0x2e)
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000740)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r2, 0x89f1, &(0x7f0000000080)='ip6tnl0\x00')

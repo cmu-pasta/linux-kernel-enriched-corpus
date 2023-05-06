@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0bf4b2b7ef0ab18c7543caf2345648153411cd46
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":6,"netdev":true}
+r0 = syz_open_dev$dri(&(0x7f0000000280)='/dev/dri/card#\x00', 0x0, 0x0)
+setsockopt$bt_hci_HCI_FILTER(0xffffffffffffffff, 0x0, 0x2, &(0x7f0000000000)={0x80, 0x7, 0xff}, 0x10)
+ioctl(r0, 0xffffffffffffffb2, &(0x7f0000000000))

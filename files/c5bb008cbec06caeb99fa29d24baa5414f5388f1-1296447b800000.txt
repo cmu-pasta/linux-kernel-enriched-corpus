@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c5bb008cbec06caeb99fa29d24baa5414f5388f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:none Fault:true FaultCall:4 FaultNth:12 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = syz_open_dev$tun(&(0x7f0000000280)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f00000000c0)={"d202b999cf85000000000088f301e710", 0x102})
+ioctl$TUNATTACHFILTER(r0, 0x401054d5, &(0x7f0000000140)={0x1, &(0x7f0000000100)=[{0x6}]})
+r1 = syz_open_dev$tun(&(0x7f0000000280)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f00000000c0)={"d202b999cf85000000000088f301e710", 0x102})

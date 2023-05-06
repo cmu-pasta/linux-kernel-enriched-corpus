@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+ioctl$VIDIOC_S_JPEGCOMP(0xffffffffffffffff, 0x408c563e, &(0x7f0000000080)={0x3, 0x3, 0x38, "87f88cf4e65318519dc0dcd2833404e495a208ea7ac226f91f5d2f8b475335569dcc13afc2f7841765f03f1411f5fe0d75690171e954148f489d7a09", 0x32, "a3ccd8c57b19a4b16bcebe7b1c33b7729d9ebbd2eaf02bea0b9b4840ef4b6808bf80b128a60f038cca1cd4a4e2cebafc6e9d5b674288fdb83d6e4b2e", 0x8})
+r0 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x3, 0x0)
+poll(&(0x7f0000000180)=[{r0, 0x1}], 0x1, 0xd90)

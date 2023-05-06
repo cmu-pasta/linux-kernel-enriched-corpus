@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6c831f7e51bd8c08ab5d4138ff9bb08d31f762ec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true}
+sendmsg$IPCTNL_MSG_CT_GET_CTRZERO(0xffffffffffffffff, &(0x7f0000000140)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x1000000}, 0xc, 0x0, 0x1, 0x0, 0x0, 0x40000}, 0x40088d1)
+write$binfmt_script(0xffffffffffffffff, &(0x7f0000000140)=ANY=[], 0x3af4701e)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28012, 0xffffffffffffffff, 0x0)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r1, &(0x7f0000000180)={0xa, 0x4001, 0x0, @dev={0xfe, 0x80, '\x00', 0x1c}, 0xd}, 0x1c)
+sendfile(r1, r0, 0x0, 0x80000000002)

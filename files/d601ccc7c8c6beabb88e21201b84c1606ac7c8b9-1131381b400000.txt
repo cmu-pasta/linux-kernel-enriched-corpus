@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d601ccc7c8c6beabb88e21201b84c1606ac7c8b9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"segv":true}
+r0 = socket(0xa, 0x1, 0x0)
+socket$l2tp(0x18, 0x1, 0x1)
+setsockopt$EBT_SO_SET_ENTRIES(r0, 0x0, 0x80, &(0x7f00000004c0)=@broute={'bropte\x00\x00d\x00', 0x20, 0x1, 0x368, [0x0, 0x0, 0x0, 0x0, 0x0, 0x20000100], 0x7000000, 0x0, &(0x7f0000000100)=[{0x0, '\x00', 0x0, 0xffffffffffffffff, 0x1, [{{{0x9, 0x0, 0x0, 'syz_tun\x00', 'bond_slave_0\x00', 'veth0_to_team\x00', 'veth0\x00', @link_local, [], @empty, [], 0x2a8, 0x2a8, 0x2d8, [@bpf0={"6270660000000000000000000000000000000000000000000000000000000001", 0x210}]}}, @common=@CONNSECMARK={'CONNSECMARK\x00', 0x8}}]}, {0x0, '\x00', 0x1, 0xffffffffffffffff}, {0x0, '\x00', 0x1, 0xffffffffffffffff}]}, 0x3e0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":6,"fault_nth":33,"leak":true,"close_fds":false}
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={0x0}}, 0x0)
+r0 = socket(0x10, 0x3, 0x0)
+socketpair$unix(0x1, 0x3, 0x0, 0x0)
+r1 = dup(0xffffffffffffffff)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000240)=@newlink={0x40, 0x10, 0x42b, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x20, 0x12, @gtp={{0x8, 0x1, 'gtp\x00'}, {0x14, 0x2, [{{0x8}, {0x8}}]}}}]}, 0x40}}, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+sendmmsg$alg(r0, &(0x7f0000000140), 0x4924b68, 0x0)

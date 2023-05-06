@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6ac359c61e71d22e06db7f8f88243feb11d927e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:namespace Fault:true FaultCall:6 FaultNth:1 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000bc0000-0xa)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00003ba000-0x24)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+r1 = syz_open_pts(r0, 0x0)
+poll(&(0x7f00003be000)=[{r1, 0x0, 0x0}], 0x1, 0x5d)
+ioctl$KDGETLED(r1, 0x4b31, &(0x7f0000262000-0x1)=0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f00001f9000)=0x2)

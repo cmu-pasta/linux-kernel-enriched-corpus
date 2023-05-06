@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d4bc7d67efe79c6ead3cb6bd94b84dbd287f1069
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$netlbl_cipso(&(0x7f0000000300), r1)
+sendmsg$NLBL_CIPSOV4_C_ADD(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000100)={0x38, r2, 0x1, 0x0, 0x0, {}, [@NLBL_CIPSOV4_A_TAGLST={0x4}, @NLBL_CIPSOV4_A_DOI={0x8}, @NLBL_CIPSOV4_A_MTYPE={0x8, 0x2, 0x1}, @NLBL_CIPSOV4_A_MLSLVLLST={0x10, 0x8, 0x0, 0x1, [{0xc, 0x7, 0x0, 0x1, [@NLBL_CIPSOV4_A_MLSLVLLOC={0x8, 0x5, 0x2612b814}]}]}]}, 0x38}}, 0x0)

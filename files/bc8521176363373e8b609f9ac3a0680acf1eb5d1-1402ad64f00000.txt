@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bc8521176363373e8b609f9ac3a0680acf1eb5d1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":true,"usb":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x2, 0x0, @empty}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0x0, 0x22004001, &(0x7f0000b63fe4)={0xa, 0x2, 0x5, @loopback}, 0x5e)
+sendto$inet6(r1, &(0x7f0000000080)="44f9b108b1cdc885c9c533d21f474bec8bfef1df1e2da71e578dc6b91d09f7ab15378571d8e27546090000006e75436914ab717528ee4b7a9beaf908d11137c11903064e83b4951f4d433a5404970c85d92d7083fd38844cbb0c6c5eb508ddc2dc7a590aa7941b1e9eeb5a688138dea09b776cbfa784cbf550bf3074fb0d775da4df5a3f48bbdf452eeb6b923da9d0e25b80f76a873664b5753444fe05f33e5f91045540836c3cd6af10f0cd018f0c6f57f926ac959a5628c45088fbe0c87fbe6cbcda4662d2a12f6d00"/215, 0xd0d0c2ac, 0x1, 0x0, 0x0)

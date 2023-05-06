@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=e0b1645bc00fa63a490cd457b9bc8a1777925204
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":true}
+socket$packet(0x11, 0x2, 0x300)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f00000005c0)=0x169, 0x4)
+setsockopt$inet_tcp_TCP_MD5SIG(r0, 0x6, 0xe, &(0x7f0000000780)={@in={{0x2, 0x0, @local}}, 0x0, 0x9, 0x6, 0x0, "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030cf00"}, 0xd8)
+bind$inet(r0, &(0x7f0000deb000)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r0, 0x0, 0x5, 0x200007fd, &(0x7f0000000040)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$sock_int(r0, 0x1, 0x8, &(0x7f0000000100), 0x4)
+recvmsg(r0, &(0x7f0000000240)={0x0, 0xfffffffffffffd83, &(0x7f0000000180)=[{&(0x7f0000003ac0)=""/4096, 0x5801}], 0x1, 0x0, 0xf080, 0x6}, 0x100)
+write$binfmt_elf64(r0, &(0x7f0000000880)=ANY=[@ANYRES16], 0xfc30)

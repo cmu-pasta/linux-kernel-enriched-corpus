@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000180)=ANY=[@ANYBLOB="380000000314010000000000000000000900020073796a3100000000080041007369770014003300766c616e30"], 0x38}}, 0x0)
+r1 = socket$packet(0x11, 0x3, 0x300)
+bind$packet(r1, 0x0, 0x0)
+ioctl$sock_SIOCGIFVLAN_DEL_VLAN_CMD(r1, 0x8982, &(0x7f0000000040)={0x1, 'vlan0\x00', {}, 0x6})

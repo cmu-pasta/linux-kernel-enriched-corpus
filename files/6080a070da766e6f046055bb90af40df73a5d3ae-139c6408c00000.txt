@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6080a070da766e6f046055bb90af40df73a5d3ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+socket$kcm(0x11, 0x3, 0x0)
+mount$fuse(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x0, 0x0)
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount(&(0x7f0000000040), &(0x7f0000000140)='./file0\x00', 0x0, 0x201000, 0x0)
+chdir(&(0x7f0000000300)='./file0\x00')
+pivot_root(&(0x7f00000004c0)='.\x00', &(0x7f0000000200)='./file0\x00')

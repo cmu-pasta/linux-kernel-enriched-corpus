@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=2bf7b7983c2398ec6f0c4c6c87cb50223e8873f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000919000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_TSS_ADDR(r1, 0xae47, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+mprotect(&(0x7f0000004000/0x3000)=nil, 0x3000, 0x0)
+ioctl$EVIOCGPROP(0xffffffffffffffff, 0xc004743e, &(0x7f0000001000)=""/246)
+mmap(&(0x7f0000011000/0x3000)=nil, 0x3000, 0x1, 0x32, 0xffffffffffffffff, 0x0)
+r3 = userfaultfd(0x0)
+mmap(&(0x7f0000001000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r4 = openat$selinux_relabel(0xffffffffffffff9c, &(0x7f0000c5b000-0x11)='/selinux/relabel\x00', 0x2, 0x0)
+ioctl$KDADDIO(r4, 0x4b34, 0x200)
+ioctl$UFFDIO_REGISTER(r3, 0xc020aa00, &(0x7f0000001000)={{&(0x7f0000011000/0x3000)=nil, 0x3000}, 0x1, 0x0})
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)

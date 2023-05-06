@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3553517af6020c4f2813f1003fe76ef3cbffe98d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000)='/dev/nullb0\x00', 0x1000000000003a, 0x0)
+write$FUSE_STATFS(r0, &(0x7f0000000100)={0x60}, 0x41)

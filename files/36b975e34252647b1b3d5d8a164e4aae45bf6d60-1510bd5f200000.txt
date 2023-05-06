@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=36b975e34252647b1b3d5d8a164e4aae45bf6d60
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$selinux_load(0xffffffffffffff9c, &(0x7f0000000140)='/selinux/load\x00', 0x2, 0x0)
+write$selinux_load(r0, &(0x7f0000000180)=ANY=[@ANYBLOB="8cff7cf9080000005345204c696e75781500000000f600000800000007000000402c1100000000000900000700000000000000000000000001040000000000000000000000000000006dbd00601524c9"], 0x50)

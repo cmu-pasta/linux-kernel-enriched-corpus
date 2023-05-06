@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=244acf6996ae0b9122ac763d3099922258c9bd43
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+pipe(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[], 0x4240a2a0)
+r3 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r3, &(0x7f00000000c0)={0x2, 0x4e20, @multicast2}, 0x10)
+setsockopt$sock_int(r3, 0x1, 0x3c, &(0x7f0000000000)=0x1, 0x4)
+sendto$inet(r3, 0x0, 0x0, 0x20020001, &(0x7f0000000080)={0x2, 0x4e20}, 0x10)
+sendmmsg$inet(r3, &(0x7f0000006880)=[{{0x0, 0x0, &(0x7f0000000140)=[{&(0x7f0000000100)='X', 0x1}], 0x1}}], 0x1, 0x60cd814)
+splice(r0, 0x0, r2, 0x0, 0x1f, 0x0)

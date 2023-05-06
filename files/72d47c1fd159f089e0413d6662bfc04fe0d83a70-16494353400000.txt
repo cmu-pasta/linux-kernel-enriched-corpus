@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=72d47c1fd159f089e0413d6662bfc04fe0d83a70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x0, &(0x7f00000001c0)={0xa, 0x4e20, 0x0, @mcast2}, 0x1c)
+r1 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl$sock_ifreq(r1, 0x8943, &(0x7f00000000c0)={'syz_tun\x00', @ifru_settings={0x1, 0xffffffff, @fr_pvc=0x0}})

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$audion(&(0x7f0000000040)='/dev/audio#\x00', 0x1, 0x101042)
+write$RDMA_USER_CM_CMD_JOIN_IP_MCAST(r0, &(0x7f00000020c0)={0x10, 0x30, 0xfa00, {0x0, 0x0, {0xa, 0x0, 0x0, @local}}}, 0x38)

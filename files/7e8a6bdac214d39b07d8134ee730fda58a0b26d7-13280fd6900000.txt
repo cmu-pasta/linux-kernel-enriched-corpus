@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7e8a6bdac214d39b07d8134ee730fda58a0b26d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+getsockopt$EBT_SO_GET_INIT_INFO(r0, 0x0, 0x82, &(0x7f0000000000)={'nat\x00'}, &(0x7f0000000100)=0x89)

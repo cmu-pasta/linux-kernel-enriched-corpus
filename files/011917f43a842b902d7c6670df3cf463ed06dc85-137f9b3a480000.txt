@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=011917f43a842b902d7c6670df3cf463ed06dc85
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+write$6lowpan_enable(0xffffffffffffffff, 0x0, 0x0)
+r0 = syz_io_uring_setup(0x56c, &(0x7f00000001c0)={0x0, 0x0, 0x10}, &(0x7f0000ffc000/0x1000)=nil, &(0x7f0000ffd000/0x2000)=nil, &(0x7f0000000040)=<r1=>0x0, &(0x7f00000000c0)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000080)=@IORING_OP_ASYNC_CANCEL={0xe, 0x10, 0x0, 0x0, 0x0, 0x12345}, 0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+io_uring_enter(r0, 0x2905, 0x0, 0x0, 0x0, 0x200000000000000)

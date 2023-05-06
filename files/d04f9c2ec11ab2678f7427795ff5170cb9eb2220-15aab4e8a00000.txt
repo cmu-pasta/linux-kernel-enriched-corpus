@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d04f9c2ec11ab2678f7427795ff5170cb9eb2220
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)
+bpf$BPF_TASK_FD_QUERY(0x14, 0x0, 0x0)
+gettid()
+bpf$OBJ_PIN_MAP(0x6, 0x0, 0x0)
+r0 = socket$kcm(0x11, 0x0, 0x0)
+sendmsg(r0, 0x0, 0x0)
+openat$cgroup_int(0xffffffffffffffff, 0x0, 0x2, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000b7a000)={0x3, 0x4, &(0x7f0000346fc8)=@framed={{}, [@alu={0x8000000201a7f19, 0x0, 0x6, 0x0, 0x1, 0x8c}]}, &(0x7f0000f6bffb)='GPL\x00', 0x1, 0xfb, &(0x7f00001a7f05)=""/251}, 0x48)
+write$cgroup_type(0xffffffffffffffff, &(0x7f0000000080)='threaded\x00', 0x36c)

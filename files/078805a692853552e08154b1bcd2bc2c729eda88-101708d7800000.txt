@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=078805a692853552e08154b1bcd2bc2c729eda88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$loop(&(0x7f0000ca9ff5)='/dev/loop#\x00', 0x0, 0x0)
+r1 = memfd_create(&(0x7f0000000140)="000000008c00000000000000000000", 0x0)
+ftruncate(r1, 0x800)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r0)

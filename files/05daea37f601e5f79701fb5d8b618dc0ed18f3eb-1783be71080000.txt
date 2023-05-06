@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=05daea37f601e5f79701fb5d8b618dc0ed18f3eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_genetlink_get_family_id$team(0x0, 0xffffffffffffffff)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_CHECKPOINT(r0, 0x4004662b, &(0x7f0000000000)=0x2)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40086602, &(0x7f0000000040)=0xc000)

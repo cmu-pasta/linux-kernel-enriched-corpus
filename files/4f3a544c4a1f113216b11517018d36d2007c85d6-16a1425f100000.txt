@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+unshare(0x40000000)
+bind$x25(0xffffffffffffffff, &(0x7f0000000100)={0x9, @remote={[], 0x3}}, 0x12)

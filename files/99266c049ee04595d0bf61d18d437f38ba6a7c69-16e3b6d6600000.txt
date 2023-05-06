@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=99266c049ee04595d0bf61d18d437f38ba6a7c69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":2,"close_fds":false,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_mreq(r0, 0x29, 0x1b, &(0x7f0000000200)={@dev}, 0x14)

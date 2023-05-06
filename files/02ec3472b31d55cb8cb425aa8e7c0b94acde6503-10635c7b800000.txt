@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=02ec3472b31d55cb8cb425aa8e7c0b94acde6503
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"tmpdir":true,"waitrepeat":true}
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f0000abf000)='./file0\x00', &(0x7f0000f4c000)='jfs\x00', 0x1023402, 0x0)
+ioctl$VHOST_SET_VRING_ERR(0xffffffffffffffff, 0x4008af22, &(0x7f0000000040))
+syz_mount_image$bfs(&(0x7f00000000c0)='bfs\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x0, &(0x7f0000000240), 0x2000420, 0x0)

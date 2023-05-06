@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c5499b672a7daf64fe25e2c2c934f2662aff76cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_msfilter(r1, 0x0, 0x8, &(0x7f0000000000)=ANY=[@ANYRES16], 0x1)
+getsockopt$inet_pktinfo(r1, 0x0, 0x8, &(0x7f0000000040)={<r2=>0x0, @local, @local}, &(0x7f0000000080)=0xc)
+sendmsg$nl_route_sched(r0, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000280)=@newqdisc={0x154, 0x24, 0x67e0317e552b57d7, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_choke={{0xa, 0x1, 'choke\x00'}, {0x124, 0x2, [@TCA_CHOKE_MAX_P={0x8, 0x3, 0x9}, @TCA_CHOKE_STAB={0x104, 0x2, "7ff62e6cb94707d79fbeb02624e829cc3d748923500d160c2fe4057d3aa0277cfdc0889dc3c3347eb45d7c45e8830ff8767deef8b5b7b6f0fed1022a30deb9997724b31e2fd8f91f8583a7da374873697c0b7f494f99cdbec6adc679f3dd1c3c17a98bc5decbb375dd604aa6878cb21ee7819fd361bc418d7d1994e3e514c5231e86f55b30cda63756ae96c8f0a58410fc3e80b3c7285086b233be4e3753a9907d81b7e92382e3e76719cc7e0cf92553d2acdca8d74eaf11dd276ac2fd8fa33c5bfced21ca00c9bf55d4112fa87b309b64c52b0c65f008c6f31afb503ade7aea254821f86f8deed1beee45c3358497036fd251c10700"}, @TCA_CHOKE_PARMS={0x14}]}}]}, 0x154}}, 0x0)

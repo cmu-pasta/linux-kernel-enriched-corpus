@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d75bc1468fb7ff9c2fa47437f4f1dc87ec7d8094
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x201000000000002, 0x0)
+r1 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+listen(r1, 0xffefffffffffff7f)
+r2 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r2, &(0x7f0000e33fe0)='X', 0x1, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback={0x0, 0x1}}, 0x1c)
+r3 = socket$inet_sctp(0x2, 0x5, 0x84)
+getsockopt$IPT_SO_GET_REVISION_TARGET(r3, 0x0, 0x43, &(0x7f0000000000)={'IDLETIMER\x00'}, &(0x7f0000000040)=0x1e)
+ioctl(r0, 0x8912, &(0x7f0000000280)="025cc83d6d345f8f760070")

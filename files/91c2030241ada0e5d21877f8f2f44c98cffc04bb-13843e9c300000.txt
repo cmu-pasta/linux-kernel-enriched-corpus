@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000080)={&(0x7f0000000040)='ext4_find_delalloc_range\x00', r0}, 0x10)
+bpf$BPF_GET_MAP_INFO(0xf, 0x0, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000440)={0x11, 0x6, &(0x7f00000001c0)=ANY=[@ANYBLOB="050000000000000061110c00000000008510000002000000850000000500000095000000000000009500a5050000000077d8f3b423cdacfa7e32fe0231368b522be16ad10a48b043ccc42606d25dfd73a015e0ca7fc2506a0f68a7d06d7535f7866907dc6751dfb265a0e3ccae669e174e7cc957d77578f4c35235138d5521f9453559c35da860e8efbc6f2b2a3e314422b85442e4ed73d5661cfeecf9c66c54c3b3ffe1b4ce254d2415c394664cd7c983c044c03bf3a48dfe3e26e7a23129d6606fd28a69989d552af6d9a9df2c3af36e0360050011bbecc2f4a3799af2551ce935b0f327cb3f011a7d06602e2fd5234712596b696418f163d1a13ed38ae82f87925bfacba83109753f541cd027edd68149ee99eebc6f7d6dd4aed4af7588c8e1b44ccb19e810879b70a70000000000000000000000d7900a822a92895614cd50cbe43a1ed25268816bde71350825f8ff387d753a30a147b24a48435bd8a568669596e9e086afbbca727f5a"], &(0x7f0000000080)='GPL\x00', 0x5, 0x29e, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x6, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000080)={&(0x7f0000000040)='ext4_find_delalloc_range\x00', r1}, 0x10)

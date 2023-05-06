@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3553517af6020c4f2813f1003fe76ef3cbffe98d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000002c0)=@ipv6_getaddrlabel={0x1c, 0x4a, 0x301}, 0x1c}}, 0x0)
+syz_genetlink_get_family_id$batadv(&(0x7f0000000040), r0)

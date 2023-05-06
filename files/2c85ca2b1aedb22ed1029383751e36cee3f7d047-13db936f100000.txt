@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2c85ca2b1aedb22ed1029383751e36cee3f7d047
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socket$inet6_sctp(0xa, 0x1, 0x84)
+socket$inet6_sctp(0xa, 0x5, 0x84)
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+pipe(&(0x7f0000000080))
+writev(r0, &(0x7f00000000c0)=[{&(0x7f0000000080), 0xfffffebe}], 0x1)

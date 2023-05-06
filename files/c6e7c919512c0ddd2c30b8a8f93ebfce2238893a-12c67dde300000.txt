@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=c6e7c919512c0ddd2c30b8a8f93ebfce2238893a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"usb":true,"tmpdir":true,"segv":true}
+r0 = socket$unix(0x1, 0x2, 0x0)
+bind$unix(r0, &(0x7f0000000300)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)
+connect$unix(r0, &(0x7f0000000080)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)
+sendmmsg(r0, &(0x7f0000002dc0), 0x307017fdb7a66cb, 0x0)
+connect$unix(r0, &(0x7f0000000180)=@abs, 0x6e)
+connect$unix(r0, &(0x7f0000000100)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)

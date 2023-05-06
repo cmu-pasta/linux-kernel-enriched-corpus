@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=a01db4c67933e9e4be8e721a8ee15a9530f1ac04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080)='/dev/nullb0\x00', 0x4000000004002, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r2, &(0x7f00000000c0)={0xa, 0x4e22}, 0x1c)
+listen(r2, 0x0)
+sendto$inet6(r1, 0x0, 0xfffffffffffffe32, 0x20004004, &(0x7f0000000040)={0xa, 0x20004e22, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f0000000000)='tls\x00', 0xc498ead121f97dd6)
+setsockopt$inet6_tcp_TLS_TX(r1, 0x11a, 0x1, &(0x7f0000000100)=@gcm_128={{0x303}, "d44eb8c7308ec7c4", "442065238929350ade91900b51fc9534", "6bdda720", "7ee51430da3f51b3"}, 0x28)
+sendto$inet6(r1, &(0x7f00000005c0), 0xffffffffffffffc1, 0x0, 0x0, 0x1201000000003618)

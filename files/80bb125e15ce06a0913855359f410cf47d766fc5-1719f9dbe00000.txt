@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=80bb125e15ce06a0913855359f410cf47d766fc5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080)='/dev/net/tun\x00', 0x0, 0x0)
+r1 = socket(0x10, 0x3, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}, 0x1, 0x0, 0x0, 0x4008084}, 0xc000)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000000)={'\x00', 0x7132})
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+r3 = socket$packet(0x11, 0x3, 0x300)
+getsockname$packet(r3, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200))
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000040)={'rose0\x00', 0x400})
+sendmsg$nl_route(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000500)=ANY=[@ANYBLOB="2000000011000d04000057640dc8e1833e520000", @ANYRES32=r4, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00'], 0x20}}, 0x0)

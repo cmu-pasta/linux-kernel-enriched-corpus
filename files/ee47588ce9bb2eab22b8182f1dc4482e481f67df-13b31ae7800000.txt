@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ee47588ce9bb2eab22b8182f1dc4482e481f67df
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:2 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$uinput(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/uinput\x00', 0x0, 0x0)
+ioctl$LOOP_CTL_GET_FREE(r0, 0x4c82)
+ioctl$BLKTRACETEARDOWN(r0, 0x40005504, 0x0)

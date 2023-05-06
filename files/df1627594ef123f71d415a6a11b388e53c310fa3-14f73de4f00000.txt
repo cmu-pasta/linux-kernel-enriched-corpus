@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=df1627594ef123f71d415a6a11b388e53c310fa3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000200), 0x0, 0x0)
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000240)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmsg(r1, &(0x7f0000000300)={0x0, 0x0, 0x0, 0x0, &(0x7f00000000c0)=ANY=[@ANYBLOB="e8000000000000000b010000ff0700008e548fe282fcaec7bf495d5c618332756cbb1bb9ce6d12b9d976d1f33aca41e50a3342bcd67c311f7885a05c3fcf2ae21ffc97ec481e7ca2c3ca4c7b3bf94448f62e111e5a79929b9182cc977ba6ae76ece37bdaac6da997fbc15f0c79f42155b99a280667b51fb8750fc3be5ef41f953fedb32aceeada13250626957e2013d5b12cc916541ccbeb0d4060a4dd89664eaba2f6b4ede0c9e3dc1c9446d9284ebe0e46eee7bc145ff0a2779c025553298812978ea53a8c60f254f23344a80a0aac7b141787bad6b0ba891e6cc85f2f3158f0d200000000000070000000000000000701000040000000afbb30c2946e41ef3167d1f6ed47aa1f52bad114a89dbed741f74a23cd8d915e2dcc74a4932642b90f90a9d3956d5cadb642ac79fcb0aae3654482188263abd27e9d57cc28032453dc75f333e1f367ab38b7e7719805a454e79802d07ec60c00b0000000000000000100000001"], 0x208}, 0x0)
+recvmmsg(r2, &(0x7f0000005d40)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000004ac0)=""/206, 0xce}}], 0x1, 0x0, 0x0)
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000240)={<r3=>0xffffffffffffffff, <r4=>0xffffffffffffffff})
+recvmmsg(r4, &(0x7f0000002a40)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000002940)=""/233, 0xe9}}], 0x1, 0x122, 0x0)
+sendmsg(r3, &(0x7f0000000300)={0x0, 0x0, 0x0, 0x0, &(0x7f00000000c0)=ANY=[], 0x208}, 0x0)
+recvmmsg(r4, &(0x7f0000005840)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000004500)=""/102, 0x66}}, {{0x0, 0x0, 0x0, 0x0, &(0x7f0000000340)=""/176, 0xb0}}, {{0x0, 0x0, 0x0, 0x0, &(0x7f0000005040)=""/128, 0x80}}, {{0x0, 0x0, 0x0, 0x0, &(0x7f0000005540)=""/112, 0x70}}, {{0x0, 0x0, 0x0, 0x0, &(0x7f0000005740)=""/227, 0xe3}}], 0x5, 0x2002, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)

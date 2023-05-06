@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7b4d75ac2b92f0f490d5b410588fafa42a99686a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = io_uring_setup(0x14a, &(0x7f0000000040))
+mmap$usbmon(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x1, 0x10, 0xffffffffffffffff, 0x6)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f00000003c0)=[0xffffffffffffffff], 0x40000000000001b2)
+io_uring_register$IORING_REGISTER_FILES_UPDATE(r0, 0x6, &(0x7f00000016c0)={0x1f, &(0x7f0000001680)=[0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]}, 0x3)
+openat$sequencer2(0xffffffffffffff9c, 0x0, 0x80000, 0x0)
+fcntl$setlease(0xffffffffffffffff, 0x400, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=03cac969e671adbca500f9737d1a8656c37c24a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+r1 = perf_event_open(&(0x7f0000940000)={0x2, 0x78, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r2 = fcntl$dupfd(r0, 0x0, r1)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r2, 0x0, 0x48b, &(0x7f0000000100)={0x2, 'lo\x00'}, 0x18)
+r3 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$inet6_MCAST_JOIN_GROUP(r3, 0x29, 0x2a, &(0x7f00009ecf78)={0x0, {{0xa, 0x0, 0x0, @mcast2={0xff, 0x2, [], 0x1}}}}, 0x2ef)

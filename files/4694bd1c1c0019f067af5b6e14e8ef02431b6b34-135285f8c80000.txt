@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4694bd1c1c0019f067af5b6e14e8ef02431b6b34
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000240)={0x0}, 0x10)
+r0 = syz_open_dev$sg(&(0x7f0000000180), 0x0, 0x805)
+writev(r0, &(0x7f0000000040)=[{&(0x7f00000001c0)="ae090900002000000090f57f077030eff0f64ebbeed90cf41bdd2ac8bb8c43b460e46292d25133270b445393ec19", 0x2e}, {&(0x7f00000000c0)="53000000fcffffff1b0448002d1407002002002000000000000067200000000000000000", 0x200000e4}], 0x2)

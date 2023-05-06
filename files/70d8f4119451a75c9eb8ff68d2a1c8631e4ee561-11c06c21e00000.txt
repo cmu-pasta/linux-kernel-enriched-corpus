@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=70d8f4119451a75c9eb8ff68d2a1c8631e4ee561
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":6,"netdev":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000140)={'veth0\x00', <r2=>0x0})
+setsockopt$inet6_mreq(r0, 0x29, 0x1b, &(0x7f0000000080)={@remote, r2}, 0x14)

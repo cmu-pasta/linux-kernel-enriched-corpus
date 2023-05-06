@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b5d799a2cc619607ed6e322f97f78eaf534451e1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='gfs2meta\x00', 0x0, &(0x7f00000000c0)="4596d4665d55625f770dac36f44d74e6cedd7c7b69025d1182152dc7")

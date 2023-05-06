@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=484483daf3652b40dae18531923aa9175d392a4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+r0 = creat(&(0x7f0000000300)='./bus\x00', 0x0)
+fallocate(r0, 0x1, 0x4791, 0x800000006)

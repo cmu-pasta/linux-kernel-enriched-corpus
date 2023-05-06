@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=47017a2e7741f58d3fa4ab61fcb941aaf7c772f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x11, 0x4000000000080002, 0x0)
+sendmmsg(r0, &(0x7f0000000100)=[{{&(0x7f0000000040)=@l2={0x1f, 0xffffdd86}, 0x80, &(0x7f0000000300), 0x0, &(0x7f0000000340)}}, {{&(0x7f0000000040)=@nfc={0x27, 0x9}, 0x80, &(0x7f0000002600), 0x0, &(0x7f0000000280)}}], 0x2, 0x0)
+syz_emit_ethernet(0x1, &(0x7f0000c57000)=ANY=[@ANYBLOB], &(0x7f0000ea3000))
+setsockopt$bt_BT_SECURITY(0xffffffffffffffff, 0x112, 0x4, &(0x7f00000000c0)={0x4, 0x4}, 0x2)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=426083b1e91873f7dc28032bfa16cbd46695cc17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"netdev":true,"resetnet":true,"segv":true}
+socket$l2tp(0x18, 0x1, 0x1)
+mmap(&(0x7f0000011000/0x3000)=nil, 0x3000, 0x1, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SUBSCRIBE_PORT(0xffffffffffffffff, 0x40505330, 0x0)
+r0 = userfaultfd(0x0)
+getsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(0xffffffffffffffff, 0x84, 0x9, 0x0, &(0x7f0000000040))
+getsockopt$inet_sctp6_SCTP_CONTEXT(0xffffffffffffffff, 0x84, 0x11, 0x0, 0x0)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000001fe8))
+syz_open_dev$evdev(0x0, 0x0, 0x0)

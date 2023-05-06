@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7b4fa7cb1a7c2d3342a2a8a6c53371c8c418ab47
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f00000000c0)={{0x12, 0x1, 0x0, 0x0, 0x0, 0x0, 0x10000000140, 0x926, 0x3333, 0x40, 0x0, 0x0, 0x0, 0x1, [{{0x9, 0x2, 0x24, 0x1, 0x0, 0x0, 0x0, 0x0, [{{0x9, 0x4, 0x0, 0x0, 0x1, 0x3, 0x1, 0x0, 0x0, {0x9, 0x21, 0x0, 0x0, 0x1, {0x22, 0x1}}, {{{0x9, 0x5, 0x81, 0x3, 0x8}}}}}]}}]}}, 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f0000000880)={0x24, 0x0, 0x0, &(0x7f0000000400)={0x0, 0x22, 0x5, {[@local=@item_4={0x3, 0x2, 0x0, "21338bd2"}]}}, 0x0}, 0x0)
+syz_usb_ep_write(r0, 0x0, 0x100, &(0x7f00000008c0)="9ae33c5ed8b0c046d4e6a06253383b4b3e90230cdf0301cd07f86de78251c2ffff1f9d090000000000004079ce9a135f000000000000c15d0882e3dd8eec94bd517b77b3b20370a1a9e6a37771434d88bae869ff1b3e3527da436fbcf8ae0038456ef886f55178fd66d3a3f140ce2d6d8fa9767df5267618ce52f86f1ea6997d4e5d0a843706caa959aebf68927b6c92071bdada17239bf39cd8a56d994c7cf965e9f89c8f4f24ddd3e0778664be95edf45757772629cd63e1626181361ebf0d58dcdec71cb73b76c580d3fd01fdf2156ca7a007440e53c88e42dac3eb62d2eae89e05ea95407e2e022f0a90714c978a31b55e01b818301b24e3b60886632249")

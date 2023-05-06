@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=37947cc14130ca054fcb5e40fdb94e76c2ff9d07
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:2 FaultNth:5 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x1e, 0x4, 0x0)
+perf_event_open(&(0x7f000025c000)={0x2, 0x78, 0x3e2}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000040)=@req={0x80, 0x0, 0x3, 0x73d}, 0x3eb)

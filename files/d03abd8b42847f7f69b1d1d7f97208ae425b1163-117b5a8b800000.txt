@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d03abd8b42847f7f69b1d1d7f97208ae425b1163
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = memfd_create(&(0x7f0000000440)="6f739ad6acc2b320fd785e18fa9cae1266786f034b4b9cc76317f2a743bddf8cb99605b8d9540fc70cb93475bcce4f7a2f28c2236a68e3dcd5197d0f87becdd144532926edafc7b5a241a0a294b5895bfa980b280c7df3ac3ca2422c7d5355d900796193b469597d7a2e221e3ea5bde9e6f5bf83421dc524fb03af370a325eaacd40b91b6799f300e9efbcb5b0a9557594a891f165b540f41bed4a56496397628998444f2dab9f0f8525324fc4e389e26374a168f06a2d5bc3f23634329ae7b36d1d1cdc82f23d6298d3bac8e63530ddae479b238ea86c0a60597ba98ab7545edaacdce3452304ecf918018a20", 0x0)
+write(r0, &(0x7f0000000000)="16", 0x1)
+perf_event_open(&(0x7f000000a000)={0x6, 0x78, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_bp, 0x200000400, 0x3}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+sendfile(r0, r0, &(0x7f0000000540), 0xffff)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x4, 0x11, r0, 0x0)

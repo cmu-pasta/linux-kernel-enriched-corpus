@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e0386951a18418e694300a50e4daa5af6786bc49
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000080)={'vlan0\x00', 0x1000000802})
+ioctl$sock_inet_SIOCSIFADDR(r0, 0x8916, &(0x7f0000000000)={'vlan0\x00\x00\xf6\xff\xff\xff\xff\xff\xff\xff\x00', {0x2, 0x0, @loopback}})
+r2 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_mreqn(r2, 0x0, 0x23, &(0x7f0000000740)={@multicast2, @loopback}, 0xc)
+setsockopt$inet_msfilter(r2, 0x0, 0x29, &(0x7f0000000140)=ANY=[@ANYBLOB="e00000027f0000010000000002000000e0000001e00000014aacfd5d07a5798fa172ecdd34ebf8691d866be1d43c4047c4aaf126306aa212634689649704ee5903d816200230ab9ad8e668efbca0d2ed51c6aa2ebf30bac1f5697130f297bddc811e16a05b3e44020a1eae897f436c71a47ce2231df6dbbc4faae91e5a6fb412928ffd7195f6a9fee688074ac88f089d40577343cefeb9824683018000000000000073cb20e66e3f1cd5c330a9d8a215d27a2fac7a6b98ff895113a4b781bd6188d9c2c763e44dac8e15a60f6ce2a9"], 0x18)

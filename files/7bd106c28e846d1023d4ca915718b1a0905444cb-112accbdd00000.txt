@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7bd106c28e846d1023d4ca915718b1a0905444cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+mmap$IORING_OFF_SQES(&(0x7f0000ff8000/0x1000)=nil, 0x1000, 0x0, 0x13, 0xffffffffffffffff, 0x10000000)
+ioctl$LOOP_CTL_REMOVE(r0, 0x4c81, 0x0)

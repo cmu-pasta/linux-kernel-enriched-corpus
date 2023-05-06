@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true,"vhci":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f00000000c0)=0x2000000000000074, 0x25d)
+bind$inet(r0, &(0x7f0000000280)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x220007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+recvmmsg(r0, &(0x7f0000002b40)=[{{&(0x7f0000000000)=@nl=@proc, 0x80, 0x0}, 0x2}, {{0x0, 0x0, &(0x7f0000000480)=[{0x0}, {0x0}, {&(0x7f0000000840)=""/4096, 0x1000}, {0x0}, {0x0}], 0x5}}, {{0x0, 0x0, 0x0}, 0x81}], 0x3, 0x100, 0x0)
+setsockopt$sock_int(r0, 0x1, 0x8, &(0x7f0000000600), 0x4)
+socket$packet(0x11, 0x3, 0x300)
+sendto$inet(r0, &(0x7f00000006c0)="0c268a927f1f6588b967480a41ba7860f46ef65ac618ded8974895abeaf4b4834ef922b3f1e0b02bd67aa03059bcecc7a95c25a3a07e758044ab4ea6f7ae55d88fecfa0b1a7511bf746bec66ba76b699d3a483904811c5709efa01fa13e4ddc813f76684d3d1529fea5d78b38267db0082270f62b41b50981b0313b668585ad32e8977c5f7c2dc112136b8f7392223205ad86f4a9de1cddbd119f26acc2f", 0xffffffcd, 0x11, 0x0, 0x170)

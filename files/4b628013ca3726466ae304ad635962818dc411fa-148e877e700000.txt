@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x9000000, &(0x7f0000000000)={&(0x7f0000000380)=ANY=[@ANYBLOB="3000000010000100000000000000000000004c00", @ANYRES32=0x0, @ANYBLOB="000c00000000000008001b00000000000500100006000000"], 0x30}, 0x1, 0xffffa888}, 0x0)
+syz_emit_ethernet(0x46, &(0x7f0000000040)={@broadcast, @random, @val, {@ipv4}}, 0x0)

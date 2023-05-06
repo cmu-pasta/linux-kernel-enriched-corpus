@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9b519f4f0bcaeb000ba93389eda00310a6020abe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = socket(0x2000000000000021, 0x2, 0x10000000000002)
+connect$rxrpc(r0, &(0x7f0000000040)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x0, @remote}}, 0x24)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f00000003c0)=ANY=[@ANYBLOB="18000000000000001001000001000000770000000bdf00409330b3e7d8ed127caa87f75478759207d10604ec95ff7bcb0d6b9b125ec85a366abe4f50111f0a03dbd1b4dea05a8b5b29e84e4fadaa6ebe736427e44dc6505d24234826a267f75c743db965041c09c59047f7f794fdffff80b6d724c8f356b5c28affffffffff8193b1a5c3438495d929ce2f1ae893afaf3f05d32d0bfa67b3da43ab981313e755223886b180a269917db5430ef9aec071e44cd19cb18e4e0528acd13471f44d80d21ed5de4b4ca31f4269a88115bece676d0fbf165b08c35178e5989379cc9df9e121a95731d088d6"], 0x18, 0x4800000000000000}}], 0x1, 0x0)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0xfffffffffffffd95, 0x0, 0x0, &(0x7f0000000000)=[{0x18, 0x110, 0x1, "ec"}], 0x18}}], 0x1, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_int(r1, 0x1, 0x1e, 0x0, &(0x7f0000000180))

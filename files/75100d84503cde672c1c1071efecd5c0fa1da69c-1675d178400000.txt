@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=75100d84503cde672c1c1071efecd5c0fa1da69c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"waitrepeat":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}, 0xb}, 0x1c)
+recvfrom(r0, &(0x7f0000000000)=""/54, 0x36, 0x40000000, &(0x7f00000000c0)=@nfc_llcp={0x27, 0x0, 0x0, 0x5, 0x51, 0x10001, "fcc613f7f6ca685077a4d8b915b8eee64348a6c7ef28c84506ff2ced97a675c616471cbc55d618584e736dc9f37787438191c005bcf7eb05ea5c792512c59a", 0xb}, 0x80)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+connect$l2tp(r1, &(0x7f00005fafd2)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x0, @multicast2=0xe0000002}, 0x4}}, 0x2e)
+sendmmsg(r1, &(0x7f0000005fc0)=[{{&(0x7f0000005680)=@sco={0x1f}, 0x80, &(0x7f0000005b00)}}, {{&(0x7f0000005b80)=@l2={0x1f}, 0x80, &(0x7f0000005c40), 0x1f4, &(0x7f0000005c80), 0x3a00}}], 0x3e8, 0x0)
+sendmmsg(r0, &(0x7f0000001b00), 0xb8, 0x0)

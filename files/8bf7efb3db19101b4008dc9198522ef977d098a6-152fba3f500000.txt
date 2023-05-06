@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8bf7efb3db19101b4008dc9198522ef977d098a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$smackfs_syslog(0xffffffffffffff9c, &(0x7f0000000040)='/sys/fs/smackfs/syslog\x00', 0x2, 0x0)
+write$binfmt_script(r0, &(0x7f00000000c0)={'#! ', './file0'}, 0x200000cb)

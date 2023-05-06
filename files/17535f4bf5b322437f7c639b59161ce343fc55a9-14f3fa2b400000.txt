@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=17535f4bf5b322437f7c639b59161ce343fc55a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$swradio(&(0x7f00000000c0)='/dev/swradio#\x00', 0xffffffffffffffff, 0x2)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000240)={0x0, 0x9, 0x1, {0xb, @pix={0x0, 0x1f}}})
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000100)={0x2, 0x7fff, 0x4, {0xb, @sdr={0x30383653, 0xfc}}})

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8c0c68130548c7ec737d9ccc018a7589a768c0a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000600)=@updsa={0x144, 0x1a, 0xa0b, 0x0, 0x0, {{@in6=@mcast2, @in6=@mcast1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {@in6=@remote, 0x0, 0x6c}, @in=@empty, {}, {}, {}, 0x0, 0x0, 0x2}, [@algo_comp={0x48, 0x3, {{'deflate\x00'}}}, @offload={0xc}]}, 0x144}}, 0x0)

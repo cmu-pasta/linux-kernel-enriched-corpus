@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=41f4318cf01762389f4d1c1c459da4f542fe5153
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={0x0, r0}, 0x10)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000440)={0x11, 0x6, &(0x7f0000000340)=ANY=[@ANYBLOB="050000000000000061110c00000000008510000002000000850000000500000095000000000000009500a505000000007751e8ba63cca555fedbe9d8f3b423cdacfa7e32fe023136f9f65515b0e1a38d8665522be18bd10a48b043ccc42646d25dfd73a015e0ca7fc2506a0f68a7d06d7535f76907dc6751dfb265a0e3ccae669e173a649c1cf96587d452d64e7cc957d77578f4c35235138d5521f9453559c35da860e8efbc6f2b2a3e3173d5661cfeec79c66c54c33283ba58d31a20a2251258f8a97db00fab5e2658d496c01085c8e09aa881"], &(0x7f0000000080)='GPL\x00', 0x5, 0x29e, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x6, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f00000002c0)='hrtimer_init\x00', r1}, 0x10)
+socket$inet6_tcp(0xa, 0x1, 0x0)

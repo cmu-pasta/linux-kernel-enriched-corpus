@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=48090fb069d2795ca20ac914718d1715b614eab7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = openat$qrtrtun(0xffffffffffffff9c, &(0x7f0000000000)='/dev/qrtr-tun\x00', 0x1)
+write$qrtrtun(r0, &(0x7f0000000040)="02", 0x400000)

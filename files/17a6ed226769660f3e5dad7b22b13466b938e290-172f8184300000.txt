@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=17a6ed226769660f3e5dad7b22b13466b938e290
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+r3 = socket(0x10, 0x803, 0x0)
+socket$bt_hidp(0x1f, 0x3, 0x6)
+sendmsg$NBD_CMD_DISCONNECT(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r3, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r2, 0x0, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000340)=ANY=[@ANYBLOB="5000000010008105000000000000005048000000", @ANYRES32=0x0, @ANYBLOB="01000000000000002800128009000100766c616e000000001800028006000100040000000c0002000c0000000d00000008000500", @ANYRES32=r4], 0x50}}, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, 0x0}, 0x0)
+r5 = socket$packet(0x11, 0x3, 0x300)
+getsockname$packet(r5, &(0x7f0000000100)={0x11, 0x0, <r6=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200))
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000740)=@newlink={0x20, 0x11, 0x40d, 0x0, 0x0, {0x0, 0x0, 0x0, r6}}, 0x20}}, 0x0)

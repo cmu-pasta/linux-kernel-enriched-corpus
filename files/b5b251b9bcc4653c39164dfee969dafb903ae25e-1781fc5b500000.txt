@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b5b251b9bcc4653c39164dfee969dafb903ae25e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$usbfs(&(0x7f00000000c0)='/dev/bus/usb/00#/00#\x00', 0x4000000000000071, 0x40002)
+ioctl$USBDEVFS_CONTROL(r0, 0xc0185500, &(0x7f0000000000)={0x23, 0x3, 0x101, 0x0, 0x0, 0x0, 0x0})

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=7ccce28d2486476600c5f2bcd5fadeff9b1aadd5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+syz_usb_connect(0x0, 0x24, &(0x7f0000000040)={0x12, 0x1, 0x800, 0xd6, 0x3e, 0x91, 0x8, 0x19d2, 0xffb5, 0x4a51, 0x0, 0x0, 0x0, 0x1, [{0x9, 0x2, 0x12, 0x1, 0x0, 0x0, 0x0, 0x0, [{0x9, 0x4, 0x88, 0x0, 0x0, 0xff, 0xff, 0xff}]}]}, &(0x7f0000001840)=ANY=[@ANYBLOB="59ffffff000000000000000019000000", @ANYPTR, @ANYBLOB])

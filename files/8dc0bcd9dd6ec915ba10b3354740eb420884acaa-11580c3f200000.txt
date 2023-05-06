@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8dc0bcd9dd6ec915ba10b3354740eb420884acaa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000440)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_SET_OPTION(r0, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000340)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000380)={<r1=>0xffffffffffffffff}, 0x13f}}, 0x20)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f00000003c0)={0x3, 0x8, 0xfa00, {{0xa, 0x4e21, 0x0, @ipv4}, {}, r1}}, 0x48)
+write$RDMA_USER_CM_CMD_LISTEN(r0, &(0x7f00000001c0)={0x7, 0x8, 0xfa00, {r1}}, 0x10)

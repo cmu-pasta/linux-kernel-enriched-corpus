@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"sysctl":true,"segv":true}
+openat$dir(0xffffffffffffff9c, &(0x7f0000002b40)='./file0\x00', 0x1040, 0x0)
+mount$bpf(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='bpf\x00', 0x400, 0x0)

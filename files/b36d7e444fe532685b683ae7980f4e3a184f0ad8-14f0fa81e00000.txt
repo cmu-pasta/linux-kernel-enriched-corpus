@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b36d7e444fe532685b683ae7980f4e3a184f0ad8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000000)='ethtool\x00')
+sendmsg$ETHTOOL_MSG_LINKMODES_SET(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000040)={0x40, r1, 0x1, 0x0, 0x0, {}, [@ETHTOOL_A_LINKMODES_HEADER={0x18, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'syz_tun\x00'}]}, @ETHTOOL_A_LINKMODES_OURS={0x14, 0x3, 0x0, 0x1, [@ETHTOOL_A_BITSET_SIZE={0x8, 0x2, 0xfffffff0}, @ETHTOOL_A_BITSET_VALUE={0x4}, @ETHTOOL_A_BITSET_NOMASK={0x4}]}]}, 0x40}}, 0x0)

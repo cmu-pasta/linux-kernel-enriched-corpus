@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=b642faac21312365cd30cc83ec73b2a05f73bf8a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$tmpfs(&(0x7f00000000c0)='tmpfs\x00', &(0x7f0000000000)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)={[{@mpol={'mpol', 0x3d, {'prefer'}}}]})

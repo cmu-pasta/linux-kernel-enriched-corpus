@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e53aa3e24378bd90e7891bb2de17967ed2114385
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+io_setup(0x3, &(0x7f0000000240)=<r0=>0x0)
+r1 = openat$md(0xffffffffffffff9c, &(0x7f0000000000)='/dev/md0\x00', 0x0, 0x0)
+bpf$BPF_TASK_FD_QUERY(0x14, 0x0, 0x0)
+close(r1)
+io_submit(r0, 0x1, &(0x7f0000000b00)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x5, 0x0, r1, 0x0}])
+r2 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r2, 0xc018aa3f, &(0x7f0000009fe8)={0xaa, 0x26})
+read(r2, &(0x7f00000002c0)=""/149, 0x95)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9c41e941294dec5d38cb930a645fb8c706dc3ae9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$mixer(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$SOUND_MIXER_WRITE_VOLUME(r0, 0xc0044d00, &(0x7f0000000080))

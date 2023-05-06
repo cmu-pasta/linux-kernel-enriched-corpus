@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b0e069ac9b03eab43b106c22fcc8bd778a7ccfb5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+socket$packet(0x11, 0x3, 0x300)
+r0 = socket(0x11, 0x3, 0x0)
+sendmsg$kcm(r0, &(0x7f0000000180)={&(0x7f0000000000)=@qipcrtr={0x2a, 0x3}, 0x80, 0x0}, 0x0)

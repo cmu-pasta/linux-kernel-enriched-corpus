@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=91cbd2d4963aa0a7fe7b94d1a5c2ec1e36fa67a1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+sendmsg$key(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000040)={0x0}}, 0x0)
+sendmsg$key(0xffffffffffffffff, &(0x7f00000001c0)={0x40000000, 0x0, &(0x7f0000000040)={&(0x7f0000000080)=ANY=[@ANYBLOB="02030609100000000000004c9e0000000200130002000000000000000000000105000600200000000a00000000000000000500e50000070000001f000000000000030000000000000200010000000000000000020000000005000500000000000a00000000000000ff1700000000000000000000000000170000000000000000"], 0x80}}, 0x0)
+sendmmsg(0xffffffffffffffff, &(0x7f0000000180), 0x400000000000002, 0x0)
+mount(&(0x7f0000000300), &(0x7f0000001840)='./file0\x00', 0x0, 0x1003, 0x0)
+mkdir(&(0x7f0000000440)='./file0\x00', 0xa4)
+pivot_root(&(0x7f0000000280)='./file0\x00', &(0x7f0000000300)='./file0\x00')

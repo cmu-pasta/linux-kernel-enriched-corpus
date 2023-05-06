@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7a77948870252213e9aeffb05e2f54a1f340a347
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f000001bfc8)={&(0x7f0000016000)={0x10}, 0xc, &(0x7f000000b000)={&(0x7f000000e000)=@ipv6_newroute={0x20, 0x18, 0x501, 0x0, 0x0, {0xa}, [@RTA_METRICS={0x4, 0xf}]}, 0x20}, 0x1}, 0x0)

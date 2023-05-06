@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0244c3ec087a2dd2b7bdeae485425df8c337b0cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$selinux_load(0xffffffffffffff9c, &(0x7f0000000080)='/selinux/load\x00', 0x2, 0x0)
+write$selinux_load(r0, &(0x7f0000000000)=ANY=[@ANYBLOB="8cff7cf9080000005345204c696e75781500000000f600000800000007000000402c1100000000000900000700000000000000000000000038585800000000000000000000000000006dbd006015d800ccbf8ef17025b54f36afa182"], 0x5c)
+sendmsg$key(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000040)={0x0, 0x1}}, 0x0)

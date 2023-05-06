@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=de17cc3f6902e8bf07334a3eb4a7bb30120c9fbb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false,"usb":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x100000000000000, &(0x7f00000000c0)={0x12, 0x4, 0x8, 0x9fb}, 0x40)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_tcp_int(r1, 0x6, 0x10000000013, &(0x7f00000006c0)=0x2000000000000001, 0x4)
+setsockopt$SO_BINDTODEVICE(r1, 0x1, 0x19, &(0x7f00000001c0)='macvlan1\x00', 0x10)
+connect$inet(r1, &(0x7f0000000140)={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000080)={r0, &(0x7f0000000340), &(0x7f0000000100)=@tcp=r1}, 0x20) (async)
+setsockopt$inet_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f0000000040), 0x4)

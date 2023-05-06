@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=a32ebd5db2f7c957b82cf54b97bdecf367bf0421
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$bfs(&(0x7f0000000000)='bfs\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x3, &(0x7f0000000200)=[{&(0x7f0000010000)="cefaad1b0082", 0x6}, {0x0, 0x0, 0x200}, {&(0x7f0000000080)="02002e", 0x3, 0x9}], 0x0, &(0x7f0000000040))

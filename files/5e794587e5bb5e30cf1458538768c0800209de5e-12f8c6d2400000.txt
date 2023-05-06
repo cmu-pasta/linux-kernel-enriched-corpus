@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5e794587e5bb5e30cf1458538768c0800209de5e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$dmmidi(&(0x7f0000000080)='/dev/dmmidi#\x00', 0x34, 0x1)
+write$FUSE_NOTIFY_STORE(r0, &(0x7f00000002c0)=ANY=[@ANYBLOB="2a0000000400000000000000000000000300000000000000020000000000000000000000000000000000b48e925d4bfded339b2f580d1f3b864b70e0c099ad8823d8a44c0c6acf5156332275cfafccdce2c6155301c3c8a5542748a530bfc13d1f29f832e668bf83722fd5cd41551c62445cfbf971e2f7b2362a855fa52e1b3ccd7041abbe766aff110775fa4c3e32e326c4011703cc8a836efd82ced06d7eff77ff0c89daf1705212f7e3985bcc7db34fa016eefb7c53608b8c7e0236adcae00b831b38121b137ab98bc44e08e3063bb7a7ba"], 0xd3)
+ioctl$int_out(r0, 0x2000000040045730, &(0x7f0000000000))

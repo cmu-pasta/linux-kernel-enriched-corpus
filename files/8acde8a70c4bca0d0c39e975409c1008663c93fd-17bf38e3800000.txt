@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8acde8a70c4bca0d0c39e975409c1008663c93fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket$nl_xfrm(0x11, 0x3, 0x6)
+bind$packet(r0, &(0x7f0000000240)={0x11, 0x3, 0x0, 0x1, 0x0, 0x6}, 0x14)
+setsockopt$packet_int(r0, 0x107, 0x9, &(0x7f0000000000)=0x30a9, 0x4)
+syz_emit_ethernet(0x1, &(0x7f00000000c0)=ANY=[@ANYBLOB="ffffffffffffaaaabb8100000000110000ff5cf4c10000000000"], &(0x7f0000000100))

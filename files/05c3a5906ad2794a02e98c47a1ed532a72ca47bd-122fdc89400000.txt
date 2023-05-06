@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=05c3a5906ad2794a02e98c47a1ed532a72ca47bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = gettid()
+timer_create(0x0, &(0x7f0000044000)={0x0, 0x200000012}, &(0x7f0000044000))
+r1 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhost-vsock\x00', 0x2, 0x0)
+ioctl$VHOST_VSOCK_SET_GUEST_CID(r1, 0x4008af60, &(0x7f0000000040)={@my=0x0})
+r2 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_dgram(r2, &(0x7f0000000200)={0x28, 0x0, 0x0, @my=0x0}, 0x10)
+bind$inet(0xffffffffffffffff, &(0x7f0000000300)={0x2, 0x0, @multicast1}, 0x10)
+connect$vsock_stream(r2, &(0x7f0000000080)={0x28, 0x0, 0x0, @my}, 0x10)
+timer_settime(0x0, 0x0, &(0x7f0000000140)={{0x0, 0x8}, {0x0, 0x9}}, &(0x7f0000000180))
+r3 = open(&(0x7f0000000340)='./file0\x00', 0x200040, 0x30)
+ioctl$PERF_EVENT_IOC_ENABLE(r3, 0x2400, 0x1)
+getsockopt$inet_sctp6_SCTP_RTOINFO(r3, 0x84, 0x0, &(0x7f0000000480)={<r4=>0x0, 0x8, 0x1, 0x8}, &(0x7f00000004c0)=0x10)
+getsockopt$inet_sctp_SCTP_PEER_ADDR_THLDS(r2, 0x84, 0x1f, &(0x7f0000000240)={<r5=>r4, @in={{0x2, 0x4e22, @multicast2}}, 0x8000000004, 0x6}, &(0x7f0000000500)=0xffffffffffffffed)
+setsockopt$inet_sctp6_SCTP_PR_SUPPORTED(0xffffffffffffffff, 0x84, 0x71, &(0x7f00000001c0)={r5, 0x2}, 0x8)
+tkill(r0, 0x1004000000016)

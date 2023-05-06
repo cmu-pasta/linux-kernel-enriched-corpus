@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=000713bab9dbbd78de82aebd7a7bd4ba597a60c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000400)=ANY=[@ANYBLOB="140000001000010000000000000000000000000a28000000000a0900000000000000006a82b97c000900010073797a3000000000080002400000000214000000110001"], 0x50}}, 0x0)
+r1 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_MSG_GETTABLE(r1, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000300)={0x14, 0x1, 0xa, 0x101, 0x0, 0x0, {0x2, 0x0, 0xf00}}, 0x14}}, 0x0)

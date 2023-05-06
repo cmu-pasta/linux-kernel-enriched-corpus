@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=55166bacc748403141ea552f12fb5b76b891d120
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$HCIINQUIRY(r0, 0x800448f0, &(0x7f0000000000)={0x0, 0x5, "340a9a", 0x20, 0x6})
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x6)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+ioctl$sock_SIOCDELRT(r1, 0x400448c9, 0x0)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+setsockopt$SO_TIMESTAMP(0xffffffffffffffff, 0x1, 0x1d, &(0x7f0000000040)=0x81, 0x4)
+getsockopt$bt_BT_SECURITY(r2, 0x112, 0x4, 0x0, 0x400000)
+syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+accept4(r1, &(0x7f00000001c0)=@ipx, 0x0, 0x800)
+openat$6lowpan_control(0xffffffffffffff9c, 0x0, 0x2, 0x0)

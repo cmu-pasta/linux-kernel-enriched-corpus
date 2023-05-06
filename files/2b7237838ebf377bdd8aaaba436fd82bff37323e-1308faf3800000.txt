@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2b7237838ebf377bdd8aaaba436fd82bff37323e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000140)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+ptrace(0x8, 0x0)
+r1 = syz_open_dev$dspn(&(0x7f0000000100)='/dev/dsp#\x00', 0x7, 0x40000)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f0000000180)={0xaa, 0x64})
+getsockopt$inet_sctp_SCTP_ASSOCINFO(r1, 0x84, 0x1, &(0x7f0000000200)={<r2=>0x0, 0x5, 0x7, 0x4, 0x3}, &(0x7f0000000240)=0x14)
+setsockopt$inet_sctp6_SCTP_AUTH_KEY(r1, 0x84, 0x17, &(0x7f0000000280)={r2, 0x4}, 0x8)
+write$rdma_cm(r0, &(0x7f00000000c0)=@create_id={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000080)={<r3=>0xffffffff}, 0x2}}, 0xfffffe84)
+write$rdma_cm(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="02000000280000fa00000000000000000a0000000000000000000000000d00fb0000000000000000fcff0000", @ANYRES32=r3], 0x30)
+write$rdma_cm(r0, &(0x7f0000000000)=@listen={0x7, 0x8, 0xfa00, {r3}}, 0x10)

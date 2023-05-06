@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"vhci":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x275a, 0x0)
+preadv(r0, 0x0, 0x0, 0x0, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_FRAME(r1, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000080)={0x28, r2, 0x1, 0x0, 0x0, {{0x7e}, {@val={0x8}, @val={0xc}}}}, 0x28}}, 0x0)

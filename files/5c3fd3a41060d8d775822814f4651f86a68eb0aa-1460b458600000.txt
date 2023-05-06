@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=5c3fd3a41060d8d775822814f4651f86a68eb0aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @null, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x0)
+socketpair(0x0, 0x6, 0x68, &(0x7f00000007c0)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+setsockopt$inet_sctp_SCTP_FRAGMENT_INTERLEAVE(r1, 0x84, 0x12, &(0x7f0000000800), 0x4)
+r2 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+socket$pppoe(0x18, 0x1, 0x0)
+r3 = accept(r0, 0x0, 0x0)
+ioctl$sock_SIOCBRADDBR(r2, 0x89a0, &(0x7f0000000080)='bcsf0\x00')
+getsockopt$inet_sctp_SCTP_ENABLE_STREAM_RESET(0xffffffffffffffff, 0x84, 0x76, 0x0, &(0x7f0000000200))
+ioctl$sock_SIOCBRDELBR(r2, 0x89a1, &(0x7f0000000b00)='bcsf0\x00\x00\x00\x00\x00\x00h\x11\x00')
+recvfrom$rose(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+write$binfmt_script(r0, 0x0, 0x0)
+close(r0)

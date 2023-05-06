@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=955089c47e556a27deef7c2095544ed1ccdf0673
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"close_fds":true,"devlinkpci":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r1, 0x6, 0x80000000000002, &(0x7f00000000c0)=0x2000000000000074, 0x25d)
+bind$inet(r1, &(0x7f0000000280)={0x2, 0x4e23, @broadcast}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_CONGESTION(r1, 0x6, 0xd, 0x0, 0x0)
+sendto$inet(r1, &(0x7f00000012c0)="0c268a927f1f6588b967481241ba7860005cf65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0xfe6a, 0x11, 0x0, 0x27)
+sendmsg$nl_route(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000240)=@newlink={0x40, 0x10, 0x42b, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x10}, [@IFLA_LINKINFO={0x20, 0x12, @gtp={{0x8, 0x1, 'gtp\x00'}, {0x14, 0x2, [{{0x8}, {0x8, 0x2, r1}}]}}}]}, 0x40}}, 0x20000000)

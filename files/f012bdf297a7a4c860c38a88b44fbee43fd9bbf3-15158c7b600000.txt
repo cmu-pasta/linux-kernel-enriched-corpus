@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f012bdf297a7a4c860c38a88b44fbee43fd9bbf3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000280)=ANY=[@ANYBLOB="1500000065ffff0180000008003950323030302e4cc74502f987c2cec6504df6ead74ed8a60ab563e98b4b2a3d27a7082dbb78abd55fba3da80b856445ab100621d6234555c08dc540473753cd89e9b08e3f5972fe9ca162b123e192e8c89c9dd81c796f27f537cc5a3fb54aff8eaff4f6b59c41705b96a6711d4679079d00"/137], 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000140)='9p\x00', 0x0, &(0x7f00000004c0)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1, @ANYBLOB])

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=9b10491371879700d6a21c15684c2232ff015084
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$fb1(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r0, 0x4601, &(0x7f0000000140)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0, {0x0, 0x4}, {}, {0x8}, {}, 0x0, 0x2bb2c5033157455e, 0x0, 0x0, 0x0, 0x2})
+ioctl$FBIOBLANK(r0, 0x4611, 0x0)
+r1 = openat$capi20(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$CAPI_CLR_FLAGS(r1, 0x80044325, 0x0)
+ioctl$CAPI_CLR_FLAGS(0xffffffffffffffff, 0x80044325, 0x0)
+ioctl$CAPI_REGISTER(0xffffffffffffffff, 0x400c4301, 0x0)
+ioctl$FS_IOC_FSSETXATTR(r1, 0x401c5820, &(0x7f0000000040)={0x5, 0xac77, 0x10001, 0x1, 0x9})
+mkdirat(0xffffffffffffff9c, &(0x7f0000000240)='./file0\x00', 0x0)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.net/syz1\x00', 0x1ff)
+mount$fuse(0x20000000, &(0x7f00000004c0)='./file0\x00', 0x0, 0x7a04, 0x0)
+chdir(&(0x7f0000000240)='./file0\x00')
+open(&(0x7f0000000080)='./bus\x00', 0x23342, 0x0)

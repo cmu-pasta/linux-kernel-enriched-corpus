@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=8f063539d4ecf1faf3132624b57a641e923ee25a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+ioctl(0xffffffffffffffff, 0x8912, &(0x7f0000000280))
+mount$fuseblk(&(0x7f0000000040)='/dev/loop0\x00', &(0x7f00000000c0)='./file0\x00', &(0x7f0000000100)='fuseblk\x00', 0x5, &(0x7f0000000300)={{'fd'}, 0x2c, {'rootmode', 0x3d, 0x1000}, 0x2c, {'user_id'}, 0x2c, {'group_id'}, 0x2c, {[{@allow_other='allow_other'}]}})
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_ENABLE_CAP_CPU(r2, 0x4080aebf, &(0x7f00000001c0)={0x2, 0x0, [0x488]})
+socketpair$inet6_udplite(0xa, 0x2, 0x88, &(0x7f0000000040))
+ioctl$FS_IOC_FSGETXATTR(0xffffffffffffffff, 0x801c581f, &(0x7f0000001f00))
+ioctl$SNDRV_SEQ_IOCTL_REMOVE_EVENTS(0xffffffffffffffff, 0x80045300, &(0x7f0000000240)={0x0, @time={0x77359400}, 0x0, {}, 0x0, 0x1})
+setsockopt$SO_RDS_TRANSPORT(0xffffffffffffffff, 0x114, 0x8, &(0x7f00000007c0)=0x800000000000002, 0x4)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+ioctl$FS_IOC_FSGETXATTR(0xffffffffffffffff, 0x801c581f, &(0x7f0000001f00))

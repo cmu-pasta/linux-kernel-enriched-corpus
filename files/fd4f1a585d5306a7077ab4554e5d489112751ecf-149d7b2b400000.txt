@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=fd4f1a585d5306a7077ab4554e5d489112751ecf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket(0x200000000000011, 0x4000000000080002, 0xdd86)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000100)={'ip6_vti0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @local}, 0x14)
+write$binfmt_elf64(r0, 0x0, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e93dddbf164fb5dea44a6e6dbdec8fece1613543
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000180)=@generic={0x11, "0000150000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b00000000000000001a4ce875f2e340b7679500800010000000000101013c581103b34c0d6327ecce66fd792bbf0e5bf5ff1b0816e3f6db1c00010000000040000049740000000000000002ad8e5ecc326d3a09ffc2c65400"}, 0x80)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x69)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket(0x1, 0x803, 0x0)
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000580)=@newlink={0x68, 0x10, 0x403, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x88a8ffad}, [@IFLA_LINKINFO={0x2c, 0x12, 0x0, 0x1, @vlan={{0x9}, {0x1c, 0x2, 0x0, 0x1, [@IFLA_VLAN_ID={0x6}, @IFLA_VLAN_FLAGS={0xc, 0x2, {0xe, 0xa}}, @IFLA_VLAN_EGRESS_QOS={0x4}]}}}, @IFLA_LINK={0x8, 0x5, r3}, @IFLA_MASTER={0x8, 0xa, r3}, @IFLA_ADDRESS={0xa, 0x1, @dev}]}, 0x68}}, 0x0)

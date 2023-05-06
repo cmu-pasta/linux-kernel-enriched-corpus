@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=08b8be45afea11888776f897895aef9ad1c3ecfd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$GIO_FONTX(r0, 0x4b6b, &(0x7f0000000000)={0x12d, 0x1c, &(0x7f0000000600)})
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_RESIZEX(r1, 0x560a, &(0x7f0000000640)={0x0, 0x0, 0x0, 0x1f})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d0c3dc3501067068bfa9e87e05023ff8d26b9cf3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"segv":true}
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+syz_genetlink_get_family_id$batadv(0x0)
+r0 = syz_usb_connect$cdc_ecm(0x0, 0x92, &(0x7f0000000380)=ANY=[@ANYBLOB="1201000002000008ba0d0010400001020301090280000101000000090400ff0302062000052406000005240000000d240f010000000000000000000c241b07000104070104007f0524150500082407e30000f8ff06240701050008241c04001f3c0d152412feffa317a88b045e4f01a607c0ffcb7e392a090581030004"], 0x0)
+syz_usb_ep_write(r0, 0x0, 0xffffffffffffff3b, 0x0)

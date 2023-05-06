@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b32fa08468c9e84e361296e1bc502283ea202ec6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xa, &(0x7f0000000080)=0x2, 0x4)
+setsockopt$packet_tx_ring(r0, 0x107, 0x5, &(0x7f00000000c0)=@req3={0x8000, 0x6, 0x8000, 0x6}, 0x1c)
+setsockopt$packet_rx_ring(r0, 0x107, 0x5, &(0x7f0000000100)=@req3, 0x1c)
+setsockopt$packet_int(r0, 0x107, 0xa, &(0x7f0000000080)=0x2, 0x4) (async)
+setsockopt$packet_tx_ring(r0, 0x107, 0x5, &(0x7f00000000c0)=@req3={0x8000, 0x6, 0x8000, 0x6}, 0x1c) (async)
+ioctl$BTRFS_IOC_QGROUP_ASSIGN(r0, 0x40189429, &(0x7f0000000080)={0x1, 0x5, 0x9})

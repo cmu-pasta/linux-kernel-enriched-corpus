@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0ca503b4ac135c040caff8529679b8b3bcd6d9e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000006ffc)=0x4000000000000200, 0xe50fb6c50bc849c9)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000240)={'bridge0\x00', <r2=>0x0})
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @multicast}, 0x14)
+sendto$inet6(r0, &(0x7f0000000280)="0503092c1116480401020200c52cf7c25975e005b02f0800eb2b2ff0dac8897c6b118777faffffff3066090cb600c5471d130a66321a54e7df305f80a88161b6fd8f24286a57c3feffff", 0xfc13, 0x800, 0x0, 0x2f)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=3c53ee4bc8a0ed82728c43ff5ffa55fcda552d27
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f0000000040)='/dev/vhost-net\x00', 0x2, 0x0)
+ioctl$int_in(r0, 0x40000000af01, &(0x7f0000c97ff8))
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f0000000180)='/dev/audio\x00', 0x0, 0x0)
+close(r1)
+r2 = socket$packet(0x11, 0x3, 0x300)
+readv(r2, &(0x7f0000000100)=[{&(0x7f00000000c0)=""/55, 0x37}], 0x1)
+sendto$inet6(r1, &(0x7f00000001c0)="868ffb38dca20a44135fccaf0f4a", 0xe, 0x4880, &(0x7f0000000000)={0xa, 0x0, 0x9, @mcast1={0xff, 0x1, [], 0x1}}, 0x1c)
+syz_emit_ethernet(0x1, &(0x7f00000001c0)=ANY=[@ANYBLOB], &(0x7f0000000040))

@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=919a733d5136b05e9e51353988a37e1b00f69363
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = epoll_create1(0x0)
+r1 = syz_open_dev$media(&(0x7f0000000040)='/dev/media#\x00', 0x0, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r1, &(0x7f0000000000))
+r2 = openat$tun(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+epoll_create(0x51)
+sendmsg$IPCTNL_MSG_TIMEOUT_DELETE(0xffffffffffffffff, 0x0, 0x4004001)
+r3 = epoll_create1(0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(0xffffffffffffffff, 0x8933, 0x0)
+bind$can_j1939(0xffffffffffffffff, 0x0, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_LEASE(0xffffffffffffffff, 0xc01864c6, 0x0)
+r4 = syz_open_dev$media(0x0, 0x0, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r3, 0x1, r4, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_LEASE(0xffffffffffffffff, 0xc01864c6, &(0x7f0000000180)={0x0, 0x0, 0x80800, 0x0, <r5=>0xffffffffffffffff})
+epoll_ctl$EPOLL_CTL_ADD(r5, 0x1, r2, 0x0)
+r6 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r6, 0x1, r0, &(0x7f0000000140))

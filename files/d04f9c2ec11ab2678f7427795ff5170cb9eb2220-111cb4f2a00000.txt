@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d04f9c2ec11ab2678f7427795ff5170cb9eb2220
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+sendmsg$TIPC_CMD_SET_LINK_TOL(0xffffffffffffffff, 0x0, 0x8004)
+bpf$PROG_LOAD(0x5, &(0x7f0000000240)={0x9, 0x3, &(0x7f00000000c0)=@framed, &(0x7f0000000140)='syzkaller\x00', 0x1, 0x1ee, &(0x7f00000003c0)=""/251, 0x0, 0x0, [], 0x0, 0xd, 0xffffffffffffffff, 0x8, &(0x7f0000000080), 0xaa, 0x10, &(0x7f0000000000)={0x0, 0x0, 0x49}}, 0x48)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)

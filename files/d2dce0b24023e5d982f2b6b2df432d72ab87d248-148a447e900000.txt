@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=d2dce0b24023e5d982f2b6b2df432d72ab87d248
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"vhci":true}
+socket$inet_icmp(0x2, 0x2, 0x1)
+bind$bt_sco(0xffffffffffffffff, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+ioctl$sock_bt_cmtp_CMTPCONNDEL(0xffffffffffffffff, 0x400443c9, 0x0)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, 0x0)
+prctl$PR_SET_PTRACER(0x59616d61, 0x0)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000180)={0x1f, @none}, 0x8)

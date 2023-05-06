@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2809bb0ac77ad9aa3f4afe42d6a610aba594a987
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"close_fds":true,"usb":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000080)={0x1, &(0x7f0000000000)=[{0x6, 0x0, 0x0, 0x7fffffff}]})
+r0 = gettid()
+prctl$PR_SET_PTRACER(0x59616d61, r0)
+clone(0xe0000480, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+pipe2(0x0, 0x85800)

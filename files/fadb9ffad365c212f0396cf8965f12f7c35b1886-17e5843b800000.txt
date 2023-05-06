@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=fadb9ffad365c212f0396cf8965f12f7c35b1886
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_generic(r0, &(0x7f0000005000)={&(0x7f0000000040)={0x10}, 0xc, &(0x7f00009ecff0)={&(0x7f0000000080)={0x20, 0x1e, 0x2ff, 0x0, 0x0, {}, [@typed={0x8, 0x0, @u32}, @nested={0x4, 0x9}]}, 0x20}, 0x1}, 0x0)
+syz_emit_ethernet(0x2a, &(0x7f0000000240)={@broadcast=[0xff, 0xff, 0xff, 0xff, 0xff, 0xff], @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa]}, [], {@arp={0x806, @ether_ipv4={0x1, 0x800, 0x6, 0x4, 0x0, @random="bbbfedd103c2", @multicast2=0xe0000002, @random="849b7f7f3053", @multicast1=0xe0000001}}}}, &(0x7f0000000280))

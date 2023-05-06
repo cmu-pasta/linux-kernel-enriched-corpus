@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d204aaca3ac260c553e053c566b529f350ea6454
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet_sctp(0x2, 0x5, 0x84)
+setsockopt$inet_sctp_SCTP_SOCKOPT_CONNECTX(r0, 0x84, 0x6e, &(0x7f0000000140), 0xf1e9d402694a8837)
+sendto(0xffffffffffffffff, &(0x7f00000004c0), 0x0, 0x4008000, &(0x7f00000005c0)=@in6={0xa, 0x4e20, 0x7ff, @mcast1={0xff, 0x1, [], 0x1}, 0x400}, 0x80)
+ioctl$int_out(0xffffffffffffffff, 0x5460, &(0x7f0000000640))
+getresgid(&(0x7f0000000600), &(0x7f0000000640), &(0x7f0000000680))

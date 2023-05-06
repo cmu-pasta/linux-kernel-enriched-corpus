@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2d0e17526f8bb27edd1680bb9e9ca9ebf425dedb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","leak":true,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000200), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000080)={0x0, 0x1, 0x10000000000000, 0x1000, &(0x7f0000fe8000/0x1000)=nil})

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e4ffb8b46d363add6bfda13799cc0b0f81af4b60
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f0000000800)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000ac0)=@newqdisc={0x45c, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_tbf={{0x8, 0x1, 'tbf\x00'}, {0x430, 0x2, [@TCA_TBF_PARMS={0x28, 0x1, {{0x81, 0x0, 0x0, 0x0, 0x0, 0x6}}}, @TCA_TBF_RTAB={0x404}]}}]}, 0x45c}}, 0x0)

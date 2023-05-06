@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=02bfd68f603c6360ef1438ba131db44f7aebcf99
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$mouse(&(0x7f0000000000), 0x0, 0x1842)
+write$tcp_mem(r0, &(0x7f0000000340), 0xfffffdef)
+read$hiddev(r0, 0x0, 0x0)

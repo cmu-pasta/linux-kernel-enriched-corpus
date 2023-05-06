@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0a514ede78a3da2ec4c94df199c30dc8addcba08
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000300)='9p\x00', 0x0, &(0x7f0000000240)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})
+write$P9_RREADDIR(r1, &(0x7f00000001c0)=ANY=[@ANYBLOB="0400000000000000"], 0x8)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=76e1ca0ed8893fcd1c960eb2d322809b83c90ac7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$ion(0xffffffffffffff9c, &(0x7f00001c3000-0x9)='/dev/ion\x00', 0x0, 0x0)
+sendmsg$kcm(0xffffffffffffffff, &(0x7f0000002000-0x38)={0x0, 0x0, &(0x7f0000a3a000)=[], 0x0, &(0x7f0000002000)=[{0xfffffffffffffd05, 0x10e, 0x0, ""}], 0x10, 0x0}, 0x0)
+ioctl(r0, 0xc0184908, &(0x7f0000002000)="")

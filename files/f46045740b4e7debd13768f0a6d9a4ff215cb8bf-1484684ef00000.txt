@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f46045740b4e7debd13768f0a6d9a4ff215cb8bf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false,"vhci":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040), 0x41, 0x0)
+write$binfmt_aout(r0, &(0x7f0000000300)=ANY=[], 0xff2e) (fail_nth: 3)

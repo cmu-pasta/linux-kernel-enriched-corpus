@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0f3ce873751e7d85a0a13cb393b485b0b12c1ee5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x25, 0x0, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x0, &(0x7f0000000000)={0xa, 0x20000000004e20, 0x0, @ipv4}, 0x1c)

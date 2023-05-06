@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=da3c045a6c7243e514d243ca3e66651b1d2308a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+sendmsg$netlink(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000480)=[{&(0x7f0000000740)={0x1c, 0x2a, 0x5, 0x0, 0x0, "", [@nested={0x4}, @typed={0x8, 0x1, 0x0, 0x0, @pid}]}, 0x1c}], 0x1}, 0x0)

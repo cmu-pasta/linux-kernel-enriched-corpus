@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7f34dec8b4c3be61baad2f552b05d2011d64ae87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$vim2m(&(0x7f0000000000)='/dev/video#\x00', 0x10000000001dffd, 0x2)
+ioctl$vim2m_VIDIOC_S_CTRL(r0, 0xc008561c, &(0x7f0000000140)={0xf0f03f, 0x64})

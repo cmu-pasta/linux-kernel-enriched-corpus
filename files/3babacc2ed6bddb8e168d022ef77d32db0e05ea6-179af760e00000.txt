@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true}
+write(0xffffffffffffffff, 0x0, 0x0)
+creat(&(0x7f0000000640)='./file0\x00', 0xc0)
+write$FUSE_NOTIFY_POLL(0xffffffffffffffff, 0x0, 0x0)
+clone(0x40000000, 0x0, 0x0, 0x0, 0x0)

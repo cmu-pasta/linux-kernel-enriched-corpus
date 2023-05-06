@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=cb23ebfc8f304f510fb717cb783fe8b496c7ffb1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat$damon_mk_contexts(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+r0 = openat$damon_mk_contexts(0xffffffffffffff9c, &(0x7f00000000c0), 0x1, 0x87)
+write$damon_contexts(r0, &(0x7f00000001c0)=[{' ', './file0'}, {' ', './file0'}, {' ', './file0'}, {' ', './file0'}], 0x4)
+write$damon_contexts(r0, 0x0, 0x2) (async)
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000040)=0xf)
+ioctl$KDADDIO(r1, 0x400455c8, 0x0) (async, rerun: 64)
+r2 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000140)='/proc/mdstat\x00', 0x0, 0x0) (rerun: 64)
+faccessat2(r2, &(0x7f0000000180)='./file0\x00', 0xd1, 0x0)
+ioctl$BTRFS_IOC_SNAP_CREATE_V2(0xffffffffffffffff, 0x50009417, 0x0)
+pipe2$watch_queue(&(0x7f0000000100)={0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x80)
+syz_open_pts(r3, 0x270601) (async)
+r4 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000001280)='/sys/class/msr', 0x0, 0x140)
+syz_clone3(&(0x7f0000001200)={0x264002200, &(0x7f0000001380), 0x0, 0x0, {}, 0x0, 0x0, 0x0, 0x0, 0x0, {r4}}, 0x58)
+recvfrom$rxrpc(r4, &(0x7f00000001c0), 0x0, 0x40002000, &(0x7f0000000200)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x4e23, @local}}, 0x24)

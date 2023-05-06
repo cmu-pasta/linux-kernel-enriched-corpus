@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=28741ff1906f93db2a398bc40e082da51828ec5b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_usb_connect(0x0, 0x35, &(0x7f00000000c0)=ANY=[@ANYBLOB="12010000cc9092089904dfe21abf000000010902230001000000000904120001ff768000082402010000000009058c0ec7"], 0x0)
+openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000040)='/dev/sequencer2\x00', 0xc006, 0x0)

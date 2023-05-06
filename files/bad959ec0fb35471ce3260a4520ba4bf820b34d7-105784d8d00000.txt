@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bad959ec0fb35471ce3260a4520ba4bf820b34d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat$cgroup_ro(0xffffffffffffffff, &(0x7f00000000c0)='cpuacct.usage_percpu_user\x00', 0x0, 0x0)
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f00000000c0)={'syzkaller1\x00'})
+ioctl$BTRFS_IOC_GET_SUBVOL_INFO(r0, 0x400454d0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=529850ed594c6f4451a58b33e4d3ae92d1705a67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000000)='/dev/dsp\x00', 0x0, 0x0)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc004500a, &(0x7f0000000040)=0x3a)

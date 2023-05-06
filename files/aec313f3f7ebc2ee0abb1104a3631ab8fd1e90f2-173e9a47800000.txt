@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=aec313f3f7ebc2ee0abb1104a3631ab8fd1e90f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000040)='/dev/kvm\x00', 0x3, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = eventfd2(0x0, 0x1)
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000100)={0x0, r2})
+r3 = getpgrp(0xffffffffffffffff)
+rt_tgsigqueueinfo(r3, 0x0, 0xf, &(0x7f0000000080)={0x10000000000034, 0x80000001, 0xc86, 0xfffffffffffff280})
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000140)={0x5, 0xffffffffffffffff, 0x1})
+ioctl$PIO_FONT(0xffffffffffffffff, 0x4b61, &(0x7f0000000180)="457bb309f3a92e9faf982c4460e440c4ad23246f4a151d3597d205feae8aab07bb37eaf80764ad5ed2033e1fc5d34526bf4f4713428606de0b7fba69cbd6df78f0b30dce80260e2cf767ca611286a7509bb3f0b68c2cddbc8196bfe289dcb9bdc63fbb1484f674fc928974d00d6840d8826c26ad85dcab47f7f459a9a191b1a154139fb1572d692e896acee38101c2a11f8d4525aeefced9361339239ff83ab7dc2aa4aea419d51a5530799ff6a5fb0fa41b8749478cc25d334b8d0311188059d366")
+openat$ipvs(0xffffffffffffff9c, &(0x7f0000000380)='/proc/sys/net/ipv4/vs/sync_ports\x00', 0x2, 0x0)

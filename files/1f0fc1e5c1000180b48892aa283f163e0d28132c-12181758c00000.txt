@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1f0fc1e5c1000180b48892aa283f163e0d28132c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true}
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000340)={0x0, 0x0, 0x0}, 0x0)
+r0 = socket$inet(0x2, 0x200000002, 0x88)
+r1 = dup2(r0, r0)
+sendto$inet(r0, 0x0, 0x0, 0x8000, &(0x7f0000000080)={0x2, 0x4e21}, 0x10)
+sendto$inet(r1, &(0x7f00000001c0), 0x0, 0x0, 0x0, 0x0)

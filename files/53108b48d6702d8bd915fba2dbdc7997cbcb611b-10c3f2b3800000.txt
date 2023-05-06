@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=53108b48d6702d8bd915fba2dbdc7997cbcb611b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket(0x11, 0x100000802, 0x0)
+r1 = syz_open_dev$tun(&(0x7f0000000140)='/dev/net/tun\x00', 0x0, 0x2)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000040)={"6966623000faffffffffffffff00", 0x2691d0877f1cca9b})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000000)={'ifb0\x00', 0xa201})
+write$tun(r1, &(0x7f0000000180)=ANY=[@ANYBLOB="090081000000000000000000000000e0000001aa3ae58837e73be7799ec5dd82255b3f3716ca756333c2c97dc73bf8c73505ddf3bde406e2e836d714550c7ba8fd707a1ebebe"], 0x1)

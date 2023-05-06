@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5447b161b40b85404f5d1c8896455e5ae458d148
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$usbfs(&(0x7f0000000000), 0x75, 0x281)
+ioctl$USBDEVFS_BULK(r0, 0x80045518, 0x0)
+ioctl$USBDEVFS_IOCTL(r0, 0xc0105512, &(0x7f0000000040))
+fsetxattr$trusted_overlay_opaque(r0, &(0x7f0000000080), 0x0, 0x0, 0x1)
+r1 = syz_open_dev$usbfs(&(0x7f00000000c0), 0x75, 0x281)
+ioctl$USBDEVFS_BULK(r1, 0xc0185502, &(0x7f0000000340)={{{0x0, 0x1}}, 0x0, 0x5, 0x0})
+ioctl$USBDEVFS_BULK(0xffffffffffffffff, 0xc0185502, &(0x7f0000000340)={{{0x1, 0x1}}, 0x8b, 0x0, &(0x7f0000000280)="c283e9f57c9909fd967076bbdada452da1626db4931cc9ea2ca5acbb7f07597b26517597d762946ec7dcf49cd8b67123761c832841dbce64a94f4be741886149ca293f1de1e2c4378e5f8dc9d689899b394333d93f22948a063747c111a8eb942ce258f3934e807657b60606554fecb03c13fba52f24f71b50935f72d30bfb8eaf3e170fbf7afd19f61b9a"})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5d85078d73ab8c921c09eee52e6db59421bd4c58
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet6(0x10, 0x2, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000240)={0x2, &(0x7f0000000040)=[{0x40, 0x0, 0x0, 0xfff00001}, {0x16}]}, 0x10)
+sendto$inet6(r0, &(0x7f00000002c0)="1c0000001200050f0c1000000049b23e9b200a00080001c000000001", 0x1c, 0x0, 0x0, 0x0)
+readv(r0, &(0x7f0000003400)=[{0x0}, {0x0}, {&(0x7f0000000300)=""/4096, 0x1000}, {0x0}, {0x0}, {0x0}, {0x0}], 0x7)

@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=a94332ddaa78ffc1dfbfc613a63f210d365e9dff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000fb7000/0x2000)=nil, 0x2000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000fb8000-0x9)="2f6465762f6b766d00", 0x0, 0x0)
+ioctl$KVM_IRQ_LINE(0xffffffffffffffff, 0x4008ae61, &(0x7f0000585000)={0x7, 0x101})
+bind$alg(0xffffffffffffffff, &(0x7f0000000000)={0x26, "6861736800000000000000000000", 0x0, 0x0, "77703338340000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+sched_setaffinity(0x0, 0x8, &(0x7f00004c1000-0x8)=0x6b)
+syz_open_dev$ircomm(&(0x7f0000ac7000)="2f6465762f6972636f6d6d2300", 0x9, 0x47fc)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r2, &(0x7f000089e000/0x18000)=nil, &(0x7f0000fb4000)=[@textreal={0x8, &(0x7f0000433000-0x31)="0f01c9dac7653ef3360f062e0f07bad004b0aaeef4ba4200b80400ef99baf80c66b8a14cf98766efbafc0cb040ee26d9fa", 0x31}], 0x1, 0x0, &(0x7f0000920000)=[], 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+r3 = socket$unix(0x1, 0x5, 0x0)
+listen(r3, 0x0)
+write(0xffffffffffffffff, &(0x7f000001e000-0x1f)="", 0x0)
+ioctl$KVM_KVMCLOCK_CTRL(r2, 0xaead)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000001000/0x18000)=nil, &(0x7f000000d000-0x18)=[@text16={0x10, &(0x7f0000020000-0x64)="065925e2cca74a7632e9e66eb9dc9225085b05000000abb57712d467cc61056c75dfa557b8d78c389219dec4825895bcdbee829bc7c147117c4ad269fb36c556d87c6fb2c3d4f0017b03a9630be7ee8ff69f2323ed436906b32cce8ae0b61223eb7c5cdd", 0x64}], 0x1, 0x0, &(0x7f0000020000)=[@cstype0={0x4, 0x2}], 0x1)

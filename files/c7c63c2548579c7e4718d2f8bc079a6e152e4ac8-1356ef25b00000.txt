@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c7c63c2548579c7e4718d2f8bc079a6e152e4ac8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000400)=ANY=[@ANYBLOB="140000001000010000000000000000000000000a28000000000a0900000000000000006a82b97c000900010073797a3000000000080002400000000214000000110001"], 0x50}}, 0x0)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000500)={{0x14}, [@NFT_MSG_NEWFLOWTABLE={0x58, 0x16, 0xa, 0x301, 0x0, 0x0, {0x2}, [@NFTA_FLOWTABLE_NAME={0x9, 0x2, 'syz1\x00'}, @NFTA_FLOWTABLE_TABLE={0x9, 0x1, 'syz0\x00'}, @NFTA_FLOWTABLE_HOOK={0x2c, 0x3, 0x0, 0x1, [@NFTA_FLOWTABLE_HOOK_PRIORITY={0x8}, @NFTA_FLOWTABLE_HOOK_NUM={0x8}, @NFTA_FLOWTABLE_HOOK_DEVS={0x18, 0x3, 0x0, 0x1, [{0x14, 0x1, 'xfrm0\x00'}]}]}]}], {0x14}}, 0x80}}, 0x0)

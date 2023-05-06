@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=47019f953ae2a8b2a975960010f7ed05b77aa7df
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x17000)=nil, 0x17000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet(0x10, 0x3, 0x10)
+sendmsg(r0, &(0x7f0000003000)={0x0, 0x0, &(0x7f0000004000)=[{&(0x7f0000012000-0x72)="2300000024009115460000000000001201000000000000270841000000000018007352", 0x23}], 0x1}, 0x0)

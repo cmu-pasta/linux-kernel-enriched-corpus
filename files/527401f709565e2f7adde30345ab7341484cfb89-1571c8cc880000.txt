@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=527401f709565e2f7adde30345ab7341484cfb89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe(&(0x7f00000000c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+socket$netlink(0x10, 0x3, 0x0)
+write$binfmt_misc(r1, &(0x7f0000000140)=ANY=[], 0x11000)
+r3 = syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+r4 = syz_open_dev$swradio(&(0x7f0000000100), 0x0, 0x2)
+mount$9p_fd(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000080), 0x0, &(0x7f0000000740)={'trans=fd,', {'rfdno', 0x3d, r3}, 0x2c, {'wfdno', 0x3d, r4}})
+splice(r0, 0x0, r2, 0x0, 0x4ffe0, 0x0)

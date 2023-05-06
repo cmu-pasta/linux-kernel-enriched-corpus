@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = accept4$inet(0xffffffffffffffff, 0x0, 0x0, 0x80800)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, 0x0, 0x0)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000500)={0x15, 0x10, 0x3}, 0x2c)
+bpf$PROG_LOAD(0x5, &(0x7f0000000940)={0xb, 0x5, &(0x7f00000003c0)=ANY=[@ANYBLOB="1800000020000000000000000000009618100000", @ANYRES32=r1, @ANYBLOB="00000000000000009500000000000000"], &(0x7f0000000440)='syzkaller\x00', 0x5, 0x401, &(0x7f0000000200)=""/144}, 0x24a)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2d2cb27d3b4e4db041c252f09c492868885e5607
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x2000080001, 0x84)
+sendto(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r0, &(0x7f0000000300)={0x2, 0x4e20, @loopback}, 0x10)

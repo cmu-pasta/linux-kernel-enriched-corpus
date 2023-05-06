@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=cc43803b86884fa3a3ba67d2a88b8d05251bbf76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+unshare(0x40000000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x8031, 0xffffffffffffffff, 0x0)
+socket$inet_udp(0x2, 0x2, 0x0)
+r0 = socket$inet6(0xa, 0x5, 0x0)
+sendto$inet6(r0, &(0x7f0000000040)="df", 0x1, 0x0, 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_STREAM_SCHEDULER(0xffffffffffffff9c, 0x84, 0x7b, &(0x7f0000000000), &(0x7f0000000080)=0x8)
+getsockopt$inet_sctp6_SCTP_GET_LOCAL_ADDRS(r0, 0x84, 0x6d, &(0x7f00000000c0), 0x0)

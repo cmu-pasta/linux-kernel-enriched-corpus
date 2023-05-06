@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3bceb46d41d762943e66c17156fd647fe2e933d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000001280)={0x26, 'hash\x00', 0x0, 0x0, 'sha3-512\x00'}, 0x58)
+r1 = accept(r0, 0x0, &(0x7f0000000300)=0xf59ffb2eab2539e6)
+sendto$inet(r1, &(0x7f0000000000)="54bd94b1404e1141e2de72d95aec4b4da86085182483562029226cb1b5d0b29de690693392700011acecf37a71201b08e37ebe1d04cbbb16cdca85d3615fa236397150902414f2fc4ba70d8758fca6f4c9ad663c8e19744dec29fc21ee7ea5e8a941cdfc0345f15d9fb5f4b937368886284e42d87923f5d9de38b57054d2feb0ffba8e3c1e651eb9a10da4ad04b1a11d391dea7fc1b0bde8466c482696a96e15adb5f0facb89fc83dc1478", 0xab, 0x0, &(0x7f0000000240)={0x2, 0xfffffffffffffffe, @multicast2=0xe0000002}, 0x10)

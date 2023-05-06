@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=001410d947fa7742a85647e596c45661118c7d24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+r1 = socket$inet_tcp(0x2, 0x3, 0x6)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0xc}}, 0x10)
+mount$9p_fd(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000400)='9p\x00', 0x0, &(0x7f0000000700)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})

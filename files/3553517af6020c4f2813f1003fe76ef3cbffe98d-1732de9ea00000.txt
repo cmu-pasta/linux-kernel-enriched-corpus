@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3553517af6020c4f2813f1003fe76ef3cbffe98d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080)='/dev/nullb0\x00', 0x4000000004002, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r0, 0x0)
+write$binfmt_misc(r0, &(0x7f0000000440)={'syz1'}, 0x1200e)

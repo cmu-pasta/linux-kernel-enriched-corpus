@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=949ecf93b67ab1df8f890571d24ef9db50872c96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"ieee802154":true,"tmpdir":true}
+unshare(0x6c060000)
+r0 = socket$inet6(0x10, 0x5, 0x1000000)
+sendto$inet6(r0, &(0x7f00000018c0)="1c0000001200050f0ca6760000ee53c6ce0ffb299d49b23e9b200a0008", 0x1d, 0x0, 0x0, 0x0)
+recvfrom$inet6(r0, &(0x7f0000000400)=""/4096, 0x7e, 0x0, 0x0, 0x0)
+socket$inet6(0x10, 0x2, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r1, 0x0, 0x0)
+listen(r1, 0x0)
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r2, 0x0, 0x0, 0x20000004, &(0x7f0000000040)={0xa, 0x4e22}, 0x6d)
+recvfrom$inet6(r2, &(0x7f0000000000)=""/35, 0xffffffffffffff13, 0x100, &(0x7f0000001880)={0xa, 0x0, 0x0, @mcast2}, 0x1c)
+r3 = accept4(r1, 0x0, 0x0, 0x0)
+sendto$inet6(r3, &(0x7f00000000c0), 0xfffffdda, 0x0, 0x0, 0x600000000000004)
+getsockname$packet(0xffffffffffffffff, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=ANY=[@ANYBLOB="480000001000050700"/20, @ANYRES32=r4, @ANYBLOB="0000000000000000280012000900010076657468"], 0x48}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000002c0)=ANY=[@ANYBLOB="4400000024000b0f001000a26d357bee00337fb0faf39283fd7f87c50138013e33", @ANYRES32=r4, @ANYBLOB="00000000ffffffff0000000009000100677265640000000014000200100003000a"], 0x44}}, 0x0)
+recvmsg$kcm(0xffffffffffffffff, &(0x7f0000000280)={&(0x7f0000000140)=@pppol2tpv3={0x18, 0x1, {0x0, 0xffffffffffffffff, {0x2, 0x0, @initdev}}}, 0x80, &(0x7f0000000080)=[{&(0x7f00000001c0)=""/130, 0x82}, {&(0x7f0000001900)=""/4096, 0x1000}], 0x2}, 0x160)
+socket$inet6(0xa, 0x3, 0x3)

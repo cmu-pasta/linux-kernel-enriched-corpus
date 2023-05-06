@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=fe2fee189f1f8babd95615dcbb57871d6d18920a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = memfd_create(&(0x7f0000000280)='security.selinux\x00', 0x0)
+pwrite64(r0, &(0x7f000003bfff)='/', 0x1, 0x0)
+mmap(&(0x7f0000001000/0x1000)=nil, 0x1000, 0x4, 0x11, r0, 0x0)
+symlink(&(0x7f0000001000)='./file0\x00', &(0x7f00000000c0)='./file0\x00')

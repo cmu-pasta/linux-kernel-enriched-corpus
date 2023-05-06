@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4d331631d20a7ffcb1ef5b77ebee0d91cfaad1e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_SETSEL(r0, 0x541c, &(0x7f0000000040)={0x2, 0x0, 0x9})
+r1 = syz_open_dev$vcsa(&(0x7f0000000000)='/dev/vcsa\x00', 0x0, 0x2001)
+write$binfmt_script(r1, &(0x7f0000000180)=ANY=[@ANYBLOB="2321202e2f66696c65300afb371bfa31fd771693a438bb890f5abb69a0a774c424d4bf553c745e03966b65ce0cfbc397cf2319610e6fdb42e035c57f4db7f5799e515f62f9a74bf91a90fe682d6b9b9b7397d3d8a2a4ed3fccc49b36000f6e"], 0x5f)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x3)
+ioctl$TIOCL_PASTESEL(r2, 0x541c, &(0x7f0000000140))

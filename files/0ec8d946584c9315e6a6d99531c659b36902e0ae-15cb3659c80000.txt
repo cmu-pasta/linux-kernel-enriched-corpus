@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=0ec8d946584c9315e6a6d99531c659b36902e0ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+mount(0x0, 0x0, 0x0, 0x0, 0x0)
+writev(0xffffffffffffffff, &(0x7f0000000440), 0x0)
+r0 = syz_open_dev$sndmidi(&(0x7f0000000040), 0x2, 0x141101)
+r1 = dup(r0)
+write$6lowpan_enable(r1, &(0x7f0000000000)='0', 0xfffffd2c)
+r2 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000280), 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r2, 0x4601, &(0x7f0000000000)={0x20, 0x8, 0x140, 0xa0, 0x0, 0x0, 0x0, 0x0, {}, {}, {}, {}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1})

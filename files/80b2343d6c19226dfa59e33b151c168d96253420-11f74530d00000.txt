@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=80b2343d6c19226dfa59e33b151c168d96253420
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount$bpf(0x20000000, &(0x7f00000000c0)='./file0\x00', 0x0, 0x2001001, 0x0)
+pivot_root(&(0x7f0000000100)='./file0\x00', &(0x7f0000000080)='./file0\x00')

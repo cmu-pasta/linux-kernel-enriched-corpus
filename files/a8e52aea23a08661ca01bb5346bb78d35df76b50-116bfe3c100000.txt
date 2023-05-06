@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=a8e52aea23a08661ca01bb5346bb78d35df76b50
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000100)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000001c0)=@newqdisc={0x40, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_fq_codel={{0xd, 0x1, 'fq_codel\x00'}, {0xc, 0x2, [@TCA_FQ_CODEL_LIMIT={0x8}]}}]}, 0x40}}, 0x0)
+r3 = socket(0x11, 0x800000003, 0x0)
+setsockopt$packet_buf(r3, 0x107, 0xf, &(0x7f00000001c0)="a2e6999b", 0x4)
+bind(r3, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+write$binfmt_aout(r3, &(0x7f00000003c0)={{0x108, 0x0, 0x0, 0x367, 0x0, 0x0, 0x0, 0x0, 0x8}, "e606ec002405040007000000bee57b6fcf21abf4b9040d472a0f14e52e61a2c2204f4468d3cdccf59972412dc7dbd1118f73fe6743368e2be0e476328ef218c284b5169aa496f6f435a305c1"}, 0x6c)

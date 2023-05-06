@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=07b88127d9421b053e4d75938d90a400562e0140
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+ioctl$UI_SET_EVBIT(0xffffffffffffffff, 0x40045564, 0x0)
+r0 = socket$inet6(0xa, 0x2, 0x0)
+getsockopt$inet_pktinfo(0xffffffffffffffff, 0x0, 0x8, 0x0, 0x0)
+write$P9_RXATTRWALK(0xffffffffffffffff, 0x0, 0x0)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x4e21, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+sendmmsg(r0, &(0x7f00000092c0), 0x4ff, 0x0)
+pipe(&(0x7f0000000180))

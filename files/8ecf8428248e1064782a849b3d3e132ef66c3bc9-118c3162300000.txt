@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8ecf8428248e1064782a849b3d3e132ef66c3bc9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000180), 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000040)=0xf)
+ioctl$KDADDIO(r0, 0x400455c8, 0x2)

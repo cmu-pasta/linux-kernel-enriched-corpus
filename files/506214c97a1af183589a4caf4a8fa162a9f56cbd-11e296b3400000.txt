@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=506214c97a1af183589a4caf4a8fa162a9f56cbd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+pipe(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r1)
+r2 = socket$inet(0x2b, 0x1, 0x0)
+bind$inet(r2, &(0x7f0000000600)={0x2, 0x4e23, @multicast2}, 0x10)
+connect$inet(r2, &(0x7f00000001c0)={0x2, 0x4e23}, 0x10)
+splice(r1, 0x0, r0, 0x0, 0x10009, 0x2)

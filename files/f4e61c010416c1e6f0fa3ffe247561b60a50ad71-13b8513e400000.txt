@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f4e61c010416c1e6f0fa3ffe247561b60a50ad71
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet(0x15, 0x5, 0x0)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x0, @multicast2}, 0x0)
+getsockopt$sock_int(0xffffffffffffffff, 0x1, 0x2f, &(0x7f00000001c0), &(0x7f0000000200)=0x4)
+ioctl(0xffffffffffffffff, 0x8912, &(0x7f0000000080)="0a5cc80700315f85715070")
+setsockopt$RDS_GET_MR_FOR_DEST(0xffffffffffffffff, 0x114, 0x7, &(0x7f00000013c0)={@ll={0x11, 0x0, 0x0, 0x1, 0x1, 0x6, @local}, {&(0x7f0000000380)=""/4096, 0x1000}, &(0x7f0000001380), 0x20}, 0xa0)

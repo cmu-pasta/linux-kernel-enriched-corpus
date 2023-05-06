@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3b9e3e0e36c81e6bf9d2e2bce409e41e40deae62
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet_sctp(0x2, 0x800000000001, 0x84)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000094000)=[@in={0x2, 0x0, @loopback}], 0x10)
+connect$inet(r0, &(0x7f0000f6fff0)={0x2, 0x4e23, @local={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+listen(r0, 0x100000000009)
+r1 = accept(r0, &(0x7f0000000040)=ANY=[], &(0x7f0000123000))
+listen(r0, 0x0)
+sendto$inet(r0, &(0x7f00000000c0)="cf", 0x1, 0x0, &(0x7f0000a04000)={0x2, 0x4e23, @local={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+getsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(r1, 0x84, 0x9, &(0x7f0000a68000)={0x0, @in={{0x2, 0x4e23, @local={0xac, 0x14, 0xffffffffffffffff}}}}, &(0x7f000044fffc)=0x21d)
+sendmsg$nfc_llcp(r1, &(0x7f0000000200)={&(0x7f0000000000)={0x27, 0x1, 0x0, 0x0, 0x930, 0x3, "20c449b8e8a675d97b08cfec8e1988ffa344fbcc833a936df146d315e8a5e521d5ceb79804374fc7f7fef4eb299f5639b624ebf8858548ee4fd0c969e30794", 0x2c}, 0x60, &(0x7f0000000080), 0x0, 0x0, 0x0, 0x800}, 0x4040080)

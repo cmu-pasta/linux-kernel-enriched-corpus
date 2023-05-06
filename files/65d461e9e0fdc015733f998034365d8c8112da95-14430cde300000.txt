@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r0, &(0x7f0000000180)={0xa, 0x4001, 0x0, @dev={0xfe, 0x80, '\x00', 0x1c}, 0xd}, 0x1c)
+write(r0, &(0x7f0000000000)="05", 0x20000001)

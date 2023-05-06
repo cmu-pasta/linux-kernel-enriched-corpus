@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=528adc617286a11273518fca9fe85ba514a61f2a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x100000b, 0x31, 0xffffffffffffffff, 0x0)
+openat$vcsu(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

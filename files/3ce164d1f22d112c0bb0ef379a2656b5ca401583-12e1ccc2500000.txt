@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3ce164d1f22d112c0bb0ef379a2656b5ca401583
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000000)={{0x12, 0x1, 0x0, 0x0, 0x0, 0x0, 0x40, 0x56a, 0xbb, 0x0, 0x0, 0x0, 0x0, 0x1, [{{0x9, 0x2, 0x24, 0x1, 0x0, 0x0, 0x0, 0x0, [{{0x9, 0x4, 0x0, 0x0, 0x9, 0x3, 0x0, 0x0, 0x0, {0x9, 0x21, 0x0, 0x0, 0x1, {0x22, 0x29}}}}]}}]}}, 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f0000000540)={0x24, &(0x7f0000000240)=ANY=[@ANYBLOB="00002900000029004bff59603101725fbd0000ab6cb1b31519ecc797e77747e1a81904754c06ad2fb6bba951fa2f860bbf21d2baa84ffc39ab59707eda09158a7478b7d0053923f399757e9cb4f7e0afd1b56f84fe479e5aa72bf169122f4e2629ec62f8ae3754dc004e4a9697026e2ac08b1c360d1d9abb2738af1134ec7b2a7857205d71b1380e4f7b4058557bcfcd9096019c9625a8c75f1807dbfa9c48d5f922f29f5b451f20", @ANYBLOB], 0x0, 0x0, 0x0}, 0x0)

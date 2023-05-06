@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = getpgrp(0xffffffffffffffff)
+prctl$PR_SET_PTRACER(0x59616d61, r0)
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+getpriority(0x0, 0x0)
+openat$bsg(0xffffff9c, 0x0, 0x0, 0x0)
+sendmsg$nl_netfilter(0xffffffffffffffff, 0x0, 0x0)
+lstat(0x0, 0x0)
+r1 = gettid()
+ioctl$sock_SIOCGPGRP(0xffffffffffffffff, 0x8904, &(0x7f0000000000)=<r2=>0x0)
+wait4(r2, 0x0, 0x4, 0x0)
+clone(0x68022980, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r1)
+wait4(0x0, 0x0, 0x0, 0x0)

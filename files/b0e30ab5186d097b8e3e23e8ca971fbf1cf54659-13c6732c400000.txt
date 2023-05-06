@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b0e30ab5186d097b8e3e23e8ca971fbf1cf54659
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmsg(r0, &(0x7f00000024c0)={0x0, 0x0, &(0x7f0000000340)=[{&(0x7f0000000080)}, {&(0x7f0000000380)="feb497aae73911fb88c3d61cec83b003625b8239aa7cab6179b8afee909629c37246757eae1c22c08cf59d8c4adbd6eb8e8133f32bb71f73d9e81759959fff51682684449805d07bf3a30f84347b80d8658ced3c6a76f03e3eacd5dd49fc468b9330ddd6e4e6f7e8f42167b8d1ec9691a0b7b03f957b07bb7cf89c2063c10198c3e329aaeaab5b81accd11808b8544d996cf907fa3c840aeda5d14df25cc234fdec84e283ff43d07fbb60ae25562321bfb54da3ce1dbc4a0efdb51749be5febfe2771357bd9e99a4c5df79b6a1649057", 0xd0}, {&(0x7f0000000240)}], 0x3}, 0x20008010)
+listen(r0, 0x0)

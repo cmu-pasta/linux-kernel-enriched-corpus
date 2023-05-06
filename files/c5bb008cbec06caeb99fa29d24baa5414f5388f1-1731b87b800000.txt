@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c5bb008cbec06caeb99fa29d24baa5414f5388f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:1 FaultNth:13 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000013000)={<r0=>0xffffffffffffffff})
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000004ff0)={0x3, &(0x7f0000002fe8)=[{0x1d, 0x80000001, 0x4000000000401}, {0x60}, {0x6}]}, 0x10)

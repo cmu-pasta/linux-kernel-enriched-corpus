@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1bc2e94935ed819f58826e888421fc1e7d3e1edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+sendmsg$TIPC_NL_KEY_FLUSH(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000040)=ANY=[@ANYBLOB="dc000000", @ANYRES16=0x0, @ANYBLOB="00042dbd7000fedbdf251800000004000280140003800800020099"], 0xdc}}, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000a00)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r2, 0x8933, &(0x7f0000000040)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_COALESCE(r0, &(0x7f0000000200)={0x0, 0xffffffffffffff8c, &(0x7f0000000b00)={&(0x7f0000000040)={0x28, r1, 0x1, 0x0, 0x0, {{0x2}, {@val={0x8, 0x3, r3}, @void}}}, 0x28}}, 0x0)

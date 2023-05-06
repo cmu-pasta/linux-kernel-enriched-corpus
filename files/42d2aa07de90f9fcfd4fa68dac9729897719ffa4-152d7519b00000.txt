@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=42d2aa07de90f9fcfd4fa68dac9729897719ffa4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f00000001c0), 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000100)={'syzkaller1\x00'})
+r1 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$sock_inet_SIOCSARP(r1, 0x8955, &(0x7f0000000200)={{0x2, 0x0, @loopback}, {0x0, @remote}, 0x18, {0x2, 0x0, @local}, 'syzkaller1\x00'})
+r2 = socket$inet(0x10, 0x3, 0x0)
+sendmsg(r2, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)=[{&(0x7f0000000100)="240000001e0007021dfffd946f610500020003e8fe0208010001080008000c000400ff7e", 0x24}], 0x1}, 0x0)

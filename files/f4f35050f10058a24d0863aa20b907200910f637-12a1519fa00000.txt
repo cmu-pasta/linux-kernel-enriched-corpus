@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f4f35050f10058a24d0863aa20b907200910f637
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+connect$llc(r0, 0x0, 0x0)

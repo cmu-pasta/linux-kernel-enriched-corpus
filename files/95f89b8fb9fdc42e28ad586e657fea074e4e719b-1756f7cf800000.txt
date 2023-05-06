@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=95f89b8fb9fdc42e28ad586e657fea074e4e719b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000140)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f00000000c0)=@create_id={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000080)={<r1=>0xffffffff}, 0x2}}, 0xfffffe84)
+vmsplice(r0, &(0x7f0000001340)=[{&(0x7f0000000180)}, {&(0x7f0000000240)}, {&(0x7f00000002c0)}, {&(0x7f0000000100)}, {&(0x7f00000012c0)}], 0x5, 0xd)
+write$rdma_cm(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="02000000280000fdd2cf904312a345000a000000000000000000000000001ccbcd1600000000000000080000", @ANYRES32=r1], 0x30)
+write$rdma_cm(r0, &(0x7f0000000000)=@listen={0x7, 0x8, 0xfa00, {r1}}, 0x10)

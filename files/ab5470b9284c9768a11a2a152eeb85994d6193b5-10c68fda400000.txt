@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ab5470b9284c9768a11a2a152eeb85994d6193b5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f000001a000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000ab9ff0)={0x2, &(0x7f000039a000)=[{0x20, 0x0, 0x0, 0xfffff034}, {0x6}]}, 0x10)
+sendmmsg(r0, &(0x7f0000000000), 0x4000000000000fe, 0x0)

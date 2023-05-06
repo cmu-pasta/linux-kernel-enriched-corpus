@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=fbf9eaea2e65bfcabb4e2750c3ab0892867edea1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$md(0xffffffffffffff9c, &(0x7f0000000000)='/dev/md0\x00', 0x0, 0x0)
+ioctl$BLKROSET(r0, 0x932, 0x0)
+add_key$keyring(0x0, &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, 0xffffffffffffffff)

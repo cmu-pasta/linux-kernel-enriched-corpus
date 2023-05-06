@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=46c3a1b6bd714b64c551567f1fec16c5d2d5d9bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault":true,"fault_call":3,"fault_nth":51,"leak":true,"close_fds":false}
+ioctl$ifreq_SIOCGIFINDEX_team(0xffffffffffffffff, 0x8933, &(0x7f00000002c0)={'team0\x00'})
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)=ANY=[@ANYBLOB="440000001000010400cb30dd2d4555ca8fcabe8d", @ANYRES32, @ANYBLOB="0001000000000000240012000c00010062726964676500000c0002000800050001000000080001"], 0x44}}, 0x0)
+r0 = socket(0x10, 0x80002, 0x0)
+sendmmsg$alg(r0, &(0x7f0000000000), 0xb, 0x0)

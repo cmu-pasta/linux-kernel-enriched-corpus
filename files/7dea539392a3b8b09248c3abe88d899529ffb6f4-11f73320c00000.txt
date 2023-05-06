@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=7dea539392a3b8b09248c3abe88d899529ffb6f4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = creat(0x0, 0x82)
+ioctl$NBD_SET_TIMEOUT(r0, 0xab09, 0x6)
+write$cgroup_type(r0, 0x0, 0x0)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r1, 0x1000008912, 0x0)
+getsockopt$inet_sctp_SCTP_RECONFIG_SUPPORTED(r0, 0x84, 0x75, 0x0, &(0x7f0000000200))
+setsockopt$inet_sctp6_SCTP_PRIMARY_ADDR(r0, 0x84, 0x6, 0x0, 0x0)
+r2 = socket$inet6(0xa, 0x1, 0x8000)
+bind$inet6(r2, 0x0, 0x0)
+listen(r2, 0x9)
+r3 = socket$inet6(0xa, 0x6, 0x0)
+connect$inet6(r3, &(0x7f0000419000)={0xa, 0x4e20, 0x0, @loopback}, 0x1c)
+fsetxattr$security_smack_entry(r3, &(0x7f0000000300)='security.SMACK64IPIN\x00', &(0x7f0000000340)='keyring\x00', 0x8, 0x2)
+recvmmsg(r3, 0x0, 0x0, 0x2, 0x0)

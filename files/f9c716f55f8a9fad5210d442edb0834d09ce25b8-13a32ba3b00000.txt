@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f9c716f55f8a9fad5210d442edb0834d09ce25b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+timer_settime(0x0, 0x0, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+clone(0x101910b00, 0x0, 0x0, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0xa)
+mount(0x0, 0x0, &(0x7f000015bffc)='nfs\x00', 0x0, 0x0)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, 0x0)

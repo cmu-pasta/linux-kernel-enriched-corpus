@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b2c701d1581d38ec195c40db364d8d6c9ff9e645
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000140)={0x26, 'aead\x00', 0x0, 0x0, 'morus640-generic\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000000080)="b7f2288a911993f0265df5cf1cdd8b55", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+write$binfmt_script(r1, &(0x7f00000003c0)=ANY=[@ANYRES16, @ANYPTR, @ANYRES32, @ANYRES16, @ANYPTR64=&(0x7f0000000340)=ANY=[@ANYRES16, @ANYRES32]], 0x18)
+recvmsg(r1, &(0x7f0000002840)={&(0x7f00000000c0)=@l2, 0x80, &(0x7f0000002700)=[{&(0x7f0000001380)=""/5, 0x5}, {&(0x7f0000002600)=""/248, 0xf8}], 0x2, &(0x7f0000002780)=""/174, 0xae}, 0x0)

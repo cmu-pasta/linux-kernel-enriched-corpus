@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=631912dcbd65cdbcee47ae52c5e87c159931b6c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000440)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000340)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000280)='overlay\x00', 0x0, &(0x7f00000002c0)=ANY=[@ANYBLOB='upperdir=./file0,lowerdir=.:file0,workdir=./file1'])
+r0 = open(0x0, 0x0, 0x0)
+renameat(r0, &(0x7f0000000240)='.//ile0\x00', r0, 0x0)
+mount(0x0, &(0x7f000001c000)='./file0\x00', &(0x7f0000018ffa)='ramfs\x00', 0x0, 0x0)
+open(&(0x7f0000000180)='./file0/bus\x00', 0x43, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=48ac8459188ca5430fa946d53b6dd293465d969a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = add_key$keyring(&(0x7f00000002c0)='keyring\x00', &(0x7f0000000200)={0x73, 0x79, 0x7a}, 0x0, 0x0, 0xffffffffffffffff)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDRS(0xffffffffffffffff, 0x84, 0x6c, &(0x7f0000002300)=ANY=[@ANYBLOB="2f00e500a509327fa44cd41fb54c011adf231cf7c2d72e92d1392be8720e6fb26059b523"], &(0x7f0000002340)=0x1)
+add_key(&(0x7f0000000100)='dns_resolver\x00', &(0x7f0000000080)={0x73, 0x79, 0x7a}, &(0x7f0000002200), 0xe9da, r0)

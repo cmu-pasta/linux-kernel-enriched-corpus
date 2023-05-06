@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f95b5ff2a219684ecc266ffa24cf3d08839739e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+sendmmsg$unix(r0, &(0x7f00000bd000), 0x318, 0x0)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000040)={0x20000004})
+openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)

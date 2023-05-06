@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ae835528ab586cb0d19b46e988202c54aa9a60ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":72,"tun":true,"tmpdir":true,"netdev":true}
+setsockopt$inet_mtu(0xffffffffffffffff, 0x0, 0xa, &(0x7f0000000100), 0xffffffffffffff01)
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+lsetxattr$trusted_overlay_origin(&(0x7f0000000080)='./file0\x00', &(0x7f0000000140)='trusted.overlay.origin\x00', &(0x7f0000000180)='y\x00', 0x2, 0x0)
+mkdir(&(0x7f0000000200)='./file1\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./file0\x00', &(0x7f00000000c0)='overlay\x00', 0x0, &(0x7f0000000100)={[{@upperdir={'upperdir', 0x3d, './file0'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@workdir={'workdir', 0x3d, './file1'}, 0x5c}]})

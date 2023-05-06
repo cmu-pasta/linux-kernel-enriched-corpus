@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=26e23e560b6a7a40da9abf2626587349afe2f762
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0xa, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_ADD(r0, 0x0, 0x482, &(0x7f0000000080)={0x11, @dev={0xac, 0x14, 0x14}, 0x0, 0x0, 'lblc\x00'}, 0x2c)

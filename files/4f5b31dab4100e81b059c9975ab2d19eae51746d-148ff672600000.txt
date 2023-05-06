@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4f5b31dab4100e81b059c9975ab2d19eae51746d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socket$rxrpc(0x21, 0x2, 0x20000000a)

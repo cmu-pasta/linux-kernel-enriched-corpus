@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d5ffb9da8352927dd8f17911b5e7ed9d75df89ff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true,"tmpdir":true}
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+sendmsg$inet(r0, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4c00}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f2aebe90b8c56806b050a20b36f51ed6acabe802
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect$hid(0x0, 0x200, &(0x7f00000001c0)=ANY=[@ANYBLOB="12010000000000087f04ffff000000000001090224000100000000090400006f030000000921000000012222000905810300000000002e42261b1f90c2b8e00e363118bec69d7ea5b3bed6ebb560b8f26241402d4fcd9e9142550900b9d2ac831e0be7a64b6915368222777031b8e383fd984d3673052e54cee208b302338df717f0c76203c8b8d272e4538dd8d0703d1d88c1578fda6729f9e1ce113cd51c70981a861b9055048e1c2e1e2778cf91c690ef9e4fde302194aa5bbe6374da55ba1b7aa83bbe56be91b550d35e8f87b839001431aadc86bd56170d625ffaf747c0a0d3bd"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000340)={0x2c, &(0x7f0000000180)={0x0, 0x0, 0x2b, {0x2b, 0x0, "c55476744a3389920698e9965bb43bcf212f1735964dce8f5e03cdf1a26895d9b058dd942294dcca96"}}, 0x0, 0x0, 0x0, 0x0}, 0x0)
+r1 = syz_open_dev$hiddev(&(0x7f0000000000)='/dev/usb/hiddev#\x00', 0x0, 0x0)
+ioctl$HIDIOCSUSAGE(r1, 0x4018480c, &(0x7f0000000040)={0x2, 0xffffffff, 0xffffffe1, 0x5, 0xe9, 0x4c})

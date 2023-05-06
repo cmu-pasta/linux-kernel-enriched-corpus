@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9f86fabfdd07b7257ccd37a8c105a58b162fa356
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f00000000c0)={<r0=>0xffffffffffffffff})
+close(r0)
+io_setup(0x41, &(0x7f00000006c0)=<r1=>0x0)
+io_submit(r1, 0x1, &(0x7f0000000000)=[&(0x7f0000000540)={0x3000000, 0x0, 0x0, 0x800000000005, 0x0, r0, 0x0}])
+r2 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r2, 0xc018aa3f, &(0x7f0000000140)={0xaa, 0x40})
+read(r2, &(0x7f00000000c0)=""/128, 0x80)

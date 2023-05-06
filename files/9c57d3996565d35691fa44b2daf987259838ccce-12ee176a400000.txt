@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=9c57d3996565d35691fa44b2daf987259838ccce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+r1 = memfd_create(&(0x7f00000000c0)="237d00d3fc1ee4671fbaa0a455e73e678b8e96f7fd829d4d39f1828ebf765e220913b73db94f6d495077a6df5ab82b4c4f8d", 0x0)
+setsockopt$inet_mtu(r0, 0x0, 0xa, &(0x7f0000000000)=0x3, 0x4)
+ftruncate(r1, 0x40001)
+connect$inet(r0, &(0x7f00000001c0)={0x2, 0x0, @loopback}, 0x10)
+r2 = socket$nl_netfilter(0x10, 0x3, 0xc)
+bind$netlink(r2, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x51657e6adbcbddc1}, 0xc)
+sendfile(r0, r1, &(0x7f0000000080), 0xffe4)

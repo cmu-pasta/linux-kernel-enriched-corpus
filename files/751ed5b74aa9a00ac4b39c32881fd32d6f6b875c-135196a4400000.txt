@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=751ed5b74aa9a00ac4b39c32881fd32d6f6b875c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"waitrepeat":true}
+r0 = socket$unix(0x1, 0x200000000000001, 0x0)
+bind$unix(r0, &(0x7f0000366000)=@file={0x1, "e91f7189591e9233614b00"}, 0xc)
+listen(r0, 0x0)
+mount$9p_unix(&(0x7f0000000000)="e91f7189591e9233614b00", &(0x7f0000000040)="e91f7189591e9233614b00", &(0x7f0000000100)='9p\x00', 0x44, &(0x7f0000000280)={'trans=unix,', {[{@version_L='version=9p2000.L', 0x2c}, {@afid={'afid', 0x3d, 0x3ff}, 0x2c}, {@version_u='version=9p2000.u', 0x2c}, {@msize={'msize', 0x3d, 0xfff}, 0x2c}]}})

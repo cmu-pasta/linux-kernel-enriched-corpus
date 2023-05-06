@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":7,"fault_nth":6,"leak":true,"close_fds":false}
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000200)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000300)={'nr0\x01\x00', 0x1132})
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000140)='/dev/net/tun\x00', 0x0, 0x0)
+fstat(r1, 0x0)
+ioctl$TUNSETGROUP(r0, 0x400454ce, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000000)={'nr0\x01\x00', 0x5103})

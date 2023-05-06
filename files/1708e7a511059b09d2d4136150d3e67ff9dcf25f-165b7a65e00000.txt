@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1708e7a511059b09d2d4136150d3e67ff9dcf25f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x6, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00003b9fdc))
+r1 = syz_open_pts(r0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000fd0ffc)=0x7)
+ioctl$sock_inet6_SIOCADDRT(0xffffffffffffffff, 0x89a0, &(0x7f00000005c0)={@local={0xfe, 0x80, [0x0, 0xfeff0000]}, @remote, @ipv4={[], [], @remote}, 0x2})
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000240)=@ipv6_newaddr={0x34, 0x14, 0x9535393fea6295b5, 0x0, 0x0, {}, [@IFA_FLAGS={0x8, 0x8, 0x3778bcbaae6b531f}, @IFA_LOCAL={0x14, 0x2, @ipv4}]}, 0x34}}, 0x0)
+write$binfmt_misc(r0, &(0x7f00000000c0)=ANY=[], 0xffa8)

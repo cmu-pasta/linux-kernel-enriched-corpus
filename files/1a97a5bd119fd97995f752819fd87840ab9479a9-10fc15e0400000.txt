@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1a97a5bd119fd97995f752819fd87840ab9479a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"netdev":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f0000000140)={{{@in=@multicast1, @in6=@mcast1, 0x0, 0x0, 0x0, 0x0, 0x2}, {}, {}, 0x0, 0x0, 0x1}, {{@in6=@remote, 0x0, 0x33}, 0x0, @in=@rand_addr, 0x0, 0x1}}, 0xe8)
+connect$inet6(r0, &(0x7f0000000100)={0xa, 0x0, 0x0, @dev, 0x4}, 0x1c)
+sendmmsg(r0, &(0x7f0000000000)=[{{0x0, 0x0, &(0x7f00000000c0)}}, {{&(0x7f0000000580)=@in={0x2, 0x4e21, @multicast2}, 0x80, &(0x7f00000004c0), 0x0, &(0x7f00000008c0)}}], 0x2, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000180)='memory.events\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_FSSETXATTR(r1, 0x401c5820, &(0x7f0000000000)={0x58})

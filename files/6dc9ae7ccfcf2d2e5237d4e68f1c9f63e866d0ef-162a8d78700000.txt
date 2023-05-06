@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6dc9ae7ccfcf2d2e5237d4e68f1c9f63e866d0ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+madvise(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0xa)
+prctl$PR_SET_VMA(0x53564d41, 0x0, &(0x7f0000ffb000/0x2000)=nil, 0x2000, &(0x7f0000000000)='/dev/usbmon#\x00')
+madvise(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0xb)

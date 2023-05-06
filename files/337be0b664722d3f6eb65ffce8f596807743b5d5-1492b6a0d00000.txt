@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"sysctl":true,"tmpdir":true}
+mkdir(&(0x7f0000000080)='./file0\x00', 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+mount$bpf(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f00000019c0)='bpf\x00', 0x0, 0x0)

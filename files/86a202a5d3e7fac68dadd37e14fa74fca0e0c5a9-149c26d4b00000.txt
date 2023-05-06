@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=86a202a5d3e7fac68dadd37e14fa74fca0e0c5a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl80211(0x0, 0xffffffffffffffff)
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, 0x0, 0x0)
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r0, 0x0, 0x0)
+syz_genetlink_get_family_id$batadv(0x0, 0xffffffffffffffff)
+socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$ETHTOOL_MSG_PRIVFLAGS_GET(0xffffffffffffffff, 0x0, 0x0)
+sendmsg$BATADV_CMD_GET_VLAN(0xffffffffffffffff, 0x0, 0x10)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_80211_join_ibss(0x0, 0x0, 0x0, 0x0)

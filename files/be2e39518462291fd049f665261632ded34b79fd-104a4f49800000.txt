@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=be2e39518462291fd049f665261632ded34b79fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x800000, 0x4, 0x4)
+r1 = syz_open_dev$dspn(&(0x7f00000bf000-0xa)='/dev/dsp#\x00', 0x8001, 0x1)
+ioctl$SNDRV_CTL_IOCTL_ELEM_LOCK(r1, 0x40405514, &(0x7f0000216000)={0x57, 0x1, 0xdbff, 0x8, "fdd8536a2bf0b6b9380012224b8e55d9def86fa31b38c5efe1a741a82ba78a4dea85bf31a809e68182d58872", 0x400})
+ioctl$KVM_ASSIGN_SET_INTX_MASK(r1, 0x4040aea4, &(0x7f0000a3b000-0x14)={0xbac2, 0x8, 0x5, 0x5, 0x2})
+getsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000b35000-0x8)={0x0, <r2=>0x0, 0x0}, &(0x7f0000b35000-0x4)=0xc)
+writev(r0, &(0x7f00008aa000-0x20)=[{&(0x7f00006da000)="6a4db5222291c5101d387b759e5b883007150b274748a280e762e0ea16cfdc889b0457bed350f487444130d4c72ffd2627f36662929b3e30861229d26b7ca0bf24ccfe5b01692ed50e13ca7400e0f72334b6a79f", 0x54}, {&(0x7f000065f000)="c6005b2ba6f168c45cbb25a9479f89bdd9e84a5c37a16069941a375a63ef23407c175ff78d102717a8fc56b6e11a96fd85d96a83aaf922828100223bac66f78927d8854290d7a33afe70201409726109a5693840e13c77011611bc34daf921cc33ed88764eb712bdc9a3bbe1032c3a79735d1c38a053e7c7f8ae5c7850d3e185abe99d875db2946b0f004c5150aecef68e56f1a1e71183e3e999", 0x9a}], 0x2)
+pipe2(&(0x7f0000531000)={0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+ioctl$KVM_CHECK_EXTENSION_VM(r3, 0xae03, 0x9)
+fchown(r3, r2, 0x0)
+fsync(r3)
+openat$vga_arbiter(0xffffffffffffff9c, &(0x7f0000834000)='/dev/vga_arbiter\x00', 0x200000, 0x0)

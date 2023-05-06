@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2e1c26930cc57edee80734ae71bf020493b32306
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x0, &(0x7f00000001c0)={0xa, 0x4e22, 0x0, @mcast2}, 0x1c)
+setsockopt$inet6_opts(r0, 0x29, 0x39, &(0x7f0000000080)=@srh={0x2, 0x4, 0x4, 0x2, 0x1, 0x8, 0x81, [@private1={0xfc, 0x1, [], 0x1}, @loopback]}, 0x28)

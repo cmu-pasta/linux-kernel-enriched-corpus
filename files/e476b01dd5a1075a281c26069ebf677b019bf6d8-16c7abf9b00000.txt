@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e476b01dd5a1075a281c26069ebf677b019bf6d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x4)
+writev(r0, &(0x7f0000001400)=[{&(0x7f0000000080)="480000001400190a20ffff7fffffff560a113e85e17f07000000000000003ee23ffb7510840041fec5acd298026de5ff5aff2b00ea57b195e12d0cbc22047ba16000ef43f728460f", 0x48}], 0x1)
+read(r0, &(0x7f0000001440)=""/4096, 0x1000)

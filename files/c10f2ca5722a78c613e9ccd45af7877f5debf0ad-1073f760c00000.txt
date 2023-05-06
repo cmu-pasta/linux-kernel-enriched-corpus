@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=c10f2ca5722a78c613e9ccd45af7877f5debf0ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x400000000001, 0x0)
+close(r0)
+openat$vhci(0xffffffffffffff9c, &(0x7f0000000300)='/dev/vhci\x00', 0x200000040006)
+r1 = open(&(0x7f0000002000)='./bus\x00', 0x141042, 0x0)
+write$P9_RLERRORu(r1, &(0x7f0000000100)=ANY=[@ANYBLOB="ff81"], 0x2)
+sendfile(r0, r1, &(0x7f0000000000), 0x2)

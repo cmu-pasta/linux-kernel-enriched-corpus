@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bf95da1c68b889380395af19f1953e91b772d3ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000240)='TIPCv2\x00')
+sendmsg$TIPC_NL_BEARER_ADD(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000000)=ANY=[@ANYBLOB=',\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="0900000000000000000003000000180001001400010069623a736738101cf9405dc12663a8969e000000000000000065b88f962766fbae493f684f4541a96ead5d998387aa85e955a2f6db229df49ee11b0428ff8de488723d6ea7894208cb1b33d819eb66a736a4014b13908c15091a7f3a3fef88a60452ce1b476783689595780935c6b28d913b8225508888971e04d4050b161997dd26714c64ebe855c8c633abcc7962ae0f4c3f0c88a5335ae0b384b865a42acf6ce31dc6467818cd1c4016acb3b5b3a19bdccaa708103a61bdaa778eb8e68a2c4727d7ce6f934c60b9d233de6ea8c7284d9e63f410c6e410cd3cc11c80977759faaaf6f5896eba126646c4e19e4244daaaf850cef4fb56619e10a4fb2b3bbd0c099c939810c53e5a4a8925f392c31d9ae5e4ef9756c618019ece63e8477c38d3a4870e2440d30052c91b2c49bb2bb13aab8f3d68d48d93578ff49a7044792f06df78ca36959b23e74db2623db72aeb6f5a21f0"], 0x3}}, 0x0)

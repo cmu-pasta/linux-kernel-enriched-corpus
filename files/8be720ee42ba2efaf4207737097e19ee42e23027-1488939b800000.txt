@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8be720ee42ba2efaf4207737097e19ee42e23027
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:true FaultCall:0 FaultNth:41 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+clone(0x2000c100, &(0x7f0000000800), &(0x7f00000008c0), &(0x7f0000000900), &(0x7f0000000940))

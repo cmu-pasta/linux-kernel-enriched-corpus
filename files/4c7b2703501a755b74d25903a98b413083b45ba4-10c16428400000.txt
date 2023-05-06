@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=4c7b2703501a755b74d25903a98b413083b45ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000380)='/dev/kvm\x00', 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_PEER_AUTH_CHUNKS(0xffffffffffffff9c, 0x84, 0x1a, &(0x7f0000000180)=ANY=[@ANYBLOB="400000ffce9443cb"], &(0x7f0000000340)=0x1)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = openat$null(0xffffffffffffff9c, &(0x7f0000000140)='/dev/null\x00', 0x0, 0x0)
+r3 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000000000/0x18000)=nil, &(0x7f0000000280)=[@text64={0x40, &(0x7f0000000500)="0f0866b8ed008ec066ba4000b000eed2a807000000410f01cab98e0b0000b862000000ba000000000f30b90b0800000f320fc72a8f2a60128f00000000003000000fc7aa00100000", 0x48}], 0x0, 0x0, &(0x7f0000000040), 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+pipe2(&(0x7f0000000000), 0x0)
+accept4$nfc_llcp(0xffffffffffffffff, &(0x7f0000000080), &(0x7f0000000100)=0x60, 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+r4 = getpgid(0x0)
+getresuid(&(0x7f0000000640), &(0x7f0000000680)=<r5=>0x0, &(0x7f00000006c0))
+r6 = getegid()
+sendmsg$unix(r2, &(0x7f0000000740)={&(0x7f00000001c0)=@abs={0x1, 0x0, 0x4e24}, 0x6e, &(0x7f0000000480)=[{&(0x7f0000000040)}, {&(0x7f00000003c0)="904eafd31e3f71014cc07278cb4a80ae3ed86f02d466055a2d6bfca4617e7a1d03d90cecc488712adfc8d26cc805e4d9f2e39123add12f2c853f80bbc769394264b53645931cf17060bfd958702673f52b5177fafc387d861022d6a24e6f9e4e3379d47702992b65b2ed810f12b1cdc7b405bc3b553de97f8380ecd26389065b122b48098ccf6dcbfb9c19c8e1c18240211f12e9833a8c7e32c5ee1f1b539eb5fcf3d919cae4399a830553d8872da765cb5ac4d5c799388a1d", 0xb9}, {&(0x7f0000000580)="ea5faffeab072732ba5d1e2b0f0ad6538da3c91040adf37a322ac81d2a9efd955a42f5ce9638ca3ed6e677a7c287f45488400928261364b14ee37b778db4e6655939a4932cbf3a8c32f94bc69688cfed3dc6682b4ec9a42b64b3bb386fdb43c1e63042b5842fb3f278223bb8ed0c46caf2962d47377c964c143a32a3b7b1d817ab86cc6e71c1d6c3b1bf6845d52efd5f1fe4767933f816b8da50610b98d8882098c33ca4e917e150ec9a0c57b0dd09488dba1ccb", 0xb4}, {&(0x7f00000002c0)="31c82e82225114faeebad75dfb4ffda88d6a8f37ccb74d4efad9600acaefa75149d8741dc06b1fd2880b130ef0a1d1b788adf2ed8ede486b9337b9e51decc613433c385ca0499b880d64d67e6441e57ab2c1860fd11d4051e1", 0x59}, {&(0x7f0000000240)="f52d0940bcddd15df40655730aae96c27f9129", 0x13}], 0x5, &(0x7f0000000700)=[@cred={0x20, 0x1, 0x2, r4, r5, r6}], 0x20, 0x20000001}, 0x1857770a520e4fd3)

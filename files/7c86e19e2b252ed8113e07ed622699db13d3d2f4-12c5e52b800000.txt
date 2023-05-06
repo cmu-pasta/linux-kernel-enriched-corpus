@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7c86e19e2b252ed8113e07ed622699db13d3d2f4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000223fd4)=[@in6={0xa, 0x4e23}], 0x1c)
+sendto$inet(r0, &(0x7f0000ac0fbb)="c4", 0x1, 0x0, &(0x7f00006e2000)={0x2, 0x4e23, @loopback=0x7f000001}, 0x10)
+setsockopt$inet_sctp6_SCTP_I_WANT_MAPPED_V4_ADDR(r0, 0x84, 0xc, &(0x7f000056effc), 0x4)
+recvmmsg(r0, &(0x7f0000003ac0)=[{{&(0x7f0000003880)=@ipx, 0x80, &(0x7f0000003a40), 0x0, &(0x7f0000003a80)=""/47, 0x2f}}], 0x1, 0x0, &(0x7f0000003bc0)={0x77359400})
+syz_emit_ethernet(0x3e, &(0x7f00000001c0)={@local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, @empty, [], {@ipv6={0x86dd, {0x0, 0x6, "50a09c", 0x8, 0x2b, 0x0, @remote={0xfe, 0x80, [], 0xbb}, @local={0xfe, 0x80, [], 0xaa}, {[], @udp={0x0, 0x0, 0x8}}}}}}, &(0x7f0000000040))

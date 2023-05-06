@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d2dce0b24023e5d982f2b6b2df432d72ab87d248
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"close_fds":true}
+syslog(0x3, &(0x7f0000000000)=""/206, 0xce)
+rt_sigreturn()

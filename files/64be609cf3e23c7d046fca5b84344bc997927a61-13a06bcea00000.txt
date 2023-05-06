@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+openat$ptmx(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+write$cgroup_pid(0xffffffffffffffff, 0x0, 0x0)
+clone(0x40a00000, 0x0, 0xfffffffffffffffe, 0x0, 0x0)

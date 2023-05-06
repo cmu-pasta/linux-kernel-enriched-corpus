@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c7fd949e1dcb317375d8c795cbb5965420e0c12d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mmap(&(0x7f000007d000/0x4000)=nil, 0x4000, 0x2, 0x8132, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000b70000/0x2000)=nil, 0x2000, 0xfffffffffffffffd, 0x101034, 0xffffffffffffffff, 0x0)
+getsockopt$inet6_IPV6_IPSEC_POLICY(0xffffffffffffffff, 0x29, 0x22, &(0x7f00000009c0)={{{@in6, @in6=@ipv4={[], [], @rand_addr}}}, {{@in6}, 0x0, @in=@broadcast}}, &(0x7f00000001c0)=0xe8)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cpu.stat\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_SWAP_BOOT(r0, 0x6611)

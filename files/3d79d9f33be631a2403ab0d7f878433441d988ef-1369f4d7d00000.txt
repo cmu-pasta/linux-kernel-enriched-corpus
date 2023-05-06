@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3d79d9f33be631a2403ab0d7f878433441d988ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000140)={0x1f, @fixed}, 0x8)
+syz_emit_vhci(&(0x7f0000000200)=@HCI_EVENT_PKT={0x4, @hci_ev_sync_conn_complete={{0x2c, 0x11}, {0x0, 0x0, @fixed}}}, 0x14)

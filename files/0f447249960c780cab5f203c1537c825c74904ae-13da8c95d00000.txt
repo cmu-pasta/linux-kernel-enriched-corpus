@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0f447249960c780cab5f203c1537c825c74904ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000240), 0x4000000004402, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r0, 0x0)
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000), 0x901, 0x0)
+ioctl$BLKTRACESTOP(r1, 0x125d, 0x400000)

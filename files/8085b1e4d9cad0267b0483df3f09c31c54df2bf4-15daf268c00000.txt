@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8085b1e4d9cad0267b0483df3f09c31c54df2bf4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e20, @dev}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x1000000020000000, &(0x7f0000000080)={0x2, 0x4e20}, 0x10)
+sendto$inet(r0, &(0x7f0000000240), 0x13f698e4b9e296e3, 0x0, 0x0, 0xffffffffffffff06)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f0000000240)=0x1, 0x4)
+setsockopt$inet_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000180)=0x2, 0x4)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+pivot_root(0x0, 0x0)
+setsockopt$IP6T_SO_SET_REPLACE(0xffffffffffffffff, 0x29, 0x40, 0x0, 0x0)
+mount$bpf(0x0, &(0x7f0000000380)='./file0\x00', &(0x7f00000003c0)='bpf\x00', 0x40, 0x0)

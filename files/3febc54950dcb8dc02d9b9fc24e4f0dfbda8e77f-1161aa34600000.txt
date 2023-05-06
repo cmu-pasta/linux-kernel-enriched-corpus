@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3febc54950dcb8dc02d9b9fc24e4f0dfbda8e77f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0xc, 0x4, &(0x7f0000000000)=@framed={{}, [@call={0x161, 0x11, 0xa4}]}, &(0x7f00000000c0)='GPL\x00', 0x4, 0x1000, &(0x7f0000000200)=""/4096, 0x0, 0x0, [], 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000040)={r0, 0x0, 0x8f, 0x0, &(0x7f0000001200)="759a332a4dc0c24999c0993f9b2901e9956dad4a4cdd480f7b270d99568b8d3b330fad73b447d66a164878acf995e80a938e25da883d8f66a94f5b84294050c142e1d5937240a219a130ecdeb0ce16b5271ae80af20e15238e4263eaaf4a76631c70f7c6ea073f8f9745eb61fb6d353e2314f6ca7e6f4e6ae1a15b4564bb6a3113fea3bfe6d38189dff30ca50cc178", 0x0}, 0x28)

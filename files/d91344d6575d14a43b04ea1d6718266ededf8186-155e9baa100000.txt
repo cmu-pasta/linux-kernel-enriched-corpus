@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d91344d6575d14a43b04ea1d6718266ededf8186
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f00000000c0)='syz_tun\x00', 0x10)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x0, @initdev}, 0x10)

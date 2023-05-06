@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=48ea0bacc7e3b840b26bdee4475f4c2ca215b0fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+unshare(0x40000000)
+setsockopt$inet_tcp_TCP_MD5SIG(r0, 0x6, 0xe, 0x0, 0x0)
+setsockopt$inet_tcp_int(0xffffffffffffffff, 0x6, 0xa, 0x0, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_FLAG_CMD(0xffffffffffffffff, 0x8982, &(0x7f0000000080)={0x7, 'macvtap0\x00'})
+r1 = socket$netlink(0x10, 0x3, 0x0)
+bind(r1, 0x0, 0x0)
+setsockopt$inet_msfilter(0xffffffffffffffff, 0x0, 0x29, 0x0, 0x20)
+sendto$inet(0xffffffffffffffff, 0x0, 0x0, 0x11, 0x0, 0x0)
+sendto$inet(0xffffffffffffffff, 0x0, 0x0, 0x22000000, 0x0, 0x0)

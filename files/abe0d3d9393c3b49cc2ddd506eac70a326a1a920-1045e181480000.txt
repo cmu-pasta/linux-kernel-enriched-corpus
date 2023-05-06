@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=abe0d3d9393c3b49cc2ddd506eac70a326a1a920
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='cgroup.controllers\x00', 0x275a, 0x0)
+fcntl$setstatus(r0, 0x4, 0x52400)
+r1 = syz_io_uring_setup(0x2de3, &(0x7f0000001600)={0x0, 0x0, 0x1}, &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffa000/0x3000)=nil, &(0x7f0000000040)=<r2=>0x0, &(0x7f00000000c0)=<r3=>0x0)
+syz_io_uring_complete(r2)
+syz_io_uring_submit(r2, r3, &(0x7f00000001c0)=@IORING_OP_WRITE={0x17, 0x0, 0x0, @fd_index=0x3, 0x0, 0x0, 0x0, 0x8}, 0x0)
+io_uring_enter(r1, 0x1261, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=75e4d2c843e82c3d9525e29fee03bb4e0a54535e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+syz_open_dev$dmmidi(0x0, 0x1f, 0x400000)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+unshare(0x24020400)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000440)='cgroup2\x00', 0x0, 0x0)
+mkdir(&(0x7f0000000180)='./file0//ile0\x00', 0x0)
+rmdir(&(0x7f0000000340)='./file0//ile0\x00')

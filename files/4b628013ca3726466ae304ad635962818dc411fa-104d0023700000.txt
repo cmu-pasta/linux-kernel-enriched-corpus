@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+syz_emit_ethernet(0x200002ba, &(0x7f0000000200)={@random="3cf705d0bf9f", @remote, @void, {@ipv4={0x800, @tipc={{0x20, 0x4, 0x0, 0x0, 0xac, 0x0, 0x0, 0x0, 0x6, 0x0, @dev, @private, {[@end, @timestamp_addr={0x44, 0x2c, 0x0, 0x1, 0x0, [{@empty}, {@empty}, {@empty}, {@multicast1}, {@multicast1}]}, @generic={0x0, 0x10, "f9617d26c47a797713ba75b917fe"}, @cipso={0x86, 0x2c, 0x0, [{0x0, 0xb, "daa9a5b9c96a200788"}, {0x0, 0xc, "b1b3c84c0f704095073a"}, {0x0, 0xf, "8a89c480988ae9d41c75e233f0"}]}]}}, @payload_mcast={{{{{{0x2c, 0x0, 0x0, 0x0, 0x0, 0xb}}}}}}}}}}, 0x0)

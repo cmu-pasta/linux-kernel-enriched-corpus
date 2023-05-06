@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=fea808dfe3c6dfdd6ba9778becbffe0b14e91294
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f00000000c0)={&(0x7f0000000000)=""/5, 0x20000, 0x1000}, 0x18)
+setsockopt$XDP_UMEM_FILL_RING(r1, 0x11b, 0x5, &(0x7f00000004c0)=0x80, 0x4)
+setsockopt$XDP_TX_RING(r1, 0x11b, 0x3, &(0x7f0000000140)=0x2, 0x4)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0}, &(0x7f00000002c0)=0x14)
+setsockopt$XDP_UMEM_COMPLETION_RING(r1, 0x11b, 0x6, &(0x7f00000001c0)=0x400, 0x4)
+bind$xdp(r1, &(0x7f0000000040)={0x2c, 0x4, r2}, 0x10)

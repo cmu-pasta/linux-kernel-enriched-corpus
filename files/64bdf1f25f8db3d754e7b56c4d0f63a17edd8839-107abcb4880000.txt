@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=64bdf1f25f8db3d754e7b56c4d0f63a17edd8839
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$can_j1939(0x1d, 0x2, 0x7)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000040)={'vxcan0\x00', <r1=>0x0})
+bind$can_j1939(r0, &(0x7f0000000080)={0x1d, r1}, 0x18)
+r2 = socket$can_j1939(0x1d, 0x2, 0x7)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r2, 0x8933, &(0x7f00000000c0)={'vxcan1\x00', <r3=>0x0})
+bind$can_j1939(r2, &(0x7f0000000100)={0x1d, r3}, 0x18)
+connect$can_j1939(r2, &(0x7f0000000140)={0x1d, r3}, 0x18)
+sendmsg$can_j1939(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000003c0)="656174611fed46110aef3995a0ae06e5ecfac0c016e0fddd3bd039dec662e3a0e04a0428c6ff5d5ca5f407315feb2a10dadb2880c5a417e79586035a75fb2acf4cf27362ecae8c4c4e1adde12fb87db41653e2af2ae30df18a269078228cf2c0bdca30c4da2d2c544df72f0072aef636f0d2d65651d4e9322513c0037edca44d559cfc2c1608ce9b03d0f6a79e1d596d00000000e8bb35c37aa0b6fbf1b57de06b5646238c6b90467a5059df515f1f9015ba", 0xb2}, 0x1, 0x0, 0x0, 0xe1f20ba5f1643732}, 0x88004)

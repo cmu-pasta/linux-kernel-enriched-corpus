@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=27ea7ae6337aef698924e3eac5aa2b925374ca4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$proc_mixer(0xffffffffffffff9c, &(0x7f0000000100)='/proc/asound/card1/oss_mixer\x00', 0x20802, 0x0)
+write$binfmt_script(r0, 0x0, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8fcf27347cbc42940c3497052c63eed41434235c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$ext4(0x0, &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000400)=ANY=[@ANYBLOB="1500000065ffff017f00000800395032303030"], 0x15)
+r2 = dup(r1)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="1518"], 0xb0)
+mount$9p_fd(0x20000000, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, &(0x7f0000002c80)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1])

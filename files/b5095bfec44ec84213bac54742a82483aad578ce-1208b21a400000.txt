@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+unshare(0x24020400)
+mknod(&(0x7f00000056c0)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f0000f8aff8)='./file0\x00', &(0x7f0000000380), &(0x7f00000001c0))
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000140)='personality\x00')
+sendfile(r0, r0, &(0x7f0000000440)=0x80, 0x4000000000200)
+pipe(&(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+dup(r1)
+close(r1)
+splice(r1, 0x0, r2, 0x0, 0x200, 0x0)

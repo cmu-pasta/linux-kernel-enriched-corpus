@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=205c40dcecd95c9450622ce281aef3ee26b44cff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$sndmidi(&(0x7f0000000080), 0x2, 0x141101)
+r1 = dup(r0)
+r2 = syz_io_uring_setup(0x3d04, &(0x7f0000000240), &(0x7f0000002000/0x2000)=nil, &(0x7f0000003000/0x4000)=nil, &(0x7f0000000040)=<r3=>0x0, &(0x7f0000000180)=<r4=>0x0)
+syz_io_uring_submit(r3, r4, &(0x7f00000001c0)=@IORING_OP_CLOSE={0x13, 0x2, 0x0, r1}, 0x0)
+io_uring_enter(r2, 0x2ff, 0x0, 0x0, 0x0, 0x0)

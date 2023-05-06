@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f545f7c3545aae6dabe7070d64a4172ed79a9354
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$inet_dccp(0x2, 0x6, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @dev}, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$l2tp(&(0x7f0000000140), 0xffffffffffffffff)
+sendmsg$L2TP_CMD_TUNNEL_CREATE(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f00000007c0)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r2, @ANYBLOB="230900000000000000000100000005000700000000000800090000000000060002000100000008000a000000000008001700", @ANYRES32], 0x3c}}, 0x0)
+socket$inet_mptcp(0x2, 0x1, 0x106)

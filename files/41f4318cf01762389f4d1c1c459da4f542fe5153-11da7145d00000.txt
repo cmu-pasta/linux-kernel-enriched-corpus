@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=41f4318cf01762389f4d1c1c459da4f542fe5153
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x26e1, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000180)={0x0, r0}, 0x10)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x11, 0x3, &(0x7f00000002c0)=@framed={{0x18, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x100}}, &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000180)={&(0x7f0000000080)='scsi_dispatch_cmd_start\x00', r1}, 0x10)
+open(0x0, 0x141042, 0x0)

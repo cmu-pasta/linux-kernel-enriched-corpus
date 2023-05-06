@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=48fc416d2c2a7abd27090c32a1673fb5beb1b73c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"resetnet":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"segv":true}
+ioctl$PERF_EVENT_IOC_SET_BPF(0xffffffffffffffff, 0x40042408, 0xffffffffffffffff)
+r0 = socket$kcm(0x29, 0x2, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(0xffffffffffffffff, 0x40305839, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(0xffffffffffffffff, 0xc028660f, 0x0)
+openat$cgroup_type(0xffffffffffffffff, 0x0, 0x2, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r0, 0x8b28, &(0x7f0000000000)='wlan1\x00\x1b\x1a\xec\xb5\x12\x03F\xd9\x00\x00\x1f\x00\x00\x00\x00\x00\xff\x10\x00,C\xfdj\xe3\x8d\xe3\xd6\xe0|6l\xe9\xd9;\x13\xdf\xf7\xber\'\x8a\xd5\xd5\xe1\xf5\\\x9b\xb2\b\xde\xbbg\xc18\x84,:f\xcb\xe8oOArYZ\xe1\x1f\xebp\xf5\xfb\xaad\x1a\xa0\xb1\x9c,\xe8\xff^9P\xee\x8aG\xdd\x00\x0e\xd8\a\xca\xc8~\x82\xf6\xaaj\xe5\xf7\x19\xeb#;|\xabA1\xaa\xbc7Tf\xf1Y\x1c\xed~\xe9\xe9\xf9\xcfW\xdc\xcf\xe9\x8d\xe8\xcf\x9e2I[\xcf\xf7\xb0K\x1c\x1c\x06h\x8cd\f6\xfe\xb7\xbf\xae\xea\x99\xea\xb3G\x8a\xe3\x9c\x96\xf5\xf8\xb5\x19\twp\xfa\xa9\xd8\xbfSa\xb9\v\xb3\xb1\x05\xa05\xdc\x12\x86\xb9\xf93\xac\x14\x1fXf\xfd\xde0\x83\x7f\x80\xddL[t% /H\xed\xea\x80*NA\xbaX\r\xea\v\x83<\xa1d\x00\x00\x00\x00\x00\x00\x10\x00\x00\xaf\xf6\xbd2')
+perf_event_open(&(0x7f0000001f80)={0x2, 0x70, 0x40, 0x2, 0x7, 0x4, 0x0, 0x4, 0x614030bbc056506a, 0xcdd3f34d7821d21c, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, 0x2, 0x2, @perf_config_ext={0x80000000, 0x8}, 0x41040, 0x5, 0xffff, 0x5, 0x7, 0x9}, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0x1a)

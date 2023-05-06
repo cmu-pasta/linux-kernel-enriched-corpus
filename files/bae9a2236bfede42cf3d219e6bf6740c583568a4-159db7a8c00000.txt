@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bae9a2236bfede42cf3d219e6bf6740c583568a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true}
+r0 = socket$pptp(0x18, 0x1, 0x2)
+bind$pptp(r0, &(0x7f0000bf4fe0)={0x18, 0x2, {0x0, @loopback}}, 0x20)
+connect$pptp(r0, &(0x7f0000000040)={0x18, 0x2, {0x0, @dev}}, 0x1e)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

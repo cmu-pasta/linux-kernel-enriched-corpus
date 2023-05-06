@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f396d863067238959c91c0b7cfc10b163638cac6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:true FaultCall:2 FaultNth:37 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mknod(&(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+syz_fuse_mount(&(0x7f00000000c0)='./file0\x00', 0xc003, 0x0, 0x0, 0x0, 0x0)
+mount(&(0x7f0000000240)='./file0\x00', &(0x7f0000000280)='./file0\x00', &(0x7f00000002c0)='fusectl\x00', 0x0, &(0x7f0000000300))

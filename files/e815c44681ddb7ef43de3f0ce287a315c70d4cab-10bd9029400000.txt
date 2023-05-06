@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e815c44681ddb7ef43de3f0ce287a315c70d4cab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"namespace","fault_call":-1,"tmpdir":true}
+pipe2(&(0x7f0000000000), 0x800)
+r0 = syz_open_dev$usb(&(0x7f0000000100)='/dev/bus/usb/00#/00#\x00', 0x80000000009, 0x402)
+ioctl$FS_IOC_FSGETXATTR(r0, 0x802c550a, &(0x7f0000000080)={0x8002, 0x0, 0x5, 0x730000, 0xffffffff7ff0bdbe})

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$dsp1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/dsp1\x00', 0x109801, 0x0)
+write$dsp(r0, &(0x7f0000002000)='`', 0x80000)

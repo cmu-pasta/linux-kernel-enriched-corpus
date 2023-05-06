@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7ee911989956af5f31ad6ed164743abab8989e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000040), 0x4)
+unshare(0x40000200)
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)={0x8, 0x0, 0xfffffffe, 0x4, 0x0, 0xffffffffffffffff, 0x6, '\x00', 0x0, 0xffffffffffffffff, 0x0, 0x1}, 0x40)

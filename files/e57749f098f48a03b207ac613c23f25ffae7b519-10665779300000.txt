@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e57749f098f48a03b207ac613c23f25ffae7b519
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+clock_adjtime(0x0, &(0x7f0000000000)={0x1ff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xa086010000000000})

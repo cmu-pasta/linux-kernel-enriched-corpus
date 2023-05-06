@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ca20586a5f42828d3ca74912f371216a9bdb6b2d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000001280)=ANY=[@ANYBLOB="3400000010000104000009040000000000000000", @ANYRES32, @ANYBLOB="0000000000000000140012000c000100627269646765"], 0x34}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000340)=@newtaction={0x6c, 0x30, 0x5, 0x0, 0x0, {}, [{0x58, 0x1, [@m_gact={0x54, 0x1, 0x0, 0x0, {{0x9, 0x1, 'gact\x00'}, {0x28, 0x2, 0x0, 0x1, [@TCA_GACT_PARMS={0x18}, @TCA_GACT_PROB={0xc, 0x3, {0x3}}]}, {0x4}, {0xc}, {0xc}}}]}]}, 0x6c}}, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000280)=ANY=[@ANYBLOB="a000000010003b0e2000"/20, @ANYRES32, @ANYBLOB="020000000000000080001200080001007674693674000200600005"], 0xa0}}, 0x0)
+r1 = socket(0x10, 0x8000000000000003, 0x0)
+sendmmsg(r1, &(0x7f0000000000), 0x4000000000001f2, 0x0)

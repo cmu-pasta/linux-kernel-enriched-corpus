@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=37522d157c64b2776a89887789691990de93bd87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$tmpfs(&(0x7f00000002c0)='tmpfs\x00', &(0x7f0000000100)='./bus\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='huge=always'])
+chdir(&(0x7f0000000380)='./bus\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000040)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x15)

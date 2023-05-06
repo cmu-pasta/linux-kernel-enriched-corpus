@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4ff468adb0f7d9c6b2920bade92175d47dfbab1e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f00000002c0), 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000200)={'rose0\x00', 0x112})
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000300)={'rose0\x00', <r3=>0x0})
+ioctl$TUNSETQUEUE(r0, 0x400454d9, &(0x7f0000000340)={'dvmrp1\x00', 0x400})
+sendmsg$nl_route(r1, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000500)={&(0x7f0000000d80)=ANY=[@ANYBLOB="34000000110001e90d7d1fc74e1bed42ec45b2fc", @ANYRES32=r3], 0x35}}, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000200)={'rose0\x00', 0x112})

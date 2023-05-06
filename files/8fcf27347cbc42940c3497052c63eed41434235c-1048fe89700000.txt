@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8fcf27347cbc42940c3497052c63eed41434235c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+write$binfmt_misc(0xffffffffffffffff, 0x0, 0xfffffc7b)

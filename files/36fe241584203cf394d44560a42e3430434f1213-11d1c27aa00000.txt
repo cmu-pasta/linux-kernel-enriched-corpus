@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=36fe241584203cf394d44560a42e3430434f1213
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"close_fds":true,"tmpdir":true}
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000180)='/dev/loop-control\x00', 0x0, 0x0)
+ioctl$LOOP_CTL_REMOVE(r0, 0x4c81, 0x0)

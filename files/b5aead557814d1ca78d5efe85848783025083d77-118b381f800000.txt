@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b5aead557814d1ca78d5efe85848783025083d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet(0x10, 0x3, 0xc)
+sendmsg(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000009ff0)=[{&(0x7f0000000000)="24000000020307031dfffd946fa2830020200a00090005000000001f0c1ba3a204000400", 0x24}], 0x1}, 0x0)

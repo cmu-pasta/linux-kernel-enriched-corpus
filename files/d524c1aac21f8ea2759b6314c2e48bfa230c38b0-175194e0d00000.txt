@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d524c1aac21f8ea2759b6314c2e48bfa230c38b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, &(0x7f0000000840)={0x2, 0x0, @loopback}, 0x10)
+sendmsg$rds(r0, &(0x7f0000001600)={&(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10, 0x0, 0x0, &(0x7f0000000640)=[@rdma_args={0x48, 0x114, 0x1, {{}, {0x0}, &(0x7f00000004c0)=[{&(0x7f0000000100)=""/215, 0xd7}], 0xffffff1f, 0x19c803a3706e0660}}], 0x48}, 0x0)

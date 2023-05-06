@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=42d3c057cb79ff6009a2f2742ea11d481c724ea3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$ax25(0x3, 0x2, 0x0)
+close(0xffffffffffffffff)
+setsockopt$ax25_int(r0, 0x101, 0x19, &(0x7f0000000000)=0xffffffff, 0x4)

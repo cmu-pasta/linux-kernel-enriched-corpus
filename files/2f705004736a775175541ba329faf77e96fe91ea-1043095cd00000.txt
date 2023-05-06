@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=2f705004736a775175541ba329faf77e96fe91ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"tmpdir":true}
+mount$fuse(0x0, 0x0, &(0x7f0000002100)='fuse\x00', 0x0, 0x0)
+mount$fuse(0x0, 0x0, 0x0, 0x0, &(0x7f0000000800)=ANY=[@ANYBLOB="3b146355f4a063db45832903365000257fc35e782121776a86e1afb5e2b4964867b34b36c8e60da123b0f2e7e4fef5c8ac663c70e42250f616b1db326927ca1436198835a01947020feea5055b7f6078e4d63a2718f431a46abcb3617549e3c66c0e64daa2bebec31ca5add874a483ca81569bdf3c8388ae9701a9f89483ab20aa524dbd7407bc303af0bf9f4f332292725340048a341dda16", @ANYRESHEX, @ANYBLOB, @ANYRESDEC=0x0, @ANYBLOB=',grou', @ANYRESDEC])
+write(0xffffffffffffffff, &(0x7f0000004200)='t', 0x1f000)
+ioctl$LOOP_CHANGE_FD(0xffffffffffffffff, 0x4c06, 0xffffffffffffffff)
+ioctl$EXT4_IOC_MIGRATE(0xffffffffffffffff, 0x6609)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f0000000040)=0x76, 0x4)
+bind$inet(r0, &(0x7f0000000280)={0x2, 0x4e23, @multicast2}, 0x10)
+socket(0x11, 0x800000003, 0x8)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000480)={0x1, &(0x7f0000000100)=[{0x6, 0x0, 0x0, 0xe7}]}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+sendto$inet(r0, &(0x7f00000012c0)="0c268a927f1f6588b967480a41ba7860ac5cf65ac618ded8974895abeaf4b4836af922b3f1e0b02bd60da03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0xfe6a, 0x20c49a, 0x0, 0x27)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=cdbe3c90a4e82721cf40b1d260aa2f7905889339
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f000014f000)={&(0x7f00003c8000-0xc)={0x10}, 0xc, &(0x7f0000bd7000)={&(0x7f0000c08000-0x168)=@newsa={0x154, 0x10, 0x713, 0xffffffffffffffff, 0xffffffffffffffff, {{@in6=@local={0xfe, 0x80, [], 0x0, 0xaa}, @in6=@ipv4={[], [0xff, 0xff], @local={0xac, 0x14, 0xffffffffffffffff, 0xaa}}, 0x0}, {@in6=@empty, 0xffffffffffffffff, 0x33}, @in=@broadcast=0xffffffff, {}, {}, {}, 0xffffffffffffffff, 0xffffffffffffffff, 0xa}, [@replay_esn_val={0x1c, 0x17, {0x3ffffffffffffd69, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0x4, []}}, @algo_auth={0x48, 0x1, {{'md5\x00'}}}]}, 0x154}, 0x1}, 0x0)
+openat$selinux_avc_hash_stats(0xffffffffffffff9c, &(0x7f0000cc8000-0x18)='/selinux/avc/hash_stats\x00', 0x0, 0x0)

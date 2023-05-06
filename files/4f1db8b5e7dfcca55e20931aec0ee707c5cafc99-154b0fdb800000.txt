@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4f1db8b5e7dfcca55e20931aec0ee707c5cafc99
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000280)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000bf7000)={0x0, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r2, &(0x7f0000001000/0x18000)=nil, &(0x7f0000000040)=[@text32={0x20, &(0x7f0000000000)="440f20c0350f000000440f22c00f3066baf80cb8208c7283ef66bafc0cedf4f2360f01df640f01d10f850200000066ba400066b8002066ef660f75fd650f09", 0x3f}], 0x1, 0x0, &(0x7f0000000080), 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000400)={0x0, 0x1, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$sock_inet_SIOCSIFADDR(r2, 0x8916, &(0x7f0000000080)={'team0\x00', {0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0xc}}})

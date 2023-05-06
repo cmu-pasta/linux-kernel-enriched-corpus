@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=91e52396168cf2bdd572fe1e1bc0bc645c1c6b40
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:none Fault:true FaultCall:2 FaultNth:5 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = socket(0x2, 0x1, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000240))
+kexec_load(0x0, 0x1, &(0x7f0000000640)=[{&(0x7f00000005c0)}], 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5b0e0b9fbc7fc4d92645e2590b59fc47cf20002e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nfc_llcp(0x27, 0x2, 0x1)
+listen(0xffffffffffffffff, 0x9)
+ioctl$sock_kcm_SIOCKCMCLONE(0xffffffffffffffff, 0x89e2, 0x0)
+bind$nfc_llcp(r0, &(0x7f0000000000)={0x27, 0x0, 0x0, 0x0, 0x0, 0x0, "75a8000000000000000019160800008f74fa00040000000000004797608dd0e7316d1d4f4dbaa0a67be4714b7ccefa8a00", 0x1}, 0x60)
+ioctl$EXT4_IOC_MOVE_EXT(0xffffffffffffffff, 0xc028660f, &(0x7f0000001300)={0x2880008})
+getsockopt$nfc_llcp(0xffffffffffffffff, 0x118, 0x4, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(0xffffffffffffffff, 0x84, 0x9, &(0x7f00000004c0)={0x0, @in, 0x0, 0x0, 0x0, 0x0, 0xb4}, 0x9c)

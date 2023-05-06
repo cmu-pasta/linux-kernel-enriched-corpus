@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=902dbc947cfb431aae1a0f28a11f89c630210279
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000740)={&(0x7f00000001c0)={0x10, 0x700}, 0xc, &(0x7f0000000700)={&(0x7f00000000c0)=ANY=[@ANYBLOB="280000001e000106000000000000000007000000", @ANYRES32=0x0, @ANYBLOB="00000000000005c171842d67809436d87d0d2d0000"], 0x3}}, 0x0)
+recvfrom$unix(r0, &(0x7f0000000040)=""/123, 0x7b, 0x0, 0x0, 0x0)
+ioctl$TUNSETTXFILTER(0xffffffffffffffff, 0x400454d1, &(0x7f0000000180)={0x1, 0x2, [@dev={[], 0x17}, @link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0x3}]})
+syz_open_dev$audion(&(0x7f0000000080)='/dev/audio#\x00', 0x8, 0x0)

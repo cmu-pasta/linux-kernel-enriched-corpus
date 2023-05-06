@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4710b830601445fbfcee1d0bc64531b13b9ca57f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000040)=ANY=[@ANYBLOB="60000000031401002bbd7000fddbdf250900020073797a300000000008004100727865001400330076657468305f766c616e0000000000000900020073797a"], 0x60}, 0x1, 0x0, 0x0, 0x5}, 0x4000000)
+r1 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$smc(&(0x7f00000006c0), 0xffffffffffffffff)
+sendmsg$SMC_PNETID_DEL(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000000)={0x2c, r2, 0x1, 0x0, 0x0, {0x2}, [@SMC_PNETID_IBNAME={0x9, 0x3, 'syz0\x00'}, @SMC_PNETID_NAME={0x9, 0x1, 'syz2\x00'}]}, 0x2c}}, 0x0)

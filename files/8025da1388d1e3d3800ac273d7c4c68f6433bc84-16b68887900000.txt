@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$audio1(0xffffffffffffff9c, &(0x7f0000000040)='/dev/audio1\x00', 0x121202, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000000)={0x0, 0x18, 0xfa00, {0x0, 0x0}}, 0x20)

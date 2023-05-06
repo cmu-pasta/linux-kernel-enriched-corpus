@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$netlink(0x10, 0x3, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000300))
+socket(0x10, 0x803, 0x0)
+socket(0x10, 0x80002, 0x0)
+pipe(&(0x7f0000000100))
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x1, 0x803, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000000)={0x0}}, 0x0)

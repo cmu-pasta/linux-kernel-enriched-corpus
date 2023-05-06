@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=46ab4d83f21d42d1287c3819ab42ab836f8a0f8d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e23, @multicast1=0xe0000001}, 0x10)
+sendto$inet(r0, &(0x7f0000000000), 0x0, 0x20000801, &(0x7f0000e68000)={0x2, 0x4e23, @loopback=0x7f000001}, 0x10)
+readv(r0, &(0x7f00000000c0)=[{&(0x7f0000000240)=""/110, 0x6e}], 0x1)
+setsockopt$sock_int(r0, 0x1, 0x40000000a, &(0x7f0000000100)=0x7, 0x4)
+getsockopt$IPT_SO_GET_REVISION_MATCH(r0, 0x0, 0x42, &(0x7f0000000000)={'icmp6\x00'}, &(0x7f0000000140)=0x1e)
+sendto$inet(r0, &(0x7f0000000180)="13", 0x1, 0x87fd, &(0x7f0000000040)={0x2, 0x0, @multicast2=0xe0000002}, 0x10)

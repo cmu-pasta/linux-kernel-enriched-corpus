@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e675fbaf856bd1465eed8b8f51ae182b58b8d656
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f00000002c0)='binder\x00', 0x0, 0x0)
+r0 = open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x89901)
+mount_setattr(r0, &(0x7f00000000c0)='./file0\x00', 0x0, &(0x7f0000000140)={0x0, 0x0, 0x100000}, 0x20) (async)
+mount_setattr(r0, &(0x7f00000000c0)='./file0\x00', 0x0, &(0x7f0000000140)={0x0, 0x0, 0x100000}, 0x20)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=856ff1ddfe6fe9556f08de689dfd9b5f80ad5cd2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","leak":true,"close_fds":false}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+ioctl$PIO_FONT(0xffffffffffffffff, 0x4b61, &(0x7f0000000080)="4fec9af65f848965ca2962d86ceb6ea59668e893755cbf700f4c704c5d8c2089e96a3a6b63c969100734225124f7419a6b1bbfd9a1650df46c2046384c09c6685cd0284de8e89994009c1f61f0ea94e9d9")
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080), 0x88002, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x0, 0x4, &(0x7f0000000040)=ANY=[@ANYBLOB="b405001e80228a99f1dd07000300000032"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000040)={'syzkaller1\x00'})
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_inet_SIOCSIFADDR(r2, 0x8914, &(0x7f00000000c0)={'syzkaller1\x00', {0x2, 0x0, @initdev}})
+writev(r0, &(0x7f0000000100)=[{&(0x7f0000000280)="2c2da2ee918a3730f7b1fdb3c8bea25d86dd", 0xfef3}], 0x1)

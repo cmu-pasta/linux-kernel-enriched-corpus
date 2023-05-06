@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f1834e1735946170a8a3a4c85edb978e94bada81
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xf43000)=nil, 0xf43000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000408000)={0x26, "6165616400000000000000000000", 0x0, 0x0, "67636d2874776f666973682900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00004f7000)="649c47ad46390dc86dae79fa409d4d54", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+accept(r0, &(0x7f0000d64000-0x8)=@un=@abs={0x0, 0x0, 0x0}, &(0x7f0000f42000)=0x8)
+sendmsg$alg(r1, &(0x7f00005d8000)={0x0, 0x0, &(0x7f0000f3f000-0x10)=[], 0x0, &(0x7f0000f3f000-0x18)=[@op={0x18, 0x117, 0x3, 0x1}], 0x18, 0x0}, 0x0)
+readv(r1, &(0x7f0000f41000-0x20)=[{&(0x7f0000f41000-0x56)="00000000000000000000000000000000", 0x10}], 0x1)

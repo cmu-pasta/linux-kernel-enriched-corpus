@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=f4f35050f10058a24d0863aa20b907200910f637
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, 0x0)
+syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+r1 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r1, &(0x7f0000000440)={0x26, 'aead\x00', 0x0, 0x0, 'morus640-generic\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r1, 0x117, 0x1, &(0x7f0000000080)="ab553fec94248c32e27d04000000288a", 0x10)
+r2 = accept$alg(r1, 0x0, 0x0)
+sendmsg$alg(r2, 0x0, 0x0)
+write$binfmt_script(r2, &(0x7f0000000300)=ANY=[], 0xffffffaa)
+recvmmsg(r2, 0x0, 0x0, 0x0, 0x0)
+recvmmsg(r2, &(0x7f0000004ec0)=[{{0x0, 0x0, 0x0}}], 0x1, 0x0, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)

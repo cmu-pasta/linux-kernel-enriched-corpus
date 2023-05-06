@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=71f39cec3c870f687b26c5595d7a8608849f37ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true}
+unshare(0x2c060000)
+semget$private(0x0, 0x4007, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$unix(0x1, 0x2, 0x0)
+bind$unix(r0, &(0x7f0000000240)=@abs={0x1}, 0x6e)
+connect$unix(r0, &(0x7f0000000000)=@file={0x1}, 0x6e)
+r1 = open(&(0x7f0000000100)='./file0\x00', 0x40, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f00000000c0)='9p\x00', 0x0, &(0x7f0000000380)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})

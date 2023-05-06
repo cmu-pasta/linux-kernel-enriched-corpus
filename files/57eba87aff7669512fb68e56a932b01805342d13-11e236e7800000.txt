@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=57eba87aff7669512fb68e56a932b01805342d13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mkdir(&(0x7f000082f000)='./control\x00', 0x0)
+syz_fuseblk_mount(&(0x7f0000000140)='./control\x00', &(0x7f0000000180)='./control/file1\x00', 0x2002, 0x0, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1a3e4b36d2e34667890530b2de6c55ef2ef2bf92
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket(0x2000000000000021, 0x2, 0x10000000000002)
+connect$rxrpc(r0, &(0x7f0000000140)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x4}}}, 0x24)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000000000)=[{0x18, 0x110, 0x1, 'w'}], 0x18}}], 0x1, 0x0)

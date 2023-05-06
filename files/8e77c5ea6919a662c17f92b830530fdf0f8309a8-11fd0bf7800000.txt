@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8e77c5ea6919a662c17f92b830530fdf0f8309a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={0x73, 0x79, 0x7a}, 0x0, 0x0, 0xfffffffffffffffd)
+r1 = add_key$keyring(&(0x7f00000004c0)='keyring\x00', &(0x7f0000000100)={0x73, 0x79, 0x7a}, 0x0, 0x0, r0)
+r2 = add_key$user(&(0x7f00000001c0)='user\x00', &(0x7f0000000200)={0x73, 0x79, 0x7a, 0x2}, &(0x7f0000000240)="fa", 0x1, r0)
+r3 = add_key$user(&(0x7f0000688000)='user\x00', &(0x7f00008d9ffb)={0x73, 0x79, 0x7a}, &(0x7f0000f19edc)="b33ab76079ebe0d14f729cd653e520d29ad7ef0000000000000044c249b544230b9387fb8bd6ed266ccf59ef70995bf2e8e0ecd3fff32853747eda22d2818d08ca27e0ec821620e365a0e6b9485f2d925493f62113e33e5f8c7eba67fc19a9497f5b07e5849d2e875b066cd6401d36616fe0f3c3002801b4627ee7597689525e8e81f750a86eb580fb4690ea52246bd3d32b1a91f944edb74b1f50ae08c5387ed8fd0598b600579f3af3f864e1c324f6928f6672f98f7e149bd61bd78b506e8b", 0xc0, r1)
+r4 = add_key$user(&(0x7f00000002c0)='user\x00', &(0x7f0000000300)={0x73, 0x79, 0x7a, 0x2}, &(0x7f0000000340)="c2078397a17cd31ad9c5268442e6edc2c7945cd88ee727ffeca5bd514c97e5016a36ee9296972ec5c814fd401d71d810a3cf92fc7b3387e7", 0x38, r1)
+keyctl$dh_compute(0x17, &(0x7f0000000380)={r4, r3, r2}, &(0x7f0000000540)=""/16, 0x10, &(0x7f00000005c0)={&(0x7f0000000580)={'tgr192\x00'}})

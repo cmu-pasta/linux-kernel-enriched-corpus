@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3c92d328943699fa20c76f427ce599ab9d2a539d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000200)={0xc, 0x18, &(0x7f0000000480)=ANY=[@ANYBLOB="b702000007000000bfa30000000000000703000000feffff7a0af0fff8ffffff79a4f0ff00000000b7060000ffffffff2d6405000000000065040400010000000404000001007d60b7030000000000006a0a00fe00000000850000000d000000b700000000000000950000000000000089eda137b512a006454808efc8a24d56ee6014635a1524d212c9e37da89a7ab57c703f6b9476f954656e9d4d1ef2e5ad50fd6f0365f322297b5c2286a47e5dc05d1bf373132628bab8f7fdf306437cee91"], &(0x7f0000000340)='syzkaller\x00'}, 0x48)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000140)={r0, 0x1800000000000000, 0xe, 0x29, &(0x7f0000000000)="b90703e6680d698cb89e40f086dd", &(0x7f00000000c0)=""/41, 0x100}, 0x28)

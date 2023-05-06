@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=7d4240866c80353100da5d7a27e013f15f5bb471
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$gfs2(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x0, 0x1, &(0x7f0000000200)=[{&(0x7f0000000140)="011619700000000100000000000000000000006400000000000007090000076c00000000000010", 0x27, 0x10000}], 0x0, &(0x7f0000000040)={[{@lockproto_nolock}]}, 0x0)

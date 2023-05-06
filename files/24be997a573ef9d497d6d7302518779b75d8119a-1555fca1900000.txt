@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"cgroups":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+socket(0x10, 0x803, 0x0)
+syz_genetlink_get_family_id$smc(0x0)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @null, @default, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @null, @bcast]}, 0x48)
+listen(r0, 0x0)
+unshare(0x42000200)
+write$binfmt_elf64(0xffffffffffffffff, &(0x7f0000000680)=ANY=[], 0x3f00)
+sendmsg$ETHTOOL_MSG_COALESCE_GET(0xffffffffffffffff, 0x0, 0x0)
+socket$inet(0x2, 0x0, 0x0)

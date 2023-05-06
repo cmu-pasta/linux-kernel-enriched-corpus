@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=998bc00ac58e9893bf740c9f9d89edbf9386e88d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x4)
+writev(r0, &(0x7f00006a4000-0x10)=[{&(0x7f00002a7000-0x59)="580000001400192300a14b0000daad56280600000023e076000543d818fe0000000000007136643e88ea070028040000000000fd00020000060000000016e4ed5e6e0000000022000c00010006e80800000000000f5300064b", 0x59}], 0x1)

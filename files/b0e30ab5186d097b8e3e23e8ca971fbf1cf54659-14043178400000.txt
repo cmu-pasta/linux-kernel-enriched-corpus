@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b0e30ab5186d097b8e3e23e8ca971fbf1cf54659
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000000)='/dev/audio\x00', 0x6000, 0x0)
+fsync(r0)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_FASTOPEN_KEY(r1, 0x6, 0x21, &(0x7f0000000040)="eb280a1a75511eb82753cf3edb473d6a", 0x10)
+listen(r1, 0x0)

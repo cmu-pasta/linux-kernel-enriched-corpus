@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=a7d678fba80c34b5770cc1b5638b8a2709ae9f3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+pipe(&(0x7f0000000040))
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$pppl2tp(0x18, 0x1, 0x1)
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r1, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r2, {0x2, 0x0, @broadcast}, 0x2}}, 0x2e)
+connect$inet6(r2, &(0x7f0000000040)={0xa, 0x0, 0x0, @mcast2, 0xa}, 0x1c)
+socket$netlink(0x10, 0x3, 0x0)

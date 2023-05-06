@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7be7d262d5aae39f2dd7683de0ba6646857007bc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+bind$vsock_stream(r0, &(0x7f0000000380)={0x28, 0x0, 0x0, @host}, 0x10)
+listen(r0, 0x0)
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r1, &(0x7f0000000040), 0x10)
+writev(r1, &(0x7f00000003c0)=[{&(0x7f0000000140)="ce2b521d30808c800e4771456674ca17e65792277867daa98bbc7e9480091bea3dcbecb352c4ce5cccfe1cf332650be2f016f1c9b968572994a76aa876793dba168e4eca3ce8dc61cf55e7310e4073872eb7e4a60050ac024bc66fe873c6929f5385e03d7d002bfeff9a028dc16a2840662e652dbb13abf7359dfb77f54e99393be57f9fc689af41173e6e0c38d7899c851f063698a4c3eb1c96f08bb1b542d37bf1f1dbe6bc1356b8cbb1b8f1f4b46c6f80a2aacd43efef8ebb23fc1a5e698b03db17018c12aac9e340b7910344913673df31ae81b49e2b4c3c1fefe8e8fb7beabc4f1abf16384a2bc2f2", 0xeb}, {0x0}, {0x0}, {0x0}], 0x4)
+close(r0)

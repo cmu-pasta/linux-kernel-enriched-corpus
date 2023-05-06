@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=742f144a140944cb3f732ffd468e67fa58155aef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$sndctrl(&(0x7f0000000000)='/dev/snd/controlC#\x00', 0x0, 0x0)
+openat$fuse(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+r1 = epoll_create(0x20000001)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000040))
+r2 = epoll_create(0x63)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r0, 0x0)
+r3 = io_uring_setup(0x8ca, 0x0)
+r4 = epoll_create(0x2)
+write$FUSE_GETXATTR(0xffffffffffffffff, 0x0, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r4, 0x1, r1, &(0x7f0000000180))
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r3, 0x0)

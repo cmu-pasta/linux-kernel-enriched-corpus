@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e7ee911989956af5f31ad6ed164743abab8989e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+setsockopt$inet_sctp6_SCTP_MAX_BURST(0xffffffffffffffff, 0x84, 0x14, 0x0, 0x0)
+bind$inet6(0xffffffffffffffff, 0x0, 0x0)
+unshare(0x40000000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x8031, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x0, 0x10012, 0xffffffffffffffff, 0x0)
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPCTNL_MSG_TIMEOUT_NEW(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000180)={0x0, 0x3c}}, 0x0)

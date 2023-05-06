@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0f447249960c780cab5f203c1537c825c74904ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+r0 = syz_open_dev$loop(&(0x7f0000000080), 0x0, 0x0)
+r1 = memfd_create(&(0x7f0000000140)='\xbb\x02\xb1\xed\x97\xdb\xb1,\x116\xe0\x89]\xad\x01\xc3r%;\x99\xbck\xe7=\xfa\xe8HB\x00\x9e\x15\x9e\xc9\x86\x8e\x1d\xdf\x9d+,\x00\xd7h\xa4\x06jt\xea\xf9l\x00\x00\x00\x00!\xf8\xac\xdc\x00\x00\x00', 0x0)
+pwritev(r1, &(0x7f00000001c0)=[{&(0x7f0000000000)='!', 0x1}], 0x1, 0x40ee1, 0x0)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+r2 = syz_open_dev$loop(&(0x7f0000000080), 0x0, 0x10d082)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x3fbcbab16c80fab, 0x11, r2, 0x0)

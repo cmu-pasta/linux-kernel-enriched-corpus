@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=145268af120fb9a2c71b4badf891254bd18e9e71
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+clone(0x20002004ffc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+exit_group(0x0)
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/netstat\x00')
+r1 = syz_open_dev$tty20(0xc, 0x4, 0x0)
+r2 = dup3(r1, r0, 0x0)
+ioctl$TCXONC(r2, 0x5608, 0x0)

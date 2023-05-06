@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9ed506d51afeaa536a5ca511206f3ba40d9af3fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$inet6_int(r0, 0x29, 0x8, &(0x7f0000000080)=0x7, 0x4)
+getsockopt$inet6_buf(r0, 0x29, 0x6, &(0x7f0000004040)=""/102392, &(0x7f0000000040)=0x18ff8)

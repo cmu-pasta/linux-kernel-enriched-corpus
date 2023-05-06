@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=0c9e747128f09fd40458b58bff4bda5683cbf912
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":8,"fault_nth":10,"cgroups":true,"close_fds":true,"tmpdir":true}
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f00000000c0)={0xffffffffffffffff, 0x0, 0x0}, 0x20)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000080)={0xffffffffffffffff, 0x18000000000002a0, 0x0, 0x0, &(0x7f0000000100), 0x0, 0x5f27, 0x6000000000000000, 0x0, 0x0, 0x0, 0x0}, 0xfffffffffffffd6a)
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f0000000080)={'\x00\x00\x00\x00\x00\x00\x00\x00\x00\xe9\xdc\x00', 0x200091})
+socketpair(0x1, 0x1, 0x0, &(0x7f00000004c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r0, 0x89f2, &(0x7f0000000080)='ip6tnl0\x00')
+r1 = socket$kcm(0x2b, 0x1, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+socketpair(0x1, 0x1, 0x0, &(0x7f0000000740)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r2, 0x89f1, &(0x7f0000000080)='ip6tnl0\x00')

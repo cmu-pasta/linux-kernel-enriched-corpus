@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f4c90f2f3df2ef1ab580a3ff70eb4bf2a47aee29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+bpf$PROG_LOAD(0x5, &(0x7f0000000000)={0x0, 0x2, &(0x7f0000001000)=ANY=[@ANYBLOB="7b1af8f780c9e71148cd5c671a4ee9000000e9a290ff"], &(0x7f0000000100)='GPL\x00'}, 0x48)
+setsockopt$inet_sctp_SCTP_RTOINFO(0xffffffffffffffff, 0x84, 0x0, &(0x7f0000001000)={0x10000, 0x4, 0x100, 0x400}, 0x6)
+r0 = socket(0x11, 0x80002, 0x0)
+setsockopt$packet_int(r0, 0x107, 0xa, &(0x7f0000788000)=0x2, 0x4)
+bind$packet(r0, &(0x7f0000000480)={0x11, 0x3, 0x0, 0x1, 0x0, 0x6, @local}, 0x14)
+setsockopt(r0, 0x107, 0x5, &(0x7f0000001000), 0xc5)

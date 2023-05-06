@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=59a8b2b621a7e8fb23ac85cd5f125f504cebfee9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDSETMODE(r0, 0x4b3a, 0x0)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDSETMODE(r1, 0x4b3a, 0x1)
+syz_open_dev$tty20(0xc, 0x4, 0x1)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x2)
+ioctl$VT_RESIZEX(r2, 0x560a, &(0x7f0000000040)={0x4100, 0x2, 0x8000, 0x7, 0x20})

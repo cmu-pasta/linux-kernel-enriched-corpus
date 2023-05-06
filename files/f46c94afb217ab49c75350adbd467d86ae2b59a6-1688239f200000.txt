@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f46c94afb217ab49c75350adbd467d86ae2b59a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = syz_init_net_socket$rose(0xb, 0x5, 0x0)
+connect$rose(r0, &(0x7f0000000000)=@full={0xb, @dev={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @null, 0x1, [@bcast, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}, @default, @bcast]}, 0x40)
+r1 = syz_init_net_socket$rose(0xb, 0x5, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000000000)={'rose0\x00\xab\x82\x88\x03\xc6\xd3\x1fB\x02\x00', 0x2000fdfdffff})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d369eafab7836fe0dd2e027d2689da06cad8e1a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfb6000)=nil, 0xfb6000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socket(0x10, 0x3, 0x0)
+open$dir(&(0x7f0000b09000)="2e2f66696c653000", 0x88901, 0x10)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000f7b000)="2f6465762f6b766d00", 0x101200, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$UFFDIO_COPY(0xffffffffffffffff, 0x8010aa02, &(0x7f0000fb5000-0x10)={&(0x7f0000a4e000/0x2000)=nil, 0x2000})
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f00005fe000/0x18000)=nil, &(0x7f0000fb4000)=[@text16={0x10, &(0x7f0000fb4000)="27cb2b0431c8d8c106c4c29c2b8da1a5575576d40a93191bd369e7e8617701da935c29ca4634757aff5bf084b8fa692708290f5ba32e4f02001922e6cf6916c4268b4bbe2c9dfc74b0df56611c708ed50c2fd8439a7994f61c39911ff6022a9e79fc29cc", 0x64}], 0x1, 0x0, &(0x7f000078b000)=[], 0x0)

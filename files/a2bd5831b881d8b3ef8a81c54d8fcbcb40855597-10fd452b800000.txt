@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a2bd5831b881d8b3ef8a81c54d8fcbcb40855597
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000080)={0x26, 'aead\x00', 0x0, 0x0, 'generic-gcm-aesni\x00'}, 0x58)
+r1 = accept$alg(r0, 0x0, 0x0)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00003bcfd0)="d3ab27191a01002356ba602dff05000b", 0x10)
+sendmmsg$alg(r1, &(0x7f0000000000)=[{0x0, 0x0, &(0x7f00000001c0), 0x0, &(0x7f0000000200)=[@op={0x18, 0x117, 0x3, 0x1}], 0x18}], 0x1, 0x0)
+recvmsg(r1, &(0x7f0000000040)={&(0x7f0000000240)=@pppol2tpin6={0x0, 0x0, {0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0x0, 0x0, 0x0, @ipv4}}}, 0x80, &(0x7f00000001c0)=[{&(0x7f00000002c0)=""/92, 0x5c}, {&(0x7f0000001700)=""/4096, 0x1000}], 0x32f, &(0x7f0000000340)=""/80, 0xfffffffffffffea8}, 0x0)

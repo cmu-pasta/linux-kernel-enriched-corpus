@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=32c85d199d85c11202246570956a2cbe272f235a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000180)='nl80211\x00')
+sendmsg$NL80211_CMD_REQ_SET_REG(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000000c0)={0x64, r1, 0x1, 0x70bd29, 0x25dfdbff, {}, [@NL80211_ATTR_REG_RULES={0x44, 0x22, 0x0, 0x1, [@NL80211_ATTR_FREQ_RANGE_END={0x8}, @NL80211_ATTR_DFS_CAC_TIME={0x8, 0x7, 0x5}, @NL80211_ATTR_FREQ_RANGE_START={0x8, 0x2, 0x8}, @NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN={0x8}, @NL80211_ATTR_FREQ_RANGE_END={0x8, 0x3, 0x1f4ffb39}, @NL80211_ATTR_REG_RULE_FLAGS={0x8, 0x1, 0x3f}, @NL80211_ATTR_FREQ_RANGE_MAX_BW={0x8}, @NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN={0x8, 0x5, 0x1efa}]}, @NL80211_ATTR_SOCKET_OWNER={0x4}, @NL80211_ATTR_REG_ALPHA2={0x6, 0x21, 'b\x00'}]}, 0x64}, 0x1, 0x0, 0x0, 0x4000000}, 0x4040000)

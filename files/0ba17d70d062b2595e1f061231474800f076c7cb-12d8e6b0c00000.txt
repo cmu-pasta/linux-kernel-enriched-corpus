@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0ba17d70d062b2595e1f061231474800f076c7cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$dri(&(0x7f0000000100)='/dev/dri/card#\x00', 0x1, 0x0)
+ioctl$DRM_IOCTL_WAIT_VBLANK(r0, 0xc018643a, &(0x7f0000000000)={0x4000000})

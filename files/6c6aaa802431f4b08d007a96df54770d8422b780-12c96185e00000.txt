@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6c6aaa802431f4b08d007a96df54770d8422b780
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mkdir(&(0x7f0000000200)='./file0\x00', 0x0)
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB="239afe2f5d75774f2c22b91663d04163ddb58295b45bb21824d09335787eb553de26c6a154577dd9aa997a15ba435012283a"], &(0x7f0000000140)='./file0\x00', &(0x7f0000000180)='afs\x00', 0x0, 0x0)

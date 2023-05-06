@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=25e00dd59f31783f233185cb60064b0ab645310f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f00000015c0)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f00000004c0)=@create_id={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000480)={<r1=>0xffffffff}, 0x13f}}, 0x20)
+write$rdma_cm(r0, &(0x7f0000000500)=ANY=[@ANYBLOB="03000000400000fa0200000000000000000000000000000000000000000000010000000002000000ac141420fe8000000000000000000000000000aa00000000", @ANYRES32=r1, @ANYBLOB="088d95ea"], 0x48)
+write$rdma_cm(r0, &(0x7f0000000100)=ANY=[@ANYBLOB="07000000080000da", @ANYRES32=r1, @ANYBLOB="03000000"], 0x10)
+syz_emit_ethernet(0x88, &(0x7f0000000000)={@random="cd390b081bf2", @random="17710ed770e8", [], {@ipv6={0x86dd, {0x0, 0x6, "02290f", 0x30, 0x29, 0x0, @ipv4={[], [0xff, 0xff], @rand_addr}, @mcast2={0xff, 0x2, [], 0x1}, {[], @icmpv6=@pkt_toobig={0x2, 0x0, 0x0, 0x0, {0x0, 0x6, "9433df", 0x0, 0x0, 0x0, @loopback={0x4, 0x1}, @dev={0xfe, 0x80, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x11]}}}}}}}}, 0x0)

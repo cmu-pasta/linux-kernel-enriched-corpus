@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1f2647a43afd160e985b1729fcb00f1b6f4d660d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+openat$binderfs(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder0\x00', 0x0, 0x0)
+r0 = openat$binder_debug(0xffffff9c, &(0x7f0000000140)='/sys/kernel/debug/binder/stats\x00', 0x0, 0x0)
+preadv(r0, &(0x7f0000000080)=[{&(0x7f0000001140)=""/4108, 0x100c}], 0x1, 0x0, 0x0)

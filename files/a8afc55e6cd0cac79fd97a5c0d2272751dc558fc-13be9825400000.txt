@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a8afc55e6cd0cac79fd97a5c0d2272751dc558fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f00000002c0)='/dev/video#\x00', 0x7ffffffd, 0x0)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f00000000c0)={0x0, 0x8000, 0x2000000000000002, {0x1, @pix={0x0, 0x0, 0x0, 0x0, 0x0, 0x15182c}}})
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000240)=0x1)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+listen(r1, 0x0)

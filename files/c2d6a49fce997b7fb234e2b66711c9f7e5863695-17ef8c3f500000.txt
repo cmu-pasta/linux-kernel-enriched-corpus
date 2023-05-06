@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c2d6a49fce997b7fb234e2b66711c9f7e5863695
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = socket(0x1000000010, 0x80002, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}, 0x1, 0x0, 0x0, 0x40090}, 0x44004)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="38000000240007050000004007a2a30005000000", @ANYRES32=r2, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000004c0)=@newtfilter={0x54, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {}, {0xb6ea6f9b087d72b3}}, [@filter_kind_options=@f_flower={{0xb, 0x1, 'flower\x00'}, {0x24, 0x2, [@TCA_FLOWER_KEY_ENC_OPTS={0x18, 0x54, 0x0, 0x1, [@TCA_FLOWER_KEY_ENC_OPTS_ERSPAN={0x14, 0x3, 0x0, 0x1, [@TCA_FLOWER_KEY_ENC_OPT_ERSPAN_VER={0x5, 0x1, 0x1}, @TCA_FLOWER_KEY_ENC_OPT_ERSPAN_INDEX={0x8}]}]}, @TCA_FLOWER_KEY_ENC_OPTS_MASK={0x8, 0x55, 0x0, 0x1, [@TCA_FLOWER_KEY_ENC_OPTS_ERSPAN={0xfffffffffffffcba}]}]}}]}, 0x54}}, 0x0)
+sendmmsg$alg(r0, &(0x7f0000000200), 0x10efe10675dec16, 0x0)

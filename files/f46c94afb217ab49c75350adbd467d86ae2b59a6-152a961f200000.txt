@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f46c94afb217ab49c75350adbd467d86ae2b59a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"tmpdir":true}
+pipe(0x0)
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDR_INFO(0xffffffffffffffff, 0x84, 0xf, 0x0, 0x0)
+r0 = syz_init_net_socket$rose(0xb, 0x5, 0x0)
+connect$rose(r0, &(0x7f0000000000)=@short={0xb, @dev, @default, 0x1, @bcast}, 0x1c)
+r1 = syz_init_net_socket$rose(0xb, 0x5, 0x0)
+ioctl$IMCLEAR_L2(0xffffffffffffffff, 0x80044946, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000000000)={'rose0\x00\xab\x82\x88\x03\xc6\xd3\x1fB\x02\x00', 0x2000fdfdffff})
+socket$inet_udplite(0x2, 0x2, 0x88)
+socket$inet_udplite(0x2, 0x2, 0x88)
+socket$kcm(0x2, 0x2, 0x0)

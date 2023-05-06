@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f9c716f55f8a9fad5210d442edb0834d09ce25b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true,"tmpdir":true}
+r0 = open(&(0x7f0000000100)='./bus\x00', 0x141042, 0x0)
+pwritev(r0, &(0x7f0000000000)=[{&(0x7f0000000040)='9', 0x1}], 0x1, 0x0, 0x0)
+fallocate(r0, 0x20, 0x0, 0xfffffeff000)
+fallocate(r0, 0x0, 0x0, 0x10000101)

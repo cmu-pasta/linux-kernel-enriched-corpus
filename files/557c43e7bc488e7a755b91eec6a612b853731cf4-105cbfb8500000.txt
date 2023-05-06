@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=557c43e7bc488e7a755b91eec6a612b853731cf4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+pipe(0x0)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f00000000c0)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+r4 = socket(0x1, 0x803, 0x0)
+getsockname$packet(r4, &(0x7f0000000100)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+r6 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r6, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000300)=ANY=[@ANYBLOB="3c00000010000d0700a47f793f000000ff030000", @ANYRES32, @ANYBLOB], 0x3c}}, 0x0)
+sendmsg$nl_route(r3, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000005c0)=ANY=[@ANYBLOB="440000001000010400"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000140012800c0001006d6163766c616e000400028008000500", @ANYRES32=r5, @ANYBLOB='\b\x00\n\x00', @ANYRES32], 0x44}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000500)=ANY=[@ANYBLOB="240000001100270d00"/20, @ANYRES32=r2, @ANYBLOB='\x00'], 0x24}}, 0x0)
+r7 = socket$nl_route(0x10, 0x3, 0x0)
+r8 = socket$netlink(0x10, 0x3, 0x0)
+r9 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r9, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r9, &(0x7f0000000100)={0x11, 0x0, <r10=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000380)=0x14)
+sendmsg$nl_route(r8, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000300)=ANY=[@ANYBLOB="3c00000010000d0700a47f793f000000ff030000", @ANYRES32=r10, @ANYBLOB="00000000e60000001c0012000c000100626f6e64000000000c0002000800010006"], 0x3c}}, 0x0)
+sendmsg$nl_route(r7, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000005c0)=ANY=[@ANYBLOB="440000001000010400"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000140012800c0001006d6163766c616e000400028008000500", @ANYRES32, @ANYBLOB='\b\x00\n\x00', @ANYRES32=r10], 0x44}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, 0x0, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=31216a0f4941f9e070a4ba59723ddd50c355fe24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f742e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffffc654"}, 0x80)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000100)=@newqdisc={0x64, 0x24, 0xd3b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {0x0, 0xffff}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_tbf={{0x8}, {0x38, 0x2, [@TCA_TBF_PARMS={0x28, 0x1, {{}, {}, 0x0, 0x9}}, @TCA_TBF_RATE64={0xc, 0x4, 0x9139d41a4ce2ee60}]}}]}, 0x64}}, 0x0)
+r3 = socket(0x11, 0x800000003, 0x0)
+bind(r3, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f742e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffffc654"}, 0x80)
+getsockname$packet(r3, &(0x7f00000003c0)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000100)=@newqdisc={0x34, 0x24, 0xd3b, 0xffffffff, 0x2, {0x0, 0x0, 0x0, r4, {}, {0xfff2, 0xffff}, {0x7, 0x4}}, [@qdisc_kind_options=@q_pfifo_fast={0xf}]}, 0x34}, 0x1, 0x0, 0x0, 0x40000}, 0x0)

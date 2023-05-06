@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4a3b0ba28ec7d0277338be02e1331068504dc228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+syz_read_part_table(0x0, 0x0, 0x0)
+creat(&(0x7f0000000440)='./file0\x00', 0x0)
+mount(&(0x7f00000000c0)=@loop={'/dev/loop', 0x0}, &(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='udf\x00', 0x0, 0x0)
+fallocate(0xffffffffffffffff, 0x0, 0x0, 0x1000100)

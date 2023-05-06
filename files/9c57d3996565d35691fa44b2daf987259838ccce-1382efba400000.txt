@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9c57d3996565d35691fa44b2daf987259838ccce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"resetnet":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x200000000000000c)
+bind$netlink(r0, &(0x7f0000514ff4)={0x10, 0x0, 0x0, 0x2ffffffff}, 0xc)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=86a202a5d3e7fac68dadd37e14fa74fca0e0c5a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_80211_join_ibss(0x0, 0x0, 0x0, 0x0)

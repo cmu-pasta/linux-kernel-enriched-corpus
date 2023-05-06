@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6dbabd1e485b2043113e7ac8b0cb12de85b2be75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x3, 0x19)
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @local}, 0x10)
+setsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x23, &(0x7f0000000000)={{{@in=@multicast2, @in=@multicast1}}, {{@in6}, 0x0, @in6=@loopback}}, 0xe8)
+setsockopt$inet_msfilter(r0, 0x0, 0x29, &(0x7f0000000180)={@multicast2, @local, 0x1, 0x1, [@loopback]}, 0x14)

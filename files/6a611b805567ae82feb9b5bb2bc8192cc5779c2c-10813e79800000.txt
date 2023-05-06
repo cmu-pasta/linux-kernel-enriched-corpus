@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6a611b805567ae82feb9b5bb2bc8192cc5779c2c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f00003f3000)='/dev/vhost-net\x00', 0x2, 0x0)
+write$vnet(r0, &(0x7f00009e7000-0x68)={0x1, {&(0x7f00000bc000-0x96)=""/150, 0x96, &(0x7f00004ce000-0xd1)=""/209, 0x0, 0x4}, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x68)

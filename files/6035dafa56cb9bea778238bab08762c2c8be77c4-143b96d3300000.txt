@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6035dafa56cb9bea778238bab08762c2c8be77c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$IPT_SO_SET_REPLACE(r0, 0x4000000000000, 0x40, &(0x7f00000002c0)=@raw={'raw\x00', 0x2, 0x3, 0x238, 0x0, 0x0, 0x0, 0x0, 0xd0, 0x1a0, 0x1a0, 0x1a0, 0x1a0, 0x1a0, 0x3, 0x0, {[{{@ip={@local, @multicast1, 0x0, 0xffffffff, 'team0\x00', 'veth1_to_bond\x00'}, 0x0, 0x70, 0xd0}, @common=@CLUSTERIP={0x60, 'CLUSTERIP\x00', 0x0, {0x1, @link_local}}}, {{@ip={@rand_addr, @broadcast, 0x0, 0xffffffff, 'wg0\x00', 'team_slave_1\x00'}, 0x0, 0x70, 0xd0}, @common=@CLUSTERIP={0x60, 'CLUSTERIP\x00', 0x0, {0x1, @local}}}], {{'\x00', 0x0, 0x70, 0x98}, {0x28, '\x00', 0x4}}}}, 0x298)
+r1 = socket(0x10, 0x80002, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000100)=ANY=[@ANYBLOB="500000001000074790270600fd1a27540001a381", @ANYRES32=0x0, @ANYBLOB="7fff0002810300001c0012000b0001006d616373656300e10b00000000fc9f682339c3000a0005c0100000000000000008000a0009d35bf58ec020facfd2763ed346a301008b50af42c552288b0b1e8f5742012d9a58c48b46f5a7"], 0x50}}, 0x0)
+sendmmsg$alg(r1, &(0x7f0000000000), 0x4924924924924cb, 0x0)

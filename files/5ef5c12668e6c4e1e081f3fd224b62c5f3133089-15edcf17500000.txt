@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5ef5c12668e6c4e1e081f3fd224b62c5f3133089
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000040)=ANY=[@ANYBLOB="1201000049db2e08450c10105d6d0000000109021b0001000000000904000001030300000905850b40"], 0x0)
+syz_usb_connect$uac1(0x2, 0x0, 0x0, 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+write$char_usb(r1, &(0x7f0000000740)='0', 0x1)
+write$char_usb(r1, 0x0, 0x0)
+syz_usb_disconnect(r0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=001410d947fa7742a85647e596c45661118c7d24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+pipe2(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = creat(&(0x7f00000012c0)='./file0\x00', 0x48)
+write$sndseq(r1, &(0x7f0000011fd2), 0xfff6)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1, @ANYBLOB="0001"])

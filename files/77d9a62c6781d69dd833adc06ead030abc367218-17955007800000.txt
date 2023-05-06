@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=77d9a62c6781d69dd833adc06ead030abc367218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$loop(&(0x7f0000ca9ff5)='/dev/loop#\x00', 0x0, 0x0)
+r1 = memfd_create(&(0x7f0000000000)="74086e750000000000000000008c00", 0x0)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+ioctl$LOOP_SET_STATUS(r0, 0x4c02, &(0x7f0000000040)={0x0, 0x0, 0x0, 0x0, 0x3, 0x40000000000, 0x0, 0x9, "3f2f87a3c2f11396c042f6fdf496d494955f93da1586bb337cb99505a1973861af0c30e6d7bbf7e47ddac4769760cd853e12fb6c15ce6e635f3da8ca4af8b858", "6b5f31614fc81707b8b8f58783b6f918faf4b2b1fed84cd3eb7f6d2a10c9d90e"})

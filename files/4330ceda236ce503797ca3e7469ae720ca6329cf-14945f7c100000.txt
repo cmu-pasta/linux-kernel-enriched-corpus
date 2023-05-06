@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4330ceda236ce503797ca3e7469ae720ca6329cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+pipe(&(0x7f00000003c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000440)='ethtool\x00')
+sendmsg$ETHTOOL_MSG_LINKINFO_SET(0xffffffffffffffff, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="18000000", @ANYRES16=r3, @ANYBLOB="e56f904600000000000002"], 0x18}}, 0x0)
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[], 0x10000017e)
+splice(r0, 0x0, r2, 0x0, 0x84ff60, 0x0)

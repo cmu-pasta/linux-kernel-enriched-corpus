@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=502c872feb9bbb5ad6494c349c7faa87a9f1777b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xa000)=nil, 0xa000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$netlink_NETLINK_LISTEN_ALL_NSID(r0, 0x10e, 0xb, &(0x7f0000002000)=0x3, 0x4)
+sendmsg$nl_generic(r0, &(0x7f0000008000)={&(0x7f0000001000-0xc)={0x10, 0x0, 0x0, 0x0}, 0xc, &(0x7f0000006000)={&(0x7f0000007000)={0x14, 0x0, 0x514, 0xffffffffffffffff, 0xffffffffffffffff, {0x0, 0x0, 0x0}, []}, 0x14}, 0x1, 0x0, 0x0, 0x0}, 0x0)

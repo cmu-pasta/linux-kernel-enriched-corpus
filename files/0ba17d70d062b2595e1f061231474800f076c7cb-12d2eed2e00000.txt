@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=0ba17d70d062b2595e1f061231474800f076c7cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+socket$inet6(0xa, 0x400000000001, 0x0)
+ioctl$int_in(0xffffffffffffffff, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_BIND_IP(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x28, 0xfa00, {0x0, {0xa, 0x0, 0x0, @empty}}}, 0x30)
+r0 = socket$inet(0x2b, 0x1, 0x0)
+bind$inet(r0, 0x0, 0x0)
+connect$inet(r0, 0x0, 0x0)
+setsockopt$inet_tcp_TCP_ULP(r0, 0x6, 0x1f, 0x0, 0x0)
+setsockopt$inet_mreqsrc(r0, 0x11a, 0x2, 0x0, 0x0)
+syz_open_dev$dri(&(0x7f0000000240)='/dev/dri/card#\x00', 0xc72f, 0x0)
+fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)
+r1 = syz_open_dev$radio(0x0, 0x0, 0x2)
+ioctl$VIDIOC_QUERYCAP(0xffffffffffffffff, 0x80685600, 0x0)
+ioctl$KVM_GET_MSR_INDEX_LIST(r1, 0xc004ae02, 0x0)
+ioctl$KDSETMODE(r1, 0x4b3a, 0x8001)

@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=67e798c26531b3532381d59046c4dad4a6be76ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xaf4000)=nil, 0xaf4000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+openat$kvm(0xffffffffffffff9c, &(0x7f0000005000-0x9)="2f6465762f6b766d00", 0x0, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00006c6000-0x9)="2f6465762f6b766d00", 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+socketpair$inet_icmp(0x2, 0x2, 0x1, &(0x7f0000721000-0x3)={<r2=>0x0, 0x0})
+ioctl$sock_inet_SIOCSIFBRDADDR(r2, 0x891a, &(0x7f0000074000-0x20)={@generic="6abb0067356833223ec97421326c225a", @ifru_flags=0x100})
+ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+ioctl$KVM_SET_TSS_ADDR(r1, 0xae47, 0xd000)
+r3 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+mmap(&(0x7f0000af4000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+syz_kvm_setup_cpu$x86(r1, r3, &(0x7f0000acd000/0x18000)=nil, &(0x7f0000ae2000-0x18)=[@text32={0x20, &(0x7f0000adf000)="b90401004066b8470066bad104b0a9ee0f3052c76dfef3ab66b86f000f00d099d5200f35ea0000b2b20ff6e02ec1e8050f3235001000000d30ef64bafc0cc966e955e955266767f2a50f20d83508000000c4e3b97a470900650f070f01b102000000", 0x62}], 0x1, 0x0, &(0x7f0000af2000)=[], 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+mmap(&(0x7f0000af5000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+mlock2(&(0x7f0000003000/0x1000)=nil, 0x1000, 0x0)

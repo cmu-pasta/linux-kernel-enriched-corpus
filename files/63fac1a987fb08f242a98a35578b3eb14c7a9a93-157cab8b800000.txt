@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=63fac1a987fb08f242a98a35578b3eb14c7a9a93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xe77000)=nil, 0xe77000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000100)={'bond0\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB]})
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+r2 = socket$l2tp(0x18, 0x1, 0x1)
+connect$l2tp(r2, &(0x7f0000e71000)=@pppol2tpin6={0x18, 0x1, {0x0, r1, 0x3, 0x200000, 0x2, 0x0, {0xa, 0x4e21, 0x3, @mcast1={0xff, 0x1, [], 0x1}, 0x4}}}, 0x32)
+r3 = socket$l2tp(0x18, 0x1, 0x1)
+dup2(r3, r1)
+close(r2)

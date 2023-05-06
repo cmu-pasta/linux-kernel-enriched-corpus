@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f2b036995592bd5c9f20d0a01b1829a7fba35e9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = fsopen(&(0x7f0000000000)='gadgetfs\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a1cb65e4d9eadd2d08a545564f84a875eb231162
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f000000b700)={0x5, 0x4, 0x1ff, 0x3ff, 0x8, 0xffffffffffffffff, 0x0, [], 0x0, 0xffffffffffffffff, 0x2, 0xffffffff}, 0x40)
+bpf$ITER_CREATE(0x21, 0x0, 0x0)

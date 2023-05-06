@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=00aa2c9aba775f0761d3dabd7fb176964685051a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$usb(&(0x7f00000000c0)='/dev/bus/usb/00#/00#\x00', 0x80000000007, 0x1)
+ioctl$FS_IOC_FSGETXATTR(r0, 0xc0185500, &(0x7f0000000100)={0xa3, 0x37e84})

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7527ae92ab0b6495f037cfa703ac9dee9295c67c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r0, &(0x7f0000000040)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000100)=0x14)
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000001440)=@newqdisc={0x150, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_red={{0x8, 0x1, 'red\x00'}, {0x124, 0x2, [@TCA_RED_STAB={0x104, 0x2, "12b580bb5183d74b7fbe9e7282ab9645429e679591373547062b36117ad1ba6717e87c01e386963692ed762dc5e0598d0436b9cc306874e1574364bf17d6aee8dad403cba6c512ffa3fc973a3cfd5d9615b16774d5de6688b3bc387bb7c11e3b3b188423f4913ec338175bba14fa05266dc492a0c03cbe95cae27a9a21f511563a8588296a1b33bbf98bc034b8ad777a90bb3d99e4a4f0f69ba373ca2b19b5a2c2d0d5723c5cfb029e841a79ddee2754d6a98f511ed3fd2af3dfb05d530b6765a7fb3c7e60abb42fa0acc446b99afeebccf34d87a69db23c019664b560f6083f24012e6e882c26c442815bfb521288c85ae4fdefcdee64fb94fee2ead46a2fc1"}, @TCA_RED_MAX_P={0x8, 0x6, 0xffffffff}, @TCA_RED_PARMS={0x14}]}}]}, 0x150}}, 0x0)

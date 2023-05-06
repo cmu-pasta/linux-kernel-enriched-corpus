@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=44f8b2235e763b79f247e3f273ff85e700656526
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":3,"fault_nth":26,"leak":true,"close_fds":false}
+r0 = add_key$user(&(0x7f0000000140)='user\x00', &(0x7f0000000180)={'syz', 0x1}, &(0x7f0000000740)="7685427801bf9010063037780953c84a646631712cda943146fb570115931dd1993f8043b788d2cefcb5153d20b4e632697c97193502df6deae7b465abb4c921955fb6086244113182b8f313593c4f226eb613cd116ca4a388a9782d215e5884f52b2d77743051d52101ea9e6b5f4732a3001bd238960200bacf7a82f5b4ed470000e28d20a1b633160334adbcc91665ae6e37b5246b013894", 0x99, 0xfffffffffffffffd)
+r1 = add_key$user(&(0x7f00000006c0)='user\x00', &(0x7f0000000000)={'syz'}, &(0x7f0000000700)='X', 0x1, 0xfffffffffffffffe)
+r2 = add_key$user(&(0x7f0000000200)='user\x00', &(0x7f00000005c0)={'syz'}, &(0x7f00000000c0), 0x390, 0xfffffffffffffffd)
+keyctl$dh_compute(0x17, &(0x7f0000000080)={r1, r2, r0}, 0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000040)={'crct10dif\x00\x00\x00 \x00\x00\x00+\x00'}})

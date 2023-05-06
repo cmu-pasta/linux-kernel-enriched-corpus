@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1e32c5b7e3876954b2923984a921f62e0c3b5dfb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = syz_io_uring_setup(0x74b, &(0x7f0000000800)={0x0, 0x0, 0x2}, &(0x7f0000fff000/0x1000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000000880), &(0x7f00000008c0))
+syz_io_uring_setup(0x74b, &(0x7f0000000800), &(0x7f0000fff000/0x1000)=nil, &(0x7f0000ffc000/0x2000)=nil, &(0x7f0000000880), 0x0)
+syz_io_uring_setup(0x187, &(0x7f00000002c0), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, 0x0, 0x0)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+dup2(r1, r0)

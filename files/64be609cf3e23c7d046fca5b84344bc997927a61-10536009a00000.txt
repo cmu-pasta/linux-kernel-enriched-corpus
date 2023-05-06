@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true}
+ioctl$KVM_GET_FPU(0xffffffffffffffff, 0x81a0ae8c, 0x0)
+unshare(0x40000000)
+syz_mount_image$minix(0x0, 0x0, 0x7, 0x0, 0x0, 0x4, 0x0)

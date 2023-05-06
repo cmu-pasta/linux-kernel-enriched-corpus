@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=36655971fdb3895ea3e9d059210a3331bf936ae3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:true FaultCall:0 FaultNth:80 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+syz_fuse_mount(&(0x7f00000001c0)='.\x00', 0x4000, 0x0, 0x0, 0x0, 0x0)

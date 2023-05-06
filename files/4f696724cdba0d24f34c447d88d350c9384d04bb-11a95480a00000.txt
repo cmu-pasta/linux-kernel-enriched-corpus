@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4f696724cdba0d24f34c447d88d350c9384d04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+r0 = socket(0x1e, 0x4, 0x0)
+r1 = socket(0x1e, 0x2, 0x0)
+setsockopt$packet_tx_ring(r1, 0x10f, 0x87, &(0x7f0000000080)=@req={0x3fc}, 0x10)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000265000)=@req={0x3fc}, 0x10)
+sendmmsg(r0, &(0x7f0000009280)=[{{0x0, 0x0, 0x0}}, {{0x0, 0x0, 0x0}}], 0x2, 0x0)

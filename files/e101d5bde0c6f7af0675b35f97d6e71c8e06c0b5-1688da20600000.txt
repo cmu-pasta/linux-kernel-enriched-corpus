@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e101d5bde0c6f7af0675b35f97d6e71c8e06c0b5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='timers\x00')
+mkdir(&(0x7f00000001c0)='./file0\x00', 0x0)
+r1 = openat$fuse(0xffffffffffffff9c, &(0x7f0000001740)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000080)='fuse.', 0x0, &(0x7f0000000200)={{'fd', 0x3d, r1}, 0x2c, {'rootmode', 0x3d, 0x4002}, 0x2c, {'user_id'}, 0x2c, {'group_id'}})
+mount$fuse(0x0, &(0x7f0000000100)='./file0\x00', 0x0, 0x70, &(0x7f0000000300)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0xa000}, 0x2c, {'user_id'}, 0x2c, {'group_id'}, 0x2c, {[{@allow_other='allow_other'}, {@allow_other='allow_other'}], [{@appraise_type='appraise_type=imasig'}, {@defcontext={'defcontext', 0x3d, 'staff_u'}}, {@fsmagic={'fsmagic', 0x3d, 0x80000000}}, {@measure='measure'}, {@smackfshat={'smackfshat', 0x3d, 'group_id'}}, {@smackfshat={'smackfshat', 0x3d, 'ppp0\'}\xc6'}}, {@dont_appraise='dont_appraise'}]}})

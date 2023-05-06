@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64b6c150531d7492b08033dda090b9978ee36c05
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000004000/0xffb000)=nil, 0xffb000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$tun(&(0x7f0000ce6000)="2f6465762f6e65742f74756e00", 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000522000-0x28)={@generic="ef0c9c69c3962c4fa290ca81a1a316d1", @ifru_map={0x36e, 0xe9, 0x0, 0x80, 0x9f1, 0x4}})

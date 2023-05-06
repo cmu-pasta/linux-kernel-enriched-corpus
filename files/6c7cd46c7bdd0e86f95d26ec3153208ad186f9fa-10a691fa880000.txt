@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6c7cd46c7bdd0e86f95d26ec3153208ad186f9fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+prctl$PR_SET_SECCOMP(0x16, 0x2, 0x0)
+syz_mount_image$tmpfs(0x0, &(0x7f0000000080)='./file0\x00', 0x0, 0x0, &(0x7f0000000000), 0x0, 0x0, 0x0) (async)
+pipe2$9p(&(0x7f0000000180)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000000)=ANY=[@ANYBLOB], 0x15)
+r2 = dup(r1)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f00000001c0), 0x0, &(0x7f0000000300)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}}) (rerun: 32)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x137) (rerun: 64)
+umount2(0x0, 0x0)

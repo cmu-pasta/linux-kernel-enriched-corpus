@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=c5bb008cbec06caeb99fa29d24baa5414f5388f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:none Fault:true FaultCall:7 FaultNth:10 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+perf_event_open(&(0x7f000025c000)={0x2, 0x70, 0x3e6, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xffff7fffffffffff}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = syz_genetlink_get_family_id$team(&(0x7f0000000140)='team\x00')
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f0000000280)={{{@in=@multicast2, @in6=@remote}}, {{@in=@loopback}, 0x0, @in6=@dev}}, &(0x7f0000000380)=0xe8)
+getsockopt$inet_sctp6_SCTP_DELAYED_SACK(0xffffffffffffffff, 0x84, 0x10, &(0x7f0000000580), &(0x7f00000005c0)=0xc)
+sendmsg$TEAM_CMD_NOOP(0xffffffffffffffff, &(0x7f0000000540)={&(0x7f0000000100)={0x10}, 0xc, &(0x7f00000004c0)={&(0x7f0000000400)={0x14, r0}, 0x14}, 0x1}, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$sock_int(r1, 0x1, 0xf, &(0x7f0000000080)=0xffffffffffffff40, 0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x33, &(0x7f0000000500)={0x1, &(0x7f0000f07000)=[{0x6}]}, 0x10)

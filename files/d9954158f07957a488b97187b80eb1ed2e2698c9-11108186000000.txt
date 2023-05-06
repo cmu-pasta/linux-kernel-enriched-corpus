@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d9954158f07957a488b97187b80eb1ed2e2698c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xd2d000)=nil, 0xd2d000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+madvise(&(0x7f0000ad6000/0x12000)=nil, 0x12000, 0x10200000008)
+madvise(&(0x7f000092d000/0x400000)=nil, 0x400000, 0x10200000004)
+r0 = socket$inet(0x2, 0x80005, 0x3)
+getsockopt$sock_int(r0, 0x1, 0x2f, &(0x7f0000b6a000-0x4)=0x0, &(0x7f0000b6a000-0x4)=0x4)
+madvise(&(0x7f0000a97000/0x2000)=nil, 0x2000, 0xc)

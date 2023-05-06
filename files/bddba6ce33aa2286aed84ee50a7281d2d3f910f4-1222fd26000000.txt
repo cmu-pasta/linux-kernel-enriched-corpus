@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=bddba6ce33aa2286aed84ee50a7281d2d3f910f4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x6, 0x32, 0xffffffffffffffff, 0x0)
+perf_event_open(&(0x7f0000e7b000-0x78)={0x1, 0x78, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6, 0x0, 0x0, 0xd34, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7, 0x7, 0x0, 0x0, 0x0}, 0x0, 0xffffffff, 0xffffffffffffffff, 0x0)
+setsockopt$netlink_NETLINK_NO_ENOBUFS(0xffffffffffffffff, 0x10e, 0x5, &(0x7f00000d2000-0x4)=0xffffffffffffff80, 0x4)
+bind(0xffffffffffffffff, &(0x7f0000d81000-0x80)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a43a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb31f1314a8ef151622ca5bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+r0 = socket(0x1e, 0x2, 0x0)
+bind(r0, &(0x7f0000afb000)=@generic={0x1e, "01030000000000b9000000004700000000a979f321b30c7bc8790405c7bad62e0a63a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb3151d24acef1f1622ca5bdb9c8ea31000077aeb81c90001d6d7c980400000000f70dc136cb184a"}, 0x80)
+bind(r0, &(0x7f00001bb000)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a53a632ed4938d36d0e00000000000000829a2b0a0006e43a4b2470a0c5216669ca021f6f65dce060e7e58f358c0002f0000158d19bcb3151314a8ef1f1620c85bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+close(r0)
+r1 = socket(0x10, 0x2, 0x10)
+write(r1, &(0x7f0000fdb000)="1c0000001f000720270100081d00000001000000000000000600f70000020019fa97", 0x22)

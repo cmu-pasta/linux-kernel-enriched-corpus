@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+unshare(0x40000000)
+sendmsg$TIPC_NL_MON_SET(0xffffffffffffffff, 0x0, 0x2400c050)
+r0 = socket$inet(0x10, 0x3, 0x0)
+sendmsg$nl_generic(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000480)={0x0}}, 0x0)
+setsockopt$inet6_MRT6_DEL_MFC(0xffffffffffffffff, 0x29, 0xd1, 0x0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+sendfile(r1, 0xffffffffffffffff, 0x0, 0x80000000800a3)
+ioctl$IMCLEAR_L2(r1, 0x80044946, &(0x7f0000000140)=0x2)
+r2 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r2, 0x400454ca, &(0x7f0000000040)={'veth1\x00', 0x43732e5398416f1a})
+pipe(&(0x7f0000000100)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+write$binfmt_misc(r3, &(0x7f0000000000)=ANY=[], 0xfffffecc)
+setsockopt$inet_MCAST_MSFILTER(0xffffffffffffffff, 0x0, 0x30, 0x0, 0x490)
+ioctl$SIOCAX25GETINFO(r3, 0x89ed, 0x0)
+ioctl$sock_ifreq(r0, 0x891d, &(0x7f0000000180)={'ip6_vti0\x00', @ifru_flags})

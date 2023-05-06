@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000000)='erspan0\x00', 0x2e3)
+connect$inet(r0, &(0x7f0000000100)={0x2, 0x0, @rand_addr=0x7fffffff}, 0x10)
+sendmmsg(r0, &(0x7f0000007fc0), 0x400000000000030, 0x0)

@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=426083b1e91873f7dc28032bfa16cbd46695cc17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket(0x1e, 0x4, 0x0)
+r1 = accept4(r0, &(0x7f0000000380)=@llc={0x1a, 0x0, 0x0, 0x0, 0x0, 0x0, @random}, &(0x7f0000000400)=0x80, 0x800)
+setsockopt$packet_tx_ring(r1, 0x10f, 0x87, &(0x7f0000000040)=@req3={0x89}, 0x12)
+socket$l2tp(0x18, 0x1, 0x1)
+getsockopt$inet_sctp_SCTP_RECVNXTINFO(r0, 0x84, 0x21, 0x0, &(0x7f0000000200))
+setsockopt$kcm_KCM_RECV_DISABLE(r1, 0x119, 0x1, &(0x7f0000000000)=0x2, 0x1fc)
+getsockopt$inet_sctp6_SCTP_RTOINFO(r0, 0x84, 0x0, &(0x7f0000000240)={0x0, 0x80, 0x2, 0x57}, &(0x7f0000000280)=0x10)
+write$binfmt_elf32(r1, 0x0, 0x0)
+getsockopt$inet_tcp_TCP_ZEROCOPY_RECEIVE(r1, 0x6, 0x23, &(0x7f0000000440)={&(0x7f0000ff3000/0xc000)=nil, 0xc000}, &(0x7f0000000480)=0x10)
+setsockopt$inet6_tcp_TCP_REPAIR(r1, 0x6, 0x13, &(0x7f0000000100)=0xffffffffffffffff, 0x4)
+ioctl$FICLONE(r0, 0x40049409, r0)
+getsockopt$inet6_dccp_int(r0, 0x21, 0x11, &(0x7f0000000080), 0x0)
+close(r0)
+setsockopt$inet6_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000180)=0x3, 0x4)
+ioctl$EXT4_IOC_GROUP_EXTEND(r1, 0x40086607, &(0x7f0000000d00)=0x4ba)
+socketpair(0x15, 0x3, 0xfffffffffffffffb, &(0x7f0000000c80)={<r2=>0xffffffffffffffff})
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000cc0)={&(0x7f0000000140)='-keyringcpuset\x00', r2}, 0x10)

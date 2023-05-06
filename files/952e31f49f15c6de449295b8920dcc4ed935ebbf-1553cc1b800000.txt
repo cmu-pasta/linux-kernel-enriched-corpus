@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=952e31f49f15c6de449295b8920dcc4ed935ebbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = syz_open_dev$binder(&(0x7f000000cff3)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000004000)={0x4, 0x0, &(0x7f000000cf90)=[@enter_looper={0x630c}], 0x0, 0x0, &(0x7f0000005000)})
+ioctl$BINDER_SET_CONTEXT_MGR(r0, 0x40046207, 0x0)
+r1 = accept4$alg(0xffffffffffffffff, 0x0, 0x0, 0x800)
+r2 = syz_open_dev$dspn(&(0x7f0000000140)='/dev/dsp#\x00', 0x10001, 0x80)
+ioctl$sock_bt_hidp_HIDPCONNADD(r0, 0x400448c8, &(0x7f0000000200)={r1, r2, 0x8001, 0xfffffffffffffffe, &(0x7f0000000180), 0x4d3, 0x1000, 0xa78, 0x855, 0x6, 0x3})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f000000ffd0)={0x0, 0x0, &(0x7f000000f000), 0x1, 0x0, &(0x7f000000ef31)='b'})
+mmap$binder(&(0x7f000000c000/0x2000)=nil, 0x2000, 0x0, 0x12, r0, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000040)={0x14, 0x0, &(0x7f0000000000)=[@acquire_done={0x40486311}], 0x0, 0x0, &(0x7f0000011f9d)})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000340)={0x4c, 0x0, &(0x7f00000004c0)=[@transaction_sg={0x40486311, {{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, &(0x7f0000000140), &(0x7f0000000440)}}}], 0x0, 0x0, &(0x7f00000000c0)})
+ioctl$BINDER_THREAD_EXIT(r0, 0x40046208, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c3d7296ac9557e3123cd967347a1494e8f73e910
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000000080), 0x302, 0x0)
+ioctl$PPPIOCNEWUNIT(r0, 0xc004743e, &(0x7f0000000040))
+ioctl$PPPIOCSPASS(r0, 0x40107447, &(0x7f0000000240)={0x1, &(0x7f0000000000)=[{0x6}]})
+writev(r0, &(0x7f00000001c0), 0x10000000000000b9) (fail_nth: 5)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a59816f87c8e514d1b5ed891ae85341fbef1e553
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = creat(&(0x7f0000000000)='./bus\x00', 0x0)
+io_setup(0x202, &(0x7f00000003c0)=<r1=>0x0)
+ioctl$FS_IOC_SETFLAGS(r0, 0x40086602, &(0x7f0000000040))
+io_submit(r1, 0x1853, &(0x7f0000000540)=[&(0x7f00000000c0)={0x25, 0x3a5, 0x2, 0x1, 0x0, r0, &(0x7f0000000000), 0x16000}])
+r2 = open(&(0x7f00000005c0)='./bus\x00', 0x64842, 0x0)
+pwritev2(r2, &(0x7f0000000240)=[{&(0x7f0000000000)="85", 0x307e00}], 0x1, 0x1400, 0x0, 0x3)

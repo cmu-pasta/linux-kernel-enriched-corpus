@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e2451634d3dfc86b73a854b3b5908a2c61c02ea9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+ioctl$sock_ifreq(r0, 0x89f1, &(0x7f00000000c0)={'ip6gre0\x00', @ifru_data=&(0x7f0000000140)="677adfda73ee1e9fb832f6c9fb3a126d8e4bc288e5da19fb1b6a1e7bed251780"})

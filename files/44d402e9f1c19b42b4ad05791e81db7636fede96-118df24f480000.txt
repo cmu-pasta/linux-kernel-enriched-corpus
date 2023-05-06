@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=44d402e9f1c19b42b4ad05791e81db7636fede96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='cpuset.effective_cpus\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x1c2dc0000})

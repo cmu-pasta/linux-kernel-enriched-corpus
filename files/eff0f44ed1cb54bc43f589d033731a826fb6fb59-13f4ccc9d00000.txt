@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=eff0f44ed1cb54bc43f589d033731a826fb6fb59
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_ifreq(r0, 0x89a3, &(0x7f0000000180)={'lo\x00', @ifru_hwaddr})

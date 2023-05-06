@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000000380)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+sendfile(r0, 0xffffffffffffffff, &(0x7f0000000000), 0xffff)
+mknod(&(0x7f00000000c0)='./file0\x00', 0x100000000001040, 0x0)
+execve(&(0x7f0000000000)='./file0\x00', &(0x7f0000000080), &(0x7f0000775000))
+r1 = syz_open_procfs(0x0, &(0x7f0000000040)='io\x00')
+pread64(r1, &(0x7f00009f3000), 0x352, 0x0)
+pipe2$9p(&(0x7f0000000040)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+r3 = openat$pfkey(0xffffffffffffff9c, &(0x7f0000000100)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+splice(r3, &(0x7f0000000240)=0x8000, r2, 0x0, 0x2, 0x0)

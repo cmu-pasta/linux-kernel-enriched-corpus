@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=468f8d1f46c226b866012cf6a770a70547ed9d24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f00000001c0)={0xd000})
+ioctl$KVM_UNREGISTER_COALESCED_MMIO(r1, 0x4010ae68, &(0x7f0000000180)={0xd000, 0x0, 0xfffffdfd})

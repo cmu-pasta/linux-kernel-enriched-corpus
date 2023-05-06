@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=92ec3093576975e2b3e68a0c377e060a81c655e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000001000)={&(0x7f0000001000)={0x10}, 0xc, &(0x7f0000001000)={&(0x7f0000001fd8)=@bridge_dellink={0x20, 0x11, 0x0, 0x0, 0x0, {0x7}}, 0x20}, 0x1}, 0x0)
+setsockopt$inet_sctp_SCTP_RTOINFO(0xffffffffffffffff, 0x84, 0x0, &(0x7f0000001000)={0x10000, 0x4, 0x100, 0x400}, 0xffffffffffffff6e)
+r0 = socket(0x11, 0x4000000000080003, 0x0)
+setsockopt$packet_int(r0, 0x107, 0xa, &(0x7f00006e8000)=0x2, 0x4)
+setsockopt(r0, 0x107, 0xd, &(0x7f0000001000), 0x1fd)

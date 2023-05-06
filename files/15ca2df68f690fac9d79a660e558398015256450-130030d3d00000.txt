@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=15ca2df68f690fac9d79a660e558398015256450
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$minix(&(0x7f0000000080), 0x0, 0x6, 0x1, &(0x7f00000001c0)=[{0x0, 0x0, 0x100000000}], 0x202004, &(0x7f0000001340)={[{'%/[@{.\\}\\&'}, {'(*'}, {'%/[\x97/%'}], [{@appraise_type}, {@measure}, {@audit}, {@dont_hash}, {@euid_lt={'euid<', 0xee01}}, {@dont_appraise}, {@subj_user={'subj_user', 0x3d, '):'}}]})
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r0, &(0x7f0000000280)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000000040)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000000)='cdg\x00', 0x4)
+sendto$inet(r0, 0x0, 0x0, 0x11, 0x0, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c98263b23588b6329c0f2caac14027bb07776ad1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = socket(0x80000000000000a, 0x2, 0x0)
+setsockopt$inet6_group_source_req(r1, 0x29, 0x2e, &(0x7f0000000200)={0x1, {{0xa, 0x0, 0x0, @mcast1={0xff, 0x7}}}, {{0xa, 0x0, 0x0, @initdev}}}, 0x108)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f00000001c0)={'lo\x00\x00\x00\x00\x00\x00\xed\xff\xff\xff\xff\xff\xff\xff'})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000001a80)={'lo\x00\x00\x00\x00\x04\x00\x00\x00\x00\x06\x00', 0xfd})

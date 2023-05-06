@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=794c12e24c5bca1161d1b0ebf431c8017d817f5d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX_OLD(r0, 0x84, 0x6b, 0x0, 0x0)
+bpf$BPF_TASK_FD_QUERY(0x14, &(0x7f0000000080)={0x0, 0xffffffffffffffff, 0x0, 0x7, &(0x7f0000000000)='cgroup\x00'}, 0x30)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+r1 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r2 = openat$cgroup_int(r1, &(0x7f00000000c0)='memory.high\x00', 0x2, 0x0)
+write$cgroup_int(r2, &(0x7f0000000300), 0x12)

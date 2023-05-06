@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e6ad5d985805141ed3d70fc129748bc234ff99f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x80003, 0xff)
+connect$inet6(r0, &(0x7f0000000140), 0x1c)
+process_vm_readv(0x0, &(0x7f0000000100), 0x0, &(0x7f0000001340)=[{&(0x7f0000000000)=""/204, 0xcc}, {&(0x7f0000001240)=""/148, 0x94}], 0x2, 0x0)
+sendmmsg(r0, &(0x7f0000001300)=[{{0x0, 0x0, &(0x7f0000001180), 0x240, &(0x7f00000011c0)}}], 0x249, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=dda626cdbd87eafe9a755acbbe102e2b6096b256
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000100)={0xa, 0x0, 0x0, @dev, 0x100000000004}, 0x1c)
+connect$inet6(r0, &(0x7f0000000040)={0xa, 0x4e21, 0x0, @ipv4={[], [], @multicast1}}, 0x1c)
+setsockopt$inet6_tcp_TCP_REPAIR_OPTIONS(r0, 0x6, 0x16, &(0x7f0000000000)=[@mss={0x2, 0x80000000}, @mss={0x2, 0xffffffff}, @window={0x3, 0x3bc8, 0x9}, @timestamp, @timestamp], 0x5)
+sendmmsg(r0, &(0x7f00000092c0), 0x4ff, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e1306831b0c04a2ee7705d93be9747c870cadfd5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+openat(0xffffffffffffff9c, &(0x7f00000001c0)='./file0\x00', 0x40, 0x0)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000002080), 0x42, 0x0)
+mount$fuse(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000002100), 0x0, &(0x7f00000000c0)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=r0, @ANYBLOB=',rootmode=00000000000000000100000,user_id=', @ANYRESDEC=0x0, @ANYBLOB=',group_id=', @ANYRESDEC=0x0])
+openat(0xffffffffffffff9c, &(0x7f0000000480)='./file0\x00', 0x24c01, 0x0)
+mount_setattr(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x0, &(0x7f0000000040)={0xb}, 0x20)
+setxattr(&(0x7f0000000200)='./file0\x00', 0x0, 0x0, 0x0, 0x1)

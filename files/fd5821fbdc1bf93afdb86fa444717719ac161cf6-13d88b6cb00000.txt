@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fd5821fbdc1bf93afdb86fa444717719ac161cf6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_ipv6_tunnel_SIOCADDTUNNEL(r0, 0x89f1, &(0x7f0000000080)={'ip6gre0\x00', 0x0})

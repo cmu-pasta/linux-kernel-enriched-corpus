@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=15592aaa7025d0702eb6a7d739b09ba06e945b6b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_open_dev$dri(&(0x7f0000000100)='/dev/dri/card#\x00', 0x1, 0x0)
+ioctl(r0, 0xffffffffffffffbd, &(0x7f0000000000)="835f7546b234e958d0")
+r1 = syz_open_dev$sndpcmc(&(0x7f0000000000)='/dev/snd/p\xe1\x96C#D#c\x00', 0x4, 0x2b171e55e83b9457)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000000100), 0x0)
+accept4$unix(r1, 0x0, &(0x7f0000001b00), 0x80800)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000001e80), &(0x7f0000000080)=0x7b734296b305b5c6)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000002440), 0x0)
+dup2(r0, 0xffffffffffffffff)
+ioctl$KVM_IRQFD(r1, 0x4020ae76, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2f38d7e5312fdd0acc979c5e26ef2ef8f3370996
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f00000031c0)={0x0, 0x0, &(0x7f0000003180)={&(0x7f0000000000)={0x38, 0x1403, 0x1, 0x0, 0x0, "", [{{0x9, 0x2, 'syz1\x00'}, {0x8, 0x41, 'siw\x00'}, {0x14, 0x33, 'lo\x00'}}]}, 0x38}}, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000300)=ANY=[@ANYBLOB="3c0000001000850600"/20, @ANYRES32, @ANYBLOB="fe000000000000001c0012000c000100626f6e64000000000c00020008000100010061585c5a4c77b16a200000"], 0x3c}}, 0x0)
+sendmsg$nl_route(r1, &(0x7f00000000c0)={0x0, 0xfffffffffffffe1e, &(0x7f0000000200)={&(0x7f0000000540)=ANY=[@ANYBLOB="4c00000010001fff00"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000240012000b00010067726574617000001400020008000100", @ANYRES32, @ANYBLOB="08000700ffffffff08000a00", @ANYRES32, @ANYBLOB="6ec8192b707bddfe6d3c2bfb6a8cfe701bc64c4debadf7805e0fa24564b3a23cce9a2e17d7ee4b8357b93171f5b5656f2b03d99a4ce3c68d3832de5601bb8a2d2ef0c818becdb89aacfcc252f6f2b925b4e5c336799cf97694662d98752b54a03bceca24756fffd35ba0d035a835bf21a764f02f8e805d2a499223915d9d3663f001d92512c5769c51777d9c9d0b4b116f0b8f74febafd4e19781c21e142f2e23d225b2dbde2d191c6fba843eb0765ba6d24237317cbabdd2a10aa71559aae09e775a0f7c25893f35a7e43ff673cf8e1733b0ac5f6b52bed00862f76c1d285"], 0x4c}}, 0x0)

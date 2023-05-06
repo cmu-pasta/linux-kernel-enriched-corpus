@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=080fbc3a5d10bd8ada100799168ebe1b70e2eefa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$loop(&(0x7f0000000240)='/dev/loop#\x00', 0x0, 0x0)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f0000000040)={[], 0x20, 0x9, 0x4})

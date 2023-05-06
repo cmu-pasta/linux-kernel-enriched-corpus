@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000640)={0x0, 0x74000000, &(0x7f0000000500)={&(0x7f0000000580)={0x38, 0x1403, 0x1, 0x0, 0x0, "", [{{0x9, 0x2, 'syz2\x00'}, {0x8, 0x41, 'rxe\x00'}, {0x14, 0x33, 'vxcan1\x00'}}]}, 0x38}}, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+openat$ppp(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+r3 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r3, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r3, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000040)=0x14)
+sendmsg$nl_route(r2, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={0x0, 0x44}}, 0x0)
+r4 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r4, 0x8933, &(0x7f0000000000)={'bridge0\x00'})
+sendmsg$nl_route(r1, 0x0, 0x0)
+unshare(0x44000000)

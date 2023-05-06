@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b2b1fd8148d5350eb6be6ee98851fa326465030c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000080)='gretap0\x00', 0x1b)
+bind$llc(r0, &(0x7f00000000c0)={0x1a, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff}, 0x10)

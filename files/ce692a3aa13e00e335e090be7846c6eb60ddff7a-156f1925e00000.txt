@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ce692a3aa13e00e335e090be7846c6eb60ddff7a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"devlinkpci":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = openat$ion(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ion\x00', 0x0, 0x0)
+ioctl$ION_IOC_ALLOC(r0, 0xc0184900, &(0x7f0000000040)={0xa925, 0x2b, 0x0, <r1=>0xffffffffffffffff})
+r2 = dup(r1)
+ioctl$DMA_BUF_IOCTL_SYNC(r2, 0x40086201, &(0x7f0000000080))

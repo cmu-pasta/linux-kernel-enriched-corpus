@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d04f9c2ec11ab2678f7427795ff5170cb9eb2220
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000346fd4)={0x0, 0x0, 0x0, 0x8d4, 0x20}, 0x2c)
+bpf$PROG_LOAD(0x5, &(0x7f00000ba000)={0xe, 0x5, &(0x7f0000346fc8)=@framed={{}, [@alu={0x8000000201a7f19, 0x0, 0x201a7fa6, 0x48, 0x1, 0x74}]}, &(0x7f0000000000)='GPL\x00', 0x0, 0xfffffffffffffff3, &(0x7f00001a7f05)=""/251}, 0x14)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cpuset.memory_pressure\x00', 0x0, 0x0)

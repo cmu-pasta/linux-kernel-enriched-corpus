@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=b67fcc95c0d84ea5424813a0d8703fc5c06de7ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/kvm\x00', 0x0, 0x0)
+r1 = dup(r0)
+r2 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r3 = ioctl$KVM_CREATE_VCPU(r2, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r3, r3, &(0x7f0000016000/0x18000)=nil, &(0x7f0000000040)=[@text32={0x20, &(0x7f00000000c0)="ea00280000b30082d6540f30ea030000002c0066b850000f00d066ba4200b802000000efc74424000a000000c7442402acc70000c7442406000000000f0114240f20e035100000000f22e03e64360f01cf0f22c7", 0x54}], 0x1, 0x0, &(0x7f0000000380)=[@dstype3={0x7, 0x5}], 0x1)
+ioctl$KVM_SET_SIGNAL_MASK(0xffffffffffffffff, 0x4004ae8b, &(0x7f0000000000)=ANY=[@ANYBLOB="0f22"])
+r4 = openat(r3, &(0x7f0000000080)='./file0\x00', 0x40000, 0x20)
+ioctl$sock_inet_tcp_SIOCINQ(r4, 0x541b, &(0x7f0000000140))
+ioctl$KVM_SET_USER_MEMORY_REGION(r2, 0x4020ae46, &(0x7f0000bf7000)={0x0, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+getsockopt$inet_sctp_SCTP_GET_ASSOC_STATS(r4, 0x84, 0x70, &(0x7f00000001c0)={<r5=>0x0, @in={{0x2, 0x4e22}}, [0x1, 0x6, 0x5, 0x1, 0x4, 0x3, 0x987, 0x3ff, 0x3f, 0x101, 0x1, 0x6, 0x10000, 0x9, 0x7]}, &(0x7f00000002c0)=0x100)
+setsockopt$inet_sctp_SCTP_RECONFIG_SUPPORTED(r4, 0x84, 0x75, &(0x7f0000000300)={r5, 0x1}, 0x8)
+setsockopt$inet6_tcp_buf(r1, 0x6, 0x1c, &(0x7f00000003c0)="65a42d880569bd055f56a4ecea7c5121128b1ad84edab56766ce3304eb694263c60610adf9a862cc660f7bf6c6c9a1b46fa5c571642dfe9f45a519eaee678ab1728718e75ad9be2b5f785ed8877bdf7dca306e2b8f231aa83aea66cf39a01858f4e74b992430b2ffcb734deb23d4667b6766c4a04f2e87ea81e2c4793475d1edd4fc7818a5a4f18b7fa68e119a52211fb41757c90f05170667c9a972593341a0a162c0120e5a932d472f7e999bfc5b58dda1fc358062360dfa0c0f8f2c97a9d03316529ebc83001600f2441ab62011796a5e9af4e095aaefdcf565bc17a91516c5d1b26453fba77414259948a43ce422f54f6592f4d8fb39c498", 0xfa)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+setsockopt$packet_tx_ring(r4, 0x107, 0xd, &(0x7f00000004c0)=@req={0x0, 0x80000000, 0x3, 0x6}, 0x10)

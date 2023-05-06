@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=602383e46c337fd7a0b8346ee047fe2778b76647
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = syz_open_dev$evdev(&(0x7f0000000040)='/dev/input/event#\x00', 0x0, 0x2)
+ioctl$int_in(r0, 0x5452, &(0x7f0000000000)=0x9)
+write$evdev(r0, &(0x7f0000000180)=[{{0x77359400}, 0x0, 0x1}], 0xfc57)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r1, &(0x7f000099e000)={0x2, 0x4e20, @dev}, 0x10)
+sendto$inet(r1, &(0x7f0000000140), 0xffffffffffffff58, 0x20008005, &(0x7f0000000100)={0x2, 0x4e20}, 0x10)

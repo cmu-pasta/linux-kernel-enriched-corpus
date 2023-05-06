@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=949ecf93b67ab1df8f890571d24ef9db50872c96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"binfmt_misc":true,"close_fds":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+clone(0x40000100, 0x0, 0x0, 0x0, 0x0)

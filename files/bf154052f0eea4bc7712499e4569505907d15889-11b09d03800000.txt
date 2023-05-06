@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bf154052f0eea4bc7712499e4569505907d15889
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$loop(&(0x7f00002d3000-0xb)='/dev/loop#\x00', 0x0, 0x181001)
+r1 = memfd_create(&(0x7f0000aca000-0xf)="74086e750000000000000000008cec", 0x0)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+r2 = syz_open_dev$loop(&(0x7f00003ea000)='/dev/loop#\x00', 0x0, 0x10000000000801)
+ioctl$LOOP_SET_STATUS(r2, 0x4c02, &(0x7f0000085000)={0x0, 0x0, 0x0, 0x0, 0xfffffffffffffff9, 0x0, 0x8, 0x8, "d86fade4cdb90d02cbaf3b52a1a9efdbef0742ab1c3b70161e6345618e04c7e2d21d014a68ad369621fb8ba8ddfe9c058eb0b0a751b9962cc8671d29e969974b", "94c6715b3fed37dd70182612e9f219987db67b9d32b5806c8b18c940dd8362e9", [0xaf38]})

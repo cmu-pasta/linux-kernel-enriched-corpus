@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4f1db8b5e7dfcca55e20931aec0ee707c5cafc99
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+pipe2(&(0x7f0000e3eff8)={0x0, <r2=>0x0}, 0x0)
+r3 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+dup3(r3, r2, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000decfe0)={0x10005, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4040aea0, &(0x7f0000000140)={0xffff, 0x5, 0xfffffffffffffff8, 0x0, 0x4, 0x3, 0x40, 0x7, 0x9c, 0x0, 0x1000, 0x4, 0x0, 0x0, 0x0, 0x3, 0x20, 0x4})

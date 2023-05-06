@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=dc0ead75c30e6aa27153b6cab86194e55e290a98
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f0000000000)=ANY=[@ANYBLOB="120100008e32f720f00a57d2874e000000010902120001000000000904000000ffa52c005f8a49694adf44c4bb91e7a106a23633f0d3acf69ae9a99ede1508a04525c6b5bde4a018f14d7bf9d56c32ca81dc8e32f5531afc61663e65f5a34555b9d104577b56600a5dadd2b7e9f21b8dd7fb45a3333dc669db13574915a6e206c2637749c0bf8fd16dbd3f8a9eb7438c7ecb52c2b83c4cb6d78ec52d6a225696f30391b42dee9ab40287196758eb9b43e09bd98593dff547e1b08c5db229168da7d1ddc0d164ee84f02e11924d91cb96b3be0544e81a167732acc7dcd1e950d38cfc89db8a7fc95e04a179acd411172fb1028f25d6bbf300"/263], 0x0)
+syz_usb_control_io$printer(r0, 0x0, &(0x7f0000000340)={0x34, &(0x7f00000001c0)={0x0, 0x0, 0x11, "0149eebe228224a34cabcb36fe7dab1411"}, 0x0, 0x0, 0x0, 0x0, 0x0})

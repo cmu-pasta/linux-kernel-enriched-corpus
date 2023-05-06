@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=eb6410be76290f0fbc2cde31f2d5cfae95d78bc7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={<r0=>0xffffffffffffffff})
+r1 = getpid()
+pidfd_open(r1, 0x0)
+io_setup(0x80000007ff, &(0x7f00000006c0)=<r2=>0x0)
+io_submit(r2, 0x22, &(0x7f0000000040)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x5, 0x0, r0, 0x0}])

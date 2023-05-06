@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=52bd4e87d4d35014ad5f5c7282404e58a26d7491
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000000)={&(0x7f0000000280)={0x10}, 0xc, &(0x7f0000029000)={&(0x7f0000000140)=ANY=[@ANYBLOB="24000000180019ce00000000000000000200000000000007000000000800080004000900000000000000bb3000ea270c4c35f1add2f8e562e683c9c613c215aa8286db04cadacfe12900c1bb2b7107ec53ab256ef31ee6b4669fcae760ec9bf3bc06eff77d4f632217acf46aaa7ee265d357446645fb806dc840bdf4ab32b8d6d8d79129af801847847bdfe05b13bcb3a2a2207b"], 0x1}, 0x1}, 0x0)
+flock(0xffffffffffffffff, 0x2)
+epoll_create1(0x0)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=5c8b4d8ea14d505d11874f51a1943b2869733719
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000780)={0xf, 0x4, &(0x7f0000000040)=@framed={{}, [@call={0x85, 0x0, 0x0, 0xbb}]}, &(0x7f0000000000)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2b, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x80)

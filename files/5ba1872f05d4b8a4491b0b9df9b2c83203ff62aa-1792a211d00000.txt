@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5ba1872f05d4b8a4491b0b9df9b2c83203ff62aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":7,"fault_nth":10,"leak":true,"close_fds":false}
+r0 = socket$qrtr(0x2a, 0x2, 0x0)
+connect$qrtr(r0, &(0x7f0000000040)={0x2a, 0xffffffff, 0xfffffffe}, 0xc)
+openat$qrtrtun(0xffffffffffffff9c, 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r1, 0x0)
+preadv(r1, 0x0, 0x0, 0xd9f, 0x0)
+openat$qrtrtun(0xffffffffffffff9c, &(0x7f0000000100)='/dev/qrtr-tun\x00', 0x0)
+write$binfmt_misc(r0, 0x0, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=c620fe14aac810396d3c3edc9ad73848bf69a29e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$loop(&(0x7f00000001c0), 0x0, 0x0)
+ioctl$LOOP_SET_DIRECT_IO(r0, 0x4c08, 0xfff)
+r1 = open(&(0x7f0000000000)='./bus\x00', 0x141042, 0x0)
+write$P9_RREADLINK(r1, &(0x7f0000000200)=ANY=[], 0x116)
+sendfile(r1, r1, &(0x7f0000000240)=0x1, 0x7fff)
+ioctl$LOOP_SET_FD(r0, 0x4c00, r1)
+r2 = syz_open_dev$loop(&(0x7f00000001c0), 0x0, 0x0)
+ioctl$LOOP_SET_STATUS(r2, 0x4c02, &(0x7f0000000000)={0x0, {}, 0x0, {}, 0x80000000, 0x0, 0xa, 0x14, "75dbe6f4d03a663b268d2d848e04545a7584a3a2af096f2d06c463cf4e89107ea8f9c0077c0c4b047952ba72b286f173c05c92485dcd07d9c1b5ce53f8cdbf8e", "40ecebece39c636f13c46695d01595e00c6e919c6cf3ef6f22ce6728f18b49a7", [0x3e, 0x2]})

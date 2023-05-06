@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7e7470f0058e0950706a4fd684c2d86c7b43df31
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = open(&(0x7f0000002000)='./bus\x00', 0x141042, 0x0)
+r1 = open(&(0x7f0000000280)='./bus\x00', 0x141042, 0x88)
+fallocate(r1, 0x0, 0x0, 0x4)
+fallocate(r1, 0x1, 0x200002, 0x10000101)
+fallocate(r0, 0x20, 0x0, 0xfffffeff000)
+sendfile(r0, r1, &(0x7f0000000000), 0x100000001)

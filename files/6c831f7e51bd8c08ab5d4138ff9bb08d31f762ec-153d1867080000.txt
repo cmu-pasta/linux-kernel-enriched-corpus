@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6c831f7e51bd8c08ab5d4138ff9bb08d31f762ec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"ieee802154":true,"sysctl":true,"tmpdir":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+connect$inet6(r0, &(0x7f0000000180)={0xa, 0x4001, 0x0, @dev={0xfe, 0x80, '\x00', 0x1c}, 0xd}, 0x1c)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='blkio.bfq.io_wait_time_recursive\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f00000009c0)=ANY=[], 0xfffffd9d)
+sendfile(r0, r1, 0x0, 0x8000002b)

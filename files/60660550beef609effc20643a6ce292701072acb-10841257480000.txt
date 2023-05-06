@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=60660550beef609effc20643a6ce292701072acb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$sock_int(r0, 0x1, 0x4b, &(0x7f0000000240)=0x7, 0x4)
+recvmsg(r0, &(0x7f0000000340)={0x0, 0x0, 0x0, 0x0, &(0x7f0000001a00)=""/112, 0x70}, 0x22)

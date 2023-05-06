@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=db0875831d854e42fd8c27862a7281e6dd77de5a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_nth":6,"close_fds":false}
+io_setup(0xf501, &(0x7f0000000140))

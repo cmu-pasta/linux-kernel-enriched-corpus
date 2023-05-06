@@ -1,0 +1,56 @@
+name: Corpus Generation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+    paths:
+      - files/*
+      - .github/workflows/corpusgen.yml
+  schedule:
+    - cron: '1 1 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Go environment
+      uses: actions/setup-go@v4.0.0
+    - name: Clone syzkaller
+      run: |
+        cd ..
+        git clone https://github.com/google/syzkaller
+        cd syzkaller/tools/syz-db
+        go run syz-db.go pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
+        cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
+        wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
+        go run syz-db.go unpack ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db temp/
+        cp -v ../../../linux-kernel-enriched-corpus/files/* temp/
+        go run syz-db.go pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
+        cd ../../../
+        rm -vr syzkaller
+        cd linux-kernel-enriched-corpus
+    - name: zip artifacts
+      run: |
+        zip --junk-paths enriched-corpus *.db
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "Daily Enriched Corpus"
+        files: |
+          LICENSE
+          *.db
+          enriched-corpus.zip
+    - name: Remove Zip
+      run: |
+        rm -v enriched-corpus.zip
+#    - name: Commit & Push changes
+#      uses: actions-js/push@master
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}

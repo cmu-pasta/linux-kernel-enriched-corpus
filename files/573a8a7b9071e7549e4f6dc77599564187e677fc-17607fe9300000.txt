@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=573a8a7b9071e7549e4f6dc77599564187e677fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000300), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f0000000040)={'wlan1\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_NEW_INTERFACE(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000340)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r1, @ANYBLOB="070000000000000000000700000095d24cb9983d35ede36211ea33d098a2f75fd765c8bde359031919e932f90a81e0483082e3d9b790731c547bee551d6eaa266806b0a0d96d7396fd279e711c0b962a477df6000c3058f961e6d01c71ecbd5c62d6f128838d2f22df", @ANYRES32=r2, @ANYBLOB="266909ab8f207a40abb9f58a8355fa450d814b13395a2b18fdc54ce1f04433735d2d733311d047ad1dc018121db3046af437bc96c4fc24b3bf747632fc692cf26d5070965a82afedb801d54373740b6b6c94900a1dd75572c15140391857594c8db6e7676a005b9cc23b1509abe96384917254987f68554bbf07ace26944b18b"], 0x1c}}, 0x0)
+sendmsg$NL80211_CMD_GET_SCAN(0xffffffffffffffff, &(0x7f0000000140)={&(0x7f0000000080), 0xc, &(0x7f0000000100)={&(0x7f00000000c0)={0x1c, 0x0, 0x528, 0x70bd2d, 0x25dfdbff, {{}, {@val={0x8, 0x3, r2}, @void}}, ["", "", "", "", "", ""]}, 0x1c}, 0x1, 0x0, 0x0, 0x40080}, 0x24004800)
+r3 = syz_init_net_socket$802154_raw(0x24, 0x3, 0x0)
+sendmmsg$sock(r3, &(0x7f00000013c0)=[{{0x0, 0x0, &(0x7f0000000040)=[{}], 0x1}}], 0x1, 0x0)
+r4 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000001840)={'vcan0\x00', <r5=>0x0})
+bind$can_j1939(0xffffffffffffffff, &(0x7f0000000240)={0x1d, r5}, 0x18)
+r6 = socket$can_j1939(0x1d, 0x2, 0x7)
+r7 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r7, 0x8933, &(0x7f0000001840)={'vcan0\x00', <r8=>0x0})
+bind$can_j1939(r6, &(0x7f0000000240)={0x1d, r8}, 0x18)
+r9 = socket$can_j1939(0x1d, 0x2, 0x7)
+r10 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r10, 0x8933, &(0x7f0000001840)={'vcan0\x00', <r11=>0x0})
+bind$can_j1939(r9, &(0x7f0000000240)={0x1d, r11}, 0x18)
+ioctl$sock_ipv6_tunnel_SIOCGETPRL(0xffffffffffffffff, 0x89f4, &(0x7f00000009c0)={'syztnl1\x00', &(0x7f0000000940)={'ip6tnl0\x00', <r12=>0x0, 0x29, 0x8, 0x2e, 0x4, 0x2b, @private1, @mcast2, 0x10, 0x1, 0x3, 0x3}})
+sendmsg$ETHTOOL_MSG_RINGS_GET(0xffffffffffffffff, &(0x7f0000000b80)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x1000}, 0xc, &(0x7f0000000b40)={&(0x7f0000000440)={0x114, 0x0, 0x200, 0x70bd25, 0x25dfdbfe, {}, [@HEADER={0x4c, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'batadv_slave_0\x00'}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'bond_slave_1\x00'}, @ETHTOOL_A_HEADER_FLAGS={0x8}]}, @HEADER={0x30, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x3}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r5}, @ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'ip6tnl0\x00'}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}]}, @HEADER={0x44, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x54b57c483cb84342}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r8}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r11}, @ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'veth0\x00'}, @ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'dummy0\x00'}]}, @HEADER={0x34, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r11}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x3}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r12}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x1}]}, @HEADER={0xc, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x1}]}]}, 0x114}, 0x1, 0x0, 0x0, 0x4000800}, 0x80)

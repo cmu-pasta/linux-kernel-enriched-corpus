@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e4aaa78795e490421c79f76ec3679006c8ff4cf0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = open(&(0x7f00000000c0)='./bus\x00', 0x14da42, 0x0)
+ioctl$FS_IOC_SETFLAGS(r0, 0x40086602, &(0x7f0000000040)=0x4000)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_CHECKPOINT(r1, 0x4004662b, &(0x7f0000000000)=0x2)

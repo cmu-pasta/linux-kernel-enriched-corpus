@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=fa551e80818a9ef8f55c0c90cdacad1fcf141496
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfcb000)=nil, 0xfcb000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x40000000015, 0x5, 0x0)
+bind$inet(r0, &(0x7f0000fc5000-0x10)={0x2, 0x0, @loopback=0x7f000001, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+connect$inet(r0, &(0x7f0000adf000)={0x2, 0x0, @loopback=0x7f000001, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+sendmsg$alg(r0, &(0x7f0000002000)={0x0, 0x0, &(0x7f0000fc8000)=[{&(0x7f0000c1f000-0x1000)="", 0x0}, {&(0x7f0000fc9000)="", 0x0}], 0x2, &(0x7f0000001000-0x172)=[@op={0x18, 0x117, 0x3, 0x100000000}, @op={0x18, 0x117, 0x3, 0x9}, @iv={0x100, 0x114, 0x6, 0xe5, "13384c0e644fa57a1674027764534a585af7fdccd035cd0dd204b8f377d346a58d6699da5765c32b6f61198de4062b3accd87ddf4f8e648be015a89ccf85d54bf03c52a42497b0cf97e1c0d8678068c8ace888bfff48e74fa16544e1e4c9f868620b9c448bc856b2e387fcf2c13ad0baa63517acc23961049b1f0ae5b4c14e90c89e5eb02f076b556af8231ba8cb3bb64519136b1924b63c50d06398a223f9a2f7c041341c6de4449d0647ff4caaaec2671d14fee7c12eb71406cc21ff36cba8e7b2d2e815004b8e5c81962464d14ab6e2aad3cee0c9e6a33aeaba0c66a7d6e876b9d6f514"}], 0x130, 0x1}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9c557bdc7328e1ab4f0325699da821c22e47ab93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfd3000)=nil, 0xfd3000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+pipe(&(0x7f00009e8000)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+vmsplice(r2, &(0x7f000011c000-0x90)=[{&(0x7f0000fc8000-0x1)="75", 0x1}], 0x1, 0x0)
+splice(r1, 0x0, r0, 0x0, 0x800000004, 0x6)

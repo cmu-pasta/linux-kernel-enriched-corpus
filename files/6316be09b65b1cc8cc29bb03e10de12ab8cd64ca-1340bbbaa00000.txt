@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6316be09b65b1cc8cc29bb03e10de12ab8cd64ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000200)={0x1, &(0x7f0000000280)=[{0x6, 0x0, 0x0, 0x8000000006}]}, 0x10)
+bind$inet6(r0, &(0x7f0000000080)={0xa, 0x4e22, 0x0, @empty}, 0x1c)
+sendto$inet6(r0, 0x0, 0x0, 0x20000000, &(0x7f0000000380)={0xa, 0x4e22, 0x0, @loopback}, 0x1c)
+sendto$inet6(r0, &(0x7f00000002c0)='\n', 0x1, 0x4, 0x0, 0x0)

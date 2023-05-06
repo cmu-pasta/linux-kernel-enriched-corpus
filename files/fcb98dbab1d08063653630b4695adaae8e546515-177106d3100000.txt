@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fcb98dbab1d08063653630b4695adaae8e546515
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+wait4(0x0, 0x0, 0x80000002, 0x0)
+vmsplice(0xffffffffffffffff, &(0x7f00000000c0)=[{0x0}, {0x0}, {0x0}, {&(0x7f0000000100)="6653070000053c27bc3376003639405cb4aed7d12f0000001500ae47a825d8ad79a418cff47d010000805acf4f8f36460000001479aed75d492b415bcee00a06dc9d8e99ad2f8130db0bf67a66d4cd2c7f24b5dcfc6afd983f79e65199060007676f8f9fc0ebf8b0b16d86a6a402ce783aa5bfc39e6f2c64884b3c5d05692e664ebf68e6faa53367f05f4ad6142134b62f11e931e7d62ead033cd2157d135a", 0x9f}], 0x4, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x3c)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+ptrace$cont(0x20, r0, 0x0, 0x0)

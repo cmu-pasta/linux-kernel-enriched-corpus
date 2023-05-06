@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=00c573f2cdb88dadbf65549e1b8ca32344b18a96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0xe, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="b4050000000000006110580000000000c60000000000000095000002000000002ac73fe427abdf478e0357f2d32986f50b892b5007921cd48fe43b23be60a2dbc9778bb665510e3e22fcb26adfdc05e55a4933e62a23abb4baca4ec89323257db59db5eeda384459dd00d41b6aab85df5cab39e726769e2291b626d120a9247579f0b8edd8f16683e0623366ac632c24921d21534237743354f09cc29be2f72dfa8b05320110bcea53bb038c"], &(0x7f0000003ff6)='GPL\x00', 0x4, 0xfd90, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x366, 0x10, &(0x7f0000000000), 0x187}, 0x48) (async)
+r1 = bpf$MAP_CREATE(0x100000000000000, &(0x7f0000000100)={0x12, 0x4, 0x8, 0x4}, 0x40)
+syz_open_dev$mouse(0x0, 0x2, 0x64c540)
+bpf$BPF_BTF_LOAD(0x12, &(0x7f0000000000)={&(0x7f0000000700)=ANY=[@ANYBLOB="9feb010018000000000000000c0000000c00000002000000000000000000000604"], &(0x7f00000004c0)=""/152, 0x26, 0x98, 0x1}, 0x20) (rerun: 64)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f0000000080)={@map=r1, r0, 0x5}, 0x10)
+r2 = socket(0x1, 0x5, 0x0)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000200)={r1, &(0x7f0000000140), &(0x7f00000000c0)=@udp=r2}, 0x20)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=1fbd9fd0ef463a9811d2c5b7d206f119cf259601
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","leak":true,"close_fds":false}
+syz_clone3(&(0x7f0000000440)={0x40000000, 0x0, 0x0, 0x0, {}, 0x0, 0x0, 0x0, 0x0}, 0x58)

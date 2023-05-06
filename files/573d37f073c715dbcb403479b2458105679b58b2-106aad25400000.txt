@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=573d37f073c715dbcb403479b2458105679b58b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+sched_setaffinity(0x0, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+mount$bpf(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='bpf\x00', 0x200000, 0x0)
+chdir(&(0x7f0000000180)='./file0\x00')
+symlink(&(0x7f0000001000)='./file0\x00', &(0x7f0000000080)='./file0\x00')
+unlink(&(0x7f0000000200)='./file0\x00')

@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=c10f2ca5722a78c613e9ccd45af7877f5debf0ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+setrlimit(0x0, 0x0)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDRS(0xffffffffffffffff, 0x84, 0x6c, 0x0, 0x0)
+r0 = semget(0xffffffffffffffff, 0x3, 0x0)
+r1 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhci\x00', 0x246)
+syz_open_dev$swradio(&(0x7f0000000140)='/dev/swradio#\x00', 0x1, 0x2)
+ioctl$VIDIOC_S_AUDOUT(0xffffffffffffffff, 0x40345632, 0x0)
+write$P9_RLERRORu(r1, &(0x7f00000000c0)=ANY=[@ANYBLOB="ff80"], 0x2)
+close(r1)
+mknod(0x0, 0x0, 0x0)
+semctl$IPC_STAT(r0, 0x0, 0x2, &(0x7f0000000500)=""/248)
+getsockopt$inet_sctp_SCTP_CONTEXT(0xffffffffffffffff, 0x84, 0x11, &(0x7f0000000040)={0x0, 0x5}, 0x0)
+ioctl$KVM_SET_GSI_ROUTING(0xffffffffffffffff, 0x4008ae6a, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffff9c, 0x0)
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000900)={{{@in6=@local, @in6=@dev}}, {{@in6}, 0x0, @in6=@mcast2}}, &(0x7f0000000a00)=0xe8)
+readv(0xffffffffffffffff, &(0x7f0000000080), 0x0)

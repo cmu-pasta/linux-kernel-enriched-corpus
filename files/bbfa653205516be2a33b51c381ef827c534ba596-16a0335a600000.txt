@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bbfa653205516be2a33b51c381ef827c534ba596
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f00000000c0)={0xa, 0x4e21, 0x0, @loopback}, 0x1c)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x4e21, 0x0, @loopback}, 0x1c)
+r1 = dup(r0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, &(0x7f0000000040)={0x0, 0x18, 0xfa00, {0x0, 0x0}}, 0x20)
+clone(0x4000, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

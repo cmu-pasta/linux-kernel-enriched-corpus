@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0f447249960c780cab5f203c1537c825c74904ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$loop(&(0x7f0000000040), 0x0, 0x10d082)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+ioctl$LOOP_SET_FD(r0, 0x4c00, r1)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x2, 0x11, r0, 0x0)
+ioctl$LOOP_SET_STATUS(r0, 0x4c02, &(0x7f0000000280)={0x0, {}, 0x0, {}, 0x9, 0x0, 0x0, 0x0, "3d0e6b6ceea9ca562beb8e94263b80e4d97405c2699bbc5ca99360921e847e00c58f96eca5b99ebf7610b214f98425eac042e82300bd1e757f5a8c0ad6575ffa", "5f2c2f908f37e24a65383a0a41cbf88b318cc130cdb18eeef77d7ed428443a4a"})

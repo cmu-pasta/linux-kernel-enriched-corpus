@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=08b8be45afea11888776f897895aef9ad1c3ecfd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDFONTOP_COPY(r0, 0x4b72, &(0x7f0000000400)={0x3, 0x0, 0x0, 0x5, 0x0, 0x0})
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_ACTIVATE(r1, 0x4b60, 0x713000)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_ACTIVATE(r2, 0x4b61, 0x713000)

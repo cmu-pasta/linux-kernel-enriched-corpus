@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=fe2fee189f1f8babd95615dcbb57871d6d18920a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = memfd_create(&(0x7f00000003c0)='secur\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\'\x18\xbam\xba_\x9a\xe4\x02\x1e\x10dI|\x15\xaeP\xfd\x90\xe2\xb5\xc6\x81\xff\x0f\x00\x00B\x92\xcf\xcc\xd3}\xd3\x17\xf3{\xf4\x9bX\x178{\xa0\f\xd6I.p~\xd4\xd2\xf02p\xd9\xe8\x84y\xd0\xfe\x94\xf8\x925\x17\xc9\xc4\x89\x03\xf3\xf2\x8a}\x9aZ\xc2\x87l\xc2\x92>{\x9e\x1e\xcb\xd4\xa2y\x95 r\xbe\xc1R\xd9/\xc1\x1c\x81>m\r(\x1eV\xa7\x10\xd9\xcc\xe0]\x1e\f\xfdUw<o\xdef\x1b\x85\x1e\x00\xfb\x02\x9b=H\xe5\xe5c\xce\'eo\xba\xcd\t\xdf\xc6\xcaL\xe7\xdf^Of:\xdd\x18{H\x83\xa0\xcf)y\x04\x95W{\a\x83\xd6\x1f\xb1\xfaO;\xaa@\xd9\xc6\x83\\8\x1d\xf6-(gn\x91\xc7>]\xaa\xad\xc7<:\xd9\b\xe2\bf\xe6\xd5\xb86\xd1pL\xd9\xc5\x1bM\xd9\x97\x84\x1e\"\x0f\xefc&\x97\x16\'L\xd8G4bdlhJ\xdf\xbf\xe7-\x05\xe9\xac\xbb\x95qJ\xf0\x8c/+\xc6\xef\n\x1d\x88=d-bC\xf7\x9e\x8d:F\xa2\x12\x8f\xc7\x9e\xef\x19\xd5F\x89mM\x92\xe4\xfcp\xf3\xef=d\x89\xd2\xf01\xc4j\x8c\x94l\xe4IG\xa1\xb5YgYPX\xbfRb\xf7\xf1o\xa1G1GZu9|\x19\x84\xfc\xbb\xf9\x80\xb1\xdd\x98\xf5\xda\x87\x8fy0>\xf8\x99\xdc\xc9', 0x0)
+pwrite64(r0, &(0x7f000003bfff)='/', 0x1, 0x0)
+mmap(&(0x7f0000001000/0x1000)=nil, 0x1000, 0x4, 0x11, r0, 0x0)
+sendfile(r0, r0, 0x0, 0x7f8)
+chdir(0x0)
+symlink(&(0x7f0000001000)='./file0\x00', &(0x7f00000000c0)='./file0\x00')
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r1 = socket$inet(0x2, 0x4000000805, 0x0)
+dup3(r1, 0xffffffffffffffff, 0x0)
+setsockopt$inet_sctp6_SCTP_STREAM_SCHEDULER_VALUE(0xffffffffffffffff, 0x84, 0x7c, 0x0, 0x0)
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+socket(0x0, 0x0, 0x0)
+r2 = getpid()
+r3 = getpid()
+rt_tgsigqueueinfo(r3, r3, 0x13, &(0x7f0000000180))
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+ptrace(0x10, r2)
+ptrace$poke(0x4201, r3, 0x0, 0xb90000)

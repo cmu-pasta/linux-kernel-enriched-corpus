@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d5c70144806c3d994e5cf55b1feb9903d7f30ff6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = fsopen(&(0x7f0000000000)='cgroup2\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = fsmount(r0, 0x0, 0x0)
+r2 = openat$cgroup_subtree(r1, &(0x7f0000000080), 0x2, 0x0)
+open_by_handle_at(r2, &(0x7f00000000c0)=@ocfs2_parent={0x18, 0x2, {{0x5}}}, 0x0)

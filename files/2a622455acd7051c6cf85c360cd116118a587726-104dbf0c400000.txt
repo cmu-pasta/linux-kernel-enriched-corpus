@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+pipe2(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f0000000180)={0xaa})
+r2 = add_key(&(0x7f0000000080)='cifs.idmap\x00', &(0x7f0000000200)={0x73, 0x79, 0x7a, 0x1}, &(0x7f0000000240), 0x0, 0xfffffffffffffffb)
+keyctl$revoke(0x3, r2)
+socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$UFFDIO_REGISTER(r1, 0xc020aa00, &(0x7f00000000c0)={{&(0x7f0000011000/0x3000)=nil, 0x3000}, 0x1})
+r3 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r3}, 0x2c})

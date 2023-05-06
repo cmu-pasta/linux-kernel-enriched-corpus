@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6dbabd1e485b2043113e7ac8b0cb12de85b2be75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"binfmt_misc":true,"close_fds":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000080)={'vlan0\x00', 0x1000000802})
+ioctl$sock_inet_SIOCSIFADDR(r0, 0x8916, &(0x7f0000000000)={'vlan0\x00\x00\xf6\xff\xff\xff\xff\xff\xff\xff\x00', {0x2, 0x0, @loopback}})
+r2 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_mreqn(r2, 0x0, 0x23, &(0x7f0000000740)={@multicast2, @loopback}, 0xc)
+setsockopt$inet_msfilter(r2, 0x0, 0x29, &(0x7f0000000080)={@multicast2, @loopback, 0x0, 0x2, [@multicast1, @multicast1]}, 0x18)

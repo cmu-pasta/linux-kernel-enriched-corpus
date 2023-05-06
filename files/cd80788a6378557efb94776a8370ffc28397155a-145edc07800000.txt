@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=cd80788a6378557efb94776a8370ffc28397155a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6(0xa, 0x2000000802, 0x0)
+connect$inet6(r0, &(0x7f00000001c0)={0xa, 0x0, 0x0, @mcast2={0xff, 0x2, [], 0x1}, 0x9}, 0x1c)
+setsockopt$inet6_udp_int(r0, 0x11, 0x65, &(0x7f0000000000)=0x6, 0x4)
+setsockopt$inet6_udp_int(r0, 0x11, 0x67, &(0x7f0000000080)=0x6, 0x4)
+sendmmsg(r0, &(0x7f0000001c40)=[{{0x0, 0x0, &(0x7f0000001100), 0x131}}], 0x40000000000011d, 0x0)
+syz_emit_ethernet(0x56, &(0x7f0000000080)={@local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, @local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, [], {@canfd={0xd, {{0x3, 0x4, 0x3, 0x1ff}, 0x23, 0x2, 0x0, 0x0, "53f48469e6bda1ee4f26f68f8167aa2022cd26eacfda98bbdf07bd3d1e788e337bb186e8fee4cf31e3259bd3e253cf2d90a1760f2a8f519b005d3417f88ebe92"}}}}, 0x0)

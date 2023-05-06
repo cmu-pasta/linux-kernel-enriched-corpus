@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=12b824e4fc32afd2fc2b3c174a5f178d77065c48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","leak":true,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"ieee802154":true,"tmpdir":true,"segv":true}
+unshare(0xa000680) (fail_nth: 67)

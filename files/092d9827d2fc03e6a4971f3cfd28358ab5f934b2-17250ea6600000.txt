@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=092d9827d2fc03e6a4971f3cfd28358ab5f934b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+bind$rxrpc(r0, &(0x7f0000000780)=@in6={0x21, 0x0, 0x2, 0x1c, {0xa, 0x0, 0x0, @empty}}, 0x24)

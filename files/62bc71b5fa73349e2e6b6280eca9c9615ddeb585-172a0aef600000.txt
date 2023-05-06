@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=62bc71b5fa73349e2e6b6280eca9c9615ddeb585
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00005befdc))
+r1 = syz_open_pts(r0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000280)=0x14)

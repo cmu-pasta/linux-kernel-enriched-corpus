@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_FASTOPEN_KEY(r0, 0x6, 0x21, &(0x7f00000074c0)="cd38eb81e4dda23c2762aba70cab915a", 0x10)
+ioctl$sock_inet_tcp_SIOCOUTQ(r0, 0x541b, &(0x7f00000000c0))

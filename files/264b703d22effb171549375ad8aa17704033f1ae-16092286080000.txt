@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=264b703d22effb171549375ad8aa17704033f1ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","close_fds":false,"wifi":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f00000000c0)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+close(0xffffffffffffffff)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f00000014c0), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f00000003c0)={'wlan0\x00', <r5=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000000)={0x2c, r4, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x985}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8}]}, 0x2c}}, 0x0)
+sendfile(r2, r1, 0x0, 0xffffffff)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4bf11aa05c4ca51ce0df86e500fce486552dc8d2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000100)='/dev/vhci\x00', 0x8002)
+write$vhci(r0, &(0x7f0000000440)=@HCI_VENDOR_PKT, 0x2)
+write$vhci(r0, &(0x7f0000000180)=ANY=[@ANYBLOB="042ffeaaaaaaaaaa120090309a4e40007ebd2003793e3894b933230445eba2ac8603a86e3b1ccc4024288d0d28ba1575af151a8a4c7ea1e9aa7f29d42324050faa1769ee54d4585f5ed3294a039f5c850d129027f729506e11220ed71bb4d8ac005a479900735cc30723fba33af13ff4986fd4bed20c8a31659ce3b0f090568c8a0681912d1e6dcca191b27dbb3267adf74e038122a7f77baf0f4c7ca1a1d32294424fd430c349703fe4556da4891a5fa88e2136b1bb6ad22ce698c3aa9d84ad598cf49f4a6438455d177a29e1356d5190687f9e7ae008062529d530211db0653e2d955f4bb6f2eabff4dbdfd576ce283ffc"], 0x101)

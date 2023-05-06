@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3120afdf15ad1b3da8a89af459e4d8feac2432d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$netlink(0x10, 0x3, 0x400000000000004)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f0000000080)={&(0x7f0000000000)=""/17, 0x2000, 0x1000}, 0x48)
+setsockopt$XDP_UMEM_FILL_RING(r1, 0x11b, 0x5, &(0x7f00000000c0)=0x4, 0x4)
+writev(r0, &(0x7f0000000080)=[{&(0x7f0000000100)="480000001400190d09004beafd0d8c562c84ed7a80ffe0060f000000000000a2bc5603ca00000f7f89000000200000000101ff0000000309ff5bffff00c7e5ed4e00000000000000", 0x48}], 0x1)

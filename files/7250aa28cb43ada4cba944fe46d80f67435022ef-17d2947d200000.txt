@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7250aa28cb43ada4cba944fe46d80f67435022ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+perf_event_open(&(0x7f0000000180)={0x5, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, @perf_bp={0x0, 0x1}}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clone(0x2902001ffb, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+rt_sigtimedwait(&(0x7f0000000040), 0x0, 0x0, 0x8)
+r0 = getpid()
+setsockopt$IPT_SO_SET_REPLACE(0xffffffffffffffff, 0x0, 0x40, 0x0, 0x0)
+clone(0x4000, &(0x7f00000002c0)="873cfa4b1844690893ef63beea784741fc73d199f8eea8c1e3c61c73c3491f9495699b4269dbe0794fda2f161fa549559286b9e8bfbf1596e160cf284699ec8f2ba49483fbc180bdfbd119a18f97700df93f6015cbf151b92f2317c6fe9480e45336d61dc3899944baa02be0a25d5a2584efa7f28a58258258956d81e769e75081bd06887cb441ce2fa9a7f76e8225ecb95bccc3a8f891a1b9abc3dd31572a82fb5310ba157b5225d0253363b5fc68526e896d01c0c1c0ba7ccef451bfd8906eb22f642bf45c6dbeb31fe99c89daeb1a904c0716eaddafdb65610e3fa9d7c01ef7f7ee9874cd3ebc84cb782c26aa", 0x0, 0x0, 0x0)
+rt_tgsigqueueinfo(r0, r0, 0x16, &(0x7f0000000100))
+ptrace(0x10, r0)
+ptrace$pokeuser(0x6, r0, 0x388, 0xffffffffffffffff)

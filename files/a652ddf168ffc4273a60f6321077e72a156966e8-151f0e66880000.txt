@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket(0x10, 0x2, 0x0)
+write(r0, &(0x7f0000000240)="241400001a0025f00485bc04fef7001d0a0b49ff708800008003280008020300ff0200000000000036ede498534108e58342fa94a235a2a441f9", 0xfcae)

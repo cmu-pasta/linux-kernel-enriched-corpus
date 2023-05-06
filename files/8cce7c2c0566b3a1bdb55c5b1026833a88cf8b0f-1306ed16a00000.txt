@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8cce7c2c0566b3a1bdb55c5b1026833a88cf8b0f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x80003, 0x2c)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @empty}, 0x1c)
+sendmmsg(r0, &(0x7f0000002e40)=[{{0x0, 0x0, &(0x7f0000000880)=[{&(0x7f00000002c0)="069713d4db045c7c", 0x8}], 0x1}}, {{0x0, 0x0, 0x0}}], 0x2, 0x0)

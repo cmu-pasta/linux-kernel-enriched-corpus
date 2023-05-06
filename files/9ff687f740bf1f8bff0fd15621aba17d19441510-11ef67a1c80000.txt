@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=9ff687f740bf1f8bff0fd15621aba17d19441510
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f0000001340)={0xffffffffffffffff, 0x0, 0x2c}, 0x10)

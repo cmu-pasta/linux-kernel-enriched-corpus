@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d80c64526002b7ffd0e2261f47fa6004e90fac80
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mkdir(&(0x7f00000002c0)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000003c0)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000280)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+removexattr(&(0x7f0000000000)='./bus/file0\x00', &(0x7f0000000040)=@known='system.posix_acl_default\x00')

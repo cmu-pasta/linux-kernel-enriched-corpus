@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x3, 0x0)
+r1 = openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x8000, 0x0)
+getsockopt$inet_sctp_SCTP_I_WANT_MAPPED_V4_ADDR(r1, 0x84, 0xc, 0x0, 0x0)
+ppoll(&(0x7f0000000000)=[{r0, 0x100}, {r0, 0x40}, {r0, 0x1020}], 0x3, 0x0, 0x0, 0x0)

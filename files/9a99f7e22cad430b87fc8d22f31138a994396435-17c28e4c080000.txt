@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9a99f7e22cad430b87fc8d22f31138a994396435
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false,"vhci":true,"sysctl":true,"segv":true}
+r0 = socket$igmp(0x2, 0x3, 0x2)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000080)={<r1=>0xffffffffffffffff})
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r1, 0x8933, &(0x7f0000000300)={'batadv_slave_1\x00', <r2=>0x0})
+setsockopt$MRT_ADD_VIF(r0, 0x0, 0xca, &(0x7f0000000000)={0x1, 0x8, 0x4, 0x1f0, @vifc_lcl_ifindex=r2, @remote}, 0x10)
+r3 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000280)=ANY=[@ANYBLOB="200000001200010200000000ec76038f80"], 0x20}}, 0x0)
+sendmmsg$alg(r3, &(0x7f0000000140), 0x4924b68, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=66d6b5641889b6971695afb8de4dc51fc74cb5a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+write$binfmt_elf64(r0, &(0x7f0000000140)=ANY=[@ANYBLOB], 0x40)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000080)=0x15)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=70d05c46d18c01bba7dcd332cf71100c66d1ae76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$packet(0x11, 0x3, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'batadv0\x00', <r2=>0x0})
+bind$packet(r1, &(0x7f0000000640)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @link_local}, 0x14)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000140)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000001800)=@newqdisc={0x45c, 0x24, 0x507, 0x0, 0x0, {0x0, r3, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_cbq={{0x8, 0x1, 'cbq\x00'}, {0x430, 0x2, [@TCA_CBQ_RTAB={0x404}, @TCA_CBQ_RATE={0x10, 0x5, {0x5, 0x0, 0x0, 0x0, 0x0, 0x10000}}, @TCA_CBQ_LSSOPT={0x18}]}}]}, 0x45c}}, 0x0)
+r4 = socket(0x10, 0x80002, 0x0)
+r5 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r5, 0x8933, &(0x7f0000000000)={'batadv0\x00', <r6=>0x0})
+bind$packet(r5, &(0x7f0000000640)={0x11, 0x0, r6, 0x1, 0x0, 0x6, @link_local}, 0x14)
+getsockname$packet(r5, &(0x7f0000000100)={0x11, 0x0, <r7=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000140)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000280)=ANY=[@ANYBLOB="4800000028000705000000000000000002000000", @ANYRES32=r7, @ANYBLOB="00000000ffffffff0000000008000100687462001c00020018000200b485d40c00000000000000000000000000000000645a38d471204eaabb54f73b1ffe22a3b6f1c4757ee75526b6d2c3ffbb0632599c72fcf94e5ebc20f8f3c05cfbc81f0a6a15a81a3c91203413fb9cf285bb4663ea0c9eb67b45083926f8ffe6617054197f0aa59a653989ffebe71aab0ba407575f4bf0f9f00b8faa8673b128c16de03d09a14690cdee114e57c575f1ac6b1dce0ae5b2baa8beb7037370cbd7f3c0db8e414205daab4bb3bc6a834fb55bfe986c39ef4b0ece4de116cd4568ab187bc7227c89d1f30059989749edfa6273b08c00000000"], 0x48}}, 0x0)
+sendmmsg$alg(r4, &(0x7f0000000140), 0x332, 0x0)

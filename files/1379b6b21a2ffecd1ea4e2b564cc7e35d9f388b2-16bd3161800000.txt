@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1379b6b21a2ffecd1ea4e2b564cc7e35d9f388b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x31, 0xffffffffffffffff, 0x0)
+clone(0x1fe, &(0x7f000098d000)="", &(0x7f0000651000)=0x0, &(0x7f0000c6f000)=0x0, &(0x7f000095c000)="00297a389ac4868ae80487da5def9942084a9fd23223a15a22deead6d21510574bfcf525a19b66b40fc86b442c93596b000000068d0aaa9220e40a9dc72b89ecfe4508c68077f3f7cafeda500d8cc2720600000005b5b19bce584dd412cf0f7e2c810b3ec4543116ccffc9056ab327180bed0b02545728ec5b9a11ba9c9d7c6401881b48524672c842bffac60d1b5bbcb16f1e61c04080592815a7ccecc479bdf4eedf2a61c7b95d837a6368c84676ff746d37a4d7f13ada5cae6f9b260b805d003cf1e526d55dfce1f83840f61323bdafbd")
+madvise(&(0x7f00003eb000/0xc00000)=nil, 0xc00000, 0x9)
+ioctl$sock_kcm_SIOCKCMATTACH(0xffffffffffffffff, 0x89e0, &(0x7f0000abc000-0x8)={0xffffffffffffffff, 0xffffffffffffffff})

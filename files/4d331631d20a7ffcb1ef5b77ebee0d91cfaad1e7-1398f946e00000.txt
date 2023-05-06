@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4d331631d20a7ffcb1ef5b77ebee0d91cfaad1e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+ioctl$TIOCGPTPEER(0xffffffffffffffff, 0x5441, 0xffffffff00000001)
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_SETSEL(r1, 0x541c, &(0x7f0000000100)={0x2, 0x0, 0x4, 0x0, 0x4})
+ioctl$TIOCL_PASTESEL(r0, 0x541c, &(0x7f0000000000))

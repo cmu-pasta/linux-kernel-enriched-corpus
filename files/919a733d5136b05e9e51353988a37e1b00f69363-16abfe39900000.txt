@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=919a733d5136b05e9e51353988a37e1b00f69363
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = epoll_create1(0x0)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000000)={0x60000011})
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r3 = dup3(r2, r1, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r3, &(0x7f00000001c0))
+ioctl$VIDIOC_G_OUTPUT(0xffffffffffffffff, 0x8004562e, 0x0)

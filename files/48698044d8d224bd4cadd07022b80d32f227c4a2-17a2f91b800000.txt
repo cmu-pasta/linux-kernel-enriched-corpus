@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=48698044d8d224bd4cadd07022b80d32f227c4a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$vcsn(&(0x7f0000000000)='/dev/vcs#\x00', 0x4, 0x20000)
+pread64(r0, &(0x7f0000000140)=""/131, 0x83, 0x0)

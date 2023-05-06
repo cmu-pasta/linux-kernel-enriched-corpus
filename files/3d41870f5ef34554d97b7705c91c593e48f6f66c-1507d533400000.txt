@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3d41870f5ef34554d97b7705c91c593e48f6f66c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":2,"fault_nth":5}
+r0 = syz_open_dev$dri(&(0x7f0000000000)='/dev/dri/card#\x00', 0x1, 0x0)
+accept$inet6(0xffffffffffffffff, &(0x7f0000000040), &(0x7f0000000080)=0x1c)
+ioctl(r0, 0xffffffffffffffb7, &(0x7f0000000080))

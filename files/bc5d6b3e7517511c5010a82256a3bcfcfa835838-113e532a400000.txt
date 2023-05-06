@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bc5d6b3e7517511c5010a82256a3bcfcfa835838
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000040)={0x15, 0x10}, 0x2c)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0xb, 0x5, &(0x7f0000000000)=@framed={{}, [@map={0x18, 0x0, 0x1, 0x0, r0}]}, &(0x7f0000000140)='GPL\x00', 0x0, 0xf4, &(0x7f0000000280)=""/244}, 0x15)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000180)={r1, 0x0, 0xe, 0xb9, &(0x7f0000000380)="4be17184591b53cada2e618ff4aa", &(0x7f0000000440)=""/185, 0x19f3}, 0x28)

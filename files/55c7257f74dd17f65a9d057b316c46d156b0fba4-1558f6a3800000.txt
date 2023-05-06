@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=55c7257f74dd17f65a9d057b316c46d156b0fba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:true FaultCall:1 FaultNth:10 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mkdir(&(0x7f00000000c0)='./file0\x00', 0x0)
+mount(&(0x7f0000000000)='./file0/file0\x00', &(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='rpc_pipefs\x00', 0x0, &(0x7f00000000c0))

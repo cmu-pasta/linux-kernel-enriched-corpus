@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=f961d22c6b459871150d210a06ba550e44e3bcbd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"segv":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl80211(0x0, 0xffffffffffffffff)
+sendmsg$NL80211_CMD_SET_TID_CONFIG(0xffffffffffffffff, 0x0, 0x0)
+timer_create(0x0, 0x0, &(0x7f0000001340)=<r0=>0x0)
+r1 = creat(&(0x7f0000000040)='./file0\x00', 0x0)
+write$eventfd(r1, &(0x7f0000000080), 0xfffffe5e)
+mkdir(&(0x7f00000000c0)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+chdir(&(0x7f0000000540)='./bus\x00')
+open(&(0x7f0000000140)='./file0\x00', 0x145981, 0x0)
+timer_settime(0x0, 0x0, &(0x7f0000000340)={{0x0, 0x989680}, {0x0, 0x9}}, 0x0)
+r2 = openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x280402, 0x0)
+ioctl$SNDRV_PCM_IOCTL_HW_PARAMS(r2, 0xc2604111, 0x0)
+timer_settime(r0, 0x0, 0x0, 0x0)
+lsetxattr$security_capability(0x0, 0x0, 0x0, 0x0, 0x0)

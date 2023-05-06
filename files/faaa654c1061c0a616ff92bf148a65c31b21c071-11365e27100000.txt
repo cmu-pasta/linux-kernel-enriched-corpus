@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=faaa654c1061c0a616ff92bf148a65c31b21c071
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, 0x0)
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x802102040bfe, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+wait4(0x0, 0x0, 0x80000000, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x6)
+ptrace$cont(0x18, r0, 0x0, 0x0)

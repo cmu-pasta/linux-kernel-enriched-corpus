@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c44661be258661b54d2b77ea844570252ba203f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+ioctl$int_in(r0, 0x5421, &(0x7f0000000080)=0x75a)
+connect$inet6(r0, &(0x7f0000002400)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+shutdown(r0, 0x0)

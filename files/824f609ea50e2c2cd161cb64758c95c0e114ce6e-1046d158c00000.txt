@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=824f609ea50e2c2cd161cb64758c95c0e114ce6e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000100)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r2, &(0x7f0000001000/0x18000)=nil, 0x0, 0x0, 0x41, 0x0, 0x0)
+getresuid(0x0, 0x0, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, 0x0, 0x10)
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4040aea0, 0x0)
+inotify_init1(0x0)
+ptrace$setopts(0x4206, 0x0, 0x0, 0x0)
+ptrace(0x4207, 0x0)
+r3 = memfd_create(0x0, 0x0)
+mmap(&(0x7f0000000000/0x2000)=nil, 0x2000, 0x0, 0x11, r3, 0x0)
+ptrace$getregset(0x4205, 0x0, 0xfffffffffffffffc, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+r4 = add_key(0x0, 0x0, 0x0, 0x0, 0x0)
+keyctl$instantiate(0xc, 0x0, 0x0, 0x0, r4)

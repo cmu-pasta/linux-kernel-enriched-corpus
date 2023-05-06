@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$audion(&(0x7f0000000040)='/dev/audio#\x00', 0x1, 0x142)
+write$UHID_SET_REPORT_REPLY(r0, &(0x7f0000001540)=ANY=[], 0x100c)

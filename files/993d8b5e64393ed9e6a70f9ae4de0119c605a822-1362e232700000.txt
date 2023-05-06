@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=993d8b5e64393ed9e6a70f9ae4de0119c605a822
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f00000000c0)) (rerun: 32)
+r0 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f00000015c0), 0x2, 0x0)
+ioctl$VHOST_SET_VRING_BASE(r0, 0xaf01, 0x0)
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000000080)=ANY=[])
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000300)={0x0, 0x0, 0x0, &(0x7f0000000140)=""/9, 0x0})
+r1 = eventfd(0x0)
+ioctl$VHOST_SET_VRING_BASE(r0, 0x4008af12, &(0x7f0000000080)={0x1, 0x7f})
+ioctl$VHOST_SET_LOG_FD(r0, 0x4004af07, &(0x7f0000000240)=r1)
+ioctl$VHOST_SET_VRING_KICK(r0, 0x4008af20, &(0x7f0000000040)={0x1, r1})
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000280)={0x1, 0x1, &(0x7f0000000380)=""/247, &(0x7f00000000c0)=""/87, &(0x7f0000000480)=""/74})
+ioctl$VHOST_VSOCK_SET_RUNNING(r0, 0x4004af61, &(0x7f0000000000)=0x1)

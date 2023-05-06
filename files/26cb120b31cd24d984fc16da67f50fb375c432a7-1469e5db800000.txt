@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=26cb120b31cd24d984fc16da67f50fb375c432a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r0, &(0x7f0000f56000)={0x0, 0x0, &(0x7f00008feff0)={&(0x7f0000000080)=ANY=[@ANYBLOB="020300020e000000000000010200000004000800054124adec6b6a088b00001c00000000000000000000000000000000030006000000000002000000000000670000000000e10000020001000000000000d1fb0200000000030005000000000002000000e00000010001000000000000"], 0x70}, 0x1}, 0x0)

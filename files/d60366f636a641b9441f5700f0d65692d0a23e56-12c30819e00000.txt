@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d60366f636a641b9441f5700f0d65692d0a23e56
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000000200)='/dev/ppp\x00', 0x80000101005, 0x0)
+r1 = dup2(r0, r0)
+ioctl$EVIOCGPROP(r1, 0xc004743e, &(0x7f0000000000)=""/246)
+ioctl$PPPIOCSMAXCID(r0, 0x40047451, &(0x7f0000000300))
+ioctl$PPPIOCSFLAGS1(r0, 0x40047459, &(0x7f0000000ac0)=0x41064)
+pwritev(r0, &(0x7f00000001c0)=[{&(0x7f0000000340)="0021c3f0d20800000000000600"/22, 0x16}], 0x1, 0x0)

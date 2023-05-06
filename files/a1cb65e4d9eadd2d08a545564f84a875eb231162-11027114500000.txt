@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=a1cb65e4d9eadd2d08a545564f84a875eb231162
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000480)={<r0=>0xffffffffffffffff})
+perf_event_open(&(0x7f0000000100)={0x1, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3c43, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_config_ext}, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+sendmsg(r0, &(0x7f0000000340)={0x0, 0x0, 0x0, 0x0, &(0x7f00000004c0)=ANY=[@ANYBLOB="180000000000000001000000010000000600000003000000ee4e24a433baf68aa918a38c38898da03db141d59cb76811f186c6efbbb9de0deb320eaef96c1c4329d8bb3de794825837c32ad7969243044354db0297ab8d0115efb5f9d8269cd8cfce9e86d2becfdbba29c34901ef0101e4d5ba7d84fdfb3c443711cd68ebc1a12152ee02f10c370c82f649738089a93e279d82437b64578bbddcb0aecbd53b09beb021e135572452ee172fc4dbc8481e9d6b9966d0be57963d23030252c69496a1471365e03fbf57ae9b285d554c2c5e0f3a38029809b83b9be412c7fe73e13c93effffe3b552d3b3619af7c805d0e77b46dba7acbf0216ca93e090f6a0be153af869fff1771c29f5efd6a99648336f20f805a84dd74e33bf64b1b99b59e74a2b8abc4fe0cfea0094252dd500da7e6d442ea771af12ba92674a16c751d6f40631fd5b3ec5473c42e0176af60d47e345f7a97010050cb863e4c2f000000000000454018187ac86081225fc8f8d44e6eeb06e605414121be5e064604cea4ce6c59479d45bfb9f65ccfe0feb8a2fb604e9bd7db991b96a9"], 0x18}, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000180))
+close(r0)
+recvmsg$kcm(0xffffffffffffffff, &(0x7f0000000b00)={&(0x7f0000000240)=@ax25={{0x3, @bcast}, [@remote, @remote, @remote, @netrom, @null, @null, @bcast, @netrom]}, 0x80, &(0x7f0000001d80)=[{&(0x7f0000000c00)=""/4096, 0x1000}, {&(0x7f0000000680)=""/212, 0xd4}, {&(0x7f00000007c0)=""/172, 0xac}, {0x0}, {&(0x7f0000000880)=""/57, 0x39}, {&(0x7f00000008c0)=""/148, 0x94}, {&(0x7f0000000980)=""/251, 0xfb}, {&(0x7f0000000a80)=""/102, 0x66}, {&(0x7f0000001c00)=""/85, 0x55}, {&(0x7f0000001c80)=""/234, 0xea}], 0xa, &(0x7f0000001e40)=""/215, 0xd7}, 0x0)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000040)={0x1, 0xc, 0x400, 0xc}, 0x40)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000780)={0x0, 0x0, &(0x7f00000001c0), &(0x7f00000000c0), 0x1081, r1}, 0x38)
+bpf$MAP_GET_NEXT_KEY(0x4, &(0x7f0000000bc0)={r1, &(0x7f0000000a40), &(0x7f0000000b40)=""/82}, 0x20)
+mkdirat$cgroup(0xffffffffffffffff, &(0x7f0000000000)='syz1\x00', 0x1ff)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000580)='cgroup.controllers\x00', 0x26e1, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000380)={0x0, 0x20000008, 0x0, 0x8, 0x0, 0xffffffffffffffff, 0xed, [], 0x0, 0xffffffffffffffff, 0xa, 0x3, 0x5}, 0x40)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+r3 = bpf$BPF_PROG_GET_FD_BY_ID(0xd, 0x0, 0x0)
+bpf$BPF_PROG_ATTACH(0x8, &(0x7f00000001c0)={@cgroup=r2, r2, 0x10, 0x1, r3}, 0x14)

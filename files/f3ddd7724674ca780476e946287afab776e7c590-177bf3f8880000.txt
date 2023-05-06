@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=f3ddd7724674ca780476e946287afab776e7c590
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+prlimit64(0x0, 0xe, &(0x7f0000000240)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x6)
+sched_setaffinity(0x0, 0x0, 0x0)
+r0 = getpid()
+sched_setscheduler(r0, 0x1, &(0x7f0000001700)=0x4)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000040)={<r1=>0x0}, &(0x7f0000000100)=0xc)
+ptrace$getsig(0x4202, r1, 0x8000000000007, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff})
+connect$unix(r2, &(0x7f000057eff8)=@abs, 0x6e)
+sendmmsg$unix(r3, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r2, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+getsockopt$sock_timeval(0xffffffffffffffff, 0x1, 0x43, 0x0, 0x0)
+sched_setscheduler(0x0, 0x0, &(0x7f00000000c0))
+syz_clone3(&(0x7f0000000a00)={0x40b86000, 0x0, 0x0, 0x0, {}, 0x0, 0x0, 0x0, 0x0}, 0x58)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000880)='net/fib_trie\x00')

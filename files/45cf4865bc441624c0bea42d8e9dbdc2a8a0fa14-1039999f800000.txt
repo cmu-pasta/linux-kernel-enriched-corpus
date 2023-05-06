@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=45cf4865bc441624c0bea42d8e9dbdc2a8a0fa14
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet6(0x10, 0x8000000000000003, 0x0)
+sendmsg(r0, &(0x7f0000000080)={&(0x7f00000000c0)=@nl=@kern={0x10}, 0x80, &(0x7f0000014000)=[{&(0x7f0000014f79)="5500000018007fcdb72d1cb2a4a280a80a06050000a8430291052369250009000800001c010000001400a3070d000000030000dc1338d54400009b84226eb75afb83de448daa7227c43ab8220000060cec4f8b91d4", 0x55}], 0x1, &(0x7f0000000080)}, 0x0)
+syz_emit_ethernet(0x4, &(0x7f0000000100)=ANY=[@ANYBLOB, @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB], &(0x7f00000002c0))

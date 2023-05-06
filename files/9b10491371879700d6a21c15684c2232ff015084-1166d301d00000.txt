@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9b10491371879700d6a21c15684c2232ff015084
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true,"wifi":true,"ieee802154":true,"tmpdir":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000100)={0x1, &(0x7f0000000080)=[{0x6}]})
+syz_open_dev$dri(&(0x7f00000001c0)='/dev/dri/card#\x00', 0x1, 0x4000)

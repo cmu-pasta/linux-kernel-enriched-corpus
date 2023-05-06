@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+setsockopt$inet6_MRT6_ADD_MFC(0xffffffffffffffff, 0x29, 0xcc, &(0x7f00000000c0)={{0xa, 0x0, 0x0, @mcast1}, {0xa, 0x0, 0x0, @ipv4={[], [], @local}}}, 0x5c)
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+socket(0x840000000002, 0x3, 0x200000000000ff)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000040)='erspan0\x00', 0x681)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x0, @multicast1}, 0x10)
+sendto$inet(r0, &(0x7f00000000c0), 0x28, 0x0, 0x0, 0x120)

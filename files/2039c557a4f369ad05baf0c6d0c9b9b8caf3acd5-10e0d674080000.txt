@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2039c557a4f369ad05baf0c6d0c9b9b8caf3acd5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e20, @empty}, 0x10)
+sendto$inet(r0, &(0x7f0000000080)="31ea37ecb07ef3f814744f7d16042aa38867fdfe8aeb89fb", 0x18, 0x20008005, &(0x7f0000000100)={0x2, 0x4e20}, 0x10)
+recvfrom(r0, 0x0, 0x0, 0x76f, 0x0, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=172a5a40a8625bda8f1fa7ec32137988b13c2ef4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+r1 = socket$inet(0x2, 0x802, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000240)={'gretap0\x00'})
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r1, 0x0, 0x48c, &(0x7f0000000000)={0x2, 'bond0\x00', 0x3}, 0x18)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r1, 0x0, 0x48b, &(0x7f0000000440)={0x2, 'lo\x00', 0x4}, 0x18)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=27bd249e2e18c062d97136d884e4074850ee3405
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000000), 0x80802, 0x0)
+r1 = syz_io_uring_setup(0x15b4, &(0x7f00000000c0), &(0x7f0000ee9000/0x1000)=nil, &(0x7f0000eea000/0x1000)=nil, &(0x7f0000000000)=<r2=>0x0, &(0x7f0000000040)=<r3=>0x0)
+syz_io_uring_submit(r2, r3, &(0x7f0000000200)=@IORING_OP_POLL_ADD={0x6, 0x0, 0x0, @fd_index=0x3}, 0x0)
+io_uring_enter(r1, 0x90e, 0x0, 0x0, 0x0, 0x0)
+ioctl$SNDCTL_DSP_SETTRIGGER(r0, 0x40045010, &(0x7f0000000300))

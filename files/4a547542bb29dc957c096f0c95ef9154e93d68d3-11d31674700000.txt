@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4a547542bb29dc957c096f0c95ef9154e93d68d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = open(&(0x7f0000000080)='./bus\x00', 0x145042, 0x0)
+ioctl$FS_IOC_SETFLAGS(r0, 0x40086602, &(0x7f0000000040))
+setrlimit(0x1, &(0x7f0000000100)={0xffffffffffffffff, 0xffffffffffffffff})
+r1 = open(&(0x7f00000000c0)='./bus\x00', 0x1c1042, 0x0)
+pwrite64(r1, &(0x7f0000000000)='+', 0x1, 0x4010000bffd)
+r2 = open(&(0x7f0000000080)='./bus\x00', 0x40002, 0x0)
+fallocate(r2, 0x3, 0x0, 0xffeffeff000) (rerun: 64)
+pwritev2(r0, &(0x7f0000001b40)=[{&(0x7f0000000680)="43d4ae", 0x20000683}], 0x1, 0x0, 0x0, 0x15)

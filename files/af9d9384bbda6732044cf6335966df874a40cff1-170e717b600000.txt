@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000280)={0x6, 0x4, 0x6, 0x6e}, 0x3c)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='cgroup.stet\x00', 0x26e1, 0x0)
+r1 = socket$kcm(0x2, 0x1000000000000002, 0x0)
+setsockopt$sock_attach_bpf(r1, 0x1, 0x3e, &(0x7f00000002c0)=r0, 0x161)
+sendmsg$kcm(r1, &(0x7f0000000540)={&(0x7f0000000380)=@in={0x2, 0x4e23, @rand_addr=0x7fffffff}, 0x80, 0x0}, 0xfd00)
+write$cgroup_subtree(r1, &(0x7f0000000280)={[{0x5b6, 'memory'}]}, 0xfdef)

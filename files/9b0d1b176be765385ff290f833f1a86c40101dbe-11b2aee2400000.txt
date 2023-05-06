@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9b0d1b176be765385ff290f833f1a86c40101dbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+socket$inet6(0xa, 0x1000000000002, 0x0)
+mkdir(&(0x7f00000013c0)='./file0\x00', 0x0)
+mount(&(0x7f0000000080)='./file0\x00', &(0x7f0000026ff8)='./file0\x00', &(0x7f000000c000)='ramfs\x00', 0x0, &(0x7f000000a000))
+chdir(&(0x7f0000000000)='./file0\x00')
+creat(&(0x7f0000000100)='./bus\x00', 0x0)
+r0 = openat$autofs(0xffffffffffffff9c, &(0x7f0000000040)='/dev/autofs\x00', 0x0, 0x0)
+ioctl(r0, 0x800000000000937e, &(0x7f0000000180)="01000000000000001801000004000000fc232ff41cd849832f")

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5b68275d6dba5f134b5d29bf17dd27bf27abd6a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket$kcm(0x11, 0x3, 0x0)
+sendmsg$kcm(r0, &(0x7f0000000100)={&(0x7f0000000040)=@nfc={0x27, 0x3}, 0x80, &(0x7f00000000c0)=[{&(0x7f0000000200)="c109000000000001a0001fe4ac141417e0000001e5de6a0c15965ff499f270a8b7f9d5fb4eeefb35", 0x28}], 0x1}, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='hugetl\x04\x00\x00\x00\x00\x00\x00\x00age_ir_Z\xa2\xf4es\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r1, 0x40305828, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x7fffffff})

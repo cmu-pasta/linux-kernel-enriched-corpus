@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cbb289816e728f56a4e2c1b854a3163402fe2f88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":4,"close_fds":false}
+r0 = socket$nl_generic(0xa, 0x5, 0x84)
+setsockopt(r0, 0x84, 0x81, &(0x7f0000000000)="00000000e33437fc", 0x8)

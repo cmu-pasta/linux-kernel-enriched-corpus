@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f08d484adaae8c040275c367e5a87ab1ecd7e8aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$sndctrl(&(0x7f0000006000), 0x0, 0x0)
+ioctl$SNDRV_CTL_IOCTL_PCM_PREFER_SUBDEVICE(r0, 0x40045532, &(0x7f00000001c0))
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f00000002c0), 0x140202, 0x0)
+r2 = syz_open_dev$sndpcmp(&(0x7f0000000480), 0x0, 0x405)
+dup2(r2, r1)
+ioctl$SNDRV_PCM_IOCTL_HW_FREE(r2, 0x4112, 0x0)

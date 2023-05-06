@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a42bcdee55085e729aa4e472bf86adf2036ad40
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = fsopen(&(0x7f0000000080)='hugetlbfs\x00', 0x0)
+fsconfig$FSCONFIG_CMD_RECONFIGURE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = fsmount(r0, 0x0, 0x0)
+fchdir(r1)

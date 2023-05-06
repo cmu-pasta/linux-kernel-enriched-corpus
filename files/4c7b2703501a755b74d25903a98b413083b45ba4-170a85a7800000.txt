@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4c7b2703501a755b74d25903a98b413083b45ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+bpf$OBJ_GET_MAP(0x7, &(0x7f0000000200)={&(0x7f0000000140)='%/file0/file0\x00', 0x0, 0x10}, 0x10)
+mount(&(0x7f0000000000)='%/file0\x00', &(0x7f0000000040)='/\x00', &(0x7f0000000080)='nfs\x00', 0x860020, &(0x7f00000000c0))

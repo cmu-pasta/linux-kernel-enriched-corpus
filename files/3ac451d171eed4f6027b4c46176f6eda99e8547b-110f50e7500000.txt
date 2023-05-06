@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3ac451d171eed4f6027b4c46176f6eda99e8547b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f00000000c0)={0x0, 0x0, 0x0, {}, {0x2, 0xfffc}, @cond=[{0x0, 0x0, 0x0, 0x0, 0x0, 0x44b1}, {0x0, 0x1ff}]})
+r0 = syz_open_dev$evdev(&(0x7f0000000080)='/dev/input/event#\x00', 0x0, 0x121041)
+fcntl$setstatus(r0, 0x4, 0x42000)
+write$evdev(r0, &(0x7f0000000040), 0x373)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGPGRP(r1, 0x8904, 0x0)

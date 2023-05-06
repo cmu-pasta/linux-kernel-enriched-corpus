@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4462b73f1e909dcd0f6e0d5d2f0b3e8be5191b69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+rt_sigprocmask(0x0, 0x0, 0x0, 0x0)
+r0 = socket$inet6(0xa, 0x800000000000002, 0x0)
+setsockopt$sock_linger(r0, 0x1, 0x3c, &(0x7f0000000080)={0x1}, 0x8)
+sendto$inet6(r0, 0x0, 0x0, 0x8000, &(0x7f0000000140)={0xa, 0x4e20, 0x0, @mcast1}, 0x1c)
+sendto$inet6(r0, 0x0, 0x4, 0xff600000, 0x0, 0x0)

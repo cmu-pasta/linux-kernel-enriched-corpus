@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=311367636c6be0cb228304b8a4ede00d01bf27f5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cpu.stat\x00', 0x275a, 0x0)
+mkdir(&(0x7f00000000c0)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mknod$loop(&(0x7f00000003c0)='./bus/file1\x00', 0x0, 0x1)
+mkdir(&(0x7f0000000280)='./file0\x00', 0x0)
+link(&(0x7f00000002c0)='./bus/file1\x00', &(0x7f0000000440)='./bus/file0\x00')
+mount$overlay(0x400000, &(0x7f0000000000)='./bus\x00', &(0x7f0000000400)='overlay\x00', 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB='lowerdir=./bus,workdir=./file1,upperdir=./file0'])
+open(&(0x7f0000000040)='./bus/file0\x00', 0x3, 0x0)

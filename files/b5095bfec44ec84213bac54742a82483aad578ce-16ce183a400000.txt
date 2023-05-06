@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+unshare(0x24020400)
+mknod(&(0x7f00000000c0)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f0000f8aff8)='./file0\x00', &(0x7f0000000380), &(0x7f00000001c0))
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stack\x00')
+sendfile(r0, r0, &(0x7f0000000440)=0x800000, 0x4000000000200)
+pipe2$9p(&(0x7f0000000340)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = openat$pfkey(0xffffffffffffff9c, &(0x7f00000001c0)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+splice(r2, &(0x7f0000000240)=0x7ffd, r1, 0x0, 0x1ff, 0x0)

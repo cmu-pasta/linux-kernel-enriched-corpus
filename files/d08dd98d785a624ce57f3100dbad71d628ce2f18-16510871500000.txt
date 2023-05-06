@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d08dd98d785a624ce57f3100dbad71d628ce2f18
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+recvmmsg(r0, &(0x7f00000000c0)=[{{0x0, 0x0, 0x0}}, {{0x0, 0x0, 0x0}}], 0x2, 0x100, 0x0)

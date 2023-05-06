@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5cf01aa760647bcea3b9ecdbb97f70975582f64f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+r0 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000440)='/dev/vcsa\x00', 0x0, 0x0)
+preadv(r0, &(0x7f0000001b00)=[{&(0x7f0000001b40)=""/102400, 0x19008}], 0x6, 0x3, 0x0)

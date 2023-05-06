@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c13a2f94b4ae87bc11b09c03339a8fd92f2b4642
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+clone(0x3a3dd4008400af01, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+ioprio_set$uid(0x3, 0x0, 0x0)

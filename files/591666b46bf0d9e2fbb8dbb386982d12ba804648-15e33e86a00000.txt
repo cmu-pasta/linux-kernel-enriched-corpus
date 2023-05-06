@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=591666b46bf0d9e2fbb8dbb386982d12ba804648
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2b, 0x801, 0x0)
+connect$inet(r0, &(0x7f0000000180)={0x2, 0x0, @local}, 0x10)
+setsockopt$inet_tcp_TLS_TX(r0, 0x6, 0x1, &(0x7f0000000040)=@gcm_256={{}, "4f4198fa0b1e348b", "201a538a8622ae1beb5e1ba0d647e4ec9e6f93c51e5ed48a652f122fcce539a6", "6596c3b8", "3be0907cc007e17b"}, 0x38)

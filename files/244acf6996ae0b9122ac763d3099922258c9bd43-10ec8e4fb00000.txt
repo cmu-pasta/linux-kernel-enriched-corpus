@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=244acf6996ae0b9122ac763d3099922258c9bd43
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e20, @multicast2}, 0x10)
+setsockopt$sock_int(r0, 0x1, 0x3c, &(0x7f0000000000)=0x1, 0x4)
+sendto$inet(r0, 0x0, 0x0, 0x20020001, &(0x7f0000000080)={0x2, 0x4e20}, 0x10)
+sendmmsg$inet(r0, &(0x7f0000003b40)=[{{0x0, 0x0, &(0x7f00000026c0)=[{&(0x7f0000003c80)="1e", 0x1}], 0x1}}], 0x1, 0x60cd854)
+sendto$inet(r0, &(0x7f0000000240)="b1", 0x1, 0x0, 0x0, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=cc43803b86884fa3a3ba67d2a88b8d05251bbf76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000000140)=ANY=[], 0xffaf)
+r1 = socket$inet(0x2, 0x3, 0x1)
+bind$inet(r1, &(0x7f00000001c0)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0x13}}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @multicast1}, 0x10)

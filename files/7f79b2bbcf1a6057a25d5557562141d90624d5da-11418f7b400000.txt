@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7f79b2bbcf1a6057a25d5557562141d90624d5da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = creat(&(0x7f0000000140)='./bus\x00', 0x0)
+fcntl$setstatus(r0, 0x4, 0x8000000000044000)
+io_setup(0x8, &(0x7f0000000200)=<r1=>0x0)
+r2 = creat(&(0x7f0000000700)='./bus\x00', 0x0)
+getpid()
+ftruncate(r2, 0x48204)
+io_submit(r1, 0x8, &(0x7f0000000540)=[&(0x7f00000000c0)={0x0, 0x0, 0x3, 0x1, 0x0, r0, &(0x7f0000000000), 0x10000}])

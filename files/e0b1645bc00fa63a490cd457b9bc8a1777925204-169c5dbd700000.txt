@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e0b1645bc00fa63a490cd457b9bc8a1777925204
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":true}
+socket$packet(0x11, 0xa, 0x300)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, &(0x7f00000000c0)=0x2000000000000074, 0x25d)
+bind$inet(r0, &(0x7f0000000440)={0x2, 0x4e23, @broadcast}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000000040)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$sock_int(r0, 0x1, 0x8, &(0x7f0000000600), 0x4)
+sendto$inet(r0, &(0x7f00000012c0)="12268a927f1f6588b967481241ba78601b34f65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0xfe6a, 0x11, 0x0, 0x27)
+recvmsg(r0, &(0x7f0000001500)={0x0, 0xa, &(0x7f0000002200)=[{&(0x7f00000035c0)=""/4106, 0x200045ca}], 0x1}, 0x100)

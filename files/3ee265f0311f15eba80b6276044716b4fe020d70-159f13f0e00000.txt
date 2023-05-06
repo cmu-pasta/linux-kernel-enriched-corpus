@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3ee265f0311f15eba80b6276044716b4fe020d70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":false}
+mknod$loop(&(0x7f0000000140)='./file0\x00', 0x0, 0x1)
+mount(&(0x7f00000000c0)=ANY=[@ANYBLOB], &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='gfs2meta\x00\x06%\x1f<\xb8 \x05}h\xc3&\xfe\x0e\xd91\xafW\x84\xc1\xe9\xc5\xb1\x8e\xce\xf03u\xf0\x9e\x97r\x1e2g\xb2\xdfU\xca\x81\xc6\xb9\x18R\xf4\n\xb0Nm\xa4\xaf:\xa9\xe6:n&R\xcbQ\xe9\x8czo\xc1\xb3\xd7\xbe\xf7\xe3\xa9\xe9.\b\xd0\xf2\xe4_\xa3H\x84+\xff', 0x0, 0x0)

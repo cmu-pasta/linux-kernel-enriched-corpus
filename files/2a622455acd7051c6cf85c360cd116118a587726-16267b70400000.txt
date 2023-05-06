@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+pipe2(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+setsockopt$inet6_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000080)='bbr\x00', 0x4)
+r1 = getpgrp(0xffffffffffffffff)
+ptrace$peek(0x1, r1, &(0x7f0000000200))
+userfaultfd(0x0)
+r2 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+setsockopt$EBT_SO_SET_ENTRIES(0xffffffffffffffff, 0x0, 0x80, &(0x7f0000000600)=@broute={'broute\x00', 0x20, 0x1, 0x218, [0x0, 0x0, 0x0, 0x0, 0x0, 0x20000240], 0x0, &(0x7f0000000080), &(0x7f0000000240)=[{0x0, '\x00', 0x0, 0xffffffffffffffff}, {0x0, '\x00', 0x0, 0xffffffffffffffff}, {0x0, '\x00', 0x0, 0xffffffffffffffff, 0x1, [{{{0x11, 0x0, 0x0, 'nr0\x00', 'yam0\x00', 'yam0\x00', 'veth1_to_team\x00', @link_local={0x1, 0x80, 0xc2}, [], @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa]}, [], 0xb0, 0x158, 0x188, [@devgroup={'devgroup\x00', 0x18}]}, [@common=@redirect={'redirect\x00', 0x8, {{0xfffffffffffffffc}}}, @common=@nflog={'nflog\x00', 0x50, {{0x0, 0x0, 0x0, 0x0, 0x0, "ec8cc359096155b1335806765bdf9d8dc3024724ca1b9427f5aba6e40e93c3a7b39e151d82922586038dd34e1ef7b1410ac3d9ce09d5e7d02336f77e3d76c919"}}}]}, @common=@AUDIT={'AUDIT\x00', 0x8, {{0x4}}}}]}]}, 0x290)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c})

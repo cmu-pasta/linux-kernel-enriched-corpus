@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+unshare(0x60000000)
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x10, 0xffffffffffffffff, 0x0)
+r1 = socket(0x10, 0x3, 0x0)
+ioctl$sock_ifreq(r0, 0xbee406b6c0e7c7c6, &(0x7f0000000080)={'nr\vu\x00', @ifru_map={0xffffffffffffffff, 0x40008002, 0x4000, 0x6, 0x1, 0x9e}})
+ioctl$sock_ifreq(r1, 0x89f1, &(0x7f0000000080)={'sit0\x00', @ifru_flags})

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=053aa6329cf248b8bf3b89f8e56ad0eb49a9f557
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_inet_SIOCSARP(r0, 0x8955, &(0x7f0000000000)={{0x2, 0x0, @local}, {0x0, @broadcast}, 0x0, {0x2, 0x0, @multicast2}, 'lo\x00'})

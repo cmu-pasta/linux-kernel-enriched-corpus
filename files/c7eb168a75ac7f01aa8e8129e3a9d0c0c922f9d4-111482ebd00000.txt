@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c7eb168a75ac7f01aa8e8129e3a9d0c0c922f9d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$I2C(&(0x7f0000000340), 0x0, 0x0)
+read(r0, &(0x7f0000000480)=""/4096, 0x1000)

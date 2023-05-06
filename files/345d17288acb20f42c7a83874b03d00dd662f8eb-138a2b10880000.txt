@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=345d17288acb20f42c7a83874b03d00dd662f8eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000240)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000b80), 0x0, &(0x7f0000000140)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r2, @ANYBLOB=',uname,tzans=fd,,mask=MAY_WRITE,fowner>', @ANYRESDEC, @ANYBLOB, @ANYRESDEC, @ANYBLOB, @ANYRESDEC, @ANYBLOB])
+sync()

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=ce4e6f3b0608824cab0e5c01bd96b10579350310
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000080)='/dev/sequencer2\x00', 0x406, 0x0)

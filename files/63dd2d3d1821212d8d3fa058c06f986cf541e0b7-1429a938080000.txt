@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=63dd2d3d1821212d8d3fa058c06f986cf541e0b7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"cgroups":true,"close_fds":true,"vhci":true,"sysctl":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='cgroup.controllers\x00', 0x275a, 0x0) (rerun: 32)
+write$cgroup_int(r0, &(0x7f0000000000), 0xffffff6a)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='cpuset.effective_cpus\x00', 0x275a, 0x0)
+write$cgroup_int(r1, &(0x7f0000000380), 0x101bf)
+ioctl$EXT4_IOC_ALLOC_DA_BLKS(r1, 0x660c)
+ioctl$EXT4_IOC_MOVE_EXT(r1, 0xc028660f, &(0x7f0000000180)={0x2880008, r0, 0x2})
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='cgroup.controllers\x00', 0x275a, 0x0)

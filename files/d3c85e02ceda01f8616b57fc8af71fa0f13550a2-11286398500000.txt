@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d3c85e02ceda01f8616b57fc8af71fa0f13550a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+sendmsg$key(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f00008feff0)={0x0}}, 0x0)
+sendmsg$key(0xffffffffffffffff, &(0x7f0000000100)={0x4, 0x0, &(0x7f00008feff0)={&(0x7f0000000e00)=ANY=[@ANYBLOB="020d0000100000002f3144e800000000030006000720000002004000e0000001000000f5000000000800120002000100000000000000000030006c000209009f6eae02000000adb20200000000152c008000000000000001020014bb000001040000000000000000030005000020000002"], 0x80}}, 0x0)
+r0 = socket$key(0xf, 0x3, 0x2)
+sendmmsg(r0, &(0x7f00000000c0), 0x2c8, 0x0)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r1, &(0x7f0000847fff)='X', 0x34000, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)

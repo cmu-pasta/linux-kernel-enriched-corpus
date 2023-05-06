@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bea1c185923957c5339d5b43bca13e71047453da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000000)={0x26, 'hash\x00', 0x0, 0x0, 'sha3-224\x00'}, 0x58)
+r1 = accept4(r0, 0x0, &(0x7f0000000080), 0x0)
+sendto(r1, &(0x7f00000000c0), 0xffffffd8, 0x0, &(0x7f0000000100)=@l2={0x1f, 0x200, {0x6, 0x9da4, 0x66, 0xcd, 0x1, 0x3f}, 0x5, 0x8}, 0x80)

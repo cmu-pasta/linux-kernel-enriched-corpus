@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b737ff8ae22ee3bd0b2b559755225e2fbb5d22b7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000000)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x1, [{{0x9, 0x2, 0x48}}]}}, 0x0)
+syz_usb_ep_write$ath9k_ep1(r0, 0x1, 0x70, &(0x7f0000000340)={[{}, {}, {}, {}, {}, {0x44, 0x4e00, "695a596d5c6403d7459ac8c5cdbf6f91281f802d4fa080fce95f5c49063efbaa1655ba43aa0e255ee1c44d206463f6dddf64df1eeab18218322628cea037371e7ae65f20"}, {}, {}, {}, {}, {}]})

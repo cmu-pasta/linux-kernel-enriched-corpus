@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=86ae75791462b801360ac0a8e11884216b198599
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+wait4(0x0, 0x0, 0x80000002, 0x0)
+sendmsg$IPVS_CMD_SET_CONFIG(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000200)=ANY=[@ANYBLOB="38f5b6941c1a9d682aa4cb3939561993d7c9424da0d049e79ca561ba9d8d09b114f7d602d60ddd001f3a4040fd7650e16f2c2d8d81fdfef27af6632e97d8c7dcc2a6bfe2981d5b81dd7c56fd520d9c02c8508e4f29e94188cc282dafd11e7b1b86e5f7600b6749bbf760d50a5425bc6a9753d5cf7ad7ef16d9901ee4d5672f800850086abd0d8476f0f4cb4588aabeedfd90fe91fa9a7394d18610240e560bf24973116f5fc46faa39a3eae3df046103ded588f6bfd15000ecbc4af9eee8302794d9cb01351e98119555d83120f4a92b401caecca7c06f7610274eadcd6cd19fe37f4b304b7fa8fc62b58b24aeb98bc2a7648c1068837d50972a4b99b27726e585", @ANYRES16=0x0, @ANYBLOB], 0x30}}, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x23)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+ptrace$cont(0x7, r0, 0x0, 0x0)

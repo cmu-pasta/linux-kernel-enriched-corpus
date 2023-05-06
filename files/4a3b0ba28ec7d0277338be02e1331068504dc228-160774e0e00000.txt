@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4a3b0ba28ec7d0277338be02e1331068504dc228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+r3 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r3, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r2, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=@newlink={0x48, 0x10, 0x705, 0x0, 0x0, {0x0, 0x0, 0x0, r4}, [@IFLA_LINKINFO={0x28, 0x12, @veth={{0xc, 0x1, 'veth\x00'}, {0x18, 0x2, @VETH_INFO_PEER={0x14}}}}]}, 0x48}}, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000000240)={0x0, 0x243, &(0x7f0000000080)={&(0x7f0000000280)=ANY=[@ANYBLOB="400000002400070500000000000080001d6b5cd1", @ANYRES32=r4, @ANYBLOB="00000000ffffffff0000000014000100706669666f5f686561645f64726f70000800020000000000"], 0x40}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000240)={0x0, 0xffffffffffffff31, &(0x7f0000000080)={&(0x7f0000000300)=ANY=[@ANYBLOB="480000002500070510000b000000000000000000", @ANYRES32=r4, @ANYBLOB="00000000ffffffff00000000240008001c00010000000000000000000000000000000000000000000000000004000200"], 0x48}}, 0x0)

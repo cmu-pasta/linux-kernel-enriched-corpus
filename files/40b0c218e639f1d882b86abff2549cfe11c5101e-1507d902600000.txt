@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$kcm(0x2b, 0x1, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f00000001c0)={0x9, 0x4, &(0x7f0000346fc8)=@framed={{}, [@alu={0x8000000201a7fe3, 0x0, 0x200003e6, 0x61}]}, &(0x7f0000000000)='(9+\xee\xe4\xfc\x7f\xf7\x8f\xe8\xc4E\x1c \x03\xa1V\tO<\xa0\xf4\xbc\x8cg_[\xe6\x0f<i\x8bv\xe3\xd6>\x8bq\xce?\x92[\xeds\xe1)\xd8\xd3\xeae~\aKp\xc7\xb6o\xe4\xbf\x9b~\xff\xfd;\x12\\\x03\xb0z6\xeeY\xae\xd4\xa8\xf51\xe1\x89H\\F7\x04', 0x0, 0x0, 0x0, 0x0, 0x0, [0x0, 0x0, 0x1400]}, 0x48)

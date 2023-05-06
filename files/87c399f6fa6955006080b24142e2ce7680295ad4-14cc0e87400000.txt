@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=87c399f6fa6955006080b24142e2ce7680295ad4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$ashmem(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/ashmem\x00', 0x0, 0x0)
+ioctl$ASHMEM_SET_SIZE(r0, 0x40087703, 0x100000001)
+mmap(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x0, 0x12, r0, 0x0)
+ioctl$ASHMEM_SET_NAME(r0, 0x40087708, &(0x7f0000000240)='\x00\x00\x00\x80\x00\x00\x80\x00\x00')
+ioctl$ASHMEM_PURGE_ALL_CACHES(r0, 0x770a, 0x0)
+r1 = memfd_create(&(0x7f0000000140)='+\x8b\x8a\x16\x11\xda\x04\x9c\xf9A\xf6\x04R\x92\xd5>oJ\x02u\x9b\x94a\xac', 0x0)
+write$binfmt_misc(r1, &(0x7f0000000c40)=ANY=[@ANYRES32], 0xfffffe43)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)

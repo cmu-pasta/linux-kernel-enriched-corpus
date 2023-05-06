@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8025da1388d1e3d3800ac273d7c4c68f6433bc84
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000000180)='/dev/adsp1\x00', 0xaa002, 0x0)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc004500a, &(0x7f0000000040))
+ioctl$SNDCTL_DSP_SETFMT(r0, 0xc0045005, &(0x7f0000000280)=0x1000)
+write$binfmt_elf64(r0, 0x0, 0x78)

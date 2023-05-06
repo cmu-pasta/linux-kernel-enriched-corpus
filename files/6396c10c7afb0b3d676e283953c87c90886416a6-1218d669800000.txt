@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6396c10c7afb0b3d676e283953c87c90886416a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+creat(&(0x7f00008b2000)='./file0\x00', 0x0)
+lsetxattr(&(0x7f0000713000-0x8)='./file0\x00', &(0x7f0000fb4000)=@known='security.capability\x00', &(0x7f00002b3000-0x14)="", 0x0, 0x0)
+getxattr(&(0x7f000072d000)='./file0\x00', &(0x7f0000b2a000-0xa9)=@known="73656375726974792e6361706162696c69747900c9bd3012983e02155960196a2a84585f19c1c826172982a8de1ccc4cdc6987ffc9715cef22cee4c673d4388d5e5604a0b838afb35bd352e4c9ee649a771208309ca436bf919fd9636bfa255ff4b31f40f88ecc9c2d812171c412624f0c142fc54f65f49239f27686c17d489e925da19bf31e30ec75cd92237957661ce8a1568418e6d3d428174f89a11cc821fbf64122a36f6b411c", &(0x7f0000228000-0x8c)=""/140, 0x8c)

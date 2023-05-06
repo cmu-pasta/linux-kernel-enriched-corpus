@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=41ff9ee787f4c051bdae65491b62f1d7d86be535
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_sctp(0xa, 0x8000080000000001, 0x84)
+getsockopt$inet_sctp6_SCTP_EVENTS(r0, 0x84, 0xb, &(0x7f000099b000-0xb)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, &(0x7f0000290000)=0xb)

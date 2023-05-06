@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6d2d27c947f2f6d0b9dece6add8ff103d21ac75c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x11, 0x100000802, 0x0)
+r1 = syz_open_dev$tun(&(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x2)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000300)={'ifb0\x00', 0x1})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000000)={'ifb0\x00', 0xa201})
+write$tun(r1, &(0x7f0000000180)={@pi={0x0, 0x88a8}, @hdr={0x1, 0x81, 0x2, 0x401, 0x1, 0x75b}, @ipv4={{0x17, 0x4, 0x40, 0x100, 0x149, 0x68, 0x8, 0x8144, 0x89, 0x0, @dev={0xac, 0x14, 0x14, 0x18}, @multicast2=0xe0000002, {[@noop={0x1}, @lsrr={0x83, 0x13, 0x8, [@broadcast=0xffffffff, @multicast1=0xe0000001, @dev={0xac, 0x14, 0x14, 0xc}, @multicast2=0xe0000002]}, @timestamp={0x44, 0x34, 0x100000000, 0x3, 0x3b8, [{[], 0xc}, {[@multicast2=0xe0000002], 0x5}, {[], 0x385e}, {[@multicast2=0xe0000002], 0x5}, {[@multicast1=0xe0000001], 0x753a}, {[@loopback=0x7f000001], 0x3}, {[], 0x7}, {[], 0x4}]}]}}, @dccp={{0x4e24, 0x4e20, 0x4, 0x1, 0x2, 0x0, 0x0, 0x6, 0x19f1, "841be1", 0x400, "439c19"}, "ee625bdc9b7b0629ac101baa94d4de9c6ed41270f4ef8ae09f6cdcc8192748532354945e46cabb8f12b0b6ee6e979222bee942378972fc6fc56b235b8f06adee23779f79fb35b2bb4fa3e45e30be713aa55b91681a5f15565381378861b9c00efa63f5a55c11d500ffadc2b1d236bd54c78004723896cc6b22861ccfb1d3934041ba082be999625ec7232cbff5929a6419600e4e9ec96e6ff5943dd41330cc387b5c472625af24386cf0810d87f8be11a0752fbff5ddd58d93ff080252862f85a20ffffa10b4aaf8dcaa64b4059a363708e195d9622c35589c27e1261f"}}}, 0x157)

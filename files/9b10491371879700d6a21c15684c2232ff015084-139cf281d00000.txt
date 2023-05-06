@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9b10491371879700d6a21c15684c2232ff015084
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$fb1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/fb1\x00', 0x0, 0x0)
+ioctl$BTRFS_IOC_RESIZE(r0, 0x4611, 0x0)
+syz_80211_inject_frame(0x0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f0ec9a394925aafbdf13d0a7e6af4cff860f0ed6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true,"vhci":true}
+syz_emit_vhci(&(0x7f0000000480)=@HCI_EVENT_PKT={0x4, @hci_ev_hardware_error={{0x10, 0x1}}}, 0x4)
+syz_emit_vhci(&(0x7f0000002a00)=@HCI_EVENT_PKT={0x4, @inquiry_info_with_rssi={{0x22, 0x1d}, {0x2, [{@none, 0x0, 0x0, "8513e9"}, {@none, 0x0, 0x0, "0528af"}]}}}, 0x20)
+syz_emit_vhci(&(0x7f0000000040)=@HCI_EVENT_PKT={0x4, @hci_ev_conn_complete={{0x3, 0xb}, {0x0, 0xc8, @none, 0x1}}}, 0xe)

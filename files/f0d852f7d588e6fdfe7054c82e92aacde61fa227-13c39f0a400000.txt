@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f0d852f7d588e6fdfe7054c82e92aacde61fa227
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000180)={&(0x7f0000000000), 0xc, &(0x7f0000000140)={&(0x7f00000005c0)=@newlink={0x3c, 0x10, 0x601, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x1c, 0x12, @bond={{0xc, 0x1, 'bond\x00'}, {0xc, 0x2, [@IFLA_BOND_UPDELAY={0x8, 0x3, 0xf0ffff02000000}]}}}]}, 0x3c}}, 0x0)
+ioctl$sock_inet6_SIOCDIFADDR(0xffffffffffffffff, 0x8936, &(0x7f00000002c0)={@ipv4={[], [], @dev}})
+lseek(0xffffffffffffffff, 0x0, 0x4)
+execve(&(0x7f0000000140)='./file0\x00', &(0x7f0000000280), &(0x7f0000000340))
+creat(&(0x7f0000000040)='./file0\x00', 0x0)
+r1 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r1, &(0x7f0000000000)={0x2, 0x100000000000000, &(0x7f0000000180)={&(0x7f00000000c0)=ANY=[@ANYBLOB]}}, 0x0)
+read$FUSE(0xffffffffffffffff, &(0x7f00000020c0), 0x1000)
+getxattr(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000500)=@known='system.posix_acl_default\x00', &(0x7f00000001c0)=""/162, 0xffffffffffffffe5)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+unshare(0x40000000)
+r0 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000080)='TIPCv2\x00')
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$TIPC_NL_BEARER_ENABLE(r1, &(0x7f00000002c0)={0x0, 0x6402, &(0x7f0000000000)={&(0x7f0000000100)={0x6c, r0, 0xc573de0d27bdfe6f, 0x0, 0x0, {}, [@TIPC_NLA_BEARER={0x58, 0x1, 0x0, 0x1, [@TIPC_NLA_BEARER_NAME={0xd, 0x1, @udp='udp:syz1\x00'}, @TIPC_NLA_BEARER_UDP_OPTS={0x44, 0x4, {{0x20, 0x1, @in6={0xa, 0x0, 0x0, @ipv4={[], [], @initdev={0xac, 0x1e, 0x0, 0x0}}}}, {0x20, 0x2, @in6={0xa, 0x0, 0x0, @remote}}}}]}]}, 0x6c}}, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ccf34b892706ff6f3321da526329476eab23d5a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":1}
+mmap(&(0x7f0000000000/0xc1f000)=nil, 0xc1f000, 0x2, 0x71, 0xffffffffffffffff, 0x0)
+mbind(&(0x7f0000072000/0x4000)=nil, 0x4000, 0x3, &(0x7f0000000000)=0x5, 0x401c, 0x0)
+get_mempolicy(&(0x7f000029a000), &(0x7f00003e8000), 0x401, &(0x7f0000377000/0x1000)=nil, 0x2)

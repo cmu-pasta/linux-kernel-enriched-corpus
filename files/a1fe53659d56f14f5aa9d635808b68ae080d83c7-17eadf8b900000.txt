@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a1fe53659d56f14f5aa9d635808b68ae080d83c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+sendmsg$DCCPDIAG_GETSOCK(r0, &(0x7f0000001500)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000012c0)={0x50, 0x13, 0x211, 0x0, 0x0, {}, [@INET_DIAG_REQ_BYTECODE={0x4, 0x3}]}, 0x50}}, 0x0)

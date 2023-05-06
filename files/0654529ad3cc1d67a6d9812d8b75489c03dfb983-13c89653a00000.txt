@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0654529ad3cc1d67a6d9812d8b75489c03dfb983
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"tmpdir":true,"segv":true}
+ioctl$RTC_WKALM_SET(0xffffffffffffffff, 0x4028700f, 0x0)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='hugetl\x04\x00\x00\x00\x00\x00\x00\x00age_ir_Z\xa2\xf4es\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000000040)={0x0, 0x0, 0x0, 0x4ac04e11})

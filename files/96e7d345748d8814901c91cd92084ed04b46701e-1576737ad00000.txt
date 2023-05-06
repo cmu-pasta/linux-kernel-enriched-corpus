@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=96e7d345748d8814901c91cd92084ed04b46701e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$netlbl_cipso(&(0x7f0000000300)='NLBL_CIPSOv4\x00', r0)
+sendmsg$NLBL_CIPSOV4_C_REMOVE(r0, &(0x7f0000000540)={0x0, 0x0, &(0x7f0000000500)={&(0x7f0000000340)={0x1c, r1, 0x1, 0x0, 0x0, {}, [@NLBL_CIPSOV4_A_DOI={0x8, 0x1, 0x3}]}, 0x1c}}, 0x0)
+r2 = openat$smack_thread_current(0xffffffffffffff9c, &(0x7f0000000040)='/proc/thread-self/attr/current\x00', 0x2, 0x0)
+write$binfmt_misc(r2, &(0x7f0000000000)=ANY=[@ANYRESHEX], 0x1d)
+socket(0x40000000002, 0x3, 0x2)

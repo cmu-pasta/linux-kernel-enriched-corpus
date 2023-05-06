@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=04ba5d25ea7f063c1689e824a4935587fead8438
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$ITER_CREATE(0x21, 0x0, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000040)=@base={0x3, 0x4, 0x4, 0x8000009, 0x0, 0x1}, 0x48)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+ioctl$BTRFS_IOC_DEV_INFO(0xffffffffffffffff, 0xd000941e, 0x0)
+bpf$MAP_GET_NEXT_KEY(0x2, 0x0, 0x0)
+bpf$OBJ_GET_MAP(0x7, 0x0, 0x0)

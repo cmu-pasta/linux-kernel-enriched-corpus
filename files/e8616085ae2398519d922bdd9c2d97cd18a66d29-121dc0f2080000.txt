@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e8616085ae2398519d922bdd9c2d97cd18a66d29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+r1 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r1, &(0x7f0000000000)={0x40000000, 0x0, &(0x7f0000000040)={&(0x7f0000000240)=ANY=[@ANYBLOB="0207a20902"], 0x10}}, 0x0)
+connect$inet(r0, &(0x7f0000000480)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x11, &(0x7f0000000080)={{{@in6=@ipv4={'\x00', '\xff\xff', @dev}, @in6=@private0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0xee00}, {0x0, 0x0, 0x4}, {}, 0x0, 0x0, 0x1}, {{@in=@local, 0x0, 0x32}, 0x0, @in6=@loopback, 0x0, 0x0, 0x0, 0x7, 0x1fb, 0xffffffff}}, 0xe8)
+sendmmsg(r0, &(0x7f0000000180), 0x400000000000354, 0x2873dedf99c)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+recvfrom(r1, &(0x7f0000000280)=""/231, 0xe7, 0x10001, &(0x7f0000000180)=@alg={0x26, 'hash\x00', 0x0, 0x0, 'nhpoly1305-sse2\x00'}, 0x80)

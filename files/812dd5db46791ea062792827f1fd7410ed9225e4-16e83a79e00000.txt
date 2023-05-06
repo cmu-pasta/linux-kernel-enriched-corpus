@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=812dd5db46791ea062792827f1fd7410ed9225e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc(&(0x7f0000000240)='TIPC\x00')
+sendmsg$TIPC_CMD_DISABLE_BEARER(r0, &(0x7f0000000340)={0x0, 0xe, &(0x7f0000000300)={&(0x7f00000002c0)={0x28, r1, 0x401, 0x0, 0x0, {{}, {0x0, 0x6}}}, 0x28}}, 0x0)

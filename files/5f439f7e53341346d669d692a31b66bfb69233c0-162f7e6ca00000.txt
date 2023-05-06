@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5f439f7e53341346d669d692a31b66bfb69233c0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000000)='batadv0\x00', 0x10)
+setsockopt$sock_int(r0, 0x1, 0x3c, &(0x7f00000000c0)=0x1, 0x4)
+sendto$inet(r0, 0x0, 0x0, 0x4008040, &(0x7f0000000040)={0x2, 0x4e22, @initdev}, 0x10)
+sendto$inet(r0, &(0x7f0000000100)="f0", 0x1, 0x4004000, 0x0, 0x0)

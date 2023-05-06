@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0233e754c626ef23e643a4d9e0d0580c3a43d866
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+pipe(&(0x7f00000000c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+r3 = socket$kcm(0x29, 0x1000000000002, 0x0)
+sendmmsg$inet(r3, &(0x7f0000001bc0)=[{{0x0, 0x0, &(0x7f0000000180)=[{&(0x7f0000000040)="b7", 0x100000}], 0x1, 0x0, 0x0, 0x3}}, {{0x0, 0x0, &(0x7f00000008c0)=[{&(0x7f0000000540)='Z', 0x20100040}], 0x1}}], 0x729, 0xe803)
+write$binfmt_misc(r1, &(0x7f0000000140)=ANY=[], 0x4240a2a0)
+splice(r0, 0x0, r2, 0x0, 0x10005, 0x0)

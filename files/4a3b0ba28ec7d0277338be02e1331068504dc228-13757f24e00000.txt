@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4a3b0ba28ec7d0277338be02e1331068504dc228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$EBT_SO_SET_ENTRIES(r0, 0x0, 0x17, &(0x7f00000000c0)=@nat={'nat\x00', 0x19, 0x4, 0x0, [0x200004c0, 0x0, 0x0, 0x200004f0, 0x200006de], 0x0, 0x0, 0x0}, 0x78)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5f31b30406d84a86d4b7a42c103f6eda07eed137
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x0, 0x0)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000500)={0x5, 0x1, 0x1})
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000940)={0x0, 0x9, 0x4, {0x1, @raw_data="9d0d1d4ef5fdaa6a0c181e7b991617a64b2cd075f8c67dd60325c602768919ef530b4b48fd4b83b9e39e82495f73b44d72638b5783f944037822d67e4c29e1c7557f213de4554d9f1f03e1171f15f1f0999621ba86e78e2f33548cb0a56463d9376f6ce5e085a1cc7b2c5c1a4644022c2bbec242e6790ccc54e877ce77f44d55074600482f99d8609836d33feed79593438e60d25442917c4522535105d28f524045e14883de43ac9cca44ce6840a4a3c0ce2e409befc0856b56711ad578882718172b8a79cdb7d8"}})

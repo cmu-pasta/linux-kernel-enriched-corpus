@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a652ddf168ffc4273a60f6321077e72a156966e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sysfs(0xffffff9c, &(0x7f0000000080)='/sys/kernel/profiling', 0x2, 0x0)
+write$cgroup_int(r0, &(0x7f00000001c0), 0x12)

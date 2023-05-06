@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=169ffffe177ddc3162c9be3380ff58c4e418c0bc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPCTNL_MSG_CT_GET_CTRZERO(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000003c0)={0x38, 0x0, 0x1, 0x3, 0x0, 0x0, {0x2}, [@CTA_TUPLE_REPLY={0x24, 0x2, 0x0, 0x1, [@CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x4}}, @CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @local}, {0x8, 0x2, @empty}}}]}]}, 0x38}}, 0x0)

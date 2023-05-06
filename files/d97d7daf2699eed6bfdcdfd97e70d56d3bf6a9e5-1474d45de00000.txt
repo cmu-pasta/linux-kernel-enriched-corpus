@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d97d7daf2699eed6bfdcdfd97e70d56d3bf6a9e5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = gettid()
+fcntl$setownex(r0, 0xf, &(0x7f00000000c0)={0x2, r1})
+bind$inet6(r0, &(0x7f0000d84000)={0xa, 0x2}, 0x1c)
+sendto$inet6(r0, &(0x7f0000f6f000), 0xfffffffffffffea7, 0x20000009, &(0x7f0000b63fe4)={0xa, 0x2}, 0x1c)

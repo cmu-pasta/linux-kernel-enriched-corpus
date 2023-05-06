@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=b8febdb3c7c8c1f1b606fb903cee66b21b2fd02f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x2000, 0x0)
+write$USERIO_CMD_SEND_INTERRUPT(r0, 0x0, 0x0)
+r1 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000540)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_SET_OPTION(r1, 0x0, 0x0)
+r2 = openat$qat_adf_ctl(0xffffffffffffff9c, 0x0, 0x4000, 0x0)
+ioctl$TIOCLINUX2(r2, 0x541c, 0x0)
+ioctl$KVM_S390_INTERRUPT_CPU(r2, 0x4010ae94, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, &(0x7f0000000340)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000380)={<r3=>0xffffffffffffffff}, 0x13f}}, 0x20)
+write$RDMA_USER_CM_CMD_JOIN_MCAST(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_SET_OPTION(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r1, &(0x7f00000003c0)={0x3, 0x40, 0xfa00, {{0xa, 0x4e21, 0x0, @ipv4}, {}, r3}}, 0x48)
+write$RDMA_USER_CM_CMD_LISTEN(r1, &(0x7f00000001c0)={0x7, 0x8, 0xfa00, {r3}}, 0x10)

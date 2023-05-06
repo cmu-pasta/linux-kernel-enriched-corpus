@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=f08f2149ea9e23a357c3a0131a3667168bea40e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000140)={0x26, 'aead\x00', 0x0, 0x0, 'pcrypt(pcrypt(gcm_base(ctr(aes-aesni),ghash-generic)))\x00'}, 0x58)
+pipe(&(0x7f00000000c0)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+write$binfmt_elf32(r2, &(0x7f0000000340)=ANY=[], 0xfe9e)
+close(r2)
+r3 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r3, 0x6, 0x13, &(0x7f00000000c0)=0x800000100000001, 0x4)
+connect$inet6(r3, &(0x7f0000000140), 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r3, 0x6, 0x1f, &(0x7f0000000040), 0x355)
+setsockopt$inet6_tcp_TLS_TX(r3, 0x11a, 0x1, &(0x7f0000000280)=@gcm_128={{0x303}, "640200", "5889ccfc9fb45e4135653a080eab5aad", "9a61636b", "d38bf42c603c170b"}, 0x28)
+splice(r1, 0x0, r2, 0x0, 0x100000000, 0x0)

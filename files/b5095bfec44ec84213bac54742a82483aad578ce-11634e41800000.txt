@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+clone(0x200, &(0x7f0000fbf000)="", &(0x7f0000744000)=0x0, &(0x7f0000f8b000)=0x0, &(0x7f00000d5000)="")
+mknod(&(0x7f0000f80000)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f0000f8b000-0x8)='./file0\x00', &(0x7f0000a7c000-0x38)=[], &(0x7f00006fd000-0x10)=[])
+r0 = syz_open_procfs(0x0, &(0x7f0000aa1000)='syscall\x00')
+readv(r0, &(0x7f00005f1000-0x70)=[{&(0x7f000099b000)=""/82, 0x52}], 0x1)
+r1 = openat$pfkey(0xffffffffffffff9c, &(0x7f0000001000-0x15)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+pipe2(&(0x7f0000002000-0x8)={0x0, <r2=>0x0}, 0x0)
+splice(r1, 0x0, r2, 0x0, 0x4, 0x0)

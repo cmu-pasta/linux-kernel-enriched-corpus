@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=33bc463a99d8af2e848dc3073d67a40857a65574
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"close_fds":true}
+socket$nl_route(0x10, 0x3, 0x0)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+r3 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r3, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r3, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x28)
+sendmsg$nl_route(r2, &(0x7f0000000040)={0x0, 0x2a9, &(0x7f0000000000)={&(0x7f0000000080)=ANY=[@ANYBLOB="480000001000050700"/20, @ANYRES32=r4, @ANYBLOB="000000000000000028001200090001007665746800000000180002001400010000000000", @ANYRES32=0x0, @ANYBLOB="0000b20000000000"], 0x48}}, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="38000000240007050000004007a2a30005000000", @ANYRES32=r4, @ANYBLOB="00000000ffffffff000000000900010068667363000000000800020000000000"], 0x38}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000580)=@newtfilter={0x3c, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r4, {}, {}, {0x4, 0xfff1}}, [@filter_kind_options=@f_tcindex={{0xc, 0x1, 'tcindex\x00'}, {0xc, 0x2, [@TCA_TCINDEX_MASK={0x6}]}}]}, 0x3c}}, 0x0)

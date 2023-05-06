@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=8fcf27347cbc42940c3497052c63eed41434235c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat$cgroup_ro(0xffffffffffffffff, &(0x7f0000000140)='cpuacct.stat\x00', 0x0, 0x0)
+openat$kvm(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+getsockopt$inet6_opts(0xffffffffffffffff, 0x29, 0x0, &(0x7f0000000580)=""/143, &(0x7f0000000340)=0xfee5)
+ioctl$KVM_SET_USER_MEMORY_REGION(0xffffffffffffffff, 0x4020ae46, &(0x7f0000000180)={0x3, 0x3, 0xf000, 0x1000, &(0x7f0000000000/0x1000)=nil})
+r0 = ioctl$KVM_CREATE_VCPU(0xffffffffffffffff, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(0xffffffffffffffff, 0x4020ae46, &(0x7f0000000100)={0x0, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_SET_REGS(r0, 0x4090ae82, &(0x7f0000000200)={[0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0xfb, 0x0, 0x0, 0x20]})
+ioctl$KVM_RUN(r0, 0xae80, 0x0)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x0, &(0x7f0000000440)={0x2, 0x5e20, @local}, 0x10)
+sendmsg$IPVS_CMD_DEL_DEST(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000640)=ANY=[]}}, 0x0)
+ioctl$KVM_RUN(r0, 0xae80, 0x0)
+ioctl$KVM_NMI(r0, 0xae9a)
+ioctl$KVM_RUN(r0, 0xae80, 0x0)

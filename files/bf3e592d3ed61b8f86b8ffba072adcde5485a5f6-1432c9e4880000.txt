@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=bf3e592d3ed61b8f86b8ffba072adcde5485a5f6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = open(&(0x7f0000000200)='./bus\x00', 0x167a42, 0x0)
+r1 = syz_io_uring_setup(0x1751, &(0x7f0000000240), &(0x7f0000ff8000/0x4000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000000180)=<r2=>0x0, &(0x7f0000000140)=<r3=>0x0)
+r4 = open(&(0x7f0000000180)='./bus\x00', 0x14d27e, 0x0)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x27fffff, 0x4002011, r4, 0x0)
+fallocate(r4, 0x0, 0x0, 0x1000f4)
+syz_io_uring_submit(r2, r3, &(0x7f0000000000)=@IORING_OP_READ=@pass_buffer={0x16, 0x0, 0x0, @fd=r0, 0x0, &(0x7f0000001600)=""/102400, 0x19000}, 0x0)
+io_uring_enter(r1, 0x2ff, 0x0, 0x0, 0x0, 0x71)
+r5 = fanotify_init(0x200, 0x0)
+r6 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='net_prio.prioidx\x00', 0x275a, 0x0)
+fanotify_mark(r5, 0x101, 0x8001055, r6, 0x0)

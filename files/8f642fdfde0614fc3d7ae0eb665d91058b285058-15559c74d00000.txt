@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8f642fdfde0614fc3d7ae0eb665d91058b285058
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$vmci(0xffffffffffffff9c, &(0x7f0000000040)='/dev/vmci\x00', 0x2, 0x0)
+ioctl$IOCTL_VMCI_VERSION2(r0, 0x7a7, &(0x7f0000000140)=0xa0000)
+ioctl$IOCTL_VMCI_INIT_CONTEXT(r0, 0x7a0, &(0x7f00000000c0)={@host})
+ioctl$IOCTL_VMCI_NOTIFY_RESOURCE(r0, 0x7a5, &(0x7f0000000000)={{@hyper}, 0x0, 0x1})
+ioctl$IOCTL_VMCI_CTX_GET_CPT_STATE(r0, 0x7b1, &(0x7f0000001540)={&(0x7f0000000540), 0x6, 0x400})

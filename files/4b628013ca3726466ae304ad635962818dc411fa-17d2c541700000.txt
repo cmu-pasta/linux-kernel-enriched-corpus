@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+syz_emit_ethernet(0x91b28bad5cf5d964, &(0x7f0000000180)={@multicast, @broadcast, @void, {@llc_tr={0x11, {@snap={0xab, 0x3, "b0", "250b11", 0x2, "9f64cfb533063521d0ed5fdbdd41eac33d91472b35f67d31b5e578fe744921112256907f224a8ce059f90ecf1ec3b49b5e4c0521a741008036ca1ce31ed5f8e167b70585a5a599baab99c60deef1e38513b8d4d4295e23256199d41f1d75911fc3adc2902198fd661f5da812813ddc3c18934241ae9373dc53003bdf23733f53facbc8870d78006692f7d79967d3e5fc0572236d67fabe332573ad400aaa3f607e8fe42228cd97e0b302219ffb1b695b68f7c6084723b281504b811beedf6030df04420c076740ff0da6ea01861978ab38692ad934bd584fdf430b7bd55e8c557ca6dbd6d7a7b2d320d0e57c84eed3ee95"}}}}}, &(0x7f0000000000)={0x1, 0x2, [0x145, 0xa4c, 0xce9, 0xda3]})

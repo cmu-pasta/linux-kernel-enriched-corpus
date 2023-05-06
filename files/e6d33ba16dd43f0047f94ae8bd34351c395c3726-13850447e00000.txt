@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e6d33ba16dd43f0047f94ae8bd34351c395c3726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":32,"close_fds":false}
+ioctl$DRM_IOCTL_MODE_SETCRTC(0xffffffffffffffff, 0xc06864a2, 0x0)
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000000)='/dev/loop-control\x00', 0x0, 0x0)
+ioctl$LOOP_CTL_REMOVE(r0, 0x4c81, 0x0)
+syz_open_procfs(0x0, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x2)
+ioctl$LOOP_CTL_ADD(r0, 0x4c80, 0x0)

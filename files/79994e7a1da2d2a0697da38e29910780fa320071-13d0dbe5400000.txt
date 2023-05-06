@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=79994e7a1da2d2a0697da38e29910780fa320071
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000480)='/dev/video#\x00', 0x3f, 0x0)
+bind$inet6(0xffffffffffffffff, &(0x7f0000000040)={0xa, 0x4e20}, 0x1c)
+setsockopt$SO_TIMESTAMPING(0xffffffffffffffff, 0x1, 0x25, &(0x7f00000004c0)=0x301, 0x4)
+pread64(r0, &(0x7f0000000140)=""/214, 0xd6, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a8e738a29ae80ea17c25ab6a136d95f7e96f76dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = socket$key(0xf, 0x3, 0x2)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f00000004c0)={{{@in6=@remote, @in=@multicast1, 0x0, 0x0, 0x0, 0x0, 0xa}}, {{@in=@multicast2, 0x0, 0x2b}, 0x0, @in=@local, 0x0, 0x2}}, 0xe8)
+sendmsg$key(r1, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000380)={&(0x7f0000000080)=ANY=[@ANYBLOB="02120000020000000a000097d3d34473"], 0x10}}, 0x0)

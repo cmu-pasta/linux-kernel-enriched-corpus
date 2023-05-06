@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=be1b81d726de1c0363b56fe4a5608a14d90e642d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$netlbl_mgmt(&(0x7f0000000040)='NLBL_MGMT\x00', r1)
+sendmsg$NLBL_MGMT_C_REMOVEDEF(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000200)={0x90, r2, 0x1, 0x70bd2c, 0x25dfdbfc, {}, [@NLBL_MGMT_A_IPV6MASK={0x14, 0x6, @initdev={0xfe, 0x88, [], 0x1, 0x0}}, @NLBL_MGMT_A_DOMAIN={0xe, 0x1, 'NLBL_MGMT\x00'}, @NLBL_MGMT_A_IPV6ADDR={0x14, 0x5, @private2={0xfc, 0x2, [], 0x1}}, @NLBL_MGMT_A_PROTOCOL={0x8, 0x2, 0x5}, @NLBL_MGMT_A_CV4DOI={0x8, 0x4, 0x3}, @NLBL_MGMT_A_FAMILY={0x6, 0xb, 0x2b}, @NLBL_MGMT_A_DOMAIN={0xe, 0x1, 'NLBL_MGMT\x00'}, @NLBL_MGMT_A_CV4DOI={0x8, 0x4, 0x1}, @NLBL_MGMT_A_IPV6ADDR={0x14, 0x5, @private1}]}, 0x90}, 0x1, 0x0, 0x0, 0xcf2ee462f9e2e72c}, 0x40)

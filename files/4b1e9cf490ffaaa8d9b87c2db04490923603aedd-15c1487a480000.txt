@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4b1e9cf490ffaaa8d9b87c2db04490923603aedd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true}
+r0 = syz_open_dev$sndmidi(&(0x7f0000000040), 0x2, 0x141101)
+r1 = dup(r0)
+write$6lowpan_enable(r1, &(0x7f0000000000)='0', 0xfffffd2c)
+r2 = syz_io_uring_setup(0x3e80, &(0x7f0000000340)={0x0, 0x91c8}, &(0x7f000081a000/0x2000)=nil, &(0x7f00002ab000/0x1000)=nil, &(0x7f0000000080)=<r3=>0x0, &(0x7f0000000040)=<r4=>0x0)
+syz_io_uring_submit(r3, r4, &(0x7f0000000200)=@IORING_OP_POLL_ADD={0x6, 0x0, 0x0, @fd_index=0x3}, 0x0)
+io_uring_enter(r2, 0x90e, 0x0, 0x0, 0x0, 0x0)

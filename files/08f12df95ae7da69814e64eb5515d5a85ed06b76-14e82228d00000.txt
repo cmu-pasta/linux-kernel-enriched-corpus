@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=08f12df95ae7da69814e64eb5515d5a85ed06b76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"sysctl":true}
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$sock_inet6_SIOCADDRT(0xffffffffffffffff, 0x89a0, 0x0)
+syz_usbip_server_init(0x2)

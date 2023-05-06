@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=9c57d3996565d35691fa44b2daf987259838ccce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$nl_netfilter(r0, &(0x7f0000d65000)={&(0x7f0000de2ff4), 0xc, &(0x7f0000000000)={&(0x7f0000000140)={0x24, 0x2, 0x1, 0xffffffffffffffff, 0x0, 0x0, {}, [@typed={0x8, 0x15, @u32}, @typed={0x8, 0x8, @pid}]}, 0x24}}, 0x0)
+r1 = socket$inet6(0xa, 0x6, 0x0)
+bind$inet6(r1, &(0x7f0000000000)={0xa, 0x4e20}, 0x1c)
+r2 = socket$inet_dccp(0x2, 0x6, 0x0)
+listen(r1, 0x6)
+connect$inet(r2, &(0x7f0000e5c000)={0x2, 0x4e20, @loopback}, 0x10)
+syz_open_dev$amidi(&(0x7f0000000040)='/dev/amidi#\x00', 0x0, 0x0)

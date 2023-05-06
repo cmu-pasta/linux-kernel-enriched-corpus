@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e6b73430f9405afe79f46530dfa138e33ca74778
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+ioctl$sock_ifreq(r0, 0x8990, &(0x7f0000000040)={'bond4\x00', @ifru_names='bond0\x00'})
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000180)={&(0x7f0000000000), 0xc, &(0x7f0000000140)={&(0x7f00000005c0)=@newlink={0x34, 0x10, 0x601, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x14, 0x12, @bond={{0xc, 0x1, 'bond\x00'}, {0x4}}}]}, 0x34}}, 0x0)
+r2 = socket$inet6(0xa, 0x400000000001, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r2, 0x8914, &(0x7f0000000040)={'bond0\x00'})

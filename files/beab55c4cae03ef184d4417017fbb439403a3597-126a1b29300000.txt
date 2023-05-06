@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=beab55c4cae03ef184d4417017fbb439403a3597
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f00000000c0)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x557, [{{0x9, 0x2, 0x48}}]}}, 0x0)
+syz_usb_ep_write$ath9k_ep2(r0, 0x83, 0x1b, &(0x7f0000000140)=@ready={0x0, 0x0, 0x8, "7a82629d"})
+syz_usb_ep_write$ath9k_ep2(r0, 0x83, 0x12, &(0x7f0000000040)=@conn_svc_rsp={0x0, 0x0, 0xa, "56991c17"})
+syz_usb_ep_write$ath9k_ep2(r0, 0x83, 0xd8, &(0x7f0000000180)=ANY=[@ANYBLOB="070200d012f84838e046fe0ffebf0f37f4890c7d574b6ac16a509e833532198e92197ef11596ea782e031256ed23998fb3670ad3601e3280c18926456d84a6794783330b71d7ceb7e6a3aed39d4f181d5a067989b168e2be37664e622751ef19a1681e3cce3f6bbd74e5e14b881388f85c0de20dafd67b2511e020a831064c5091d5a451b0befb67965ad1a14a1e60eede4d2c2286a22955f0c348e3c38fcbdf475c61b88f1778fd1ce4064ba54a3f65f9876f01aec22a4bebf20f5d92fe76ad149a046f8349564a07765bfab85a88fa4de93539eb394e64"])

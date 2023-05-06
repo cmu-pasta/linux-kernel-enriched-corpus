@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=aa0a37bd64ce7d0eb5075a8f18250fff45765c2a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x10000000013, &(0x7f0000d06000)=0x1, 0x4)
+mmap$xdp(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x1, 0x12, r0, 0x180000000)
+setsockopt$inet_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000080)=0x1, 0x4)
+setsockopt$inet_tcp_TCP_QUEUE_SEQ(r0, 0x6, 0x15, &(0x7f0000000040)=0x1000, 0x10)
+getsockopt$inet_tcp_TCP_ZEROCOPY_RECEIVE(r0, 0x6, 0x23, &(0x7f0000000000)={&(0x7f0000fff000/0x1000)=nil, 0x1000}, &(0x7f00000000c0)=0x14)

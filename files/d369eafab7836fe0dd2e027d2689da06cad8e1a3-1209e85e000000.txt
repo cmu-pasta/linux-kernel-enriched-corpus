@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d369eafab7836fe0dd2e027d2689da06cad8e1a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+munlock(&(0x7f0000d2f000/0x3000)=nil, 0x3000)
+ioctl$DRM_IOCTL_GEM_OPEN(0xffffffffffffffff, 0xc010640b, &(0x7f0000360000-0x10)={0x0, <r0=>0x0, 0xd17c})
+ioctl$DRM_IOCTL_PRIME_HANDLE_TO_FD(0xffffffffffffffff, 0xc00c642d, &(0x7f000074d000)={r0, 0x80000, 0xffffffffffffffff})
+r1 = openat$kvm(0xffffffffffffff9c, &(0x7f000002d000-0x9)="2f6465762f6b766d00", 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r1, 0xae01, 0x0)
+tgkill(0x0, 0x0, 0x81)

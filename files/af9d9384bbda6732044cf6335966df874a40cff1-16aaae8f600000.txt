@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$kcm(0x11, 0xa, 0x300)
+r0 = socket$kcm(0x2b, 0x2, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000200)='cgroup.stat\x00', 0x26e1, 0x0)
+r2 = socket$kcm(0x2, 0x1000000000000002, 0x0)
+setsockopt$sock_attach_bpf(r2, 0x1, 0x3e, &(0x7f00000002c0)=r1, 0x161)
+sendmsg$kcm(r2, &(0x7f0000000540)={&(0x7f0000000380)=@in={0x2, 0x4e23, @rand_addr=0x7fffffff}, 0x80, 0x0}, 0xfd00)
+write$cgroup_subtree(r2, 0x0, 0x0)

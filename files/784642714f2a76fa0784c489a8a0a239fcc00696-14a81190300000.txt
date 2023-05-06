@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=784642714f2a76fa0784c489a8a0a239fcc00696
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault":true,"fault_call":5,"fault_nth":5,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000180)={0x26, 'skcipher\x00', 0x0, 0x0, 'xts(aes)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00000000c0)="b7f2288a911993f0265df5cf1cdd8b55b062950b86bc01abc8464d4f8a906151", 0x20)
+r1 = accept$alg(r0, 0x0, 0x0)
+sendmmsg$alg(r1, &(0x7f0000003f00)=[{0x0, 0x0, &(0x7f0000000040)=[{&(0x7f0000000200)="16310ed336b629fa247021af20d6fea11c413b898c645c1a0772d5f8a6e85ce517b31eef2d22b439a00fb139d445dd69623c6416913cc45e30b000d9cefa3d29", 0x40}], 0x1}], 0x1, 0x0)
+recvmmsg(r1, &(0x7f0000001f40)=[{{0x0, 0x0, &(0x7f0000001440)=[{&(0x7f0000000000)=""/25, 0x19}, {&(0x7f0000000280)=""/184, 0xb8}], 0x2}}], 0x1, 0x0, 0x0)

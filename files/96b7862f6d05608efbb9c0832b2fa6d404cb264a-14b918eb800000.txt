@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=96b7862f6d05608efbb9c0832b2fa6d404cb264a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = openat$vsock(0xffffffffffffff9c, &(0x7f0000000440)='/dev/vhost-vsock\x00', 0x2, 0x0)
+ioctl$VHOST_SET_LOG_BASE(r0, 0xaf01, &(0x7f00002d7000)=&(0x7f0000989fff))
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000000240)=ANY=[@ANYBLOB])
+r1 = syz_open_dev$dspn(&(0x7f00000002c0)='/dev/dsp#\x00', 0x6, 0x80300)
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f0000000300)={{{@in6=@ipv4={[], [], @remote}, @in=@broadcast}}, {{@in6=@local}, 0x0, @in=@multicast2}}, &(0x7f0000000400)=0xe8)
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000df5fd8)={0x0, 0x0, &(0x7f00003acf97)=""/105, &(0x7f0000bf6000)=""/228, &(0x7f000017d000)=""/199})
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000cef000)={0x1, 0x0, &(0x7f000062a000)=""/167, &(0x7f0000aac000)=""/21, &(0x7f00002fdf52)=""/174})
+ioctl$VHOST_VSOCK_SET_RUNNING(r0, 0x4004af61, &(0x7f0000f82ffc)=0x1)
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000200)={0x0, 0x1, &(0x7f0000000000)=""/239, &(0x7f0000000100)=""/47, &(0x7f0000000140)=""/183, 0xfdfdffff00000000})

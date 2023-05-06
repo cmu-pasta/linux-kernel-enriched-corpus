@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b724247f95c68e1c380e6b9c48311e07ac1741fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000600)={0x2c, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8}, @void}}, [@NL80211_ATTR_4ADDR={0x5, 0x142, 0x1}, @NL80211_ATTR_IFTYPE={0x8, 0x5, 0x2}]}, 0x2c}}, 0x0)

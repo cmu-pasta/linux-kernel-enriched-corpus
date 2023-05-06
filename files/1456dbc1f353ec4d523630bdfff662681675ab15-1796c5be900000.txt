@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1456dbc1f353ec4d523630bdfff662681675ab15
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_msfilter(r0, 0x0, 0x8, 0xffffffffffffffff, 0x1)

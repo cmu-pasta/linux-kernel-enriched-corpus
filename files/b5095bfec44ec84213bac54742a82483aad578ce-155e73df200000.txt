@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+clone(0x100000020040200, 0x0, 0x0, 0x0, 0x0)
+mknod(&(0x7f0000000040)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f00000005c0)='./file0\x00', 0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f0000000280)='clear_refs\x00\xb0Ix\xe6\fK\xa3/\xd7\xb9IqK\xcb\xe8\fW\xafYt|a\xa3\x16\x19\xcb\xaf\xea\x03O[k\xb1S2\x86\v\x9f\x14\xc6T\xd1\x01$\x84\xf5\xc9\xd8\xed\xca\xd2\xf0s\xe0\xcaPx\xfcd\xd3\x8d\x1e){\x9df\xa7\x14R\xb9,\xaegV\x96!n\b\xf2\x1e\x87\xb8\xb5M\xa0\xd1\xb5\xf3\xb4\xd6\xf8\xca\xf3J\x15\xed+,\x98\xfc\xbfX\x12\x97\xb3\x1b\xea\xfa\xff\xb7gx\xa1\x96\xad\x93\xaa=-z\x06r\b\'')
+r1 = syz_open_procfs(0x0, &(0x7f0000000440)='syscall\x00')
+sendfile(r0, r1, 0x0, 0x1)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+r3 = openat$pfkey(0xffffffffffffff9c, &(0x7f0000000080)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+splice(r3, 0x0, r2, 0x0, 0x2, 0x0)

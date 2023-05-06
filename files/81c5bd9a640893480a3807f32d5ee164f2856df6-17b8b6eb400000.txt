@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x3, 0x0)
+poll(&(0x7f0000000180)=[{r0, 0x1}], 0x1, 0xd90)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=884fbebcbeb7193b713f187815d9b7bb95717985
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_open_dev$hidraw(&(0x7f0000000280), 0x20, 0x0)
+syz_open_dev$hidraw(0xfffffffffffffffc, 0x0, 0x0)
+syz_open_dev$hidraw(0x0, 0x6, 0xe800)
+r0 = syz_open_dev$hidraw(0xfffffffffffffffc, 0x0, 0x167101)
+write$hidraw(r0, &(0x7f0000000000)="44c0f49952ffee802a6334c1dc02b36ebb34f9fe69346eef3d5d6d76b8d2b88369358f2ce7e564a1c36146376d15f0fd89f31cd5c4ee768332b3026569fc2b2ab8cfbfabc7a3387e8e3f51949da7a76d70a47d61701d3ae482c8bea64a0dd73cf5fd5994f42813471bc41cb1a70d0369010cb1276595873d7dc777654a787c062a615f9acb826a390434de36c942cc9d5e639d3c25cbf3de841a31b2a6f0914c98ffb219080d1ed01f2bc2ec74c3634032afc2e37816130582b74554984c7cd8bece7fe269e2f6922349b14cea9331c3bf140ab8d6ef76f7a7521a09788779211faab23160f6cd3bf1f60cc018aa1667bb9751e2032bec608a62330d7b20f024c4444f6744028efa407cf24a5d88cb5ee5770ade7610a4b7c9169614fdd7c703c603d2ec04921ac203fba7b2372acafdc33dbdda972fa7fdc8825c5511e8d52328688097ff3f7d1788995571700db2d76712cf06c8b42e3006b302f686c7f94a958ffa68f90225bacd9a2a7ce6df2b474f77db88b05050ce7d5e5b82dc11dc39c3d0534fd56dfa5b2a20d510195f3e4304de5883a7ba1f80b2487276105a82dc2371edbfad94d518fdf74e05f33ca361ca3b2e75a640ac3412f1b3ed909293f96abe6bf0b19207844be8a509f190dbda564bc15e175c3b904a4be42baed8a5a7ea753efa9614a5e5850dd226", 0x1ec) (async)
+syz_open_dev$hidraw(&(0x7f0000000200), 0xd509, 0x2200) (async)
+syz_open_dev$hidraw(0xfffffffffffffffc, 0x56, 0xcb42)
+syz_open_dev$hidraw(&(0x7f0000000180), 0x0, 0x0)
+syz_open_dev$hidraw(0x0, 0x5, 0x0)
+r1 = syz_open_dev$evdev(0xfffffffffffffffc, 0x0, 0x40381)
+ioctl$EVIOCSMASK(r1, 0x4004662b, &(0x7f0000000040)={0x2, 0x58000000, 0x0})

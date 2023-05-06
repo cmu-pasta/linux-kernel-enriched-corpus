@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b0e30ab5186d097b8e3e23e8ca971fbf1cf54659
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"segv":true,"waitrepeat":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmsg$IPVS_CMD_DEL_SERVICE(r0, &(0x7f0000000000)={&(0x7f0000000080)={0x10}, 0xc, &(0x7f0000000200)={&(0x7f00000001c0)={0x1, 0x0, 0x0, 0x0, 0x0, {0x3}}, 0x14}, 0x1}, 0x20000000)
+listen(r0, 0x0)

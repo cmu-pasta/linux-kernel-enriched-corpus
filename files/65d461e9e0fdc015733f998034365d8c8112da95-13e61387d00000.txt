@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true}
+r0 = socket$kcm(0x29, 0x5, 0x0)
+close(r0)
+socket$kcm(0x2, 0x200000000000001, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000140)={0x1, 0xe, &(0x7f0000000680)=ANY=[@ANYBLOB], &(0x7f0000000280)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x8, 0x10, 0x0}, 0x78)
+setsockopt$sock_attach_bpf(0xffffffffffffffff, 0x1, 0x32, &(0x7f0000001d80)=r1, 0x4)
+sendmsg$inet(r0, &(0x7f00000000c0)={&(0x7f0000000040)={0x2, 0x4001, @dev={0xac, 0x14, 0x14, 0xbb}}, 0x10, 0x0, 0x0, 0x0, 0x0, 0x304}, 0x20004019)
+sendmsg(r0, &(0x7f0000000600)={0x0, 0xbffe, &(0x7f0000000180)=[{&(0x7f0000000480)="c2a496ef9980f30022ce0388472f22363d22df41af9f7ea5f5888f18b0a748f4bae6c36fd3ec106a0a400f52370c5d9703ca4ca4d24a3e5b7e8979c06cee5e084a1e8f8f7b00890de42e1e6a607bf12acb1f4ca544db56b7dedbc8f3e8897834dc2ce2a1fe9811c5da74", 0x6a}, {&(0x7f0000000500)="f421c539b740ae9741051f5b25586e84328089ca07ac2ad4544a12f777af48c86ff76030cfa78bf4905897f9876eb2b6f0aea20696bd57d21f27535712d02cddcd75e3546decaa6ed46709e28efd2c4571ef4627dbe72818bdd4ec550ed4543e5a0fe94ae3456e36455a3aab8c8e1d3ff1bf80f64bff524e757ecab1201d1ac0d6071ec1871bda7fe0f99fbac3469d50bba8d360", 0x94}, {&(0x7f0000000640)="39d5a61921252308ce520ce8489822ca086ac660c8fc9dd041ade1cf8663831461707716349b975838cb3a8ca389683466f79f617f597a33d9279a8547b199a451e57edcdb3d2393b6de0da29817c3fd6b49eb7552cfddae3c8861521ca20f0f95b3fccd3c2a974eaf549beb83147f20dc291659f6522eaeaf1561cf68fb2f2fa09109742a7d4831fca821ce6cde35d2ff017996b16976074b7cea4517fa9e4a18a7dd4f2ed3108d", 0xffffffa6}, {&(0x7f0000000700)="3971727001208f2f54f716b2066debfa90b86b185962b7c7a938aef3cd9a1a5e2faa81d8385962dc0c0b79cb48b6728bf709d1ff1f99fa21ebc0cce8947f914ce8ee1a91e20eb6caf77c3fb41a996201d5572c4a9b537b647e4f2b89f1b8fec183c8ed9ea9cd058292ffd1cf57b73702ac6edc0ffcdb458742ce", 0x7a}], 0x4, 0x0, 0x0, 0xcbff}, 0x3)
+socketpair$tipc(0x1e, 0x5, 0x0, 0x0)
+ioctl$TUNSETLINK(0xffffffffffffffff, 0x8912, 0x400308)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=362d37ea5c9445929e633e81565b20e77d317b4f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+socketpair$tipc(0x1e, 0x2, 0x0, &(0x7f0000001cc0)={<r0=>0xffffffffffffffff})
+sendmsg$tipc(r0, &(0x7f0000002140)={&(0x7f0000001d00)=@nameseq={0x1e, 0x1, 0x0, {0x1, 0x0, 0x4}}, 0x10, 0x0}, 0x0)

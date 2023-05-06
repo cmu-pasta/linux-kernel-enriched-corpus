@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d02cb094055e6c6c6525e35a537398eb335055db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'geneve0\x00', <r1=>0x0})
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000001140)={&(0x7f0000000040)=@newlink={0x44, 0x10, 0x503, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x14, 0x12, 0x0, 0x1, @macsec={{0xb}, {0x4}}}, @IFLA_LINK={0x8, 0x5, r1}, @IFLA_NUM_TX_QUEUES={0x8, 0x1f, 0x6}]}, 0x44}}, 0x0)

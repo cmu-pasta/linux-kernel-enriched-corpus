@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f3b3fca5a52e0b446566a7c3372a49b89c97ff82
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r0, 0xc0285700, &(0x7f0000000040)={0x0, "2f9ce221bf62e61fc59f66f8eebf79b2c387c3e7cf7729c6cce06c65c33bdca2", <r1=>0xffffffffffffffff})
+r2 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r2, 0xc0285700, &(0x7f0000000040)={0x0, "2f9ce221bf62e61fc59f66f8eebf79b2c387c3e7cf7729c6cce06c65c33bdca2", <r3=>0xffffffffffffffff})
+ioctl$SYNC_IOC_MERGE(r1, 0xc0303e03, &(0x7f0000001500)={"7ce8fb1c5b98d8db8d00db13674f4ea7d1a88fccbf75ced1ebaed9fa4ef20059", r3, <r4=>0xffffffffffffffff})
+ioctl$SYNC_IOC_FILE_INFO(r4, 0xc0383e04, &(0x7f0000001840)={""/32, 0x0, 0x0, 0x0, 0x0, 0x0})

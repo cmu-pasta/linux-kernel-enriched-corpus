@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=41872265f1e3e0489eb0cc8762f8d48b3667afdb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x2000000000000021, 0x2, 0x2)
+connect$rxrpc(r0, &(0x7f0000000040)=@in6={0x21, 0x0, 0x2, 0x1c, {0xa, 0x4e22, 0x80000001, @ipv4={[], [], @local}, 0xaa3b}}, 0x24)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000000000)=[{0x10, 0x110, 0x1}], 0x10}}], 0x1, 0x0)

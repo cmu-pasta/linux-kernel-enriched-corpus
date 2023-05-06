@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=02ec3472b31d55cb8cb425aa8e7c0b94acde6503
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+mount(&(0x7f0000000140)='.//ile0\x00', &(0x7f0000000200)='/\x00', &(0x7f0000000280)='overlay\x00', 0x23, &(0x7f0000000000))

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1b3989eb005d42a1e8448593266f35e3a48f87a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"close_fds":true,"devlinkpci":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_DISALLOCATE(r0, 0x5608)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x4)
+ioctl$TIOCVHANGUP(r1, 0x5437, 0x0)

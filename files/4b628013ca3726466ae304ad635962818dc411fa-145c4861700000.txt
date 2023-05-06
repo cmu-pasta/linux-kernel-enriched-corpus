@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000000)=@newlink={0x34, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x44008}, [@IFLA_XDP={0xc, 0x2b, 0x0, 0x1, [@IFLA_XDP_FD={0x8}]}, @IFLA_GROUP={0x8}]}, 0x34}}, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, 0x0, 0x0)
+syz_emit_ethernet(0xd2, &(0x7f0000000100)={@random="3d65aa9be844", @multicast, @void, {@ipv6={0x86dd, @udp={0x0, 0x6, '\x00', 0x9c, 0x11, 0x0, @dev, @mcast2, {[], {0x0, 0xe22, 0x4d, 0x0, @wg=@initiation={0x1, 0x0, "ad81f3ea8c0de7763e6e7c37be0eef15978160f894062f4332d7ddf9b6bfa6d6", "095d0767e665b142df334ada71d386ca7a093fea2e3de24f8d9fda03116d75e67acc0654ed62abceb6b2c4566adf2d2c", "1d76b92a5e8c86a2007e7ea97a667a461f37fc6cc14a489fcb947d0d", {"a2a755cada6948283001cce16b66bfd3", "c718f59c048aee338f6c70e02aea0e75"}}}}}}}}, 0x0)

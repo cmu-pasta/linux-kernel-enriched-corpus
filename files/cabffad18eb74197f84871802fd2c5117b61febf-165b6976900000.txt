@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=cabffad18eb74197f84871802fd2c5117b61febf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000080)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0xffffffffffffffa0, [{{0x9, 0x2, 0xfffffffffffffeb4}}]}}, 0x0)
+syz_usb_control_io(0xffffffffffffffff, 0x0, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_disconnect(0xffffffffffffffff)
+syz_usb_ep_write$ath9k_ep2(r0, 0x83, 0x8, &(0x7f0000000100)=@generic={0x5, 0x2, 0x0, "d95599d2"})
+r1 = syz_open_dev$hidraw(&(0x7f0000000100)='/dev/hidraw#\x00', 0x0, 0x641)
+write$hidraw(r1, &(0x7f0000000000)='4', 0x20000001)
+syz_usb_ep_write$ath9k_ep1(r0, 0x82, 0xc, &(0x7f0000000400)=ANY=[@ANYBLOB])

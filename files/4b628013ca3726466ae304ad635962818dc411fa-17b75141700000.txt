@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false,"usb":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.controllers\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+syz_emit_ethernet(0x8a, 0x0, 0x0)

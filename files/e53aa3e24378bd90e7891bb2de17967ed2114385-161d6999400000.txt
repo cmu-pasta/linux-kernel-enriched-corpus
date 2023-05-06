@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e53aa3e24378bd90e7891bb2de17967ed2114385
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"resetnet":true}
+io_setup(0x400, &(0x7f0000000240)=<r0=>0x0)
+r1 = openat$md(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/md0\x00', 0x0, 0x0)
+ioctl$SNDRV_RAWMIDI_IOCTL_INFO(0xffffffffffffffff, 0x810c5701, &(0x7f0000000100))
+close(r1)
+ioctl$ION_IOC_ALLOC(0xffffffffffffffff, 0xc0184900, &(0x7f0000000040)={0x1, 0xc, 0x1, 0xffffffffffffff9c})
+openat$pfkey(0xffffffffffffff9c, &(0x7f0000000080)='/proc/self/net/pfkey\x00', 0x10000, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000b00)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x5, 0x0, r1, 0x0}])
+r2 = userfaultfd(0x80800)
+ioctl$UFFDIO_API(r2, 0xc018aa3f, &(0x7f0000000040)={0xaa, 0x72})
+read(r2, &(0x7f0000009f9c)=""/100, 0x64)

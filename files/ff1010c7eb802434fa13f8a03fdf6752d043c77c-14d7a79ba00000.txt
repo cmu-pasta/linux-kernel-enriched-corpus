@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x5, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_int(r0, 0x0, 0xf, &(0x7f0000d10ffc)=0x42ed, 0x4)
+bind$inet6(r0, &(0x7f0000000080)={0xa, 0x2, 0x4, @local, 0x1}, 0x1c)

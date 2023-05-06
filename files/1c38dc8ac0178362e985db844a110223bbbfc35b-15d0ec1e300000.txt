@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1c38dc8ac0178362e985db844a110223bbbfc35b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":2,"close_fds":false}
+prctl$PR_SET_SECUREBITS(0x1c, 0x25)
+setresuid(0xee01, 0xee00, 0x0)
+setfsuid(0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4b78eb9b41c4ee2e5684ee984581c9cbe59e1940
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$I2C(&(0x7f0000000000), 0x0, 0x0)
+ioctl$I2C_RDWR(r0, 0x707, &(0x7f00000014c0)={0x0})

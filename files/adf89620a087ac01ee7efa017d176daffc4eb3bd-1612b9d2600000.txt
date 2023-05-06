@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=adf89620a087ac01ee7efa017d176daffc4eb3bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+writev(r0, &(0x7f0000000080)=[{&(0x7f0000000000)="390000001300034700bb65e1c3e4ffff0600000025000000450000002000000019000a001400000007fd17e9ffff0606040000000000000000", 0x39}], 0x1)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e9acbd6543cc8400a1b0095e5d84ace03ff155b9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":4,"close_fds":false}
+r0 = io_uring_setup(0xa4, &(0x7f0000000080))
+r1 = socket$inet6_udplite(0xa, 0x2, 0x88)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000000)=[r1], 0x1)
+pipe(0x0)
+io_uring_register$IORING_REGISTER_FILES_UPDATE(r0, 0x6, &(0x7f0000000300)={0x0, &(0x7f0000000040)=[0xffffffffffffffff]}, 0x1)

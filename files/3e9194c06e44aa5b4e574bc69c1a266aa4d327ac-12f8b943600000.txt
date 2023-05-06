@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3e9194c06e44aa5b4e574bc69c1a266aa4d327ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":13,"netdev":true,"close_fds":true}
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r0 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=@newlink={0x48, 0x10, 0xba3062d0fd261539, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x28, 0x12, @veth={{0xc, 0x1, 'veth\x00'}, {0x18, 0x2, @VETH_INFO_PEER={0x14, 0x1, {0x0, 0x0, 0x0, 0x0, 0x0, 0x20201}}}}}]}, 0x48}}, 0x0)

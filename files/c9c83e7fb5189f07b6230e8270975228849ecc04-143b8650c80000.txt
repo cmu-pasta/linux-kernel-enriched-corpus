@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c9c83e7fb5189f07b6230e8270975228849ecc04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$cramfs(&(0x7f0000000040), &(0x7f0000000000)='./file2\x00', 0x204010, &(0x7f00000001c0)=ANY=[], 0x1, 0x159, &(0x7f0000000400)="$eJzs0U+LEnEYwPHvzPySIM0iAwkyoUNTYv6jbh2cSBKygcJLJ8EmChQjoTwq0a2DsFcP+wf2JL4FXXcvLgqL+yb24m1hj7vMjLIry76D53Ob7/ObZ5iZd29mpsalt436z19Os+l8jX+yS4XPJ8Nh3u0B4Pba3D8/ysN3FCMFiw64eT8E337UnJfVRs29XuTBBKw7fteph1fPsyLQUZDBv998CuOH3jmd683JLdsjBVbYb2ngfAueufvu+83ddwoYQP/w43RSTL7YfWzwr5h48kCDVi8xWPWY8z9b6D4PRg3KzsE2ljc/Tk2SR6lBfz6blj7YJXuWy2Zf59IZnVdz92vQ7qLeB3/Dl9U+HW9fgGhMleGvBhvebLGnhYDx5pldv6up5bu3/xhx0Fq9aiV6a6cSuadjmFz9G2vUTQMhhBBCCCGEEEIIIYQQQgghhBDiIgAA//9p+FwQ")
+openat$binderfs_ctrl(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder-control\x00', 0x0, 0x0)

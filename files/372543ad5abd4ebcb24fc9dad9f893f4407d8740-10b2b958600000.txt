@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=372543ad5abd4ebcb24fc9dad9f893f4407d8740
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true}
+r0 = syz_init_net_socket$nfc_llcp(0x27, 0x2, 0x1)
+bind$nfc_llcp(r0, &(0x7f0000000000)={0x27, 0x0, 0x0, 0x0, 0x0, 0x0, "00f40c442848cb166b002ee8dc4da7ae20d7c965d4fab6ad71c03cb2aa506b39b663e1c4c87d263fc05a6a042b6feba7da240eb2ca83e630e3b925b24361dc", 0x1}, 0x60)
+bind$nfc_llcp(r0, &(0x7f0000000140)={0x27, 0x0, 0xfffffffffffffffd, 0x1, 0x0, 0x2, "6cb782e4ad88ba9d1fd309169f44a72107130ee55d660510420aaa96759ecbc36eb9bb12b6124793608dd0e7316d1d4f4dbac39877e4ac714b7ecefa8a9b4a", 0x4}, 0x60)

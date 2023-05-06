@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=30dffac9601663950bb6b107ad73fad40952d73b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000080)={&(0x7f0000000000)={0x10}, 0xc, &(0x7f00000013c0)={&(0x7f0000000040)=@newlink={0x24, 0x10, 0x0, 0x0, 0x0, {}, [@IFLA_AF_SPEC={0x4, 0x1a}]}, 0xffdd}, 0x1}, 0x0)
+ioctl$sock_ifreq(r0, 0x8000000000089f1, &(0x7f0000000000)={'ip6_vti0\x00', @ifru_data=&(0x7f0000000040)="d548574b2f8c033d46cd9b6ce2881e434132833d293748da73a5f74b2e23caae"})

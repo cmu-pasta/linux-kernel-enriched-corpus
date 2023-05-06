@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=07ca5c1502ad34d46b524e9577f757ab193fccb7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCADDRT(0xffffffffffffffff, 0x890b, 0x0)
+r2 = bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x6, 0x4, &(0x7f0000000200)=ANY=[@ANYBLOB="18020000000000000000000000000030850000002c0000009500000000000000"], &(0x7f00000000c0)='GPL\x00', 0x0, 0x1000, &(0x7f0000001400)=""/4106, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x18)
+sendmsg$nl_route(r1, &(0x7f0000000140)={0x0, 0xffffffc3, &(0x7f0000000080)={&(0x7f0000000000)=@newlink={0x34, 0x10, 0x801, 0x0, 0x0, {}, [@IFLA_XDP={0xc, 0x2b, 0x0, 0x1, [@IFLA_XDP_FD={0x8, 0x1, r2}]}, @IFLA_GROUP={0x8}]}, 0x34}}, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0xffffffc3, &(0x7f0000000080)={&(0x7f0000000000)=@newlink={0x34, 0x10, 0x801, 0x0, 0xf0ffffff, {}, [@IFLA_XDP={0xc, 0x2b, 0x0, 0x1, [@IFLA_XDP_FD={0x8}]}, @IFLA_GROUP={0x8}]}, 0x34}, 0x1, 0xa002ac7c}, 0x0)

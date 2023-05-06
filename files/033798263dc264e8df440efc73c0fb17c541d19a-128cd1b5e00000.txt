@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=033798263dc264e8df440efc73c0fb17c541d19a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000001b00)={0xa, 0x1d, 0x400, 0x9, 0x42}, 0x3c)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x0, 0x6b, r0}, 0x38)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000001b00)={0xa, 0x1d, 0x400, 0x9, 0x42}, 0x3c)
+bpf$MAP_UPDATE_ELEM(0x2, 0x0, 0x0)
+bpf$MAP_UPDATE_BATCH(0x19, &(0x7f0000000180)={0x0, 0x0, &(0x7f00000000c0), &(0x7f00000002c0)="c90108cd82f7d5367dbd3dd1f8d993ad117afede5777178318112dea2e63cc4139017aadfc9968ee2f55caccbc45ced5a283b5749a4470560c4d60218478c42b37b1658bf7", 0x81, r1}, 0x38)

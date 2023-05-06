@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=be1b81d726de1c0363b56fe4a5608a14d90e642d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$EVIOCRMFF(0xffffffffffffffff, 0x40095505, 0x0)
+ioctl$EVIOCGMASK(0xffffffffffffffff, 0x80104592, 0x0)

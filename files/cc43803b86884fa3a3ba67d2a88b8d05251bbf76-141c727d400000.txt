@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=cc43803b86884fa3a3ba67d2a88b8d05251bbf76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+setsockopt$inet_tcp_TCP_REPAIR_WINDOW(0xffffffffffffffff, 0x6, 0x1d, 0x0, 0x0)
+ioctl$sock_SIOCINQ(0xffffffffffffffff, 0x541b, 0x0)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(0xffffffffffffffff, 0x0, 0x48c, &(0x7f0000000100)={0x2, 'gre0\x00'}, 0x18)
+r0 = accept$inet(0xffffffffffffffff, 0x0, &(0x7f0000000180))
+ioctl$PPPIOCGFLAGS(0xffffffffffffffff, 0x8004745a, &(0x7f00000001c0))
+getsockopt$ARPT_SO_GET_REVISION_TARGET(r0, 0x0, 0x63, 0x0, &(0x7f0000000380))
+sendmsg$can_bcm(0xffffffffffffffff, 0x0, 0x40)
+r1 = accept$inet(0xffffffffffffffff, 0x0, &(0x7f0000000680))
+r2 = accept$inet(r1, &(0x7f00000006c0)={0x2, 0x0, @loopback}, &(0x7f0000000700)=0x10)
+ioctl(0xffffffffffffffff, 0x2, &(0x7f0000000740))
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(0xffffffffffffffff, 0x29, 0x20, 0x0, 0x0)
+sendto$inet6(0xffffffffffffffff, &(0x7f0000000940)="b2fd3a3cd38bec80877d70e8b27af798e027b5e6bffda8b5ac9f580dfdb39cc99c4b2c62a7b8d44a3d9140e787c9953f2e6f89931d156bdefdd1b3fb4039e606ddc63059ef100d53d9adbab197b4e51f6fb7da224c6c43e4b0d52a25a65a0d4dee3a903cb4ced11953470dacb894eca1fde9438b25f8d174f471abc90d517c0445b300985acb96b832", 0x89, 0x40000c0, 0x0, 0x0)
+getsockopt$inet_sctp6_SCTP_PR_ASSOC_STATUS(0xffffffffffffffff, 0x84, 0x73, &(0x7f0000000a40)={0x0, 0xffffffff, 0x30, 0x10001, 0x3}, 0x0)
+setsockopt$inet_sctp6_SCTP_PRIMARY_ADDR(r2, 0x84, 0x6, 0x0, 0x0)
+sendmsg$can_bcm(0xffffffffffffffff, &(0x7f0000000c80)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x801}, 0x40000)
+sendto$inet(r0, &(0x7f0000000cc0), 0x0, 0x4000000, 0x0, 0x0)
+connect$pptp(r2, &(0x7f0000000e80)={0x18, 0x2, {0x3, @local}}, 0x1e)

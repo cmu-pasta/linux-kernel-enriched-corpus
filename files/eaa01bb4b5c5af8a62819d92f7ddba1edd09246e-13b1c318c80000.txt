@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=eaa01bb4b5c5af8a62819d92f7ddba1edd09246e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000006ffc)=0x4000000000000200, 0xe50fb6c50bc849c9)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$BATADV_CMD_GET_MESH(r1, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={0x0, 0x92}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+bind$packet(r0, &(0x7f0000000000)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @multicast}, 0x14)
+sendto$inet6(r0, &(0x7f0000000280)="050550035801480301020200c52cf7c25975e00db02f0800eb2b2ff0dac8897c6b118777faffffff3066060cb600c5471d131466321a54e7df305f80a88161b6fd8f24286a57c3feffff", 0xfc13, 0x800, 0x0, 0x2f)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=527401f709565e2f7adde30345ab7341484cfb89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$fuse(0x0, &(0x7f00000006c0)='./file0\x00', 0x0, 0x0, &(0x7f0000000000), 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff}, 0x0)
+r1 = socket$nl_audit(0x10, 0x3, 0x9)
+mount$9p_fd(0x0, &(0x7f0000000140)='./file0\x00', &(0x7f0000000180), 0x0, &(0x7f0000000300)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})

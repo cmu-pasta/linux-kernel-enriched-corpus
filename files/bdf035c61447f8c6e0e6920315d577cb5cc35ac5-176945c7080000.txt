@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=bdf035c61447f8c6e0e6920315d577cb5cc35ac5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040), 0x41, 0x0)
+write$binfmt_aout(r0, &(0x7f00000000c0)=ANY=[], 0xff2e)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f0000000100)={0x0, 0x0, 0x0, 0x0, 0x0, "2af03e1d113c81fcf76000"})
+r1 = syz_open_pts(r0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000000)=0x15)

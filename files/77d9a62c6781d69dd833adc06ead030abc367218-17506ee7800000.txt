@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=77d9a62c6781d69dd833adc06ead030abc367218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+open(&(0x7f0000000000)='./bus\x00', 0x100000141842, 0x0)
+syz_mount_image$ntfs(&(0x7f0000000440)='ntfs\x00', &(0x7f0000000480)='./bus\x00', 0x0, 0x0, &(0x7f00000006c0), 0x1000, &(0x7f0000000740)=ANY=[])
+r0 = open(&(0x7f0000002000)='./bus\x00', 0x141042, 0x0)
+ioctl$LOOP_SET_STATUS(r0, 0x4c02, &(0x7f0000000200)={0x0, 0x0, 0x0, 0x0, 0x1, 0x0, 0x15, 0x8, "13110345422ec1d70b59c9bd8e55a89f47d9eaff880f04b87b82c706b8b1eeca4fff967278e7dbbd3d8d84f1904f912f501a28884839e86dcdf592fdfe754d40", "a26fc501911a6f709f2a5a3d809ec89032f2628ef34a6427d913ffe89389325d", [0x6, 0x8]})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ae8f5829dcc7cff6145c012b746bafa494b144ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f00000000c0)=@create_id={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000080)={<r1=>0xffffffff}, 0x2}}, 0x20)
+write$rdma_cm(r0, &(0x7f00000001c0)=@connect={0x6, 0x118, 0xfa00, {{0xfffffffffffffffc, 0x1000, "df6ef6aca97d15b29b7936f94920f4a686c5f9a958befed4222dd0a3d3ff43ef6729f44376a7d1468094fddf19510b6f0860b6399ac3b78f2ccdcfe97a2ccb7af634e6643d0aad7fde2d979f9f5b8450a899a834c8fa84b26cb2321fbf6f2d33dfa1de377f22cba2d9c44157aadf41b638aedda7490b127f3714d7333b53ba0b7e7745fa183ea32fbd7ad589d6b9cb773672681de7f7a8e3acc280b6060cc5e619c1777fedf17600945568b9dfe70cb8619fc1eb1ef90b7d525b8819e701449973d8cfea6df4f7817ca8bde95f4afb247ad2759561ade2cf27e42a5078780c31202eb630820885153d14b41c10ce8129df9ccd84a12c94925bb065fea2ee2253", 0xe, 0xffffffffffffffff, 0x9, 0x6, 0x8000, 0x2, 0x1, 0x1}, r1}}, 0x120)
+close(r0)

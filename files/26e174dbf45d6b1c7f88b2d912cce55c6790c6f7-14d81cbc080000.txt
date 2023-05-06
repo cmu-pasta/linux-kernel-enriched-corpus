@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=26e174dbf45d6b1c7f88b2d912cce55c6790c6f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":true,"vhci":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='memory.current\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x11, r0, 0x0)
+r1 = io_uring_setup(0x71c4, &(0x7f0000000200))
+io_uring_register$IORING_REGISTER_BUFFERS(r1, 0x16, &(0x7f0000000140)=[{&(0x7f0000000000)=""/128, 0x80}], 0x1)

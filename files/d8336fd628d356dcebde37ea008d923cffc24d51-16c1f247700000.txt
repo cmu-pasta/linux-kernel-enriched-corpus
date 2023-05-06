@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d8336fd628d356dcebde37ea008d923cffc24d51
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":false}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+ioctl$SIOCSIFMTU(r0, 0x8922, &(0x7f00000004c0)={'batadv_slave_1\x00', 0x400})

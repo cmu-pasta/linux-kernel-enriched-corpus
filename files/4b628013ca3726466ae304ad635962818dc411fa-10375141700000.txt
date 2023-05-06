@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+syz_emit_ethernet(0x4a, &(0x7f0000000440)={@broadcast, @empty, @void, {@ipv6={0x86dd, @icmpv6={0x0, 0x6, "a0f009", 0x14, 0x3a, 0xff, @dev, @mcast2, {[], @ndisc_ra={0x86, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, [{}, {}]}}}}}}, 0x0) (fail_nth: 2)

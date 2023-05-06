@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6c294537f9de9bb5f89347208d40eee18c5576fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = fork()
+r1 = pidfd_open(r0, 0x0)
+pidfd_send_signal(r1, 0x9, 0x0, 0x0)
+process_mrelease(r1, 0x0)

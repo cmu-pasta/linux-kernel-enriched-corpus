@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$tmpfs(0x0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, 0x0, 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, 0x0, 0x0)
+write$FUSE_STATFS(r2, &(0x7f0000000140)={0x60}, 0x60)
+r3 = socket$kcm(0x29, 0x2, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+socket$kcm(0x2, 0x200000000000001, 0x0)
+r4 = socket$kcm(0x29, 0x2, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+r5 = socket$kcm(0x2, 0x200000000000001, 0x0)
+sendmsg$inet(r5, 0x0, 0x20000811)
+ioctl$sock_kcm_SIOCKCMATTACH(r4, 0x89e0, 0x0)
+sendmsg$inet(r5, 0x0, 0x20000811)
+ioctl$sock_kcm_SIOCKCMATTACH(r3, 0x89e0, 0x0)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f0000000280)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r3}, 0x2c, {[{@access_user}], [], 0x6b}})

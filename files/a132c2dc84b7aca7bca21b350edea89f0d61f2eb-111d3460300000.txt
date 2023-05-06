@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=a132c2dc84b7aca7bca21b350edea89f0d61f2eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = getpgrp(0x0)
+prctl$PR_SET_PTRACER(0x59616d61, r0)
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r1 = gettid()
+clone(0x6cb2e100, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r1)
+ioctl$sock_SIOCGPGRP(0xffffffffffffffff, 0x8904, 0x0)
+setpgid(0x0, 0x0)

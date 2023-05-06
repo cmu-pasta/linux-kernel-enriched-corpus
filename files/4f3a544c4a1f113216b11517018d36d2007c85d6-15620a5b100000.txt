@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket(0x21, 0x1, 0x3)
+sendmsg$AUDIT_TTY_SET(r0, &(0x7f0000000640)={0x0, 0x0, &(0x7f0000000600)={0x0}, 0x1, 0x0, 0x0, 0x4001}, 0x4000804)
+unshare(0x40000000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0xc031, 0xffffffffffffffff, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0xb00000000065808, 0x0)
+socket$inet(0x10, 0x3, 0x0)
+write$cgroup_pid(0xffffffffffffffff, &(0x7f0000000040), 0x12)

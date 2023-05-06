@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=180e282924600527193dc00eb4bffc62920a6401
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true,"devlinkpci":true}
+r0 = socket$can_j1939(0x1d, 0x2, 0x7)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r1, 0x8933, &(0x7f0000000200)={'vcan0\x00', <r2=>0x0})
+bind$can_j1939(r0, &(0x7f0000000240)={0x1d, r2}, 0x18)
+sendmsg$DEVLINK_CMD_PORT_SET(r0, &(0x7f0000000140)={&(0x7f00000000c0)={0x1d}, 0x200000cc, &(0x7f0000000100)={&(0x7f0000000000), 0xffef}}, 0x0)

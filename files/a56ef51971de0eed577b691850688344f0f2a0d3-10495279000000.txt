@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a56ef51971de0eed577b691850688344f0f2a0d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x81b000)=nil, 0x81b000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000002000-0x14)={0x1, 0x87, 0x3, 0x1, 0x5, 0x0, 0xffffffffffff8b7b}, 0x1c)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000006000)={r0, &(0x7f000000e000-0x1000)="", &(0x7f0000009000)="63d9df0dcdf29699dbb8182455b10e52241b6f5a5026ceac47d356108b9b5465ca62a4e567d9a586f309f00d6491ba35c56f0d5db4b7ec3f9af9efb7daad91da1919c21ac8404ebcb14961994569b757f4d85531668bf79b4cea3f69c7f939", 0x0}, 0x20)

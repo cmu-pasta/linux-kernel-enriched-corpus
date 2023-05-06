@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5a978b949b172f67a927db696a70b6ac84088ce2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000740)={0x26, 'skcipher\x00', 0x0, 0x0, 'chacha20-simd\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000000080)="b7f2288a911993f0265df5cf1cdd8b55b062950b86bc01abc8464d4f8a906151", 0x20)
+r1 = accept$alg(r0, 0x0, 0x0)
+write$binfmt_script(r1, &(0x7f00000003c0)={'#! ', './file0', [], 0xa, "62fc15bbb69c3193b6da50da27003b387ed4bac156e2846e7d20d43bf074a19f62f028475b5bc8ec8bb09ee77e024ff6a747f20afc8111f4851216383be51243d3d7c10fd36fcfe62c2fb989589b852f9d236b72b1722aaab99544300370aa746cac2dfbf7c9c204aec6eb8fcc9ac58a0de589448fe9"}, 0x81)
+recvmmsg(r1, &(0x7f000000a280)=[{{0x0, 0x0, &(0x7f0000002200)=[{&(0x7f0000001e40)=""/13, 0xd}, {&(0x7f0000002100)=""/209, 0xd1}], 0x2}}], 0x1, 0x0, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=48ea0bacc7e3b840b26bdee4475f4c2ca215b0fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true,"vhci":true,"wifi":true}
+unshare(0x40000000)
+r0 = socket(0x840000000002, 0x3, 0xff)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, 0x0, 0x0)
+write(0xffffffffffffffff, 0x0, 0x0)
+socket$inet6(0xa, 0x2, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a18dffaab644e1a6f8c7e85ff0e18b6293ba8af6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+mount$9p_unix(&(0x7f0000000000)='\x00', &(0x7f0000000040)='./file0\x00', &(0x7f00000000c0)='9p\x00', 0x0, &(0x7f0000000100)={'trans=unix,'})
+sendto$inet(0xffffffffffffffff, &(0x7f0000e7c000), 0x0, 0x8084, &(0x7f0000319ff0)={0x2, 0x4e20}, 0x10)

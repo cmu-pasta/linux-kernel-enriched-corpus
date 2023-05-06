@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b55ce9ada478a7bc52ff1dc2c11a09d7c1cdd879
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false,"devlinkpci":true}
+r0 = creat(&(0x7f0000000540)='./file0\x00', 0x0)
+fallocate(r0, 0x11, 0x0, 0x7ff800000)

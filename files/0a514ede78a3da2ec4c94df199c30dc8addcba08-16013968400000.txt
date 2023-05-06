@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0a514ede78a3da2ec4c94df199c30dc8addcba08
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f00000001c0)='9p\x00', 0x0, &(0x7f0000000200)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})
+write$P9_RREADDIR(r1, &(0x7f0000000240)=ANY=[@ANYBLOB="0b0000002900008f478b932a3057202234ae5ff3c8ef136e6596a69a6ca89d0328d0a4a3cfe0c5d2630efc29cc6421613cfe5aa7123a8ee0fe548fbe61cd9521db9a75dd97ed3acb143a5fe8ddfa515a6c0932b96ecbbbe1c56bc845014147f3fd63bf1dff05d792a6a2bfdd17990a178332a499bda69e06760d1d1372ba5f19d07a0c1f7ba1fb33a383a6db8a97c63cb0bbbf8ba01f900ce93dc76c6de3bf0f86120e41dc26c6e69b7c3ec838bdbe9bf5d3d7d6a2812e9776d5b944cc7f10ebd693343dd832baf4aa3ccbafcda3436ddea7bb1a75843244e6a6d0aa02826fa084d8ccc32a73115f70a01f1ff2e87ba992053436976066080b"], 0xf9)

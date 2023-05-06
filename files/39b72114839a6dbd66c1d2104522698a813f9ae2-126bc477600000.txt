@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=39b72114839a6dbd66c1d2104522698a813f9ae2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"binfmt_misc":true,"close_fds":false,"tmpdir":true}
+r0 = socket(0x40000000015, 0x5, 0x0)
+setsockopt$SO_TIMESTAMP(r0, 0x1, 0x1d, &(0x7f0000000040)=0x3, 0x4)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x0, &(0x7f000069affb)={0x2, 0x0, @loopback}, 0x10)
+recvmmsg(r0, &(0x7f0000000080), 0xfa, 0x0, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=ANY=[@ANYBLOB="480000001000050700"/20, @ANYRES32, @ANYBLOB="0000000000000000280012000c0001007665746800000000180002001400010000000000", @ANYRES32=0x0, @ANYBLOB], 0x5}}, 0x0)

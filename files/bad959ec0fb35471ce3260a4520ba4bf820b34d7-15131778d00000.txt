@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=bad959ec0fb35471ce3260a4520ba4bf820b34d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xff7fffffffffffff, 0xffffffffffffffff, 0x0)
+rt_tgsigqueueinfo(0x0, 0x0, 0x0, 0x0)
+mkdirat$cgroup_root(0xffffffffffffff9c, 0x0, 0x1ff)
+r0 = syz_open_dev$loop(0x0, 0x75f, 0x103382)
+memfd_create(0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffffff, &(0x7f0000000000)='cpuacct.usage_percpu_sys\x00', 0x0, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/net/tun\x00', 0x6, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000000))
+write$cgroup_subtree(r1, &(0x7f0000000240)=ANY=[], 0xfd45)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)
+waitid(0x1, 0x0, 0x0, 0x2, &(0x7f0000000280))
+sendfile(r0, r0, 0x0, 0x24002da8)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e7cbd9d7047a1c4e14bbdc194a7d87de1f168289
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mmap(&(0x7f0000abb000/0x1000)=nil, 0x1000, 0x0, 0x102000200032, 0xffffffffffffffff, 0x0)
+setsockopt$sock_timeval(0xffffffffffffffff, 0x1, 0x2f, &(0x7f0000abaff9)={0x77359400}, 0x10)

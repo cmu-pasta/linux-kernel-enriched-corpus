@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=04ba5d25ea7f063c1689e824a4935587fead8438
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f00000000c0)={'macvlan0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)=ANY=[@ANYBLOB="7c000000100003050700"/20, @ANYRES32=0x0, @ANYBLOB="09c60000000000004c0012800b0001006970766c616e00003c000280060001000200000006000200000000000600010002000000060001000200000006000100000000000600020002000000060001000000000008000500", @ANYRES32=r2, @ANYBLOB, @ANYRES32=0x0, @ANYBLOB], 0x7c}}, 0x0)

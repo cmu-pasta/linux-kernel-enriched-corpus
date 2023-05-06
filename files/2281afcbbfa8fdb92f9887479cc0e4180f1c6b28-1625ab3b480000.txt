@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2281afcbbfa8fdb92f9887479cc0e4180f1c6b28
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x141843, 0x2)
+truncate(&(0x7f00000000c0)='./file0\x00', 0x400000)
+ioctl$FS_IOC_ENABLE_VERITY(r0, 0x40806685, &(0x7f0000000240)={0x1, 0x1, 0x1000, 0x0, 0x0, 0x0, 0x0, 0x0})

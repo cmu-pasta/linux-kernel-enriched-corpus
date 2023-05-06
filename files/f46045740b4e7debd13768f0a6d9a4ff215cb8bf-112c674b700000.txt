@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f46045740b4e7debd13768f0a6d9a4ff215cb8bf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","close_fds":false,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000180), 0x0, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f0000000240)={0x0, 0x0, 0x0, 0x0, 0x0, "eaffffff090000000000000000000000000053"})
+r1 = syz_open_pts(r0, 0x0)
+ioctl$TCSETSF(r1, 0x5412, &(0x7f0000000000)={0x3, 0x0, 0x0, 0x0, 0x0, "9f896c8819030000000400"}) (fail_nth: 3)

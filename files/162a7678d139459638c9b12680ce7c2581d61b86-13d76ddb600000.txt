@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=162a7678d139459638c9b12680ce7c2581d61b86
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":8,"close_fds":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, 0x0)
+ioctl$TUNSETIFINDEX(r1, 0x400454da, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000400)={'rose0\x00', 0x2})

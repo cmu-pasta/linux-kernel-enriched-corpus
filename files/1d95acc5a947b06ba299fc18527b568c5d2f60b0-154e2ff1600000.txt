@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1d95acc5a947b06ba299fc18527b568c5d2f60b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":4,"fault_nth":6,"close_fds":false}
+r0 = open(&(0x7f0000000000)='./bus\x00', 0x141042, 0x0)
+mmap(&(0x7f0000003000/0x2000)=nil, 0x2000, 0x0, 0x1012, r0, 0x0)
+write$P9_RWALK(r0, 0x0, 0x0)
+write$binfmt_misc(r0, 0x0, 0x0)
+perf_event_open(&(0x7f0000000180)={0x6, 0x70}, 0x0, 0x0, 0xffffffffffffffff, 0x0)

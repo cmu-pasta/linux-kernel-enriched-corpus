@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=41f4318cf01762389f4d1c1c459da4f542fe5153
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000100)={0x0, r0}, 0x10)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000440)={0x11, 0x6, &(0x7f0000000500)=ANY=[@ANYBLOB="050000000000000061110c00000000008510000002000000850000000500000095000000000000009500a505000000007751e8ba63cca555fedbe9d8f3b423cdacfa7e32fe023136f9f65515b0e1a38d8665522be18bd10a48b043ccc42646d25dfd73a015e0ca7fc2506a0f68a7d06d7535f76907dc6751dfb265a0e3ccae669e173a649c1cf97578f4c35235138d5521f9453559c35da860e8efbc6f2b2a3e3173dd661cfeec79c66c54c33283ba58d31a20a2251258f8a97db00fab5e26f5738b5f1dc2dcee9aa881b87bbbbbfa0bb11e17285127aa0295792d13f4b082ccd0d7f6f0ebc4d74cf771d31d3b25d9806f046001a0786b14bfd6563f22473d15d1cb90e98718065fda6032fd9b2140e8cda791878126bfe53d9b2cd00a503dc825bb140184fed8a78bdcff7a171528596c0b5075a84943936a99993a9bf4536a5c5c6774714a82fb68042f476903bc3d244008e3d59fa0520ea4cae80ffde7bdaeae430f2d84a559762bfe442e4d8ca99386be4a85743d6d14b4e1166aaf7eca368c816e"], &(0x7f0000000080)='GPL\x00', 0x5, 0x29e, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x6, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000100)={&(0x7f0000000000)='ext4_es_lookup_extent_exit\x00', r1}, 0x10)
+socket(0x1, 0x2, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c7973e7b3530d01b1864e5b58377116c6bf1c7fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX(r0, 0x84, 0x6e, &(0x7f0000000080)=[@in={0x2, 0x0, @dev}], 0x10)
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(r0, 0x84, 0x1d, &(0x7f0000002240)=ANY=[@ANYBLOB, @ANYRES32=<r1=>0x0], 0x0)
+getsockopt$inet_sctp6_SCTP_PRIMARY_ADDR(r0, 0x84, 0x6d, &(0x7f00000002c0)={r1}, &(0x7f0000000000)=0x3d9)

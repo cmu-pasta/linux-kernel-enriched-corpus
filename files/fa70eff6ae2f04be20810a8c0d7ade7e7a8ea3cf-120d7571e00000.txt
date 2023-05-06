@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=fa70eff6ae2f04be20810a8c0d7ade7e7a8ea3cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":false,"devlinkpci":true}
+syz_mount_image$reiserfs(&(0x7f0000000080)='reiserfs\x00', &(0x7f00000000c0)='./file0\x00', 0x8, 0x0, 0x0, 0x0, &(0x7f0000000040)=ANY=[@ANYBLOB="6a6465763d2e670c979ded9060a11960c9b41d8b"])

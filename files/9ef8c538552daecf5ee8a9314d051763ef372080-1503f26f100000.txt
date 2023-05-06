@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9ef8c538552daecf5ee8a9314d051763ef372080
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+open$dir(&(0x7f0000000000)='./file0\x00', 0x2040, 0x0)
+pipe2$9p(&(0x7f0000000140)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000380)='9p\x00', 0x0, &(0x7f0000000300)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@loose='loose'}]}})

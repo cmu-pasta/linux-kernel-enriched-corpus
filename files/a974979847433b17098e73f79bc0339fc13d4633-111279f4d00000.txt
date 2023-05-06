@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a974979847433b17098e73f79bc0339fc13d4633
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":8,"tun":true,"netdev":true,"close_fds":false,"usb":true,"vhci":true,"tmpdir":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r0, &(0x7f00000001c0)={0x0, 0xffffff9e, &(0x7f0000000140)=[{&(0x7f00000000c0)="2e00000010008188040f80ecdb4cb9cca7480ef43c000000e3bd6efb440e09000e000a000f000000028000001201", 0x2e}], 0x1}, 0x0)

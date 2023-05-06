@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7b765435e0b3227e40a8aab0cca847af63ca637a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mkdir(&(0x7f00005b8000)='./file0\x00', 0x0)
+mount(&(0x7f0000000040)='./file0\x00', &(0x7f0000000000)='./file0\x00', &(0x7f0000000080)='proc\x00', 0x0, &(0x7f0000cde000))
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000280)={&(0x7f0000e4e000)={0x10}, 0xc, &(0x7f0000011000)={&(0x7f00000002c0)=@updsa={0x104, 0x10, 0x1, 0xffffffffffffffff, 0xffffffffffffffff, {{@in6=@local={0xfe, 0x80, [], 0xffffffffffffffff, 0xaa}, @in=@dev={0xac, 0x14}}, {@in6=@empty, 0xffffffffffffffff, 0x3c}, @in=@loopback=0x7f000001, {}, {}, {}, 0xffffffffffffffff, 0xffffffffffffffff, 0xa, 0x2}, [@coaddr={0x14, 0xe, @in=@remote={0xac, 0x14, 0xffffffffffffffff, 0xbb}}]}, 0x104}, 0x1}, 0x0)

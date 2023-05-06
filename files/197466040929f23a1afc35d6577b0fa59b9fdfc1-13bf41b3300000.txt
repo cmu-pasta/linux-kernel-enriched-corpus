@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=197466040929f23a1afc35d6577b0fa59b9fdfc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+semctl$SETALL(0x0, 0x0, 0x11, 0x0)
+perf_event_open(0x0, 0x0, 0xff7fffffffffffff, 0xffffffffffffffff, 0x0)
+r1 = syz_io_uring_setup(0x18b, &(0x7f00000002c0), &(0x7f0000ff9000/0x4000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000540)=<r2=>0x0, &(0x7f0000000100)=<r3=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r2, 0x40, 0x0, 0x0, 0x4)
+syz_io_uring_submit(r2, r3, &(0x7f0000000080)=@IORING_OP_SYNC_FILE_RANGE={0x8, 0x0, 0x0, @fd=r0, 0x0, 0x0, 0x3}, 0x0)
+io_uring_enter(r1, 0x19a2, 0x0, 0x0, 0x0, 0x0)

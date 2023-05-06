@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=089c1dd53efb3c567859b2c7f311421339e17f90
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_sctp(0x2, 0x1, 0x84)
+connect$inet(r0, &(0x7f0000000300)={0x2, 0x0, @initdev}, 0x10)
+listen(r0, 0x100000000009)
+r1 = accept(r0, 0x0, 0x0)
+getsockopt$inet_sctp6_SCTP_SOCKOPT_PEELOFF(r1, 0x84, 0x6d, &(0x7f0000000200), &(0x7f00000000c0)=0x243)

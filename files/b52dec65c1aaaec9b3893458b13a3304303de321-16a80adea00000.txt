@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=b52dec65c1aaaec9b3893458b13a3304303de321
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000040)='/dev/vhci\x00', 0x1)
+write$vhci(r0, &(0x7f0000000000)=@HCI_VENDOR_PKT={0xff, 0x11cc1}, 0x2)
+dup2(0xffffffffffffffff, 0xffffffffffffffff)
+ioctl$KVM_IOEVENTFD(0xffffffffffffffff, 0x4040ae79, &(0x7f0000000080)={0x0, 0x0, 0x6, 0xffffffffffffffff, 0x3})
+ioctl$KVM_IOEVENTFD(0xffffffffffffffff, 0x4040ae79, &(0x7f0000000300)={0x0, 0x0, 0x0, 0xffffffffffffffff, 0xf})
+r1 = memfd_create(0x0, 0x3)
+r2 = syz_open_dev$vcsn(0x0, 0x4, 0x18000)
+ioctl$PPPIOCGL2TPSTATS(r2, 0x80487436, &(0x7f0000000380))
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[@ANYRES32], 0xda4c)

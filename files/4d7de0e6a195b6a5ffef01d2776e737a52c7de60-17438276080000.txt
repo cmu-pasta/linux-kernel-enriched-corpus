@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4d7de0e6a195b6a5ffef01d2776e737a52c7de60
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"vhci":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000180)={0x0, 0x2, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f0000010000/0x18000)=nil, &(0x7f0000000340)=[@text64={0x40, 0x0}], 0x1, 0x0, 0x0, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r2, &(0x7f0000000000/0x18000)=nil, &(0x7f0000000100)=[@text64={0x40, 0x0}], 0x1, 0x0, 0x0, 0x0)
+sendmsg(0xffffffffffffffff, &(0x7f0000000500)={0x0, 0x0, 0x0, 0x0, &(0x7f0000001080)=ANY=[@ANYBLOB="68f3ffffff000000000000000000000061beefd8a71a984dbb567b7068df9e67e02e4ad7a45b3776a79b1d3d0092a501f152d264a5d8560fef8b28f7e8ed990272e902ce5fc0802b18fadcfaa062fed2cae6470e503d3c68eb4c945d2ee1258f2cd9"], 0x68}, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

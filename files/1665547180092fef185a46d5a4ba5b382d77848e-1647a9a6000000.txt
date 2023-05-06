@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1665547180092fef185a46d5a4ba5b382d77848e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xa64000)=nil, 0xa64000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet_sctp(0x2, 0x800000000001, 0x84)
+sendto$inet(r0, &(0x7f0000381000)="c4db83ba8f2ed6d7e705e2bf703eca02b0f16cbef3f4a289c7958cefa1b75ddf182016041b9b75d8ac640a03d8429d109b34dcd4545b9233258c7c102f5f06faf21a38ca597764b6f14ed547eebe01dc7778180730710da0a01c1d85387be84db3ff3561974c96536d89ff36fe7850d8afa11808d6fa1af2154168a749a9fff9df5e2f8a961538e30e261072a45c3bebaefd2b11679ad930792f67", 0x9b, 0x4000, &(0x7f0000a64000-0x10)={0x2, 0x1, @loopback=0x7f000001, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+listen(r0, 0x8)
+accept$inet(r0, &(0x7f0000001000-0x10)={0x0, 0x0, @multicast2=0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, &(0x7f0000001000-0x4)=0x10)

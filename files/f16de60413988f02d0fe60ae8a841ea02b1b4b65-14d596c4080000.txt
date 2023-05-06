@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f16de60413988f02d0fe60ae8a841ea02b1b4b65
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f0000011000/0x18000)=nil, &(0x7f00000008c0)=[@text32={0x20, &(0x7f0000000040)="b8050000000f01c10f46a78900000066ba2100b067ee66ba2000b000ee6d2f2f800000c00f3266bac0000f3066b808008ed0660f38806f000f011c268ee0", 0x3e}], 0x1, 0x0, 0x0, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_SET_IRQCHIP(r1, 0x8208ae63, &(0x7f00000001c0)={0x0, 0x0, @ioapic={0xd000}})
+ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+ioctl$KVM_SET_REGS(r2, 0x4090ae82, &(0x7f0000000440)={[0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2004c7], 0x0, 0x200})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

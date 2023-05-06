@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ee4b8d085d9b5e12ed804fa4a936136609c1a1ab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true}
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f0000000080)={'bpq0\x00', 0x21})
+fstat(0xffffffffffffffff, 0x0)
+fstat(0xffffffffffffffff, 0x0)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, 0x0)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @netrom}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r0, 0x0)

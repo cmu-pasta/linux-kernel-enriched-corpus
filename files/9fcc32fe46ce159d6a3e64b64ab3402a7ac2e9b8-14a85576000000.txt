@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9fcc32fe46ce159d6a3e64b64ab3402a7ac2e9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xef4000)=nil, 0xef4000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000e04000)={0x26, "726e670000000000000000000000", 0x0, 0x0, "737464726e6700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f000053f000)="785eb9f8baa938e3324315c5f59e3240bd88284cc5b0a5d1f0b1bc040476d0e3bc04d8053f764b20cc577b08f729ee66d54714be324e82b2d30df3e333e9665340e0f9d6eddc5379b9e6706739f7480edfa6dfdaa3c66b112543b6ad37cbdfbf3e2622ce09d1ab56a8abeb9633788fc3471b3a64e265ca50f4fe324ac4808ce0f0d1eadd08b316748196e4c9a1", 0x8d)

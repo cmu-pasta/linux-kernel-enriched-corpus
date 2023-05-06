@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3327fb1975fd130ad77d601f4facd655f0b5fa8c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0x0, 0x8002)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+write(r0, &(0x7f0000000100)="b63db85e1e8d040000000000003ef0011dcc606aed69d2bc7037cebc9bc2feffffffffffffffe22c9b160096aa1fae1acfbd6cbf87798a9b02de7a91a3cbdfa009cf75a7eadb2a00", 0x48)

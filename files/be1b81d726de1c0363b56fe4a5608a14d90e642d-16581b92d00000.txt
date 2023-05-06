@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=be1b81d726de1c0363b56fe4a5608a14d90e642d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000000)='nl802154\x00', 0xffffffffffffffff)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NL802154_CMD_NEW_SEC_KEY(r1, &(0x7f0000000880)={0x0, 0x0, &(0x7f0000000840)={&(0x7f0000000a40)=ANY=[@ANYBLOB, @ANYRES16=r0, @ANYBLOB="01000000000004000000170000000c00060001000000010000004000258014000400fb49f0b2b5e21632dcc41481db082be9200001800c000500000000000000000008000100030000000500020000000000050002"], 0x60}}, 0x0)

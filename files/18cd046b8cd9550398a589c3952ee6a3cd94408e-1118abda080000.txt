@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false,"segv":true}
+syz_mount_image$ext4(0x0, &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000280), 0x0, &(0x7f0000003180)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})
+write$binfmt_script(r1, 0x0, 0x1f000)

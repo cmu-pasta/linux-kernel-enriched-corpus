@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d2dce0b24023e5d982f2b6b2df432d72ab87d248
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+clone(0x103, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = syz_genetlink_get_family_id$tipc2(&(0x7f0000001240)='TIPCv2\x00')
+sendmsg$TIPC_NL_PEER_REMOVE(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000000c0)={0x20, r0, 0x1, 0x0, 0x0, {}, [@TIPC_NLA_NET={0xc, 0x7, 0x0, 0x1, [@TIPC_NLA_NET_ADDR={0x4}]}]}, 0x20}}, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$sock_netdev_private(r1, 0x8995, 0x0)
+r2 = getpid()
+sched_setscheduler(0x0, 0x3, 0x0)
+syz_open_procfs(r2, 0x0)
+dup(0xffffffffffffffff)
+syz_genetlink_get_family_id$netlbl_mgmt(0x0)
+setsockopt$inet_sctp6_SCTP_HMAC_IDENT(0xffffffffffffffff, 0x84, 0x16, &(0x7f0000000480)=ANY=[@ANYBLOB="080000007f0001000300d9000010ac0008100000"], 0x14)

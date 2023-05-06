@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9c557bdc7328e1ab4f0325699da821c22e47ab93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xef8000)=nil, 0xef8000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000b4d000-0x30)={0x1, 0x2, &(0x7f0000ef3000)=[@generic={0x8db7, 0x0, 0x0, 0x0}, @generic={0xd395, 0x0, 0x0, 0x0}], &(0x7f0000b4d000)="737973654f00", 0x1, 0x80, &(0x7f000000a000)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x0}, 0x30)
+r1 = socket$kcm(0x29, 0x5, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r1, 0x89e0, &(0x7f0000ef4000)={r1, r0})
+ioctl$sock_kcm_SIOCKCMCLONE(r1, 0x89e2, &(0x7f0000ef7000-0x4)={<r2=>r1})
+sendto$ax25(r2, &(0x7f00006d5000-0x13)="2e6c9b1f669d5ef3f5d367d68f235d021b3573", 0x13, 0x4080, 0x0, 0x0)

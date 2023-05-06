@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=949ecf93b67ab1df8f890571d24ef9db50872c96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+sendmsg$BATADV_CMD_GET_MESH(0xffffffffffffffff, 0x0, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(0xffffffffffffffff, 0x84, 0x1d, 0x0, 0x0)
+write$binfmt_elf64(0xffffffffffffffff, 0x0, 0xfffa)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r0, &(0x7f0000847fff)='X', 0xaebc, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+syz_80211_join_ibss(0x0, 0x0, 0x0, 0x0)

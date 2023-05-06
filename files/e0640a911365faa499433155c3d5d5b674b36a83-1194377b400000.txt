@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e0640a911365faa499433155c3d5d5b674b36a83
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$nl_netfilter(r0, &(0x7f0000dddfc8)={&(0x7f0000000080), 0xc, &(0x7f00008a7000)={&(0x7f0000000000)=ANY=[@ANYBLOB="2c00000004080501ff0080fffdfffe2e0a0000000c00030088ffffff7d0a00010c000200170022ff02f10000"], 0x2c}}, 0x0)

@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+unshare(0x6c060000)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f00000003c0)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0x0, 0x20000004, &(0x7f0000000040)={0xa, 0x4e22}, 0x6d)
+r2 = socket(0x10, 0x3, 0x0)
+r3 = socket(0x11, 0x800000003, 0x0)
+bind(r3, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r3, &(0x7f0000005400)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+sendmsg$nl_route_sched(r2, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000040)={&(0x7f00000001c0)=ANY=[@ANYBLOB="4001000024000b0f00"/20, @ANYRES32=r4, @ANYBLOB="00000000ffffffff000000000a0001006e6574656d00000010010200ca050000b00e0000050000000000000032600c7237d000000000ff000000110002003f48270fbe59f546f36e52e01cef00003a000200fcb1c5b4831e7f8192a57a99530dcd868722a3ae578e9b012234e437fa56824a70a73da12ac3993fbf96fa9e765e86cc18f6587c04bc8173dd74819977"], 0x140}}, 0x0)
+recvfrom$inet6(r1, &(0x7f0000000000)=""/35, 0xffffffffffffff13, 0x100, &(0x7f0000001880)={0xa, 0x0, 0x0, @mcast2}, 0x1c)
+r5 = accept4(r0, 0x0, 0x0, 0x0)
+sendto$inet6(r5, &(0x7f00000000c0), 0xfffffdda, 0x0, 0x0, 0x600000000000004)
+unshare(0x100)
+getpeername(0xffffffffffffffff, &(0x7f0000000080)=@pppol2tpv3in6={0x18, 0x1, {0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0xa, 0x0, 0x0, @local}}}, 0x0)

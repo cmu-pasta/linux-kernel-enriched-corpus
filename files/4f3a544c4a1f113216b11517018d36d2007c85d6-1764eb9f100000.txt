@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4f3a544c4a1f113216b11517018d36d2007c85d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$inet6(0xa, 0x1, 0x0)
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(0xffffffffffffffff, 0x84, 0x64, 0x0, 0x0)
+connect$netrom(0xffffffffffffffff, &(0x7f0000000000)={{0x6, @rose}, [@rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}, @default, @bcast, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @bcast, @bcast]}, 0x48)
+unshare(0x42000200)

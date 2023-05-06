@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=72e05a2f2be6429b4334dcf3a063b8c8f32b45a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$ext4(&(0x7f0000000000)='ext4\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x6, &(0x7f0000000380)=[{&(0x7f0000000040)="200000000002000019000000500100000f000000000000000000000004000000000002000020000020000000d8f4655fd8f4655f0100ffff53ef010001000000d7f4655f000000000000000001000000000000000b0000008000000018000000c20500002b02", 0x66, 0x400}, {&(0x7f0000010100)="0000e3310000000011000000b138543112eb43ac9dbc7e1411f64d55010040", 0x1f, 0x4e0}, {&(0x7f0000010200)="010000000000050040", 0x9, 0x560}, {&(0x7f0000000540)="ff070000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff77f33a494dea43387ace4e871affffffff", 0x9b}, {&(0x7f00000000c0)="504d4d00504d4dff", 0x8, 0x10000}, {0x0, 0x0, 0xfffffffffffffffc}], 0x0, &(0x7f0000000500))
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f00000000c0)={<r0=>0xffffffffffffffff})
+r1 = dup(r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)

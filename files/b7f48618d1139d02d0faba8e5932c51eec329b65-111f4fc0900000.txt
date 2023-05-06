@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b7f48618d1139d02d0faba8e5932c51eec329b65
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+bpf$BPF_BTF_LOAD(0x12, &(0x7f00000001c0)={0x0, &(0x7f0000000300)=""/250, 0x0, 0xfa, 0x8}, 0x20)

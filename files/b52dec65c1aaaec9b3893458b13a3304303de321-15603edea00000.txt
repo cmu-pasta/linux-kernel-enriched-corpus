@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=b52dec65c1aaaec9b3893458b13a3304303de321
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+ioctl$FS_IOC_GETFLAGS(0xffffffffffffffff, 0x80086601, &(0x7f0000000140))
+r0 = syz_open_dev$usbmon(0x0, 0x83, 0x208000)
+ioctl$UI_SET_RELBIT(r0, 0x40045566, 0x1)
+connect$pppoe(0xffffffffffffffff, 0x0, 0x0)
+connect$pppoe(0xffffffffffffffff, 0x0, 0x0)
+r1 = socket$inet6(0xa, 0x400000000001, 0x0)
+close(r1)
+openat$vhci(0xffffffffffffff9c, &(0x7f0000000300)='/dev/vhci\x00', 0x6)
+r2 = open(&(0x7f0000002000)='./bus\x00', 0x141042, 0x0)
+write$P9_RLERRORu(r2, &(0x7f00000000c0)=ANY=[@ANYBLOB="ffc0a42105c95e233e523d13a0e6fce18423737ae8002000000000000000008eb021a65b0000007ee584fb3b6114f90ee4edf5"], 0x33)
+sendfile(r1, r2, 0x0, 0x2)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=03cac969e671adbca500f9737d1a8656c37c24a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000040)={0x2, 'tunl0\x00'}, 0x18)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000180)={0x5, &(0x7f0000000140)=[{0x1, 0x1, 0x100000000, 0x6}, {0xfffffffffffffff7, 0x1, 0x3, 0x7fff}, {0x4, 0xffffffff80000000, 0x79b4, 0x7}, {0x1, 0x73, 0x1, 0x1000}, {0x1, 0x8, 0xa9e, 0x2}]}, 0x10)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f00000001c0)={0x2, 'bridge0\x00', 0x1}, 0x18)

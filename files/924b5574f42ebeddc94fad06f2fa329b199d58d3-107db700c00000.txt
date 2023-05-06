@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=924b5574f42ebeddc94fad06f2fa329b199d58d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket(0x200000000000011, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f00000002c0)={'hsr0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000340)={0x11, 0x0, r1}, 0x14)
+sendto(r0, &(0x7f0000000140)="48e0ffe360b64199c61c9428c61c585526", 0x11, 0x4, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4694bd1c1c0019f067af5b6e14e8ef02431b6b34
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x1e, 0x1, 0x0)
+connect$tipc(r0, &(0x7f0000000000)=@name={0x1e, 0x2, 0x0, {{0x1, 0x1}}}, 0x10)

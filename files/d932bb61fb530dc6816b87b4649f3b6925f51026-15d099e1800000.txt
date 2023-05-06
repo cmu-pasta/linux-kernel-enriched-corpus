@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d932bb61fb530dc6816b87b4649f3b6925f51026
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+syz_open_dev$loop(&(0x7f00009f2000-0xb)='/dev/loop#\x00', 0x0, 0x101086)
+ioctl$LOOP_CHANGE_FD(0xffffffffffffffff, 0x4c00, 0xffffffffffffffff)
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f000066e000)='/dev/loop-control\x00', 0x0, 0x0)
+ioctl$LOOP_CTL_ADD(r0, 0x4c81, 0x0)

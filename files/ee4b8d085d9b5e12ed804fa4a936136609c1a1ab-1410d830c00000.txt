@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=ee4b8d085d9b5e12ed804fa4a936136609c1a1ab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r0, 0x0)
+r1 = accept(r0, 0x0, 0x0)
+accept4(0xffffffffffffffff, 0x0, 0x0, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000100)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+ioctl$TUNSETVNETLE(0xffffffffffffffff, 0x400454dc, &(0x7f0000000140))
+syz_genetlink_get_family_id$tipc(&(0x7f00000001c0)='TIPC\x00')
+sendmsg$TIPC_CMD_SHOW_LINK_STATS(r1, 0x0, 0x800)
+ioctl$DRM_IOCTL_GET_STATS(0xffffffffffffffff, 0x80f86406, &(0x7f00000003c0)=""/238)
+bind$rds(r1, &(0x7f0000000080)={0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x25}}, 0x10)

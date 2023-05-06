@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=28c32728a854fd2c7e43840039842e92ed117f4b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000140)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000fe4000/0x18000)=nil, 0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$KVM_SET_VAPIC_ADDR(r2, 0x4008ae93, &(0x7f0000000080)=0x4)

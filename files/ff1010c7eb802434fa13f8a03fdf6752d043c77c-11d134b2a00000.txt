@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x801, 0x84)
+r1 = dup2(r0, r0)
+sendmsg$nl_netfilter(r1, &(0x7f0000000640)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x8200020}, 0xc, &(0x7f0000000140)={0x0}, 0x1, 0x0, 0x0, 0x4004010}, 0x800)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000cf6fe4)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)

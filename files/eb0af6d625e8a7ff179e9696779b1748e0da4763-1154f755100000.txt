@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=eb0af6d625e8a7ff179e9696779b1748e0da4763
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$ubi_ctrl(0xffffffffffffff9c, &(0x7f0000000080)='/dev/ubi_ctrl\x00', 0x0, 0x0)
+ioctl$ASHMEM_GET_SIZE(r0, 0x40186f40, 0x76006e)
+openat$audio(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$ubi_ctrl(0xffffffffffffff9c, &(0x7f0000000080)='/dev/ubi_ctrl\x00', 0x0, 0x0)
+ioctl$ASHMEM_GET_SIZE(r1, 0x40046f41, 0x76006e)

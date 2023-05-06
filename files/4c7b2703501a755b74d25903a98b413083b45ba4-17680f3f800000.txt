@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4c7b2703501a755b74d25903a98b413083b45ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x1, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f0000000040))
+r1 = syz_open_pts(r0, 0x0)
+write(r0, &(0x7f0000c34fff), 0xffffff0b)
+ioctl$TIOCSSOFTCAR(r1, 0x5412, &(0x7f00000000c0)=0x200000000000)

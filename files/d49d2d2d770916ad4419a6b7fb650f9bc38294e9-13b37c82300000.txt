@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d49d2d2d770916ad4419a6b7fb650f9bc38294e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, &(0x7f0000cab000))
+clone(0x4000010006dfd, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

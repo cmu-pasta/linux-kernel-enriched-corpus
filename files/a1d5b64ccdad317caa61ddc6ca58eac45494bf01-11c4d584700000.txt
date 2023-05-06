@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a1d5b64ccdad317caa61ddc6ca58eac45494bf01
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$smc(&(0x7f0000000280), 0xffffffffffffffff)
+sendmsg$SMC_PNETID_ADD(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000340)={&(0x7f00000002c0)={0x48, r1, 0x1, 0x0, 0x0, {}, [@SMC_PNETID_IBNAME={0x9, 0x3, 'syz2\x00'}, @SMC_PNETID_NAME={0x9, 0x1, 'syz0\x00'}, @SMC_PNETID_IBPORT={0x5}, @SMC_PNETID_ETHNAME={0x14, 0x2, 'macsec0\x00'}]}, 0x48}}, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=8b17c134fe938bbddd75a45afaa9e68af43a362d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":7,"fault_nth":7}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000000))
+getsockopt$SO_TIMESTAMPING(0xffffffffffffffff, 0x1, 0x7, &(0x7f0000000100), &(0x7f0000000140)=0x4)
+r1 = openat$uinput(0xffffffffffffff9c, &(0x7f0000000080)='/dev/uinput\x00', 0x805, 0x0)
+write$uinput_user_dev(r1, &(0x7f0000000400)={'syz1\x00'}, 0x45c)
+ioctl$UI_DEV_SETUP(r1, 0x5501, &(0x7f0000000300)={{}, 'syz0\x00'})
+syz_open_dev$evdev(&(0x7f0000000000)='/dev/input/event#\x00', 0x4, 0x0)
+ioctl$UI_DEV_DESTROY(r1, 0x5502)

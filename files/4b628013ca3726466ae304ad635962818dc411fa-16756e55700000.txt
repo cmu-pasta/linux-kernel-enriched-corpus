@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4b628013ca3726466ae304ad635962818dc411fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+syz_emit_ethernet(0xfffffffffffffe6f, &(0x7f0000000000)={@broadcast, @random="91a20fc0d93c", @val, {@generic={0x0, "7823360edaea43eaf0952ed654b81d87d11ea2da0000000001000000a8f535f867425c1340f75e091a58cf0119474c14136a0d959389a6f60d637f"}}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = creat(&(0x7f0000000040)='./file0\x00', 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000000080)={0x0, 0x2, 0x9, 0x100000001})

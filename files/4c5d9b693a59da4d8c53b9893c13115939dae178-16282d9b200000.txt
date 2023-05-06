@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4c5d9b693a59da4d8c53b9893c13115939dae178
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_generic(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000000c0)={0x14, 0x2002040005e, 0x443}, 0x14}}, 0x0)

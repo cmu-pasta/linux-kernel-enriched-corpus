@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c7973e7b3530d01b1864e5b58377116c6bf1c7fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet_sctp(0x2, 0x1, 0x84)
+sendto$inet(r0, &(0x7f0000000100)='H', 0x1, 0x0, 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_PEER_ADDR_THLDS(r0, 0x84, 0x6d, &(0x7f0000000340), &(0x7f0000000000)=0x2c2)

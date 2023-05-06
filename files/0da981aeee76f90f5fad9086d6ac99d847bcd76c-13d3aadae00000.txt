@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=0da981aeee76f90f5fad9086d6ac99d847bcd76c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+writev(r0, &(0x7f00000001c0)=[{&(0x7f0000000080)="390000001300034700bb65e1c3e4ffff06000000010000005600000025000000190004000400000007fd17e5ffff0606040000000000000000", 0x39}], 0x1)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+r2 = socket(0xa, 0x2, 0x0)
+dup3(r1, r2, 0x0)
+r3 = open(&(0x7f0000b91ff9)='./file0\x00', 0x68042, 0x0)
+setsockopt$inet6_udp_int(r2, 0x11, 0x1, &(0x7f0000000000)=0xff, 0x4)
+fallocate(r3, 0x0, 0xffff, 0x9)
+sendto$inet(r2, 0x0, 0x0, 0x0, &(0x7f0000000040)={0x2, 0x4e20}, 0x10)
+sendfile(r2, r3, 0x0, 0x10001)
+writev(r0, &(0x7f00000001c0)=[{&(0x7f00000000c0)="390000001300034700bb65e1c3e4ffff06000000010000004500000025000000190004000400ad000200000000000006040000000000000000", 0x39}], 0x1)

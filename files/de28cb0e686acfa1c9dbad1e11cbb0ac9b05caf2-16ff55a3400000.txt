@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=de28cb0e686acfa1c9dbad1e11cbb0ac9b05caf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, &(0x7f0000000140)="0adc1f023c123f3188a070")
+r1 = socket$alg(0x26, 0x5, 0x0)
+r2 = accept4(r1, 0x0, 0x0, 0x0)
+sendto$inet6(r2, &(0x7f00000002c0), 0xffffffffffffff94, 0x0, 0x0, 0x0)
+close(r1)
+accept4(r2, &(0x7f0000000180)=@ll={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @dev}, 0x0, 0x0)
+close(r2)

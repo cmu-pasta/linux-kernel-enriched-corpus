@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=537f28ec1a91d00d9567c075b899e68fc1af34fb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$ext4(&(0x7f0000000000)='ext4\x00', &(0x7f0000000100)='./file0\x00', 0x40000, 0x2, &(0x7f0000000200)=[{&(0x7f0000010000)="200000004000000003000000300000000f000000000000000200000002000000008000000080000020000000dcf4655fdcf4655f0100ffff53ef2e", 0x3b, 0x400}, {&(0x7f0000010400)="020000000300000004", 0x9, 0x1000}], 0x0, &(0x7f0000013a00))
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+r1 = ioctl$LOOP_CTL_GET_FREE(r0, 0x4c82)
+ioctl$LOOP_CTL_REMOVE(r0, 0x4c81, r1)

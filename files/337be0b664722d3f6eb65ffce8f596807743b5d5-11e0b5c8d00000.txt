@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=337be0b664722d3f6eb65ffce8f596807743b5d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+ioctl$KDFONTOP_GET(0xffffffffffffffff, 0x4b72, 0x0)
+setsockopt$inet_tcp_TCP_MD5SIG(0xffffffffffffffff, 0x6, 0xe, 0x0, 0x0)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+creat(&(0x7f0000000140)='./bus\x00', 0x0)
+syz_mount_image$cramfs(0x0, 0x0, 0x7, 0x0, 0x0, 0x50000, 0x0)
+mmap(&(0x7f0000200000/0x400000)=nil, 0x519000, 0x0, 0x2012, 0xffffffffffffffff, 0x0)
+mount$bpf(0x0, &(0x7f0000000100)='./bus\x00', &(0x7f0000000180)='bpf\x00', 0x0, 0x0)

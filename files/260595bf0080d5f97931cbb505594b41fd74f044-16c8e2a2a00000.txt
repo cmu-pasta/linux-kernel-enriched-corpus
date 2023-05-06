@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=260595bf0080d5f97931cbb505594b41fd74f044
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":false}
+r0 = socket$packet(0x11, 0x3, 0x300)
+r1 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_fanout(r0, 0x107, 0x12, &(0x7f00000000c0)={0x0, 0x3}, 0x4)
+setsockopt$packet_fanout(r1, 0x107, 0x12, &(0x7f0000000100)={0x0, 0x3}, 0x4)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=be0da4c3e634b07bf0c7027cf842e7125a9c01ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ieee802154(&(0x7f0000000300)='802.15.4 MAC\x00', r0)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$IEEE802154_LLSEC_DEL_KEY(r2, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000280)={0x3c, r1, 0x421, 0x0, 0x0, {}, [@IEEE802154_ATTR_LLSEC_KEY_SOURCE_EXTENDED={0xc, 0x2d, {0x2f9ac7a5e1c5f34e}}, @IEEE802154_ATTR_SHORT_ADDR={0x6, 0x4, 0xffff}, @IEEE802154_ATTR_LLSEC_KEY_MODE={0x5}, @IEEE802154_ATTR_DEV_NAME={0xa, 0x1, 'wpan1\x00'}]}, 0x3c}, 0x1, 0x0, 0x0, 0xc0001}, 0x4054)

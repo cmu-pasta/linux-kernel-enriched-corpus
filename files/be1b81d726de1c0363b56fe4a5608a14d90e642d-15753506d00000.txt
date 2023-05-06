@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=be1b81d726de1c0363b56fe4a5608a14d90e642d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000300)={'macvlan0\x00', <r1=>0x0})
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0xe, &(0x7f0000000040)={&(0x7f0000000100)=@newlink={0x28, 0x10, 0x401, 0x0, 0x0, {0x0, 0x0, 0x0, r1}, [@IFLA_PROTO_DOWN={0x5, 0x27, 0x5}]}, 0x28}, 0x1, 0x0, 0x0, 0x700}, 0x0)

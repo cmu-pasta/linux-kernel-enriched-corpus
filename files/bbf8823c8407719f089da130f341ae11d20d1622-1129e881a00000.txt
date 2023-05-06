@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bbf8823c8407719f089da130f341ae11d20d1622
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000632000)='./file0\x00', 0x0)
+r0 = open(&(0x7f0000032ff8)='./file0\x00', 0x0, 0x0)
+r1 = memfd_create(&(0x7f00000001c0)='\xb3', 0x0)
+write$FUSE_DIRENT(r1, &(0x7f0000000080)=ANY=[], 0x29)
+move_mount(r0, &(0x7f0000000040)='./file0\x00', 0xffffffffffffff9c, &(0x7f0000000100)='./file0\x00', 0x66)
+mmap(&(0x7f0000000000/0x2000)=nil, 0x2000, 0x81, 0x11, r1, 0x0)

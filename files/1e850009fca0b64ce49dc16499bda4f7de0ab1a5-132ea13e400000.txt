@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1e850009fca0b64ce49dc16499bda4f7de0ab1a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000080))
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000080)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TCSETS(r1, 0x40045431, &(0x7f0000000040))
+r2 = syz_open_pts(r1, 0x0)
+ioctl$TIOCEXCL(r2, 0x540c)
+ioctl$TCFLSH(r2, 0x5437, 0x0)
+ioctl$TCSETS(r1, 0x5402, &(0x7f0000000000)={0x0, 0x80, 0x7153, 0x9, 0x533, 0x6, 0xd2, 0x6, 0x17a0, 0x1, 0xec0c, 0xb7c3})
+ioctl$TIOCGPTPEER(r1, 0x5441, 0x66d4)

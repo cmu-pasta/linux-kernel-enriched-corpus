@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$SNDCTL_DSP_GETOSPACE(0xffffffffffffffff, 0x8010500c, &(0x7f0000000080))
+r0 = socket$kcm(0x2b, 0x6, 0x0)
+r1 = openat$ppp(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+ioctl$PPPIOCGFLAGS1(r1, 0x8004745a, &(0x7f0000000140))
+close(r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+bpf$BPF_BTF_LOAD(0x12, 0x0, 0x0)
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+r3 = socket$netlink(0x10, 0x3, 0x0)
+r4 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r4, 0x0, 0x0)
+getsockname$packet(r4, &(0x7f0000000100)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route(r3, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000640)=ANY=[@ANYBLOB="48b000001000050700000000fdffffffffffffff", @ANYRES32=r5, @ANYBLOB], 0x48}}, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000080)=@newtfilter={0x48, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r5, {}, {}, {0xfff2}}, [@filter_kind_options=@f_flower={{0xb, 0x1, 'flower\x00'}, {0x18, 0x2, [@TCA_FLOWER_KEY_IPV6_DST={0x14, 0x10, @loopback}]}}]}, 0x48}}, 0x0)
+clock_gettime(0x0, &(0x7f0000000180))

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=def39b541a4d5fdd258ec710d2a159010c8601f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"binfmt_misc":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_tx_ring(r0, 0x107, 0xd, &(0x7f0000000040)=@req3={0x10000, 0x100000001, 0x10000, 0x1}, 0xe6)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000080)={'bridge_slave_1\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000140)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @remote}, 0x14)
+setsockopt$packet_tx_ring(r0, 0x107, 0xd, &(0x7f0000000100)=@req={0x3, 0x14000000000, 0x1ea000000000}, 0x10)
+sendmmsg(r0, &(0x7f0000008a80), 0x400000000000328, 0x0)

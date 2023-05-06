@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=345d17288acb20f42c7a83874b03d00dd662f8eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$tmpfs(0x0, &(0x7f0000000080)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f0000000180)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+dup(r1)
+mount$9p_fd(0x0, 0x0, 0x0, 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000140), 0x0, &(0x7f00000003c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@fscache}]}})

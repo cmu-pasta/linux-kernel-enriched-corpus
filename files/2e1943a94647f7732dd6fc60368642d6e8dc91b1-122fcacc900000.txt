@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2e1943a94647f7732dd6fc60368642d6e8dc91b1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true}
+syz_emit_vhci(&(0x7f0000000500)=@HCI_EVENT_PKT={0x4, @hci_ev_disconn_logical_link_complete={{0x46, 0x4}}}, 0x3)
+syz_emit_vhci(&(0x7f0000000100)=@HCI_ACLDATA_PKT={0x2, {0xc8, 0x2, 0x0, 0x12}, @l2cap_cid_signaling={{0xe}, [@l2cap_move_chan_rsp={{0xf, 0x6, 0x4}, {0x4, 0x1}}, @l2cap_cmd_rej_unk={{0x1, 0x1f, 0x2}, {0x6}}]}}, 0x17)

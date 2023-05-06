@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a84d6ad70b281bfc5632f272f745104fb43d219d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = add_key$keyring(&(0x7f0000000340)='keyring\x00', &(0x7f0000000380)={0x73, 0x79, 0x7a}, 0x0, 0x0, 0xfffffffffffffffe)
+r1 = add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f00000003c0)={0x73, 0x79, 0x7a}, 0x0, 0x0, r0)
+r2 = add_key$user(&(0x7f0000000040)='user\x00', &(0x7f0000000080)={0x73, 0x79, 0x7a}, &(0x7f00000001c0)="da", 0x1, r1)
+r3 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000180)={0x73, 0x79, 0x7a}, 0x0, 0x0, r1)
+r4 = add_key$user(&(0x7f00003bd000)='user\x00', &(0x7f0000000280)={0x73, 0x79, 0x7a}, &(0x7f0000000440)='\x00', 0x1, r3)
+r5 = add_key$user(&(0x7f0000fc0ffb)='user\x00', &(0x7f0000752ffb)={0x73, 0x79, 0x7a, 0x3}, &(0x7f00003eb000)="b3", 0x1, r3)
+keyctl$dh_compute(0x17, &(0x7f00000006c0)={r4, r5, r2}, &(0x7f0000000540)=""/5, 0x5, &(0x7f0000c61fc8)={&(0x7f0000a3dffa)={'sha512-generic\x00'}})

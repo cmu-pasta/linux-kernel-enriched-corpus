@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=567e207fa9975c5d25899b2783d3e9401b39ed72
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"close_fds":false}
+r0 = socket$inet(0x2b, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e23, @multicast2}, 0x10)
+connect$inet(r0, &(0x7f0000000100)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000040), 0x4)
+setsockopt$inet_mreqsrc(r0, 0x11a, 0x2, &(0x7f0000000140)={@rand_addr=0x3033300, @multicast2, @loopback}, 0x28)
+shutdown(r0, 0x1)

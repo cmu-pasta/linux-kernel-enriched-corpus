@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=aa1e86bb4fac5238108aa80f3988e91fa0cc48db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r0, &(0x7f0000000040)={0xa, 0x4001, 0x0, @ipv4={[], [], @empty}}, 0x1c)
+ppoll(&(0x7f0000000080)=[{r0}], 0x1, 0x0, 0x0, 0x3f00000000000000)

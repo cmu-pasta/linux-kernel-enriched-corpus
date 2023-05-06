@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+prlimit64(0x0, 0x6, &(0x7f0000000180), 0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(0x0, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+syz_io_uring_submit(0x0, 0x0, &(0x7f00000000c0)=@IORING_OP_SENDMSG={0x9, 0x0, 0x0, r1, 0x0, &(0x7f0000000640)={0x0, 0x0, 0x0}}, 0x0)
+io_uring_enter(0xffffffffffffffff, 0x2a6e, 0x0, 0x0, 0x0, 0x0)
+shutdown(r0, 0x1)

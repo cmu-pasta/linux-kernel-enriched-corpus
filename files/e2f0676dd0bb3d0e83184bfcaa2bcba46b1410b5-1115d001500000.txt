@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e2f0676dd0bb3d0e83184bfcaa2bcba46b1410b5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_nth":14,"leak":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"sysctl":true}
+openat$qrtrtun(0xffffffffffffff9c, &(0x7f0000000240)='/dev/qrtr-tun\x00', 0x0)

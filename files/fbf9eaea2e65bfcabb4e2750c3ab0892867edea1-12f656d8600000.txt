@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fbf9eaea2e65bfcabb4e2750c3ab0892867edea1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$inet(0x2, 0x3, 0x2)
+r0 = openat$md(0xffffffffffffff9c, &(0x7f0000000240)='/dev/md0\x00', 0x0, 0x0)
+ioctl$TIOCGPGRP(0xffffffffffffffff, 0x540f, &(0x7f0000000340))
+ioctl$GIO_UNIMAP(0xffffffffffffffff, 0x4b66, 0x0)
+ioctl$BLKPG(r0, 0x932, 0x0)
+openat$md(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+getsockopt$IP_VS_SO_GET_DESTS(0xffffffffffffffff, 0x0, 0x484, 0x0, 0x0)
+modify_ldt$read(0x0, 0x0, 0x0)

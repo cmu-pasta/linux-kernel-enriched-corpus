@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=91e52396168cf2bdd572fe1e1bc0bc645c1c6b40
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:1 FaultNth:5 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+getsockopt$inet_sctp6_SCTP_PRIMARY_ADDR(0xffffffffffffff9c, 0x84, 0x6, &(0x7f0000000600)={0x0, @in6={{0xa, 0x0, 0x0, @loopback={0x0, 0x1}}}}, &(0x7f0000000180)=0xb7)
+kexec_load(0x0, 0x7, &(0x7f00000005c0), 0x0)

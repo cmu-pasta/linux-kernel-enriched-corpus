@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a2176c353f66aa0dab0a37c901fb010771a9c3b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$xdp(0x2c, 0x3, 0x0)
+ppoll(&(0x7f0000000280)=[{r0}], 0x1, 0x0, 0x0, 0x0)

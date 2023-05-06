@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ff9ab4a23afa7553fb79f745a92be87ba4144508
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080)='/dev/nullb0\x00', 0x4002, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r0, 0x0)
+ioctl$BLKROSET(r0, 0x125d, &(0x7f0000000140)=0xd3)

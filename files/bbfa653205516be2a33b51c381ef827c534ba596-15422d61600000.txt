@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=bbfa653205516be2a33b51c381ef827c534ba596
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f0000ef8cfd)={0xa, 0x1001000004e23, 0x0, @loopback}, 0x1c)
+listen(r0, 0x4)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX_OLD(r1, 0x84, 0x6b, &(0x7f0000000000)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)
+write(r1, &(0x7f0000000100), 0x1ede5)
+setsockopt$SO_BINDTODEVICE(r1, 0x1, 0x19, &(0x7f0000000180)='vcan0\x00', 0x10)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3c5f3a8f9011e7dbba102bb0ad7738de16df73be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$sg(&(0x7f0000791000-0x9)="2f6465762f73672300", 0x1, 0x1a3001)
+ioctl(r0, 0x4000000002283, &(0x7f0000883000)="12")
+write$tun(r0, &(0x7f0000515000)=@hdr={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @ipv4={{0x6, 0x4, 0x0, 0x0, 0xbd, 0x0, 0x0, 0x0, 0x0, 0x0, @rand_addr=0x0, @remote={0xac, 0x14, 0x0, 0xbb}, {[@end={0x0}]}}, @igmp={0x37, 0x0, 0x0, @local={0xac, 0x14, 0x0, 0xaa}, "a879c6c0ee09f63f13ab22c1855978d43fcfce0c8ad4159e233466c47c4a0cbf54c14e8a750118849a3238da9243a6837672c731afad868e0183ccef889e7054c8e4837f25a2a98dea7dc65f3850b11531a194f0aed29144faf3230a4fe276952610677019242c1d3e2f4545b6ef6e023979497e829662716172d4de51cb955a5f7e721ae44f68a6aa26db4b62ba933a03afe6ff885c96ce4d0847864f"}}}, 0xc7)

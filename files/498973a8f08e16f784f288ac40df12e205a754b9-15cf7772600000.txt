@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=498973a8f08e16f784f288ac40df12e205a754b9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000001480)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+r1 = openat$vsock(0xffffffffffffff9c, 0x0, 0x14080, 0x0)
+setsockopt$inet_sctp6_SCTP_RECVNXTINFO(r1, 0x84, 0x21, 0x0, 0x0)
+write$P9_RWSTAT(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000180)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000140)={<r2=>0xffffffffffffffff}, 0x13f, 0xffffffffffffffff}}, 0x20)
+write$RDMA_USER_CM_CMD_BIND(r0, &(0x7f0000000000)={0x14, 0x88, 0xfa00, {r2, 0x10, 0x0, @in={0x2, 0x0, @remote}}}, 0x90)
+write$RDMA_USER_CM_CMD_LISTEN(r0, &(0x7f00000000c0)={0x7, 0x8, 0xfa00, {r2}}, 0x10)

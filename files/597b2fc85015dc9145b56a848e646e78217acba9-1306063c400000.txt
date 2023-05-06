@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=597b2fc85015dc9145b56a848e646e78217acba9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)="7461736b007bc69d494c9f65f3b084e202a47b845732930545eac90c901a3094b8fe22de36f0d85ae8ed6cf33657b87939600f316d9207fef2affca874ab2970005b201ac657862684e017ca2d02b4e7eecb5dbbe28425dfd4f3e8d16ad62c9faa667d1be6f4550d41861a4ee765a004d1f56bd1692912ca861ee315a57ec3235299fcdf532fce597402296c9ccd54bb43653cef30e1a118788256f8f4ec3567e8821c44a734babbe7250da2cc5a872b3bda93ccd543425d18dc617d7f6abfbfa0c66dbcc69f753894ee34")
+getdents64(r0, &(0x7f0000001380)=""/4096, 0x1000)
+fcntl$notify(r0, 0x402, 0x31)
+exit(0x0)

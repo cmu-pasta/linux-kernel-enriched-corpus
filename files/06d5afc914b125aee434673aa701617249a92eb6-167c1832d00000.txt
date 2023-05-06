@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=06d5afc914b125aee434673aa701617249a92eb6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$netlink(r0, &(0x7f0000003c80)={0x0, 0x0, &(0x7f0000003800)=[{&(0x7f0000002740)={0x14, 0x24, 0x1, 0x0, 0x0, "", [@nested={0x4}]}, 0x14}], 0x1}, 0x0)

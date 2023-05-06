@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1ac7a7a8440522302ccb634ba69f8e1e6f203902
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$loop(&(0x7f00000000c0)='/dev/loop#\x00', 0x0, 0x182)
+r1 = memfd_create(&(0x7f0000000100)='t\bnu\x00\x00\x00\x00\x00\x00\x00\x00\x00\x8c\x00', 0x0)
+pwritev(r1, 0x0, 0x0, 0x81805)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)

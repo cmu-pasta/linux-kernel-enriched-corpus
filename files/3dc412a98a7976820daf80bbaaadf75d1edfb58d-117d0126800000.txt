@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3dc412a98a7976820daf80bbaaadf75d1edfb58d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:4 FaultNth:1 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+seccomp(0x0, 0x0, &(0x7f0000045000-0x10)={0x0, &(0x7f0000000000)=[]})
+r0 = syz_open_dev$binder(&(0x7f0000001000)="2f6465762f62696e6465722300", 0x0, 0x0)
+r1 = epoll_create(0x10001)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000337000-0xc)={0x0, 0x0})

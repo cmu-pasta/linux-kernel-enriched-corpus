@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=132191a7dbc356c4e9e10c804f613fb69db71252
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f0000000000)=0x1, 0x4)
+connect$inet(r0, &(0x7f00000001c0)={0x2, 0x0, @local}, 0x10)
+listen(r0, 0x0)
+setsockopt$inet_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f00000000c0)='tls\x00', 0x4)
+setsockopt$inet_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000040)=@gcm_256={{0x303}, "eeb18b014090761e", "c8abee46a530752fe83b9a1848055d8b56dded1712a509dac23352bce5a4f85d", "6c4da567"}, 0x38)
+writev(r0, &(0x7f0000000100)=[{&(0x7f0000000280)='X', 0x1}], 0x1)

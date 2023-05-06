@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=420258a304e5d92cfef6b0097f87b42506e1db08
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+syz_mount_image$ext4(&(0x7f0000000000)='ext4\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x5, &(0x7f0000000300)=[{&(0x7f0000010000)="200000004000000003000000290000000f000000000000000200000002000000008000000080000020000000d3f4655fd3f4655f0100ffff53ef010001000000d3f4655f000000000000000001000000000000000b00000080000000080000005247", 0x62, 0x400}, {&(0x7f0000000040)="010000000000050008", 0x9, 0x560}, {&(0x7f0000000080)="020000001200000022", 0x9, 0x1000}, {&(0x7f0000011a00)="504d4d00504d4dff", 0x8, 0x8000}, {0x0, 0x0, 0x22080}], 0x0, &(0x7f0000000280)={[{@lazytime='lazytime'}, {@grpid='grpid'}, {@lazytime='lazytime'}, {@jqfmt_vfsv0='jqfmt=vfsv0'}, {@noblock_validity='noblock_validity'}, {@commit={'commit', 0x3d, 0x7}}]})

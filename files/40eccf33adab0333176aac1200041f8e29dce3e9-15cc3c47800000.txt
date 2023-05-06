@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40eccf33adab0333176aac1200041f8e29dce3e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000223fd4)=[@in={0x2, 0x4e20, @loopback=0x7f000001}], 0x10)
+syz_emit_ethernet(0x66, &(0x7f00000f8000)={@random="cd390b081bf2", @dev={[0xaa, 0xaa, 0xaa, 0xaa]}, [], {@ipv6={0x86dd, {0x0, 0x6, "08de06", 0x30, 0x3a, 0x0, @ipv4={[], [0xff, 0xff], @multicast2=0xe0000002}, @mcast2={0xff, 0x2, [], 0x1}, {[], @icmpv6=@pkt_toobig={0x2, 0x0, 0x0, 0x0, {0x0, 0x6, "9433df", 0x0, 0x3a, 0x0, @loopback={0x0, 0x1}, @loopback={0x0, 0x1}}}}}}}}, 0x0)

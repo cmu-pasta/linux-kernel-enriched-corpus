@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=03cac969e671adbca500f9737d1a8656c37c24a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+setsockopt$inet_sctp_SCTP_EVENTS(0xffffffffffffffff, 0x84, 0xb, &(0x7f0000001100)={0x6, 0xffffffffffffff81, 0x800, 0x7, 0x3, 0x10000, 0x7fffffff, 0x100000001, 0x7b, 0xfffffffffffffffa, 0x6}, 0xb)
+r0 = socket$inet(0x2, 0x3, 0x3)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000040)={0x2, 'lo\x00', 0x3}, 0x18)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000000)={0x2, 'bond_slave\x00'}, 0x18)

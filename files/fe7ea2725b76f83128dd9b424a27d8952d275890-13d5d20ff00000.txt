@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=fe7ea2725b76f83128dd9b424a27d8952d275890
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_io_uring_setup(0x2367, &(0x7f0000000100), &(0x7f00005a1000/0x1000)=nil, &(0x7f0000b13000/0x3000)=nil, &(0x7f0000000040)=<r0=>0x0, 0x0)
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x2, 0x31, 0xffffffffffffffff, 0x0)
+r1 = userfaultfd(0x80001)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f0000000000))
+ioctl$UFFDIO_REGISTER(r1, 0xc020aa00, &(0x7f0000000080)={{&(0x7f00000e2000/0xc00000)=nil, 0xc00000}, 0x1})
+syz_io_uring_submit(r0, 0x0, 0x0, 0x0)
+ioctl$UFFDIO_UNREGISTER(r1, 0x8010aa01, &(0x7f00000000c0)={&(0x7f000039e000/0x2000)=nil, 0x2000})

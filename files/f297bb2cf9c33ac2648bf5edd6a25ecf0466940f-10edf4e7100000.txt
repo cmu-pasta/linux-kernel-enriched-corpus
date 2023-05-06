@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=f297bb2cf9c33ac2648bf5edd6a25ecf0466940f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+sendmsg$ETHTOOL_MSG_LINKSTATE_GET(0xffffffffffffffff, 0x0, 0x4008000)
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffffff, 0x8933, 0x0)
+ioctl$sock_SIOCGIFVLAN_ADD_VLAN_CMD(r0, 0x8982, 0x0)
+setsockopt$inet_tcp_TCP_CONGESTION(0xffffffffffffffff, 0x6, 0xd, 0x0, 0x0)
+setsockopt$inet_MCAST_MSFILTER(0xffffffffffffffff, 0x0, 0x30, 0x0, 0x0)
+openat$qrtrtun(0xffffffffffffff9c, &(0x7f0000000140)='/dev/qrtr-tun\x00', 0x100)
+r1 = socket$qrtr(0x2a, 0x2, 0x0)
+connect$qrtr(r1, &(0x7f0000000040)={0x2a, 0xffffffff, 0xfffffffe}, 0xc)

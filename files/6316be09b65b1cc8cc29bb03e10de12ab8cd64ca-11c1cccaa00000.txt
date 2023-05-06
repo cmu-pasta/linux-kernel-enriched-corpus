@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=6316be09b65b1cc8cc29bb03e10de12ab8cd64ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+bind$inet6(r0, &(0x7f0000000100)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0x0, 0x20000004, &(0x7f000031e000)={0xa, 0x4e22}, 0x1c)
+recvfrom$inet6(r1, 0x0, 0x0, 0x100, 0x0, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(0xffffffffffffffff, 0x1000008912, 0x0)
+sendto$inet6(r1, &(0x7f0000000200)="c5eed7610f88e268cad0b4772130a9c795067e5dc74e43a210edb01e9242288e5e32d527c480227801b79d5c7cc1de6e482747ecef07472d44bea4f899f336ee68fc629ac49c87bee266ee806cc6bf05c1144892770e861e18cc4bcf08a94ab83d869cfb0b1c5b40ae1443c562849d2be30170c0f444a1ff592883a1b6f9eef05f2beba335a223a9d4997392b7b239a19477e55b77cc5030a9144cde6a7601269e3fbad755e8b7e850fc87fdbe030ba19adebcfb8fbf93e0c4588a4c43f51c587023b50aea3cc195af20dcc6863c5a4b48061a6fda4a3c10a88246952a998a2702436ceebd8ed764e35c258d94348e0c03856eb208066f2671ae8d06", 0xfc, 0x0, 0x0, 0x0)
+r2 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$TIPC_CMD_ENABLE_BEARER(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)={0x34, 0x0, 0x18, 0x70bd2d, 0x25dfdbfd, {{}, 0x0, 0x4101, 0x0, {0x18, 0x17, {0x1, 0x1, @udp='udp:syz1\x00'}}}, ["", "", "", ""]}, 0x34}, 0x1, 0x0, 0x0, 0x20004001}, 0x10)

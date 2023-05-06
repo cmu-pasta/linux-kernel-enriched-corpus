@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0f2f82c0d4d0713abbe4da0cfd86c4f04bb80e1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$dspn(&(0x7f0000007000-0xa)='/dev/dsp#\x00', 0x1, 0x2)
+write(r0, &(0x7f000000c000)="", 0xfe51)
+ioctl$int_in(r0, 0x800000c0045006, &(0x7f0000004000-0x8)=0x7f)
+setsockopt$inet_udp_encap(r0, 0x11, 0x64, &(0x7f0000ba8000)=0x2, 0x4)

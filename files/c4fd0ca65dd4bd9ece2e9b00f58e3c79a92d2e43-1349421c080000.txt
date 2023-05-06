@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c4fd0ca65dd4bd9ece2e9b00f58e3c79a92d2e43
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","leak":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x2, 0x3a)
+setsockopt$inet6_opts(r0, 0x29, 0x37, &(0x7f0000000200)=@dstopts, 0x8)

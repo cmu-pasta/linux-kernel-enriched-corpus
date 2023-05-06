@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e925f35f91b20fb565507134085b4d65824e5eb0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"segv":true}
+r0 = syz_open_dev$loop(0x0, 0x0, 0x82)
+r1 = memfd_create(&(0x7f0000000100)="74086e750000000000000000008c00", 0x0)
+pwritev(r1, &(0x7f0000000340)=[{&(0x7f0000000040)='\'', 0x1}], 0x1, 0x81805)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+sendfile(r0, r0, 0x0, 0x2000005)
+r2 = syz_open_dev$loop(&(0x7f0000000080)='/dev/loop#\x00', 0x0, 0x0)
+fsetxattr$security_capability(r2, &(0x7f0000000000)='security.capability\x00', &(0x7f00000002c0)=@v3={0x3000000, [{0x3, 0x800}, {0x7, 0x4}]}, 0x18, 0x1)

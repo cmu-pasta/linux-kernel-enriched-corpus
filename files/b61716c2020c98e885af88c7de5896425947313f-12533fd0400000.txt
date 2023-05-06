@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b61716c2020c98e885af88c7de5896425947313f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0xffffffffffffffff)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000100)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000300)='fuse\x00', 0x0, &(0x7f0000000400)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x4000}, 0x2c, {'user_id'}, 0x2c, {'group_id'}})
+read$FUSE(r0, &(0x7f0000001000), 0x1000)
+removexattr(&(0x7f0000000040)='./file0/file1\x00', &(0x7f0000000080)=@known='security.ima\x00')
+write$FUSE_INIT(r0, &(0x7f0000000180)={0x50, 0x0, 0x1, {0x7, 0x1b, 0x0, 0xffffffffffffffff, 0x1, 0x5, 0xfffffffffffffffe}}, 0x50)

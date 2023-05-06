@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9aa77c5df165b60047a305ea76224bbe6862b47d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+sendmmsg$inet(r0, &(0x7f0000001d00)=[{{0x0, 0x0, &(0x7f0000001740)=[{0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0, 0xffffff7f}], 0x9}}], 0x1, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=548715a620e3431f354833696735b51b6f043b0d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_open_procfs$namespace(0x0, 0x0)
+getpid()
+bpf$MAP_CREATE(0xd00000000000000, &(0x7f0000000000)={0x6, 0x4, 0x20000000007ffd, 0x7b}, 0x40)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)

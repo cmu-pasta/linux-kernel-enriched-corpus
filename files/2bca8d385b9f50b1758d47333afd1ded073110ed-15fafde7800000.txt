@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2bca8d385b9f50b1758d47333afd1ded073110ed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x1e, 0x802, 0x0)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000080)=@req3={0x80000000, 0x0, 0x2, 0x3ff}, 0x1c)
+recvmsg$kcm(r0, &(0x7f0000000400)={&(0x7f00000000c0)=@rc, 0x80, &(0x7f00000002c0)=[{&(0x7f0000000140)=""/216, 0xd8}, {&(0x7f0000000240)=""/92, 0x5c}], 0x2, &(0x7f0000000300)=""/244, 0xf4, 0x40}, 0x2002)

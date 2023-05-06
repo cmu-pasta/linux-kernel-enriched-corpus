@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ebeba334a8a886e3d5dc25641e201e894d4d9657
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"resetnet":true}
+r0 = socket$inet(0x10, 0x3, 0x6)
+sendmsg(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f00000000c0)=[{&(0x7f00000001c0)="24000000240007031dfffd946fa2830020200a0009000300001d85680c1ba3a20400ff7e280000001100ffffba16a0aa1c0009b3ebea8653b1cc7e63975c8ac47b2f5a815d31b653aaa6060b", 0x4c}], 0x1}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f000014f000)={0x0, 0x0, &(0x7f00000bfff0)={&(0x7f0000006440)=@updpolicy={0xb8, 0x19, 0x1, 0x0, 0x0, {{@in6=@mcast1, @in=@multicast1, 0x0, 0x0, 0x0, 0x0, 0xa, 0x430}, {0x2f00000000000000}}}, 0xb8}}, 0x0)

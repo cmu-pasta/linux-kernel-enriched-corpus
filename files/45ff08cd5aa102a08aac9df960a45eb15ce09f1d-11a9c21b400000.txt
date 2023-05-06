@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=45ff08cd5aa102a08aac9df960a45eb15ce09f1d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$inet6(0xa, 0x6, 0x0)
+bind$inet6(r0, &(0x7f0000000140)={0xa, 0x0, 0x0, @dev={0xfe, 0x80, [], 0xf}, 0x3}, 0x1c)
+connect$inet6(r0, &(0x7f0000419000)={0xa, 0x4e20, 0x0, @dev={0xfe, 0x80, [0x700000000000000, 0x0, 0xe00000000000000], 0xf}}, 0x1c)

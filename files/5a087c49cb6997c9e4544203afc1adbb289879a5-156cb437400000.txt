@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5a087c49cb6997c9e4544203afc1adbb289879a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$inet6_opts(r0, 0x29, 0x36, &(0x7f00000000c0)=@routing, 0x8)
+connect$inet6(r0, &(0x7f0000002740)={0xa, 0x0, 0x0, @dev, 0x4}, 0x79)
+sendmmsg(r0, &(0x7f0000007e00), 0x136a88c8311572c, 0x0)

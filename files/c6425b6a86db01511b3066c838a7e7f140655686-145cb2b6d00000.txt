@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c6425b6a86db01511b3066c838a7e7f140655686
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"ieee802154":true,"tmpdir":true}
+r0 = io_uring_setup(0x241f, &(0x7f0000000040)={0x0, 0x0, 0x2})
+io_uring_enter(r0, 0xe52, 0x7354, 0x1, 0x0, 0x0)
+timer_create(0x0, &(0x7f0000044000)={0x0, 0x12}, &(0x7f0000000400))
+timer_settime(0x0, 0x0, &(0x7f000006b000)={{0x0, 0x8}, {0x0, 0x1c9c380}}, 0x0)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, 0x0, 0x0)
+r1 = gettid()
+tkill(r1, 0x16)

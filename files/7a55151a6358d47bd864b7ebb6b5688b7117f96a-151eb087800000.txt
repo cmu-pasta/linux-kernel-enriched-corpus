@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7a55151a6358d47bd864b7ebb6b5688b7117f96a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet6(0xa, 0x2000000000001, 0x0)
+setsockopt$sock_int(r0, 0x1, 0xf, &(0x7f0000687000)=0x5c802861, 0x4)
+bind$inet6(r0, &(0x7f0000402000)={0xa, 0x4e20, 0x0, @loopback={0x0, 0x1}}, 0x1c)
+sendto$inet6(r0, &(0x7f00007a8fff), 0x0, 0xfffffefffffffffe, &(0x7f0000f62fe4)={0xa, 0x4e20, 0x0, @loopback={0x0, 0x1}}, 0x1c)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000000000)={'lo\x00'})
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000001d40)={'lo\x00', 0xfff})
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r2, &(0x7f0000fcfff0)={0x2, 0x4e20, @multicast1=0xe0000001}, 0x10)

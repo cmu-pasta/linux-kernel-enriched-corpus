@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=65d461e9e0fdc015733f998034365d8c8112da95
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x800000003, 0x8)
+sendmsg$nl_route_sched(r0, &(0x7f0000000340)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x400}, 0xc, 0x0, 0x1, 0x0, 0x0, 0x8044}, 0x4850)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r1, 0x6, 0x80000000000002, &(0x7f0000000040)=0x76, 0x4)
+bind$inet(r1, &(0x7f0000000280)={0x2, 0x4e23, @broadcast}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000480)={0x1, &(0x7f0000000100)=[{0x6, 0x0, 0x0, 0xeb}]}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+quotactl(0x1, 0x0, 0xffffffffffffffff, 0x0)
+setsockopt$inet_tcp_TCP_CONGESTION(r1, 0x6, 0xd, &(0x7f00000007c0)='bbr\x00', 0x4)
+sendto$inet(r1, &(0x7f00000012c0)="0c268a927f1f6588b967481241ba7860ac5cf65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0xfe6a, 0x20c49a, 0x0, 0x27)

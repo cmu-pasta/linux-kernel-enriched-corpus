@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f62d236e2fceaeb104f4e8f77d2324ef9da4b41b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+sendto$inet6(r0, &(0x7f00000000c0), 0x0, 0x0, &(0x7f0000000040)={0xa, 0x0, 0x3, @mcast1={0xff, 0x1, [], 0x1}}, 0x1c)

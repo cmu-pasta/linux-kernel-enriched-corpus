@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0dfceac3d4e276d5f43994bef92b8231ecd3ba25
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_sctp(0x2, 0x8000000000000001, 0x84)
+setsockopt$inet_sctp_SCTP_AUTH_KEY(r0, 0x84, 0x13, 0xffffffffffffffff, 0x8)

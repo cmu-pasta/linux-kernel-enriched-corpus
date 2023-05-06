@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$IPCTNL_MSG_TIMEOUT_DEFAULT_GET(0xffffffffffffffff, 0x0, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl80211(0x0, 0xffffffffffffffff)
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, 0x0, 0x0)
+syz_80211_join_ibss(&(0x7f0000000140)='wlan1\x00', 0x0, 0x0, 0x2)
+socket$key(0xf, 0x3, 0x2)

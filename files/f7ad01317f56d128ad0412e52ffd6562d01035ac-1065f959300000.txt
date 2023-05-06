@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=f7ad01317f56d128ad0412e52ffd6562d01035ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_TREAD(r0, 0x40045402, &(0x7f0000000140)=0x1)
+fcntl$setstatus(r0, 0x4, 0x2800)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r0, 0x40345410, &(0x7f0000000100)={{0x1}})
+ioctl$SNDRV_TIMER_IOCTL_PARAMS(r0, 0x40505412, &(0x7f0000000440)={0x0, 0x20000006, 0x0, 0x0, 0xd})
+ioctl$SNDRV_TIMER_IOCTL_START(r0, 0x54a0)
+r1 = signalfd(0xffffffffffffffff, &(0x7f00007aeff8), 0x8)
+mkdir(&(0x7f00000000c0)='./control\x00', 0x0)
+close(r1)
+r2 = inotify_init1(0x0)
+fcntl$setstatus(r1, 0x4, 0x43c00)
+inotify_add_watch(r2, &(0x7f0000000140)='./control\x00', 0xa7000be2)
+open(&(0x7f0000000080)='./control\x00', 0x0, 0x0)

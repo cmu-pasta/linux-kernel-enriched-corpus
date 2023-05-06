@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1b726e0a253ee75e902d090f68705da3d42d6ae0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = syz_open_dev$dspn(&(0x7f0000000040)='/dev/dsp#\x00', 0x1, 0x0)
+mknod(&(0x7f0000000540)='./file0\x00', 0x1040, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000080)='9p\x00', 0x800000, &(0x7f00000000c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c, {[{@access_user='access=user', 0x2c}, {@cache_fscache='cache=fscache', 0x2c}, {@debug={'debug', 0x3d, 0x3}, 0x2c}, {@posixacl='posixacl', 0x2c}]}})
+readv(r0, &(0x7f0000000480)=[{&(0x7f00000003c0)=""/131, 0x83}], 0x1)
+ioctl$int_in(r0, 0x80000000005001, &(0x7f0000003ff8))

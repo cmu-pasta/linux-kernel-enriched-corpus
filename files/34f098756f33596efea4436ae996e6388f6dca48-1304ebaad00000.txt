@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=34f098756f33596efea4436ae996e6388f6dca48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+io_uring_setup(0x2999, &(0x7f0000000000)={0x0, 0x0, 0x2})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bc195cf62ac17381792072c72a692bf133c528d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+sched_setattr(0x0, &(0x7f0000000080)={0x0, 0x6, 0x0, 0x0, 0x0, 0x8000000009917, 0x400000000000fffd}, 0x0)
+r0 = open(&(0x7f0000000080)='./bus\x00', 0x1fe, 0x0)
+write$binfmt_aout(r0, &(0x7f0000000240)=ANY=[@ANYBLOB="9c54e77725323be48b2b5805a726de154f3834df220008fb9b159852"], 0x1c)
+sendfile(r0, r0, &(0x7f0000000000), 0x8080fffffffe)

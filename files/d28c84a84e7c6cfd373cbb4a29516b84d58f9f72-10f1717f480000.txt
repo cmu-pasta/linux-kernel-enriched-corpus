@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d28c84a84e7c6cfd373cbb4a29516b84d58f9f72
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x100000b, 0x31, 0xffffffffffffffff, 0x0)
+process_vm_writev(0x0, 0x0, 0x0, &(0x7f0000121000)=[{0x0}], 0x1, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

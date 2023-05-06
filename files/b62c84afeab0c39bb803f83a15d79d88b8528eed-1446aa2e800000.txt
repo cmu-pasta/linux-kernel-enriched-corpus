@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b62c84afeab0c39bb803f83a15d79d88b8528eed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+getsockopt$SO_PEERCRED(0xffffffffffffffff, 0x1, 0x11, &(0x7f000017b000)={<r0=>0x0, 0x0, 0x0}, 0xc)
+r1 = syz_open_procfs(r0, &(0x7f00008b5000)="617474722f63757272656e7400")
+write$eventfd(r1, &(0x7f0000ffd000-0x8)=0xfffffffffffffff3, 0x8)

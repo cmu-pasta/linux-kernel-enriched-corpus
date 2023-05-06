@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cc7bc687e2a27a595a9e5a86e0f820f3d06b74a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000040)={'syz_tun\x00'})
+syz_emit_ethernet(0x32, &(0x7f0000000000)={@local, @link_local, [], {@ipv4={0x800, {{0x7, 0x4, 0x0, 0x0, 0x24, 0x0, 0x0, 0x0, 0x0, 0x0, @remote={0xac, 0x223}, @local, {[@lsrr={0x83, 0x3, 0x5ef}, @ssrr={0x89, 0x3, 0x4}]}}, @igmp={0x0, 0x0, 0x0, @broadcast}}}}}, 0x0)

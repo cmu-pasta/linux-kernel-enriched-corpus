@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=1a97a5bd119fd97995f752819fd87840ab9479a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+getsockopt$inet_sctp6_SCTP_RECVNXTINFO(0xffffffffffffffff, 0x84, 0x21, &(0x7f0000000200), &(0x7f0000000240)=0x4)
+fgetxattr(0xffffffffffffffff, &(0x7f0000000400)=@known='system.sockprotoname\x00', &(0x7f0000000440)=""/246, 0xf6)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDR_INFO(0xffffffffffffffff, 0x84, 0xf, &(0x7f0000000040)={<r0=>0x0, @in={{0x2, 0x4e23, @loopback=0x7f000001}}, 0x3, 0x6, 0x7f, 0x797, 0x69}, &(0x7f0000000100)=0x98)
+setsockopt$inet_sctp6_SCTP_RECONFIG_SUPPORTED(0xffffffffffffffff, 0x84, 0x75, &(0x7f0000000140)={r0, 0x7ff}, 0x8)
+fsetxattr(0xffffffffffffffff, &(0x7f0000000180)=@known='system.advise\x00', &(0x7f00000001c0)='system.sockprotoname\x00', 0x15, 0x2)
+ioctl$int_in(0xffffffffffffffff, 0x5452, &(0x7f0000000280)=0xc81d)
+r1 = socket$inet6(0xa, 0x80003, 0xff)
+connect$inet6(r1, &(0x7f0000000180)={0xa, 0x0, 0x0, @mcast1={0xff, 0x1, [], 0x1}, 0x4}, 0x1c)
+sendmmsg(r1, &(0x7f0000001300)=[{{0x0, 0x0, &(0x7f0000001180), 0x240, &(0x7f00000011c0)}}], 0x249, 0x0)
+syz_fuse_mount(&(0x7f00000000c0)='./file0\x00', 0x1000, 0x0, 0x0, 0x10000, 0x1)
+open(&(0x7f0000000040)='./file0\x00', 0x8040, 0x0)

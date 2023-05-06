@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1665547180092fef185a46d5a4ba5b382d77848e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto(r0, &(0x7f0000446000)="0cd3ff166e29e1e5ba67ee4508a8521260cc92de7fa9c4832baa998491cc07441f09ffd802aa1722a3123f5de8ab89d7f448b99598b071d9c272fdc9473a98975395021d3b4df158c0a185cc275bf2ecc220d059b7330c59e17d111be69a48f78082b31fb39bd881de8a1b0d815de6d8131e64c72100eae01adcc202eda1c5e637f5aa3cd1d2f8148df1c9e295482e84e9f8f26c2a0173f3bb1a015f301b72ec646168fff3811729b462ad67c1a5a8ec70e4ed642b96bb6e9f77f3c24f699fcaee64fbc2a06a93cf8deaa4ff291edc6ecc", 0xd1, 0x10, &(0x7f0000e88000)=@generic={0x2, "af1d8b884a7e2f23384978688a32a8a91359674cfd5599e16003367bf2f01b1658a9533aa9b4a3599708ad3566245dcd6b488c8e13f20438e423296402ad5fbd1719bf376f33f94d44909829777eb69f480db50ac8757a95ee38a17ee6a2e8348d16f4e9917c627c1c9983bbd6a46f2a2bb35578f6725b635f71b4cd4e62"}, 0x80)
+listen(r0, 0x10000)
+accept$netrom(r0, &(0x7f000050b000)=@ax25={0x0, {"00000000000000"}, 0x0}, &(0x7f00008d7000-0x4)=0x10)

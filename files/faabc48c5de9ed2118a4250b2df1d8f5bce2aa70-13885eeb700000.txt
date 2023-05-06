@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=faabc48c5de9ed2118a4250b2df1d8f5bce2aa70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$netlink(r0, &(0x7f0000001a80)={0x0, 0x0, &(0x7f0000000580)=[{&(0x7f0000000980)=ANY=[@ANYBLOB="1c0000001200210300000000000000000c00008008001d00", @ANYRES32, @ANYBLOB], 0x1c}], 0x1}, 0x0)

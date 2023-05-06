@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=484483daf3652b40dae18531923aa9175d392a4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket(0xa, 0x1, 0x0)
+r0 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000240), 0x68902, 0x0)
+write$rfkill(r0, 0x0, 0x0)
+write$rfkill(r0, &(0x7f0000000080)={0x9, 0x1, 0x3, 0x1, 0x1}, 0x8)
+syz_genetlink_get_family_id$netlbl_unlabel(0x0, 0xffffffffffffffff)
+sendmsg$NLBL_UNLABEL_C_STATICLIST(0xffffffffffffffff, 0x0, 0xc015)
+sendmsg$NLBL_UNLABEL_C_STATICADD(0xffffffffffffffff, 0x0, 0x20008004)
+sendmsg$NLBL_UNLABEL_C_STATICLIST(0xffffffffffffffff, 0x0, 0xc015)
+syz_genetlink_get_family_id$netlbl_unlabel(0x0, 0xffffffffffffffff)

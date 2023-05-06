@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=08b8be45afea11888776f897895aef9ad1c3ecfd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDFONTOP_COPY(r0, 0x4b72, &(0x7f00000000c0)={0x3, 0x0, 0x0, 0x5, 0x0, 0x0})
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TCSETSF(r1, 0x4b60, &(0x7f0000000200)={0x81, 0x0, 0x0, 0x0, 0x0, "49d9fe4da087f5d6f10f9976127bcf86fe01fe"})
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TCSETSF(r2, 0x4b61, &(0x7f0000000200)={0x81, 0x0, 0x0, 0x0, 0x0, "49d9fe4da087f5d6f10f9976127bcf86fe01fe"})

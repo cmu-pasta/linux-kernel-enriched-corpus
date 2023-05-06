@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ba7011883244f4895b4f08c94253141429ae72bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet(0x2c, 0x3, 0x0)
+recvmmsg(r0, &(0x7f00000052c0)=[{{0x0, 0x0, 0x0}}], 0x1, 0x0, 0x0)

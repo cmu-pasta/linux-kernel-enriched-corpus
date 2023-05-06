@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6820604ffdbef60ed889a3486df4c2731172f87b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x8f6000)=nil, 0x8f6000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000269000)={0x26, "6165616400000000000000000000", 0x4, 0xffffffffffffffff, "7063727970742867636d5f6261736528637472286165732d6165736e69292c67686173682d67656e657269632929000000000000000000000000000000000000"}, 0x58)

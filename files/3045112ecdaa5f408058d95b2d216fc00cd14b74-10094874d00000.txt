@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3045112ecdaa5f408058d95b2d216fc00cd14b74
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false,"wifi":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000000c0)={'wlan0\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)={0x24, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x3}]}, 0x24}}, 0x0)
+r3 = socket$nl_generic(0xa, 0x2, 0x11)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f0000000000)={'wlan0\x00', <r5=>0x0})
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000200)='nl80211\x00')
+sendmsg$NL80211_CMD_NEW_STATION(r4, &(0x7f0000000040)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000100)={0x3c, r6, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@NL80211_ATTR_STA_SUPPORTED_RATES={0x4}, @NL80211_ATTR_STA_LISTEN_INTERVAL={0x6}, @NL80211_ATTR_MAC={0xa, 0x6, @device_b}, @NL80211_ATTR_STA_AID={0x6, 0x10, 0x374}]}, 0x3c}}, 0x0)

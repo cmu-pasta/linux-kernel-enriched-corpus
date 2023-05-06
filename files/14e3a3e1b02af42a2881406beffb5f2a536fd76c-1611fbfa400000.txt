@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=14e3a3e1b02af42a2881406beffb5f2a536fd76c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)="7374617409c0d2febcf9df2deac8c177ff171248e91193513049f831550d6f7de66cf637bdbf1311920c8a26eda4dcc3783f9db5116b34d31b0512a5608aaff01e7952340cd6fd00000000", 0x275a, 0x0)
+r1 = creat(&(0x7f0000000000)='./file0\x00', 0x0)
+fallocate(r1, 0x0, 0x0, 0x4000fff)
+fallocate(r0, 0x0, 0x0, 0x10001)
+ioctl$EXT4_IOC_MOVE_EXT(r0, 0xc028660f, &(0x7f0000000040)={0x0, r1, 0x0, 0xfffffff9})

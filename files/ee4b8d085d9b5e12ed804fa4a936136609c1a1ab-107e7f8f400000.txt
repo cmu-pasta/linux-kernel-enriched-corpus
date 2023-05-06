@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=ee4b8d085d9b5e12ed804fa4a936136609c1a1ab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r0, 0x0)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_BINDX_ADD(0xffffffffffffffff, 0x84, 0x64, &(0x7f0000000140)=[@in6={0xa, 0x4e24, 0x5, @ipv4={[], [], @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x8}], 0x1c)
+bind$inet6(0xffffffffffffffff, 0x0, 0x0)
+socket$inet6_sctp(0xa, 0x0, 0x84)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+getpeername$tipc(0xffffffffffffffff, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(0xffffffffffffffff, 0x84, 0x9, 0x0, 0x15e)
+ioctl$sock_SIOCGPGRP(0xffffffffffffffff, 0x8904, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+write(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_SOCKOPT_CONNECTX3(0xffffffffffffffff, 0x84, 0x6f, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, 0x0, 0x0)
+writev(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet_mreqn(0xffffffffffffffff, 0x0, 0x23, 0x0, 0x0)

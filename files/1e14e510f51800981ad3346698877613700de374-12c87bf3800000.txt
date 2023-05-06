@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1e14e510f51800981ad3346698877613700de374
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+listen(r1, 0x4)
+shutdown(r0, 0x0)

@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=a7d678fba80c34b5770cc1b5638b8a2709ae9f3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+pipe(&(0x7f0000000040))
+getsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(0xffffffffffffffff, 0x84, 0x9, 0x0, 0x0)
+connect$l2tp(r1, &(0x7f0000000080)=@pppol2tpin6={0x18, 0x1, {0x0, r0, 0x1, 0x0, 0x0, 0x0, {0xa, 0x0, 0x0, @remote}}}, 0x32)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f00000002c0)={{{@in6=@local, @in, 0x0, 0x0, 0x0, 0x0, 0x800000000000000a}, {}, {}, 0x0, 0x0, 0x1}, {{@in6=@ipv4, 0x0, 0x2b}, 0x0, @in, 0x0, 0x4}}, 0xe8)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r2, 0x1000008912, &(0x7f0000000000))
+sendmmsg(r1, &(0x7f0000005fc0), 0x4000000000004ae, 0xa)

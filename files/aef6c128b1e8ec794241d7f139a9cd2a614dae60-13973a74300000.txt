@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=aef6c128b1e8ec794241d7f139a9cd2a614dae60
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x1e, 0x1, 0x0)
+sendmsg(r0, &(0x7f0000000000)={&(0x7f0000000080)=@generic={0x10000000001e, "02ff0100000001000000000000000ae77f5bf86c48020002000000f1ffffff009a480075e6a50000de010300000000e4ff064b3f013a000000080000008f00000000ac50d5fe32c4000000007fffffff6a008356edb9a6341c1fd45624281e00070ecddd0206c39750c40000fd00000900000000000b0000db000004da36"}, 0x80, 0x0}, 0x0)
+write$binfmt_elf32(r0, &(0x7f0000000500)=ANY=[], 0xfffffd6d)

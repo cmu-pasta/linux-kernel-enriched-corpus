@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=89740d8d8416726adeba5953543037142b3b20be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+keyctl$restrict_keyring(0x18, 0x0, 0x0, &(0x7f0000000300)='self\'')

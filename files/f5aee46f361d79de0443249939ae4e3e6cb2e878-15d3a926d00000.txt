@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f5aee46f361d79de0443249939ae4e3e6cb2e878
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000380)=ANY=[@ANYBLOB="3c0000001000010400"/20, @ANYRES32, @ANYBLOB="00000000000000001c0012800b000100697036746e6c00000c00028008000100", @ANYRES32], 0x3c}}, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)=ANY=[@ANYBLOB="540000001000010400"/20, @ANYRES32, @ANYBLOB="0000000000000000340012800b000100697036746e6c0000240002800400130014000200200100000000000000000000000000010500040006000000db35db053764a360c200ccd611eafbca56ebc939a996969863d8a35b689bf812016ee3c380fb71f1f20ea4c921cf049f791cbbf7735256f3121390cd5b1a6d2cdb914355ce986f9487d862f9449312c591dcfba58980083ce9ed1763c0633232e5b426931da9"], 0x54}}, 0x0)

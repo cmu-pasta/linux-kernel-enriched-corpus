@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3d605ec1d0a7f2a269a1a6936ac7f2b85975ee9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x3, 0x8000000003c)
+connect$inet6(r0, &(0x7f00000000c0)={0xa, 0x0, 0x0, @dev, 0x9}, 0x1c)
+setsockopt$inet6_IPV6_DSTOPTS(r0, 0x29, 0x3b, &(0x7f00000007c0)=ANY=[@ANYBLOB="36040000000000000103000000010100c204000000090109000000000000000000c20400000003c2040000000000000081273188ba226b3ac4d420bd65af300f2ea4e860a5d0e631d5ef6877c798b66004b1eced18f6c0437640"], 0x30)
+sendmsg(r0, 0x0, 0x0)
+sendmsg(r0, &(0x7f0000000400)={0x0, 0x0, 0x0}, 0x8000)
+sendmsg(r0, &(0x7f0000000080)={0x0, 0x33, &(0x7f0000000100)=[{&(0x7f0000000000)="2b0200010300072a", 0x584}], 0x1}, 0x0)

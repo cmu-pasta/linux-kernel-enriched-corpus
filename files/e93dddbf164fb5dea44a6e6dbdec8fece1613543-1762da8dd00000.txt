@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e93dddbf164fb5dea44a6e6dbdec8fece1613543
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r0, 0x8933, &(0x7f0000000040)={'batadv0\x00', <r1=>0x0})
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000500)=ANY=[@ANYBLOB="640000001000010400"/20, @ANYRES32=0x0, @ANYBLOB="25330000000000002c00128009000100766c616e000000001c00028006000100000b0000040003800c0002001f0000001300000008000500", @ANYRES32=r1, @ANYBLOB="08000a008d8ed84ea12282148f43a9adbcfac01f84f7271f4191232c338717723b3db69c5300ecb8689e9d38f7b7d689d3e4796ad0287ed6f14ad8ee16ccc37af87fb26088acdf131007286e323ac743b624facc6d78221a5cd2579d0e010f66744fe3bccebaf43967c8424889cac3818576d0", @ANYRES32, @ANYBLOB], 0x64}}, 0x0)

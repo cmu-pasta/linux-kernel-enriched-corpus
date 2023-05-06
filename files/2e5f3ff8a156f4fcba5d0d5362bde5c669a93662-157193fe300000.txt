@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2e5f3ff8a156f4fcba5d0d5362bde5c669a93662
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000000300)='/sys/kernel/profiling', 0x41, 0x0)
+write$khugepaged_scan(r0, &(0x7f00000000c0), 0xffffff82)

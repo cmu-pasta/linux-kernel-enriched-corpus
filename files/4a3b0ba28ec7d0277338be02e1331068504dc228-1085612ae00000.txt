@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4a3b0ba28ec7d0277338be02e1331068504dc228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket(0x22, 0x3, 0x0)
+writev(r0, &(0x7f00000014c0)=[{&(0x7f0000000000)="9f885b812243e29e693b67c69de7bac160dc58a6a22b89321ce8259bf6f733ae685844f4da8b390ef016a144d1adca122e6813684f4b7ebfc6145e09bdb5ae15b80589f2c455da99835165a74a748982def9b0b2e550889e1d3589e2bd8619c33e39cbca135cd42136cf73b83534f0e932445b0b72489a51745694652d526b1a470b83b4937af1e90698a75cd215f330d0d0ead7e3f6a5abbfaaac6c6bcb", 0x9e}, {0x0}], 0x2)

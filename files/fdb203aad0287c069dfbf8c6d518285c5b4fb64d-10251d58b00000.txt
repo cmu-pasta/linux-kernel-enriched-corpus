@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=fdb203aad0287c069dfbf8c6d518285c5b4fb64d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$mixer(0xffffffffffffff9c, &(0x7f0000009480), 0x0, 0x0)
+ioctl$SOUND_MIXER_READ_VOLUME(r0, 0x80254d18, 0x0)
+r1 = openat$proc_mixer(0xffffffffffffff9c, &(0x7f0000000000)='/proc/asound/card0/oss_mixer\x00', 0x2002, 0x0)
+write$proc_mixer(r1, &(0x7f0000000080)=[{'TREBLE', @val={' \'', 'Mic Capture Switch'}}, {'VIDEO', @void}, {'VOLUME', @void}, {'MONITOR', @val={' \'', 'Master'}}, {'LINE', @void}, {'ALTPCM', @void}, {'TREBLE', @val={' \'', 'Master Playback Switch'}}, {'SYNTH', @void}], 0xab)
+r2 = openat$proc_mixer(0xffffffffffffff9c, &(0x7f0000000000)='/proc/asound/card0/oss_mixer\x00', 0x2002, 0x0)
+write$proc_mixer(r2, &(0x7f0000000080)=[{'VIDEO', @void}, {'RECLEV', @val={' \'', 'CD Capture Switch'}}, {'PCM', @val={' \'', 'Master'}}, {'OGAIN', @void}, {'LINE2', @val={' \'', 'Synth'}}, {'PCM', @val={' \'', 'Synth Capture'}}, {'MONITOR', @val={' \'', 'Line'}}], 0xce)

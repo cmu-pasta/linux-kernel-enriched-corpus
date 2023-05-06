@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+getsockopt$SO_BINDTODEVICE(0xffffffffffffffff, 0x1, 0x1e, &(0x7f0000000000), 0x20a154cc)
+unshare(0x60000000)

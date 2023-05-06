@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1f0fc473c0dd243a6b72b1b802dde6950fd14c68
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+r0 = socket(0x40000000015, 0x5, 0x0)
+bind$inet(r0, &(0x7f00000002c0)={0x2, 0x4e1c, @remote}, 0x10)
+write$cgroup_type(0xffffffffffffffff, &(0x7f0000000240)='threaded\x00', 0x9)

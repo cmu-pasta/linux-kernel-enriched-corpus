@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b889020ff79d8222d085a7cf923c465d5382873b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+iopl(0x3)
+rt_sigreturn()

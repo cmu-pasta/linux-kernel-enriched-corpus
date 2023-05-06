@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0041bf1423916e9ae458b08b760e269a33c14960
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$rtc(0xffffffffffffff9c, &(0x7f0000000040)='/dev/rtc0\x00', 0x0, 0x0)
+ioctl$RTC_UIE_ON(r0, 0x7003)
+ioctl$RTC_SET_TIME(r0, 0x4024700a, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x1f, 0x0, 0xa0})
+ioctl$FS_IOC_SETFSLABEL(r0, 0x41009432, &(0x7f00000000c0)="2af49ee810a9db8ad3102f6186aa740ff09a70782119ade7a3b6793d91afcd26e63feb21f760bfe8453a86c5fbc7cb6639416e6370a47134eeefbe23be3a8df80bcf38e31db851735480fa50b199db1ea6f17a361ebb5efd4baf083107cf22c7b9c2a09db83f6ca2b1db675ef4e2f990837563b6eb49b7c7a7503a0aff9fdac48e96d930fe55b5958394b4928b143cb734c1bf7e639b2574645dd1f9067521ec70de55b1bc07e0d97c0c49c319740da6b9c6d7e919853897244d6e2c995f57e1b4a4d26993cd586f1a89eb9e0b1447018351bc3ce19e95438062b30a763b941e7b8dbd3f9f90f1128bf7b8a93d322eace1a9b4b8550726476a08a3bcb67f078b")

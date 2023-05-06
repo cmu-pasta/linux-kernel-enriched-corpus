@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=0b533a58216b026ac76333a0b2a91e65a98bdc81
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r0, &(0x7f0000000300)={0x2, 0x4e23, @multicast1=0xe0000001}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000b86000)={0x1, &(0x7f0000f40ff8)=[{0x6, 0x0, 0x0, 0xe8}]}, 0x10)
+sendto$inet(r0, &(0x7f0000a88f88), 0x29f, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @loopback=0x7f000001}, 0x10)
+sendmmsg(r0, &(0x7f0000003ec0)=[{{0x0, 0x0, &(0x7f0000000980)=[{&(0x7f0000002640)="5b5331d25a71c6a64f00d90720f785f88f9e63f90f76c48feee314083a181eefab2af8a65643ebc8c2b907fdebdd7b6aabd04ebe5b3133ae10d25c8992f969f3462f985649a0d1aeb7d535535fe9ce30e21dc14811cdff61456d7141cc19a8c86d8c80ccc6639cbb396c5307933f3d1c5a346d2d3a47311974a4970abaccab9b06afbdf003eb24b16c82af83155e9b5533db3eeb4e9c0722105fdc7585c77f5238ae3d12f08c8ab6dcf0edb2490a54ac46932250eb853d86d10cff49f40797062fee0affd74773c634", 0xc9}], 0x1, &(0x7f0000003640)}}], 0x1, 0x0)
+setsockopt$inet_tcp_TCP_MD5SIG(r0, 0x6, 0xe, &(0x7f0000000000)={@in={{0x2, 0x0, @loopback=0x7f000001}}, 0x0, 0x40, 0x0, "bb7d979a5ee032056dff2fc639ba6368d0d71d898a4e124cf21cd30cb70965e6517b9cd90bda9821886e8cd3637def26f925ad25edc2a48d5320748f0957c324fe23baa6085747576770b4aaa4b7bab6"}, 0xd8)
+recvmmsg(r0, &(0x7f0000004b00)=[{{&(0x7f0000002500)=@sco, 0x80, &(0x7f0000004340)=[{&(0x7f00000041c0)=""/215, 0xd7}], 0x1, &(0x7f0000000180)=""/186, 0xba}}, {{&(0x7f0000004600)=@nfc_llcp, 0x80, &(0x7f0000004a40), 0x0, &(0x7f0000004ac0)}}], 0x2, 0x0, &(0x7f0000000140))
+syz_emit_ethernet(0x66, &(0x7f0000000000)={@random="cd390b081bf2", @broadcast=[0xff, 0xff, 0xff, 0xff, 0xff, 0xff], [], {@ipv6={0x86dd, {0x0, 0x6, "02290f", 0x30, 0x3a, 0x0, @ipv4={[], [0xff, 0xff], @rand_addr}, @mcast2={0xff, 0x2, [], 0x1}, {[], @icmpv6=@pkt_toobig={0x2, 0x0, 0x0, 0x0, {0x0, 0x6, "9433df", 0x0, 0x4, 0x0, @loopback={0x4, 0x1}, @dev={0xfe, 0x80, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xb]}}}}}}}}, 0x0)

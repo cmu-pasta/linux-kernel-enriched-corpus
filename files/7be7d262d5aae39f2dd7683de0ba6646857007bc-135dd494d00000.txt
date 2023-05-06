@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7be7d262d5aae39f2dd7683de0ba6646857007bc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"tmpdir":true,"segv":true}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+bind$vsock_stream(r0, &(0x7f0000000380)={0x28, 0x0, 0x0, @host}, 0x10)
+listen(r0, 0x0)
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r1, &(0x7f0000000040), 0x10)
+sendmmsg$inet(r1, &(0x7f0000003100)=[{{0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000180)=' ', 0x20000181}], 0x1}, 0x4}], 0x400012e, 0x40)

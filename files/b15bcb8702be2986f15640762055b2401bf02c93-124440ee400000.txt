@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=b15bcb8702be2986f15640762055b2401bf02c93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+openat$autofs(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/autofs\x00', 0x8000, 0x0)
+r0 = gettid()
+timer_create(0x0, &(0x7f0000044000)={0x0, 0x12}, &(0x7f0000044000))
+r1 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhost-vsock\x00', 0x2, 0x0)
+ioctl$VHOST_VSOCK_SET_GUEST_CID(r1, 0x4008af60, &(0x7f0000000040)={@my=0x0})
+r2 = socket$vsock_stream(0x28, 0x1, 0x0)
+write$nbd(0xffffffffffffffff, &(0x7f0000000240)={0x67446698, 0x0, 0x3, 0x1, 0x4, "1701f7c20ca19d8e74ee1e943d5e3e3d716a834b7cebad20e302764770b508e972e502a7b757b8cce30adba102952c1f413a1260e91e3c7acde5f9a9ccb577b5636ea43202a495c95fa17c4b29d1208b38843e3247e1ea4ff5379570"}, 0x6c)
+connect$vsock_dgram(r2, &(0x7f0000000200)={0x28, 0x0, 0x0, @my=0x0}, 0x10)
+timer_settime(0x0, 0x0, &(0x7f000006b000)={{0x0, 0x8}, {0x0, 0x9}}, &(0x7f0000040000))
+tkill(r0, 0x1004000000016)

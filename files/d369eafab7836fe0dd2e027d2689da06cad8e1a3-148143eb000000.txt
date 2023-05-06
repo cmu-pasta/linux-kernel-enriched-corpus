@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d369eafab7836fe0dd2e027d2689da06cad8e1a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$sg(&(0x7f00000c2000)="2f6465762f73672300", 0xffffffeffffffffb, 0x40000410800)
+ioctl$SNDRV_TIMER_IOCTL_PAUSE(r0, 0x54a3)
+syz_emit_ethernet(0x11, &(0x7f000069e000-0x11)={@random="4001592437d1", @remote={[0xbb, 0xbb, 0xbb, 0xbb, 0xbb], 0x0}, [], {{0xe915, @x25={0x0, 0x72, 0x1, ""}}}})
+r1 = openat$kvm(0xffffffffffffff9c, &(0x7f0000763000)="2f6465762f6b766d00", 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r1, 0xae01, 0x0)

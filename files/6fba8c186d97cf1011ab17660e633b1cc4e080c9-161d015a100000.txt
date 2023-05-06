@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6fba8c186d97cf1011ab17660e633b1cc4e080c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+writev(r0, &(0x7f0000000000)=[{&(0x7f00000001c0)="c96e5e71b98640fc10cb112d9ce8f1dd848a8a0e84cc8f30d36191d52280bd7c6be8126088e4013f1b8d9c8ec067d656c4427233f864db62869eedeb13a8153ee3ea40f9d1c98c6bf7177971ea98377da417707c42fcff7f11134862ba11f1dd275028aa216e99462b8da091e5c30af161c37bca17db04a8ad27f1f03b1f0fdccc16614af287cbc46779fd7ba8c041e59f086b8ac1d3e2578f36", 0x9a}, {0x0}, {0x0}], 0x3)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_RESIZEX(r1, 0x560a, &(0x7f0000000080)={0x0, 0x0, 0x1000, 0x1f, 0x5, 0x80})

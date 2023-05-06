@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7022420cc54310220ebad2da89e499bdb1f0f5e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":6,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x803, 0x3)
+ioctl(r0, 0x1000008912, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$dspn(&(0x7f0000000140)='/dev/dsp#\x00', 0x1, 0x2)
+ioctl$int_in(r1, 0x800000c004500a, &(0x7f0000000040))
+write$FUSE_NOTIFY_RETRIEVE(r1, &(0x7f00000000c0)={0xffffffffffffff71, 0x5, 0x100000000000d00, {0x186a0}}, 0x56da83a0)

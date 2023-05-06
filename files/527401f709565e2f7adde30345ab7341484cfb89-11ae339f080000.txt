@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=527401f709565e2f7adde30345ab7341484cfb89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"segv":true}
+syz_mount_image$vfat(0x0, &(0x7f0000000000)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f0000000040)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$mice(0xffffffffffffff9c, &(0x7f00000000c0), 0x42)
+mount$9p_fd(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000100), 0x0, &(0x7f0000000440)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}})
+writev(r1, 0x0, 0x0)

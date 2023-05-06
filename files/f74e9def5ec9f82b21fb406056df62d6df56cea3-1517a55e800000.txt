@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f74e9def5ec9f82b21fb406056df62d6df56cea3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:9 FaultNth:3 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = syz_open_dev$tun(&(0x7f0000820000-0xd)="2f6465762f6e65742f74756e00", 0x0, 0x0)
+r2 = fcntl$dupfd(r1, 0x0, r1)
+ioctl$TUNSETIFF(r2, 0x400454ca, &(0x7f0000db4000-0x28)={@common="67726530000000000000000000000000", @ifru_names=@generic="16f1a03340487c8735db24a266325d59"})
+bpf$BPF_GET_MAP_INFO(0xf, &(0x7f0000237000-0x10)={0xffffffffffffffff, 0x18, &(0x7f0000d02000)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}, 0x10)
+r3 = syz_open_dev$tun(&(0x7f0000481000)="2f6465762f6e65742f74756e00", 0x0, 0x0)
+r4 = fcntl$dupfd(r3, 0x0, r3)
+ioctl$TUNSETIFF(r4, 0x400454ca, &(0x7f0000928000-0x28)={@common="67726530000000000000000000000000", @ifru_settings={0x7de, 0x0, @cisco=&(0x7f0000450000-0x8)={0x0, 0x0}}})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000630000-0x20)={@common="677265300000e4000000000000000000", @ifru_flags=0x2fd})

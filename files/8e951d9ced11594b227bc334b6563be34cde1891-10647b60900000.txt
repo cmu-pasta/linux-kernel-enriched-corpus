@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=8e951d9ced11594b227bc334b6563be34cde1891
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r0 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+r4 = socket(0x1, 0x803, 0x0)
+getsockname$packet(r4, &(0x7f0000000100)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000280)=0x14)
+sendmsg$nl_route(r3, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)=ANY=[@ANYBLOB="440000001000010400"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000140012800b0001006970766c616e00000400028008000500", @ANYRES32=r5], 0x44}}, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x6c, &(0x7f0000000040)={&(0x7f0000000000)=@newlink={0x28, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, r2}, [@IFLA_PROTO_DOWN={0x8, 0x1c, 0xffffffef}]}, 0x28}}, 0x0)

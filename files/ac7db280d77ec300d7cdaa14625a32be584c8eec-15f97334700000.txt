@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ac7db280d77ec300d7cdaa14625a32be584c8eec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f0000000000)=0x1, 0x4)
+setsockopt$inet_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000080)=0x2, 0x4) (async)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x0, @loopback}, 0x10)
+sendmmsg(r0, &(0x7f0000002840)=[{{0x0, 0x0, 0x0}}, {{0x0, 0x0, 0x0}}], 0x2, 0x20000000)

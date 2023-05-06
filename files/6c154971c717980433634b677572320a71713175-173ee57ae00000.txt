@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=6c154971c717980433634b677572320a71713175
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_MD5SIG(r0, 0x6, 0xe, &(0x7f0000000500)={@in={{0x2, 0x0, @loopback}}, 0x0, 0x4, 0x0, "d4838aa68758eee3528e2df4c1e41764961ff4c2ff6b80ce82790a7521878b00640da78b52faaafcae5ed4582d658ab98eecbe3f3ef96c3385ff3d7543dc0448534cd3081900e610b0c7bc9e73a1a7cc"}, 0xd8)
+setsockopt$inet_tcp_int(r0, 0x6, 0x10000000013, &(0x7f0000000040)=0x2000000000000001, 0x4)
+setsockopt$inet_tcp_int(r0, 0x6, 0x14, &(0x7f0000788ffc)=0x100000001, 0xfdf6)
+bind$inet(r0, &(0x7f0000738ff0)={0x2, 0x4e21, @dev}, 0x10)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x10004e21}, 0x10)
+setsockopt$inet_tcp_TCP_REPAIR_OPTIONS(r0, 0x6, 0x16, &(0x7f00000000c0)=[@mss, @mss, @mss, @mss, @timestamp, @sack_perm], 0x154)
+sendto$packet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR_WINDOW(r0, 0x6, 0x1d, &(0x7f0000000000)={0x0, 0x40000007ffe, 0x80000000}, 0x14)
+shutdown(r0, 0x1)

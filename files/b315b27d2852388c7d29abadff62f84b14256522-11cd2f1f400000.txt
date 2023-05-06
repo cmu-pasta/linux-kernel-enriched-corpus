@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b315b27d2852388c7d29abadff62f84b14256522
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$binder(&(0x7f0000000540)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000000)={0x44, 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB="00634040000000000000000000000000000000000000000000000000000000000000000018000000000000000800000000000000", @ANYPTR, @ANYPTR=&(0x7f0000000040)=ANY=[@ANYBLOB="00000000000000fc981bd1b02278e3a54e1b41c1b04853d7a171175e4fe3dda2066fdf5d52f04c656427aaa3705055e23e1a93434ea2a3afce5f4d4d518640073f45fd49618939d671ee2a756f22939345fc24f549990eb10681c85384e71104e9efdda6e7f2618eba60f5cd7045b9a88c350f0fe002279380bdbf4f7c576062d3219d736113b18ac41ab7044f2eecf8e2dedbff838287051bd0dcda7b94524fef52044b42d1200239f53708670b9f2991820b95b8f519fc8cca6891acea700bb316ce9b1ffa7ce33f452680ba8509509952117976f71b15e05f905f1b2d7ce3dca6"]], 0x0, 0x0, 0x0})
+r1 = syz_open_dev$binder(0x0, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000001000/0x3000)=nil, 0x3000, 0x0, 0x20011, r1, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+socket$nl_netfilter(0x10, 0x3, 0xc)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=fa8c06813bd781e6b73f4533322ac088a904a93c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+socketpair$packet(0x11, 0x3, 0x300, &(0x7f0000000080))
+r0 = openat$userio(0xffffffffffffff9c, &(0x7f0000000a00)='/dev/userio\x00', 0x22001, 0x0)
+write$USERIO_CMD_SET_PORT_TYPE(r0, &(0x7f0000000000)={0x1, 0x1}, 0x2)
+write$RDMA_USER_CM_CMD_LEAVE_MCAST(r0, &(0x7f0000000140)={0x7ffffffff000, 0x10, 0xfa00, {&(0x7f00000000c0)}}, 0x2)
+write$USERIO_CMD_SEND_INTERRUPT(r0, &(0x7f0000000040), 0x2)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=67c06f27e8efe15830eb8ff6ee742380e18c3d9b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$udambuf(0xffffffffffffff9c, &(0x7f0000000200), 0x2)
+r1 = memfd_create(&(0x7f0000000000)='y\x105%\xa3\xd5\xfa\xd7\xfa\x17\xe9\x99\xa2\x89\x8e\xcd\xfd', 0x2)
+pwrite64(r1, &(0x7f00000000c0)="a0", 0x1, 0x5b63)
+fcntl$addseals(r1, 0x409, 0x7)
+r2 = dup(r0)
+r3 = ioctl$UDMABUF_CREATE(r2, 0x40187542, &(0x7f0000000080)={r1, 0x0, 0x0, 0x2000})
+ioctl$DMA_BUF_IOCTL_SYNC(r3, 0x40086200, &(0x7f0000000100)=0x2)

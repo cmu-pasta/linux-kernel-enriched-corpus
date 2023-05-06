@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9c557bdc7328e1ab4f0325699da821c22e47ab93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+pipe(&(0x7f0000dfc000-0x8)={<r0=>0x0, <r1=>0x0})
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+writev(r1, &(0x7f00001a2000)=[{&(0x7f0000dc6000)="197ef049e6895dd0052f3e98045a8509153c1e6f681cf99c19ca072f2809d8337982d77bdbda3c3243312a8b2a758c4db75ca840489dac77f166f8dda865d97fdce11ed89ed586519d8daf921191ddf23a4a0a3f91a5ed28aa84e73a81b6da06e6a7676a3b75a9d26ff69dc166c8bc9e1cef52226bf3c01fffa841332e78f22d1c0cbd3f4146b39d4449fcb87333d655e6049b8f6d6ae8c5df5475755e2aa2f7d751ca26ce5f2df6300350069b4bc84fbc77a28fdab34039da6b26d76b79067f56b288", 0xc3}], 0x1)
+splice(r0, 0x0, r2, 0x0, 0x9, 0x4)

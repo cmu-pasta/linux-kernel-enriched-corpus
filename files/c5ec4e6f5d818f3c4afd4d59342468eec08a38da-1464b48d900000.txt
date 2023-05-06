@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=c5ec4e6f5d818f3c4afd4d59342468eec08a38da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+syz_mount_image$udf(&(0x7f0000000000)='udf\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x4, &(0x7f0000000200)=[{&(0x7f0000010000)='\x00BEA01', 0x6, 0x8000}, {&(0x7f0000010100)='\x00NSR03', 0x6, 0x8800}, {0x0}, {&(0x7f0000011200)="020003002300010076b5f00100010000002000006000000000200000e007", 0x1e, 0x20000}], 0x0, &(0x7f0000013600))

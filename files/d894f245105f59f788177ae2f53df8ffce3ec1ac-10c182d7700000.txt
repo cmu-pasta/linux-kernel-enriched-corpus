@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d894f245105f59f788177ae2f53df8ffce3ec1ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000000100)={'team0\x00', <r1=>0x0})
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000600)={0x0, 0x0, &(0x7f00000005c0)={&(0x7f00000001c0)=@getqdisc={0x24, 0x26, 0x0, 0x0, 0x0, {0x0, 0x0, 0x0, r1}}, 0x24}}, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000380)={&(0x7f00000001c0)=ANY=[@ANYBLOB="200000007a000101000000000000000007"], 0x20}}, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)

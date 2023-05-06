@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+ioctl$VIDIOC_EXPBUF(r0, 0xc0405610, &(0x7f0000000080)={0x0, 0xfffffffffffffff9, 0x6, 0x800})
+r1 = syz_open_dev$video(&(0x7f0000002d40)='/dev/video#\x00', 0x0, 0x0)
+poll(&(0x7f0000000040)=[{r1, 0x180}, {r1, 0x400}, {r1, 0x40}, {r0, 0x2240}, {r1, 0x10}, {}], 0x6, 0xeb7c)

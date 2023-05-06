@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=45251caf911e74c2d20cbd4b39091fdead9d54fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x10, 0x200000000002, 0xc)
+write(r0, &(0x7f0000000040)="1f0000000007fd02010c00f60000ff008109f80009000180060814ec000000", 0x1f)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=0f4652fc2ca99e3801cf09c3cb2aec2f47bb2fea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+migrate_pages(0x0, 0x5, 0x0, 0x0)

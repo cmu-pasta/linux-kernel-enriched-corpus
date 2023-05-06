@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = creat(&(0x7f0000000280)='./file0\x00', 0x0)
+close(r0)
+r1 = socket(0x10, 0x2, 0x0)
+r2 = socket$pptp(0x18, 0x1, 0x2)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040), 0x0, &(0x7f0000000180)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}})
+syz_genetlink_get_family_id$ethtool(&(0x7f0000000080), r1)

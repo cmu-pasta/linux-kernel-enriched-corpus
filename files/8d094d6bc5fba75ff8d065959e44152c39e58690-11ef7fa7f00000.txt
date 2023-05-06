@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8d094d6bc5fba75ff8d065959e44152c39e58690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x35}}, 0x10)
+sendmmsg(r0, &(0x7f0000007fc0), 0x400000000000695, 0x0)
+sendmmsg(r0, &(0x7f0000000540), 0x187, 0x0)

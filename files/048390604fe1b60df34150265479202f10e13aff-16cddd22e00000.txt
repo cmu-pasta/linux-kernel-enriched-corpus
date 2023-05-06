@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=048390604fe1b60df34150265479202f10e13aff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"segv":true}
+r0 = socket$tipc(0x1e, 0x2, 0x0)
+r1 = socket$tipc(0x1e, 0x2, 0x0)
+bind$tipc(r1, &(0x7f0000000000)=@nameseq={0x1e, 0x1, 0x0, {0x41}}, 0x10)
+setsockopt$TIPC_GROUP_JOIN(r1, 0x10f, 0x87, &(0x7f0000000080)={0x41}, 0x10)
+setsockopt$TIPC_GROUP_JOIN(r0, 0x10f, 0x87, &(0x7f00000000c0)={0x41, 0x0, 0x2}, 0x10)

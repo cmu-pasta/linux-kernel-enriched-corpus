@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=511d0a90ad65cf4ba840e4d1c2762326321bf62f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = epoll_create1(0x0)
+fcntl$lock(r0, 0x7, &(0x7f0000000080))
+fcntl$lock(r0, 0x7, &(0x7f0000000140)={0x1000000000001, 0x0, 0x1000000})
+socket$inet6_sctp(0xa, 0x1, 0x84)

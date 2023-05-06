@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x12, 0x4, &(0x7f00000033c0)=@framed={{}, [@alu={0x8000000201a7f19, 0x0, 0x6, 0x2, 0x1}]}, &(0x7f0000000140)='GPL\x00', 0x1, 0xfb, &(0x7f0000000200)=""/251, 0x0, 0x0, [], 0x0, 0xf}, 0x48)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2962a9ff49a7e074a0a57662836b48e9d066b23a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":3,"tmpdir":true,"waitrepeat":true}
+shmat(0x0, &(0x7f0000001000/0x4000)=nil, 0x7000)
+clone(0x0, &(0x7f0000000340), &(0x7f0000000440), &(0x7f0000000480), &(0x7f00000004c0))

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=105921238f3d5c2af6a62fec42e294b26604dc52
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f00001fefe4)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+connect$inet(r1, &(0x7f00000000c0)={0x2, 0x4e22, @remote}, 0x10)
+ioctl$sock_inet_tcp_SIOCOUTQNSD(r1, 0x894b, &(0x7f0000000140))

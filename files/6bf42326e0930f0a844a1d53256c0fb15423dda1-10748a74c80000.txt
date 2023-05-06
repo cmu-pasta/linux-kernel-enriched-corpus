@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6bf42326e0930f0a844a1d53256c0fb15423dda1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"ieee802154":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={0x0, 0x140}}, 0x0)
+getsockname$packet(r2, &(0x7f0000000080)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000100)=0xab)
+sendmsg$nl_route_sched(r1, &(0x7f0000005840)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000240)=ANY=[@ANYBLOB="4800000024000b0e00"/20, @ANYRES32=r3, @ANYBLOB="00000000ffffffff0000000008000100687462001c0002001800020003"], 0x48}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000007c0)=@newtfilter={0x40, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {}, {0xfff3}}, [@filter_kind_options=@f_flower={{0xb}, {0x10, 0x2, [@TCA_FLOWER_KEY_ETH_DST={0xa, 0x4, @local}]}}]}, 0x40}}, 0x0) (fail_nth: 19)

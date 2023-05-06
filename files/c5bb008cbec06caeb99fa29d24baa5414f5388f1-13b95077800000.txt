@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c5bb008cbec06caeb99fa29d24baa5414f5388f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:2 FaultNth:11 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0xa, 0x1, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000280))
+seccomp(0x1, 0x0, &(0x7f0000028ff0)={0x2, &(0x7f0000e51000)=[{0x25}, {0x6}]})

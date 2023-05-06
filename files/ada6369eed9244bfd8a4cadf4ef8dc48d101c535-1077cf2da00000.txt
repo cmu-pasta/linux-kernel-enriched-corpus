@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ada6369eed9244bfd8a4cadf4ef8dc48d101c535
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"tmpdir":true,"segv":true}
+syz_open_dev$binder(&(0x7f0000000080)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(0x0, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000001000/0x3000)=nil, 0x3000, 0x0, 0x20011, r0, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r0, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000140)={0x4, 0x0, &(0x7f0000000000)=[@enter_looper={0x40486311}], 0x1, 0xfffffdfd, &(0x7f00000000c0)="f2"})

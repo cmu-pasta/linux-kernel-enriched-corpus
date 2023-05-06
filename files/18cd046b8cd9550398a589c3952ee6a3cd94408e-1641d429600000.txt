@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+mmap(&(0x7f0000011000/0x3000)=nil, 0x3000, 0x4, 0x10032, 0xffffffffffffffff, 0x0)
+r0 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000480))
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000300)={{&(0x7f0000011000/0x3000)=nil, 0x3000}, 0x1})
+r1 = open(&(0x7f0000000300)='.\x00', 0x0, 0x0)
+mkdirat(r1, &(0x7f0000000200)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', 0x0)
+r2 = open(&(0x7f0000000300)='.\x00', 0x0, 0x0)
+r3 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r3, &(0x7f0000deb000)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r3, 0x0, 0x0, 0x200007fb, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+write$binfmt_elf64(r3, &(0x7f0000002300)=ANY=[@ANYRES64], 0x1000001bd)
+mount$9p_fd(0x0, &(0x7f0000000540)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', &(0x7f00000005c0)='9p\x00', 0x0, &(0x7f0000000680)={'trans=fd,', {'rfdno', 0x3d, r2}, 0x2c, {'wfdno', 0x3d, r3}})

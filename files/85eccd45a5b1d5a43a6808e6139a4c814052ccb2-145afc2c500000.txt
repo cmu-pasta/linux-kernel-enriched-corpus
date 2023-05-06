@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=85eccd45a5b1d5a43a6808e6139a4c814052ccb2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f00000000c0)={0x26, 'aead\x00', 0x0, 0x0, 'gcm_base(ctr(aes-aesni),ghash-generic)\x00'}, 0x7b)

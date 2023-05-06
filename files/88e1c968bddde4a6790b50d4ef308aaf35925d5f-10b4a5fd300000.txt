@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=88e1c968bddde4a6790b50d4ef308aaf35925d5f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"cgroups":true,"close_fds":true,"vhci":true,"sysctl":true,"tmpdir":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+ioctl$PIO_CMAP(0xffffffffffffffff, 0x4b71, 0x0)
+ioctl$sock_ifreq(0xffffffffffffffff, 0x89a2, &(0x7f0000000000)={'bridge0\x00', @ifru_settings={0x0, 0x0, @fr=0x0}})
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000100))
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r0, &(0x7f0000000180)={0xa, 0x4001, 0x0, @dev={0xfe, 0x80, '\x00', 0x1c}, 0xd}, 0x1c)
+write(r0, &(0x7f0000000000)="05", 0xe7b78)
+ioctl$BTRFS_IOC_QUOTA_RESCAN_WAIT(r0, 0x942e, 0x0)

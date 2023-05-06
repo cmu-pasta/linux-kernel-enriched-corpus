@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7f84dfc3902878befc22e52eb5c7298d0ad70cf3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_io_uring_setup(0x662a, &(0x7f0000000240), &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000000200)=<r1=>0x0, &(0x7f0000000000))
+io_uring_register$IORING_REGISTER_PERSONALITY(r0, 0x9, 0x0, 0x0)
+syz_io_uring_submit(r1, 0x0, 0x0, 0x7)
+socket$qrtr(0x2a, 0x2, 0x0)

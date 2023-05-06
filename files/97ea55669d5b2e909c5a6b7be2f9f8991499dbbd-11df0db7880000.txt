@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=97ea55669d5b2e909c5a6b7be2f9f8991499dbbd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_inet_SIOCSARP(r0, 0x8955, &(0x7f0000000500)={{0x2, 0x0, @remote}, {0x0, @broadcast}, 0x4, {0x2, 0x0, @private}, 'ip6tnl0\x00'})
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_inet_SIOCSARP(r1, 0x8954, &(0x7f0000000500)={{0x2, 0x0, @remote}, {0x0, @broadcast}, 0x4, {0x2, 0x0, @private}, 'ip6tnl0\x00'})

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9f37c28779d1a95432dba39f4a55c11fd140dff4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000000c0)={0xa, 0x200, 0x4, 0x9}, 0x40)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000100), &(0x7f0000000080), 0x4000010e, r0}, 0x38)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000fc7000)={0x9, 0x2, 0x4a0f, 0x2}, 0x40)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000fcb000)={r1, &(0x7f0000fcbfff), &(0x7f0000172000)}, 0x20)
+bpf$MAP_LOOKUP_BATCH(0x19, &(0x7f00000001c0)={0x0, 0x0, 0x0, 0x0, 0x6, r1}, 0x38)

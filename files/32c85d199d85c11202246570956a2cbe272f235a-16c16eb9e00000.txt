@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=32c85d199d85c11202246570956a2cbe272f235a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+sendmsg$NL80211_CMD_REQ_SET_REG(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000100)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r1, @ANYBLOB="010000000000000000001b0000000600210000000000570f8db846ecda2d91c384b2ac89116bdda9f6a327ae6f85771a63e1125af7cfc74484f40db320c0cc9d9025b49dfd8d9f313a95336e13a063e1d140333f5e13185d2d30e3ad848cebd328f63d7bee7fda05c13bb032604cf442ab9b3aaf415f04689634a2060978b7eade83aa28e6d4f2c320a25c293cc50ecffd4b9461cd20d08b0e43"], 0x1c}}, 0x0)

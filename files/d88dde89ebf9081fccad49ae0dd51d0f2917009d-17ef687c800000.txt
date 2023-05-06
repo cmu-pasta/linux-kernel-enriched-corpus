@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d88dde89ebf9081fccad49ae0dd51d0f2917009d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$loop(&(0x7f00002a0000)="2f6465762f6c6f6f702300", 0x200000000004, 0x80)
+ioctl$LOOP_SET_STATUS(r0, 0xc0481273, &(0x7f0000ed6000)={0x0, 0x0, 0x0, 0x0, 0x6361, 0xb, 0xffbffffffffffffa, 0x1, "399f23631d00000000001a005c697bbc15f232e3ebd7bed65f90b0e6330ee7831d19ecf6aa04d58d1443474482e85040e74947ebb5080000000000000030f3f3", "d5a43074605400000008b7b81579f6a41c01f7cfc133223582ab867dac767baf", [0x26, 0x0], 0x0})

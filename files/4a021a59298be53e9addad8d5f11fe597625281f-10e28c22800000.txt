@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4a021a59298be53e9addad8d5f11fe597625281f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:1 FaultNth:11 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+unshare(0x24000200)
+unshare(0x2c000200)

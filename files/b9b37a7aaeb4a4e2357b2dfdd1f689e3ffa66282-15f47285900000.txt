@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b9b37a7aaeb4a4e2357b2dfdd1f689e3ffa66282
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$mouse(&(0x7f0000000000)='/dev/input/mouse#\x00', 0x0, 0x1142)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000080))
+write$P9_RMKNOD(r0, 0x0, 0x0)
+r2 = epoll_create(0x5)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r1, &(0x7f0000000040))

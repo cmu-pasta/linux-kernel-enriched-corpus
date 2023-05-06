@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d4407314a3f56eef21ecde3338300bf95da2556c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+setsockopt$sock_void(0xffffffffffffffff, 0x1, 0x0, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_RTOINFO(0xffffffffffffffff, 0x84, 0x0, &(0x7f0000001000)={0x10000, 0xc000800000000001, 0x10000, 0x1}, 0x10)
+r0 = socket(0x11, 0x80003, 0x8)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000fe8000-0x4)=0x20, 0x4)
+setsockopt$packet_fanout(r0, 0x107, 0x12, &(0x7f0000cdf000-0x4)={0x8001, 0x3, 0x1000}, 0x4)
+setsockopt(r0, 0x107, 0x5, &(0x7f0000001000)="", 0x47e)

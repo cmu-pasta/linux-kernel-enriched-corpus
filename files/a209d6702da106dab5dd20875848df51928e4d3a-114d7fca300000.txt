@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=a209d6702da106dab5dd20875848df51928e4d3a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+write$cgroup_int(r0, 0x0, 0x0)
+r1 = socket$kcm(0x2, 0x3, 0x2)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+ioctl$SIOCSIFHWADDR(r1, 0x8914, 0x0)
+ioctl$sock_kcm_SIOCKCMUNATTACH(r1, 0x89e1, 0x0)
+ioctl$TUNSETQUEUE(r1, 0x400454d9, 0x0)
+socketpair$tipc(0x1e, 0x2, 0x0, 0x0)
+bpf$BPF_BTF_LOAD(0x12, &(0x7f0000000040)={0x0, 0x0, 0x56, 0x0, 0x8}, 0x20)
+r2 = openat$tun(0xffffffffffffff9c, &(0x7f0000000140), 0x241, 0x0)
+ioctl$TUNSETIFF(r2, 0x400454ca, &(0x7f0000000040)={'syzkaller1\x00'})
+bpf$MAP_CREATE(0x0, &(0x7f0000000040)={0x5, 0x4, 0x6600, 0xea, 0x40}, 0x40)

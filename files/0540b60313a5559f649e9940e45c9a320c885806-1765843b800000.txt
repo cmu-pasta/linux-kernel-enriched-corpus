@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0540b60313a5559f649e9940e45c9a320c885806
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+socket$inet(0x11, 0x2, 0x300)
+syz_emit_ethernet(0x32, &(0x7f00000000c0)={@remote={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xbb}, @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa]}, [], {@arp={0x806, @generic={0x0, 0x0, 0x6, 0x0, 0x0, @empty, "", @local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, "d9992bb2387234bdfe2b1a65f87262b8"}}}}, &(0x7f0000000100))
+r0 = socket$inet(0x11, 0x1000000000000003, 0xfffffffffffffffc)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000080)={'ip6gre0\x00', <r1=>0x0})
+sendmsg(r0, &(0x7f0000001540)={&(0x7f0000000400)=@ll={0x11, 0x0, r1, 0x1, 0x0, 0x6, @local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}}, 0x14, &(0x7f00000004c0)}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f7e9b601f1414f814f7602a82b6619a8d80bce3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000200)={'hsr0\x00', <r2=>0x0})
+sendto$packet(r1, 0x0, 0x0, 0x0, &(0x7f0000000000)={0x11, 0x8100, r2, 0x1, 0x0, 0x6, @remote}, 0x14)

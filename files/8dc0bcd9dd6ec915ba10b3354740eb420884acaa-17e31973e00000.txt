@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=8dc0bcd9dd6ec915ba10b3354740eb420884acaa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+semop(0x0, 0x0, 0x0)
+r0 = openat$ashmem(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$sequencer2(0xffffffffffffff9c, 0x0, 0x131400, 0x0)
+dup2(r0, r1)
+clock_gettime(0x0, 0x0)
+timerfd_settime(r1, 0x1, 0x0, 0x0)
+r2 = openat$ashmem(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r3 = openat$sequencer2(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+dup2(r2, r3)
+r4 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000440)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r4, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_SET_OPTION(r4, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r4, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r4, &(0x7f0000000340)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000380)={<r5=>0xffffffffffffffff}, 0x13f}}, 0x20)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r4, &(0x7f00000003c0)={0x3, 0x40, 0xfa00, {{0xa, 0x4e21, 0x0, @ipv4}, {}, r5}}, 0x48)
+write$RDMA_USER_CM_CMD_LISTEN(r4, &(0x7f00000001c0)={0x7, 0x8, 0xfa00, {r5}}, 0x10)

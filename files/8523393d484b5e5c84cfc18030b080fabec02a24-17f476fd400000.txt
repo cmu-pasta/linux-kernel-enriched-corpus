@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8523393d484b5e5c84cfc18030b080fabec02a24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":2}
+r0 = syz_open_dev$dri(&(0x7f00000000c0)='/dev/dri/card#\x00', 0x1, 0x0)
+r1 = dup(r0)
+ioctl$KVM_GET_ONE_REG(r1, 0x4010aeab, &(0x7f0000000000)={0x0, 0x2000000002})

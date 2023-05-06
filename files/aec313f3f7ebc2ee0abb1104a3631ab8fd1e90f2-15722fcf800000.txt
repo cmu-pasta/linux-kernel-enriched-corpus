@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=aec313f3f7ebc2ee0abb1104a3631ab8fd1e90f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = eventfd(0x7b11fffffffffd)
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000080)={0x0, r2})
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000140)={0x4, 0xffffffffffffffff, 0x1})

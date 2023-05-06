@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=130cae4a4387fae6614fccf5eed180400ea30948
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x6, 0x4, &(0x7f0000000200)=ANY=[@ANYBLOB="18020000000000200000000000000000850000002c0000009500000000000000"], &(0x7f00000000c0)='GPL\x00', 0x4, 0x1000, &(0x7f000062b000)=""/4096, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x70)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000440)=ANY=[@ANYBLOB="340000001000010800"/20, @ANYRES32=0x0, @ANYBLOB="00000000000000000c002b8008000100", @ANYRES32=r1, @ANYBLOB="08001b"], 0x34}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=291f241bec2fdf1bc2418cca91cc1d4e7f36027b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2b, 0x1, 0x0)
+sendmsg$TEAM_CMD_OPTIONS_SET(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={0x0}}, 0x2400c044)

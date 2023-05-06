@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=70d491b839984c756992b68c93e666828a4a301c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket(0x10, 0x80002, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000002980)={0x0, 0x0, &(0x7f0000002940)={&(0x7f00000000c0)=@newtaction={0x58, 0x30, 0x53b, 0x0, 0x0, {}, [{0x44, 0x1, @m_ctinfo={0x40, 0x1, 0x0, 0x0, {{0xb, 0x1, 'ctinfo\x00'}, {0x2c, 0x2, 0x0, 0x1, [@TCA_CTINFO_ACT={0x18}, @TCA_CTINFO_ZONE={0x6}, @TCA_CTINFO_PARMS_CPMARK_MASK={0x8}]}, {0x4}}}}]}, 0x58}}, 0x0)

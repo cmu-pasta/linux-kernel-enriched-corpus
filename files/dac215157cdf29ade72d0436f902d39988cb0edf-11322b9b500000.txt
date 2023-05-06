@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=dac215157cdf29ade72d0436f902d39988cb0edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_genetlink_get_family_id$mptcp(0x0)
+openat$fb0(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+syz_io_uring_setup(0x3bbe, &(0x7f0000000380), &(0x7f0000ffb000/0x3000)=nil, &(0x7f0000ffd000/0x2000)=nil, 0x0, 0x0)
+bpf$OBJ_GET_PROG(0x7, 0x0, 0x0)

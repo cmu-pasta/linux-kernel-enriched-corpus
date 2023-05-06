@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8aae4a4419fc238d9c6b55584611f2dbdd8eb99e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","close_fds":true}
+r0 = memfd_create(&(0x7f0000000240)='\x103q}2\x9a\xce\xaf\x03\x86\xe7\xc0\x14\x8f\xf8\xd28\xf4\x1c\xc0\xf9\x1c\xa6\xab\bi\xe4^\xd5\xfd\xa9\r\xac7A\x94\xeb\xcd\t\x00\x90k\xd6\x05\r\x84\x87\x1c\b\x8c`\xea\x13A\x90m\xb6&\xd0\x9daA\xc5\xb8_\xd4\x18,\f\xd4s\xb2\x99/\xc0\x9a\xf2O\xdb\xc0\x8b\x19\x17\xb7Rvd\xcb:\b', 0x0)
+mmap(&(0x7f0000200000/0x400000)=nil, 0x400000, 0x0, 0x2012, r0, 0x0)
+r1 = userfaultfd(0x80001)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r1, 0xc020aa00, &(0x7f00000001c0)={{&(0x7f00000e2000/0xc00000)=nil, 0xc00000}, 0x1})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e152effa6a9776e0925ab3657dcfbea5fc4c2c4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+mkdir(&(0x7f0000000100)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000027000)='./file0\x00', &(0x7f00000000c0)='proc\x00', 0x0, 0x0)
+r0 = inotify_init()
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x2000440)
+umount2(&(0x7f0000000080)='./file0\x00', 0x0)
+write$P9_RUNLINKAT(0xffffffffffffffff, 0x0, 0x0)
+semctl$GETNCNT(0x0, 0x0, 0x10, 0x0)

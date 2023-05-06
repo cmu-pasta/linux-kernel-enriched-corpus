@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=48ac8459188ca5430fa946d53b6dd293465d969a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDRS(0xffffffffffffffff, 0x84, 0x6c, &(0x7f00000002c0)=ANY=[@ANYRES32=0x0, @ANYBLOB="8c0000004f41bb604ee656ab85a9575c08b1fcba95d531cd5db44cd392a96fcce06ae9ccd43d289f59e59455e8de32c4814f957c5434bbd99657caba4f6dcbf34aafdb7a0bbc028f1ff83f85369cd305bb5589d7bd39932efdc1858e77f8c89fb3c95d66c5e038fb204eacc0931769f1d1df035ef050e2733c910eb5ed8f8bb544975ca9e8c6752c88cb83d9ec6d5628cd257cd12e61c05714d846434890678ffcac97d90000000000000000000000002f3ed223ea2b68432394f8"], &(0x7f0000000200)=0x2)
+add_key(&(0x7f0000000080)='dns_resolver\x00', &(0x7f0000000000)={0x73, 0x79, 0x7a, 0xffffffffffffffff, 0x100000000000000}, &(0x7f00000000c0), 0xfffff, 0xfffffffffffffffb)
