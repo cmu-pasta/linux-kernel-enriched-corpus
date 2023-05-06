@@ -42,6 +42,7 @@ jobs:
       uses: codacy/git-version@2.8.0
       with:
         release-branch: main
+        log-path: ./
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
