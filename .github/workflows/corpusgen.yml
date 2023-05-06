@@ -38,9 +38,9 @@ jobs:
       run: |
         zip --junk-paths enriched-corpus *.db
     - name: Get current date
-        id: date
-        run: |
-          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
+      id: date
+      run: |
+        echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
