@@ -44,9 +44,7 @@ jobs:
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
         prerelease: false
-        title: "Daily Enriched Corpus ${{ env.date }}"
         files: |
           LICENSE
           *.db
@@ -54,6 +52,8 @@ jobs:
     - name: Remove Zip
       run: |
         rm -v enriched-corpus.zip
+        find -maxdepth 1 -name "*.db" -size +100M -delete
+        echo "Deleted Files Larger Than 100MB before Pushing to GitHub"
     - name: Commit & Push changes
       uses: actions-js/push@master
       with:
