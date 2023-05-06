@@ -1,27 +1,13 @@
----
-name: "versioned-release"
+name: Keep the versions up-to-date
 
 on:
-  push:
-    tags:
-      - "v*"
-  schedule:
-  - cron: '2 2 * * *'
-  workflow_dispatch:
-
+  release:
+    types: [published, edited]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
+  actions-tagger:
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: false
-        files: |
-          *.db
-          LICENSE
-      id: "automatic_releases"
+      - uses: Actions-R-Us/actions-tagger@latest
+        with:
+          publish_latest_tag: true
