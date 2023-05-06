@@ -37,14 +37,16 @@ jobs:
     - name: zip artifacts
       run: |
         zip --junk-paths enriched-corpus *.db
-    - name: Get current date
-      id: date
-      run: |
-        echo "{date}={$(date +'%Y-%m-%d')}" >> "$GITHUB_ENV"
+    - name: Git Version
+      uses: codacy/git-version@2.4.0
+      with:
+        release-branch: main
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
+        automatic_release_tag: "latest"
+        title: "Daily Enriched Corpus"
         files: |
           LICENSE
           *.db
