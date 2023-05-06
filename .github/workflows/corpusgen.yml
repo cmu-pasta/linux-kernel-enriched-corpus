@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Setup Go environment
       uses: actions/setup-go@v4.0.0
-    - name: Clone syzkaller
+    - name: Clone syzkaller and prep corpus
       run: |
         cd ..
         git clone https://github.com/google/syzkaller
@@ -37,12 +37,16 @@ jobs:
     - name: zip artifacts
       run: |
         zip --junk-paths enriched-corpus *.db
+    - name: Get current date
+        id: date
+        run: |
+          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
+        automatic_release_tag: "latest-${{ env.date }}"
         prerelease: false
-        title: "Daily Enriched Corpus"
+        title: "Daily Enriched Corpus ${{ env.date }}"
         files: |
           LICENSE
           *.db
