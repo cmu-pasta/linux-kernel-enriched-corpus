@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1bb51491ca5df96a5f724899d1dbb87afda61419
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"vhci":true,"tmpdir":true}
+bpf$BPF_TASK_FD_QUERY(0x14, &(0x7f0000000200)={0x0, 0xffffffffffffffff, 0x0, 0x7, &(0x7f0000000000)='cgroup\x00'}, 0x30)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f00000000c0)='pids.max\x00', 0x2, 0x0)
+write$cgroup_int(r1, &(0x7f0000000180), 0x12)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r2, &(0x7f0000002ec0)={0x1f, @fixed}, 0x8)
