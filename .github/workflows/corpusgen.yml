@@ -29,7 +29,7 @@ jobs:
         cd syzkaller/tools/syz-db
         go run syz-db.go pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
         cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
-        wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
+        #wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
         go run syz-db.go unpack ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db temp/
         cp -v ../../../linux-kernel-enriched-corpus/files/* temp/
         go run syz-db.go pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
