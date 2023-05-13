@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+clone(0x5fc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @bcast, @rose, @rose, @null]}, 0x10)

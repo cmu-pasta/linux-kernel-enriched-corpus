@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a18211c8bcd70bd3c46f75804e8840a8b21628f5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+writev(r0, &(0x7f0000000740)=[{&(0x7f0000000600)="390000001300034700bb65e1c3e4ffff01000000010000005600000025000000190004000400000007fd17e5ffff0800040000000000000000", 0x39}], 0x1)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR(r1, 0x6, 0x13, &(0x7f0000000000)=0x1, 0x4)
+setsockopt$inet_tcp_TCP_REPAIR_QUEUE(r1, 0x6, 0x14, &(0x7f0000007980)=0x2, 0x4)
+connect$inet(r1, &(0x7f0000000080)={0x2, 0x0, @dev}, 0x10)
+setsockopt$inet_tcp_int(r1, 0x6, 0x13, &(0x7f0000001240), 0x4)

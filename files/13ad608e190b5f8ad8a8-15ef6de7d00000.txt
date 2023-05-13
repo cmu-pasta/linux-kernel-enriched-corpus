@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e93dddbf164fb5dea44a6e6dbdec8fece1613543
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'bridge0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000007d80)=ANY=[@ANYBLOB="68000000100003040d1000"/20, @ANYRES32=0x0, @ANYBLOB="d9241089000000002c00128009000100766c616e000000001c00028006000100000000000c0002000e0000000a0000000400048008000500", @ANYRES32=r2, @ANYBLOB='\b\x00\n\x00', @ANYRES32, @ANYBLOB], 0x68}}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0d9e7892096514a76e429ff8353aca183dac6e73
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+openat$tun(0xffffffffffffff9c, &(0x7f0000000240)='/dev/net/tun\x00', 0x8000, 0x0)
+bpf$BPF_PROG_QUERY(0x10, &(0x7f0000000140)={0xffffffffffffffff, 0x3, 0x1, 0x7e0000000, &(0x7f00000000c0)=[0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0], 0x7}, 0x20)
+bpf$PROG_LOAD(0x5, &(0x7f0000000000)={0x1, 0xa, &(0x7f0000001000)=ANY=[@ANYBLOB="bf1600000000000085100000050000006d00000000000000bf610000000000008510000002000000bf0100000000000095000000000000001501000000000000b7000000000000009500000000000000"], &(0x7f0000000100)='GPL\x00'}, 0x48)
+socketpair$inet6_udplite(0xa, 0x2, 0x88, &(0x7f0000000040))

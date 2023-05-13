@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=be1b81d726de1c0363b56fe4a5608a14d90e642d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"tmpdir":true}
+setsockopt$IPT_SO_SET_REPLACE(0xffffffffffffffff, 0x0, 0x40, 0x0, 0x0)
+socket$nl_netfilter(0x10, 0x3, 0xc)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1a97a5bd119fd97995f752819fd87840ab9479a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000000)={0x1, 'syz_tun\x00'}, 0x18)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000080)={0x1, 'irlan0\x00'}, 0x18)
+r1 = inotify_init1(0x80800)
+fcntl$setown(r1, 0x8, 0xffffffffffffffff)
+fcntl$getownex(r1, 0x10, &(0x7f0000000300)={0x0, <r2=>0x0})
+rt_sigqueueinfo(r2, 0xb, &(0x7f0000000040)={0x0, 0x0, 0xffffffffffffffff})

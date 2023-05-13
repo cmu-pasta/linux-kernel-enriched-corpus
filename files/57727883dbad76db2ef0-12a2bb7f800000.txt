@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cb4ae3b111baf63a8d37975c686a93a538bde2fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+r1 = epoll_create(0x1)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000000)={0x1})

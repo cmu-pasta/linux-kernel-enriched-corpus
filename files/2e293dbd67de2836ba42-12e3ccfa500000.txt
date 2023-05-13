@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffffff, &(0x7f00000001c0)='freezer.self_freezing\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = socket$kcm(0x2b, 0x1, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$smc(&(0x7f0000000240)='SMC_PNETID\x00')
+sendmsg$SMC_PNETID_FLUSH(0xffffffffffffffff, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={0x0}}, 0x20000001)
+sendfile(r3, r2, 0x0, 0xd16d)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000140))
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000002500)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_NAN_FUNCTION(r0, &(0x7f0000000340)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x100000}, 0xc, &(0x7f0000000280)={&(0x7f0000000200)={0x2c, 0x0, 0x100, 0x70bd28, 0x25dfdbfe, {{}, {@void, @void}}, [@NL80211_ATTR_COOKIE={0xc, 0x58, 0x6e}, @NL80211_ATTR_COOKIE={0xc, 0x58, 0x21}]}, 0x2c}, 0x1, 0x0, 0x0, 0x10000000}, 0x800)
+ioctl$sock_SIOCGIFINDEX_80211(0xffffffffffffffff, 0x8933, 0x0)
+sendmsg$NL80211_CMD_GET_KEY(r4, &(0x7f00000025c0)={0x0, 0x0, &(0x7f0000002580)={&(0x7f0000002540)={0x24, r5, 0x1, 0x0, 0x0, {{}, {@val={0x8}, @void}}, [@NL80211_ATTR_KEY_IDX={0x5, 0x8, 0x6}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_LEAVE_IBSS(0xffffffffffffffff, 0x0, 0x8003)

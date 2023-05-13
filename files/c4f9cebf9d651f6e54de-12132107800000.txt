@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=38fd481002903a9f0a8c861cc142ff5180eaf444
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$loop(&(0x7f0000000200)='/dev/loop#\x00', 0x0, 0x82)
+r1 = memfd_create(&(0x7f00000002c0)="000000000000000000000000000000768e05f7c155ad7dc6947c573e5a69244e76382c0aa63d575ea3597f8b1728277ef76b30544d7ba92dcf978f1f81dc1b7f8f7b3451dada02ecb4f1ddcc8b5241da8945666e0073c25a6287c64dbea37a", 0x0)
+pwritev(r1, &(0x7f0000000340)=[{&(0x7f00000001c0)='\'', 0x1}], 0x1, 0x81806)
+ioctl$LOOP_CHANGE_FD(r1, 0x4c00, r0)
+ioctl$LOOP_SET_CAPACITY(0xffffffffffffffff, 0x4c07)
+sendfile(r0, r0, &(0x7f0000000240), 0x20000102000007)
+ioctl$LOOP_CLR_FD(r0, 0x4c01)
+ioctl$LOOP_SET_FD(r0, 0x4c00, r1)

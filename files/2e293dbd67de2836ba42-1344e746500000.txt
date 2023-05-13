@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$ntfs(&(0x7f0000000500)='ntfs\x00', &(0x7f0000000540)='./file0\x00', 0x0, 0x0, &(0x7f00000005c0), 0x0, 0x0)

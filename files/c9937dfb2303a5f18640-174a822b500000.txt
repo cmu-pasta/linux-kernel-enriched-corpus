@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=dac215157cdf29ade72d0436f902d39988cb0edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x80, 0x0)
+accept$ax25(r0, 0x0, 0x0)
+getrusage(0x76a357a9db6ae41f, 0x0)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x9, 0x0, 0x0)
+r1 = openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+ioctl$SIOCNRDECOBS(r1, 0x89e2)
+syz_io_uring_setup(0x226e, &(0x7f0000000000)={0x0, 0xcadf}, &(0x7f00003fe000/0xc00000)=nil, &(0x7f0000f22000/0x1000)=nil, 0x0, 0x0)

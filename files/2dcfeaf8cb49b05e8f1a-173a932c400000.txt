@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=78e9ad0e6952a3ca16e8234724b2fa92d041b9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/nullb0\x00', 0x4000000004002, 0x0)
+write$binfmt_misc(r0, &(0x7f00000003c0)=ANY=[@ANYBLOB='o'], 0x1)

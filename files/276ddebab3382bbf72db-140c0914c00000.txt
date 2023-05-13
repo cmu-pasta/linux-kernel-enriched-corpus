@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=28b6bf730a5e8d288db5c794d5c6ccc49f746d74
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket(0xa, 0x1, 0x0)
+ioctl$sock_ifreq(r0, 0x89fb, 0x0)
+setsockopt$RDS_CANCEL_SENT_TO(r0, 0x114, 0x1, 0x0, 0x0)
+r1 = syz_open_dev$adsp(0x0, 0x3, 0x800)
+r2 = socket(0x4000000000000a, 0x1, 0x0)
+setsockopt$EBT_SO_SET_ENTRIES(r2, 0x0, 0x80, &(0x7f00000000c0)=@nat={'nat\x00', 0x19, 0x2, 0x220, [0x20001b40, 0x0, 0x0, 0x20001d00, 0x20001d30], 0x0, 0x0, &(0x7f0000001b40)=[{0x0, '\x00', 0x0, 0xffffffffffffffff, 0x2, [{{{0x15, 0x0, 0x0, 'irlan0\x00', 'nr0\x00', 'ifb0\x00', 'vlan\xdd\xf4\x00\x00\xd6\b\xce\r\x00', @empty, [], @empty, [], 0x98, 0xc8, 0xf8, [@state={'state\x00', 0x4}]}, [@arpreply={'arpreply\x00', 0xc, {{@remote}}}]}, @arpreply={'arpreply\x00', 0xc, {{@link_local}}}}, {{{0x13, 0x0, 0x0, 'erspan0\x00', 'teql0\x00', 'veth1_to_team\x00', 'vethU\x00to_te!m\x00', @random="825b005378b7", [], @remote, [], 0x70, 0x70, 0x98}}, @common=@NFQUEUE0={'NFQUEUE\x00', 0x4}}]}, {0x0, '\x00', 0x2, 0xffffffffffffffff}, {0x0, '\x00', 0x2, 0xffffffffffffffff}]}, 0x270)
+ioctl$KVM_ENABLE_CAP(r1, 0x4068aea3, &(0x7f0000000080)={0x0, 0x0, [0x0, 0x7f, 0x8]})

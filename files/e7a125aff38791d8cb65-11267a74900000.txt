@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=faaa654c1061c0a616ff92bf148a65c31b21c071
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+wait4(0x0, 0x0, 0x80000002, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x2)
+ptrace$cont(0x18, r0, 0x0, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+ptrace$cont(0x20, r0, 0x0, 0x0)

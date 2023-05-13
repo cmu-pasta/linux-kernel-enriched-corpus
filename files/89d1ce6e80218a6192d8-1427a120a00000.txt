@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$inet_udplite(0x2, 0x2, 0x88)
+bpf$PROG_LOAD(0x5, &(0x7f0000000480)={0x12, 0x16, &(0x7f0000000280)=ANY=[@ANYBLOB="180000000000000000000000000000006301280000000000950000000000000015d66354866d2997ecb2b1a47db3ac5dd798662a292bf77f498b92d9a8843133d3fee0303f60ff07000023251ef7f0536d43b0c51ae247b0154ae9cbdb143870147dfda8f464deb16b71a22bc66caa6cced262b9ea6ae71bf8c28f048feb96219265875a386ac68eb7a8c3d3fc1810305fba772efe4de1c20400000000000000a29400"/176], 0x0, 0x7fffffff, 0xfb, &(0x7f0000000380)=""/251, 0x0, 0x0, [], 0x0, 0xe, 0xffffffffffffffff, 0x8, &(0x7f0000000040), 0x8, 0x10, &(0x7f0000000000), 0x10}, 0x70)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=bc8700aea312e2ec264085b6891465013a575517
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000000)={<r0=>0xffffffffffffffff})
+shutdown(r0, 0x0)

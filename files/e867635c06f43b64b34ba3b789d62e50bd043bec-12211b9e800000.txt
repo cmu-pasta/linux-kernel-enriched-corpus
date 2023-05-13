@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=012fc28616476a6eba042bfeb6cf261b55750d4a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(&(0x7f0000005000)="2f6465762f62696e6465722300", 0x0, 0x0)
+close(r0)
+r1 = syz_open_dev$binder(&(0x7f0000009000-0xd)="2f6465762f62696e6465722300", 0x0, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f0000009000-0x30)={0x4, 0x0, &(0x7f000000a000)=[@register_looper={0x630b}], 0x48, 0x0, &(0x7f0000009000)="d8fc1dd16de371f1d99e3b4d488546c2bbb067efde9e55e9d1048602c19fe0b0078ade697201170fdbcc34816df860d3f87023a9d8567fa3297aac9d65b25106fc55ed85da8cb6f3"})
+r2 = mmap$binder(&(0x7f0000008000/0x2000)=nil, 0x2000, 0xc, 0x11, r0, 0x0)
+ioctl$BINDER_GET_NODE_DEBUG_INFO(r1, 0xc018620b, &(0x7f0000006000)={r2, 0x0, 0x0, 0x0})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000007000)={0x4, 0x0, &(0x7f0000006000-0x2c)=[@acquire_done={0x40486311, 0x0, 0x0}], 0x0, 0x0, &(0x7f0000002000)=""})

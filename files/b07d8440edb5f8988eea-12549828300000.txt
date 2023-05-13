@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x3, 0x5)
+setsockopt$IP6T_SO_SET_REPLACE(r0, 0x29, 0x40, &(0x7f0000000500)=@raw={'raw\x00', 0x3c1, 0x3, 0x4f8, 0x0, 0x268, 0x300, 0x288, 0x268, 0x428, 0x460, 0x460, 0x428, 0x460, 0x9, 0x0, {[{{@uncond, 0x0, 0x240, 0x288, 0x0, {}, [@common=@inet=@hashlimit2={{0x150}, {'hsr0\x00', {0x0, 0x9, 0x0, 0x0, 0x0, 0x5, 0x9}}}, @common=@unspec=@helper={{0x48}, {0x0, 'syz0\x00'}}]}, @unspec=@CT0={0x48}}, {{@ipv6={@private2, @remote, [], [], 'vcan0\x00', 'vlan0\x00'}, 0x0, 0x138, 0x1a0, 0x0, {}, [@common=@srh1={{0x90}, {0x0, 0x0, 0x0, 0x0, 0x0, @mcast1, @loopback, @local}}]}, @unspec=@CT1={0x68, 'CT\x00', 0x1, {0x0, 0x0, 0x0, 0x0, 'netbios-ns\x00', 'syz1\x00'}}}], {{'\x00', 0x0, 0xa8, 0xd0}, {0x28}}}}, 0x558)

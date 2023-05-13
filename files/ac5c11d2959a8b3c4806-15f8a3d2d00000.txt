@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0f2a0ef154fbbd9190e2a41db99366ec1b9274bc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000040)='nl802154\x00', 0xffffffffffffffff)
+sendmsg$NL802154_CMD_DEL_SEC_KEY(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x44, r1, 0x15f788370a22b049, 0x70bd26, 0x25dfdbfe, {}, [@NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x300000003}, @NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x200000000}, @NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x300000003}, @NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x100000001}]}, 0x44}, 0x1, 0x0, 0x0, 0x4}, 0x20000000)

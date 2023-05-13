@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9f4513b41da4f8a2961128dacb661a43f4acc21f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f00000031c0)={0x0, 0x0, &(0x7f0000003180)={&(0x7f0000003000)={0x38, 0x1403, 0x1, 0x0, 0x0, "", [{{0x9, 0x2, 'syz1\x00'}, {0x8, 0x41, 'siw\x00'}, {0x14, 0x33, 'lo\x00'}}]}, 0x38}}, 0x0)
+sendmsg$IPSET_CMD_CREATE(0xffffffffffffffff, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="300000000207020000000000000000000500000000000000180001"], 0x1}}, 0x0)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="280000004a0001"], 0x1}}, 0x0)
+sendmsg$IPCTNL_MSG_TIMEOUT_DELETE(0xffffffffffffffff, &(0x7f0000001f80)={0x0, 0x0, &(0x7f0000001f40)={&(0x7f0000000000)=ANY=[@ANYBLOB="140000000414"], 0x1}}, 0x0)
+r1 = socket$inet6(0x10, 0x2, 0x14)
+sendto$inet6(r1, &(0x7f0000000000)='E', 0x10a73, 0x8c0, 0x0, 0x4b6ae4f95a5de35b)

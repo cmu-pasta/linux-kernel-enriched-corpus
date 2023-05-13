@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=fad3ea9c2911a7bd3e92dac63a00b2afbf0453ed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0xc00000000000000, &(0x7f0000000080)={0x6, 0x4, 0x20000000007ffd, 0x2e, 0x0, 0xffffffffffffffff, 0x0, [0x0, 0x0, 0x0, 0x400100]}, 0x3c)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/kvm\x00', 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=3553517af6020c4f2813f1003fe76ef3cbffe98d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000040)={0x0}}, 0x0)
+sendmsg$key(0xffffffffffffffff, &(0x7f00000001c0)={0x40000000, 0x0, &(0x7f0000000040)={&(0x7f0000000080)=ANY=[@ANYBLOB="02030609100000000000004c9e000000020013000200000000000000ffff14ed05000600200000000a00060000000000000500e50000070000001ffeff0000000003f1dc7f7c6e870200010000000000004000020000000005000500000000000a"], 0x80}}, 0x0)
+sendmmsg(r0, &(0x7f0000000180), 0x400008a, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x6)
+sendmsg$nl_route(r1, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000540)={&(0x7f0000000080)=ANY=[@ANYBLOB="2c000000120005ff"], 0x2c}}, 0x0)
+recvmmsg(r1, &(0x7f0000007700)=[{{0x0, 0x0, &(0x7f0000000000)=[{0x0}, {0x0}, {&(0x7f0000001580)=""/4110, 0x100e}], 0x3}}], 0x1, 0x20, 0x0)

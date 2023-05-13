@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"segv":true}
+r0 = socket$inet_sctp(0x2, 0x5, 0x84)
+sendmsg$inet_sctp(r0, &(0x7f0000005e40)={0x0, 0x0, 0x0}, 0x0)
+bind$inet(r0, &(0x7f0000000100)={0x2, 0x1, @local}, 0x10)

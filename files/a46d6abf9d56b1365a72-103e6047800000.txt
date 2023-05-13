@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=03cac969e671adbca500f9737d1a8656c37c24a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+r1 = accept4(r0, &(0x7f0000000b00)=@ax25, &(0x7f0000000b80)=0x80, 0x80800)
+setsockopt$netlink_NETLINK_RX_RING(r1, 0x10e, 0x6, &(0x7f0000000bc0)={0x7fffffff, 0x2, 0x0, 0xff}, 0x10)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000040)={0x2, 'bridge_slave_0\x00'}, 0x18)
+accept(r0, &(0x7f0000000080)=@pppol2tpv3in6={0x0, 0x0, {0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0x0, 0x0, 0x0, @mcast2}}}, &(0x7f0000000100)=0x80)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000000)={0x2, 'ifb0\x00'}, 0x18)
+syz_extract_tcp_res$synack(&(0x7f0000000000), 0x1, 0x0)
+syz_emit_ethernet(0x4, &(0x7f00000003c0)=ANY=[@ANYBLOB, @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB], 0x0)
+socketpair(0xb, 0x7, 0x5, &(0x7f0000000080)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+connect$vsock_dgram(r2, &(0x7f00000000c0)={0x28, 0x0, 0x0, @hyper}, 0x10)
+pipe(&(0x7f0000000100)={<r3=>0xffffffffffffffff})
+getsockopt$netrom_NETROM_N2(r3, 0x103, 0x3, &(0x7f0000000180)=0x800000005, &(0x7f0000000140)=0x4)

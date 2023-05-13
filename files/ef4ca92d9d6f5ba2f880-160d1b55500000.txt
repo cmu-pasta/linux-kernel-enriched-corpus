@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=f1b41b503f18f268d11e52f80deffcd0c62e0865
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true,"wifi":true}
+syz_80211_inject_frame(&(0x7f00000000c0), &(0x7f0000000100)=@data_frame={@no_qos=@type00={{}, {}, @device_a, @broadcast}}, 0x18)

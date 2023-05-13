@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=40cdeb3bf27f6ec1fa468f8d7fff780368704d67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"resetnet":true,"segv":true}
+futex(&(0x7f000000cffc)=0x4, 0x80000000000b, 0x4, 0x0, &(0x7f0000048000), 0x0)
+futex(&(0x7f000000cffc)=0x4, 0x80000000000b, 0x4, 0x0, &(0x7f0000048000), 0x0)
+syz_genetlink_get_family_id$tipc2(0x0)
+futex(&(0x7f000000cffc), 0xc, 0x1, &(0x7f0000000a00)={0x0, 0x989680}, &(0x7f0000048000), 0x0)
+exit(0x100011)
+sched_setattr(0x0, &(0x7f0000000000)={0x0, 0x6, 0x2, 0x0, 0x0, 0x9917, 0xffff}, 0x0)
+write$P9_RREADLINK(0xffffffffffffffff, 0x0, 0x0)

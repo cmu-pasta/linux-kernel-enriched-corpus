@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=78e9ad0e6952a3ca16e8234724b2fa92d041b9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040)='/dev/nullb0\x00', 0x42002, 0x0)
+ioctl$BLKZEROOUT(r0, 0x127f, &(0x7f0000000000)={0x0, 0x880000})

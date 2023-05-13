@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ca6e91d5ec1820b843494c7d3d6df06f0d709052
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f0000fe7000/0x18000)=nil, &(0x7f0000000180)=[@text32={0x20, &(0x7f00000000c0)="b9800000c00f322e0f0178000f309a0900000065002ed8ddc74424008fc4bd87c7442402c43a727fc7442406000000000f011424f30f090f013a360f06c4c18d72d683ed", 0x44}], 0x1, 0x0, 0x0, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, 0x0)
+ioctl$KVM_SET_CPUID2(0xffffffffffffffff, 0x4008ae90, &(0x7f0000000480)=ANY=[@ANYBLOB])

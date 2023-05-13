@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cc43803b86884fa3a3ba67d2a88b8d05251bbf76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+ioctl(r0, 0x20000000008912, &(0x7f00000001c0)="0a5c2d0240316285717070")

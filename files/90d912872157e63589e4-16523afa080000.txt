@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=264b703d22effb171549375ad8aa17704033f1ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","close_fds":true,"wifi":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f00000014c0), 0xffffffffffffffff)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000140)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+ioctl$sock_SIOCGIFINDEX_80211(r2, 0x8933, &(0x7f0000000000)={'wlan0\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000240)={0x2c, r1, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x98f}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8, 0xb7, 0xa5}]}, 0x2c}}, 0x48000)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=acad76be3431f7cff3292234799b644379e1fc53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"devlinkpci":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x274, &(0x7f0000000000)={&(0x7f0000000180)=ANY=[@ANYBLOB="440000001000050700"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000240012000c000100626f6e64000000001400020008000300008000000800040000fc000084557fd794d37549541f368d22aabf563f5de0bb1549af5a1d532422bb6c8bafdf18d96032df410c3847a5749d710bbd0bb76a15f8fe576986ff5bbff8c5fc6193c03eaa82567015fd09aa03bcc173bc8a9396437a859c762b0394d630a5216a2831b94863205698d762b8471fb16483e44d3f67a4acf60413f30080b05d83eb8ddafdcc4993096935cdfc264cf8384e227913fffd22f352229bb4665ed5f9a4c0bab092e5"], 0x44}}, 0x0)

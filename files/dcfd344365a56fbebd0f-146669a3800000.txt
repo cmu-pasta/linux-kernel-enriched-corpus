@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=77e2cfee3bc0fdd3bcaf05ea83a9c26a59ddbf6c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f0000000200)=ANY=[@ANYBLOB="00000000180000fae77c0051c6b553e845580f0f4d56243c0200f4ffffff0000c18b1015678b42deb24abea1b1481af33fdedeb154bb02ca5400ca946c8349e26e871105174057657e86c0c5519900561c001d3a1cdb95e35de70fbf63280b643d0525b1aeef4a0b9d472a9f09f443731b73454e13668cc91823d455d3de8ff83320c00cfbceffa750d2363f8dcb894e6ff3e1060b1178623c00fec83e587f8c81ff4b13c5a1ad6b39ba21655f0a0bb350ac7d66088a62f188101de7fd95911dc584d57938f0caa0864831dbece4a625c270de236d56c950e586f4014288bca7d4c447b50d22dea0ae7297d46570a94fdeef95a0c4030c4d87f401477d5b", @ANYPTR=&(0x7f00000029c0)=ANY=[@ANYRES32=0xffffffff], @ANYBLOB], 0x106)

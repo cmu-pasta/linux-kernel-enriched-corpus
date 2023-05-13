@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=279eeb5bad7679d5382d1b56449779fe83d96690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+setsockopt$IP_VS_SO_SET_ADD(r0, 0x0, 0x482, &(0x7f0000000080)={0x11, @private=0xa010100, 0x4e21, 0x0, 'lc\x00', 0x2, 0x4, 0xb}, 0x2c)
+unshare(0x60000200)

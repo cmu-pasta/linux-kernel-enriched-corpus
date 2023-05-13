@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=001410d947fa7742a85647e596c45661118c7d24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$snapshot(0xffffffffffffff9c, &(0x7f0000000080)='/dev/snapshot\x00', 0x50200, 0x0)
+ioctl$KVM_SET_SIGNAL_MASK(r0, 0x4004ae8b, &(0x7f0000001540)={0xdd, "a3381ecd74fc8873d62e13dcd543bd39e63b475310ae265ecd8f575a64466bbaa978abfe54cd695511f17868aca8f042e30273205d32174bc90e8fdd8c43d5806f678216837ec968a23042f07e8d7823e5eb05a89ac77fb01bc1f9a4d8aae301b9bc3855b91fe81906e5f1c1b8ce9b83d33d39917c954d11a2cbf782374752d040c39b7321e792d01c1ab75dfba3f1eecaebe416dbefa1cadd5591304cc273cdc07d3651504ecc527f5886533ee26f263e78e8223a6cdb2afd28bd6c1a00adc580e11935aeba5c3bfbe32c43185576f8ab82601dfac94a8dd995ea23b8"})
+pipe2$9p(&(0x7f0000000500)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+write$P9_RUNLINKAT(r2, &(0x7f0000000040)={0x148, 0x4d}, 0x7)
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f00000003c0)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c, {[{@version_u='version=9p2000.u', 0x2c}]}})
+pipe2(&(0x7f0000000000)={<r3=>0xffffffffffffffff}, 0x80800)
+ioctl$VT_SETMODE(r0, 0x5602, &(0x7f00000001c0)={0x2, 0x1, 0x1, 0x7, 0x7})
+read$FUSE(r3, &(0x7f0000000540), 0x1000)
+write$P9_RREADDIR(r2, &(0x7f0000000480)={0x2a, 0x29, 0x1, {0x0, [{{}, 0x0, 0x0, 0x7, './file0'}]}}, 0x2a)
+write$P9_RREADDIR(r2, &(0x7f0000000280)={0x5b, 0x29, 0x1, {0x0, [{{}, 0x0, 0x0, 0xd, './file0/file0'}, {{}, 0xfffffffffffffff8, 0x0, 0x13, './file0/file0/file0'}]}}, 0x5b)
+mount$9p_fd(0x0, &(0x7f0000000300)='./file0\x00', &(0x7f0000000380)='9p\x00', 0x800000, &(0x7f0000000200)={'trans=fd,', {'rfdno', 0x3d, r2}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c})
+removexattr(&(0x7f0000000100)='./file0\x00', &(0x7f0000000180)=@random={'osx.', 'version=9p2000.u'})

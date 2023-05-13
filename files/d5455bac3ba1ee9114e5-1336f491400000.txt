@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=645f06d8747346b61bd90a5a3a23e2f33d7f0d6f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f00000004c0)={0x26, 'hash\x00', 0x0, 0x0, 'sha512_mb\x00'}, 0x58)
+r1 = accept4(r0, 0x0, &(0x7f0000000000), 0x0)
+r2 = syz_open_procfs(0x0, &(0x7f0000000080)='pagemap\x00')
+sendfile(r1, r2, &(0x7f00000002c0), 0x1000)

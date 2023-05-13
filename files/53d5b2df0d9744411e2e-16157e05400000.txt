@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+ioctl$VIDIOC_G_SELECTION(0xffffffffffffffff, 0xc040565e, &(0x7f0000000200)={0x7, 0x1, 0x4, {0x9e7, 0x2, 0x8, 0x1}})
+ioctl$VIDIOC_STREAMOFF(0xffffffffffffffff, 0x40045613, &(0x7f0000000080))
+syz_open_dev$media(&(0x7f0000000140)='/dev/media#\x00', 0x80000001, 0x800)
+ioctl$VIDIOC_QUERY_EXT_CTRL(0xffffffffffffffff, 0xc058560f, &(0x7f0000000180)={0x0, 0x9, "2a8f5865af49c7250671f832f1ce9782bf915349fd6618fbaf11b15f24f44d12", 0x0, 0x0, 0x0, 0x70f000, 0x100000001})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000100)={0x9d0000, 0x800, 0x3d1, [], &(0x7f00000000c0)={0x0, 0x6, [], @p_u16=&(0x7f0000000080)=0x3}})
+ioctl$VIDIOC_S_FREQUENCY(0xffffffffffffffff, 0x402c5639, &(0x7f0000000040)={0x5, 0x7, 0x5})
+r0 = syz_open_dev$media(&(0x7f00000001c0)='///./media#\x00', 0x0, 0xc040)
+read(r0, &(0x7f0000003200)=""/4096, 0x1000)
+r1 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+poll(&(0x7f0000000040)=[{0xffffffffffffffff, 0x180}, {0xffffffffffffffff, 0x400}, {0xffffffffffffffff, 0x40}, {r1, 0x2240}, {0xffffffffffffffff, 0x10}, {}], 0x6, 0xeb7c)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=05daea37f601e5f79701fb5d8b618dc0ed18f3eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$incfs(0xffffffffffffff9c, &(0x7f0000000140)='.log\x00', 0x8040, 0x0)
+ioctl$FS_IOC_REMOVE_ENCRYPTION_KEY(r0, 0x4004662b, &(0x7f00000000c0)={@desc={0x1, 0x21e, @desc1}})
+r1 = open(&(0x7f00000000c0)='./file0\x00', 0x1273c1, 0x0)
+ioctl$FS_IOC_FSSETXATTR(r1, 0x40086602, &(0x7f0000000080)={0x4000})

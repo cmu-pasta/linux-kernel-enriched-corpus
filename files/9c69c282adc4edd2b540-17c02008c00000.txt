@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=3fd2badc3dc77e680e01b9330b217a361014a4f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+mkdir(0x0, 0x0)
+mount(0x0, 0x0, 0x0, 0x0, 0x0)
+r1 = open(&(0x7f00000001c0)='./file0\x00', 0x0, 0x0)
+fchdir(r1)
+mkdir(&(0x7f0000000200)='./file1\x00', 0x0)
+symlink(&(0x7f0000000040)='./file0/f.le.\x00', &(0x7f0000000340)='.//ile0\x00')
+mkdir(&(0x7f00000000c0)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000300)='./file0\x00', &(0x7f0000000100)='overlay\x00', 0x0, &(0x7f00000002c0)=ANY=[@ANYBLOB='upperdir=./file0,lowerdir=.:file0,workdir=./file1'])
+r2 = open(&(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+execveat(r2, 0x0, 0x0, 0x0, 0x0)
+renameat(r2, &(0x7f0000000240)='.//ile0\x00', r2, &(0x7f00000007c0)='./file0/f.le.\x00')

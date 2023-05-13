@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cfec079d55325bc20e929c60cc2dca149448f9b1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","leak":true,"close_fds":false}
+pipe2$watch_queue(&(0x7f0000000000)={<r0=>0xffffffffffffffff}, 0x80)
+ioctl$IOC_WATCH_QUEUE_SET_SIZE(r0, 0x5760, 0x18)

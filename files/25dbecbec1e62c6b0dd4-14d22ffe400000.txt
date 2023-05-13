@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e2cc38cdb4dc8d8337faa1273e6ad2ababdb8fda
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$ndb(&(0x7f00000002c0)='/dev/nbd#\x00', 0xffffffffffffffff, 0x0)
+ioctl$NBD_SET_BLKSIZE(r0, 0xab01, 0x0)

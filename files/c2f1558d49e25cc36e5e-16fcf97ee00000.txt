@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=b4bf7720394adb3344352e4a1d47fc8de3aae94b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+getsockopt$inet_mreqsrc(0xffffffffffffffff, 0xffffffff00000000, 0x53, 0x0, 0x0)
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$sock_int(r0, 0x1, 0xf, 0x0, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x33, 0x0, 0x0)
+sendto$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+r1 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r1, &(0x7f0000000000)={0x26, 'hash\x00', 0x0, 0x0, 'sha224\x00'}, 0x58)
+r2 = accept4(r1, 0x0, 0x0, 0x0)
+close(r2)
+r3 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$sock_int(r3, 0x1, 0xf, &(0x7f0000356ffc)=0xffffffffffffff40, 0x4)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x33, &(0x7f00000a2000)={0x1, &(0x7f0000f07000)=[{0x6}]}, 0x10)
+sendto$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)

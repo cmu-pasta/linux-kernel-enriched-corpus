@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f381deedf1e8d44b545a5ab112c1747f75fb57d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+getsockopt$ARPT_SO_GET_REVISION_TARGET(0xffffffffffffffff, 0x0, 0x63, &(0x7f00000001c0)={'NETMAP\x00'}, &(0x7f0000000280)=0x1e)
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000080), 0x2)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000100)={0x0, 0x0, 0x0, 'queue1\x00'})
+setsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f00000003c0)={{{@in6=@local, @in=@multicast1}}, {{@in=@empty}, 0x0, @in6=@rand_addr=' \x01\x00'}}, 0xe8)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r0, 0x40605346, &(0x7f0000000200)={0x0, 0x0, {0x2}, 0x3ff})
+write$sndseq(r0, &(0x7f00000000c0)=[{0x0, 0x0, 0x0, 0x0, @time, {}, {}, @raw8={"a357b6b140cbb6215dd33459"}}], 0xfffffee4)

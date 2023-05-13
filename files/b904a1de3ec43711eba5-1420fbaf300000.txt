@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=759661e0885fd38a356bff5b18c9137d2e10bdf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+memfd_secret(0x80000)

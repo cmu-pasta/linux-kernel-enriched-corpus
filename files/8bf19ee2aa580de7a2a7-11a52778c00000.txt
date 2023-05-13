@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=000780f064cc50726a331cf2e8826321609a2e1d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+seccomp(0x1, 0x2, &(0x7f0000007ff0)={0x1, &(0x7f0000004fe8)=[{0x6, 0x0, 0x0, 0x50000}]})

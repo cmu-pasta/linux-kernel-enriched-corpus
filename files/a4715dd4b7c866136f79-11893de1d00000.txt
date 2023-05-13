@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1e0c5dc716459fd984f074a09091e751a83d360f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":6,"close_fds":true,"wifi":true}
+r0 = openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r0, 0x0)
+preadv(r0, 0x0, 0x0, 0x4, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_io_uring_setup(0x182, &(0x7f00000002c0), &(0x7f0000ee7000/0x2000)=nil, &(0x7f0000ffc000/0x3000)=nil, 0x0, 0x0)

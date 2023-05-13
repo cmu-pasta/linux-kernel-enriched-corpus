@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6707a16a015da72a5d22a843e2ce411fd207b55f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":11,"leak":true,"close_fds":false}
+r0 = socket$inet_sctp(0x2, 0x800000000001, 0x84)
+connect$inet(r0, &(0x7f0000f6fff0)={0x2, 0x0, @local={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r1, 0x1000008912, 0x0)
+listen(r0, 0x100000000009)
+accept4(r0, 0x0, 0x0, 0x0)

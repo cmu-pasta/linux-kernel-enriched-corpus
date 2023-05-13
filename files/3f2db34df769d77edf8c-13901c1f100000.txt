@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e74e126d9b34004aacbbb65246444ced51b0c279
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+prlimit64(0x0, 0xe, &(0x7f0000000280)={0x9, 0x8d}, 0x0)
+sched_setattr(0x0, &(0x7f00000000c0)={0x38, 0x2, 0x0, 0x0, 0x9}, 0x0)
+prctl$PR_SET_PTRACER(0x59616d61, 0x0)
+clone(0x20000103, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+syz_mount_image$vfat(0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)

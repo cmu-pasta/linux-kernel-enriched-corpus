@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9386d051e11e09973d5a4cf79af5e8cedf79386d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000340)='/dev/nullb0\x00', 0x4222, 0x0)
+fallocate(r0, 0x11, 0x0, 0x400000000200)

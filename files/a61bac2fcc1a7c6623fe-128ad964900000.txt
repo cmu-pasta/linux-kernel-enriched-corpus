@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=60b96a0afacea940396a2f76e03b4bcab2f4b800
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+write$binfmt_script(r0, 0x0, 0x208e24b)
+setsockopt$RDS_RECVERR(r0, 0x114, 0x5, 0x0, 0x0)
+bpf$ITER_CREATE(0x21, 0x0, 0x0)
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmmsg(r2, 0x0, 0x0, 0x0)
+getsockopt$SO_COOKIE(r2, 0x1, 0x39, 0x0, 0x0)
+bind$vsock_stream(r1, &(0x7f0000000140)={0x28, 0x0, 0x0, @host}, 0x10)
+listen(r1, 0x0)
+r3 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r3, &(0x7f0000000040), 0x10)
+poll(&(0x7f0000000140)=[{r3}], 0x1, 0x0)

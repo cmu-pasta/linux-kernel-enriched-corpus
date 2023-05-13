@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=866a52cc65c116946dab0197fff55e257a466c89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"close_fds":true,"tmpdir":true}
+r0 = syz_open_dev$usbfs(&(0x7f0000000180), 0x77, 0x1)
+ioctl$USBDEVFS_IOCTL(r0, 0x8108551b, &(0x7f0000000380))
+r1 = syz_open_dev$usbfs(&(0x7f0000000180), 0x77, 0x1)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r2, 0x0)
+ioctl$USBDEVFS_RESETEP(r1, 0xc0185502, &(0x7f0000000240)={0x1, 0x1})

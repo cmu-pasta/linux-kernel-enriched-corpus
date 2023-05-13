@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=10cd2ff2ccd320618b127ec50ea6e5a55461cd76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000100)='TIPCv2\x00')
+syz_genetlink_get_family_id$team(&(0x7f0000000040)='team\x00')
+getsockopt$inet6_mreq(0xffffffffffffff9c, 0x29, 0x1b, 0x0, &(0x7f0000000240))
+getsockopt$inet_mreqn(0xffffffffffffff9c, 0x0, 0x20, 0x0, &(0x7f0000004280))
+getsockname$packet(0xffffffffffffff9c, 0x0, &(0x7f0000004300))
+accept$packet(0xffffffffffffff9c, &(0x7f0000004340)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffff9c, 0x0, 0x10, &(0x7f0000004780)={{{@in6=@remote, @in6=@mcast1}}, {{@in=@multicast1}, 0x0, @in=@dev}}, &(0x7f0000004880)=0xe8)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000004ac0)={'team0\x00'})
+accept4$packet(0xffffffffffffffff, &(0x7f0000004b00)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @remote}, 0x0, 0x800)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000004c00)={{{@in=@multicast2, @in6=@local}}, {{@in=@multicast1}, 0x0, @in6=@dev}}, &(0x7f0000004d00)=0xe8)
+getsockname$packet(0xffffffffffffffff, &(0x7f0000004ec0)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @link_local}, &(0x7f0000004f00)=0x14)
+ioctl$ifreq_SIOCGIFINDEX_vcan(0xffffffffffffffff, 0x8933, &(0x7f0000004f40)={'vcan0\x00'})
+sendmsg$TIPC_NL_BEARER_ENABLE(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000340)={0x54, r1, 0x1, 0x0, 0x0, {}, [@TIPC_NLA_BEARER={0x40, 0x1, [@TIPC_NLA_BEARER_NAME={0x10, 0x1, @udp='udp:syz1\x00'}, @TIPC_NLA_BEARER_UDP_OPTS={0x2c, 0x4, {{0x14, 0x1, @in={0x2, 0x0, @local}}, {0x14, 0x2, @in={0x2, 0x0, @remote}}}}]}]}, 0x54}}, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=80b047eb9aff0254f4adc620c6891c0ca3276309
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000000)='TIPCv2\x00')
+sendmsg$TIPC_NL_UDP_GET_REMOTEIP(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000140)={0x20, r1, 0xb03, 0x0, 0x25dfdbfd, {0x13}, [@TIPC_NLA_MON={0xc, 0x9, 0x0, 0x1, [@TIPC_NLA_MON_REF={0x8, 0x2, 0x5}]}]}, 0x20}}, 0x0)

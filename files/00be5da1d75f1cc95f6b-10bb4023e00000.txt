@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7a3a4901224b990b7a5c82afc06f085f89d9eff7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+ptrace$setsig(0x4203, 0x0, 0x0, &(0x7f00000002c0))
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000040)={0x0, 0x1, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_SET_CLOCK(r1, 0x4030ae7b, &(0x7f0000000000)={0x7f})
+ioctl$KVM_SMI(r2, 0xaeb7)
+socket$alg(0x26, 0x5, 0x0)

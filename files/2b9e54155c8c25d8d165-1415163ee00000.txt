@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a23065eda24f349201f30710de462e545e83fd94
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true,"tmpdir":true,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000540)='vfat\x00', &(0x7f00000002c0)='./file0\x00', 0x4e004, 0x1, &(0x7f0000000140)=[{&(0x7f0000010000)="eb3c906d6b66732e666174000204010002000270fff8", 0x16}], 0x0, 0x0)
+stat(&(0x7f0000000000)='./bus\x00', &(0x7f0000000040))
+r0 = open(&(0x7f0000000200)='./file0\x00', 0x0, 0x0)
+fchdir(r0)
+open(&(0x7f00000001c0)='./bus\x00', 0x141042, 0x0)
+r1 = creat(&(0x7f0000000140)='./bus\x00', 0x0)
+ftruncate(r1, 0x48280)

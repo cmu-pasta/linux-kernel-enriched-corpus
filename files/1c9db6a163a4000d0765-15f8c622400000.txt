@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c14270323f22e896228f470164aac59114d388be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true}
+r0 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000300)={0xaa, 0x40})
+r1 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000140)='/dev/rfkill\x00', 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x200010, &(0x7f0000000240)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r1, @ANYBLOB=',wfdno=', @ANYRESHEX=r0, @ANYBLOB])
+mknod(&(0x7f0000000180)='./file0\x00', 0x1040, 0x0)
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000100)={{&(0x7f0000011000/0x3000)=nil, 0x3000}, 0x1})
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1e, 0x8031, 0xffffffffffffffff, 0x0)

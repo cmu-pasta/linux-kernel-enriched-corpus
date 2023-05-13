@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fd5821fbdc1bf93afdb86fa444717719ac161cf6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x2, 0x2, 0x0)
+sendmsg$TCPDIAG_GETSOCK(r0, &(0x7f00000026c0)={0x0, 0x0, 0x0}, 0x61)

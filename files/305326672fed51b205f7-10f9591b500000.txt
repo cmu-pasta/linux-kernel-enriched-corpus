@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=80b2343d6c19226dfa59e33b151c168d96253420
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+mbind(&(0x7f000011c000/0x4000)=nil, 0x4000, 0x0, 0x0, 0x0, 0x0)
+clone(0x40000000, 0x0, 0x0, 0x0, 0x0)

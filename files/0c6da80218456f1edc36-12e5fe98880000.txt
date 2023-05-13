@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=04ba5d25ea7f063c1689e824a4935587fead8438
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"resetnet":true,"close_fds":true,"tmpdir":true}
+socket$nl_rdma(0x10, 0x3, 0x14)
+openat$vnet(0xffffffffffffff9c, &(0x7f0000000680), 0x2, 0x0)
+r0 = openat$uhid(0xffffffffffffff9c, &(0x7f00000006c0), 0x802, 0x0)
+write$UHID_CREATE(r0, &(0x7f0000001700)={0x0, {'syz1\x00', 'syz1\x00', 'syz0\x00', &(0x7f0000000700)=""/4096, 0x1000, 0x9, 0x0, 0xffffffc0, 0x5, 0x6}}, 0x120)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=46f76391fe0b58c2cc790c8e6f82bdf5b41d0354
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$VIDIOC_REQBUFS(0xffffffffffffffff, 0xc0145608, &(0x7f0000000080)={0x3, 0x1, 0x6})
+r0 = openat$vim2m(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vim2m\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENUM_FMT(r0, 0xc050560f, &(0x7f0000000040)={0x0, 0x9, 0x0, "a2f5c0f5aea3cc0feec0dbb6510024217f2f273fad3dd19673fa87e65f511103"})

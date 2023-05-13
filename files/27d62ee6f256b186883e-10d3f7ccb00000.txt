@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0809d3685cceb603f186f4eb6f0ff752e306993e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_io_uring_setup(0x187, &(0x7f00000002c0), &(0x7f00006d5000/0x2000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000000280)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000040)={<r3=>0xffffffffffffffff, <r4=>0xffffffffffffffff})
+syz_io_uring_submit(r1, r2, &(0x7f00000000c0)=@IORING_OP_SENDMSG={0x9, 0x0, 0x0, r4, 0x0, &(0x7f0000000640)={0x0, 0x0, 0x0}}, 0x0)
+io_uring_enter(r0, 0x2a6e, 0x0, 0x0, 0x0, 0x0)
+setrlimit(0x0, &(0x7f0000000000)={0x0, 0xfffffffffffffffd})
+shutdown(r3, 0x1)

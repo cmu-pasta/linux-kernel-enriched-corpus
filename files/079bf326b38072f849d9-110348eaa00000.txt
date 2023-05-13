@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x801, 0x84)
+sendmsg(r0, &(0x7f0000000700)={0x0, 0x0, 0x0}, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000cf6fe4)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)

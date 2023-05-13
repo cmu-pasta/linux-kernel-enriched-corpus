@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1b6681cc34ed1c700845692e035f18eb3fafb1cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+mkdir(&(0x7f00000000c0)='./file0\x00', 0x0)
+mount(&(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='./file0\x00', &(0x7f0000000100)='proc\x00', 0x0, &(0x7f0000000300))
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000040)='./cgroup\x00', 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f0000000180)='memory.high\x00', 0x2, 0x0)
+write$cgroup_int(r1, &(0x7f0000000000), 0x1)

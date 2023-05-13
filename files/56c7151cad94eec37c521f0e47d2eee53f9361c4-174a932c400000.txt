@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=178f2528d10720d563091fb51dceb4cb20f75525
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000300)={0x26, 'aead\x00', 0x0, 0x0, 'gcm(aes)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000c18000)="ad56b6c50400aeb995298992ea5400c2", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+write$binfmt_elf64(r1, &(0x7f0000000000)=ANY=[@ANYBLOB="7f454c460716ff00003e00030000126fb58294eaee8f9d13b594cb809d32bf51ab863e2f54fba67e5b82ed6093c34f754f723ef7b2ad6a3c2a8664ad47d14b6320fd173141e8bdeed335f073f769d150d0de8215059bc2965d7e1741edb8191c7b9a7bb785a9fc598d8625ea7b6353f928f5d26039307cb8e0eeb63e58a64ea84530109de2bed211f84af5e400c4c337c6da778cbdb260f503621afce58d5032d30d3a29fe09c83c65138cc4f0a0d891d30fc33d4d"], 0xb5)
+recvmmsg(r1, &(0x7f0000003340)=[{{&(0x7f00000000c0)=@sco, 0x80, &(0x7f0000000100), 0x0, &(0x7f0000000540)=""/94, 0x5e}}, {{&(0x7f00000003c0)=@pptp={0x0, 0x0, {0x0, @dev}}, 0x80, &(0x7f0000003200)=[{&(0x7f0000003100)=""/226, 0xe2}], 0x25, &(0x7f00000005c0)=""/239, 0xef}}], 0x2, 0x0, 0x0)
+r2 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r2, &(0x7f0000000080)={0x26, 'aead\x00', 0x0, 0x0, 'pcrypt(gcm(aes))\x00'}, 0x58)

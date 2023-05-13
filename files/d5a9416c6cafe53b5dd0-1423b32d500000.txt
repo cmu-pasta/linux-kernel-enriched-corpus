@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+setsockopt$sock_attach_bpf(0xffffffffffffffff, 0x10e, 0xc, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+recvmsg$kcm(0xffffffffffffffff, &(0x7f0000004880)={0x0, 0x0, 0x0}, 0x40000000)

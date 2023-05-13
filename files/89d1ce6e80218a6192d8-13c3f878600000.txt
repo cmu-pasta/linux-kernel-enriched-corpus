@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+getsockopt$inet6_dccp_int(0xffffffffffffffff, 0x21, 0x15, 0x0, &(0x7f00000047c0))
+setsockopt$inet6_icmp_ICMP_FILTER(0xffffffffffffffff, 0x1, 0x1, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000240)={0x9, 0x3, &(0x7f00000000c0)=@framed, &(0x7f0000000140)='syzkaller\x00', 0x1, 0xfb, &(0x7f00000003c0)=""/251, 0x0, 0x0, [], 0x0, 0xd}, 0x48)
+ioctl$FS_IOC_GETFSLABEL(0xffffffffffffffff, 0x81009431, &(0x7f00000002c0))

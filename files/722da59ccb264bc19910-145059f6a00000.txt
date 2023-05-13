@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true}
+pipe2(0x0, 0x80000)
+unshare(0x60000000)
+socket$inet_tcp(0x2, 0x1, 0x0)

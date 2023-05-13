@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=422a020e119fbac4c15d8fed114cc1696fe5c51a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x10002, 0x0)
+connect$can_bcm(0xffffffffffffffff, 0x0, 0x0)
+ioctl$FS_IOC_MEASURE_VERITY(r0, 0xc0046686, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0xfffffffffffffffe, 0x31, 0xffffffffffffffff, 0x0)
+pipe(&(0x7f0000000140)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+read(r1, &(0x7f0000000100)=""/52, 0xfffffdc2)
+fcntl$setpipe(r1, 0x407, 0x0)
+write$binfmt_elf64(r2, &(0x7f0000000000)=ANY=[@ANYRESDEC], 0x1000000f4)

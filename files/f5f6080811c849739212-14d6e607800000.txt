@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=300efd16d2de5c36edf506d1c07b6cdd94482229
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x8000000000000011, 0x100000802, 0x0)
+r1 = syz_open_dev$tun(&(0x7f0000000080)='/dev/net/tun\x00', 0x0, 0x2)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000040)={"6966623000faffffffffffffff00", 0x4001})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f00000000c0)={'ifb0\x00', 0xa201})
+write$tun(r1, &(0x7f0000000600)={@pi={0x0, 0x8864}, @hdr={0x3}, @eth={@local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa]}, [], {@mpls_uc={0x8847, {[], @ipv6={0x0, 0x6, "30afc2", 0x10, 0x0, 0x0, @mcast1={0xff, 0x1, [], 0x1}, @dev={0xfe, 0x80}, {[], @dccp={{0x0, 0x0, 0x4, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, "5ff025", 0x0, "d1e75f"}}}}}}}}}, 0xfd87)

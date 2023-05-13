@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=529850ed594c6f4451a58b33e4d3ae92d1705a67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000002140)='/dev/adsp1\x00', 0x0, 0x0)
+ioctl$SNDCTL_DSP_CHANNELS(r0, 0xc0045006, &(0x7f0000000000)=0x5d)
+ioctl$SNDCTL_DSP_SPEED(r0, 0xc0045002, &(0x7f0000000040))

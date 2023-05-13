@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5fae6cfbe79ca79164f070ce9b69045d05dc2c51
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:true FaultCall:2 FaultNth:18 EnableTun:true UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000100)='/dev/audio\x00', 0x40001, 0x0)
+perf_event_open(&(0x7f0000d2af88)={0x2, 0x78, 0xe2}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+write(r0, &(0x7f0000000180)='~', 0x1)

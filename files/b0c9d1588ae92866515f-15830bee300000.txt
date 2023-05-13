@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=79fbd8bc518e7050d3b70900d102ec5c250cc7a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+openat(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r0 = syz_io_uring_setup(0x885, &(0x7f0000000080), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00000d8000/0x1000)=nil, &(0x7f0000000040)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, 0x0, 0x0, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f0000000480)=@IORING_OP_ASYNC_CANCEL={0xe, 0x0, 0x0, 0x0, 0x0, 0x12345}, 0x0)
+r3 = mmap$IORING_OFF_SQES(&(0x7f0000608000/0x2000)=nil, 0x2000, 0x2, 0x13, r0, 0x10000000)
+syz_io_uring_submit(r1, r3, &(0x7f0000000280)=@IORING_OP_MADVISE={0x19, 0x5, 0x0, 0x0, 0x0, &(0x7f00006c8000/0x3000)=nil, 0x3000}, 0x5f)
+io_uring_enter(r0, 0x688c, 0x0, 0x0, 0x0, 0x0)

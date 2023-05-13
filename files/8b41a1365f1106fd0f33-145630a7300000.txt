@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+write$FUSE_DIRENTPLUS(r2, 0x0, 0x138)
+mount$9p_fd(0x0, &(0x7f0000000140)='./file0\x00', &(0x7f0000000280), 0x0, &(0x7f00000005c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@cache_mmap}]}})

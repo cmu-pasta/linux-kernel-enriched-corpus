@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_802154(r0, 0x89a3, 0x0)
+ioctl$sock_SIOCGIFINDEX_802154(r0, 0x89a3, &(0x7f00000009c0)={'wpan4\x00'})
+syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$IEEE802154_ASSOCIATE_REQ(0xffffffffffffffff, 0x0, 0x4040)
+openat$vcsu(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+ioctl$BINDER_THREAD_EXIT(0xffffffffffffffff, 0x40046208, 0x0)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_802154(r1, 0x89a0, &(0x7f0000000000)={'wpan4\x00'})
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_802154(r2, 0x89a1, &(0x7f0000000080)={'wpan4\x00'})

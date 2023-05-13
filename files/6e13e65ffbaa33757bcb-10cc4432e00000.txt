@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=acad76be3431f7cff3292234799b644379e1fc53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+unshare(0x40000000)
+bind$inet(0xffffffffffffffff, &(0x7f00000000c0)={0x2, 0x0, @loopback=0xac1414bb}, 0x10)
+r0 = openat$ipvs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/sys/net/ipv4/vs/sync_threshold\x00', 0x2, 0x0)
+openat$vsock(0xffffffffffffff9c, &(0x7f0000000080)='/dev/vsock\x00', 0x80800, 0x0)
+ioctl$KVM_X86_SETUP_MCE(r0, 0x4008ae9c, &(0x7f0000000040)={0x0, 0x2, 0x1})

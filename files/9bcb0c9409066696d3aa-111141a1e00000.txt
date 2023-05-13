@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8c911f3572ca96525b51ba2182397212ddc428c3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080)='/dev/net/tun\x00', 0x88002, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f00000000c0)={'syzkaller1\x00', 0x1})
+r1 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$sock_inet_SIOCSIFADDR(r1, 0x8914, &(0x7f0000000140)={'syzkaller1\x00', {0x7, 0x0, @empty}})
+write$tun(r0, &(0x7f0000000200)={@val={0x0, 0xd}, @void, @mpls}, 0x4)

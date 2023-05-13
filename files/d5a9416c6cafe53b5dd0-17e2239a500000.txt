@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x800000003, 0x0)
+bind(r0, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+r1 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={0x0}}, 0x0)

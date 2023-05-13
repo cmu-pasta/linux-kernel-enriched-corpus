@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0655ccf655feea0f30dea3f1ba960af39bcd741a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhci\x00', 0x246)
+write$P9_RLERRORu(r0, &(0x7f00000000c0)=ANY=[@ANYBLOB="ff80"], 0x2)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r1, &(0x7f0000000080), 0xc)
+close(r1)

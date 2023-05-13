@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=4157935be2e32fae6b62aa95bb0a08b07160b986
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$ntfs3(&(0x7f0000001480), &(0x7f00000014c0)='./file0\x00', 0x101, 0x8, &(0x7f0000002940)=[{0x0, 0x0, 0xffffffff}, {0x0, 0x0, 0x40}, {0x0, 0x0, 0x9}, {0x0, 0x0, 0x1}, {0x0}, {0x0, 0x0, 0xff}, {0x0, 0x0, 0x9fd}, {0x0, 0x0, 0x81}], 0x8, &(0x7f0000001280)=ANY=[@ANYBLOB="696f636861727365743d63703836332c7379735f696d6d757461626c652c696f636876727365743d6d61636963656c616e642c706c6c6f632c646973636172642c736d61636b6673666c6f6f723d2c00982e5526b72422ff44d6465d610fb5cca15edb1aefb1c30e49b1b13999160734d21726cb13"])

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0ba17d70d062b2595e1f061231474800f076c7cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$dri(&(0x7f0000000080)='/dev/dri/card#\x00', 0x1, 0x121000)
+ioctl$VIDIOC_CROPCAP(r0, 0xc02c563a, &(0x7f0000000040))

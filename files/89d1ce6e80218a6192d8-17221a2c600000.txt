@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$inet_udplite(0x2, 0x2, 0x88)
+bpf$PROG_LOAD(0x5, &(0x7f0000b7a000)={0x10, 0x4, &(0x7f0000000100)=@framed={{}, [@alu={0x8000000201a7f19, 0x5, 0x7, 0x0, 0x1}]}, &(0x7f0000f6bffb)='GPL\x00', 0x1, 0xfb, &(0x7f00001a7f05)=""/251, 0x0, 0x9fffffff00000000}, 0x48)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8d094d6bc5fba75ff8d065959e44152c39e58690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cgroup.controllers\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f00000007c0)={0xc000, 0x0, 0x0, 0x20040006})
+ioctl$EXT4_IOC_PRECACHE_EXTENTS(r0, 0x6612)
+write$binfmt_script(0xffffffffffffffff, 0x0, 0x0)

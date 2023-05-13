@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=e7b761593b23eb50855b9ea31e3be5472b711186
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$hidraw(0x0, 0x7ff, 0x2)
+r1 = syz_open_dev$hidraw(&(0x7f0000000040)='/dev/hidraw#\x00', 0x7ff, 0x2)
+syz_open_dev$hidraw(0x0, 0x0, 0x12d43d)
+r2 = syz_usb_connect(0x0, 0x2d, &(0x7f00000000c0)=ANY=[@ANYBLOB="1201fe0009003c0800040042ef420000000109021b00017600230009040000010209bd0007058107d3e6aed84134dd0f26df4c56adc2e9eedf22228855a3c42e4251834bb1d595024d12068c1899a85280e076c2d6a787abf5abd2642ba35951b8c10ac418984fd4af5fb545789ca7c27e4aa4d70ea561bcedc48966335873fb20d38a044adeeb3c6dfa7f37d3dfe59264edfee7f754a74fe0cc494b690f518579be6fa402239eb309bebc9cc45261ca3eabb0754e258df3c0d4bee31866402611f6bdf2c09b7e92bbcd4be8a153327a21750b33b695da1328a8f63ac4fc8377eb7d676c19bc54f423b62dc33ddc8fb6cd36e800000000", @ANYRESDEC, @ANYRESOCT=r0, @ANYRESDEC=r1, @ANYRESDEC], 0x0)
+write$hidraw(0xffffffffffffffff, &(0x7f0000000000), 0x0)
+r3 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+syz_usb_control_io(r2, 0x0, 0x0)
+write$char_usb(r3, 0x0, 0x0)
+write$char_usb(r3, 0x0, 0x0)

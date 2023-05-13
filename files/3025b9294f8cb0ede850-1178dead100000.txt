@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=07c9d71dc1a215b19c6a245c68f502bc57dbdb83
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket$qrtr(0x2a, 0x2, 0x0)
+connect$qrtr(r0, &(0x7f0000000000)={0x2a, 0x1}, 0xc)
+write$binfmt_script(r0, &(0x7f0000000040)=ANY=[], 0x4a)
+ioctl$VIDIOC_EXPBUF(0xffffffffffffffff, 0xc0405610, &(0x7f0000000040)={0xa, 0x8, 0x1ff, 0x84800})

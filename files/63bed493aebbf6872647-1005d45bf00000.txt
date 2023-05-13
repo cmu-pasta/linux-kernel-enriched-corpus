@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0bb58e279f862b93fa10a691c8e882debaaf4cc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000002c0)='cpuset.effective_cpus\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f00000004c0)={0x0, 0x0, 0x61bd, 0x1c2dc0000})
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, 0x0, 0x0)

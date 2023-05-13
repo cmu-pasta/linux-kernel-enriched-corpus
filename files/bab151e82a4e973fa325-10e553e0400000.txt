@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=ea8c7912757d253537375e981b61749b2da69258
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000000340)='./file0\x00', 0x0)
+mount(&(0x7f00000000c0)='./file0//ile0\x00', &(0x7f0000000080)='./file0\x00', &(0x7f0000000200)='cgroup2\x00', 0x0, 0x0)
+r0 = open(&(0x7f0000000040)='./file0//ile0\x00', 0x0, 0x0)
+r1 = openat$cgroup_procs(r0, &(0x7f00000001c0)='cgroup.procs\x00', 0x2, 0x0)
+write$cgroup_pid(r1, &(0x7f0000000100), 0x12)
+syz_mount_image$xfs(&(0x7f0000000280)='xfs\x00', &(0x7f00000002c0)='./file0//ile0\x00', 0x0, 0x0, &(0x7f0000000740), 0x0, &(0x7f0000000800))
+getsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000000180), &(0x7f0000000240)=0xc)
+r2 = open(&(0x7f0000000040)='./file0//ile0\x00', 0x0, 0x0)
+write$FUSE_STATFS(r2, &(0x7f0000000280)={0x60, 0xfffffffffffffffe, 0x7, {{0x401, 0x7, 0x7d, 0x1c, 0xd8, 0xb7, 0x2, 0x3}}}, 0x60)
+r3 = openat$cgroup_int(r2, &(0x7f00000001c0)='memory.max\x00', 0x2, 0x0)
+write$cgroup_int(r3, &(0x7f00000000c0), 0x12)

@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=d9d3e48b2edf1870ff183058caea840329a94b73
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$selinux_mls(0xffffffffffffff9c, &(0x7f00000002c0)='/selinux/mls\x00', 0x0, 0x0)
+ioctl$KVM_ENABLE_CAP_CPU(r0, 0x4068aea3, &(0x7f0000000100)={0x7b, 0x0, [0x1, 0x7, 0x81]})
+r1 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r1, &(0x7f0000001bc0)=@create_id={0x0, 0x18, 0xfa00, {0x1, &(0x7f0000001b80)={<r2=>0xffffffff}, 0x1, 0x6}}, 0x20)
+mlock2(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1)
+write$rdma_cm(r1, &(0x7f0000001c00)=@reject={0x9, 0x108, 0xfa00, {r2, 0x40, "fdb9d6", "d2824d69feb20a47ac0767c209003cee3f973e9e7f8cd22509c845a8bd5b39ee45902426c08af0436d0dd05c5f3ad930885d30cc8d4343dc131fb62ab0b6b417a35f96b74a556fec6c5855fca9f8b66e080b3b722f32992f1bfba89db58a1104c5be10230edbb5420cb8e55f1b60cd8f2f547cb7151bd9a170022177aaea5ba4e6b60f268418345598654945ab0bd5a247b208e0d070a2b7eecbe2b7da2fa3223180cf01964ccbdcf309573fd395a9f8b00ad370284003dba6863b3406f398e3d45ef84510b159dca013563d7771cd4e73c5953e372ebdcc3c39a614a88514a2cea09fb0e59f0048bba94639974566ad7081c7b55b3dc73fc4479bd01ee1aea9"}}, 0x110)
+mlock(&(0x7f0000fff000/0x1000)=nil, 0x1000)
+write$rdma_cm(r1, &(0x7f00000000c0)=@create_id={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000080)={<r3=>0xffffffff}, 0x2}}, 0x20)
+write$rdma_cm(r1, &(0x7f00000001c0)=ANY=[@ANYBLOB="03000000400000fa0a0000000000000000000000000000000000000000000001000000000a00000000000000ff01000000000000000000000000000100000000", @ANYRES32=r3, @ANYBLOB="d1160027"], 0x48)
+close(r1)

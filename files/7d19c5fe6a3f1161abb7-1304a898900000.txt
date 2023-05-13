@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=bc195cf62ac17381792072c72a692bf133c528d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+pipe(&(0x7f0000000300)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+r3 = open(&(0x7f0000000000)='./bus\x00', 0x141042, 0x0)
+mmap(&(0x7f0000004000/0x2000)=nil, 0x2000, 0x0, 0x1011, r3, 0x0)
+write$binfmt_misc(r1, 0x0, 0xfeed)
+vmsplice(r1, &(0x7f0000000100)=[{&(0x7f00000000c0)="99cef5efc3f956229640dc1a7ac758b021f8dbe579a4", 0x16}], 0x1, 0x5)
+splice(r0, 0x0, r2, 0x0, 0x10005, 0x0)

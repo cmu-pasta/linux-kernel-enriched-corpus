@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=835a0b9e75b14b55112661cbc61ca8b8f0edf767
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+syz_read_part_table(0x42ad, 0x0, 0x0)
+mknod$loop(&(0x7f0000000100)='./file0\x00', 0x6009, 0x0)
+mount(&(0x7f0000000000)=@filename='./file0\x00', &(0x7f0000000080)='./file0\x00', &(0x7f0000000140)='udf\x00', 0x0, 0x0)

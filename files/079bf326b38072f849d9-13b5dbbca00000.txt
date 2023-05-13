@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ff1010c7eb802434fa13f8a03fdf6752d043c77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+connect$tipc(r0, &(0x7f0000000140)=@name, 0x10)
+bind$inet6(r0, &(0x7f0000000800)={0xa, 0x4e21, 0x0, @loopback}, 0x1c)

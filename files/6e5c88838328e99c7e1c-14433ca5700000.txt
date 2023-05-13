@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=9275844026db73061077a751cfb2d052d28cac39
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$audio1(0xffffffffffffff9c, &(0x7f0000000080), 0x129202, 0x0)
+ioctl$SNDCTL_DSP_SETFMT(r0, 0xc0045005, &(0x7f0000000000)=0x20)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc004500a, &(0x7f0000000040))
+mmap$dsp(&(0x7f0000ffd000/0x2000)=nil, 0x2000, 0x100000a, 0x11, r0, 0x0)
+r1 = openat$dsp1(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r1, 0xc004500a, &(0x7f0000000000))
+ioctl$SNDCTL_DSP_SETFMT(r1, 0xc0045005, &(0x7f00000000c0)=0x1000)
+read$dsp(r1, &(0x7f0000000780)=""/4082, 0xff2)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=53e7ce4e62541ed5b5532af9dced15dc73989b18
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","binfmt_misc":true,"close_fds":true,"usb":true}
+r0 = openat$binderfs(0xffffffffffffff9c, &(0x7f0000000100)='./binderfs/binder1\x00', 0x0, 0x0)
+mmap$binder(&(0x7f0000fff000/0x1000)=nil, 0x1000, 0x1, 0x11, r0, 0x0) (fail_nth: 11)

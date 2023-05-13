@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bf7780df648105d40e1fdbb0566defda3605ed93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","tun":true,"close_fds":false}
+r0 = socket(0x200000100000011, 0x3, 0x0)
+r1 = socket$packet(0x11, 0x3, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000080)={'syz_tun\x00', <r2=>0x0})
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @local}, 0x14)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000000100)=0x800b, 0x4)
+sendmsg$netlink(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000015c0)=[{&(0x7f0000000500)=ANY=[@ANYBLOB="03030000110000000000000000000000db6e6c8d5e8588a89985e3e4b47f365065e24cd9d7b192e4b4ebcc406076d6d095088da798b3a7d641dff6cc5ea08b737c39d9a43765ae4900000000000000d404c203c438e8ba2c70"], 0x300}, {&(0x7f0000001600)=ANY=[@ANYBLOB], 0xcfc}], 0x2}, 0x0)

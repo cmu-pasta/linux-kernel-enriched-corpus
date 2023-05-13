@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2d2cb27d3b4e4db041c252f09c492868885e5607
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet(0x2, 0x4000000805, 0x0)
+r1 = socket$inet_sctp(0x2, 0x5, 0x84)
+r2 = dup3(r0, r1, 0x0)
+sendmsg$TIPC_NL_MEDIA_SET(r2, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={0x0}}, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r1, 0x84, 0x64, &(0x7f0000d6cff0)=[@in={0x2, 0x0, @loopback}], 0x10)

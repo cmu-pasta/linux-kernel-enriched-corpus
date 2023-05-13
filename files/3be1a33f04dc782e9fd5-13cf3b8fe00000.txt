@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4d86d7ffb1fd63cc638602b45d9998323856981c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x8031, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000280)={0x26, 'hash\x00', 0x0, 0x0, 'cryptd(sha224-generic)\x00'}, 0x58)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$nl_netfilter(r1, &(0x7f00000002c0)={&(0x7f0000000000), 0xc, &(0x7f0000000280)={&(0x7f0000000100)=ANY=[@ANYBLOB="b1aa26118695818110505f5f38a4080000000f6f8797e23450bac0731dbac2f13f7e7454af4f5853c988bdd2ddb4018c5a536516e0a856d110234bf60100000000000045a5448be4c4f37c8ccb37e45f136c976534e189fe31047de803f7689e0000001f000000000000000000c2e38f0bdb5a01494a343bd22e437f61b97fef0fe759cfb3ef52efcd30e2d3ac1c92498b69de06e10cc89be1db8acda461e8ce6102008f3256f408bb30b90559092a9d0adf4a64594b84c25e10ed28907da5abb101"], 0x20002154}}, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x9)

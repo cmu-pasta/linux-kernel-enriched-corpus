@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=152a4e49415d4097e44db0cb5107d1fbb821dc22
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false,"tmpdir":true}
+syz_mount_image$erofs(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x0, 0x2, &(0x7f0000000080)=[{&(0x7f00000000c0)="e2e1f5e08621e93c020000000c0024", 0xf, 0x400}, {&(0x7f00000022c0)="060045319544dab7c90b172f6b96757b3512c2bf1b956ecd80", 0x19, 0x480}], 0x0, &(0x7f0000000300)=ANY=[]) (fail_nth: 94)

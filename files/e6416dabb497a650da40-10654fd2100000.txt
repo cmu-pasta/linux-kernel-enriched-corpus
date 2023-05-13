@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=0041819555034a3ccec38f9ab50c84bd040bf205
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000100)='/proc/vmallocinfo\x00', 0x0, 0x0)
+r1 = openat$smackfs_relabel_self(0xffffffffffffff9c, &(0x7f0000000200)='/sys/fs/smackfs/relabel-self\x00', 0x2, 0x0)
+sendfile(r1, r0, 0x0, 0x100000064)
+r2 = openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+openat$smackfs_relabel_self(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+r3 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000100)='/proc/vmallocinfo\x00', 0x0, 0x0)
+r4 = openat$smackfs_relabel_self(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/fs/smackfs/relabel-self\x00', 0x2, 0x0)
+sendfile(r4, r3, 0x0, 0x100000064)
+ioctl$KVM_GET_MSR_INDEX_LIST(r2, 0xc004ae02, 0x0)
+ioctl$VIDIOC_G_CROP(r0, 0xc014563b, 0x0)

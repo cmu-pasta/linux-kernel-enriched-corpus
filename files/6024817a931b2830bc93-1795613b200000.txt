@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=3c9259df279d84b845e9708f0e51e35e4d02e1b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":16,"fault_nth":5}
+openat$ipvs(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+sendmsg(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000980)}, 0x0)
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f0000000080)={'bpq0\x00', 0x21})
+mkdir(0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='ns\x00')
+getdents(r0, &(0x7f0000000040)=""/46, 0x2e)
+r1 = perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$MAP_CREATE(0x2, 0x0, 0x0)
+ioprio_get$pid(0x0, 0x0)
+socket$isdn_base(0x22, 0x3, 0x0)
+semop(0x0, 0x0, 0x0)
+fcntl$getownex(r1, 0x10, 0x0)
+openat$dlm_control(0xffffffffffffff9c, 0x0, 0x40000, 0x0)
+setsockopt$inet_sctp_SCTP_I_WANT_MAPPED_V4_ADDR(r0, 0x84, 0xc, 0x0, 0x0)
+getsockopt$ARPT_SO_GET_INFO(0xffffffffffffffff, 0x0, 0x60, 0x0, 0x0)
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000740)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r2, 0x89f1, &(0x7f0000000080)='ip6tnl0\x00')

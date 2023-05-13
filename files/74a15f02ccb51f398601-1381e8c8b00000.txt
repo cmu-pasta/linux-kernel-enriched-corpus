@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7d1249f90d0d0fe8654e60e906bf929ede22d6fb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000180), 0x2, 0x0)
+creat(&(0x7f0000000100)='./file0\x00', 0x0)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+mount$fuse(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f0000000380)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=r0, @ANYBLOB=',rootmode=00000000000000000060000,user_id=', @ANYRESDEC=0x0, @ANYBLOB=',group_id=', @ANYRESDEC=0x0])
+write$FUSE_NOTIFY_RETRIEVE(r0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"segv":true}
+r0 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsa\x00', 0x2, 0x0)
+write$midi(r0, &(0x7f0000000240), 0x0)
+write$midi(r0, &(0x7f0000000000)='=', 0x1)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4dd134118111ccc7f7ec35a0977b0d5a6e2dec5d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+syz_mount_image$ext4(&(0x7f0000000000)='ext3\x00', &(0x7f0000000040)='//file0//./..\x00', 0x0, 0xaaaab03, &(0x7f0000000940), 0x6462, &(0x7f0000000140)={[{@debug_want_extra_isize={'debug_want_extra_isize', 0x3d, [0x37, 0x36, 0x33, 0x32, 0x0, 0x2d, 0x39]}, 0x2c}, {@nomblk_io_submit='nomblk_io_submit', 0x2c}, {@nouid32='nouid32', 0x2c}, {@grpid='grpid', 0x2c}, {@usrjquota='usrjquota=', 0x2c}]})
+mkdir(&(0x7f0000000640)='//file0\x00', 0x0)
+open$dir(&(0x7f00000001c0)='./file0\x00', 0x1fffe, 0x0)
+write(0xffffffffffffffff, &(0x7f0000000440), 0x0)
+mkdir(&(0x7f0000000400)='./file0\x00', 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = signalfd(0xffffffffffffffff, &(0x7f00007aeff8), 0x8)
+r1 = eventfd(0x0)
+r2 = socket$inet6(0xa, 0x3, 0x7)
+connect$inet6(r2, &(0x7f00000000c0)={0xa, 0x0, 0x0, @empty}, 0x1c)
+dup2(r2, r1)
+r3 = dup(r1)
+read$alg(r3, &(0x7f0000000080)=""/127, 0x7f)
+mount$9p_fd(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040), 0x0, &(0x7f00000001c0)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r3, @ANYBLOB=',wfdno=', @ANYRESHEX=r0])
+write$P9_RWALK(r3, 0x0, 0x0)

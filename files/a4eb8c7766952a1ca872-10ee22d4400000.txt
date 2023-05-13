@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6ec4ea52fd8c1ffd952fc3f80fdd160dae64783c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":35,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1, 0x0)
+ioctl(r0, 0x4000008912, &(0x7f0000000000))
+openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x0, 0x3, &(0x7f0000000040)=ANY=[@ANYBLOB="180000000000000000000000028000006a0a00fffffff6006118"], &(0x7f0000000080)='syzkalleP\x00', 0x0, 0xce, &(0x7f0000000180)=""/206}, 0x48)
+bpf$PROG_LOAD(0x5, &(0x7f0000000240)={0x12, 0x5, &(0x7f0000000040)=@framed={{0x18}, [@jmp={0x5}], {0x95}}, &(0x7f0000000200)='syzkaller\x00', 0x80000001, 0x4bb, &(0x7f0000000300)=""/187, 0x0, 0x0, [], 0x0, 0xb}, 0x48)

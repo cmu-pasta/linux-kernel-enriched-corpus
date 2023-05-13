@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=1bb51491ca5df96a5f724899d1dbb87afda61419
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true,"tmpdir":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000040)={0x1f, @none}, 0x8)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+write$cgroup_int(r1, 0x0, 0x0)
+ioctl$FS_IOC_RESVSP(0xffffffffffffffff, 0x40305828, 0x0)
+r2 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r2, 0x0, 0x0)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+r4 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+sendfile(r4, r3, 0x0, 0x800000000000c)
+r5 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r5, 0x40305828, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x20040006})

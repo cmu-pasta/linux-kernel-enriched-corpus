@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a152f63add75a07ddbd234667e25286d8da14a34
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true,"segv":true}
+syz_open_dev$vcsu(&(0x7f00000003c0)='/dev/vcsu#\x00', 0x1, 0x1d9eeb79dbdc03ad)
+r0 = syz_open_dev$swradio(0x0, 0x1, 0x2)
+write$RDMA_USER_CM_CMD_DISCONNECT(r0, &(0x7f0000000300)={0xa, 0x150}, 0xfffffecb)

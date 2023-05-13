@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=e3425be14aa4dbcf0dd8872e6b2c737307f6eda1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect(0x0, 0x36, &(0x7f0000000000)=ANY=[@ANYBLOB="12010000aa3b9808110f2020c9480000000109022400010000000009041c00029126c90009050f1f000000000009058703a422020144"], 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+read$char_usb(r1, 0x0, 0xffffffe9)
+syz_open_dev$evdev(&(0x7f00000000c0)='/dev/input/event#\x00', 0x3f, 0x10000)
+r2 = syz_open_dev$evdev(&(0x7f0000000100)='/dev/input/event#\x00', 0x0, 0x0)
+ioctl$EVIOCGRAB(r2, 0x40044590, 0x0)
+r3 = syz_open_dev$evdev(&(0x7f00000003c0)='/dev/input/event#\x00', 0x0, 0x0)
+ioctl$EVIOCGRAB(r3, 0x40044590, 0x0)
+r4 = syz_open_dev$evdev(&(0x7f00000003c0)='/dev/input/event#\x00', 0x0, 0x0)
+ioctl$EVIOCGRAB(r4, 0x40044590, &(0x7f0000000340)=0x200)
+syz_usb_connect$hid(0x4, 0x0, 0x0, &(0x7f0000000400)=ANY=[@ANYBLOB="52f0e05a1ea477d9080ad52875cf1d9bc2ca53b12f5e31815051d6b3b36a2e6cb5ae3dad431379bbb2da383bcf36dbe474bee90c407435eb43be46fc00b1f79f204a0100010019b5a0fe8d9a8da8d3495113b79f86bdc12d278f331980a2546f9018aa14a4b19e8fbcc54e5f625812c8a00a568e685e813419b956fdb342418288097ee495605a52ec8f7b42", @ANYPTR64, @ANYRESHEX=r3, @ANYPTR=&(0x7f00000001c0)=ANY=[]])
+ioctl$EVIOCREVOKE(0xffffffffffffffff, 0x40044590, 0x0)
+ioctl$EVIOCGKEYCODE_V2(0xffffffffffffffff, 0x80284504, 0x0)
+syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+syz_usb_disconnect(r0)

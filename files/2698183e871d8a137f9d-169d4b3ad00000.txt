@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=703b9514e684cbf5f3bd9877f14b9192f70535ff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x80100900, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x3000002, 0x12, r1, 0x0)
+vmsplice(0xffffffffffffffff, &(0x7f0000000100)=[{0xfffffffffffffffc}], 0x1, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+tkill(r0, 0x40)
+wait4(0x0, 0x0, 0x0, 0x0)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+r2 = gettid()
+rt_sigqueueinfo(r2, 0x3c, &(0x7f0000000040))

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a2d02a66842c046042e50a05e049d6150c51247
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+ioctl$VIDIOC_S_DV_TIMINGS(r0, 0xc0845657, &(0x7f0000000000)={0x0, @reserved=[0x0, 0x0, 0x0, 0x0, 0xd59f80]})
+r1 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+ioctl$VIDIOC_S_INPUT(r1, 0xc0045627, &(0x7f0000000000)=0x3)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=05daea37f601e5f79701fb5d8b618dc0ed18f3eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_CHECKPOINT(r0, 0x4004662b, &(0x7f0000000000)=0x2)
+ftruncate(r0, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+sendmmsg$unix(r1, &(0x7f00000bd000), 0x318, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000180)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$FS_IOC_SETFLAGS(r2, 0x40086602, &(0x7f0000000000)=0x84000)

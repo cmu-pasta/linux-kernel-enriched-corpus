@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=60a6a7457bf43c7f3c52b52ff55231e06ab859ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = open$dir(&(0x7f00000001c0)='./file0\x00', 0x1fffe, 0x0)
+r1 = open$dir(&(0x7f00000002c0)='./file0\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000300)="093d0c5719a3f883483e1b2ef04dad406122ad2751b016c19c", 0x19)
+sendfile(r1, r1, &(0x7f0000000040), 0x7527fb3200000000)
+read(r0, &(0x7f0000000c00)=""/194, 0xffffff58)
+syz_mount_image$reiserfs(&(0x7f0000000000)='reiserfs\x00', &(0x7f0000000100)='./file0\x00', 0x800000, 0x4, &(0x7f0000000200)=[{&(0x7f0000010000), 0x0, 0x10000}, {&(0x7f0000010200)}, {&(0x7f0000013800), 0x0, 0x212000}, {&(0x7f0000013b00), 0x0, 0x213c00}], 0x0, &(0x7f0000013f00)=ANY=[])

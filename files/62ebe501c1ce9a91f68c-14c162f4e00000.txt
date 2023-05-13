@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a588183ac34c1437fc0785e8f220e88282e5a29f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, 0x0)
+unshare(0x6c060000)

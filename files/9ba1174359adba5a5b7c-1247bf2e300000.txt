@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ada0b8259b0781c600f9efa53a02cbc1c9db65d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'bridge0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000100)=@bridge_delneigh={0x30, 0x1c, 0xf07, 0x0, 0x0, {0x7, 0x0, 0x0, r2, 0x2, 0xffffff9e}, [@NDA_LLADDR={0xa, 0x2, @random="0004000200"}, @NDA_VLAN={0x6, 0x5, 0x1}]}, 0x30}}, 0x0)

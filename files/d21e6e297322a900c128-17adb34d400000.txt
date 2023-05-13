@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=16c9389ff3e0a921ddc98957e9a94c0913ad4669
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f0000000040)='/dev/vhost-net\x00', 0x2, 0x0)
+ioctl$VHOST_SET_FEATURES(r0, 0x4008af00, &(0x7f0000000080)=0x200000000)
+ioctl$int_in(r0, 0x40000000af01, 0x0)
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000240)={0x0, 0x0, 0x0, &(0x7f0000000540)=""/246, 0x0})
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/audio\x00', 0x0, 0x0)
+close(r1)
+socket$packet(0x11, 0x3, 0x300)
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000000200)=ANY=[])
+write$vnet(r0, &(0x7f00000004c0)={0x1, {0x0, 0x0, 0x0, 0x3, 0x2}}, 0x68)
+ioctl$VHOST_NET_SET_BACKEND(r0, 0x4008af30, &(0x7f0000f1dff8)={0x0, r1})

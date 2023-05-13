@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e7cbd9d7047a1c4e14bbdc194a7d87de1f168289
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+close(0xffffffffffffffff)
+syz_genetlink_get_family_id$nl80211(0x0)
+sendmsg$NL80211_CMD_GET_STATION(0xffffffffffffffff, 0x0, 0x0)
+write$binfmt_misc(0xffffffffffffffff, 0x0, 0xfffffecc)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x4ffe0, 0x0)

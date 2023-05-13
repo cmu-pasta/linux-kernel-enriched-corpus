@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r0, &(0x7f00000001c0)={0x0, 0xa, &(0x7f0000000540)=[{&(0x7f00000000c0)="2e00000010008188040f80ecdb4cb9cca7480ef43c000000e3bd6efb440e09000e000a000f00000002800000", 0x2c}, {&(0x7f0000000440)='\\8', 0x2}], 0x2}, 0x0)

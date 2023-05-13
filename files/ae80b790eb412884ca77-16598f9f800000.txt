@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=757195710b3cfe529411282e0861cec7d6ef1c04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+mount(&(0x7f0000000040)='./file0\x00', &(0x7f0000000180)='/\x00', &(0x7f0000000300)='jffs2\x00', 0x21000b0, &(0x7f0000000340))

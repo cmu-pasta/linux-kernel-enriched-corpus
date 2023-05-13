@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e9aab2327e53bc0d2f91b88ddba792e75e72e785
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f00000002c0)={'syz_tun\x00', &(0x7f0000000280)=@ethtool_link_settings={0x4d, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4}})
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$ETHTOOL_MSG_LINKMODES_SET(r1, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)={0x38, r2, 0x1, 0x0, 0x0, {}, [@ETHTOOL_A_LINKMODES_HEADER={0x18, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'syz_tun\x00'}]}, @ETHTOOL_A_LINKMODES_OURS={0xc, 0x3, 0x0, 0x1, [@ETHTOOL_A_BITSET_SIZE={0x8, 0x2, 0x7fffffff}]}]}, 0x38}}, 0x0)

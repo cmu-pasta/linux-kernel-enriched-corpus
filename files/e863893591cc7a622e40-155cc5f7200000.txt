@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=db947ce523c1649ed8917fd831b996bec8687c9f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x1e, 0x5, 0x0)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000080)=@req={0x3fc}, 0x10)

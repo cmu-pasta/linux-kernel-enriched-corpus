@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1a97a5bd119fd97995f752819fd87840ab9479a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x3, 0xff)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @mcast1, 0x9}, 0x1c)
+sendmsg$key(r0, &(0x7f0000000080)={0x20480, 0x0, &(0x7f00000000c0)={&(0x7f0000000100)=ANY=[@ANYBLOB="02000d0007000000000000000000000005001a02ffffffff030000000000000000000080ff7f00aa"], 0x28}}, 0x0)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$IPT_SO_SET_ADD_COUNTERS(r1, 0x0, 0x41, &(0x7f00000002c0)={'filter\x00'}, 0x28)

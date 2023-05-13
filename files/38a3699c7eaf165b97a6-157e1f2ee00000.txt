@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6fba8c186d97cf1011ab17660e633b1cc4e080c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$fb0(0xffffffffffffff9c, &(0x7f00000009c0)='\xce\x8f*\xf7\x00', 0x67514c7366170ade, 0x0)
+write$fb(r0, &(0x7f0000000340)="112b605d22599709a94949f48a30332c71965a47599bff819218d8510e519fac99af77c111ddb5dba2d3367cae2132048f5221ce8cae670cd5e9dd7e309e0dee827b7a8c41933efb5ea19cab96d954f02aa27d0182ff570090cea916dfeacc170c45ccd286ef001e4f5c41ad195085f378db815b2d9d4a80630807d0df220fc0d29f1dd4d5660e6db87984f3281aab1d6176cc33f818f30c92ea6952c7f5b0d55d52c8a5a2889120f0cdda3037d926be4ed1f02acd48c43fedfc0c1dbfc43769f919ff1813f634cc8900aec4d434fc384cfc490732388dae09ffdb9ab43998149476f83a64d3aaf6eb9e2a75f23ff0fe7a3253934611aa7ed3f3e557ebdfba2252c5a96e23ed3b128bc1db19ed35cae3428d74d567dad2adffef5c7d91cf180d614e7f01a20af54edcaaa6d2d97d175a17fb979b405fc013d409cc4240edf05bebf141f8570cf5be70dc438b4f037a28f28728a335ce1e8cb71ce1f63b56d6305477daec1c7e708a207c1c84b6a5276cb2fef622555ee64391b666bb31e0771a14c41558144a79e7e9fad683c2524a47c8579af614cb4810557070c8b1726ac82d25703544c60d304b0000000000000000", 0xfffffe4d)
+ioctl$EXT4_IOC_SETFLAGS(0xffffffffffffffff, 0x40086602, 0x0)
+write$fb(0xffffffffffffffff, 0x0, 0x0)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDFONTOP_COPY(r2, 0x4b72, &(0x7f0000000000)={0x3, 0x1, 0xf, 0x5, 0x19b, 0x0})
+ioctl$PIO_FONT(r1, 0x4b61, &(0x7f0000000080))

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e7cbd9d7047a1c4e14bbdc194a7d87de1f168289
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_genetlink_get_family_id$ipvs(0x0)

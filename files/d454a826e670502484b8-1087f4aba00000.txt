@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0654529ad3cc1d67a6d9812d8b75489c03dfb983
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @null, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+ioctl$sock_SIOCBRADDBR(r1, 0x89a0, 0x0)

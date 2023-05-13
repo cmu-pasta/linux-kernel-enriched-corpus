@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4b0830ac666c3cae350904be00dca27f8be86715
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt(r0, 0x84, 0x81, &(0x7f0000000180)="1a00000002000000", 0x8)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000000280)=[@in6={0xa, 0x4e23, 0x0, @empty}], 0x1c)
+setsockopt$inet_sctp6_SCTP_AUTH_CHUNK(r0, 0x84, 0x15, &(0x7f0000000080), 0x1)
+sendto$inet6(r0, &(0x7f00000001c0)="b9", 0x1, 0x0, &(0x7f0000000240)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendto$inet6(r0, &(0x7f0000000400)="01", 0x1, 0x0, 0x0, 0x0)
+setsockopt$inet_sctp6_SCTP_AUTH_KEY(r0, 0x84, 0x17, &(0x7f00000002c0)={0x0, 0x0, 0x1, "8b"}, 0x9) (fail_nth: 5)

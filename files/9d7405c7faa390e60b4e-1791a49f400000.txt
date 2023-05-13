@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b7575418eb496c7def8d76caff2c1c8755682e90
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0x14, &(0x7f0000006ffc)=0x200, 0x4)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'batadv0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @random="32cae4783d32"}, 0x14)
+sendto$inet6(r0, &(0x7f0000000180)="040300000003000000000000c52c", 0xe, 0x0, 0x0, 0x0)

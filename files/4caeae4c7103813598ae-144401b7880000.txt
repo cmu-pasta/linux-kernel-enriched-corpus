@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=daa1858cc0258eb026f89eecf342f6b3fdad7b05
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":false}
+r0 = socket(0x10, 0x3, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'lo\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000001c0)=ANY=[@ANYBLOB="4800000024000b0f0000008bfbbc6e0060000000", @ANYRES32=r2, @ANYBLOB="00000000ffffffff00000000090001007072696f000000001800020004"], 0x48}}, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000000)={'lo\x00', <r4=>0x0})
+r5 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r5, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000380)=@newtfilter={0x64, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r4, {}, {}, {0x8}}, [@filter_kind_options=@f_basic={{0xa}, {0x34, 0x2, [@TCA_BASIC_CLASSID={0x8}, @TCA_BASIC_EMATCHES={0x28, 0x2, 0x0, 0x1, [@TCA_EMATCH_TREE_LIST={0x1c, 0x2, 0x0, 0x1, [@TCF_EM_CMP={0x18, 0x1, 0x0, 0x0, {{0x0, 0x1, 0xfffa}}}]}, @TCA_EMATCH_TREE_HDR={0x8, 0x1, {0x1}}]}]}}]}, 0x64}}, 0x0)

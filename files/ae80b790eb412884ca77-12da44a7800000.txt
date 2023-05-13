@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=757195710b3cfe529411282e0861cec7d6ef1c04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+syz_mount_image$ext4(&(0x7f0000000140)='ext3\x00', &(0x7f0000000080)='/\x00', 0x0, 0x0, &(0x7f0000000000), 0x28020, &(0x7f0000000000)=ANY=[@ANYBLOB='journalth=./file0,\x00'])

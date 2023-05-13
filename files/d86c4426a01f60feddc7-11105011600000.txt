@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7a5eef8441d0a76d4ac12b35f3633885dbb9d04e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$cuse(0xffffffffffffff9c, &(0x7f0000000300)='/dev/cuse\x00', 0x2842, 0x0)
+io_setup(0x83, &(0x7f00000003c0)=<r1=>0x0)
+io_submit(r1, 0x1, &(0x7f00000004c0)=[&(0x7f0000000080)={0x0, 0x0, 0x0, 0x5, 0x0, r0, 0x0}])

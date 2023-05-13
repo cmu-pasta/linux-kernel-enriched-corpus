@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d0cb46ec1ecdf963e6ba1dbfadb4361f7a73186f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_io_uring_setup(0x1b46, &(0x7f0000000080), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000180)=<r1=>0x0, &(0x7f0000000000)=<r2=>0x0)
+syz_mount_image$btrfs(0x0, 0x0, 0xbd, 0x0, 0x0, 0x2826021, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000280)=@IORING_OP_WRITE={0x17, 0x0, 0x2007, @fd_index=0x5, 0xe9b7, &(0x7f0000000740)="e87d10ea3e969500f2f8fadd5eedae208e31980202c10b2c0bd1b4ebd028590b8ba69265e9f640ff80c7118ed0c1212427a8014a59c1adc58ffd4c47", 0x3c, 0x4}, 0x0)
+io_uring_enter(r0, 0x4510, 0x0, 0x0, 0x0, 0xffffffffffffffac)

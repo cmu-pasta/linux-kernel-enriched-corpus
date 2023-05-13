@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c4cca4cdbbb94b0c23dd4d608dd1eb5b14d6e820
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"cgroups":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e24, @multicast2}, 0x10)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e24, @local}, 0x10)
+sendto$inet(r0, &(0x7f0000000040)="ec", 0x1, 0x0, 0x0, 0x0) (fail_nth: 4)

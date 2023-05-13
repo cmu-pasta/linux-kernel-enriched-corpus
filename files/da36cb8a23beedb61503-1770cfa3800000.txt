@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e826b4d012da9963d581b16d665db3811588ffbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfcc000)=nil, 0xfcc000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x40000000015, 0x5, 0x0)
+bind$inet(r0, &(0x7f0000074000-0x10)={0x2, 0xffffffffffffffff, @loopback=0x7f000001}, 0x10)
+connect$inet(r0, &(0x7f0000fc4000)={0x2, 0xffffffffffffffff, @broadcast=0xffffffff}, 0x10)
+sendmsg$alg(r0, &(0x7f0000fc6000-0x38)={0x0, 0x0, &(0x7f0000f50000)=[], 0x0, &(0x7f0000001000-0x19)=[@assoc={0x18, 0x117, 0x4}], 0x18}, 0x0)

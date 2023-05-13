@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7f89ee40d35beb6d8f3fc3d122e43287cc3825cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mkdir(&(0x7f00000005c0)='./file0\x00', 0xfffffffffffffffc)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000280)='./file0\x00', &(0x7f00000002c0)='9p\x00', 0x800000, &(0x7f0000000340)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@fscache='fscache', 0x2c}, {@version_L='version=9p2000.L', 0x2c}, {@cache_mmap='cache=mmap', 0x2c}, {@access_user='access=user', 0x2c}, {@loose='loose', 0x2c}, {@cachetag={'cachetag', 0x3d, 'nodevmap'}, 0x2c}, {@posixacl='posixacl', 0x2c}, {@afid={'afid', 0x3d, 0x7ff}, 0x2c}, {@cachetag={'cachetag', 0x3d, "4028776c616e30276c6f73656c66706f7369785f61636c5f616363657373ad706f7369785f61636c5f616363657373776c616e312d2f2d"}, 0x2c}]}})

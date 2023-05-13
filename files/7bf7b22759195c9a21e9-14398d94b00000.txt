@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3b44307f9131fab25109b05e5f8e15b9bf0cdc56
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_genetlink_get_family_id$nl802154(&(0x7f00000008c0), 0xffffffffffffffff)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_802154(r2, 0x8933, &(0x7f0000000940)={'wpan1\x00', <r3=>0x0})
+sendmsg$NL802154_CMD_NEW_INTERFACE(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f00000001c0)={0x30, r0, 0x1, 0x0, 0x0, {}, [@NL802154_ATTR_IFINDEX={0x8, 0x3, r3}, @NL802154_ATTR_IFTYPE={0x8, 0x5, 0xffffffffffffffff}, @NL802154_ATTR_IFNAME={0xa, 0x4, 'wpan1\x00'}]}, 0x30}}, 0x0)

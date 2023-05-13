@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a4bf9e41b7e055c3823fdcd83e8c58ca7270e38f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x15, 0x80005, 0x0)
+bind$inet6(r0, &(0x7f00000001c0)={0xa, 0x4, 0x7, @remote}, 0x0)

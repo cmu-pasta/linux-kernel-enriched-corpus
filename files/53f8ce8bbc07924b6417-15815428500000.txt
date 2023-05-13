@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7cbd9d7047a1c4e14bbdc194a7d87de1f168289
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cpu.stat\x00', 0x275a, 0x0)
+socket$inet6(0xa, 0x3, 0x7)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+syz_emit_ethernet(0x36, &(0x7f0000000080)={@local, @link_local, @void, {@ipv4={0x800, @tcp={{0x5, 0x4, 0x0, 0x0, 0x28, 0x0, 0x0, 0x0, 0x6, 0x0, @loopback, @local}, {{0x0, 0x4e24, 0x41424344, 0x41424344, 0x0, 0x6, 0x5, 0x2}}}}}}, 0x0)

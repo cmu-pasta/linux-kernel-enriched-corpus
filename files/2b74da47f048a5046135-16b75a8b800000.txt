@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e925f35f91b20fb565507134085b4d65824e5eb0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = perf_event_open(&(0x7f000025c000)={0x2, 0x70, 0x2003e3}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r0)
+r1 = creat(&(0x7f0000000280)='./file0\x00', 0x0)
+write$fuse(r1, &(0x7f0000000400)={0x50, 0x1, 0x9, @fuse_init_out={0x7, 0x1a, 0xc75, 0x1, 0xffffffffffffffff, 0x22aebe0d, 0x6, 0x7}}, 0x50)
+syz_mount_image$msdos(&(0x7f0000000200)='msdos\x00', &(0x7f0000000240)='./file0\x00', 0x7fff, 0x1, &(0x7f0000000380)=[{&(0x7f00000002c0), 0x0, 0x8000}], 0x1000, &(0x7f00000003c0)={[{@errors_continue='errors=continue', 0x2c}, {@dos1xfloppy='dos1xfloppy', 0x2c}, {@umask={'umask', 0x3d, [0x32, 0x30, 0x35]}, 0x2c}, {@errors_continue='errors=continue', 0x2c}]})
+lsetxattr(&(0x7f0000000040)='./file0\x00', &(0x7f0000faffe7)=@known='security.capability\x00', &(0x7f00002b2fec)="0000000201000000000000010400000000000000", 0x14, 0x0)

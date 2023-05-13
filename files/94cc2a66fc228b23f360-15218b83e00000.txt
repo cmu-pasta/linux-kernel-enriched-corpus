@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a7d678fba80c34b5770cc1b5638b8a2709ae9f3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r0, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r1, {0x2, 0x0, @dev}, 0x2}}, 0x2e)
+connect$inet6(r1, &(0x7f0000000040)={0xa, 0x0, 0x0, @mcast2, 0xa}, 0x1c)

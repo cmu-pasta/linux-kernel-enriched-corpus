@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=02092775407f269a1c11c262ac79062ca33fbc88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$swradio(&(0x7f0000000040)='/dev/swradio#\x00', 0x1, 0x2)
+ioctl$DRM_IOCTL_ADD_MAP(0xffffffffffffffff, 0xc0286415, 0x0)
+getsockopt$bt_BT_FLUSHABLE(r0, 0x112, 0x8, 0x0, 0x0)
+syz_open_dev$sndpcmc(&(0x7f0000000080)='/dev/snd/pcmC#D#c\x00', 0x0, 0x8000)
+accept4$inet(r0, 0x0, &(0x7f0000000340), 0x80000)
+r1 = creat(&(0x7f0000000240)='./file0\x00', 0x0)
+r2 = fanotify_init(0x201, 0x0)
+fanotify_mark(r2, 0x11, 0x2, r1, 0x0)
+getsockopt$inet_sctp6_SCTP_MAXSEG(r0, 0x84, 0xd, 0x0, 0x0)
+getsockopt$inet_sctp6_SCTP_PEER_ADDR_PARAMS(r1, 0x84, 0x9, 0x0, 0x0)
+write$P9_RWSTAT(r1, &(0x7f0000000080)={0x7}, 0x7)
+ioctl(0xffffffffffffffff, 0x8916, &(0x7f0000000000))

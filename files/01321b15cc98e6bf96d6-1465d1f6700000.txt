@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=fc68413100cf0373c877bb2c6dd62c199f3a402b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+writev(0xffffffffffffffff, 0x0, 0x0)

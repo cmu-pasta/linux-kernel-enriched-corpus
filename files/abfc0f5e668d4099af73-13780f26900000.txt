@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=aca31fd1ef0cbf898bd37115e2c4c66fa37f4a20
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+pipe(0x0)
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+writev(0xffffffffffffffff, 0x0, 0x0)
+write$binfmt_elf64(0xffffffffffffffff, 0x0, 0xa)
+close(r0)
+socket(0x10, 0x3, 0x6)
+writev(0xffffffffffffffff, 0x0, 0x0)
+sendmsg$nl_xfrm(0xffffffffffffffff, 0x0, 0x0)
+write$binfmt_misc(0xffffffffffffffff, 0x0, 0xfef0)
+splice(0xffffffffffffffff, 0x0, r0, 0x0, 0x80000001, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000380)={0x1f, 0x0, @fixed, 0x3}, 0xe)
+shutdown(r1, 0x1)

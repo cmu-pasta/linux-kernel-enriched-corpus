@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=376c0834577763b440cb8abb61783d1031413f73
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000180)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000280)='./file0\x00', &(0x7f0000000240)='ramfs\x00', 0x0, 0x0)
+mkdir(0x0, 0x0)
+rename(0x0, &(0x7f0000000040)='./file0\x00')
+mkdir(&(0x7f0000000700)='./file1\x00', 0x0)
+creat(&(0x7f0000000280)='./file1/file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0)='overlay\x00', 0x0, &(0x7f0000000d40)=ANY=[@ANYBLOB='upperdir=./file0,lowerdir=./file1,workdir=./file1\x00|'])
+chdir(&(0x7f0000000380)='./file0\x00')
+link(&(0x7f0000000140)='./file0\x00', &(0x7f00000001c0)='./file1\x00')
+rename(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000140)='./file1\x00')

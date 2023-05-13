@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=8f063539d4ecf1faf3132624b57a641e923ee25a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000008a00)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_MSRS(r2, 0x4080aebf, &(0x7f0000000080)=ANY=[@ANYBLOB])
+socketpair$unix(0x1, 0x0, 0x0, &(0x7f0000000140))
+ioctl$KVM_CREATE_VCPU(0xffffffffffffffff, 0xae41, 0x0)
+ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)
+ioctl$KVM_SET_CPUID(0xffffffffffffffff, 0x4008ae8a, &(0x7f0000000100)=ANY=[@ANYBLOB="05000000000000000d000009b690f20005540098f72849000000004000000000010000000000000025000000fffffffdfb080100000000000a00000006cd"])
+ioctl$KVM_SET_MSRS(0xffffffffffffffff, 0x4008ae89, &(0x7f0000000080)=ANY=[@ANYBLOB])
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000140)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_ENABLE(r3, 0x8912, 0x400200)
+r4 = openat$kvm(0xffffffffffffff9c, &(0x7f0000008a00)='/dev/kvm\x00', 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r4, 0xae01, 0x0)

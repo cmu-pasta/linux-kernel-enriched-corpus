@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5a087c49cb6997c9e4544203afc1adbb289879a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000580)={0xa, 0x4e22, 0x0, @ipv4={[], [], @local}}, 0x1c)
+sendmmsg(r0, &(0x7f00000092c0), 0x4ff, 0x0)

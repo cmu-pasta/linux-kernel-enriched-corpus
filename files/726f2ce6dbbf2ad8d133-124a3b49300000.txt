@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8575e3bcd022538ad1196033b0c5d67054bef625
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true,"wifi":true,"segv":true}
+r0 = syz_io_uring_setup(0x83, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x1}, &(0x7f0000ee7000/0x1000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000000380)=<r1=>0x0, &(0x7f0000000000)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f0000000200)=@IORING_OP_OPENAT2={0x1c, 0x2, 0x0, 0xffffffffffffffff, &(0x7f0000000640), &(0x7f0000000680)='./file0\x00', 0x40}, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000100)=@IORING_OP_READV=@use_registered_buffer={0x1, 0x4, 0x2000, @fd_index=0x1, 0x101, 0x0, 0x0, 0x14, 0x1}, 0xd63)
+io_uring_enter(r0, 0x3e2b, 0x0, 0x0, 0x0, 0x0)

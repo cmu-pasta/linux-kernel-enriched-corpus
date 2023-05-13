@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3455f31bbb80ce444691f307036f94ccf4029dbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt$inet_sctp6_SCTP_MAX_BURST(r0, 0x84, 0x10, &(0x7f0000000100)=@assoc_value, 0x8)

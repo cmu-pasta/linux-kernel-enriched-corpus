@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e7b761593b23eb50855b9ea31e3be5472b711186
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000000)=ANY=[@ANYBLOB="1201fe0009003c08f6030042ef420000000109021b00017600230009040000010209bd00070581070001000200bf52cf67944f91a9d38a610007ebe0e5b13a5e0cc8d62a1de15bceea4ebcc87bf1c2f310571deb944e7a8ec545377d35c6594de12e456dc9339f31935ba224ceed4d7872fe3bbae048333d3e5f10c702338b17dbeccdf4c736b30f3b54d58c172f22a95b481b94730f00cb79a9efdaf4ab1a0aa57054224e0fff1032beeb6c2ae1724001743db45615c0c56367ca156288d718d0af2104ddf079f91e070e9521e8bd5861074df82684ec3701f75bb800000000f767cca2b7b60cef53b83103e2486b51830100000000000000fb63445cc94ad290f18b955e3753692cc575375a4674c6e81e9d420287252ee1961276a17070dff74ddce0833f50e8fed057aabf4107bce4f69794766eb5dc4d447b37955614de5d9d7bf25350637676f7207d960f7df86059ab2be942e96c7a7fde8668d8cb9193475b38e257e89ad1bde0da9cb8e975eea81130dbb07d53404b9f1ffa69f25ea40e35501c235494d2bdb2bb7b0d88c60d56616a4833620fb39cfb706be8e669b0f787e8ebfba269d040507c2dc211c2ceed1cb0f5774cf2d89f1989141f0d5d167e373c6e8ac02f8e6a575f87e8882936c77522bc78a62d006e00"/488], 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+r2 = syz_open_dev$hidraw(&(0x7f0000000300)='/dev/hidraw#\x00', 0x10000, 0x8101)
+ioctl$HIDIOCGRDESC(r2, 0x90044802, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+write$char_usb(r1, 0x0, 0x0)
+read$char_usb(0xffffffffffffffff, &(0x7f0000000200)=""/202, 0xca)

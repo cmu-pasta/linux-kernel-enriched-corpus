@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=cb23ebfc8f304f510fb717cb783fe8b496c7ffb1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+write$damon_contexts(0xffffffffffffffff, 0x0, 0x2)
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000040)=0xf)
+ioctl$KDADDIO(r0, 0x400455c8, 0x0) (rerun: 64)
+syz_open_pts(0xffffffffffffffff, 0x270601) (async)
+r1 = openat$sysfs(0xffffffffffffff9c, 0x0, 0x0, 0x140)
+syz_clone3(&(0x7f0000001200)={0x264002200, &(0x7f0000001380), 0x0, 0x0, {}, 0x0, 0x0, 0x0, 0x0, 0x0, {r1}}, 0x58)
+recvfrom$rxrpc(r1, &(0x7f00000001c0), 0x0, 0x40002000, &(0x7f0000000200)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x4e23, @local}}, 0x24)

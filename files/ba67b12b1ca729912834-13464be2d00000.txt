@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=efc234d0d3f0d6b900fe67b5334dc76cde55dbd4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true,"segv":true}
+r0 = socket(0x1000000010, 0x80002, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="38000000240007050000004007a2a30005000000", @ANYRES32=r2, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000002c0)=@newtfilter={0x74, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {}, {0xfff2}}, [@filter_kind_options=@f_basic={{0xa, 0x1, 'basic\x00'}, {0x44, 0x2, [@TCA_BASIC_POLICE={0x40, 0x4, [@TCA_POLICE_TBF={0x3c, 0x1, {0x1}}]}]}}]}, 0x74}}, 0x0)
+sendmmsg$alg(r0, &(0x7f0000000200), 0x10efe10675dec16, 0x0)

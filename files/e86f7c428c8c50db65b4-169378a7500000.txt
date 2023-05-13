@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b6efb9d3ff2b6a7754d69711d985a6da68ebd708
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"close_fds":true,"usb":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+clone(0x2900, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+setsockopt$IP6T_SO_SET_REPLACE(r0, 0x29, 0x40, &(0x7f0000000080)=@raw={'raw\x00', 0x3c1, 0x3, 0x410, 0x200, 0x0, 0x200, 0x200, 0x0, 0x340, 0x2e8, 0x2e8, 0x340, 0x2e8, 0x3, 0x0, {[{{@uncond, 0x0, 0x1c0, 0x200, 0x0, {}, [@common=@unspec=@string={{0xc0, 'string\x00'}, {0x0, 0x0, 'bm\x00', "cfcaf80c672f61cd17ae5119b5135c2aee68d23a465cd431e1ecef50c3234e082555f67222476147864fa03182f5cf11d8c348cbd06dc8de1dcbde7d4e252c3394fed47bf78c70f607b0178fa5ea335019ac07a602061c96baebc989f1f34a214e6726401fe4b124e0f7323a587d2a1fcfe36bbf12eca0a7b66c60c527bac2b5", 0x1}}, @common=@inet=@hashlimit1={{0x58, 'hashlimit\x00'}, {'virt_wifi0\x00', {0x0, 0x0, 0x200000, 0x0, 0x0, 0x5, 0xa6}}}]}, @common=@unspec=@RATEEST={0x40, 'RATEEST\x00', 0x0, {'syz0\x00', 0x4}}}, {{@ipv6={@ipv4={[], [], @remote}, @initdev={0xfe, 0x88, [], 0x0, 0x0}, [], [], 'veth0_to_team\x00', 'netdevsim0\x00'}, 0x0, 0x100, 0x140, 0x0, {}, [@inet=@rpfilter={{0x28, 'rpfilter\x00'}}, @common=@srh={{0x30, 'srh\x00'}}]}, @common=@unspec=@RATEEST={0x40, 'RATEEST\x00', 0x0, {'syz0\x00'}}}], {{[], 0x0, 0xa8, 0xd0}, {0x28}}}}, 0x470)
+syz_open_dev$evdev(&(0x7f00000002c0)='/dev/input/event#\x00', 0x0, 0x0)

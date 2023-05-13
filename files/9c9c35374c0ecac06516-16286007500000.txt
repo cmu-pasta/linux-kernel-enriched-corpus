@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cdf00205127303ca523678fbb9d7eb7613632dba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+setrlimit(0x7, &(0x7f00000013c0))
+syz_io_uring_setup(0x2094, &(0x7f0000000040)={0x0, 0x0, 0x2}, &(0x7f0000ffd000/0x2000)=nil, &(0x7f0000ffd000/0x3000)=nil, 0x0, 0x0)

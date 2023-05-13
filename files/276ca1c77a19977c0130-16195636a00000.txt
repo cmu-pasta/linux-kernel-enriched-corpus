@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6dbf93a38d9b3ad51c95a4b5f4dfe8f0cf03a74b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":5,"fault_nth":10,"leak":true,"close_fds":false}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+sendmmsg(r0, &(0x7f0000e8e000)=[{{&(0x7f00008b6000)=@in6={0xa, 0x0, 0x0, @local={0xfe, 0x80, [], 0xffffffffffffffff}, 0x1}, 0x80, &(0x7f0000231ff0)=[{&(0x7f0000f89000)='t', 0x1}], 0x1}}], 0x1, 0x0)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r1, 0x1000008912, 0x0)
+listen(r0, 0x400000000007)
+accept(r0, 0x0, 0x0)

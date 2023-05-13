@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=cb9bdbd80adefc7da4aa5c2894a9c89f3bafd60c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$FUSE_BMAP(0xffffffffffffffff, &(0x7f0000000100)={0x18}, 0x18)
+syz_mount_image$tmpfs(0x0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040), 0x0, &(0x7f0000000200)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@fscache}, {@cachetag={'cachetag', 0x3d, '{B\xd2H\x11P\xa1Ms\xe9\x80\xacM\xe9\xf5u\xd7hB\x19gJ\x1a\xbd[=\xb6VvtC\xe2\xa1\xcd\x82C\x8a\xd3\x01[\x0fS^\x19\x1b\xd2kt\xe9Ta<\x85\x14\t\xe6Mt/{\xedt\xf2\xcd\x04\x8d@\xd7\x90+\xd3\xfd\xdc\x951\xc7\xa9\xd1J\x1e\xf5\xdb\x82\xf9W\x18\xe5f\xae\x19\xf6J\xa9|\xbbg\x17\x03\x01)\xb1c\x85\xb9\xc9\xd6\"\xd7L\xccj\x14xP\x1d\xe3\x98\x9c\xd5\xde\xf3<xE\xa0\x81MZD\xc4\x8b\x88\xc7\xdfa,\xcf\xe5\xc6O\xa9\xea\xfa\xac`\v\x94\x8e1'}}]}})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=142604ec0ffac11a7342b6d73bf843715cd555dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$kcm(0x10, 0x2, 0x4)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f0000000080)={&(0x7f0000000000)=""/17, 0x2000, 0x1000}, 0x48)
+sendmsg$kcm(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)=[{&(0x7f00000001c0)="39000000140081ae101b43727002215a2ce76b1a42003c001f9f000400000000000012f691f3bd3540000000e6eeb89c44ebb3aeca0c939cd2", 0x39}], 0x1}, 0x0)

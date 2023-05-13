@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f99edaeec58ad40380ed5813d89e205861be2896
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$inet6(r1, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote, 0x3}, 0x1c)
+setsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f00000002c0)={{{@in6=@local, @in, 0x0, 0x0, 0x0, 0x0, 0xa}, {}, {}, 0x0, 0x0, 0x1}, {{@in=@rand_addr, 0x0, 0x2b}, 0x0, @in6=@mcast2}}, 0xe8)
+bind$netlink(r0, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x1}, 0x41)
+r2 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000480)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r2, &(0x7f00000000c0)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000080), 0x13f}}, 0x20)

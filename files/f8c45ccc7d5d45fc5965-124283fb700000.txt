@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=f95b5ff2a219684ecc266ffa24cf3d08839739e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","cgroups":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"tmpdir":true}
+syz_mount_image$nilfs2(0x0, 0x0, 0x0, 0x1, &(0x7f0000000200)=[{0x0, 0x0, 0x400}], 0x0, 0x0)

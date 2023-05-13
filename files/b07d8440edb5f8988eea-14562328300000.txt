@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=91c2030241ada0e5d21877f8f2f44c98cffc04bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+io_setup(0x1, &(0x7f0000000300)=<r0=>0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000480), 0x103802, 0x0)
+bind(0xffffffffffffffff, &(0x7f0000000080)=@generic={0x0, "004976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000001401013c58f9039e15775027ecce66fd792bbf0e5bf5ff1b0000f3f6db7ae701000000000000004974deffffffffffff05ad8e5ecc326d3a09ffc2c65400"}, 0x80)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f00000000c0)={'ip6erspan0\x00'})
+io_submit(r0, 0x1, &(0x7f0000000600)=[&(0x7f0000000180)={0x0, 0x0, 0x105400, 0x800000000001, 0x0, r1, 0x0, 0xa}])

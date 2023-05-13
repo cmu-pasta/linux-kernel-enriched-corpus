@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=07705459f122717ada1e0b8407bfdb1b7ea38502
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"cgroups":true,"close_fds":true,"usb":true,"wifi":true,"sysctl":true,"tmpdir":true}
+socket(0x0, 0x2, 0x0)
+epoll_create(0x7)
+r0 = creat(&(0x7f0000000040)='./bus\x00', 0x9)
+ftruncate(r0, 0x800)
+lseek(r0, 0x200, 0x2)
+r1 = open(&(0x7f0000000000)='./bus\x00', 0x24000, 0x0)
+sendfile(r0, r1, 0x0, 0x1dd00)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=484483daf3652b40dae18531923aa9175d392a4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"vhci":true,"tmpdir":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+timer_create(0x0, 0x0, 0x0)
+clock_gettime(0x0, 0x0)
+timer_settime(0x0, 0x0, 0x0, 0x0)
+mount$bpf(0x20000000, &(0x7f0000000100)='./file0\x00', 0x0, 0x2001001, 0x0)
+pivot_root(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000180)='./file0\x00')
+r0 = socket$inet6(0xa, 0x1, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, 0x0, 0x80000)
+ioctl$sock_inet6_SIOCSIFDSTADDR(r0, 0x8918, 0x0)
+syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+pread64(0xffffffffffffffff, 0x0, 0xfeffffff, 0x0)
+dup2(0xffffffffffffffff, 0xffffffffffffffff)
+setsockopt$XDP_TX_RING(0xffffffffffffffff, 0x11b, 0x3, 0x0, 0x0)

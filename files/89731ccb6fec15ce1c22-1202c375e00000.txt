@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=46fce22e98c9535b9397e7786db5c5e33719c963
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":1,"close_fds":false}
+r0 = openat$smackfs_cipsonum(0xffffffffffffff9c, &(0x7f0000000000)='/sys/fs/smackfs/doi\x00', 0x2, 0x0)
+write$smackfs_cipsonum(r0, &(0x7f0000000040)=0x3, 0x14)

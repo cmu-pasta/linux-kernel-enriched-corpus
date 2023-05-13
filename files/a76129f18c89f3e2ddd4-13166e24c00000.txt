@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=87c399f6fa6955006080b24142e2ce7680295ad4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"tmpdir":true,"segv":true}
+r0 = openat$ashmem(0xffffffffffffff9c, &(0x7f0000b4508a)='/dev/ashmem\x00', 0x0, 0x0)
+ioctl$ASHMEM_SET_SIZE(r0, 0x40087703, 0xdffffffa)
+ioctl$ASHMEM_PURGE_ALL_CACHES(r0, 0x770a, 0x0)
+mmap(&(0x7f00006ff000/0x3000)=nil, 0x3000, 0x0, 0x12, r0, 0x0)
+ioctl$ASHMEM_SET_NAME(r0, 0x40087708, &(0x7f0000000000)='\x00\x00\x04\x00\x00\x00\x00\x00\x00\x00\xa5,\xd0\xfdOp\x95\x00\xd7\xf4\xda\xa6\x1f\x8c\x82\x81\xbf\xb1\xe2G\xc3\x00\x80\x00\x00[Pu \xa8\x8b\x911\f\x8a\x15\xbb\xc7)\x06\tN\x19\xder?\xc4%\xbbS\xe8\x91\x134~\x9f=/a\x04\x01\xe8*s\x0eV\xf2B\xa9t:\x9f7\xaf\xc2\x02\\\x19:5V\x19\x9b\xa1\x05\xf9D\xff2\xf0m<i\xb7\xdfH\x00\x00\x00\x00\x00\x00\x00E\xe5\x1a\xd5\\?z\xc8\x1c*\xfap\x14\x1e*K<\xb2\xde\xb6\"\xc3')
+perf_event_open(&(0x7f000001d000)={0x1, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7d, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_bp={0x0}}, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r1 = memfd_create(&(0x7f00000005c0)='+\x8b\x8a\x16\x11O\xdd\xdfk(F\x99\xdf\x92\xd5>oJ\x02u\x9b\x94a\xac', 0x3)
+write$binfmt_misc(r1, &(0x7f0000000540)=ANY=[@ANYRES32], 0xfffffda2)

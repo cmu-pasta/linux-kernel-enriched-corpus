@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=bf95da1c68b889380395af19f1953e91b772d3ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+sendmsg$inet(0xffffffffffffffff, &(0x7f0000000980)={0x0, 0x0, &(0x7f0000000780)=[{&(0x7f00000001c0)="6a83bea619d9a3e22b9a46a31d21047ca0b77c4d64d09e3d6ce06650b2764482851127f97e45ac759e92aa32cff3ea2f6dacf3b24f97ff96d533210ffc0b7880823768a59b59fb0397f5fa81dc6717d6f89d75a13bfa12aa93dd200cde47d6b82cfd9fba85375433a2e401a666661757ed89c1f8e50d9f0b7dc9b257898e5d86a4b569dc7c2d538cf5b7ec21e9f764e1f6aba97efcbf31a572963ab44149cdf0fa39e93293bf923efcc2406196", 0xad}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}], 0x9, 0x0, 0x140}, 0x2004000)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000280), 0xffffffffffffffff)
+sendmsg$TIPC_NL_MEDIA_GET(r0, &(0x7f0000000740)={0x0, 0x0, &(0x7f0000000700)={&(0x7f00000001c0)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="0100000000000000000003000000280001800e0001006574683a72"], 0x3c}}, 0x0)

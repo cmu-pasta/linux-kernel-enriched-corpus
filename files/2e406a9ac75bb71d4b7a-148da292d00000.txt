@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=abe95dc3e3e9667fc23b8d81f29ecad95c6f106f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+sendmsg$sock(r0, &(0x7f00000005c0)={&(0x7f0000000000)=@tipc=@name={0x1e, 0x8, 0x0, {{0x41}}}, 0x80, &(0x7f0000000500)=[{&(0x7f0000000180)="1a2d424a7c83860e88d25cd2aa8f", 0xe}], 0x1}, 0x0)

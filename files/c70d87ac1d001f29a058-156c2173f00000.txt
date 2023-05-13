@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1870dd7791ba05f2ea7f47f7cbdde701173973fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000000280), 0x0, 0x0)
+pipe2$watch_queue(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x80)
+r2 = add_key$fscrypt_v1(&(0x7f0000000040), &(0x7f0000000080)={'fscrypt:', @desc3}, &(0x7f00000000c0)={0x0, "be82faa38bfab42643b5f0f1e403a8547d85c1febe3f303c28f3ac1ff2ac3c537ead260646612cb8d0b29611259612c07742f30480bb69b3ec254a78d1523900"}, 0x48, 0xfffffffffffffffc)
+keyctl$KEYCTL_WATCH_KEY(0x20, r2, r1, 0x0) (async, rerun: 32)
+close_range(r0, 0xffffffffffffffff, 0x0)

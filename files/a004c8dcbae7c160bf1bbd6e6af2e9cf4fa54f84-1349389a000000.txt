@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1665547180092fef185a46d5a4ba5b382d77848e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r0, &(0x7f00001a6000)="922eed72418d223096342b75e74bd5d26a49a699d186b0f05a77bc699bffb9d43b179e43cea58bf7a3b1e8f0019eb1578c5fbcf27f87bb3b47e1715033afe7c947ab860a99a5c60c8b0bffcfc33bd6ab7efef94b302311ed9f6b887c87a14a8e843d2ca4aaa4c9da257654cc987b0ccbe86d955f33287cabbeb4c7923e9109ca45978c8eb0f52614d22acfa82790bdbcaa757da212bf304c13725d2f39d54c9b5e4f9fccecabf812d61739cfa252af34ba7361b0ff3c1f899c36928d5ed2c3073e75e8cf1a55f8ba6740be1e630f56b1563874804dfc301b8bf1e96cb7554cfed8b98b8ecc74dcdafefe0e8a3c609545f6c41a0c29", 0xf5, 0x40, &(0x7f000015c000-0x1c)={0xa, 0x0, 0x6, @remote={0xfe, 0x80, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0], 0x0, 0xbb}, 0x1}, 0x1c)
+listen(r0, 0x10000)
+accept$netrom(r0, &(0x7f000050b000)=@ax25={0x0, {"00000000000000"}, 0x0}, &(0x7f00008d7000-0x4)=0x10)

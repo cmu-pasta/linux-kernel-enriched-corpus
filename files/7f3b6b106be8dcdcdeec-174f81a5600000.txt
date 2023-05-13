@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=bbfa653205516be2a33b51c381ef827c534ba596
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+socket$inet6(0xa, 0x1, 0x0)
+listen(0xffffffffffffffff, 0x0)
+r0 = open(0x0, 0x0, 0x0)
+sendfile(0xffffffffffffffff, r0, 0x0, 0x4e68d5f8)
+r1 = socket$inet6(0xa, 0x8000000000001, 0x8010000000000084)
+bind$inet6(r1, &(0x7f00000000c0)={0xa, 0x4e21, 0x0, @empty}, 0x1c)
+connect$inet6(r1, &(0x7f0000000200)={0xa, 0x4e21, 0x0, @loopback}, 0x1c)
+setsockopt$inet_sctp6_SCTP_DEFAULT_PRINFO(r1, 0x84, 0x72, &(0x7f0000000280)={0x0, 0x0, 0x20}, 0xc)
+write$binfmt_script(r1, &(0x7f0000000380)={'#! ', './file0'}, 0x34000)

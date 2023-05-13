@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=116fe3d309b59e4276d16112ac9aa708f9ace8fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$swradio(&(0x7f0000000140)='/dev/swradio#\x00', 0xffffffffffffffff, 0x2)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000000)={0x800000, 0xa, 0x1, {0x200000000000b, @raw_data="dbf769cc6f48896c3a01e771da50bbf1dcb4a7221d91ef5e85c80fa8df6eeadb67140cfeb6960f41ceb814f2b6796d56aafd174ad916859bb2b650140979acbcc4c16e985f68eb686959e4782049bd07706cc4341ce2c620c95c554f4830f142a3bfd193c1360001d2fc13a4ae67521749fa77e7a5833b23d63ea818893c9780a8cd92d3fc14eca1a6bddd1a91a49b8c77504fd2683e2389653b12c60ee3959cc5736485333dbcc53e207a1a638d79151e7eda35b784d6183f0fa85d1c03ff761dc02f1957157334"}})
+mmap(&(0x7f0000a00000/0x600000)=nil, 0x600000, 0xffffffffffffffff, 0x11, r0, 0x20a00000)

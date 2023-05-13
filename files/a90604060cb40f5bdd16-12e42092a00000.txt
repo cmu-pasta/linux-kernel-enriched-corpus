@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7224e9c643550e5aa242404449aa2baa0efd556b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+r0 = socket$can_raw(0x1d, 0x3, 0x1)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000240)={'vcan0\x00', <r1=>0x0})
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x25, &(0x7f0000000380)=0x182, 0x4)
+sendmsg$can_raw(r0, &(0x7f00000000c0)={&(0x7f0000000000)={0x1d, r1}, 0x10, &(0x7f0000000080)={&(0x7f0000000040)=@can={{}, 0x0, 0x0, 0x0, 0x0, "9d92ded5ecadbc02"}, 0x10}}, 0x0)

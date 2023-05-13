@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=79994e7a1da2d2a0697da38e29910780fa320071
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$video(&(0x7f00000000c0)='/dev/video#\x00', 0x2000400000000009, 0x0)
+read$alg(r0, &(0x7f0000000100)=""/248, 0xf8)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b295757b7af537dfe7d8a28a0445f065528744aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+r0 = socket(0x10, 0x80002, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000002980)={0x0, 0x0, &(0x7f0000002940)={&(0x7f0000000800)=ANY=[@ANYBLOB="9800000030003b0500000000000000000000000084000100500001000d000100636f6e6e6d61726b00000000200002801c000100010000000000000000000000000000000000000000000000040006000c00070000000000000000000c000800000000000000000030000200090001"], 0x98}}, 0x0)
+r1 = socket(0x10, 0x80002, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000002980)={0x0, 0x0, &(0x7f0000002940)={&(0x7f0000000800)=@newtaction={0x68, 0x30, 0x53b, 0x0, 0x0, {}, [{0x54, 0x1, [@m_connmark={0x50, 0x1, 0x0, 0x0, {{0xd, 0x1, 'connmark\x00'}, {0x20, 0x2, 0x0, 0x1, [@TCA_CONNMARK_PARMS={0x1c, 0x1, {{0x1}}}]}, {0x4}, {0xc}, {0xc}}}]}]}, 0x68}}, 0x0)

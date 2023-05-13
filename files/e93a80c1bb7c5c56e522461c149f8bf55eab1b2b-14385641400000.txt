@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000000c40)=ANY=[@ANYRES32], 0xff67)
+mknod(&(0x7f00000000c0)='./file0\x00', 0x100000000001040, 0x0)
+execve(&(0x7f0000000000)='./file0\x00', &(0x7f0000000080), &(0x7f0000775000))
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='io\x00')
+pread64(r0, &(0x7f00009f3000), 0x352, 0x0)
+pipe2$9p(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = openat$pfkey(0xffffffffffffff9c, &(0x7f0000000100)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+splice(r2, &(0x7f0000000240)=0x8000, r1, 0x0, 0x2, 0x0)

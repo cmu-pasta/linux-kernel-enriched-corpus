@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=57e2b844f7c5648c0a9b9b1cd079c4dac2c80daf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+fallocate(0xffffffffffffffff, 0x0, 0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000280)={0x9, 0x1ff}, 0x0)
+syz_mount_image$vfat(0x0, 0x0, 0x800000000e004, 0x0, 0x0, 0x0, 0x0)

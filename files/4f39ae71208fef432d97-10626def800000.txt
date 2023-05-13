@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f4fe17872e4fafefea02423216274aa494333720
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":1}
+r0 = syz_open_procfs(0x0, &(0x7f0000000840)='ns\x00')
+getdents64(r0, &(0x7f0000000100)=""/166, 0xa6)

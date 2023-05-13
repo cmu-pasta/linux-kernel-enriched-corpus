@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=622c6d371f22f2e497b5adb01ed3b1e5276a37ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":5,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000280))
+syz_mount_image$btrfs(&(0x7f0000000000)='btrfs\x00', &(0x7f0000000100)='./file1\x00', 0x0, 0x1, &(0x7f0000000300)=[{&(0x7f0000000340)="8da4363a000000000000400000000000000000000001000000eb000000000000ecf6f2a3299748afb81e1800920efd9a000001000000000001000000000000005f42485266535f4d16402f01345bd02c0ec12d1089ba6a7ae863c2d170ba6179dad417136b068f3dd139e571784e1e7ba8838e8d92d0aeaa1aea9d0525fff65d859221545e993f0dddb0ffd634b6e5026c5face67332e49940dcb3ff07000000000000e5ca270bb53379304a874a6a35e77b184a6edc433e8913243def14303d3d410c721000103f3b87", 0xca, 0x10000}], 0x0, &(0x7f0000000140)=ANY=[])

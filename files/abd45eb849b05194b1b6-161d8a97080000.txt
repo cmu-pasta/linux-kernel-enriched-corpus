@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=411da18352321f05aba7dada8b3e3aff4afcaada
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000540), 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x2, &(0x7f00000004c0)=@gcm_256={{0x304}, "4c457428efadcb38", "04faf5f6bd6b35614eeb95e7fb8c656fb7e68e97c53b54746fd09dc1bd97eee0", '\x00', "b40d812781e71650"}, 0x38) (fail_nth: 9)

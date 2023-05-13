@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7d3c28ba3d4bf4b26e89ed1f1ca146e0223a2d36
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","leak":true,"close_fds":false}
+pipe2$watch_queue(&(0x7f0000000a00)={<r0=>0xffffffffffffffff}, 0x80)
+r1 = add_key$keyring(&(0x7f0000000180), &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$KEYCTL_WATCH_KEY(0x20, r1, r0, 0x0)

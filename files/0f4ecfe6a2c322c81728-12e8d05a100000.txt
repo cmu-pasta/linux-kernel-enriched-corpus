@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0a8cea939bedda7045be2fbd026ff7bbfa104804
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+syz_open_procfs(0x0, &(0x7f0000000000)='net/ip6_mr_vif\x00')
+openat$audio(0xffffffffffffff9c, 0xfffffffffffffffe, 0x400180, 0x0)
+syz_usb_connect(0x0, 0x35, &(0x7f00000000c0)=ANY=[@ANYBLOB="12010000cc9092089904dfe21abf000000010902230001000000000904120001ff768000082402010000000009058c0ec7"], 0x0)
+openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000040)='/dev/sequencer2\x00', 0xc006, 0x0)

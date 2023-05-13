@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f6450554481c55c131cc23d581fbd8ea42e63e18
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":43,"close_fds":true,"devlinkpci":true}
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+bpf$MAP_CREATE(0x0, &(0x7f0000000380)={0xa, 0x7d, 0x7fff, 0x81}, 0x3c)

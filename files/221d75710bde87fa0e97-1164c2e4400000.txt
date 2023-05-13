@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=7f159bcdfc352416ad3e2f126dfb22704b3bc177
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount(&(0x7f0000000380)='./file0\x00', &(0x7f0000026ff8)='./file0\x00', &(0x7f0000000300)='ramfs\x00', 0x0, &(0x7f00000007c0))
+bind(0xffffffffffffffff, &(0x7f00000001c0)=@ipx={0x4, 0x0, 0x0, "0a04dfa809ba"}, 0x80)
+mount(&(0x7f0000d04000)='./file0\x00', &(0x7f0000903000)='./file0\x00', &(0x7f0000000340)='bdev\x00', 0x100000, &(0x7f00000002c0))
+mount(&(0x7f0000000240)='./file0\x00', &(0x7f0000000280)='.', &(0x7f0000000040)="045b898f73", 0x1004, 0x0)
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f00000000c0)='.', &(0x7f0000000140)='vxfs\x00', 0x3080, &(0x7f0000000200))
+mount(&(0x7f00000008c0)='.', &(0x7f0000000080)='.', &(0x7f0000753000)='mslos\x00', 0x5010, &(0x7f0000000ac0))
+mount(&(0x7f0000fb6000)='./file0\x00', &(0x7f0000d78000)='.', &(0x7f0000fdb000)='ubifs\x00', 0x1003, 0x0)
+mount(&(0x7f00002b9ff8)='./file0\x00', &(0x7f0000cbeff8)='./file0\x00', &(0x7f00005f7ffa)='ramfs\x00', 0x0, &(0x7f000002f000))
+mkdir(&(0x7f0000000100)='./file0/file0\x00', 0x0)
+mount(&(0x7f0000000400)='./file0/file1\x00', &(0x7f00000003c0)='./file0\x00', &(0x7f0000753000)='qnx6\x00', 0x5410, &(0x7f00000002c0))
+rename(&(0x7f0000000040)='./file0/file0\x00', &(0x7f0000000140)='./file0/file1\x00')

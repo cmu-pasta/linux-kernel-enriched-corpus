@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e0c24316f0876a561e08dc1fe56d78e8a2efb05c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x44b000)=nil, 0x44b000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$ashmem(0xffffffffffffff9c, &(0x7f0000001000-0xc)='/dev/ashmem\x00', 0x0, 0x0)
+ioctl$ASHMEM_SET_SIZE(r0, 0x40087703, 0x400)
+mmap(&(0x7f0000447000/0x4000)=nil, 0x4000, 0x0, 0x13, r0, 0x0)
+lseek(r0, 0x0, 0x3)

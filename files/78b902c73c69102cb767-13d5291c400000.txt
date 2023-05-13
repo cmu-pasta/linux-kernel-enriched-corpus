@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f668a9aa79ed08cc1f386be0930a529f285a4ec8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+mkdir(&(0x7f0000fd5ff8)='./file0\x00', 0x0)
+r0 = epoll_create1(0x0)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r1, &(0x7f0000000480))
+r2 = syz_open_procfs(0x0, &(0x7f0000000100)='mounts\x00')
+mount$9p_fd(0x0, &(0x7f0000001140)='./file0\x00', &(0x7f0000001180)='9p\x00', 0x0, &(0x7f0000001340)={'trans=fd,', {'rfdno', 0x3d, r2}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})

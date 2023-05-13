@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=be41d122da4313e580ce71f262441a4d236bbe69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet(0x2, 0x6, 0x0)
+setsockopt$inet_opts(r0, 0x0, 0x4, &(0x7f000064effb)="8907040000", 0x5)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @rand_addr}, 0x10)
+pipe(&(0x7f0000000200)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_inet6_tcp_SIOCOUTQ(r1, 0x5411, &(0x7f00000002c0))
+getsockopt$IPT_SO_GET_ENTRIES(r0, 0x0, 0x41, &(0x7f0000000140)=ANY=[@ANYRES32=r0], &(0x7f0000000240)=0x1)
+r2 = getpid()
+ioctl$sock_FIOSETOWN(r0, 0x8901, &(0x7f0000000180)=r2)
+r3 = accept$packet(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @broadcast}, &(0x7f0000000080)=0x14)
+setsockopt$packet_fanout_data(r3, 0x107, 0x16, &(0x7f0000000100)={0x3, &(0x7f00000000c0)=[{0x6, 0x5849, 0x200000005, 0xf9}, {0xf6, 0x9, 0x3, 0x6}, {0x3, 0x20, 0x9, 0x3f}]}, 0x4)

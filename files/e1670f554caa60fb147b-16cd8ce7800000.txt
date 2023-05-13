@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0e06e9b4ed9a043361196cb8413cdc16a15b4b1f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$evdev(&(0x7f0000000280)='/dev/input/event#\x00', 0x2, 0x0)
+ioctl$EVIOCSREP(r0, 0x40084503, &(0x7f0000000000)=[0x0, 0xfffffffffffffffd])
+r1 = syz_open_dev$evdev(&(0x7f0000000040)='/dev/input/event#\x00', 0x2, 0x10000000028001)
+write$evdev(r1, &(0x7f0000000000)=[{{}, 0x1, 0x46, 0x2}, {{0x0, 0x2710}, 0x3}], 0x30)

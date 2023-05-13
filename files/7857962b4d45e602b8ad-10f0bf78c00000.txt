@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=824f609ea50e2c2cd161cb64758c95c0e114ce6e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+clone(0x2102001fff, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080)='/dev/kvm\x00', 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_SREGS(0xffffffffffffffff, 0x4138ae84, 0x0)

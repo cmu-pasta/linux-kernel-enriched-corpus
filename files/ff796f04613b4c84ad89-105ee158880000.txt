@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6d40ea5ee0f0513c07ec0967f0a350627e9cd773
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+unshare(0x6c060000) (async)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r0, 0x0, 0x0, 0x1, 0x0, 0x0)

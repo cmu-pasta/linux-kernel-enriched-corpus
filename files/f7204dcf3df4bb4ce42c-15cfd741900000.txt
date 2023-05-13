@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fc06b7648458c074fcb68b09007fdc1877827791
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$qrtr(0x2a, 0x2, 0x0)
+bind$qrtr(r0, &(0x7f0000000140)={0x2a, 0x1, 0xfffffffc}, 0xc)

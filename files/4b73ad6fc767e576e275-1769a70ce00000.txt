@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=df2db33882800dcd33de117b28d653b9e679ba0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":false,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2b, 0x801, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)

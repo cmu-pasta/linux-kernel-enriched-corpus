@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=bf95da1c68b889380395af19f1953e91b772d3ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000100)='TIPCv2\x00')
+sendmsg$TIPC_NL_BEARER_ENABLE(r0, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000440)={&(0x7f00000002c0)=ANY=[@ANYBLOB=',\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="1102000000000000000003000000180001001400010065746803c8bbc6184a263198183a0a70"], 0x3}}, 0x0)
+dup(0xffffffffffffffff)
+sendmsg$TIPC_NL_BEARER_ENABLE(0xffffffffffffffff, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000440)={&(0x7f0000000000)=ANY=[@ANYBLOB="0afa5abadc2bf133b11c976268859e91b852d9407350fcf29d700fcaf9038f6eefd85d649e9436cc89615d95a52365df7b4a10273cbe27a14a9d2fb8739816bd3dcefe9158360181e6b3a7b876273fb3f923e3eaa51a", @ANYRES16, @ANYBLOB="110200000000000000000300000018000100140001006574683a0a70365f7674693000000000"], 0x3}}, 0x0)

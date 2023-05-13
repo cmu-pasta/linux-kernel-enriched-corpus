@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"vhci":true,"ieee802154":true,"tmpdir":true}
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='oom_adj\x00')
+write$cgroup_int(r0, 0x0, 0x0)
+dup(0xffffffffffffffff)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000003c0), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_TDLS_MGMT(r1, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000040)={0x28, r2, 0x1, 0x0, 0x0, {{0x7e}, {@val={0x8, 0x5}, @val={0xc}}}}, 0x28}}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ae1c403567e0c3d9bdff9d0e1cd7def69f53da9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000340)='./file0\x00', 0x0)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000240)='fuse\x00', 0x0, &(0x7f0000000280)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=r0, @ANYBLOB=',rootmode=00000000000000000040000,user_id=', @ANYRESDEC=0x0, @ANYBLOB=',group_id=', @ANYRESDEC=0x0])
+umount2(&(0x7f0000000000)='./file0\x00', 0x2)
+read$FUSE(r0, &(0x7f00000030c0), 0xfffffed0)

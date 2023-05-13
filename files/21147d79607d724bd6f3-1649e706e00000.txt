@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fc3d104e4707f0f7d3511eaa53528d1657fb3a9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":3,"close_fds":false,"devlinkpci":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+io_uring_setup(0xd0d, &(0x7f0000000140)={0x0, 0x0, 0x6, 0x2})

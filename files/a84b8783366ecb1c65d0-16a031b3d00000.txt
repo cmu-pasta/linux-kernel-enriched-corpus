@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=85810864c00a07b6d124b9fbc09f24ee5d6aeec3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":false,"vhci":true,"ieee802154":true,"sysctl":true}
+r0 = syz_io_uring_setup(0x86, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x3}, &(0x7f0000ffc000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000040)=<r1=>0x0, &(0x7f0000000080)=<r2=>0x0)
+r3 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000280), 0x2a402, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000200)=@IORING_OP_READ=@use_registered_buffer={0x16, 0x0, 0x0, @fd=r3}, 0x0)
+io_uring_enter(r0, 0x2039, 0x0, 0x0, 0x0, 0x0)

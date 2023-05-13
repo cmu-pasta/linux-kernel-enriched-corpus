@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=faaa654c1061c0a616ff92bf148a65c31b21c071
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+prctl$PR_SET_PTRACER(0x59616d61, 0xffffffffffffffff)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = gettid()
+write$sndseq(0xffffffffffffffff, &(0x7f00000000c0)=[{0x0, 0x0, 0x0, 0x0, @time, {}, {}, @ext={0xd9, &(0x7f0000000440)="c4fe910c6786cec96ddb5322addee07bee6333b5cacd891969b71832cb470c94d61f0014dca7712c225da4a455f4c9fd98a568dd43b9693122310088463ad3f8fbe0a10fff4bbaef7cd058ec3a54a90a11c890a73cef2d28533220798a2b0180000000000000c6fa53cea17bd8d700000000000000f53e2623193c8ff31a4582a85559ca5fbc21ae2b0927eced00b121edcfdee85287fd5ac653e58e6c688cd7bd3dd1a3b31bdba0c944352bfe78ed160eda2b362276cc49e8cc650975db4d2d8bb2e2c30b44f66eb6437f6023340c2a0acaa6ff8f47228898"}}], 0x1c)
+wait4(0x0, 0x0, 0x80000000, 0x0)
+vmsplice(0xffffffffffffffff, &(0x7f0000000100)=[{&(0x7f0000000040)}, {&(0x7f0000000000)="0832f497d38350418e4bb321019511dc5df26e9a0b7ecb6974f527cc14538d1efb1ffe03284f6d33265be9c604b293f20e96beeb2aa4c457ac37a3a3f1ce8682500fcecd80", 0x45}], 0x2, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+r1 = socket$nl_netfilter(0x10, 0x3, 0xc)
+r2 = dup2(0xffffffffffffffff, r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+tkill(r0, 0x2)
+ptrace$setregs(0xd, r0, 0x0, &(0x7f0000000080))
+ptrace$cont(0x7, r0, 0x0, 0x0)

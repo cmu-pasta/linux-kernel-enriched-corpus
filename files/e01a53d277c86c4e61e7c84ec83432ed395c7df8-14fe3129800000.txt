@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e2dc9aea0465d1eea101bb24cb463e2a7efe7d17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f000016b000)={0x26, 'skcipher\x00', 0x0, 0x0, 'ecb(twofish)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00003c1000)="0a0775b0d5e383e5b3b60ced5c54dbaa295df0df8217ad4000000000000000e6", 0x20)
+r1 = accept$alg(r0, 0x0, 0x0)
+sendmsg(r1, &(0x7f0000dde000)={&(0x7f0000eaa000-0x10)=@ax25={0x3, {"b153e35b126cee"}, 0x0}, 0x10, &(0x7f0000883000-0x50)=[{&(0x7f0000fa1000)="", 0x0}, {&(0x7f0000fa4000-0xfc)="7d57131dc62fa4e5ecea21ebec5677140869ad4f0e706f19ed799057978b0d5cf1547db79c814cbd67ca13ce0f4cc5dcbf99aab667b147ab975fad90cf88aa7feaba86c56819ae4a6ef7aa50ef7921b757b8c8de8cc668b9144646fb2a797646de77436661203a6c9281bf1ac5710d5a947d00616ab6dc06347c0eaf00e56689fa112eaec684d18634ad70f2b1ee7ce6b37f1c400480679d42f5449e76c244f3c0bfb8fdd531ca1f40d29d385a6af45687a15fd3cffca8ab5b29d55cdcff0a4c4d9c6188abfa055bd1f161e18f96c3ef00c91ecda366c1d346749fc7aad1c2a95193ef287f73fa32317477db3b7714e519cf81786206d2f9580c37ef", 0xfc}], 0x2, &(0x7f0000f9c000)=[{0x10, 0x108, 0x2, ""}, {0x10, 0x10b, 0x0, ""}], 0x20, 0x80}, 0x20040015)
+recvmsg(r1, &(0x7f00001f5000)={&(0x7f0000f80000-0x58)=@alg={0x0, ""/14, 0x0, 0x0, ""/64}, 0x58, &(0x7f0000613000-0x80)=[{&(0x7f0000f7f000)=""/223, 0xdf}, {&(0x7f0000589000)=""/4096, 0x1000}, {&(0x7f0000f82000)=""/48, 0x30}, {&(0x7f00005f6000-0x66)=""/102, 0x66}, {&(0x7f0000130000-0xc7)=""/199, 0xc7}, {&(0x7f000075f000-0xac)=""/172, 0xac}, {&(0x7f0000f81000-0x66)=""/102, 0x66}, {&(0x7f0000f81000)=""/4096, 0x1000}], 0x8, &(0x7f0000f80000-0x36)=""/87, 0x57, 0x800000000fe}, 0x40)

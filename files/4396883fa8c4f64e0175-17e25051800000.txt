@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=be2e39518462291fd049f665261632ded34b79fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+mkdir(&(0x7f000036a000)='./file0\x00', 0x0)
+mount(&(0x7f000000a000)='./file0\x00', &(0x7f0000015000-0x8)='./file0\x00', &(0x7f0000014000)='ramfs\x00', 0x8408, &(0x7f0000005000)="")
+r0 = openat(0xffffffffffffff9c, &(0x7f0000013000-0x8)='./file0\x00', 0x0, 0x0)
+symlinkat(&(0x7f000001f000-0x3)='./file0/file0\x00', r0, &(0x7f0000013000-0x8)='./file0\x00')
+creat(&(0x7f0000568000)='./file0/file0/bus\x00', 0xffffffffffffffff)
+renameat(r0, &(0x7f0000014000)='./file0/file0/bus\x00', r0, &(0x7f000001f000)='./file0/file0\x00')
+faccessat(r0, &(0x7f0000018000-0x8)='./file0\x00', 0x1, 0x0)
+r1 = ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f000077c000/0x18000)=nil, &(0x7f00005ec000)=[@text16={0x10, &(0x7f0000e54000-0x5b)="0f01cf0f20e06635040000000f22e066b805ef467d0f23c80f21f866350c00f0000f23f8640f209c0f1878a5d9f48fc95001fe0f076766c7442400010000006766c744240234ac00006766c744240600000000670f011c240ff514", 0x5b}], 0x1, 0x0, &(0x7f0000824000-0x10)=[], 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+add_key$user(&(0x7f0000386000)='user\x00', &(0x7f00007fb000-0x5)={0x73, 0x79, 0x7a, 0x2, 0x0}, &(0x7f0000f29000)="fac37fc1db9295c5b5dfd6e3bb0f65a0629371eb80672fc9b660d0cfe74c430acaf87f417a8bdc7d73bb4b418aa7833efdc1919d8a8a694ac16159d5e5616444afb40be671630118604b536ee13c856701709919f5bc0b523c0292075f4a68508368e3d02ebf37e364f6261a78fc813d9edd614c429585f99731f737f9a71c767b3ff3", 0x83, 0xfffffffffffffffc)
+ioctl$KVM_GET_ONE_REG(0xffffffffffffffff, 0x4010aeab, &(0x7f0000f25000)={0xff, 0x7fff})

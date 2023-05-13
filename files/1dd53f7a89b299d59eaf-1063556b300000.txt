@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=342f0069e49482670fe75b0e9e986dd4356a2aac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_genetlink_get_family_id$mptcp(&(0x7f00000011c0), 0xffffffffffffffff)
+sendmsg$MPTCP_PM_CMD_ADD_ADDR(0xffffffffffffffff, &(0x7f0000001340)={0x0, 0x0, &(0x7f0000001300)={&(0x7f0000001200)={0x38, r0, 0x1, 0x0, 0x0, {}, [@MPTCP_PM_ATTR_ADDR={0x24, 0x1, 0x0, 0x1, [@MPTCP_PM_ADDR_ATTR_PORT={0x6, 0x5, 0x4e24}, @MPTCP_PM_ADDR_ATTR_FLAGS={0x8, 0x6, 0x7}, @MPTCP_PM_ADDR_ATTR_ADDR4={0x8, 0x3, @multicast2}, @MPTCP_PM_ADDR_ATTR_FAMILY={0x6, 0x1, 0x2}]}]}, 0x38}, 0x1, 0x48}, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000200)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r1, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+sendfile(r3, r2, 0x0, 0x100000002)

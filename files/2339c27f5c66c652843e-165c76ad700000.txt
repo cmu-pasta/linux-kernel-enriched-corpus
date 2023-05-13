@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4f492d593461a5e44d76dd9322e179d13191a8ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"tmpdir":true}
+r0 = socket(0x1d, 0x2, 0x6)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000080)={'vcan0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000000)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @link_local}, 0x14)
+sendmmsg(r0, &(0x7f0000007200)=[{{0x0, 0x0, &(0x7f0000002880)=[{&(0x7f0000001500)="05", 0x1}], 0x1}}], 0x1, 0x0) (rerun: 64)
+syz_genetlink_get_family_id$batadv(&(0x7f0000000040), r0) (async, rerun: 64)

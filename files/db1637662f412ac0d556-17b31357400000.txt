@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c10f2ca5722a78c613e9ccd45af7877f5debf0ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = openat$vhci(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vhci\x00', 0x246, 0x0)
+write$P9_RLERRORu(r0, &(0x7f00000000c0)=ANY=[@ANYBLOB="ff80"], 0x2)
+io_cancel(0x0, 0x0, 0x0)

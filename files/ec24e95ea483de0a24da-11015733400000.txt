@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f7649aa07ffca82dc93dc5cebc00c665849f5138
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+keyctl$setperm(0x5, 0x0, 0x4042000)
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f00000016c0)={<r0=>0xffffffffffffffff})
+getsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000caaffb)={0x0, <r1=>0x0}, &(0x7f0000cab000)=0xc)
+setresuid(r1, 0x0, 0x0)
+request_key(&(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x0}, &(0x7f0000000200)='keyring\x00', 0x0)

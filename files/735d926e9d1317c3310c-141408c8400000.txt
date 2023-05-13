@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0a514ede78a3da2ec4c94df199c30dc8addcba08
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+removexattr(&(0x7f0000000000)='./file0\x00', &(0x7f0000000040)=@random={'system.', 'eth1,\x00'})
+mkdir(&(0x7f0000000080)='./file0\x00', 0x2)
+pipe2$9p(&(0x7f00000000c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x80000)
+write$P9_RREADLINK(r1, &(0x7f0000000100)={0x10, 0x17, 0x1, {0x7, './file0'}}, 0x10)
+mount$9p_fd(0x0, &(0x7f0000002d00)='./file0\x00', &(0x7f0000002d40)='9p\x00', 0x200000, &(0x7f0000002d80)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c, {[{@access_uid={'access', 0x3d}, 0x2c}, {@dfltuid={'dfltuid', 0x3d}, 0x2c}, {@dfltuid={'dfltuid', 0x3d}, 0x2c}, {@access_client='access=client', 0x2c}]}})

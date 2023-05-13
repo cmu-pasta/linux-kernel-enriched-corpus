@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1a201ce4f0f4ab2f165b93d0ce5c15ebe1a5b321
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3000006, 0x800000000009031, 0xffffffffffffffff, 0x0)
+prctl$PR_SET_VMA(0x53564d41, 0x0, &(0x7f00000a8000/0x4000)=nil, 0x4000, &(0x7f0000000000)='\x00')

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=de6519e18a472f06a6b530c84c3be8a29c554900
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f000000e000-0x8)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = bpf$PROG_LOAD(0x5, &(0x7f0000b4d000-0x30)={0x1, 0x2, &(0x7f0000ef3000)=[@generic={0x8db7, 0x0, 0x0, 0x0}, @generic={0xd395, 0x0, 0x0, 0x0}], &(0x7f0000cce000-0x6)="737973654f00", 0x1, 0x80, &(0x7f000000a000)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x0, 0x1}, 0x30)
+r3 = socket$kcm(0x29, 0x5, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r3, 0x89e0, &(0x7f000096a000)={r0, r2})
+writev(r1, &(0x7f000001a000-0x50)=[{&(0x7f00005ea000-0x82)="", 0x0}, {&(0x7f0000f0c000)="", 0x0}, {&(0x7f0000cfa000)="", 0x0}, {&(0x7f00003ed000)="", 0x0}, {&(0x7f0000f41000-0xe)="2b9d73c56d719d50b4026017f32b", 0xe}], 0x5)

@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=be41d122da4313e580ce71f262441a4d236bbe69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+syz_emit_ethernet(0x29, &(0x7f0000000080)={@local={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0xaa}, @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa]}, [], {@ipv6={0x86dd, {0x0, 0x6, "50a09c", 0x8, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}, @local={0xfe, 0x80, [], 0xaa}, {[], @udp={0x0, 0x0, 0x8}}}}}}, &(0x7f0000000040))
+r0 = syz_open_dev$dspn(&(0x7f0000000180)='/dev/dsp#\x00', 0x80000000, 0x2000)
+r1 = accept(r0, 0x0, &(0x7f00000001c0))
+r2 = socket(0xa, 0x2, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000100)={'veth1_to_team\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="ffff00000000000000000000000000000000000002"]})
+setsockopt$inet_int(r2, 0x0, 0x40, &(0x7f0000000080), 0x4)
+connect$rds(r1, &(0x7f00000003c0)={0x2, 0x4e22, @multicast1=0xe0000001}, 0x10)
+ioctl$sock_SIOCETHTOOL(r2, 0x8946, &(0x7f0000000140)={'bcsf0\x00', &(0x7f0000000000)=@ethtool_link_settings={0x4c, 0x2, 0x6, 0x5, 0x336, 0x2, 0x5, 0x0, 0x8f69, 0x100, [0x401, 0x2, 0x8, 0x7, 0x0, 0xc73e, 0xfffffffffffffff9, 0xfffffffffffffff9], [0x1, 0x2, 0x408000000000000]}})
+r3 = add_key(&(0x7f00000002c0)='id_legacy\x00', &(0x7f0000000300)={0x73, 0x79, 0x7a, 0x0}, &(0x7f0000000340)="dca7acdf8e0b270e6081dca2b1ab6e3027fea1985bd511826e4eb51fda8c45e3fa9ea1c6403e7580076fab3f25a7ae6ef0052804d66fe49fe016dfa06e6a5d66161541afae00d82a0f90720fb8bb13f3e9a8aedd27e36e2847765c01be15e5b503a571e744fe200439398f76bf4d6e4d90", 0x71, 0xfffffffffffffffc)
+request_key(&(0x7f0000000200)='asymmetric\x00', &(0x7f0000000240)={0x73, 0x79, 0x7a, 0x2}, &(0x7f0000000280)='/dev/dsp#\x00', r3)

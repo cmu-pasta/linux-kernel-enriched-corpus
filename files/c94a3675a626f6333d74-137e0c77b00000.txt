@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=362b5b49fced29361c0ba3007a2b3e5cd13776b5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f00000002c0)={0x0, 0x18, 0xfa00, {0x0, &(0x7f0000000000)={<r1=>0xffffffffffffffff}, 0x106}}, 0x20)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f00000000c0)={0x3, 0x40, 0xfa00, {{0xa, 0x4e23, 0x0, @rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02', 0x5}, {0xa, 0x4e24, 0x40, @mcast1, 0x5}, r1}}, 0x48)
+write$RDMA_USER_CM_CMD_LISTEN(r0, &(0x7f0000000040)={0x7, 0x8, 0xfa00, {r1}}, 0x10)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f0000000200)={0x3, 0x40, 0xfa00, {{0x6000000, 0x0, 0x0, @local}, {0xa, 0x0, 0x0, @mcast1={0xff, 0x2}}, r1}}, 0x48)

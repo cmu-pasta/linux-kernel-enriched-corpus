@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4fbc4bf3d1300cf7629a7f63686b5d9cf94ed429
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000080)={0x73, 0x79, 0x7a}, 0x0, 0x0, 0xffffffffffffffff)
+r1 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000180)={0x73, 0x79, 0x7a}, 0x0, 0x0, r0)
+r2 = add_key$user(&(0x7f00003bd000)='user\x00', &(0x7f0000000040)={0x73, 0x79, 0x7a}, &(0x7f0000facfff)="06", 0x1, r1)
+r3 = add_key$user(&(0x7f0000000500)='user\x00', &(0x7f0000752ffb)={0x73, 0x79, 0x7a, 0x2}, &(0x7f0000000580)="b3", 0x1, r1)
+keyctl$update(0x2, r3, &(0x7f0000000340)="df02754677212dfc3e2abcb244e22773e8e1cfef09742258cbae7b26fdc3ffa615d9da494137e175e9f2780ac5e2a09f43a1fcebf272a5a135de92bf4a9033933824f6e6aa0238014e3293535d1c0066d28e0f275188b4b4c187e18774fc2227cbb6610fc6697f5337726164c8fbe1181e6d50986cd98a5c44ac0ec375deb27eafcf7d06438f2525100400000003e7dc2f8fd85adcd88ca30e75b1e143262d94defa187e482a9b9a9a387353df7a21affce4e9149e040000000000000065afd979", 0xc1)
+keyctl$dh_compute(0x17, &(0x7f0000000100)={r2, r3, r2}, &(0x7f0000a53ffb)=""/5, 0x5, &(0x7f0000c61fc8)={&(0x7f0000a3dffa)={'sha1\x00'}})

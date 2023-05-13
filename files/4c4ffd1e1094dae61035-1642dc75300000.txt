@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7b96018c1b606f1a0f3f72f9f6cdc2fda085c745
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000140)={0x1f, 0xffff, 0x3}, 0x6)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x800006, 0x12, r1, 0x0)
+write(r0, &(0x7f0000000000)="05000300010000", 0x7)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f299d80a1bd931e1bd62c2fc01a5d99da07e64b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":52,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000080)="0047fc2f07d82c99240970")
+capset(&(0x7f000043fff8)={0x19980330}, &(0x7f0000092000))
+bpf$PROG_LOAD(0x5, &(0x7f0000000000)={0x1, 0xe, &(0x7f0000001000)=ANY=[@ANYBLOB="b702000000000000bfa30000000000000703000000feffff7a0af0fff8ffffff79a4f0ff00000000b7060000000000012d6405000000000065040400010000000704000001000000b7050000000000006a0a00fe00000000850000001a000000b7000000000000009500000000000000"], &(0x7f0000000100)='GPL\x00'}, 0x48)

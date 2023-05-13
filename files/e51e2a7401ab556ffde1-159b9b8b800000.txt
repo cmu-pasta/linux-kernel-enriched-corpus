@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=aa3dcb8dc275eeec3958f09873547b76ae4434de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet(0x2b, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e23, @loopback=0x7f000001}, 0x10)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e23, @empty}, 0x10)
+listen(r0, 0x100000000)
+syz_emit_ethernet(0xe, &(0x7f0000000080)={@link_local={0x1, 0x80, 0xc2}, @dev={[0xaa, 0xaa, 0xaa, 0xaa]}, [], {@generic={0x8b994d11cde814f}}}, 0x0)

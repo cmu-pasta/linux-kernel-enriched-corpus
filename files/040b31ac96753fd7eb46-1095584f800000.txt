@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a3ccf17814970ad359112be7f2ec091a9e15dc1a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"waitrepeat":true}
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000200)='./cgroup\x00', 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f0000000100)='memory.high\x00', 0x2, 0x0)
+write$cgroup_type(r1, &(0x7f0000000000)='Phreaded\x00', 0x1)
+syz_mount_image$xfs(&(0x7f0000000380)='xfs\x00', &(0x7f00000003c0)='./file0\x00', 0x0, 0x0, &(0x7f0000000480), 0x0, &(0x7f00000004c0)={'nouuid,', {[{@swalloc='swalloc', 0x2c}]}})

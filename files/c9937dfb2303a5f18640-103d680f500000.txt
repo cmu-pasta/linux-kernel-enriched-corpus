@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dac215157cdf29ade72d0436f902d39988cb0edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$SECCOMP_IOCTL_NOTIF_RECV(0xffffffffffffffff, 0xc0502100, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+syz_io_uring_setup(0x87, &(0x7f0000000080), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, 0x0, 0x0)

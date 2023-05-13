@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e46165265c3e28094e6b9c001dd629da848eb0cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":4,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r0 = dup3(0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+io_uring_setup(0xfcc, &(0x7f0000000480)={0x0, 0x0, 0x4})

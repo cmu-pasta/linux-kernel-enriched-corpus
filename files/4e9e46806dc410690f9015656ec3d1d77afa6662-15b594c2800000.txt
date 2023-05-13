@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=3983f8a8d83851a54a0b9f9e75cb3464e9c70aef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = syz_open_dev$tun(&(0x7f0000520000-0xd)="2f6465762f6e65742f74756e00", 0x0, 0xa)
+r2 = fcntl$dupfd(r1, 0x0, r1)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000a5b000-0x28)={@common="67726530000000000000000000000000", @ifru_names=@generic="4f1d000000000000000040dc222073b5"})
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000630000-0x20)={@common="67726530000000000000000000000000", @ifru_flags=0x301})
+ioctl$TUNSETSNDBUF(r1, 0x400454d4, &(0x7f00005b5000)=0xfffffffffffffff9)
+write$tun(r2, &(0x7f00003f1000)=@hdr={0x100d, 0x0, 0x0, 0x0, 0x0, 0x0, @ipv4={{0x5, 0x4, 0x0, 0x0, 0x24, 0x0, 0x0, 0x0, 0x11, 0x0, @local={0xac, 0x14, 0x0, 0xaa}, @multicast1=0xe0000001, {[]}}, @dccp={{0x0, 0x0, 0x4, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, "b31d90", 0x0, "b99878"}, ""}}}, 0x2e)

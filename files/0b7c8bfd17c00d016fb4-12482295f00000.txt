@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f46045740b4e7debd13768f0a6d9a4ff215cb8bf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/dev_snmp6\x00')
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+ioctl$TCSETS(r1, 0x40045431, &(0x7f00000000c0))
+r2 = syz_open_pts(r1, 0x4000000000000002)
+dup3(r2, r0, 0x0)
+write$P9_RATTACH(r0, &(0x7f00000001c0)={0x14}, 0xffffffde) (fail_nth: 3)

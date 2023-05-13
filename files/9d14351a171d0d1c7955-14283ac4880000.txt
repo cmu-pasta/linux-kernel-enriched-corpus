@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8e03060c883cb5a2f82bfd531d70e36555ba61a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000040)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000180)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000480)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1'}}, {@nfs_export_on}]})
+r0 = open(&(0x7f0000000000)='./bus\x00', 0x0, 0x0)
+open_by_handle_at(r0, &(0x7f00000001c0)=ANY=[@ANYBLOB="63000000fb00000000fb"], 0x0)

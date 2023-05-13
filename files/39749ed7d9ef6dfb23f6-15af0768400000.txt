@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=001410d947fa7742a85647e596c45661118c7d24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"tmpdir":true,"waitrepeat":true}
+pipe2(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})

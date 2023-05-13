@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1665547180092fef185a46d5a4ba5b382d77848e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfd1000)=nil, 0xfd1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6(0xa, 0x1, 0x8012000000000084)
+sendto$inet6(r0, &(0x7f0000a76000-0xdb)="5e", 0x1, 0x0, &(0x7f00005e5000-0x1c)={0xa, 0x0, 0x0, @loopback={0x0, 0x1}, 0x0}, 0x1c)
+listen(r0, 0x5)
+accept$inet6(r0, &(0x7f00004cf000-0x1c)={0x0, 0x0, 0x0, @loopback={0x0, 0x0}, 0x0}, &(0x7f0000fce000)=0x1c)

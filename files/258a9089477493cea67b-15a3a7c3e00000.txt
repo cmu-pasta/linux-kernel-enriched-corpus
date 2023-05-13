@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7b960555c96033c67abee42d6eb6a95f24df8e99
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000440)='ethtool\x00')
+sendmsg$ETHTOOL_MSG_LINKINFO_GET(r0, &(0x7f0000006440)={0x0, 0x0, &(0x7f0000006400)={&(0x7f0000000280)={0x54, r1, 0x301, 0xfffffffc, 0x0, {0x6}, [@ETHTOOL_A_LINKINFO_HEADER={0xc, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_INDEX={0x8}]}, @ETHTOOL_A_LINKINFO_HEADER={0xc, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_INDEX={0x8}]}, @ETHTOOL_A_LINKINFO_HEADER={0x1c, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_FLAGS={0x8}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x2}]}, @ETHTOOL_A_LINKINFO_HEADER={0xc, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_FLAGS={0x8, 0x3, 0x6}]}]}, 0x54}}, 0x0)

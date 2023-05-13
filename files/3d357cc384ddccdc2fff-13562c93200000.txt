@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1f5af6cb9a265f1d394769ba75542f756b489f1b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet(0x2, 0x80001, 0x84)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e20, @loopback}, 0x10)
+setsockopt$inet_sctp_SCTP_INITMSG(r0, 0x84, 0x2, &(0x7f00000000c0)={0x401, 0x4, 0x6, 0x3}, 0x8)
+setsockopt$inet_sctp_SCTP_STREAM_SCHEDULER(r0, 0x84, 0x7b, &(0x7f0000000180)={0x0, 0x1}, 0x8)
+sendmsg(r0, &(0x7f000001afc8)={&(0x7f0000006000)=@in={0x2, 0x4e20, @loopback}, 0x80, &(0x7f0000007f80)=[{&(0x7f00000001c0)='*', 0x1}], 0x1}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0bb58e279f862b93fa10a691c8e882debaaf4cc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="18010000070000000000000000000000850000006d00000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000000)={&(0x7f00000000c0)='percpu_alloc_percpu\x00', r0}, 0x10)
+r1 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r1, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={0x0}}, 0x0)

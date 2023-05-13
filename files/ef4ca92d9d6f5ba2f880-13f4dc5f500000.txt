@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=f1b41b503f18f268d11e52f80deffcd0c62e0865
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false,"usb":true,"vhci":true,"wifi":true}
+syz_80211_inject_frame(&(0x7f0000000040)=@device_b, &(0x7f0000000100)=@mgmt_frame=@action_no_ack={@with_ht={{{}, {0x7}, @broadcast, @broadcast, @initial, {0x3, 0x7}}, @ver_80211n={0x0, 0x7d87, 0x3, 0x0, 0x0, 0x0, 0x1, 0x0, 0x1, 0x1}}, @sp_mp_confirm={0xf, 0x2, {0x1100, @default, {}, @void, @void}}}, 0x24)

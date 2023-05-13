@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=86a202a5d3e7fac68dadd37e14fa74fca0e0c5a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+fork()

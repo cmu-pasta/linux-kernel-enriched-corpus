@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bb281e89381b9ed55728c274447a575e69a96c35
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdir(&(0x7f0000000340)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000140)='./file0\x00', &(0x7f0000000640)='sysfs\x00', 0x0, 0x0)
+mount$overlay(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f00000000c0), 0x0, &(0x7f0000000240)=ANY=[@ANYBLOB='lowerdir=.:file0'])
+r0 = openat(0xffffffffffffff9c, &(0x7f0000004280)='./file0\x00', 0x0, 0x0)
+name_to_handle_at(r0, &(0x7f0000000100)='./bus\x00', 0x0, 0x0, 0x0) (async, rerun: 64)
+mount(0x0, &(0x7f0000000500)='./file0\x00', 0x0, 0x10040e1, 0x0)

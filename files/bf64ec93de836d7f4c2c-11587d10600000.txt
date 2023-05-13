@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=fb02dad4be9b32751f5386935ccd4088ce6c8f09
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCBRADDBR(r0, 0x89a0, &(0x7f00000000c0)='bcsf0\x00')
+ioctl$sock_SIOCBRDELBR(r0, 0x89a1, &(0x7f0000000180)='bcsf0\x00\x00\x00\x00\x05\x00\x00\x11\x00\x00\x13')
+r1 = socket$can_raw(0x1d, 0x3, 0x1)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r1, 0x8933, &(0x7f0000000200)={'vcan0\x00', <r2=>0x0})
+r3 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_TX_RING(r3, 0x11b, 0x3, &(0x7f00000000c0)=0x4, 0x1fe)
+setsockopt$XDP_UMEM_REG(r3, 0x11b, 0x4, &(0x7f0000000100)={&(0x7f0000000000)=""/17, 0x10000, 0x1000}, 0x12)
+setsockopt$XDP_UMEM_FILL_RING(r3, 0x11b, 0x5, &(0x7f0000000240)=0x8, 0x10000000b)
+setsockopt$XDP_UMEM_COMPLETION_RING(r3, 0x11b, 0x6, &(0x7f00000002c0)=0x80, 0x4)
+bind$xdp(r3, &(0x7f0000000300)={0x2c, 0x0, r2}, 0x10)

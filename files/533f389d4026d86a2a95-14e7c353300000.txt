@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5d48b50ed679f22d7d4a4b578da8559d34b104ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$evdev(&(0x7f0000000100), 0x0, 0x0)
+ioctl$EVIOCSKEYCODE_V2(r0, 0x80104592, 0x0)
+perf_event_open$cgroup(0x0, 0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0)
+r1 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r1, &(0x7f0000000000)={{0x6, @rose}, [@remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @default, @bcast, @bcast, @bcast, @null, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}]}, 0x48)
+listen(r1, 0x0)
+accept(r1, 0x0, 0x0)

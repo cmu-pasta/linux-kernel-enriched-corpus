@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d363046088dc26030e146e92102f965bf4623a50
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+mknod$loop(&(0x7f0000000100)='./file0\x00', 0x0, 0xffffffffffffffff)
+r0 = open(&(0x7f0000000740)='./file0\x00', 0x0, 0x0)
+ioctl$FUSE_DEV_IOC_CLONE(r0, 0x541b, &(0x7f0000000780))
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+r1 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000100)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000300)='fuse\x00', 0x0, &(0x7f0000000400)={{'fd', 0x3d, r1}, 0x2c, {'rootmode', 0x3d, 0x4000}, 0x2c, {'user_id', 0x3d}, 0x2c, {'group_id', 0x3d}, 0x2c})
+read$FUSE(r1, &(0x7f0000001000), 0x1000)

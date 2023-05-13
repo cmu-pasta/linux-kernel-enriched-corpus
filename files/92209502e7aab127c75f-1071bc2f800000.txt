@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=591666b46bf0d9e2fbb8dbb386982d12ba804648
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"resetnet":true,"waitrepeat":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+listen(r0, 0x0)
+setsockopt$IP_VS_SO_SET_FLUSH(r0, 0x0, 0x485, 0x0, 0x0)
+shutdown(r0, 0x2)
+setsockopt$inet_tcp_TLS_TX(r0, 0x6, 0x1, &(0x7f0000000600)={0x303, 0x33}, 0x4)

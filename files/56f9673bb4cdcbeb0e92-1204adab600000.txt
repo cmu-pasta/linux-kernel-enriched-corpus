@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2b061d1fabd9760e98f92163543189b637c4af36
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = syz_open_dev$usbmon(&(0x7f00000000c0)='/dev/usbmon#\x00', 0x0, 0x2140)
+read$usbmon(r0, &(0x7f0000000200)=""/217, 0xd9)
+r1 = syz_open_dev$usbmon(0x0, 0x0, 0x0)
+mmap$usbmon(&(0x7f0000ffa000/0x3000)=nil, 0x3000, 0x300001f, 0x2012, r1, 0x0)
+syz_open_dev$usbfs(&(0x7f00000006c0)='/dev/bus/usb/00#/00#\x00', 0x7fe0000000000000, 0x0)

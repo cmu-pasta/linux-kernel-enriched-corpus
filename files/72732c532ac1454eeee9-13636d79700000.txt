@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0be4824a86385f022a4f6f5104bcb9246032fdd9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false,"tmpdir":true}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f00000000c0), 0x1, 0x0)
+ioctl$SNDCTL_DSP_SETTRIGGER(r0, 0x40045010, &(0x7f0000000180)=0x3)
+ioctl$SNDCTL_DSP_CHANNELS(r0, 0xc0045006, &(0x7f0000000240)=0x80)
+ioctl$SNDCTL_DSP_SPEED(r0, 0xc0045002, &(0x7f0000000140)=0x2000000) (async)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc0045009, &(0x7f0000000000)) (rerun: 32)
+ioctl$SNDCTL_DSP_SPEED(r0, 0xc0045002, &(0x7f0000000380))

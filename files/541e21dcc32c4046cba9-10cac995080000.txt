@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2414cc39724471fc2e81bc7771a9059de93e2c5a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/user\x00')
+fchown(r0, 0xffffffffffffffff, 0x0)

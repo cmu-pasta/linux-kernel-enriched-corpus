@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e46165265c3e28094e6b9c001dd629da848eb0cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_nth":4,"close_fds":false,"devlinkpci":true}
+io_uring_setup(0x2a6, &(0x7f0000000340)={0x0, 0x0, 0x6, 0x0, 0x40000330})

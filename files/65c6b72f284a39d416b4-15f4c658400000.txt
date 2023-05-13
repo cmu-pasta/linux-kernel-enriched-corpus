@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+r0 = socket$unix(0x2, 0x40000000002, 0x88)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x20000, @local={0xac, 0x14, 0x14, 0xaa}}, 0x10)
+r1 = open(&(0x7f00000001c0)='./file0\x00', 0x101142, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000140)='9p\x00', 0x0, &(0x7f00000002c0)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})

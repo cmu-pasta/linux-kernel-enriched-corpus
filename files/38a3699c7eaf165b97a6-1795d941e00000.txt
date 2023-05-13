@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6fba8c186d97cf1011ab17660e633b1cc4e080c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$PIO_FONT(r0, 0x4b61, &(0x7f0000000040)="d032484fa6b5ee2dff7e56ae7b7874e1a7f8089b0e7feee4f314fc106abc8acf33d6c8fa8eb26a591e49b1e40bc588a22071c2a947664aa650e5059a9f2ed042f9657e75c4db9a0688a0149173df77bc276017bc37661ec8b5f88d21afba983d94b25bcdb256784fb09d83d77d55ce9180e211511406fa379afc861b8ca88b684e500d159f7cc258726de8c9749a916736dab6a1eb7ca5093550b8a970bb044f36042e17a93b12101de38d9e38f8d9d0c61de5eb61602e9365345d20c4424a8330b58af13670647886e87931533aae1b6bfb0b60c6dd887f6e44e850cc831bd677aabcf206")
+r1 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000040)='\xce\x8f*\xf7\x00', 0xc823035de211e4d9, 0x0)
+write$fb(r1, &(0x7f0000000000)='~', 0x800000)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDFONTOP_COPY(r2, 0x4b72, &(0x7f0000000000)={0x3, 0x1, 0x10, 0x3, 0x88, 0x0})

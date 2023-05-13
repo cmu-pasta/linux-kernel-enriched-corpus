@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f2fecd0d7013f54ec4162f60743a2b28df40926b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","cgroups":true,"close_fds":true,"tmpdir":true}
+mbind(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x1, 0x0, 0x0, 0x0)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/syz0\x00', 0x1ff)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_procs(r0, &(0x7f00000006c0)='cgroup.procs\x00', 0x2, 0x0)
+write$cgroup_pid(r1, &(0x7f0000000100), 0x12)

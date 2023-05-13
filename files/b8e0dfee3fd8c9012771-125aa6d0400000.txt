@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=622c6d371f22f2e497b5adb01ed3b1e5276a37ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_nth":6}
+syz_read_part_table(0x0, 0x1, &(0x7f0000000700)=[{&(0x7f0000001300), 0xffffffffffffffb0}])

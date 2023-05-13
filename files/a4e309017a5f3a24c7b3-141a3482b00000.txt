@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=fd5821fbdc1bf93afdb86fa444717719ac161cf6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+clone(0x2000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+wait4(0x0, 0x0, 0x80000002, 0x0)
+r0 = getpid()
+rt_tgsigqueueinfo(r0, r0, 0x13, &(0x7f00000002c0))
+ptrace(0x10, r0)
+ptrace$getregset(0x4205, r0, 0x0, &(0x7f0000000080)={0x0, 0x340})

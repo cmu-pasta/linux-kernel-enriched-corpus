@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d992fb5218e8301f48a845bbc80aeba84c70b1ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = openat$sequencer(0xffffffffffffff9c, &(0x7f0000000000)='/dev/sequencer\x00', 0x0, 0x0)
+r1 = syz_open_dev$sndmidi(&(0x7f0000000040)='/dev/snd/midiC#D#\x00', 0xe440, 0x1)
+setsockopt$sock_timeval(r0, 0x1, 0x15, &(0x7f0000000080), 0x8)
+ioctl$SNDRV_RAWMIDI_IOCTL_PARAMS(r1, 0xc0205710, &(0x7f0000000100)={0x0, 0x800, 0x7, 0x71f})
+sendmsg$alg(0xffffffffffffffff, &(0x7f0000000700)={0x0, 0x0, &(0x7f0000000600)=[{&(0x7f00000002c0)}], 0x1, &(0x7f0000000680)}, 0x0)
+ftruncate(r1, 0x226)
+write$cgroup_type(r1, &(0x7f00000000c0)='threaded\x00', 0xff4c)

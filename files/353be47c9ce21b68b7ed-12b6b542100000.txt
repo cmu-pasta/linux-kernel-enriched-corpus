@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a26ab529b00c9a1e2b030975d5655222680aba5d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$usbfs(&(0x7f0000001280)='/dev/bus/usb/00#/00#\x00', 0x1aa1, 0x0)
+mmap(&(0x7f0000000000/0x400000)=nil, 0x400000, 0x0, 0x11, r0, 0x0)

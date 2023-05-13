@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7ae4a6dde98ce81c27ce9b7914998342070ff185
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"resetnet":true,"waitrepeat":true}
+r0 = bpf$BPF_MAP_GET_FD_BY_ID(0xe, &(0x7f0000000080)={0xffffffffffffffff, 0xf198}, 0xc)
+bpf$OBJ_PIN_MAP(0x6, &(0x7f00000000c0)={&(0x7f0000000040)='./file0\x00', r0}, 0x10)
+socketpair(0x0, 0x0, 0x0, &(0x7f0000000140))
+socket$kcm(0xa, 0x1, 0x0)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000280)={0x12, 0x0, 0x4, 0x7, 0x0, 0x1}, 0x2c)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000180)={r1, &(0x7f0000000000), &(0x7f0000000140)}, 0x20)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000000)={r1, &(0x7f0000000080), &(0x7f0000000140), 0x1}, 0x20)

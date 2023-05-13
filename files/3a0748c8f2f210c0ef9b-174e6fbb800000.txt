@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmsg(r0, &(0x7f0000000680)={&(0x7f0000000000)=@alg={0x26, 'aead\x00', 0x0, 0x0, 'gcm_base(lrw(cast6),sha512-generic)\x00'}, 0x80, &(0x7f0000000340)=[{&(0x7f0000000080)}, {&(0x7f00000000c0)}, {&(0x7f00000001c0)}, {&(0x7f0000000280)}, {&(0x7f00000002c0)}, {&(0x7f0000000300)}], 0x6, &(0x7f00000003c0)=[{0x10, 0x10d, 0x2}, {0x10, 0x104, 0x5}, {0x10, 0x19f, 0x100000001}, {0x10, 0x109, 0x2}], 0x40, 0x810}, 0x20048890)

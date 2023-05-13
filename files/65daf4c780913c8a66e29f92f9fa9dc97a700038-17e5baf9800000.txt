@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=67e798c26531b3532381d59046c4dad4a6be76ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00003c5000-0x9)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_CREATE_PIT2(0xffffffffffffffff, 0x4040ae77, &(0x7f0000a00000)={0x1})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_GET_ONE_REG(r2, 0x4010aeab, &(0x7f0000ea3000)={0xff, 0x6})
+ioctl$KVM_SET_TSS_ADDR(r1, 0xae47, 0xd000)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f0000f06000/0x18000)=nil, &(0x7f00000fc000)=[@textreal={0x8, &(0x7f0000841000)="26260f68d10f01d1baf80c66b884573b8f66efbafc0c66ed0f00a359eef399260f229066b9800000c00f326635010000000f300f9cb107000f01cb66b8e52f7eb90f23c00f21f86635000005000f23f8", 0x50}], 0x1, 0x44, &(0x7f0000f4a000-0x20)=[@efer={0x2, 0x100}, @cstype3={0x5, 0x4}], 0x2)

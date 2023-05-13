@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(0x0, 0x0)
+mount(0x0, 0x0, 0x0, 0x0, 0x0)
+mount(0x0, 0x0, 0x0, 0x100000, 0x0)
+unshare(0x8000200)
+r0 = syz_open_procfs$namespace(0x0, 0x0)
+setns(r0, 0x0)
+clone(0x70024000, 0x0, 0x0, 0x0, 0x0)

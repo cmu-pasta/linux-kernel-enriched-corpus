@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3f975b00adc42fac2f19b817499b5addb406fc26
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"namespace","fault_call":-1,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f00000002c0)=0x4006, 0x4)
+sendto$inet6(r0, &(0x7f0000000000)="0401000000c0031102daf2c2510200130011", 0x12, 0x0, &(0x7f00000000c0)={0xa, 0x200000000010894f, 0x2}, 0x1c)

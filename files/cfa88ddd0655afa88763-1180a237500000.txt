@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=fea808dfe3c6dfdd6ba9778becbffe0b14e91294
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r0, 0x11b, 0x4, &(0x7f00000000c0)={&(0x7f0000000000)=""/5, 0x1000, 0x1000}, 0x20)
+setsockopt$XDP_UMEM_FILL_RING(r0, 0x11b, 0x5, &(0x7f00000004c0)=0x80, 0x4)
+setsockopt$XDP_TX_RING(r0, 0x11b, 0x3, &(0x7f0000000080)=0x2, 0x4)
+r1 = socket(0x100000000011, 0x2, 0x0)
+bind(r1, &(0x7f0000000940)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836010004b0e0301a4ce875f2e3ff5f163ee340b767950080f5ff000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0}, &(0x7f00000002c0)=0x14)
+setsockopt$XDP_UMEM_COMPLETION_RING(r0, 0x11b, 0x6, &(0x7f00000001c0)=0x400, 0x4)
+bind$xdp(r0, &(0x7f0000000900)={0x2c, 0x0, r2}, 0x10)

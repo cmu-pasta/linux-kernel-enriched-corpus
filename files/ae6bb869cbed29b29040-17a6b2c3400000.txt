@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1c07845d565d5e670218fde04599322aa81a3bf8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_init_net_socket$ax25(0x3, 0x5, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000000)={'bpq0\x00', 0x1})
+ioctl$sock_inet_SIOCSIFFLAGS(0xffffffffffffffff, 0x8914, &(0x7f0000000000)={'bpq0\x00'})
+r1 = syz_init_net_socket$ax25(0x3, 0x5, 0x0)
+setsockopt$ax25_SO_BINDTODEVICE(r1, 0x101, 0x19, &(0x7f0000000140)=@bpq0='bpq0\x00', 0x10)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0cce013ad4d05a277cf6b226fbec5670121cb0cc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f0000ef8cfd)={0xa, 0x4e23, 0x0, @loopback={0x0, 0x1}}, 0x1c)
+listen(r0, 0xffffffffffffff7f)
+setsockopt$inet_sctp6_SCTP_RTOINFO(r0, 0x84, 0x0, &(0x7f0000000140)={0x0, 0x6, 0x7, 0x4}, 0x10)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r1, &(0x7f0000e33fe0)='X', 0x1, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback={0x0, 0x1}}, 0x1c)

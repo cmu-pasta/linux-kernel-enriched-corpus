@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f1834e1735946170a8a3a4c85edb978e94bada81
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xf41000)=nil, 0xf41000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000408000)={0x26, "6165616400000000000000000000", 0x0, 0x0, "67636d2874776f666973682900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000831000-0x10)="649c47000000000000c0b5fa409d4d54", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+accept$alg(r0, 0x0, 0x0)
+sendmsg$alg(r1, &(0x7f00005d8000)={0x0, 0x0, &(0x7f0000b5d000)=[{&(0x7f0000a95000-0x3d)="0cda5e1b78ab4cd5040d369241d55b3b0c15c2d769486935741fc701a6b9d0be38576a64", 0x24}], 0x1, &(0x7f0000f3a000)=[@op={0x18, 0x117, 0x3, 0x1}], 0x18, 0x4080}, 0x4)
+recvmsg(r1, &(0x7f00007e0000)={&(0x7f0000f39000-0x9)=@rc={0x0, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x0}, 0x9, &(0x7f0000f39000-0x20)=[{&(0x7f0000f39000-0x13)="", 0x0}, {&(0x7f00007c0000)="0000000000000000000000000000000000000000000000000000000000000000000000000000", 0x26}], 0x2, &(0x7f00004d4000-0xcf)="", 0x0, 0x3}, 0x40)
+accept$alg(r0, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_RESET_STREAMS(0xffffffffffffffff, 0x84, 0x77, &(0x7f0000f3f000)={0x0, 0xfffffffffffffff9}, 0x8)

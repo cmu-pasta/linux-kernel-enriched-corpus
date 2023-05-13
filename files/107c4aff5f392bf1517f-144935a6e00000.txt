@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=ec380ed7ac562353864068190f060f7332d7badc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":8,"fault_nth":54,"leak":true,"netdev":true,"cgroups":true,"close_fds":true,"devlinkpci":true,"tmpdir":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f0000ef8cfd)={0xa, 0x1001000004e23, 0x0, @loopback}, 0x1c)
+listen(r0, 0x7ffd)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX_OLD(r1, 0x84, 0x6b, &(0x7f0000000000)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)
+setsockopt$inet_sctp6_SCTP_MAXSEG(r1, 0x84, 0xd, &(0x7f0000000400)=@assoc_value={0x0, 0x1b0a}, 0x8)
+write(r1, &(0x7f0000000100), 0x1ede5)
+r2 = accept(r0, 0x0, 0x0)
+shutdown(r2, 0x1)

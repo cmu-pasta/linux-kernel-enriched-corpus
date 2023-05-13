@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=ce5f07d6ec3b5050b8f0728a3b389aa510f2591b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_io_uring_setup(0x6b52, &(0x7f0000000080), &(0x7f0000ffa000/0x3000)=nil, &(0x7f00005ea000/0x4000)=nil, &(0x7f0000000180)=<r1=>0x0, &(0x7f0000000040)=<r2=>0x0)
+r3 = socket$inet_smc(0x2b, 0x1, 0x0)
+syz_io_uring_submit(r1, r2, &(0x7f00000001c0)=@IORING_OP_POLL_ADD={0x6, 0x4, 0x0, @fd_index=0x6, 0x0, 0x0, 0x0, {0x20}}, 0x7)
+syz_io_uring_submit(r1, r2, &(0x7f0000000100)=@IORING_OP_CONNECT={0x10, 0x0, 0x0, r3, 0x80, &(0x7f0000000240)=@l2tp={0x2, 0x0, @remote}}, 0x0)
+eventfd2(0x0, 0x0)
+r4 = socket$inet_udp(0x2, 0x2, 0x0)
+getsockopt$IPT_SO_GET_REVISION_TARGET(r4, 0x0, 0x43, &(0x7f0000000000)={'ah\x00'}, &(0x7f0000000140)=0x1e)
+io_uring_enter(r0, 0x450c, 0x0, 0x0, 0x0, 0x0)

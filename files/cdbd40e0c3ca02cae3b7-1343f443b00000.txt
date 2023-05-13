@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ef11f02d50e3a05bd60fab601f304f64804abb00
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+socketpair$tipc(0x1e, 0x2, 0x0, &(0x7f0000000040)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+sendmsg$tipc(r0, &(0x7f0000000240)={&(0x7f0000000080)=@name={0x1e, 0x2, 0x3, {{0x1, 0x4}, 0x2}}, 0x10, 0x0, 0x0, 0x0, 0x0, 0x41}, 0x0)
+getpeername$tipc(r0, &(0x7f0000000280)=@id, &(0x7f00000002c0)=0x10)

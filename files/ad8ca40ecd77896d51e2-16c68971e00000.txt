@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":28,"leak":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true}
+r0 = perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+fcntl$setstatus(r0, 0x4, 0x42000)
+socket$inet_sctp(0x2, 0x5, 0x84)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f0000000080)={'\x00\xacs\x00\x00\x00\x00\x00\xec\x97?\x82\x0f|@\x00', 0x102})

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9c57d3996565d35691fa44b2daf987259838ccce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet(0x2, 0x3, 0x280000000015)
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @local}, 0x10c)
+setsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x23, &(0x7f0000000000)={{{@in=@multicast2, @in6=@ipv4={[], [], @rand_addr}}}, {{@in6}, 0x0, @in=@loopback}}, 0xe8)
+r1 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$nl_netfilter(r1, &(0x7f0000d65000)={&(0x7f0000de2ff4), 0xc, &(0x7f0000000100)={&(0x7f0000000140)={0x1c, 0x4000000000002, 0x1, 0xffffffffffffffff, 0x0, 0x0, {}, [@nested={0x8, 0x8, [@typed={0x4}]}]}, 0x1c}}, 0x0)

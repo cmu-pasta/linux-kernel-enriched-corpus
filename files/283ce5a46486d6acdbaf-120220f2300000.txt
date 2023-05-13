@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6312526aba5beae046fdae8f00399f87aab48b12
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = fsopen(&(0x7f00000000c0)='cgroup\x00', 0x0)
+r1 = creat(&(0x7f0000000040)='./bus\x00', 0x0)
+fsconfig$FSCONFIG_SET_FD(r0, 0x5, &(0x7f0000000000)='source', 0x0, r1)

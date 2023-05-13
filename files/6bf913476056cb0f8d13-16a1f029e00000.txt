@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=460cc948740aa1e715156c0edf5d5d397401d557
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+accept4(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r0 = io_uring_setup(0x782, &(0x7f0000000080))
+r1 = socket$inet(0x2, 0x80001, 0x84)
+getsockopt$inet_sctp_SCTP_MAX_BURST(r1, 0x84, 0x14, 0x0, &(0x7f0000000040))
+setsockopt$inet_tcp_int(r1, 0x6, 0x10, &(0x7f0000000100)=0x6, 0x4)
+r2 = openat$ttyS3(0xffffffffffffff9c, 0x0, 0x540, 0x0)
+ioctl$VT_DISALLOCATE(r2, 0x5608)
+r3 = socket$inet6_sctp(0xa, 0x5, 0x84)
+r4 = socket$inet6_sctp(0xa, 0x5, 0x84)
+r5 = socket$inet6_sctp(0xa, 0x5, 0x84)
+r6 = dup2(r5, r4)
+r7 = socket$inet(0x2, 0x80001, 0x84)
+getsockopt$inet_sctp_SCTP_MAX_BURST(r7, 0x84, 0x14, &(0x7f0000000000)=@assoc_value, &(0x7f0000000040)=0x8)
+ioctl$TIOCGPKT(r6, 0x80045438, &(0x7f0000000180))
+ioctl$VIDIOC_G_AUDOUT(0xffffffffffffffff, 0x80345631, &(0x7f0000000040))
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000300)=[r3, 0xffffffffffffffff], 0x2)

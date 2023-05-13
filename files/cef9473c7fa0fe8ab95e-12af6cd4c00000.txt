@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3fb9c4777053e79a6d2a65ac3738664c87629a21
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","tmpdir":true,"cgroups":true}
+creat(&(0x7f0000000000)='./file0\x00', 0x0)
+perf_event_open(&(0x7f000000a000)={0x6, 0x5f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

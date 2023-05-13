@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=163414c0fc6f717973e0a832acfba3dfc184707b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+chdir(0x0)
+openat$cgroup_subtree(0xffffffffffffffff, 0x0, 0x2, 0x0)
+mkdir(0x0, 0x0)
+lstat(0x0, 0x0)
+mkdir(&(0x7f00000003c0)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0)='overlay\x00', 0x2000000, &(0x7f0000000200)=ANY=[@ANYBLOB="75707065726469723d2e2f66696c65302c6c6f7765726469723d2e2f66696c65312c776f726b6469723d2e2f66696c6531007c778e0b5cff91f37cb7336dc481921505dbe47dade4c5ba59a15a4c42558edf74f01628cecb56f80385a9f873e50b063ff191ca00d8665a9821ae0d28ce419b51cc397ee32a71c47d"])
+chdir(&(0x7f0000000380)='./file0\x00')
+chdir(&(0x7f0000000000)='./file1\x00')
+link(&(0x7f0000000140)='./file0\x00', &(0x7f00000001c0)='./file1\x00')
+acct(&(0x7f00000000c0)='./file1\x00')
+mkdir(&(0x7f0000000700)='./file1\x00', 0x0)
+creat(&(0x7f00000008c0)='./file1/file0\x00', 0x0)

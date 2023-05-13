@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5398f3c62652afebdf4fa9c6a2d9f867172d1406
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f0000000300)='/dev/vhost-vsock\x00', 0x2, 0x0)
+ioctl$VHOST_SET_VRING_BASE(r0, 0xaf01, 0x0)
+r1 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu\x00', 0x200002, 0x0)
+r2 = openat$cgroup_procs(r1, &(0x7f00000000c0)='cgroup.procs\x00', 0x2, 0x0)
+preadv(r2, &(0x7f0000000100)=[{&(0x7f0000000180)=""/219, 0xdb}], 0x1, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7ca7d71ade3608a7f92ac4b8c9c499cf130e68a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":17,"leak":true,"close_fds":false}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_inet6_SIOCADDRT(r0, 0x89a0, &(0x7f0000000100)={@rand_addr="d3d2f1a76c835b30256415a16f773fa7", @empty, @loopback})

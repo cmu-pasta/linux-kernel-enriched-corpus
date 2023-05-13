@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d969589dcca96808c8c22e856cc5045148895eee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+poll(&(0x7f0000000040)=[{r0}], 0x1, 0x3)

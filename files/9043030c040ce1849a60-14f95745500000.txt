@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=72e05a2f2be6429b4334dcf3a063b8c8f32b45a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"sysctl":true}
+sendmsg$NL80211_CMD_TRIGGER_SCAN(0xffffffffffffffff, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000000c0)={0x28, 0x0, 0x0, 0x0, 0x0, {{}, {@val={0x8}, @val={0xc}}}}, 0x28}}, 0x0)
+sendmsg$NL80211_CMD_SET_INTERFACE(0xffffffffffffffff, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)={0x28, 0x0, 0x0, 0x0, 0x0, {{}, {@val={0x8}, @val={0xc, 0x99, {0x7f}}}}}, 0x28}}, 0x0)
+syz_mount_image$ext4(&(0x7f0000000000)='ext4\x00', &(0x7f0000000100)='./file0\x00', 0xf5ffffff00000000, 0x3, &(0x7f0000000300)=[{&(0x7f0000000080)="20000000000100000c000000ce0000000f000000010000000000000000000000002000000020000020000000d7f4655fd7f4655f0100ffff53ef010001000000d7f4655f000000000100000001000000000000000b00000080", 0xff71, 0x400}, {&(0x7f0000010400)="2e0000001300000023", 0x9, 0x800}, {&(0x7f0000012b00)="ed41000000040000d7f4655fd7f4655fd7f4655f000000000000040002", 0x1d, 0x8c80}], 0x0, &(0x7f00000002c0)=ANY=[@ANYBLOB="006aa073166cfb0c0600000014cb828ff8463334d8b2dc40b488500c992bd0ae0f818f6ac3354e3a1af4af5f67541c7e2595a134e5fe1c"])

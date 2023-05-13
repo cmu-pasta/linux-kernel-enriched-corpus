@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8d094d6bc5fba75ff8d065959e44152c39e58690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$ndb(0x0, 0x0, 0x0)
+ioctl$NBD_SET_SIZE_BLOCKS(r0, 0xab07, 0x2)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f00000001c0)={<r1=>0xffffffffffffffff})
+ioctl$NBD_SET_SOCK(r0, 0xab00, r1)
+ioctl$NBD_DO_IT(r0, 0xab03)

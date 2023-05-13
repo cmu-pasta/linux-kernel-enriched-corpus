@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=914af3becc310b7a00c1107f0c97bc6a1834e81d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000100)='/dev/ptmx\x00', 0x0, 0x0)
+pipe2$9p(&(0x7f0000000080)={<r1=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+lstat(&(0x7f0000000200)='./file0\x00', &(0x7f00000003c0)={0x0, 0x0, 0x0, 0x0, 0x0, <r2=>0x0})
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f00000001c0)='9p\x00', 0x0, &(0x7f0000000440)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@version_u='version=9p2000.u', 0x2c}, {@dfltgid={'dfltgid', 0x3d, r2}, 0x2c}, {@cache_loose='cache=loose', 0x2c}]}})
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00003b9fdc))
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000280))
+syz_open_pts(r0, 0x0)
+dup3(0xffffffffffffffff, 0xffffffffffffffff, 0x0)

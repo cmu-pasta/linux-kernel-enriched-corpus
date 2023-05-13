@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7154376cc15634099151d53fc60c1ef4109db798
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+madvise(&(0x7f0000a93000/0x4000)=nil, 0x4000, 0xe)
+mremap(&(0x7f0000a96000/0x1000)=nil, 0x1000, 0x800000, 0x3, &(0x7f0000130000/0x800000)=nil)
+r0 = gettid()
+process_vm_writev(r0, &(0x7f0000000000)=[{&(0x7f00008f9f09)=""/247, 0xf7}], 0x1, &(0x7f0000121000)=[{&(0x7f0000217f28)=""/231, 0xffffff4e}], 0x23a, 0x0)
+syz_io_uring_setup(0x6076, &(0x7f0000001300), &(0x7f0000290000/0x3000)=nil, &(0x7f000043b000/0x2000)=nil, 0x0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$sock_timeval(r1, 0x1, 0x49, &(0x7f0000000040)={0x77359400}, 0x10)

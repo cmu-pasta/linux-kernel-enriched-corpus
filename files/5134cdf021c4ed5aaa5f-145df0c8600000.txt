@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=39b72114839a6dbd66c1d2104522698a813f9ae2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket(0x40000000015, 0x5, 0x0)
+setsockopt$sock_int(r0, 0x1, 0x3f, &(0x7f00000005c0)=0x8d, 0x4)
+bind$inet(r0, &(0x7f0000000840)={0x2, 0x0, @loopback}, 0x10)
+setsockopt$EBT_SO_SET_COUNTERS(0xffffffffffffffff, 0x0, 0x81, &(0x7f0000000040)={'nat\x00', 0x0, 0x0, 0x0, [], 0x1, &(0x7f0000000000), 0x0, [{}]}, 0x88)
+recvmmsg(r0, &(0x7f0000000080), 0x400000000000085, 0x0, 0x0)
+sendto$inet(r0, 0x0, 0x0, 0x0, &(0x7f000069affb)={0x2, 0x0, @loopback}, 0x10)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=437ad4a1bb7e1d870da643d04f853b996cc7a5cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":6,"close_fds":false,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_MP_STATE(r2, 0x4004ae99, 0x0)
+ioctl$KVM_SET_CPUID(r2, 0xae80, 0x0)
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000fe8000/0x18000)=nil, 0x0, 0x0, 0x0, 0x0, 0x0)

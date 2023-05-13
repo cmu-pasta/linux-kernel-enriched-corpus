@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=570143a6cf76ecc707a1bf50b90487db44ec850b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+socket$unix(0x1, 0x2, 0x0)
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f00000000c0)=[{&(0x7f0000000080)='i', 0x1}], 0x1, 0x0)
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+mkdir(&(0x7f0000000240)='./file1\x00', 0x0)
+mkdir(&(0x7f00000001c0)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000280)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000100)=ANY=[@ANYBLOB='lowerdir=./bus,workdir=./file1,upperdir=./file0'])
+creat(&(0x7f0000000140)='./bus/file0\x00', 0x0)
+splice(r0, 0x0, r2, 0x0, 0x4ffdc, 0x0)

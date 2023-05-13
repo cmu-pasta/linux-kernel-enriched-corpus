@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a939746456c0350d6a368a9d30a4dcfcafa800be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000380)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+mount(&(0x7f00000004c0)=ANY=[@ANYBLOB="2f6465762f6e756c6c62300046725c6012ee375d54e0b2596dd07830b914d02eb75bfe1bdff97ac275cb63884eba7399f1217a2d2498cd0918ffb546f272be7db7a0de212ab58895d1ae8137f305e0a33da957bd36e55b1f06228bae6f8f51560a3074147a7b"], &(0x7f0000000280)='./file0\x00', &(0x7f0000000140)='ntfs\x00', 0x0, 0x0)

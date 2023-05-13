@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmsg$netlink(r0, &(0x7f0000000300)={&(0x7f0000000080)=@proc={0x10, 0x0, 0x25dfdbfe, 0x4}, 0xc, &(0x7f00000002c0)=[{&(0x7f00000000c0)={0x2c, 0x40, 0x202, 0x70bd2b, 0x25dfdbff, "", [@nested={0x1c, 0x6c, [@typed={0x8, 0x3e, @ipv4}, @typed={0x8, 0x94, @u32=0x4}, @generic, @generic, @generic, @typed={0x8, 0xd, @str='\x00'}]}]}, 0x2c}], 0x1, 0x0, 0x0, 0x24008040}, 0x20000000)

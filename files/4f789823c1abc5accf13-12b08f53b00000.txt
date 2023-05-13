@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e6bbec1dac645e4ff5e5ffe74912a2808e95fe62
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nbd(&(0x7f0000000080), r1)
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000200)=ANY=[@ANYBLOB='H\x00\x00\x00', @ANYRES16=r2, @ANYBLOB="01000000000000000000010000000c00020000000000000000000c00060001000000000000001c00078008000100", @ANYBLOB, @ANYRES32, @ANYBLOB], 0x48}}, 0x0)

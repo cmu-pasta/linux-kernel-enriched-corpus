@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=011917f43a842b902d7c6670df3cf463ed06dc85
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+write$6lowpan_enable(0xffffffffffffffff, 0x0, 0x0)
+r0 = syz_io_uring_setup(0x6088, &(0x7f0000000240), &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000000100)=<r1=>0x0, &(0x7f0000000140)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f0000000000)=@IORING_OP_READ=@pass_buffer={0x16, 0x11, 0x0, @fd, 0x0, 0x0}, 0x0)
+sendmmsg(0xffffffffffffffff, &(0x7f0000002040)=[{{&(0x7f0000000180)=@pppol2tpv3, 0x80, 0x0}}], 0x1, 0x0)
+io_uring_enter(r0, 0x300, 0x0, 0x0, 0x0, 0x0)

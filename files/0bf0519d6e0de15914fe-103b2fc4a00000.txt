@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f99edaeec58ad40380ed5813d89e205861be2896
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+bind$netlink(r0, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x1}, 0xc)
+r1 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r1, &(0x7f0000000000)={0xa, 0x0, 0x0, @dev, 0x2}, 0x1c)
+connect$inet6(r1, &(0x7f0000000040)={0xa, 0x4e22, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+r2 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r2, &(0x7f0000000100)={0x0, 0x0, &(0x7f00008feff0)={&(0x7f00000001c0)=ANY=[@ANYBLOB="020d0000100000000000000000000000030006000000000002000000e00000010000000000000000080012000200020000010000000000003000000003030000ff3f567b0000000000000000000000000000000000000001ac1414bb000000000000000000000000030005000000000002000000e00000010000000000000000"], 0x80}}, 0x0)
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount$bpf(0x20000000, &(0x7f00000000c0)='./file0\x00', 0x0, 0x2001001, 0x0)
+pivot_root(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000100)='./file0\x00')

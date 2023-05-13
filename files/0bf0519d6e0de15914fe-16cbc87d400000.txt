@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f99edaeec58ad40380ed5813d89e205861be2896
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x80803, 0x1)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+bind$netlink(r1, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x1}, 0xc)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f00000001c0)={{{@in=@dev, @in6=@loopback, 0x0, 0x0, 0x0, 0x0, 0x2}, {}, {}, 0x0, 0x0, 0x4000000000001}, {{@in6=@loopback, 0x0, 0x2b}, 0xa, @in=@remote, 0x0, 0x3, 0x0, 0x90}}, 0xe8)
+mkdirat(0xffffffffffffff9c, &(0x7f00000003c0)='./file0\x00', 0x0)
+mount$fuse(0x20000000, &(0x7f0000000000)='./file0\x00', 0x0, 0x17cd, 0x0)
+pivot_root(&(0x7f0000000380)='./file0\x00', &(0x7f0000000400)='./file0\x00')

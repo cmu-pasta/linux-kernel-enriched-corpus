@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=e2dc9aea0465d1eea101bb24cb463e2a7efe7d17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+setsockopt$ALG_SET_AEAD_AUTHSIZE(r0, 0x117, 0x5, 0x0, 0x1000000000101)
+bind$alg(r0, &(0x7f0000408000)={0x26, "6165616400000000000000000000", 0x0, 0x0, "67636d2874776f666973682900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f00004f7000)="649c47ad46390dc86dae79fa409d4d54", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+write(r1, &(0x7f0000f3d000-0x8b)="3595c917d671b6b5535f0042bd83a6d26b71aa9a6deaf4cedeed63f6ad0a14cfab6e65f4bcd740829a3a50fac8ec4c77b3749b244abcf0b5a28c60f6d0430ace54baa4156ebbfaa2ffdff4bba989f4aebccd1f878787d9fc26ac60201440ff9583cc2d5439168dd623e5cbbec85d30db1ab164174fe40b999889f02988369be757037178ac1e7489492fc2", 0x8b)
+recvfrom(r1, &(0x7f0000f3f000-0x74)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x74, 0x40, &(0x7f0000f3e000)=@llc={0x1a, 0x17, 0xfffffffffffffffd, 0x5, 0x401, 0x2, @empty=[0x0, 0x0, 0x0, 0x0, 0x0, 0x0], [0x0, 0x0]}, 0x10)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDRS(0xffffffffffffffff, 0x84, 0x6c, &(0x7f0000001000-0x100)={0x0, 0x0, ""}, &(0x7f0000013000-0x4)=0x8)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_buf(0xffffffffffffffff, 0x29, 0x0, &(0x7f0000b01000-0x2)="", 0x0)

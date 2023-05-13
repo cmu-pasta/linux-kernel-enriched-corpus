@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3553517af6020c4f2813f1003fe76ef3cbffe98d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/nullb0\x00', 0x801, 0x0)
+writev(r0, &(0x7f0000000400)=[{&(0x7f0000000300)="cf", 0x1}], 0x1)

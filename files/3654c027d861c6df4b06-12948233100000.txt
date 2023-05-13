@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4f5bbb9880e73141e45183a60099f80752c5b478
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":3,"close_fds":false,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+socketpair(0x1e, 0x1, 0x0, &(0x7f0000000140)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmmsg$alg(r1, &(0x7f0000003240), 0x252da778b17d5c0, 0x0)
+dup2(r0, r2)

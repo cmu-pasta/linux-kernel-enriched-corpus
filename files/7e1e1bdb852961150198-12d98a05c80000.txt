@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=c4c3b9a95cbe11269ca61a591e9cfcf90d487580
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = socket(0x2b, 0x1, 0x0)
+bind$rds(r0, &(0x7f0000000040)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$rds(r0, &(0x7f0000000000)={0x2, 0x4e24, @local}, 0x10)
+sendmsg$BATADV_CMD_GET_HARDIF(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000ec0)={&(0x7f0000000c40)=ANY=[], 0x7ffff000}}, 0x0)
+setsockopt$sock_int(r0, 0x1, 0x2f, &(0x7f0000000080)=0x4, 0x4)
+recvmsg$unix(r0, &(0x7f0000000540)={0x0, 0x0, &(0x7f0000000440)=[{&(0x7f0000000f40)=""/4096, 0x7ffff000}], 0x1, 0x0, 0x68}, 0x1100)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r1, 0x40305828, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x20040006})

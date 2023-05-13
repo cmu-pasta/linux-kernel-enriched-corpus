@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0bb58e279f862b93fa10a691c8e882debaaf4cc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000000)='/dev/rfkill\x00', 0x2, 0x0)
+write$rfkill(r0, &(0x7f0000000080)={0x0, 0x0, 0x3, 0x1}, 0x8)
+r1 = socket$inet(0x2, 0xa, 0x0)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000080)={'wlan0\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_MCAST_RATE(r2, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000000c0)={0x24, 0x0, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_MCAST_RATE={0x8, 0x6b, 0x14}]}, 0x24}}, 0x0)

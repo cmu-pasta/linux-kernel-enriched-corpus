@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=ff9ab4a23afa7553fb79f745a92be87ba4144508
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+r1 = syz_open_dev$loop(0x0, 0x0, 0x0)
+r2 = memfd_create(&(0x7f0000000100)='t\bnu\x00\x00\x00\x00\x85nG\x13g\xa6\x05', 0x0)
+pwritev(r2, &(0x7f0000000340)=[{&(0x7f0000000240)='\'', 0xfcc9}], 0x1, 0x81805)
+ioctl$LOOP_CHANGE_FD(r1, 0x4c00, r2)
+connect$inet6(r0, &(0x7f0000000140)={0xa, 0x0, 0x0, @mcast2, 0x4}, 0x1c)
+sendmmsg(r0, &(0x7f00000092c0), 0x400000000000064, 0x0)
+r3 = open(&(0x7f000000fffa)='./bus\x00', 0x400000000141042, 0x0)
+close(r3)
+syz_open_dev$loop(&(0x7f0000000100)='/dev/loop#\x00', 0x0, 0x105082)
+mmap(&(0x7f0000001000/0xa000)=nil, 0xa000, 0x800002, 0x11, r3, 0x0)

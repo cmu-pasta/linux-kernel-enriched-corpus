@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=9386d051e11e09973d5a4cf79af5e8cedf79386d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+close(r0)
+pipe(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+writev(r1, &(0x7f0000000200)=[{&(0x7f0000000080)='X', 0x1}], 0x1)
+pipe(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+r3 = syz_open_dev$vcsu(0x0, 0x5, 0x0)
+setsockopt$inet6_tcp_TCP_CONGESTION(r3, 0x6, 0xd, 0x0, 0x0)
+write$binfmt_misc(r2, &(0x7f00000003c0)=ANY=[@ANYRESHEX, @ANYBLOB="4cff627f0cc6d497209c8d4aec3eeebfc53adfe550479ea9d789f362044a6c12ac8165bf7700d7c2dfab09f2dbfbd96d33e0351259fb8b15610aa6345dd8ec3c7b4f", @ANYRES16, @ANYBLOB="b9696ad673657735764632f067eed46968494c19842dd22820d830bd78f9c003d16fbab172e0f8a654a8f7abe940c5697e5e90a259e670a42194fa66eadfa50000000000000000", @ANYRES16, @ANYBLOB="b8c42bb1db16d4847640371f823a080e6688d6595589f401592923375eb98aecdc559c79d2dc6e6ab6291066c28a9fea4ade6823ba0cdb30b67c5d9e8b7b47655c1c120c3ffcd0838379dce684f6f455fb1df321bd83c62b21345c58ce7b072c0f3894e1f1d3d959017fddb2e4587859d3f9553224b50a049b4b35891a65e339335f4265df94748bafec015d3f787d74e0937ae08fd824767589a21bdce965d33e64e9f216c1e7caa64a5060926ab285ebf6e32d90e87d7325897980762f8638168fd5cf4ee171ac56768cbab6dc90dc315aa4c34cdf5d8712ec315c6a82f1b146e51e66ca9c8d63cd", @ANYBLOB="27d0f8a2254b9456713ad78639d427213c14ad1e164e768873cc0db16365b4c65e09d7f1f6081649f0e133bc96ee1a66562776d0d38b4dc0040941b7fc755c20bacf910faeda62f2b2be0d899a27d32224618b454dcea37a84cda00f634af90cae061d303f299a1254e3137b9736a4ee1e60ef452645e5003297612b4e77cc9a3cd0c532cf5cea2ede602083dd7948eb8d06d9cc3951295aee29eab357eac05bcfe3c208ada78622acfe2da4ff2a17cd04991f034a8fc68f359a51fa7f10af4df4183aa7172bb618f5fcff83f9d59c1ef71f147970517a748bbf872d"], 0x21cc708)
+splice(r0, 0x0, r2, 0x0, 0x7, 0x0)

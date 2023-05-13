@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=43219b3fdedef18d16e0356830bfe9f8e65e3688
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$alg(0x26, 0x5, 0x0)
+poll(&(0x7f0000003900)=[{}, {r0}, {}], 0x3, 0x6)

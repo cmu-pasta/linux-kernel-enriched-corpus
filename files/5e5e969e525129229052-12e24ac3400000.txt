@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ccb029ee0d1104cab756d194c3f02e644824a70c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":1,"fault_nth":1}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000140)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000080)=0x6)

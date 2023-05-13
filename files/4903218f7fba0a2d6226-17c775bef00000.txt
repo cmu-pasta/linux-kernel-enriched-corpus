@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=bb7660e85693c73347a5043561f6bf41dc2fdbe5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+bind$netlink(r0, &(0x7f0000000100)={0x10, 0x0, 0x0, 0x1ffffff}, 0xc)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7b4fa7cb1a7c2d3342a2a8a6c53371c8c418ab47
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000000000e40260933334100001b00010902240001000000000904000001030100000921100000012201000905810308"], 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ecm(0xffffffffffffffff, &(0x7f0000000140)={0x14, &(0x7f0000000080)={0x40, 0x8, 0x47, {0x47, 0xec72397040d7ac08, "3eecbc4234c492e4764e378f8f312b180da58888b7836320ceb070c8745e0b3a24d049dcaeabbc6369d2a979adc57ba472c5a3a8dc1f33a7c13e65978ed698525c5e54dc99"}}, 0x0}, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000400)={0x2c, &(0x7f0000000240)={0x0, 0x0, 0x2, {0x2}}, 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_ep_write(r0, 0x0, 0x7e, &(0x7f0000000040)="34981a23c3490d868266844bf0d04347")

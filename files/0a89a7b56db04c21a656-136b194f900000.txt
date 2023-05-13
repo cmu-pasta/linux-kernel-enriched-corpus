@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=691c051dfc6e52aefdb026b7c502b2aa6505a854
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$jfs(&(0x7f0000000000)='jfs\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x2, &(0x7f0000000200)=[{&(0x7f0000010000)="4a465331010000006076000000000000001000000c", 0x15, 0x8000}, {&(0x7f0000010f00)="10c4645f100000000100000001000000040000000b0000000020", 0x1a, 0xb200}], 0x0, &(0x7f0000000040)={[{@uid={'uid'}}, {@errors_continue='errors=continue'}]})

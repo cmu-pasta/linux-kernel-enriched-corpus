@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"close_fds":true,"usb":true}
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040)='nl80211\x00', 0xffffffffffffffff)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NL80211_CMD_RELOAD_REGDB(r1, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000380)={&(0x7f0000000340)={0x14, r0, 0x1}, 0x14}}, 0x0)

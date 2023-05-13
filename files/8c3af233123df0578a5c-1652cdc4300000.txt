@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=a73dfb7d2fa1dc17478bccb3d15b15a9d214a127
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup/syz0\x00', 0x1ff)
+mount$fuse(0x20000000, &(0x7f0000000240)='./file0\x00', 0x0, 0xa51000, 0x0)
+r0 = open(&(0x7f0000000200)='./file0\x00', 0x0, 0x0)
+r1 = openat$cgroup_procs(r0, &(0x7f00000000c0)='cgroup.procs\x00', 0x2, 0x0)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f0000000240)={0x0, <r3=>0x0}, &(0x7f0000000280)=0x5)
+setuid(r3)
+writev(r1, &(0x7f0000000040)=[{0x0}], 0x1)

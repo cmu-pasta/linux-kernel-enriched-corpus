@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=71a207a58e54a481a3d083ae144c45873bd6e29e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_ENABLE_CAP(r1, 0x4068aea3, 0x0)

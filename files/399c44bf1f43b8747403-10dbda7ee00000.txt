@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e8a6efe536954168c3f7012e2150ee6dcdeff643
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_audit(0x10, 0x3, 0x9)
+sendmsg$AUDIT_LIST_RULES(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000040)={0x10, 0x3fa}, 0x10}}, 0x0)

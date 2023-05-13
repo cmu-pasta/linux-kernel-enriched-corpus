@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=db50123c788e2cc5a9d90de569c398b66293ee48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+pipe2(0x0, 0x80800)
+r0 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x3, 0x40000)
+r1 = open(&(0x7f0000000200)='./file0\x00', 0x40, 0x0)
+r2 = syz_open_dev$video(&(0x7f00000012c0)='/dev/video#\x00', 0x6, 0xe8122)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='9p\x00', 0x400, &(0x7f00000000c0)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c, {[{@mmap='mmap'}], [{@appraise_type='appraise_type=imasig'}, {@uid_lt={'uid<'}}, {@fsname={'fsname', 0x3d, '/dev/video#\x00'}}, {@uid_eq={'uid'}}, {@pcr={'pcr', 0x3d, 0x4}}, {@fowner_eq={'fowner'}}, {@uid_eq={'uid'}}, {@mask={'mask', 0x3d, 'MAY_READ'}}, {@fowner_lt={'fowner<'}}, {@measure='measure'}]}})
+splice(r0, 0x0, 0xffffffffffffffff, 0x0, 0xfffffffffffffffb, 0x0)

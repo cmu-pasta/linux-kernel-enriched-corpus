@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9fd089d44734021c09c696938bb74d3b3f8273c2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+creat(&(0x7f00000000c0)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000300)='./file0\x00', &(0x7f00000001c0)='bdev\x00', 0x0, 0x0)

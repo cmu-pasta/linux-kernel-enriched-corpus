@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1ece89eedd05cd92ee0f6ae1d2eb09b21669bd86
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"segv":true}
+r0 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000180)='/dev/fb0\x00', 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r0, 0x4601, &(0x7f0000000000)={0x400, 0x0, 0x0, 0xf0, 0x0, 0x0, 0x4, 0x0, {}, {}, {}, {}, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6})
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000000))
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+r2 = syz_open_procfs(0x0, &(0x7f0000000080)='mountinfo\x00')
+sendfile(r1, r2, 0x0, 0x800000080004103)

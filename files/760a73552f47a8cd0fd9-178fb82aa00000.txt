@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=4d7de0e6a195b6a5ffef01d2776e737a52c7de60
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000200)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000400)={0x0, 0x3, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000000000/0x18000)=nil, 0x0, 0xfffffffffffffeaf, 0x0, 0x0, 0xffffffae)
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f0000000000)={0x0, 0x102000})
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='io.stat\x00', 0x0, 0x0)
+write$P9_RREAD(0xffffffffffffffff, &(0x7f0000000080)=ANY=[@ANYBLOB="003e9de900c21c2c4165ba99eadcc6d234d01ed14169f5a7923eb55da8680362508e00080000cc66cc"], 0x29)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4ca8009538416e60f1e6498fad4037df424c1a30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = creat(&(0x7f0000000700)='./bus\x00', 0x0)
+ftruncate(r0, 0x10001)
+r1 = open(&(0x7f000000fffa)='./bus\x00', 0x141042, 0x0)
+mmap(&(0x7f0000001000/0xa000)=nil, 0xa000, 0x800002, 0x11, r1, 0x0)
+symlinkat(&(0x7f0000008ff8)='./file1\x00', 0xffffffffffffffff, 0x0)

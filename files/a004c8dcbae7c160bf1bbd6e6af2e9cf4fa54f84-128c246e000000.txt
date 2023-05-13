@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1665547180092fef185a46d5a4ba5b382d77848e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+sendto$inet6(r0, &(0x7f000040a000)="1732fbd6776e71f4933214536e5259429c7deda7dc302716d7ec0c116a7605be6a782191c1e953a0af137a8e5966b71ddaa7380119be69502c3d307b907c2f6d5fea7b85c78225202dfd69a8389bf07dcd694490ecf5065196abea2eb0ba5a7541cffd80318a4c28a4264c069639771b263fa1014731578366d4c2de624dd62d1f39d4314c4a03a4cc644af837a8ddc1751fe22cdc41ccdedd76dc9230c6f5ae12c9316c399b61804cdb61937549b98085da63cc7b5e01edb7ea5dfcd329eef038e99bbb7827fd26fa196914356f7bd69dd2b6fe125a0e2acd70a5", 0xdb, 0x4040, &(0x7f0000132000)={0xa, 0x1, 0xb044, @remote={0xfe, 0x80, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0], 0x0, 0xbb}, 0x1}, 0x1c)
+listen(r0, 0x2)
+accept$inet6(r0, &(0x7f00009ab000)={0x0, 0x0, 0x0, @local={0x0, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0], 0x0, 0x0}, 0x0}, &(0x7f00007cd000-0x4)=0x1c)

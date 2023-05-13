@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4b3c1fe045f3bd23e2954dec8854cf9756315138
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f00000000c0)={0x38, 0x1403, 0x1, 0x0, 0x0, "", [{{0x9, 0x2, 'syz2\x00'}, {0x8, 0x41, 'rxe\x00'}, {0x14, 0x33, 'bond_slave_0\x00'}}]}, 0x38}}, 0x0)

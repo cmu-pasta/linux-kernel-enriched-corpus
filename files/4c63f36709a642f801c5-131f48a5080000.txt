@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=e8616085ae2398519d922bdd9c2d97cd18a66d29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$ttyS3(0xffffff9c, 0x0, 0x0, 0x0)
+ioctl$TCSETSW2(r0, 0x545c, 0x0)
+r1 = socket(0x200000000000011, 0x4000000000080002, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+r3 = socket$netlink(0x10, 0x3, 0x0)
+r4 = socket(0x10, 0x803, 0x0)
+sendmsg$NL80211_CMD_CRIT_PROTOCOL_START(r4, &(0x7f0000000580)={0x0, 0x0, &(0x7f0000000540)={0x0, 0x1c}}, 0x0)
+getsockname$packet(r4, &(0x7f0000000600)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000080)=0x14)
+sendmsg$nl_route(r3, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000340)=ANY=[@ANYBLOB="3c0000001000850600002000fe612233ca000800", @ANYRES32=r5, @ANYBLOB="2377f29e252155b21c0012000c000100626f6e64000000000c000200080001000134e7307075a7cc6d2dba6e4dce25f18968dd3d6f77199cd06d7a4cfcdc99dcfd5ec3f3e3d98be8a8bac2dcc414b58dda48b3ea35411d5b112c26f31b352982f55be446b3dd47e435954252213828ba98a1bc363278f8bd13ad746bb8edad619162f5d1892e9fa42e4fe2b60f5fe2bb963f08d6696820ade9cff2b2deb91ce5657168a90dc5230e33b8c26cd925c31366a2ae339f12ba8966be1439cec635b08c0a97490b133a5b7360b59347833fc95a7bf3dc9bc64741de1a6e83c9bdfdfd0baabec981099bb3dbd64a7e7979cfb7935affbcda49190b7ec9bc1e89d6ccedec20f91b571e6fc049ba82821b26ca4f85f4b03f70b176b43de915bec76e405bce49a4b46ec745b51f36282916b77d7f913a6afd6813df2c"], 0x3c}}, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000780)=@newlink={0x58, 0x10, 0xffffff1f, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x800}, [@IFLA_LINKINFO={0x28, 0x12, 0x0, 0x1, @gre={{0x8}, {0x1c, 0x2, 0x0, 0x1, [@IFLA_GRE_LOCAL={0x8, 0x6, @broadcast}, @IFLA_GRE_TOS={0x5, 0x9, 0x8}, @IFLA_GRE_OKEY={0x8, 0x5, 0x8}]}}}, @IFLA_MASTER={0x8, 0xa, r5}, @IFLA_GROUP={0x8, 0x1b, 0x8000}]}, 0x58}}, 0x4004000)
+bind$packet(r1, &(0x7f00000000c0)={0x11, 0x0, r5, 0x1, 0x0, 0x6, @remote}, 0x14)
+sendmsg$nl_route(r1, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={0x0}}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=53c7763f4ebe960165f694e91a960fe09398be86
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+ioctl$KVM_SET_CLOCK(0xffffffffffffffff, 0x4030ae7b, 0x0)
+openat$qat_adf_ctl(0xffffffffffffff9c, 0x0, 0x501080, 0x0)
+openat$dsp(0xffffffffffffff9c, 0x0, 0x410980, 0x0)
+unshare(0x40000000)

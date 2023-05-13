@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8dba39eccdf108d625bf6acb2bea1aa0c7e1fd61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+setsockopt$ARPT_SO_SET_REPLACE(r0, 0xa02000000000000, 0x60, &(0x7f00000008c0)={'filter\x00', 0xc001, 0x4, 0x3e0, 0x1e8, 0x1e8, 0x0, 0x2f8, 0x2f8, 0x2f8, 0x4, 0x0, {[{{@uncond, 0xc0, 0x100}, @unspec=@RATEEST={0x40, 'RATEEST\x00', 0x0, {'syz0\x00'}}}, {{@uncond, 0xc0, 0xe8}, @unspec=@STANDARD={0x28, '\x00', 0x0, 0x1e8}}, {{@uncond, 0xc0, 0x110}, @mangle={0x50, 'mangle\x00', 0x0, {@mac, @mac=@dev, @empty, @multicast1}}}], {{[], 0xc0, 0xe8}, {0x28}}}}, 0x430)

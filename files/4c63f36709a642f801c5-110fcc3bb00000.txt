@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e8616085ae2398519d922bdd9c2d97cd18a66d29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+r3 = socket(0x1d, 0x2, 0x6)
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000080)={'vcan0\x00', <r4=>0x0})
+bind$packet(r3, &(0x7f0000000000)={0x11, 0x0, r4, 0x1, 0x0, 0x6, @link_local}, 0x14)
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[], 0xfffffecc)
+splice(r0, 0x0, r2, 0x0, 0x4ffe0, 0x0)

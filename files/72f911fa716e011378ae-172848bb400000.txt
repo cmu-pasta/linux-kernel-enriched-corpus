@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6ef4a84c14fcf72670e435d1d47c3bdbb011bf0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r0, 0x0)
+r1 = accept(r0, 0x0, 0x0)
+writev(r1, &(0x7f00000002c0)=[{&(0x7f00000001c0)}], 0x1)

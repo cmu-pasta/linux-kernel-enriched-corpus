@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d204aaca3ac260c553e053c566b529f350ea6454
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+accept4(r0, &(0x7f0000000b00)=@ax25, &(0x7f0000000b80)=0x80, 0x80800)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000040)={0x2, 'bridge_slave_0\x00'}, 0x18)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000000)={0x2, 'ifb0\x00'}, 0x18)
+syz_extract_tcp_res$synack(&(0x7f0000000000), 0x1, 0x0)
+connect$vsock_dgram(0xffffffffffffffff, &(0x7f00000000c0)={0x28, 0x0, 0x0, @hyper}, 0x10)
+pipe(&(0x7f0000000100)={<r1=>0xffffffffffffffff})
+getsockopt$netrom_NETROM_N2(r1, 0x103, 0x3, &(0x7f0000000180)=0x800000005, &(0x7f0000000140)=0x4)

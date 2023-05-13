@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=32ab41bbdc0c28643c507dd0cf1eea1a9ce67837
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":32}
+r0 = memfd_create(&(0x7f00000000c0)='/dev/input/event#\x00', 0x0)
+write$binfmt_script(r0, 0x0, 0x0)
+execveat(r0, &(0x7f0000000000)='\x00', 0x0, 0x0, 0x1000)

@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+r1 = dup(r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+connect$netrom(0xffffffffffffffff, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+r2 = accept(0xffffffffffffffff, 0x0, 0x0)
+connect$vsock_stream(r2, 0x0, 0x0)
+ioctl$FS_IOC_FSSETXATTR(r2, 0x401c5820, &(0x7f00000001c0)={0x81f, 0x3, 0x20, 0x7fd6, 0x6})
+r3 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r3, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r3, 0x0)
+accept(r3, 0x0, 0x0)
+bind(r3, &(0x7f0000000280)=@generic={0x1d, "bb1a11bb9b778c8e06a28dd7998090a3f6f916aa4d14d9c0d5bbbd3851c71da878a1f506056e8d6cc33ffec3793e8cd1aaa511d9085868d4fa7f33d4be849adc6b2665dc6273f7d643aef25102f788d16ae4627f5c05aa735d58e6034fd496b04dc2854b7ba2b78b08bfd672fe8df33eeef1aab2111fe6f6aeac3eac0cee"}, 0x80)
+write$binfmt_elf64(0xffffffffffffffff, &(0x7f0000001240)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, [{}], "", [[], [], []]}, 0x378)
+accept4$packet(0xffffffffffffffff, 0x0, &(0x7f0000000300), 0x800)

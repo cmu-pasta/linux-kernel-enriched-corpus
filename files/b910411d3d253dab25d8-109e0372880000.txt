@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3126a93b81d21dca4c1af2d018696342a9df7b82
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+madvise(&(0x7f0000000000/0x400000)=nil, 0x400000, 0xc)
+openat$sysctl(0xffffffffffffff9c, &(0x7f0000000240)='/sys/kernel/mm/ksm/run\x00', 0x1, 0x0)
+mremap(&(0x7f00001c4000/0x4000)=nil, 0x4000, 0x1000, 0x3, &(0x7f00002ef000/0x1000)=nil)

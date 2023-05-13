@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=57e2b844f7c5648c0a9b9b1cd079c4dac2c80daf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+ioctl$EXT4_IOC_SETFLAGS(0xffffffffffffffff, 0x40086602, 0x0)
+syz_mount_image$jfs(0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0)

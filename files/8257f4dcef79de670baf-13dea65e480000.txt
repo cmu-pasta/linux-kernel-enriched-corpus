@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3d605ec1d0a7f2a269a1a6936ac7f2b85975ee9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+sendmsg$inet6(r0, &(0x7f0000000600)={&(0x7f0000000400)={0xa, 0x0, 0x0, @empty}, 0x1c, &(0x7f00000005c0)=[{&(0x7f0000000440)="8630", 0xffd8}], 0x1}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=89740d8d8416726adeba5953543037142b3b20be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+ioctl$KVM_SET_USER_MEMORY_REGION(0xffffffffffffffff, 0x4020ae46, &(0x7f00000000c0)={0x1fe, 0x0, 0x800000023000, 0x2000, &(0x7f0000ffc000/0x2000)=nil})
+keyctl$dh_compute(0x1b, &(0x7f0000000080), &(0x7f00000000c0)=""/83, 0x53, &(0x7f00000001c0)={&(0x7f0000000040)={'sha224-avx2\x00'}, &(0x7f00000001c0)})

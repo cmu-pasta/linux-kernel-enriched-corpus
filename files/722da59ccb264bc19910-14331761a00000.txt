@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=64be609cf3e23c7d046fca5b84344bc997927a61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+unshare(0x28000200)
+prctl$PR_GET_SPECULATION_CTRL(0x34, 0x0, 0x4)
+r0 = openat$proc_capi20(0xffffffffffffff9c, 0x0, 0x7fdf, 0x0)
+bind$pptp(r0, 0x0, 0x0)
+ioctl$SIOCAX25DELFWD(r0, 0x89eb, 0x0)
+setsockopt$netlink_NETLINK_TX_RING(0xffffffffffffffff, 0x10e, 0xc, 0x0, 0x0)
+acct(0x0)
+sendmsg$nl_route(0xffffffffffffffff, 0x0, 0x0)
+clone(0x70024100, 0x0, 0x0, 0x0, 0x0)

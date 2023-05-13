@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7cd3db70971bc10523485d12d95fdefa301fb819
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = memfd_create(&(0x7f0000000040)="00000600000000000000", 0x0)
+write$binfmt_elf64(r0, &(0x7f00000002c0)=ANY=[@ANYBLOB="7f454c4600000000000000000000000003003e000039a594349c1fd83d000000000000000000000000000000000000000000000000003800030000"], 0x3b)
+sendfile(r0, r0, &(0x7f0000000080), 0xfba)
+execveat(r0, &(0x7f0000000000)='\x00', 0x0, 0x0, 0x1000)

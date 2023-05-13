@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+ioctl$FITRIM(r0, 0x40305839, &(0x7f0000000240)={0x0, 0x0, 0x2be20000})

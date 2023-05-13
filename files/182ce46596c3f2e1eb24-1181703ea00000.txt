@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ada6369eed9244bfd8a4cadf4ef8dc48d101c535
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":true,"segv":true}
+r0 = syz_open_dev$binder(&(0x7f0000000940)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$binder(0x0, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000001000/0x4000)=nil, 0x4000, 0x0, 0x1000020011, r1, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000000440)={0x44, 0x0, &(0x7f0000000300)=[@transaction={0x40406300, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}], 0x16d, 0x2, 0x0})

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=acad76be3431f7cff3292234799b644379e1fc53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000100)=@newlink={0x3c, 0x10, 0x93872f499065bd43, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x1c, 0x12, @bond={{0xc, 0x1, 'bond\x00'}, {0xc, 0x2, [@IFLA_BOND_PRIMARY_RESELECT={0x8}]}}}]}, 0x3c}}, 0x0)

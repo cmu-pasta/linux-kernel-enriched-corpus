@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"segv":true,"waitrepeat":true}
+pipe2(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+ioctl$UFFDIO_REGISTER(0xffffffffffffffff, 0xc020aa00, &(0x7f00000000c0)={{&(0x7f0000011000/0x3000)=nil, 0x3000}, 0x1})
+r1 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+write$sndseq(r1, &(0x7f0000011fd2), 0xfff6)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f00000001c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})

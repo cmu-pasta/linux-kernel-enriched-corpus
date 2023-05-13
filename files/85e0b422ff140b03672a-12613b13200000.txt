@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0519bd00ced4ae7f7c6f20bbfa5c0dfa4df51739
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":3,"fault_nth":7}
+r0 = socket$inet6_sctp(0xa, 0x10000000005, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX(r0, 0x84, 0x6e, &(0x7f0000961fe4)=[@in={0x2, 0x0, @dev}], 0x10)
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(r0, 0x84, 0x1d, &(0x7f000095dff8)={0x1, [<r1=>0x0]}, &(0x7f000095dffc)=0x8)
+getsockopt$inet_sctp6_SCTP_SOCKOPT_PEELOFF(r0, 0x84, 0x66, &(0x7f0000000040)={r1}, &(0x7f0000000140)=0x8)

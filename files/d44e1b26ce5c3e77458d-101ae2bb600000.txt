@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=675713c454e0384297cbb1c32d690f48d9287408
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = syz_open_dev$ndb(&(0x7f0000000080)='/dev/nbd#\x00', 0x0, 0x0)
+r1 = socket(0x1, 0x1, 0x0)
+ioctl$NBD_SET_SIZE_BLOCKS(r0, 0xab07, 0x10000)
+r2 = syz_open_dev$ndb(0x0, 0x0, 0x0)
+ioctl$NBD_SET_SOCK(r2, 0xab00, r1)
+r3 = syz_open_dev$ndb(0x0, 0x0, 0x0)
+r4 = socket$inet(0x2, 0x802, 0x0)
+ioctl$NBD_SET_SOCK(r3, 0xab00, r4)
+ioctl$NBD_SET_FLAGS(r3, 0xab0a, 0x1ffffffff)
+ioctl$NBD_DO_IT(r3, 0xab03)

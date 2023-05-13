@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f8c72b4d164dbb9fb08573b34df022df46136910
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:5 FaultNth:1 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xa000)=nil, 0xa000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000008000+0xaf7)={0x26, "736b636970686572000000000000", 0x0, 0x0, "65636228616573290000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000007000)="86ab27391a1e5d234cba60dd552d5c42", 0x10)
+r1 = accept$alg(r0, 0x0, 0x0)
+recvmsg(r1, &(0x7f0000008000)={0x0, 0x0, &(0x7f0000001000)=[{&(0x7f0000009000-0xa7)="00", 0x1}], 0x1, &(0x7f0000000000)="", 0x0, 0x0}, 0x0)

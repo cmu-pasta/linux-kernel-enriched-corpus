@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=362d37ea5c9445929e633e81565b20e77d317b4f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+r0 = socket(0x1e, 0x805, 0x0)
+sendmsg$tipc(r0, 0x0, 0x0)
+r1 = socket(0x8000000001e, 0x1, 0x0)
+setsockopt$packet_tx_ring(r1, 0x10f, 0x87, &(0x7f0000000040)=@req3={0x80000000}, 0xfeda)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000180)=@req3={0x80000000, 0x0, 0x2}, 0x1c)
+accept4$packet(r1, &(0x7f00000001c0)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @remote}, &(0x7f0000000200)=0x14, 0x0)

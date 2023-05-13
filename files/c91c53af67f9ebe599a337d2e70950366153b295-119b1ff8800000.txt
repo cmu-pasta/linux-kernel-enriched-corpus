@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=de6519e18a472f06a6b530c84c3be8a29c554900
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000001000)={0x2, 0x3, @empty=0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+listen(r0, 0x1)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+r2 = bpf$PROG_LOAD(0x5, &(0x7f0000105000)={0x1, 0x2, &(0x7f0000415000-0x10)=[@generic={0x8db7, 0x0, 0x0, 0xfffffffffffffffe}, @generic={0xd395, 0x0, 0x0, 0x0}], &(0x7f0000ef5000-0x6)="737973654f00", 0x1, 0x80, &(0x7f000000a000)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x0, 0x0}, 0x30)
+r3 = socket$kcm(0x29, 0x2, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r3, 0x89e0, &(0x7f00007d8000-0x8)={r0, r2})
+connect$inet(r1, &(0x7f00000d2000-0x10)={0x2, 0x3, @empty=0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+r4 = socket$inet(0x2, 0x40000000000806, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r4, 0x8914, &(0x7f000000d000)={@common="6c6f0000000000000000000000000000", @ifru_flags=0xfffffffffffffffd})

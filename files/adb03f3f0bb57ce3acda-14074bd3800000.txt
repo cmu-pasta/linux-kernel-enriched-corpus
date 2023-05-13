@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7b765435e0b3227e40a8aab0cca847af63ca637a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+mkdir(&(0x7f0000fd6000-0x8)='./file0\x00', 0x0)
+mount(&(0x7f00004bf000-0x1)='.', &(0x7f000050a000-0x8)='./file0\x00', &(0x7f0000ea6000-0x6)='mslos\x00', 0x200500e, &(0x7f0000d1a000))
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f000000b000)={&(0x7f000000f000)={0x10}, 0xc, &(0x7f00005a7000-0x10)={&(0x7f0000419000-0x174)=@newsa={0x138, 0x10, 0x713, 0xffffffffffffffff, 0xffffffffffffffff, {{@in6=@mcast1={0xff, 0x1, [], 0x1}, @in=@multicast2=0xe0000002, 0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x63}, {@in=@loopback=0x7f000001, 0xffffffffffffffff, 0x6c}, @in6=@remote={0xfe, 0x80, [], 0xffffffffffffffff, 0xbb}, {}, {}, {}, 0xffffffffffffffff, 0x1, 0xa, 0x1}, [@algo_comp={0x48, 0x3, {{"6465666c61746500000000000000000000000000000000000000000000000000000000000000000000f1ffffff00"}}}]}, 0x138}, 0x1}, 0x0)

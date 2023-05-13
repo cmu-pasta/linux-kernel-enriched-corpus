@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0ff14ee0c4b9da917e9874e250a5f95f92fcb221
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r0, &(0x7f0000000000)={0x28, 0x0, 0x0, @host}, 0x10)
+socket$inet6_udp(0xa, 0x2, 0x0)
+sendmsg$IPSET_CMD_SWAP(0xffffffffffffffff, 0x0, 0x40000)
+connect$vsock_stream(r0, &(0x7f0000000440)={0x28, 0x0, 0xffffd8ef}, 0x10)
+setsockopt$SO_VM_SOCKETS_BUFFER_MAX_SIZE(r0, 0x28, 0x2, 0x0, 0x0)

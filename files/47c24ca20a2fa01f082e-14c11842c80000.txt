@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2789849184c19a43dddb46f19133d37e4a2831d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_INITMSG(r0, 0x84, 0x2, &(0x7f0000000040)={0x0, 0x4}, 0x8)
+setsockopt$inet_sctp6_SCTP_DEFAULT_SEND_PARAM(r0, 0x84, 0xa, &(0x7f00000000c0)={0x8}, 0x20)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendto$inet6(r0, &(0x7f0000000080)="03", 0x34000, 0x0, &(0x7f00000005c0)={0xa, 0x4e23, 0x0, @loopback}, 0x1c) (async)
+sendto$inet6(r0, &(0x7f0000000080)="03", 0x34000, 0x0, &(0x7f00000005c0)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)

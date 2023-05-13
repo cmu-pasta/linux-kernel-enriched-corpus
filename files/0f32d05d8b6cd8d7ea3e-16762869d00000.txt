@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e598aea6a9b3ab5e80729af67a9b0e837b6385b5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = io_uring_setup(0x6c5, &(0x7f00000002c0)={0x0, 0x5dbc})
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f0000001a40)=[{0x0}, {0x0}, {0x0}], 0x3)

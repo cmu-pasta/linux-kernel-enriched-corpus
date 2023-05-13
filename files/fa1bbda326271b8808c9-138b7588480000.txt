@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=934cae639b18d77e881fd48e8a299cb12c960891
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"usb":true,"wifi":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='hugetlb.1GB.usage_in_bytes\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_CHECKPOINT(r0, 0x4004662b, &(0x7f0000000000)=0x2)
+syz_clone3(&(0x7f0000000a00)={0x40b86000, 0x0, 0x0, 0x0, {0x1d}, 0x0, 0x0, 0x0, 0x0}, 0x58)
+mknod(&(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+mount$9p_unix(&(0x7f0000000140)='./file0\x00', &(0x7f0000000180)='./file0\x00', 0x0, 0x81000, 0x0)
+mount$9p_unix(0x0, &(0x7f0000000040)='./file0\x00', 0x0, 0x4030, 0x0)

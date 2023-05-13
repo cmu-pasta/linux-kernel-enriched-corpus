@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a3ccf17814970ad359112be7f2ec091a9e15dc1a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+syz_mount_image$xfs(&(0x7f0000000840)='xfs\x00', &(0x7f0000000880)='./file0\x00', 0xfd3, 0x7, &(0x7f0000000d00)=[{&(0x7f00000008c0), 0x0, 0xfffffffffffff3dd}, {&(0x7f0000000980)}, {&(0x7f0000000a80), 0x0, 0x401}, {&(0x7f0000000ac0), 0x0, 0x10001}, {&(0x7f0000000b00), 0x0, 0xfffffffffffffffa}, {&(0x7f0000000b40), 0x0, 0x9}, {&(0x7f0000000c00), 0x0, 0x2}], 0x40, &(0x7f0000000dc0)={'nouuid,', {[{@inode64='inode64', 0x2c}, {@gqnoenforce='gqnoenforce', 0x2c}, {@nolargeio='nolargeio', 0x2c}]}})
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000300)='./cgroup\x00', 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f0000000000)='memory.high\x00', 0x2, 0x0)
+sendfile(r1, r1, &(0x7f0000000040), 0x1)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7a32cd0d4c48cc55062b10b16055b5b095ce614d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket(0x2, 0x3, 0x67)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000140)='bond0\x00', 0x10)
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x41, &(0x7f0000000000)=0x8100, 0x4)

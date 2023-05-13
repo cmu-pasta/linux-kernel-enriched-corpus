@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=ad76691b7b2a1dbc2f82ac0c1f19a44ba872ddf4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r0, 0x0)
+preadv(r0, &(0x7f0000000280), 0x18, 0xd9f, 0x0)
+r1 = syz_io_uring_setup(0xeda, &(0x7f0000000080), &(0x7f000061b000/0x2000)=nil, &(0x7f0000715000/0x3000)=nil, &(0x7f00000001c0)=<r2=>0x0, &(0x7f0000000040)=<r3=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r2, 0x40, &(0x7f0000000240)=0x307e, 0x0, 0x4)
+syz_io_uring_submit(r2, 0x0, &(0x7f0000000180)=@IORING_OP_PROVIDE_BUFFERS={0x1f, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x2349)
+syz_io_uring_submit(r2, r3, &(0x7f0000000200)=@IORING_OP_OPENAT={0x12, 0x0, 0x0, 0xffffffffffffffff, 0x0, &(0x7f0000000000)='./file0\x00'}, 0x0)
+openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+io_uring_enter(r1, 0x43eb, 0x0, 0x0, 0x0, 0x0)

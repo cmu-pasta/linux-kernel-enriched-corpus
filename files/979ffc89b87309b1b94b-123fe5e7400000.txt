@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=91cbd2d4963aa0a7fe7b94d1a5c2ec1e36fa67a1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+connect$inet6(0xffffffffffffffff, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote, 0x3}, 0x1c)
+setsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, &(0x7f00000002c0)={{{@in6=@local, @in, 0x0, 0x0, 0x0, 0x0, 0xa}, {}, {}, 0x0, 0x0, 0x1}, {{@in, 0x0, 0x2b}, 0x0, @in6=@mcast2}}, 0xe8)
+bind$netlink(r0, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x1}, 0x41)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

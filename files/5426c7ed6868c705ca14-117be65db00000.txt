@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5f5a44abb4cba056fe24255c4fcb7e7bbe13de7a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = signalfd4(0xffffffffffffffff, &(0x7f00000000c0), 0x8, 0x0)
+r1 = syz_io_uring_setup(0x87, &(0x7f0000000a80), &(0x7f00006d6000/0x4000)=nil, &(0x7f00006d7000/0x3000)=nil, &(0x7f0000000000)=<r2=>0x0, &(0x7f0000000040)=<r3=>0x0)
+syz_io_uring_submit(r2, r3, &(0x7f0000002240)=@IORING_OP_POLL_ADD={0x6, 0x0, 0x0, @fd=r0}, 0x0)
+io_uring_enter(r1, 0x1523a, 0x0, 0x0, 0x0, 0xa)

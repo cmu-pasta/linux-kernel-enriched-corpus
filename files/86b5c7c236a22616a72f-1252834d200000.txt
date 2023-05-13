@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=40aaba1b8d1a5d1cae86fdc7c5bea280948c5205
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x80001, 0x84)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e20, @empty}, 0x10)
+sendmsg(r0, &(0x7f0000000100)={&(0x7f0000006000)=@in={0x2, 0x4e20, @loopback}, 0x80, &(0x7f0000007f80)=[{&(0x7f00000001c0)="de", 0x1}], 0x1}, 0x0)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDRS(r1, 0x84, 0x6c, &(0x7f0000000280)={0x0, 0x77, "25e360895ebf092a2a863a16b0c555f9578f759483cc127358bfaf5c33ecbd0676525a25b101039cdc79d8c1ef1cc4af7a68e40799e1908c6a322ab8e5546e685e525a924a8981c19edc0e85695e36b4f38e72a022e8d6c1860ddd96d3aee843478e83048f19ab076f382e3f1009e47de1a1e4e76eab1e"}, 0x0)

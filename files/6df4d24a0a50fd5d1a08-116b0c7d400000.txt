@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=2b9fab00a235b50a34adbc35adc236f7dbe490fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+openat$rfkill(0xffffffffffffff9c, 0x0, 0x40000, 0x0)
+getsockopt$inet_sctp6_SCTP_I_WANT_MAPPED_V4_ADDR(0xffffffffffffffff, 0x84, 0xc, 0x0, &(0x7f0000000280))
+ioctl$sock_SIOCOUTQ(0xffffffffffffffff, 0x5411, &(0x7f0000000040))
+bind$inet6(0xffffffffffffffff, 0x0, 0x0)
+keyctl$instantiate_iov(0x14, 0x0, &(0x7f0000000b40)=[{0x0}], 0x1, 0x0)
+listen(0xffffffffffffffff, 0x800000000000)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000200)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_DEVICE(r1, 0xc00caee0, &(0x7f0000000340)={0x4, <r2=>0xffffffffffffffff})
+ioctl$KVM_SET_DEVICE_ATTR(r2, 0x4018aee1, 0x0)

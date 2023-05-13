@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=071122e4f772c1ec834c7a6facc0b5058d215481
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000140)='/dev/fb0\x00', 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r0, 0x4601, &(0x7f0000000080)={0x30, 0x8, 0x0, 0x0, 0x0, 0x0, 0x8})

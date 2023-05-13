@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=64182208616de0ae5ebd9b1652cb213485d61fce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nfc(&(0x7f0000008a80), r0)
+r2 = openat$nci(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$IOCTL_GET_NCIDEV_IDX(r2, 0x0, &(0x7f0000000440)=<r4=>0x0)
+sendmsg$NFC_CMD_SE_IO(r3, &(0x7f00000016c0)={0x0, 0x0, &(0x7f0000001680)={&(0x7f0000000480)={0x2c, r1, 0x1, 0x0, 0x0, {}, [@NFC_ATTR_SE_INDEX={0x8}, @NFC_ATTR_SE_APDU={0x5, 0x19, 'K'}, @NFC_ATTR_DEVICE_INDEX={0x8, 0x1, r4}]}, 0x2c}}, 0x0)

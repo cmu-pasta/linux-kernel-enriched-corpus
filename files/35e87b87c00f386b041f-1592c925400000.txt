@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=426083b1e91873f7dc28032bfa16cbd46695cc17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+connect$inet6(0xffffffffffffffff, 0x0, 0x0)
+sendmmsg(0xffffffffffffffff, 0x0, 0x0, 0x0)

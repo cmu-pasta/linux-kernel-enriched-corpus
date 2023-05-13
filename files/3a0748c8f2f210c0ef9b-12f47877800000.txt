@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmmsg(r0, &(0x7f0000004d00)=[{{&(0x7f0000000000)=@in6={0xa, 0x4e23, 0x6, @mcast1={0xff, 0x1, [], 0x1}, 0x5}, 0x80, &(0x7f0000000240)=[{&(0x7f0000000080)}, {&(0x7f0000000100)}, {&(0x7f0000000140)}], 0x3, 0x0, 0x0, 0x40}}, {{&(0x7f0000000280)=@rc={0x1f, {0x5, 0x1, 0x7, 0x432, 0x2, 0x59}, 0x2}, 0x80, &(0x7f00000004c0)=[{&(0x7f0000000300)}, {&(0x7f0000000400)}, {&(0x7f0000000440)}], 0x3, &(0x7f0000000500)=ANY=[@ANYBLOB], 0x0, 0x4004014}, 0x3}, {{&(0x7f00000038c0)=@nl=@unspec, 0x80, &(0x7f0000003ac0)=[{&(0x7f0000003940)}, {&(0x7f00000039c0)}], 0x2, &(0x7f0000004f40)=ANY=[@ANYBLOB], 0x0, 0x8000}, 0xff}], 0x3, 0x24000000)

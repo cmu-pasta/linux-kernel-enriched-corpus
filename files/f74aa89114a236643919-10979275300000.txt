@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=210fff7256bda720c61028f03ccc57fb6d1662a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f0000000000), 0x0, 0x0)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+ioctl$BLKTRACESETUP(r1, 0xc0481273, &(0x7f0000000100)={'\x00', 0x0, 0x1f, 0x8})

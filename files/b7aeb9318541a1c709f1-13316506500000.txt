@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fbfc3552d97e318404e40b42b360de0b2c5865e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+listen(0xffffffffffffffff, 0x3f)
+connect(0xffffffffffffffff, &(0x7f0000000200)=@in={0x2, 0x4e20, @remote}, 0x3f000000)

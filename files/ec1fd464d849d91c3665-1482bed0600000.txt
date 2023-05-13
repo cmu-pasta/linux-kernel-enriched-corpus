@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=521a764b3fc8145496efa50600dfe2a67e49b90b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @null, @default, @netrom, @null, @rose, @rose, @null]}, 0x48)
+listen(r0, 0x0)
+accept(r0, 0x0, 0x0)
+sendto(r0, &(0x7f0000000080)="43184d7a1f6f0faf7ee11d5029f2d843e5e7965b2c55160bef8b9bce12ae6f5aa5e5608f0838df6f8e056a804829b79af582def10d6da39fec58eb2a4e5f401829dac41e712f01f1b67c4c26248747673a08cf04ec30b8d30ffa02c547d2c968a20d7394aa45f81331c1ec82b4902cb269223b8c035f04b0b2ce7955146e0accc013e06ee19d87a442d5466faa703d79dc8f026b637f58c8c80ea0e789849a54882e3d78ac", 0xa5, 0x4800, 0x0, 0x0)

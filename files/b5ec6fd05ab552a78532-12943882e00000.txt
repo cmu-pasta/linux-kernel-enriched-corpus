@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e117f229b9653f2247f1eb9eb034051b08a21c1d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":9,"resetnet":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"segv":true}
+r0 = socket$inet6(0xa, 0x80003, 0xff)
+ioctl(r0, 0x1000008912, &(0x7f0000000080))
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f00000000c0)=0x11)

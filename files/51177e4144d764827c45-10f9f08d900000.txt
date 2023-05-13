@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2281afcbbfa8fdb92f9887479cc0e4180f1c6b28
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = syz_open_dev$mouse(&(0x7f0000000000)='/dev/input/mouse#\x00', 0x101, 0x42040)
+write$USERIO_CMD_SEND_INTERRUPT(r0, 0x0, 0x0)
+r1 = syz_open_dev$mouse(&(0x7f0000000000)='/dev/input/mouse#\x00', 0x101, 0x101081)
+write$USERIO_CMD_SEND_INTERRUPT(r1, &(0x7f0000000080), 0x2)
+r2 = syz_open_dev$mouse(&(0x7f0000000000)='/dev/input/mouse#\x00', 0x101, 0x109887)
+finit_module(r2, 0x0, 0x0)

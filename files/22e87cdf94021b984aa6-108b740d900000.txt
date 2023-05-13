@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e502519404700a50ba41cb57ad5cc9b9648993d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+bind$inet(r0, &(0x7f0000000440)={0x2, 0x4e23, @broadcast}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+sendto$inet(r0, &(0x7f00000012c0)="0c268a927f1f6588b967481241ba7860005cf65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0xfe6a, 0x11, 0x0, 0x27)
+r1 = syz_open_dev$evdev(&(0x7f0000000080)='/dev/input/event#\x00', 0xc, 0x121041)
+ioctl$int_in(r1, 0x5452, &(0x7f0000000000)=0x7)
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f00000000c0)={0x0, 0x0, 0x0, {0x0, 0x100000000000001}, {0x4a, 0x2}, @ramp})
+write$evdev(r1, &(0x7f0000000040), 0x373)

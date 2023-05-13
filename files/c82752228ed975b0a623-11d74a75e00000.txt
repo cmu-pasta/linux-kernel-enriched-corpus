@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=55ef9d629f3b3d7d70b69558015b63b48d01af66
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$ax25(0x3, 0x5, 0x0)
+connect$ax25(r0, &(0x7f0000000000)={{0x3, @default, 0x8}, [@netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @null, @bcast, @bcast, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @bcast, @null, @default]}, 0x3c)

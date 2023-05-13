@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b175e71dffed2a5cfaa41f3882f8b59470e3f5a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket(0x2, 0x3, 0x80000000002)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000140)='veth1_virt_wifi\x00', 0x10)
+sendto$unix(r0, 0x0, 0x0, 0x8004, &(0x7f0000000180)=@abs={0x0, 0x0, 0x10000e0}, 0x77)
+sendto$unix(r0, &(0x7f0000000380)="db", 0xfcf2, 0x0, &(0x7f0000001380)=@abs={0x0, 0x0, 0x4e22}, 0x6e)

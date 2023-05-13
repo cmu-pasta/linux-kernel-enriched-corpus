@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b99ea386a9569d9794572c23293940f96cda3c15
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket(0x1e, 0x4, 0x0)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f00000001c0)=@req3={0xe1f, 0x0, 0x3}, 0x9ed27b770768daeb)
+r1 = socket$netlink(0x10, 0x3, 0x4)
+sendmsg$nl_generic(r1, &(0x7f0000000040)={&(0x7f0000000000), 0xc, &(0x7f000000d379)={&(0x7f0000000200)={0x18, 0x14, 0x301, 0x0, 0x0, {0x1e}, [@generic="c1"]}, 0x18}}, 0x0)

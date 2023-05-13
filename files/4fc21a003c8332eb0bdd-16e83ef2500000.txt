@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9b10491371879700d6a21c15684c2232ff015084
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_open_dev$dri(&(0x7f0000005e40)='/dev/dri/card#\x00', 0x1, 0x0)
+creat(&(0x7f00000000c0)='./bus\x00', 0x0)
+open(&(0x7f0000000100)='./bus\x00', 0x0, 0x0)

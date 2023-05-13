@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=39b72114839a6dbd66c1d2104522698a813f9ae2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true}
+r0 = socket(0x40000000015, 0x5, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+setsockopt$SO_TIMESTAMP(r0, 0x1, 0x40, &(0x7f0000000040)=0x1fd, 0x206)
+bind$inet(r0, &(0x7f0000000340)={0x2, 0x0, @loopback}, 0x10)
+sendmsg$xdp(r0, &(0x7f0000000100)={0x0, 0x0, 0x0}, 0x0)
+setsockopt$EBT_SO_SET_ENTRIES(0xffffffffffffffff, 0x0, 0x80, &(0x7f0000000140)=@broute={'broute\x00', 0x20, 0x6, 0x1be, [0x0, 0x0, 0x0, 0x0, 0x0, 0x20000380], 0x0, 0x0, &(0x7f0000000380)=[{}, {0x0, '\x00', 0x0, 0x0, 0x1, [{0x0, 0x0, 0x0, 'veth0\x00', 'ipddp0\x00', 'vxcan1\x00', 'bridge_slave_0\x00', @empty, [], @broadcast, [], 0xae, 0xe6, 0x12e, [@connbytes={'connbytes\x00', 0x18}], [@common=@dnat={'dnat\x00', 0x10, {{@dev}}}], @common=@ERROR={'ERROR\x00', 0x20, {"c815f445535b91522dc3001f8ee202557bfb923a7891727fed70e658e898"}}}]}, {0x0, '\x00', 0x2}]}, 0x236)
+recvmmsg(r0, &(0x7f00000004c0), 0x89c, 0x0, 0x0)

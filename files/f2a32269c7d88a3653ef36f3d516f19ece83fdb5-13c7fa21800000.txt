@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1379b6b21a2ffecd1ea4e2b564cc7e35d9f388b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x10000)=nil, 0x10000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(&(0x7f0000008000)='/dev/binder#\x00', 0x0, 0x0)
+close(r0)
+r1 = syz_open_dev$binder(&(0x7f0000009000-0xd)='/dev/binder#\x00', 0x0, 0x0)
+r2 = epoll_create(0x8000)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r0, &(0x7f000000c000)={0x0, 0x0})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000007000)={0x14, 0x0, &(0x7f000000c000)=[@acquire_done={0x40486311, 0x0, 0x0}], 0x0, 0x0, &(0x7f0000002000-0x1)=""})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f000000b000-0x30)={0x44, 0x0, &(0x7f000000a000-0x7c)=[@reply={0x40486311, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, &(0x7f000000a000)=[], &(0x7f0000003000)=[]}}], 0x0, 0x0, &(0x7f0000004000-0x4d)=""})
+ioctl$BINDER_THREAD_EXIT(r1, 0x40046208, 0x0)

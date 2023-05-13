@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2f1e10371619346cd944cf18cf1ac70a7884be0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000440)='vfat\x00', &(0x7f0000000400)='./file0\x00', 0xfffffffffffffffa, 0x1, &(0x7f00000003c0)=[{&(0x7f0000000080)="eb3c906d6b66732e666174000204010002000270f7f8", 0x16}], 0x0, 0x0)
+r0 = open(&(0x7f0000000300)='./file0\x00', 0x0, 0x0)
+fchdir(r0)
+mkdir(&(0x7f0000000740)='./file0\x00', 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=a7d678fba80c34b5770cc1b5638b8a2709ae9f3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @dev, 0x3}, 0x1c)
+r1 = socket$l2tp(0x18, 0x1, 0x1)
+iopl(0x9)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x0, 0x0, @mcast2}, 0x1c)
+connect$l2tp(r1, &(0x7f0000000040)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x0, @multicast2}, 0x4}}, 0x2e)
+socket$inet_udplite(0x2, 0x2, 0x88)

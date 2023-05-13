@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=22d0d0091c1bf4033de399092839fc77c64cc1fb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":12,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$net_dm(&(0x7f0000000440)='NET_DM\x00', r0)
+sendmsg$NET_DM_CMD_START(r1, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000480)={0x14, r2, 0x1}, 0x14}, 0x1, 0x0, 0x0, 0x2000c055}, 0x800)

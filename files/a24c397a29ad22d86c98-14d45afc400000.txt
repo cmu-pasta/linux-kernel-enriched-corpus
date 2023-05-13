@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e4223c174b5ef17b309798050835bafb6d6520b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1, 0x0)
+ioctl(r0, 0x4000008912, &(0x7f0000000100))
+creat(&(0x7f0000000280)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+perf_event_open(&(0x7f000000a000)={0x6, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clone(0x0, &(0x7f0000000040), &(0x7f0000000100), &(0x7f0000000000), &(0x7f0000000080))

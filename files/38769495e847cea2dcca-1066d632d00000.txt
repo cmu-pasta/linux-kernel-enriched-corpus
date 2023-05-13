@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=912bcf4179570004c8852eee1ad3a2a3da9c99a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$BTRFS_IOC_GET_SUBVOL_ROOTREF(0xffffffffffffffff, 0xd000943d, 0x0)
+ioctl$BTRFS_IOC_INO_LOOKUP_USER(0xffffffffffffffff, 0xd000943e, 0x0)
+ioctl$BTRFS_IOC_GET_SUBVOL_INFO(0xffffffffffffffff, 0x81f8943c, 0x0)
+ioctl$BTRFS_IOC_GET_SUBVOL_ROOTREF(0xffffffffffffffff, 0xd000943d, 0x0)
+ioctl$BTRFS_IOC_INO_LOOKUP_USER(0xffffffffffffffff, 0xd000943e, 0x0)
+io_uring_setup(0x6b6c, &(0x7f0000006400)={0x0, 0x67fc, 0x0, 0x3, 0x23d})
+ioctl$BTRFS_IOC_GET_SUBVOL_ROOTREF(0xffffffffffffffff, 0xd000943d, &(0x7f0000008a80)={0x2, [], 0x9a, "77ed903a8dac7a"})

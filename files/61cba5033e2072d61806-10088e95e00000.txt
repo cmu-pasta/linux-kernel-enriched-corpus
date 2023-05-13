@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=57f024efa044dfe369eb27a70742c5f8293c836e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$nl_netfilter(r0, &(0x7f0000d65000)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000480)={0x14, 0x4000000000003, 0x1, 0xffffffffffffffff, 0x0, 0x0, {0x2}}, 0x14}}, 0x0)

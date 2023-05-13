@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e2dc9aea0465d1eea101bb24cb463e2a7efe7d17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000f74000)={0x26, 'skcipher\x00', 0x0, 0x0, 'lrw(twofish)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000a5b000)="b70a75b0d5e383e5b3b60ced5c54db0a295df0df8217ad4000000000000000e6", 0x20)
+r1 = accept$alg(r0, 0x0, 0x0)
+write(r1, &(0x7f000059b000-0x113)="03789f2346f5a637457f999b2da815c5e23c5cc5df214c7a320ed06e5234cf972341ca385e829c980144c90f6e4a8904", 0x30)
+recvmsg(r1, &(0x7f00006e3000)={&(0x7f0000f76000)=@generic={0x0, ""/126}, 0x80, &(0x7f0000f80000-0x30)=[{&(0x7f0000295000)=""/4096, 0x1000}], 0x1, &(0x7f0000f77000-0xe3)=""/0, 0x0, 0x0}, 0x0)

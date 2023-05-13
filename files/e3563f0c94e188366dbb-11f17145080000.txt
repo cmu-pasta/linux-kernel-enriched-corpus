@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bdf035c61447f8c6e0e6920315d577cb5cc35ac5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000640), 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000040)=0x15)
+ioctl$TIOCSTI(r0, 0x5412, &(0x7f00000000c0))

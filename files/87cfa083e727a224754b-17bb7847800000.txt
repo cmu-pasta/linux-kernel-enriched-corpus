@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=ec842e5517a7de1a24951059e7746db582a0cda2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = openat$vnet(0xffffffffffffff9c, &(0x7f00002ac000)='/dev/vhost-net\x00', 0x2, 0x0)
+ioctl$int_in(r0, 0x40000000af01, &(0x7f0000000040))
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f0000000000)='/dev/audio\x00', 0x0, 0x0)
+close(r1)
+socket$packet(0x11, 0x3, 0x300)
+ioctl$VHOST_SET_FEATURES(r0, 0x4008af00, &(0x7f0000000640)=0x200000000)
+io_setup(0xa82, &(0x7f00000003c0)=<r2=>0x0)
+io_submit(r2, 0x1, &(0x7f00000001c0)=[&(0x7f0000000180)={0x0, 0x0, 0x0, 0x0, 0x0, r0, &(0x7f00000000c0)="0a20873cfa2d1bae8e6889f4264bc998abf9983affee1a9056aaabf84e5a4b339c2413d514dc9b35ca673d733fb45ff3a7df37d670762a8d51c7a45d14a01a03c85cb45c56dc61b7", 0x48}])
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000002c40))
+ioctl$VHOST_NET_SET_BACKEND(r0, 0x4008af30, &(0x7f0000d7c000)={0x0, r1})

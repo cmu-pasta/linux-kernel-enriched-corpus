@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=17d5de7f1fcab794cb8c40032f893f52de899324
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x2, 0x0)
+r1 = dup(r0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000000)=0xd)
+write$P9_RXATTRCREATE(r1, &(0x7f0000000340)={0x7, 0x21, 0x2}, 0x7)
+read(r0, &(0x7f0000000080)=""/87, 0x57)

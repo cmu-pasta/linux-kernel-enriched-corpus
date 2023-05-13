@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7cbd9d7047a1c4e14bbdc194a7d87de1f168289
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl80211(0x0)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, 0x0)
+sendmsg$NL80211_CMD_DEL_KEY(r0, 0x0, 0x0)

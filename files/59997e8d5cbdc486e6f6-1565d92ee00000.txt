@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4d331631d20a7ffcb1ef5b77ebee0d91cfaad1e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_PASTESEL(r0, 0x541c, &(0x7f0000000140))
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDFONTOP_SET_DEF(r1, 0x541c, &(0x7f0000000000)={0x2, 0x0, 0x0, 0x4, 0x0, 0x0})

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=163414c0fc6f717973e0a832acfba3dfc184707b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true}
+mkdir(&(0x7f0000000700)='./file1\x00', 0x0)
+mkdir(&(0x7f00000003c0)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0)='overlay\x00', 0x2000000, &(0x7f0000000d40)=ANY=[@ANYBLOB="75707065726469723d2e2f66696c65302c6c6f7765726469723d2e2f66696c65312c776f726b6469723d2e2f66696c6531007c778e0bfc"])
+chdir(&(0x7f0000000380)='./file0\x00')
+creat(&(0x7f0000000240)='./file0\x00', 0x0)
+acct(&(0x7f0000000200)='./file0\x00')

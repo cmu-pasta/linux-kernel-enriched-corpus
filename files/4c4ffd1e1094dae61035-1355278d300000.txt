@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7b96018c1b606f1a0f3f72f9f6cdc2fda085c745
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"close_fds":true,"vhci":true,"wifi":true}
+socket(0x0, 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, 0xffffffffffffffff, 0x0)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000140)={0x1f, 0xffff, 0x3}, 0x6)
+write(r0, &(0x7f0000000000)="05000300010000", 0x7)

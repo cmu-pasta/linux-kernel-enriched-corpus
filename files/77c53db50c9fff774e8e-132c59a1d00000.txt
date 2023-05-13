@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2484728c9a1d0482d5e27e2c4bb0e184b6dd9ec3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$smackfs_cipso(0xffffffffffffff9c, &(0x7f0000003300)='/sys/fs/smackfs/cipso2\x00', 0x2, 0x0)
+write$smackfs_cipso(r0, 0x0, 0xf0ff7f)

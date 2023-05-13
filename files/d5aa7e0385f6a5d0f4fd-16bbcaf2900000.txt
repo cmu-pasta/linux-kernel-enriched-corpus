@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=cd154e363d98a88718cfa62e5f65cad174b05356
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"close_fds":true}
+io_setup(0x5f, &(0x7f00000000c0)=<r0=>0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000240)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = dup(r1)
+io_submit(r0, 0x1, &(0x7f00000004c0)=[&(0x7f0000000080)={0x0, 0x0, 0x0, 0x5, 0x0, r2, 0x0}])
+socket$can_bcm(0x1d, 0x2, 0x2)
+unshare(0x40000000)

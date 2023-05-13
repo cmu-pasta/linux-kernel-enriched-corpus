@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=afa337a1ede8e89814a04c6b82a4eb86953d80a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":5,"close_fds":false}
+r0 = io_uring_setup(0x196, &(0x7f0000000040))
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f00000002c0)=[0xffffffffffffffff], 0x2e2)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+r1 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+io_uring_register$IORING_UNREGISTER_FILES(r0, 0x3, 0x0, 0x0)

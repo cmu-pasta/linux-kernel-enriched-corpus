@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=1a099186f9b468f0a79f02fbb0c998701485ef87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6(0xa, 0x3, 0x6)
+setsockopt$inet6_buf(r0, 0x29, 0x14, &(0x7f0000d0a000-0x80)="ff55d36cffba04365d0000000000000101000000", 0x14)
+setsockopt$inet6_buf(r0, 0x29, 0x14, &(0x7f0000d88000)="ff55cc6cffba04364e0000000000000101000000", 0x14)
+socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x5, 0x0)
+ioctl$sock_ifreq(r1, 0x8922, &(0x7f0000dc4000)={@common="6c6f0000000000000000000000000000", @ifru_mtu=0x0})
+socket$inet_tcp(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x5, 0x0)
+ioctl$sock_ifreq(r2, 0x8922, &(0x7f000025e000-0x28)={@common="6c6f0000000000080000000000000000", @ifru_names=@syzn={0x73, 0x79, 0x7a, 0x0, 0x0}})

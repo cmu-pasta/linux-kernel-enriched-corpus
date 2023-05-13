@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=130a267925a901d48bce979a237473e1b485481b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false,"vhci":true,"segv":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$netrom(0xffffffffffffffff, &(0x7f0000000000)={{0x3, @default, 0x1}, [@null, @bcast, @default, @bcast, @bcast, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @null, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}]}, 0x48)
+bind$bt_hci(r0, &(0x7f0000000040)={0x1f, 0xffff, 0x3}, 0x6)
+getsockname$packet(0xffffffffffffffff, 0x0, &(0x7f0000000040)=0x52)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='freezer.state\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000040)=ANY=[], 0x6db6e559)
+mmap(&(0x7f0000000000/0x400000)=nil, 0x400000, 0x1, 0x10012, r1, 0x0)
+write$binfmt_misc(r0, &(0x7f0000000000)={'syz0', "7a7925e639"}, 0x9)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$inet(0x2, 0x3, 0x100000000033)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000000)='erspan0\x00', 0x10)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+sendmmsg$unix(r1, &(0x7f00000006c0)=[{&(0x7f0000000280)=@abs={0x0, 0xfeffffff0000ffeb, 0xffffff7f}, 0x6e, 0x0}], 0x1, 0x0)

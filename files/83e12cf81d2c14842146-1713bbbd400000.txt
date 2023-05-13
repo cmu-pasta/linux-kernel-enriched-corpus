@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9c65accb85b71ee72e58b2874fc7608a28e4d641
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000240)='/dev/ptmx\x00', 0x0, 0x0)
+flock(r0, 0x2)

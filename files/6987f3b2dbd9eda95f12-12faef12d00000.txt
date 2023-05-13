@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=91f769e6299331f7ab779fb44b4c269de4512e7b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$F2FS_IOC_MOVE_RANGE(0xffffffffffffffff, 0xc020f509, 0x0)
+getpid()
+getpgid(0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000280)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_GSI_ROUTING(r1, 0x4008ae6a, &(0x7f0000000140)={0x1, 0x0, [{0x0, 0x4}]})

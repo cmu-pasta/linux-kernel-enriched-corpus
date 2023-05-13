@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @default, @default, @bcast, @bcast, @null, @null, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}]}, 0x48)
+listen(r0, 0x0)
+getsockname(r0, 0x0, &(0x7f0000000280))
+r1 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f00000007c0)={0x0, 0x0, 0x0}, 0x0)

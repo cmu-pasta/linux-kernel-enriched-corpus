@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7c5839f5915224f0502f84cb34b208fcdc3cea1f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","close_fds":true}
+r0 = openat$binderfs(0xffffffffffffff9c, &(0x7f0000000140)='./binderfs/binder1\x00', 0x0, 0x0)
+mmap$binder(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1, 0x11, r0, 0x0)
+munmap(&(0x7f0000ffa000/0x4000)=nil, 0x4000)

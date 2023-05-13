@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_GET_WOWLAN(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000400)=ANY=[@ANYBLOB='(\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="010000000000000000007e00000008000300296f206f4edf66ca3138874953b6f77ba4c10b24f11d9f95f7c3baa871dc5b1691d715a073ebb0ab3f32a80a29308c7e654f4df4fb4fc22e69d86416d380f644646bc8b4cb760c69c54304c7cf4ab3a5e5408adb7eb6f0f6e14bde5198df7f269d976d08a9da5dcad08dbf5fcb8151b2da7e5a471fe8347b0e0a1d931400", @ANYRES32=0x0, @ANYBLOB], 0x28}}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=381cb436fe60dc03d7fd2a092b46d7f09542a72a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080)='/dev/net/tun\x00', 0x0, 0x0)
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000000)={'\x00', 0x7132})
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)
+ioctl$TUNSETQUEUE(r0, 0x400454d9, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, 0x0, 0x0)

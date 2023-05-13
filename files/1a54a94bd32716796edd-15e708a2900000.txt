@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e2554a4e22f91ae463a9097f5f0de8e6c989686c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$sequencer(0xffffffffffffff9c, 0x0, 0x400002, 0x0)
+ioctl$SNDCTL_FM_LOAD_INSTR(r0, 0x40285107)
+ioctl$SNDCTL_SEQ_OUTOFBAND(r0, 0x40085112, 0x0)
+r1 = openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000080)='/dev/sequencer2\x00', 0x0, 0x0)
+ioctl$SNDCTL_SEQ_OUTOFBAND(r1, 0x40085112, 0x0)
+ioctl$SNDCTL_SEQ_RESET(r1, 0x5100)
+ioctl$SNDCTL_SEQ_RESET(r1, 0x5100)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0bce3bb68cb383fce92f78444e3ef77c764b60ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+ioctl$FS_IOC_FSSETXATTR(0xffffffffffffffff, 0x401c5820, &(0x7f0000000080)={0x8})
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+writev(r0, &(0x7f00000000c0)=[{&(0x7f0000000080), 0xfffffebe}], 0x1)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=766aad2609c9a3742436a3e25518eba8f5c6ddc8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_usb_connect(0x0, 0x3f, &(0x7f0000000000)=ANY=[@ANYBLOB="11010000733336088dee1adb23610000000109022d0001000000000904000003fe03010009058d1f00020000000905050200de7e000009058b1e20"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+r2 = dup(r1)
+ioctl$EVIOCSMASK(r2, 0xc0105b08, &(0x7f0000000140)={0x0, 0x0, 0x0})

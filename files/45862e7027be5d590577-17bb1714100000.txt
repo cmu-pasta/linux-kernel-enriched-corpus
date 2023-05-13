@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4892aaa2ef26ab83c6b974f1db422f526f9aaec0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000180)='/dev/fb0\x00', 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r0, 0x4601, &(0x7f0000000000)={0x0, 0x0, 0x80, 0x258, 0x0, 0x0, 0x4, 0x0, {}, {}, {}, {}, 0x1, 0x0, 0x0, 0x0, 0x1})
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+dup2(r1, r1)
+ioctl$VIDIOC_PREPARE_BUF(0xffffffffffffffff, 0xc058565d, 0x0)

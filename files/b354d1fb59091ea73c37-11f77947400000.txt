@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=de28cb0e686acfa1c9dbad1e11cbb0ac9b05caf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"segv":true}
+r0 = socket(0x10, 0x803, 0x0)
+sendto(r0, &(0x7f0000000040)="120000001200ff7f000000000000000e0000", 0x12, 0x0, 0x0, 0x0)

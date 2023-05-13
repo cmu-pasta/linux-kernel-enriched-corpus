@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=64a91d95c31faa0e8dd58a5a7cc0ab963e28600a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"wifi":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000080)=@newlink={0x28, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x20004}, [@IFLA_GROUP={0x8}]}, 0x28}}, 0x0)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000000), 0xffffffffffffffff)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f0000000000)={'wlan1\x00', <r4=>0x0})
+sendmsg$NL80211_CMD_SET_MCAST_RATE(r2, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000200)={0x24, r1, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r4}, @void}}, [@NL80211_ATTR_MCAST_RATE={0x8, 0x6b, 0x14}]}, 0x24}}, 0x0)

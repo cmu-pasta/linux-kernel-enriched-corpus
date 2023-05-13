@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=fc9fdff62276818feb777668e69a9ebd7b20d5e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='hugetlbfs\x00', 0x0, 0x0)
+chdir(&(0x7f0000000300)='./file0\x00')
+mkdir(&(0x7f0000000240)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000280)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./bus\x00', &(0x7f0000000400)='overlay\x00', 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB='lowerdir=./bus,workdir=./file1,upperdir=./file0'])
+chdir(&(0x7f0000000140)='./bus\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cpu.stat\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x0, 0x10012, r0, 0x0)

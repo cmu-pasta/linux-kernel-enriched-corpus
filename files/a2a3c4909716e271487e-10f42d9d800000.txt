@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=fde6964e9bcb7ae3d5776b379e74a526ada8ab4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(&(0x7f0000dfe000-0xd)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$usbmon(&(0x7f0000dc6000-0xd)='/dev/usbmon#\x00', 0x101, 0x0)
+getpeername$ax25(r1, &(0x7f0000f1e000), &(0x7f000007a000)=0x10)
+r2 = epoll_create(0x100010004)
+pipe(&(0x7f000052f000-0x8)={<r3=>0x0, <r4=>0x0})
+ioctl$PPPIOCSFLAGS(r3, 0x40047459, &(0x7f0000d7b000)=0x80200)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r0, &(0x7f0000113000))
+open_by_handle_at(r4, &(0x7f000090c000)={0x7f, 0x5, "17f1521871ff8b78780d0a91c19439c76e8384ff3b02055e110d5394cdcae25c0afe4cf713938f607b2823ac3cc855eee46040e6db37be626dce8435eff0fa9765f90309fddc0382e35ee68cb6ba96e584f7f7234d7f60aafc4c6c5e2a7576c10f42fd015257d4962f1984ed5d61d724f1b5b0f4572271"}, 0x400)
+ioctl$BINDER_THREAD_EXIT(r0, 0x40046208, 0x0)
+dup3(r0, r2, 0x0)

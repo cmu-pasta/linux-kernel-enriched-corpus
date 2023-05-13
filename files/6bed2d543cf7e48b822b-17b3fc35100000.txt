@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=bbdfee82ad719956853665fd0e6ca96ba3129334
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":6,"close_fds":false}
+r0 = syz_open_dev$media(&(0x7f0000000240)='/dev/media#\x00', 0x3, 0x0)
+ioctl$MEDIA_IOC_REQUEST_ALLOC(r0, 0x80047c05, 0x0)

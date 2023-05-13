@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=75a2a727e4636c7a34dbd49197b15c3de92a8f7f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":false,"sysctl":true,"tmpdir":true}
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x0, 0x5c832, 0xffffffffffffffff, 0x0)
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r0)
+ptrace$poke(0x5, r0, &(0x7f00000000c0), 0x3ff)

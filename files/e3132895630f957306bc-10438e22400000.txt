@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b0e30ab5186d097b8e3e23e8ca971fbf1cf54659
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tmpdir":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$dspn(&(0x7f0000000040)='/dev/dsp#\x00', 0x7, 0x101000)
+setsockopt$inet_sctp6_SCTP_FRAGMENT_INTERLEAVE(r0, 0x84, 0x12, &(0x7f0000000080)=0x2, 0x4)
+r1 = socket$inet(0x2b, 0x1, 0x0)
+sendto$inet(r1, &(0x7f0000000040), 0x50212, 0x2000e803, &(0x7f0000000000)={0x2, 0x4e23}, 0x10)
+listen(r1, 0x0)

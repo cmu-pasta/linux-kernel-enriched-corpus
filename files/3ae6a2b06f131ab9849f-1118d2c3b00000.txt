@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e0083a52ae0eb23d3186173d403646079b45c715
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$usbfs(&(0x7f0000000180), 0x77, 0x1)
+ioctl$USBDEVFS_IOCTL(r0, 0x8108551b, &(0x7f0000000380))
+syz_usbip_server_init(0x1)
+r1 = syz_open_dev$usbfs(&(0x7f0000000180), 0x77, 0x1)
+ioctl$USBDEVFS_BULK(r1, 0xc0185502, &(0x7f0000000240)={{{0x1, 0x1}}, 0x1, 0x9, &(0x7f00000001c0)="0f"})

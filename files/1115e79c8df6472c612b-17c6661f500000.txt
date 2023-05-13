@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4e787d7ede986c6bdabd8a46e10dcee11b5768c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_open_dev$swradio(&(0x7f00000000c0)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f00000002c0)={0x3, @pix={0x9, 0x40, 0x50313459, 0x1, 0x0, 0x200, 0x6, 0xeaa4, 0x1, 0x4, 0x0, 0x5}})

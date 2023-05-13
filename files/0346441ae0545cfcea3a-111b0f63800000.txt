@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=7da50094325f0a296fb481c5b85ec519dd13f4de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet(0x2, 0x3, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x3, &(0x7f0000000000)='F', 0x1)
+r1 = socket$inet(0x2, 0x3, 0x1)
+setsockopt$IPT_SO_SET_REPLACE(r1, 0x0, 0x40, &(0x7f00003b3cf8)=@raw={'raw\x00', 0x9, 0x3, 0x2a8, 0x158, 0xffffffff, 0xffffffff, 0x0, 0xffffffff, 0x210, 0xffffffff, 0xffffffff, 0x210, 0xffffffff, 0x3, &(0x7f00000a5000), {[{{@uncond, 0x0, 0x130, 0x158, 0x0, {}, [@common=@unspec=@string={0xc0, 'string\x00', 0x1, {0x0, 0x0, 'kmp\x00', "ecfd0037dcd340e5a6177a6797bea2127443e46369bd74862729ee034a86420544c724a452db12a4c2045000244db87c098ff4f41d4bbb35f945f28a0306be536177778b121649cf151f11f7ba76d04ee6c2ca95efdf7802c10816bff1763bac0973ae3a2008b0f9a4ed3b3294f0687f31c8b1cf4fde5acc3a190ffc19a93587", 0x69}}]}, @common=@unspec=@STANDARD={0x28, '\x00', 0x0, 0xfffffffffffffffb}}, {{@uncond, 0x0, 0x70, 0xb8, 0x0, {}, []}, @unspec=@CT0={0x48, 'CT\x00'}}], {{[], 0x0, 0x70, 0x98}, {0x28, '\x00', 0x0, 0xfffffffffffffffe}}}}, 0x308)
+r2 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$IPT_SO_SET_REPLACE(r2, 0x0, 0x40, &(0x7f0000000000)=@filter={'filter\x00', 0xe, 0x4, 0x358, 0xffffffff, 0x0, 0x1d0, 0x0, 0xffffffff, 0xffffffff, 0x2c0, 0x2c0, 0x2c0, 0xffffffff, 0x4, &(0x7f0000001fc0), {[{{@uncond, 0x0, 0xe0, 0x108, 0x0, {}, [@common=@unspec=@devgroup={0x38, 'devgroup\x00'}, @common=@unspec=@connbytes={0x38, 'connbytes\x00'}]}, @REJECT={0x28, 'REJECT\x00'}}, {{@uncond, 0x0, 0xa0, 0xc8, 0x0, {}, [@common=@unspec=@cluster={0x30, 'cluster\x00'}]}, @REJECT={0x28, 'REJECT\x00'}}, {{@uncond, 0x0, 0xc8, 0xf0, 0x0, {}, [@common=@addrtype={0x30, 'addrtype\x00'}, @common=@ttl={0x28, 'ttl\x00'}]}, @REJECT={0x28, 'REJECT\x00'}}], {{[], 0x0, 0x70, 0x98}, {0x28, '\x00', 0x0, 0xfffffffffffffffe}}}}, 0x3b8)
+setsockopt$inet_int(r0, 0x0, 0x16, &(0x7f0000a19000)=0x6, 0x4)
+sendto$inet(r0, &(0x7f0000ff7000)="9ccb35cbbba86ddf42de61040000002f7e4e02e766cd8eccba5649df09496b50356ddc9ba793c81def0a12cda89017e6", 0x30, 0x0, &(0x7f000066354c)={0x2, 0x4e20, @rand_addr}, 0x10)

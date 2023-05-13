@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4c7b2703501a755b74d25903a98b413083b45ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+perf_event_open(&(0x7f000025c000)={0x2, 0x78, 0x3e3}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clock_gettime(0x0, &(0x7f00000001c0))
+r0 = syz_open_dev$loop(&(0x7f0000ca9ff5)='/dev/loop#\x00', 0x0, 0x0)
+r1 = syz_open_dev$loop(&(0x7f0000000040)='/dev/loop#\x00', 0x8000400000000c9, 0x0)
+ioctl$LOOP_SET_FD(r1, 0x4c00, r0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x0, 0x0)
+r3 = syz_open_dev$loop(&(0x7f0000000200)='/dev/loop#\x00', 0x0, 0x0)
+ioctl$LOOP_CHANGE_FD(r3, 0x4c00, r2)
+ioctl$LOOP_CHANGE_FD(r3, 0x4c06, r3)

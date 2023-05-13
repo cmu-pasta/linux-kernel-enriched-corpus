@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fc68413100cf0373c877bb2c6dd62c199f3a402b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"","leak":true,"close_fds":false,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = add_key$keyring(&(0x7f0000000000), &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffb)
+keyctl$unlink(0x9, 0x0, r0)

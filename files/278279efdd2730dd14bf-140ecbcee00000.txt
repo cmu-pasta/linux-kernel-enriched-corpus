@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2d6d1853e26eb3b70cd558298ebf0c98157fcccf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000e5b000)={0x2, 0x4e20, @multicast1}, 0x10)
+connect$inet(r0, &(0x7f0000ccb000)={0x2, 0x4e20}, 0x10)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000100)={0x1, 0x3, &(0x7f00009ff000)=ANY=[@ANYBLOB="18000000030000000000000000a5000095002b0000000000"], &(0x7f00002bf000)='syzkaller\x00', 0x4, 0x436, &(0x7f0000000040)=""/183}, 0x48)
+r2 = socket$kcm(0x29, 0x1000000000002, 0x0)
+recvmmsg(r2, &(0x7f0000003540), 0x400000000000310, 0x0, 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r2, 0x89e0, &(0x7f000031aff8)={r0, r1})
+sendmsg$rds(r2, &(0x7f0000002940)={0x0, 0x0, &(0x7f0000002800)=[{&(0x7f00000004c0)=""/4096, 0x1000}], 0x1}, 0x0)
+setsockopt$kcm_KCM_RECV_DISABLE(r2, 0x119, 0x1, &(0x7f0000000300)=0x80, 0x4)

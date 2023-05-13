@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3b87dcf5e5ba9a2043ee6ed716cb1de4e3ffa1f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true}
+socketpair(0xf, 0x0, 0x7, &(0x7f00000000c0)={<r0=>0xffffffffffffffff})
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(r0, 0x84, 0x1d, &(0x7f0000000100)={0x4, [0x0, 0x0, 0x0, 0x0]}, &(0x7f0000000140)=0x14)
+r1 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r1, &(0x7f0000000080)={0xa, 0x4e24, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+sendmmsg(r1, &(0x7f00000092c0), 0x3ffffffffff0c00, 0x0)

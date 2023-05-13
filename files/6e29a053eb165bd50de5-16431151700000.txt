@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1860a98f3556d97065ad773d095aa1d7eb5fbafa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","leak":true,"netdev":true,"close_fds":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f0000000000)=0x1, 0x4)
+setsockopt$inet_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000040)=0x1, 0x4)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x0, @remote}, 0x10)
+shutdown(r0, 0x2)
+shutdown(r0, 0x1)

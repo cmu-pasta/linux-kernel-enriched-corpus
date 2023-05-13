@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=919a733d5136b05e9e51353988a37e1b00f69363
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = socket(0x1, 0x2, 0x0)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000a40))
+epoll_ctl$EPOLL_CTL_MOD(r1, 0x3, r0, 0x0)
+r2 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r1, &(0x7f00000003c0))

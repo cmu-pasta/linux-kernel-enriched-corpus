@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=f99edaeec58ad40380ed5813d89e205861be2896
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true}
+r0 = socket$inet6(0xa, 0x80803, 0x87)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+bind$netlink(r1, &(0x7f0000000080)={0x10, 0x0, 0x0, 0xff}, 0xc)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @ipv4={[], [], @loopback}}, 0x1c)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f00000001c0)={{{@in6=@remote, @in6=@loopback, 0x0, 0x0, 0x0, 0x0, 0x2}, {}, {}, 0x0, 0x0, 0x1}, {{@in=@dev, 0x0, 0x2b}, 0x0, @in6=@loopback, 0x0, 0x0, 0x0, 0x90}}, 0xe8)
+connect$inet6(r0, &(0x7f00000000c0), 0x1c)
+r2 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000100)='./cgroup\x00', 0x200002, 0x0)
+r3 = openat$cgroup_int(r2, &(0x7f0000000000)='pids.max\x00', 0x2, 0x0)
+write$cgroup_int(r3, &(0x7f0000000080), 0x12)

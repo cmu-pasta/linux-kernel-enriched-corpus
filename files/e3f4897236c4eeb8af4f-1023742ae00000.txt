@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=daeccafbaf10d3ac82b2aa792c5f8acd6e3a675c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+openat$kvm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/kvm\x00', 0x0, 0x0)
+fcntl$F_SET_RW_HINT(0xffffffffffffffff, 0x40c, &(0x7f0000000240)=0x2)
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000100)='fd/3\x00')
+ioctl$KVM_GET_EMULATED_CPUID(r0, 0xc008ae09, &(0x7f0000000240)=""/255)

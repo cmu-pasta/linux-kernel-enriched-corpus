@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=96eb7f1ce75ef933697f24eeab928c4a716edefe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='memory.stat\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000000040)={0x0, 0x0, 0x0, 0x800000271})
+r1 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000040)={0x38, 0x1403, 0x1, 0x0, 0x0, "", [{{0x9, 0x2, 'syz1\x00'}, {0x8, 0x41, 'siw\x00'}, {0x14, 0x33, 'syz_tun\x00'}}]}, 0x38}}, 0x0)

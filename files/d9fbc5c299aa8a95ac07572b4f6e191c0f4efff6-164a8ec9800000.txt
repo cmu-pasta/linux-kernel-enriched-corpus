@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=2b6a5e7ed9c189aadc974fc5ff168b131c005947
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+socket$inet_tcp(0x2, 0x1, 0x0)
+openat$selinux_load(0xffffffffffffff9c, &(0x7f0000003000-0xe)='/selinux/load\x00', 0x2, 0x0)
+clone(0x20000, &(0x7f0000000000)="", &(0x7f0000000000)=0x0, &(0x7f0000000000)=0x0, &(0x7f0000000000)="")
+openat$rfkill(0xffffffffffffff9c, &(0x7f0000000000)='/dev/rfkill\x00', 0x400, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00009a9000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+clock_gettime(0x0, &(0x7f0000000000)={0x0, 0x0})
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000bf7000)={0x10005, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_SMI(r2, 0xaeb7)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+sendmsg$nfc_llcp(0xffffffffffffffff, &(0x7f00007f3000)={&(0x7f0000921000-0x60)={0x27, 0x0, 0x0, 0x0, 0x0, 0x0, "1814145680ffffffffffff7891000076e43108f56bbd95054d6b050000bebc48e8d8cda3d681fc482e6e9709000000000000da0303cc208a6e4bf82eff4d04", 0x0}, 0x60, &(0x7f0000fda000)=[], 0x0, &(0x7f0000921000-0x64)={0x10, 0x29, 0x3b, ""}, 0x10, 0x0}, 0x0)

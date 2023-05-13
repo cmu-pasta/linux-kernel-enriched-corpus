@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4cb6430631b7567848a6736be59d0350b3ada2ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true}
+write$cgroup_subtree(0xffffffffffffffff, &(0x7f0000000180)={[{0x2b, 'cpu'}, {0x2f, 'rdma'}, {0x2b, 'pids'}, {0x2b, 'rdma'}, {0x2f, 'cpu'}, {0x2b, 'rdma'}, {0x2f, 'memory'}, {0x2f, 'pids'}]}, 0x30)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f00000003c0)='./cgroup/syz0\x00', 0x200002, 0x0)
+r1 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup\x00', 0x200002, 0x0)
+r2 = openat$cgroup_subtree(r1, &(0x7f00000000c0)='cgroup.subtree_control\x00', 0x2, 0x0)
+write$cgroup_subtree(r2, &(0x7f0000000080)={[{0x2b, 'pids'}]}, 0x6)
+write$cgroup_subtree(r2, &(0x7f0000000100)={[{0x2d, 'pids'}]}, 0x6)
+r3 = openat$cgroup_type(r0, &(0x7f0000000000)='cgroup.type\x00', 0x2, 0x0)
+write$cgroup_type(r3, &(0x7f0000000140)='threaded\x00', 0x9)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000240)='./cgroup/syz0\x00', 0x1ff)

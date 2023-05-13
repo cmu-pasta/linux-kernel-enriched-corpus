@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=10cd2ff2ccd320618b127ec50ea6e5a55461cd76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000040)='TIPCv2\x00')
+getsockopt$bt_l2cap_L2CAP_OPTIONS(0xffffffffffffffff, 0x6, 0x1, &(0x7f0000000180), 0x0)
+sendmsg$TIPC_NL_BEARER_ENABLE(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000340)={0x88, r1, 0x1, 0x0, 0x0, {}, [@TIPC_NLA_NET={0x10, 0x7, [@TIPC_NLA_NET_NODEID={0xc, 0x3, 0x1f}]}, @TIPC_NLA_MON={0x1c, 0x9, [@TIPC_NLA_MON_ACTIVATION_THRESHOLD={0x8, 0x1, 0x800}, @TIPC_NLA_MON_ACTIVATION_THRESHOLD={0x8, 0x1, 0x5}, @TIPC_NLA_MON_REF={0x8, 0x2, 0x1}]}, @TIPC_NLA_BEARER={0x48, 0x1, [@TIPC_NLA_BEARER_NAME={0x10, 0x1, @udp='udp:syz1\x00'}, @TIPC_NLA_BEARER_DOMAIN={0x8, 0x3, 0x8001}, @TIPC_NLA_BEARER_UDP_OPTS={0x2c, 0x4, {{0x14, 0x1, @in={0x2, 0x4e22, @local}}, {0x14, 0x2, @in={0x2, 0x4e21, @remote}}}}]}]}, 0x88}}, 0x10)

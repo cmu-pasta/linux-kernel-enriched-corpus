@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5c8b4f0ea10c23945625f4187bac8e6e471d732c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps\x00')
+r1 = gettid()
+process_vm_writev(r1, &(0x7f0000000000)=[{&(0x7f00008f9f09)=""/247, 0xf7}], 0x1, &(0x7f0000121000)=[{&(0x7f0000217f28)=""/231, 0xffffff4e}], 0x23a, 0x0)
+madvise(&(0x7f0000495000/0x400000)=nil, 0x400000, 0x8) (async)
+read$FUSE(r0, &(0x7f0000000100)={0x2020}, 0x2025)

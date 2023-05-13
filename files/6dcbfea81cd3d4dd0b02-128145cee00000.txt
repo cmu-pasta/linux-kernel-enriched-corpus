@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=bca714e408e2adb9f64d3075889c233a309a46da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000400000084)
+bind$inet6(r0, &(0x7f0000000100)={0xa, 0x4e23}, 0x1c)
+listen(r0, 0xffffffff80000001)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX_OLD(r1, 0x84, 0x6b, &(0x7f000055bfe4)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000140)={<r2=>0xffffffffffffffff})
+r3 = dup(r2)
+ioctl$PERF_EVENT_IOC_ENABLE(r3, 0x8912, 0x400200)
+socket$inet6(0xa, 0x80000000000003, 0x3)
+setsockopt$SO_BINDTODEVICE(r1, 0x1, 0x19, &(0x7f00000000c0)='vcan0\x00', 0x10)
+setsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(r1, 0x84, 0x9, &(0x7f0000000440)={0x0, @in={{0xa, 0x0, @local}}, 0x0, 0x0, 0x0, 0x0, 0x2e}, 0x98)

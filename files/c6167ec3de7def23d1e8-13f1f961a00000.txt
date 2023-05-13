@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=291f241bec2fdf1bc2418cca91cc1d4e7f36027b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000080)='./cgroup\x00', 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f0000000040)='pids.max\x00', 0x2, 0x0)
+write$cgroup_int(r1, &(0x7f0000000000), 0x12)

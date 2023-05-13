@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8fcf27347cbc42940c3497052c63eed41434235c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$sg(0x0, 0xfffffffffffffffe, 0x0)
+syz_open_dev$vcsu(&(0x7f0000000c40), 0x6, 0x0)
+ioctl$SCSI_IOCTL_BENCHMARK_COMMAND(r0, 0x3)
+r1 = openat$kvm(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r1, 0xae01, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=771e9420eb1aebfbc3d6a7ff0e34460cb1f12d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"wifi":true,"tmpdir":true}
+bpf$BPF_TASK_FD_QUERY(0x14, &(0x7f0000000080)={0x0, 0xffffffffffffffff, 0x0, 0x7, &(0x7f0000000000)='cgroup\x00'}, 0x30)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f00000000c0)='memory.max\x00', 0x2, 0x0)
+write$cgroup_int(r1, &(0x7f0000000180), 0x12)

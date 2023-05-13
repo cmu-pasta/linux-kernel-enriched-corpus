@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=0c00cc3e04fe00ad69ac62fbe8464b2f0fae932a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @null, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x3)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+syz_open_dev$usbmon(&(0x7f0000000240)='/dev/usbmon#\x00', 0xffffffff00000000, 0x40000)
+accept(r0, 0x0, 0x0)
+ioctl$sock_SIOCBRADDBR(r1, 0x89a0, 0x0)
+getsockopt$inet_tcp_TCP_ZEROCOPY_RECEIVE(0xffffffffffffffff, 0x6, 0x23, 0x0, &(0x7f0000000200))
+r2 = socket$inet(0x2, 0x0, 0x0)
+sendto$inet(r2, 0x0, 0x0, 0x200007ff, 0x0, 0x0)
+timer_create(0x0, &(0x7f0000cd0000)={0x0, 0x12, 0x0, @thr={0x0, 0x0}}, &(0x7f0000000040))
+gettid()
+recvmmsg(r2, &(0x7f0000000840), 0x656, 0x0, 0x0)

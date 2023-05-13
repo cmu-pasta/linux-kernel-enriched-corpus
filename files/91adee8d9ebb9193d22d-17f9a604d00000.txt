@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e88760744e620228603baf7d76a637c75f7d9e1e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f0000000040)=ANY=[@ANYBLOB="120100008ab76a08720c11004236000000010902120001000000000904"], 0x0)
+syz_usb_control_io(r0, 0x0, &(0x7f0000001a40)={0x84, &(0x7f0000001600), 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io(r0, 0x0, 0x0)

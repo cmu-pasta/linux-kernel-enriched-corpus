@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ec45249073777e4fc8fa9d8f1732f594bc2f4023
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x1e, 0x80001, 0x0)
+sendmsg(r0, &(0x7f00003bbfc8)={&(0x7f0000fdbf80)=@generic={0x10000000001e, "02ff01000000010000000000000007e77f5bf86c48028001000000f1ffffff009a480075e6a50000de010300000000e4ff064b3f013a000000080000008f00000000ac50d5fe32c4000000007fffffff6a008356edb9a6341c1fd45624281e00070ecddd0206c39750c40000fd00000900000000000b0000db000026da36"}, 0x80, &(0x7f0000454000), 0x0, &(0x7f000012e000)}, 0x0)
+write$tun(r0, &(0x7f0000000080)={@void, @hdr={0x1, 0x3, 0x3, 0x7, 0x100000001, 0x649}, @x25={0x0, 0xff, 0xff}}, 0xd)

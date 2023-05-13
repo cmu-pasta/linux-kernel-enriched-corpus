@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=510646f37157a7b21558e86fc411ab2a3a30c451
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = fsopen(&(0x7f0000000080)='debugfs\x00', 0x0)
+fsconfig$FSCONFIG_SET_FLAG(r0, 0x0, &(0x7f00000000c0)='dirsync\x00', 0x0, 0x0)
+fsconfig$FSCONFIG_CMD_RECONFIGURE(r0, 0x6, 0x0, 0x0, 0x0)

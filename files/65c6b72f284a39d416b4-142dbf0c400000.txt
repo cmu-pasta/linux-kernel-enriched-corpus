@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+write$P9_RWALK(r1, &(0x7f0000000500)={0x157, 0x6f, 0x1}, 0x9)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000900)='9p\x00', 0x0, &(0x7f0000000380)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@cache_loose='cache=loose', 0x2c}, {@access_any='access=any', 0x2c}]}})

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7725df637b232c161f6a2984a02a4d9f57252130
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = creat(&(0x7f0000000080)='./file0\x00', 0x20005f)
+write$binfmt_elf32(r0, &(0x7f0000000380)=ANY=[@ANYBLOB="7f454c4600800000000000000000000002000600ca3f8bca0000000038000000000000f7ffffffffffff1f0002000000000000000000000001000000000000000000f87b66ff00040500000000e800000000000031596ddb0ac977439f5355be8847c22e30f56282002c95723f068fe42d2796cc"], 0x74)
+close(r0)
+mlockall(0x2)
+uselib(&(0x7f0000000040)='./file0\x00')

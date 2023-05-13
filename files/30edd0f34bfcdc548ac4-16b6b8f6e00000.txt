@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8869bc1c5a1b787c023bb419926f8f02119592ed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+syz_open_dev$audion(&(0x7f0000001980)='/dev/audio#\x00', 0x1, 0x101000)

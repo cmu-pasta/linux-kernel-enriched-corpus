@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=771e9420eb1aebfbc3d6a7ff0e34460cb1f12d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","close_fds":true,"wifi":true,"tmpdir":true}
+accept4$inet6(0xffffffffffffffff, 0x0, 0x0, 0x80000)
+r0 = creat(&(0x7f0000000240)='./file0\x00', 0x0)
+fallocate(r0, 0x100000011, 0x0, 0x2811fdff)

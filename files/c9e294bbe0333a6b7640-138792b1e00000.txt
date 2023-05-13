@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=ec221f6bac8133f071c99069233b474102e96c62
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+syz_mount_image$reiserfs(&(0x7f0000000280)='reiserfs\x00', &(0x7f00000002c0)='./file0\x00', 0x9, 0x0, 0x0, 0x1000000, &(0x7f00000004c0)={[{@usrjquota_file='usrjquota=syz'}, {@balloc_noborder='block-allocator=noborder'}, {@barrier_flush='barrier=flush'}, {@barrier_none='barrier=none'}, {@jqfmt_vfsv0='jqfmt=vfsv0'}, {@usrjquota_file='usrjquota=syz'}], [{@fsmagic={'fsmagic', 0x3d, 0x4}}, {@smackfsdef={'smackfsdef', 0x3d, 'selinux&vboxnet0*'}}, {@hash='hash'}, {@dont_measure='dont_measure'}, {@subj_type={'subj_type', 0x3d, ']]@eth0^(md5summd5sum}'}}, {@fowner_gt={'fowner>'}}, {@fsmagic={'fsmagic', 0x3d, 0x4}}, {@dont_hash='dont_hash'}]})

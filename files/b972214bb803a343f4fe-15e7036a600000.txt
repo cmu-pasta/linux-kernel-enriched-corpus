@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=83687867d4a435fce7c6045b34425b1cfb3bf2d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x3)
+connect$bt_l2cap(r0, &(0x7f0000000000)={0x1f, 0x0, {0x0, 0x0, 0x0, 0x0, 0x6}}, 0xe)
+syz_emit_ethernet(0x1, &(0x7f0000000100)=ANY=[@ANYBLOB="050000e4ad27b3c85ab8ca66f10020040400000006"], 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(0xffffffffffffffff, 0x8914, &(0x7f0000000100)={'i\x8az\x00\x00\b\x00'})
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x3)
+ioctl$FS_IOC_GETFSLABEL(r1, 0x400452c8, &(0x7f0000000100))

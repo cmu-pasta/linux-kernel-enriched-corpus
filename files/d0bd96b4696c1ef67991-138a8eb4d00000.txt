@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=08a86f0867ba0f092bf6ecbd6d5c2ae5e16a52d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault":true,"fault_call":5,"fault_nth":32,"tun":true,"close_fds":true}
+mkdir(&(0x7f0000000580)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = socket$unix(0x1, 0x5, 0x0)
+r3 = dup(r2)
+ioctl$PERF_EVENT_IOC_ENABLE(r3, 0x8912, 0x400200)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000280)='9p\x00', 0x0, &(0x7f0000000480)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@uname={'uname', 0x3d, '9p\x00'}}]}})

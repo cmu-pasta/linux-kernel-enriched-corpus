@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f35e12774aa3a888f874e944cda3d6e5c9e95b48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"tmpdir":true}
+open(&(0x7f0000000140)='./bus\x00', 0x141042, 0x0)
+r0 = creat(&(0x7f0000000040)='./bus\x00', 0x0)
+fallocate(r0, 0x10, 0x8003, 0x8020001)
+r1 = open(&(0x7f0000000140)='./bus\x00', 0x141142, 0x50)
+r2 = creat(&(0x7f00000002c0)='./file0\x00', 0x10d)
+write$P9_RREMOVE(r2, &(0x7f0000000280), 0x1033b)
+ioctl$EXT4_IOC_MOVE_EXT(r1, 0xc028660f, &(0x7f0000000200)={0x0, r2, 0x8028, 0x0, 0x0, 0x4})
+creat(&(0x7f0000000300)='./file0\x00', 0x0)

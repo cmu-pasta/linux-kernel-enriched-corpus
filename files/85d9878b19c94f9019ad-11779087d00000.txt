@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=573a8a7b9071e7549e4f6dc77599564187e677fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x15, 0x80005, 0x0)
+getsockopt(r0, 0x200000000114, 0x2717, 0x0, &(0x7f0000000000))
+accept4$netrom(r0, 0x0, 0x0, 0x800)
+r1 = socket$can_j1939(0x1d, 0x2, 0x7)
+syz_genetlink_get_family_id$ethtool(&(0x7f00000019c0), r0)
+getsockopt$inet6_mreq(r0, 0x29, 0x14, 0x0, 0x0)
+sendmsg$ETHTOOL_MSG_RINGS_GET(0xffffffffffffffff, 0x0, 0x8011)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r2, 0x8933, 0x0)
+bind$can_j1939(r1, &(0x7f0000000240), 0x18)
+r3 = socket$can_j1939(0x1d, 0x2, 0x7)
+r4 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000001840)={'vcan0\x00', <r5=>0x0})
+bind$can_j1939(r3, &(0x7f0000000240)={0x1d, r5}, 0x18)
+r6 = socket$can_j1939(0x1d, 0x2, 0x7)
+r7 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r7, 0x8933, &(0x7f0000001840)={'vcan0\x00', <r8=>0x0})
+bind$can_j1939(r6, &(0x7f0000000240)={0x1d, r8}, 0x18)
+getpeername$packet(r0, 0x0, &(0x7f0000001680))

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=78e9ad0e6952a3ca16e8234724b2fa92d041b9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000)='/dev/nullb0\x00', 0x4002, 0x0)
+bind$netlink(0xffffffffffffffff, &(0x7f00000002c0)={0x10}, 0xc)
+io_setup(0x45ab, &(0x7f0000000240)=<r1=>0x0)
+io_submit(r1, 0x111, &(0x7f0000001540)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r0, &(0x7f0000000000), 0xfffffce4}])
+getsockopt$inet_pktinfo(0xffffffffffffffff, 0x0, 0x8, &(0x7f0000000100)={0x0, @remote, @multicast1}, &(0x7f0000000180)=0xc)
+socket$nl_route(0x10, 0x3, 0x0)
+io_setup(0xad, &(0x7f00000000c0))

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e4aaa78795e490421c79f76ec3679006c8ff4cf0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x26e1, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(r0, 0x40086602, &(0x7f0000000000)=0xc9ab)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000400)='memory.events\x00', 0x100002, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(r1, 0x4004662b, &(0x7f00000005c0)=0x2)

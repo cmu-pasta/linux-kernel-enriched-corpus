@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2820deb61d92a8d7ab17a56ced58e963e65d76d0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":1,"close_fds":false}
+munmap(&(0x7f000001c000/0x3000)=nil, 0x3000)
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000180)='/dev/ptmx\x00', 0x3d, 0x0)
+write$binfmt_aout(r0, &(0x7f00000000c0)=ANY=[], 0xffffff78)

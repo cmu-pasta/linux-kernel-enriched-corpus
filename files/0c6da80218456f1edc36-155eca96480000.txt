@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=04ba5d25ea7f063c1689e824a4935587fead8438
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$uhid(0xffffffffffffff9c, &(0x7f0000000180), 0x2, 0x0)
+write$UHID_CREATE(r0, &(0x7f0000001200)={0x0, {'syz0\x00', 'syz1\x00', 'syz1\x00', &(0x7f0000000200)=""/4096, 0x1000, 0x0, 0x0, 0x0, 0x0, 0x1}}, 0x120)

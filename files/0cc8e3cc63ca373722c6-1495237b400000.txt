@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=093e7092e01bed192b564b04528826cc6f1dbf91
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+close(0xffffffffffffffff)
+r0 = syz_open_dev$video4linux(&(0x7f0000000080)='/dev/v4l-subdev#\x00', 0x3ff, 0x0)
+ioctl$VIDIOC_ENUMAUDIO(r0, 0xc0345641, &(0x7f0000000100)={0xff, "2d7114d311225f8acfdd401b0172c5abade764ee00fc53d82722f6261b5a3964", 0x3, 0x1})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r0, 0x4020565a, &(0x7f00000000c0)={0x8001007, 0x1, 0x1})
+r1 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x4, 0x0)
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r1, 0x4020565a, &(0x7f0000000040)={0x3})
+r2 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+ioctl$VIDIOC_SUBDEV_G_EDID(r2, 0xc0285629, &(0x7f0000000840)={0x3, 0xfdfd, 0x0, [], &(0x7f0000000800)})
+write$binfmt_script(r2, &(0x7f0000000000)={'#! ', './file0', [{}, {0x20, '/dev/video#\x00'}, {0x20, '/dev/video#\x00'}, {0x20, '/dev/video#\x00'}, {0x20, ',-_'}, {0x20, 'trusted+vvboxnet0proc)'}, {0x20, '/dev/video#\x00'}, {0x20, 'em1$vboxnet0'}, {0x20, '/dev/video#\x00'}]}, 0x75)
+r3 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x3, 0x0)
+r4 = syz_open_dev$media(&(0x7f0000000040)='/dev/media#\x00', 0xffffffffffffffc1, 0xa480)
+ioctl$VIDIOC_QBUF(r3, 0xc058560f, &(0x7f00000000c0)={0x0, 0xf, 0x4, 0x200021, {0x77359400}, {0x7, 0x0, 0xffff, 0x101, 0x10001, 0x3, "7e0a1f1b"}, 0xebac, 0x3, @fd=r4, 0x4})
+r5 = syz_open_dev$media(&(0x7f0000000080)='//../media#\x00', 0xffffffffffffffff, 0x0)
+ioctl$VIDIOC_G_JPEGCOMP(r5, 0x6611, 0xfffffffffffffffd)
+r6 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x6287, 0x0)
+ioctl$VIDIOC_S_FMT(r6, 0xc0d05605, &(0x7f00000002c0)={0x3, @win={{}, 0x0, 0x0, &(0x7f00000000c0)={{}, &(0x7f0000000080)={{}, &(0x7f0000000000)}}, 0x2, &(0x7f0000000100)}})
+r7 = syz_open_dev$video(&(0x7f0000000280)='/dev/video#\x00', 0x3, 0x0)
+ioctl$VIDIOC_S_FMT(r7, 0xc0d05605, &(0x7f00000000c0)={0x1, @sliced={0x0, [0x1306]}})
+r8 = syz_open_dev$video(&(0x7f0000000040)='/dev/video#\x00', 0x107fff, 0x0)
+ioctl$VIDIOC_G_FMT(r8, 0xc0d05604, &(0x7f00000000c0)={0x3, @win={{}, 0x0, 0x0, &(0x7f0000000080)={{}, &(0x7f0000000000)}, 0x0, &(0x7f00000000c0)}})

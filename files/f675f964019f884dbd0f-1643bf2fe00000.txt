@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d97d7daf2699eed6bfdcdfd97e70d56d3bf6a9e5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f000099e000)={0x2, 0x4e20, @multicast1}, 0x10)
+sendto$inet(r0, &(0x7f0000000140), 0xffffffffffffff58, 0x20008005, &(0x7f0000000100)={0x2, 0x4e20}, 0x10)
+ioctl$sock_FIOSETOWN(r0, 0x8901, &(0x7f0000000140)=0xffffffffffffffff)
+recvfrom(r0, &(0x7f0000f9cf9b)=""/101, 0x6478c8501c739ddb, 0x0, 0x0, 0xffffffffffffff39)

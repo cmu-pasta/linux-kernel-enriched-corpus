@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+r1 = fcntl$dupfd(r0, 0x406, r0)
+sendmsg$IPVS_CMD_SET_SERVICE(r1, &(0x7f00000002c0)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x400e002}, 0xc, &(0x7f0000000240)={&(0x7f0000000200)={0x28, 0x0, 0x20, 0x70bd2a, 0x25dfdbfb, {0x2}, [@IPVS_CMD_ATTR_DAEMON={0xc, 0x3, [@IPVS_DAEMON_ATTR_MCAST_TTL={0x8, 0x8, 0x3}]}, @IPVS_CMD_ATTR_TIMEOUT_UDP={0x8, 0x6, 0x2}]}, 0x28}, 0x1, 0x0, 0x0, 0x20008004}, 0x20000000)

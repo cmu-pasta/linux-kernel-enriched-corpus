@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=03cac969e671adbca500f9737d1a8656c37c24a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_opts(r0, 0x0, 0x40000048c, &(0x7f0000000000)="02000000004d16ed6166e100000000000000000000200000", 0x18)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000100)={0x2, 'gretap0\x00', 0x1}, 0x18)
+getpeername(r0, &(0x7f0000000040)=@pppol2tpv3={0x0, 0x0, {0x0, 0xffffffffffffffff, {0x0, 0x0, @rand_addr}}}, &(0x7f00000000c0)=0x80)

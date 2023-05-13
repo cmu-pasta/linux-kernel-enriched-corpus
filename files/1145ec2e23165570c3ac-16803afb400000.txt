@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=bff65b0242612090a2897a740476f20fdc765998
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = semget(0x2, 0x3, 0x20)
+semop(r0, 0x0, 0x0)
+r1 = semget$private(0x0, 0x4000, 0x3f)
+semctl$SEM_INFO(r1, 0x0, 0x13, 0x0)

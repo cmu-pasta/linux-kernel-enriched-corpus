@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a4bf9e41b7e055c3823fdcd83e8c58ca7270e38f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, 0x0, 0x0)
+r1 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r1, 0x0, 0x0)
+sendmsg$rds(r1, 0x0, 0x0)

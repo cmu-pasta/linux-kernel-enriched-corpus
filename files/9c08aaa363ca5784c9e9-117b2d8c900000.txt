@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=fe2fee189f1f8babd95615dcbb57871d6d18920a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+clone(0x20002004ffc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000080)='.\x00', 0x0, 0x0)
+symlinkat(&(0x7f00000000c0)='/', r0, &(0x7f0000d06ff8)='./file0\x00')

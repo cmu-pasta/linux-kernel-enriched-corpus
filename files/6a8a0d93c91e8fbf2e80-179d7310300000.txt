@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7bd106c28e846d1023d4ca915718b1a0905444cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000180), 0x0, 0x0)
+ioctl$LOOP_CTL_ADD(r0, 0x4c80, 0x0)
+r1 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+ioctl$LOOP_CTL_REMOVE(r1, 0x4c81, 0x0)

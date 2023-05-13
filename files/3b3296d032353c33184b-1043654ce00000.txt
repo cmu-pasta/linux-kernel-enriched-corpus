@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"close_fds":true}
+unshare(0x6c060000)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_TCP_MD5SIG(r0, 0x6, 0xe, &(0x7f0000000280)={@in={{0x2, 0x0, @local}}, 0x0, 0x5, 0x2, "a77760f5a7645bc43c241d69912dda0c63c2a66726f8cfafd6c8fe2c98de7ba44947a79015f0fe57917cb62a93987a938fdedfce7bbb24fec2fba09c41fb233245f2604b9e07b8ab79ec15ef2818a179"}, 0xd8)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+recvmsg(r0, 0x0, 0x100)

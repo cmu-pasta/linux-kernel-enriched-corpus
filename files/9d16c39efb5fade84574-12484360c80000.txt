@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f07cf3e7df6d272b92ccdabfeef07ae06c014ca5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true}
+r0 = open(&(0x7f0000000000)='.\x00', 0x0, 0x0)
+symlinkat(&(0x7f0000000040)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', r0, &(0x7f00000000c0)='./file0\x00')
+mkdirat(r0, &(0x7f0000000200)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', 0x0)
+mkdirat(r0, &(0x7f0000000180)='./file0/file0\x00', 0x0)
+r1 = open(&(0x7f0000000000)='.\x00', 0x0, 0x0)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40086602, &(0x7f0000000000)=0x20020008)
+renameat2(r1, &(0x7f0000000140)='./file0/file0\x00', r1, &(0x7f00000002c0)='./file1\x00', 0x4)

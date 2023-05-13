@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1b01ae0c2f54ed3f7fbeb9f13378c84f2aaed51f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false}
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r0, &(0x7f00000002c0)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="380000002400ffffff7f01000000000005000000", @ANYRES32=r1, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}, 0x1, 0x0, 0x0, 0x200008c1}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000004c0)=ANY=[@ANYBLOB='<\x00\x00\x00,\x00\'\r\x00'/20, @ANYRES32=r1, @ANYBLOB="000010000000000007000a000c0001007463696e646578000c000200080001009fa1006e41daf378f400"], 0x3c}}, 0x0)
+r2 = socket(0x1000000010, 0x80002, 0x0)
+sendmmsg$alg(r2, &(0x7f0000000200), 0x4924924924926d3, 0x0)

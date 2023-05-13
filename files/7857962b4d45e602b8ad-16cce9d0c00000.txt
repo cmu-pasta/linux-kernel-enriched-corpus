@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=824f609ea50e2c2cd161cb64758c95c0e114ce6e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/kvm\x00', 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+memfd_create(&(0x7f0000000040)='\x0f\xc5\xd4\xe1?\xd1D\xbb\xf9\xda\xf6p\xef/\xf4,%\x03\xdfv\xb6\xa5\xa8\x12+@\x16K\xa8\x1cx\x12\x00\x00\x00\x00\xcd_\xa8/\xdfH\x1b\x1eB\xa0\xb7VoX\x1bu\x80\xbe \xc8v\xcb\x0f\xd1\a\xb0m', 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1d22a2cc3521d5cf6b41bd6b825793c2015f861f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"tmpdir":true,"segv":true}
+socket$inet_sctp(0x2, 0x5, 0x84)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f00000000c0)={0x1c, r1, 0x31, 0x0, 0x0, {{0x7e}, {@val={0x8}, @void}}}, 0x1c}}, 0x0)

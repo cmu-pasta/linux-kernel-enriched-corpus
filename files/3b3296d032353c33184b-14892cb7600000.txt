@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+lseek(0xffffffffffffffff, 0x0, 0x0)
+mkdir(0x0, 0x40)
+munmap(&(0x7f0000ffe000/0x1000)=nil, 0x1000)
+unshare(0x60000000)

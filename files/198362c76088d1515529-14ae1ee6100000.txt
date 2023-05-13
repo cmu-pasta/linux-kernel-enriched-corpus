@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=39d35c93d0856ca3134bf97f8bb3f249808c2751
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = openat$6lowpan_enable(0xffffffffffffff9c, &(0x7f00000002c0)='/sys/kernel/debug/bluetooth/6lowpan_enable\x00', 0x2, 0x0)
+r1 = openat$fuse(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/fuse\x00', 0x2, 0x0)
+r2 = fcntl$dupfd(r0, 0x0, r1)
+r3 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000240)='/proc/vmallocinfo\x00', 0x0, 0x0)
+sendfile(r2, r3, 0x0, 0xd80e)

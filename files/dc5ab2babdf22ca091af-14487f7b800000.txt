@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a945be0a987628fc4e56b428c34d10f3db54426d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)="2f65786500000000000409004bddd9de91be10eebf000ee9a90f798058439ed554fa07424adee901d2da75af1f0200f5ab26d7a071fb35331ce39c5a")
+ioctl$DRM_IOCTL_RES_CTX(r0, 0x8004587d, &(0x7f0000000100)={0x0, &(0x7f00000000c0)})

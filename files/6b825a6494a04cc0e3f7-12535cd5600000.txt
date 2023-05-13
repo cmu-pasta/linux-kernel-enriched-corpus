@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1c2132cc5a2f0d05091adc4f2ed088020522f73a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3, 0x1000000008031, 0xffffffffffffffff, 0x0)
+r0 = syz_init_net_socket$llc(0x1a, 0x801, 0x0)
+connect$llc(r0, &(0x7f0000000380)={0x1a, 0x1, 0x0, 0x5, 0x0, 0x0, @local}, 0x10)

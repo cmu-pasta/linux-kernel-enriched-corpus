@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=c600e111223ce0a20e5f2fb4e9a4ebdff54d7fa6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000200)='cpuacct.usage_sys\x00\xc7\xec\xac\xd9&{\x0f\x96\xad\xd1\x8fl![\x8f\xb9\f\xca\x1d\xc2{\xee\xb7\x03K\x0f\xa6\xaa;\xf6\x89\xf7b^\xa5\xafI\r\xc4\x9f\v\xf2\x1c\xdc\xddp2\xb7\xbb\x1b\xfev\xea\xed\xe0\xaa\xe8\xceR`\xbb\xf2\xed;pC\x19\xbfn\x16\xaa\x199\xfe.Q\xebvB\xd2\x19&l?\x87\x17H\x1f.\xdbA\x1b\xafz\xe3\xdc};*\xec\xfe\xfa\xfb/\x18g\x80y\xfe\x89', 0x26e1, 0x0)
+close(r0)
+r1 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000580)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+syz_genetlink_get_family_id$nbd(0x0)
+sendmsg$NBD_CMD_STATUS(0xffffffffffffffff, 0x0, 0x20000000)
+sendmsg$NBD_CMD_CONNECT(0xffffffffffffffff, 0x0, 0x801)
+sendmsg$NBD_CMD_DISCONNECT(r0, 0x0, 0x20004000)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, &(0x7f00000001c0)={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000140)={<r2=>0xffffffffffffffff}, 0x2}}, 0x20)
+r3 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000040)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_MIGRATE_ID(r3, &(0x7f0000000080)={0x12, 0x10, 0xfa00, {0x0, r2, r1}}, 0x18)
+write$RDMA_USER_CM_CMD_DESTROY_ID(r0, &(0x7f0000000140)={0x1, 0x10, 0xfa00, {0x0, r2}}, 0x18)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=012fc28616476a6eba042bfeb6cf261b55750d4a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$binder(&(0x7f0000005000)="2f6465762f62696e6465722300", 0x0, 0x0)
+r1 = syz_open_dev$binder(&(0x7f00001ad000-0xd)="2f6465762f62696e6465722300", 0x0, 0x0)
+mmap(&(0x7f0000000000/0x2000)=nil, 0x2000, 0x0, 0x20011, r1, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR(r1, 0x40046207, 0x0)
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f0000009000-0x30)={0x4, 0x0, &(0x7f0000004000-0x18)=[@register_looper={0x630b}], 0x0, 0x0, &(0x7f0000009000)=""})
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000007000)={0x4, 0x0, &(0x7f0000006000-0x2c)=[@acquire_done={0x40486311, 0x0, 0x0}], 0x0, 0x0, &(0x7f0000002000)=""})
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f000000e000-0x30)={0x54, 0x0, &(0x7f000000e000-0x54)=[@request_death={0x400c630e, 0x3, 0x4}, @increfs_done={0x40106308, 0x0, 0x3}, @request_death={0x400c630e, 0x4, 0x0}, @release={0x40046306, 0x1}, @free_buffer={0x40086303, 0x0}, @dead_binder_done={0x40086310, 0x4}], 0xca, 0x0, &(0x7f000000e000-0xca)="1225bd0ce6ffb6fa93cf990803ad59007904cf4b9e3e9f751ec47ac3d78c463c71d1cc332cbe58ac10d8f7d804b3a71fe6a42646114256e38e1a447e77ee7b5b5f1c97e00b8c8825dc1c49e0ddb38c1c4debf80fe13a47beb301fbc48a73ff1659ef4250e4f31cfd1b0c21e1a87daac317e82f472d4505fc504658004b7993de11233f60a90e1ce034b8a8ca176854e93fc8ab9d3a176b3176ceaa6264440169da3e1c391b9592da7da35c2da55de5e768150f513572bd99103a2c99afc207d122e62911a1c890d14aa9"})

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@default, @null, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}, @default, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x2}, @null]}, 0x48)
+listen(r0, 0x0)
+unshare(0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f00000001c0), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_REMAIN_ON_CHANNEL(r2, 0x0, 0x0)
+sendmsg$NL80211_CMD_SET_MESH_CONFIG(r1, &(0x7f0000000200)={&(0x7f0000000080)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000180)={&(0x7f0000000100)={0x44, r3, 0x800, 0x70bd29, 0x25dfdbfe, {{}, {@val={0x8}, @val={0xc, 0x99, {0x0, 0x41}}}}, [@NL80211_ATTR_IFINDEX={0x8}, @NL80211_ATTR_IFINDEX={0x8}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x7f, 0x4d}}]}, 0x44}}, 0x40)
+write$binfmt_script(r1, &(0x7f0000000040)=ANY=[], 0x208e24b)
+recvmmsg(r0, 0x0, 0x0, 0x40012062, 0x0)

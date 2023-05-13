@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9c65accb85b71ee72e58b2874fc7608a28e4d641
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x200000000000011, 0x803, 0x1000000080081)
+flock(r0, 0x6)

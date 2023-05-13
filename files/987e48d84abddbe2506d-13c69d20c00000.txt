@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b658eb696c8279d9951a4ceea79efba8a1d12467
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000000)={0xb, 0x40, 0xa9, 0xa37, 0x1, 0x1}, 0x2c)
+bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0x0, 0x3, &(0x7f0000000040)=ANY=[@ANYBLOB="18000000000019000000000002800000850000000000000095"], 0x0}, 0x48)
+socket$rds(0x15, 0x5, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000780)={0x6, 0x4, &(0x7f0000000040)=@raw=[@map={0x18, 0x2, 0x1, 0x0, r0}, @call={0x85, 0x0, 0x0, 0x17}], &(0x7f0000000140)='GPL\x00', 0x41, 0xffc4, &(0x7f00000004c0)=""/167}, 0x48)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

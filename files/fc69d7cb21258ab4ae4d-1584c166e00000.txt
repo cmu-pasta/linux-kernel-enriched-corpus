@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=bdad210ff206ae93db98f11970d4201e67ead82b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+recvfrom$inet6(r0, 0x0, 0x36ff0824c68970de, 0x0, 0x0, 0x226)
+sendmsg$IPSET_CMD_CREATE(r0, 0x0, 0x0)
+sendmsg$IPSET_CMD_LIST(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000140)={0x58, 0x7, 0x6, 0x401, 0x0, 0x0, {0x7, 0x0, 0x3}, [@IPSET_ATTR_SETNAME={0x9, 0x2, 'syz1\x00'}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz2\x00'}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz1\x00'}]}, 0x58}, 0x1, 0x0, 0x0, 0x20004900}, 0x20000000)
+sendmsg$NFNL_MSG_ACCT_GET(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000280)=ANY=[@ANYBLOB="1400000001070101000098d37a501ba7c17305e5b1e70fe898691ded8a83310b94937fea08d738f79e7691604909674df77dfda004db359cf4bf499de8e35b0630531f35d102ee06e5c637bbe4036b07959a592d6847b4b14881633a9a7c46f48f6f6e3c04bcce2119cd541246095834cfb3da6989d20cbbbeadff72cc6ee5cb070c95e29eb52006d7b6869f6b563ce6dac89728ea8015a9fa1f"], 0x14}}, 0x0)

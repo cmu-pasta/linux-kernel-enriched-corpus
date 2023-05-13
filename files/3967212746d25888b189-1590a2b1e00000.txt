@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=57e2b844f7c5648c0a9b9b1cd079c4dac2c80daf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true,"segv":true}
+syz_mount_image$ceph(0x0, 0x0, 0x5, 0x0, 0x0, 0x10, 0x0)
+setsockopt$inet_sctp6_SCTP_DEFAULT_SNDINFO(0xffffffffffffffff, 0x84, 0x22, &(0x7f0000000080), 0x10)

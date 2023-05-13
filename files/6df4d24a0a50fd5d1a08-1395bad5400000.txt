@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=2b9fab00a235b50a34adbc35adc236f7dbe490fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000040)='/dev/kvm\x00', 0x0, 0x0)
+r1 = open(&(0x7f0000000080)='./file0\x00', 0x3, 0x8)
+r2 = dup3(r0, r0, 0x80000)
+ioctl$KVM_CREATE_DEVICE(r1, 0xc00caee0, &(0x7f00000000c0)={0x5, r2, 0x1})
+r3 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_DEVICE(r3, 0xc00caee0, &(0x7f0000000180)={0x4, <r4=>0xffffffffffffffff})
+ioctl$KVM_SET_DEVICE_ATTR(r4, 0x4018aee1, &(0x7f0000000140)={0x0, 0x2000000001, 0x0, &(0x7f0000000100)})

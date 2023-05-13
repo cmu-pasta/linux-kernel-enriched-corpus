@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=912bcf4179570004c8852eee1ad3a2a3da9c99a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x3, 0x0)
+write(r0, &(0x7f0000000100)="1400000052004f7fb3e4bf80a000080000000000", 0x14)
+recvmmsg(r0, &(0x7f0000005c80)=[{{0x0, 0x0, 0x0}}], 0x344, 0x10122, 0x0)
+getpid()
+io_uring_setup(0xa4, &(0x7f0000000080))

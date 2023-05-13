@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=daeccafbaf10d3ac82b2aa792c5f8acd6e3a675c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000040)='/dev/kvm\x00', 0x0, 0x0)
+ioctl$KVM_GET_MSR_INDEX_LIST(r0, 0xc008ae09, &(0x7f0000000080)={0x2})

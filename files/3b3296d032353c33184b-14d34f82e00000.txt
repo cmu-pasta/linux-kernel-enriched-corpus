@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true,"segv":true}
+openat$ptmx(0xffffffffffffff9c, 0x0, 0x101002, 0x0)
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+unshare(0x60000000)

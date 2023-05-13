@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c4fd25bc9502e9924e2b0850151cbbf707fb2c31
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$smackfs_cipso(0xffffffffffffff9c, &(0x7f0000000340)='/sys/fs/smackfs/cipso\x00', 0x2, 0x0)
+write$smackfs_cipso(r0, &(0x7f0000000380)=ANY=[@ANYBLOB="6e6c38b327f07c002030303030303030303030303030303030303032352030303030303030303030303030303030703030392000"], 0x34)
+lseek(r0, 0x100000001, 0x0)

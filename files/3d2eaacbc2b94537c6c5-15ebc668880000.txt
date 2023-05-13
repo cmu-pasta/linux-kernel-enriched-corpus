@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=c6fb822247d0827689d81d70eb06ccf17085c4e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"sysctl":true,"segv":true}
+r0 = syz_open_dev$usbmon(&(0x7f0000000000), 0x0, 0x0)
+io_uring_enter(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$AUTOFS_DEV_IOCTL_ASKUMOUNT(0xffffffffffffffff, 0xc018937d, &(0x7f0000000100)={{0x1, 0x1, 0x18, r0, {0x1757e3da}}, './file0\x00'})
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+r2 = socket(0x18, 0x0, 0x0)
+close(r2)
+r3 = socket$can_j1939(0x1d, 0x2, 0x7)
+r4 = socket$inet(0x2, 0x4000000000000001, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000000300)={'vcan0\x00', <r5=>0x0})
+bind$can_j1939(r3, &(0x7f0000000340)={0x1d, r5}, 0x18)
+connect$can_j1939(r2, &(0x7f0000000000)={0x1d, r5}, 0x18)
+getsockopt$SO_J1939_ERRQUEUE(0xffffffffffffffff, 0x6b, 0x4, &(0x7f00000002c0), &(0x7f0000000380)=0x4)
+sendfile(r2, r1, 0x0, 0x80005)

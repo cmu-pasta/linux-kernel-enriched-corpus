@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40eccf33adab0333176aac1200041f8e29dce3e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6(0xa, 0x5, 0x0)
+setsockopt$inet_int(r0, 0x0, 0xf, &(0x7f0000d10ffc)=0xfffffffffffffff9, 0x4)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000d24000)=[@in={0x2, 0xffffffffffffffff, @rand_addr=0xd5}, @in={0x2, 0xffffffffffffffff, @multicast1=0xe0000001}], 0x20)

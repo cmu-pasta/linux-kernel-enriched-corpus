@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=85be4764c59f9e394252768cb1763984edea365c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = socket(0x1000000000000010, 0x80802, 0x0)
+write(r0, 0x0, 0x0)
+getsockopt$inet_sctp6_SCTP_ADAPTATION_LAYER(r0, 0x84, 0x7, 0x0, 0x0)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000080)={0x1f, 0x0, @none}, 0xe)
+shutdown(r1, 0x1)

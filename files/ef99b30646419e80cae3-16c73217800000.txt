@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=b67fcc95c0d84ea5424813a0d8703fc5c06de7ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/kvm\x00', 0x0, 0x0)
+r1 = dup(r0)
+r2 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r3 = ioctl$KVM_CREATE_VCPU(r2, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r3, r3, &(0x7f0000016000/0x18000)=nil, &(0x7f0000000040)=[@text32={0x20, &(0x7f00000000c0)="ea00280000b30082d6540f30ea030000002c0066b850000f00d066ba4200b802000000efc74424000a000000c7442402acc70000c7442406000000000f0114240f20e035100000000f22e03e64360f01cf0f22c7", 0x54}], 0x1, 0x0, &(0x7f0000000380)=[@dstype3={0x7, 0x5}], 0x1)
+ioctl$KVM_SET_SIGNAL_MASK(0xffffffffffffffff, 0x4004ae8b, &(0x7f0000000000)=ANY=[@ANYBLOB="0f22"])
+ioctl$sock_inet_tcp_SIOCINQ(0xffffffffffffffff, 0x541b, &(0x7f0000000140))
+ioctl$KVM_SET_USER_MEMORY_REGION(r2, 0x4020ae46, &(0x7f0000bf7000)={0x0, 0x0, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+getsockopt$inet_sctp_SCTP_GET_ASSOC_STATS(0xffffffffffffffff, 0x84, 0x70, &(0x7f00000001c0)={<r4=>0x0, @in={{0x2, 0x4e22}}, [0x1, 0x6, 0x5, 0x1, 0x4, 0x3, 0x987, 0x3ff, 0x3f, 0x101, 0x1, 0x6, 0x10000, 0x9, 0x7]}, &(0x7f00000002c0)=0x100)
+setsockopt$inet_sctp_SCTP_RECONFIG_SUPPORTED(0xffffffffffffffff, 0x84, 0x75, &(0x7f0000000300)={r4, 0x1}, 0x8)
+setsockopt$inet6_tcp_buf(r1, 0x6, 0x1c, &(0x7f00000003c0), 0x0)
+ioctl$KVM_RUN(r3, 0xae80, 0x0)
+setsockopt$packet_tx_ring(0xffffffffffffffff, 0x107, 0xd, &(0x7f00000004c0)=@req={0x0, 0x80000000, 0x3, 0x6}, 0x10)

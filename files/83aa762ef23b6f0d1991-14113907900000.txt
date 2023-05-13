@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2ab6a8848c892bcb3a5cbf534df6ddfb01e4ade4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":3,"close_fds":false}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x3, &(0x7f00000000c0)=@framed, &(0x7f0000000080)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, [], 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+r1 = bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f0000000080)='sched_switch\x00', r0}, 0x10)
+close(r0)
+close(r1)

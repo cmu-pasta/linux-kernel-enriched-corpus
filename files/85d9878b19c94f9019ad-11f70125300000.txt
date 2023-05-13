@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=573a8a7b9071e7549e4f6dc77599564187e677fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$can_j1939(0x1d, 0x2, 0x7)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000200)={'vcan0\x00', <r1=>0x0})
+bind$can_j1939(r0, &(0x7f0000000240)={0x1d, r1, 0x0, {}, 0x1}, 0x5c)
+r2 = socket$can_j1939(0x1d, 0x2, 0x7)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r2, 0x8933, &(0x7f0000000200)={'vcan0\x00', <r3=>0x0})
+bind$can_j1939(r2, &(0x7f0000000240)={0x1d, r3}, 0x18)

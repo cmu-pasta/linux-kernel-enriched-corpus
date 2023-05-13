@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=c337d37023ad9a2951375a45463204547b9d8f4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000b4d000-0x30)={0x1, 0x2, &(0x7f0000ef3000)=[@generic={0x8db7, 0x0, 0x0, 0x0}, @generic={0xd395, 0x0, 0x0, 0x0}], &(0x7f0000b4d000)="737973654f00", 0x1, 0x80, &(0x7f000000a000)="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 0x0, 0x0}, 0x30)
+r2 = socket$kcm(0x29, 0x5, 0x0)
+sendto(r2, &(0x7f0000ef4000)="", 0x0, 0x44080, &(0x7f00007a6000)=@ethernet={0x1, @empty=[0x0, 0x0, 0x0, 0x0, 0x0, 0x0], [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]}, 0x10)
+epoll_pwait(r2, &(0x7f0000419000-0x18)=[{0x0, 0x0}, {0x0, 0x0}], 0x2, 0x7b7, &(0x7f0000fb4000)={0x1000}, 0x8)
+write(r2, &(0x7f0000109000)="", 0x0)
+ioctl$sock_kcm_SIOCKCMATTACH(r2, 0x89e0, &(0x7f0000ef9000-0x8)={r0, r1})
+ioctl$sock_kcm_SIOCKCMUNATTACH(r2, 0x89e1, &(0x7f00000aa000-0x4)={r0})

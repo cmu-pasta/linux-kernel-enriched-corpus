@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=42449ffe0b47ac85234265954c8004ec7fa2a83c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f0000000300)='lock_acquire\x00'}, 0x10)
+connect$unix(0xffffffffffffffff, &(0x7f0000000080)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x6e)

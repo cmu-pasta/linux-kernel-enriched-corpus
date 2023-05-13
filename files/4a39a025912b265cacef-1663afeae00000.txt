@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bcbb8cfa499e1562a6551ace02866e230950d6e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+mount(&(0x7f0000001340)=ANY=[@ANYBLOB='./file0'], &(0x7f0000000180)='./file0\x00', 0x0, 0x1001004, 0x0)
+syz_mount_image$ext4(0x0, &(0x7f0000000000)='./file0\x00', 0x0, 0x0, 0x0, 0x38028b8, &(0x7f0000000040)={[{@debug_want_extra_isize={'debug_want_extra_isize', 0x3d, 0x43ff}}, {@resuid={'resuid'}}, {@data_err_abort='data_err=abort'}], [{@uid_eq={'uid'}}, {@smackfsroot={'smackfsroot'}}, {@measure='measure'}, {@pcr={'pcr', 0x3d, 0xd}}]})
+lsetxattr$security_ima(&(0x7f00000001c0)='./file0\x00', 0x0, 0x0, 0x0, 0x0)

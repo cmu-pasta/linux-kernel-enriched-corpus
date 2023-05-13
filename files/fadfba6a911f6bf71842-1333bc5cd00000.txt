@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=49b789b2d6c990f9cd17c3a0f5f9ca2bd392a3f9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true,"vhci":true}
+r0 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/debug/bluetooth/6lowpan_control\x00', 0x2, 0x0)
+write$6lowpan_control(r0, &(0x7f0000000000)='connect aa:aa:aa:aa:aa:10 0', 0x1b)

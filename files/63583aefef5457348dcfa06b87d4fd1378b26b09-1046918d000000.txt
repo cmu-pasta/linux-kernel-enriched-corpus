@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=bddba6ce33aa2286aed84ee50a7281d2d3f910f4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$sock_inet_tcp_SIOCOUTQ(0xffffffffffffffff, 0x5411, &(0x7f000087f000-0x4)=0x0)
+listen(0xffffffffffffffff, 0x8)
+r0 = epoll_create1(0x80000000)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, 0xffffffffffffffff, &(0x7f0000019000-0xc)={0x0, 0x0})
+socketpair(0x8000000000001e, 0x5, 0x0, &(0x7f0000be4000-0x8)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+setsockopt$bt_BT_DEFER_SETUP(r1, 0x112, 0x7, &(0x7f0000f6c000)=0x0, 0x4)
+epoll_create1(0x0)
+r2 = socket(0x1e, 0x2, 0x0)
+bind(r2, &(0x7f000081b000-0x80)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a43a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb31f1314a8ef151622ca5bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+r3 = socket(0x1e, 0x2, 0x0)
+bind(r3, &(0x7f0000255000-0x80)=@generic={0x1e, "0102ec0000a300b9000000004700000000a979f321b30c7bc8790405c7bad62e0a63a632ed4938d36d73fb8f8401000559829a2b0afe7ce43a4b2c70a0c5216669ca021f6f65dcf160e7e58f358c0002f0000e58d19bcb3151d24acef1f1622ca5bdb9c8ea31000077aeb81c90001d6d7c98040000000001040000cb184a"}, 0x80)
+connect$nfc_raw(r2, &(0x7f00001b5000)={0x27, 0x7, 0x8dc0, 0x6}, 0x10)
+ioctl$sock_proto_private(r2, 0x89ed, &(0x7f00001bd000-0xf2)="")
+bind(r2, &(0x7f00001bb000)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a53a632ed4938d36d0e00000000000000829a2b0a0006e43a4b2470a0c5216669ca021f6f65dce060e7e58f358c0002f0000158d19bcb3151314a8ef1f1620c85bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+r4 = socket(0x10, 0x2, 0x10)
+pread64(r2, &(0x7f0000000000)="", 0x0, 0x0)
+close(r3)
+write(r4, &(0x7f0000689000)="1c0000001e000720270100081d002200010003000009f9000600000000000000", 0x20)

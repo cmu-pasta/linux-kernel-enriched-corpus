@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=29ff62f32b9802d9a8fdb5a2c4209648771623a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000600)={'bridge_slave_1\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f0000000240)={0x0, 0x1a0ffffffff, &(0x7f00000000c0)={&(0x7f00000002c0)=@newqdisc={0x150, 0x24, 0x40b, 0x1000000, 0x0, {0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_red={{0x8, 0x1, 'red\x00'}, {0x124, 0x2, [@TCA_RED_MAX_P={0x8}, @TCA_RED_STAB={0x104, 0x2, "18e23137ddb2aefd32758a7aa2692c5800d4ac5edcba174b297a11e5f77f141acc71fe75bdc70d2e970795bf52ccc207f317fa4ca1113ff70087999d345ab92753c8084db70f62ee7ca5205667cf7446b339c7ab2285464c5a381830b4309a3b2753681a69c5e3d91dd6c23b60ce1d0aa92c5b77d658c2ce94c89d666901e22d642a33c1d78ecbe2806ad2021ed1cb849015fc69664585535188060cbe48c2ab7faac757d4293ca20dee8e5b23fc3c4363c3247341711c9e97dcada0e464aa39afe91659af05c6ce384a8411678beca5e728cf6e9355c35213f007d98cf7a597c5dc7f8ffc52464801c1dffe22d9208db5ed08cf5593c00b74791cc9d6412eee"}, @TCA_RED_PARMS={0x14}]}}]}, 0x150}}, 0x0)
+r3 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000600)={'bridge_slave_1\x00', <r4=>0x0})
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f00000002c0)=ANY=[@ANYBLOB="5001000029000b04000000000000100000000000", @ANYRES32=r4, @ANYBLOB], 0x3}}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d02017472c4a186b5bedfc7815ad2957b4b10b13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:false Repeat:true Procs:1 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = syz_open_dev$tun(&(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000000)={'ifb0\x00', 0xe86824d2c1c833cb})
+pread64(r0, &(0x7f0000000080)=""/110, 0x6e, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f00000001c0)={&(0x7f0000000100)={0x10}, 0xc, &(0x7f0000000180)={&(0x7f00000003c0)=@dellink={0x58, 0x11, 0x405, 0x70bd25, 0x25dfdbfe, {}, [@IFLA_IFNAME={0x14, 0x3, 'ifb0\x00'}, @IFLA_PROMISCUITY={0x8, 0x1e, 0x1}, @IFLA_VFINFO_LIST={0x8, 0x16, [{0x4, 0x1, [@generic, @generic]}]}, @IFLA_IFALIAS={0x14, 0x14, 'yam0\x00'}]}, 0x58}, 0x1}, 0x40010)

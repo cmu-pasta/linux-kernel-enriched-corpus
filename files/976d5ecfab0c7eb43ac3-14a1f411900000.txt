@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1d632b9ec6bf51d88a017f17294b1baaba674586
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000440)={0x11, 0x6, &(0x7f0000000100)=ANY=[@ANYBLOB="050000000000000061110c00000000008510000002000000850000000500000095000000000000009500a505000000007751e8ba639a6788a341cca555fedbe9d8f3b423cdacfa7e32fe0231368b2264f9dc3f45f9f65515b0e1a38d8665522be18bd10a48b043ccc42646d25dfd73a015e0ca7fc2506a0f68a7d06d7535f7866907dc6751dfb265a0e3ccae669e173a649c1cfd6587d452d64e7cc957d77578f4c35235138d5521f9453559c35da860e8efbc6f2b2a3e3173d5661cfeec79c66c54c3"], &(0x7f0000000080)='GPL\x00', 0x5, 0x29e, &(0x7f000000cf3d)=""/195, 0x0, 0x0, [], 0x0, 0x0, 0xffffffffffffffff, 0x6, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0x0, 0x4, &(0x7f0000000000)=ANY=[@ANYBLOB="1800000001040000007847cca6f1a000651200"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, [], 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+r1 = bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000080)={&(0x7f0000000040)='ext4_find_delalloc_range\x00', r0}, 0x10)
+bpf$BPF_GET_MAP_INFO(0xf, &(0x7f00000000c0)={r1, 0x28}, 0x10)

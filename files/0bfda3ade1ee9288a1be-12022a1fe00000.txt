@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8bfd55de893a67cfeca7d0f3472884b40fbebe79
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+openat$vcsu(0xffffff9c, &(0x7f00000004c0)='/dev/vcsu\x00', 0x0, 0x0)
+recvmmsg(0xffffffffffffffff, &(0x7f0000003140)=[{{&(0x7f0000001400)=@ipx, 0x80, 0x0}}], 0x1, 0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+preadv(r0, &(0x7f00000017c0), 0x3da, 0x0)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCSWINSZ(r1, 0x5414, &(0x7f0000000000)={0xb1})

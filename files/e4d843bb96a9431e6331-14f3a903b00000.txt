@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c2be48c653fee8b658c47350c317e480b50ced41
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+listen(r0, 0x0)
+connect$inet(r0, 0x0, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+accept(r0, 0x0, 0x0)
+r2 = syz_genetlink_get_family_id$mptcp(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$MPTCP_PM_CMD_DEL_ADDR(r1, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000001640)={0x34, r2, 0x4c4a997a53e05625, 0x0, 0x0, {}, [@MPTCP_PM_ATTR_ADDR={0x20, 0x1, 0x0, 0x1, [@MPTCP_PM_ADDR_ATTR_ADDR6={0x14, 0x4, @ipv4={'\x00', '\xff\xff', @empty}}, @MPTCP_PM_ADDR_ATTR_FAMILY={0x6, 0x1, 0xa}]}]}, 0x34}}, 0x0)

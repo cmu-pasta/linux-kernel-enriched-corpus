@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$BPF_BTF_LOAD(0x12, &(0x7f0000000280)={&(0x7f0000001c80)={{0xeb9f, 0x1, 0x0, 0x18, 0x0, 0xc, 0xc, 0x2, [@union={0x0, 0x0, 0x0, 0x6}]}}, 0x0, 0x26, 0x0, 0x8}, 0x20)

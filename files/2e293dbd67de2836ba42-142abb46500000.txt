@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_mount_image$vfat(&(0x7f0000000040)='vfat\x00', &(0x7f0000000100)='./file0\x00', 0x0, 0x2, &(0x7f0000000140)=[{&(0x7f00000001c0)="eb3c906d6b66732e66617400028001000240000004f801", 0x17}, {0x0, 0x0, 0x603}], 0x0, &(0x7f00000000c0))
+mknodat(r0, 0x0, 0x0, 0x80ffff)

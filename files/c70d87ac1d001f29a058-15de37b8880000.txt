@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1870dd7791ba05f2ea7f47f7cbdde701173973fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe2$watch_queue(&(0x7f0000000280)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x80)
+ioctl$IOC_WATCH_QUEUE_SET_SIZE(r0, 0x5760, 0xb)
+r2 = add_key$fscrypt_v1(&(0x7f00000000c0), &(0x7f0000000100)={'fscrypt:', @auto=[0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x63, 0x0, 0x0, 0x38, 0x0, 0x0, 0x63, 0x37]}, &(0x7f0000000280)={0x0, "6aaf7dc3d55c62f4279aa3e911458726493d19b7f2da89249b60b5d745a1fad117cbdd5cf75d5c9d9a89d16e6d7766b4ce222942eecf2af4c9c764332e70f151", 0x2f}, 0x48, 0xfffffffffffffffc)
+keyctl$KEYCTL_WATCH_KEY(0x20, r2, r1, 0x0)
+read$watch_queue(r0, &(0x7f0000000bc0)=""/219, 0xdb)

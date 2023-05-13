@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=282e2b3c76b4d2fc3e28d16518b757336a40b4f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+syz_open_dev$dspn(&(0x7f0000000040)='/dev/dsp#\x00', 0x7, 0x101000)
+r0 = socket$inet(0x2b, 0x1, 0x0)
+sendto$inet(r0, &(0x7f0000000040), 0x50212, 0x2000e803, &(0x7f0000000000)={0x2, 0x4e23}, 0x10)
+listen(r0, 0x0)

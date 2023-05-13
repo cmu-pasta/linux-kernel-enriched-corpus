@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5cf01aa760647bcea3b9ecdbb97f70975582f64f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$vcsa(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/vcsa\x00', 0x2, 0x0)
+write$snapshot(r0, &(0x7f0000000300)='k', 0x1)
+read$FUSE(r0, &(0x7f0000000340)={0x2020}, 0x2020)

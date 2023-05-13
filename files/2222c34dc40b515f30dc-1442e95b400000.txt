@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=28f0ae018677f0e643f2ccc28af0ceced69556ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000fd5ff8)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000040)={0xffffffffffffffca}, 0x7)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f0000000540)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})
+write$P9_RREAD(r1, &(0x7f0000000640)=ANY=[@ANYBLOB="aa0000007501009f000000f63c040f5959367989523a32700dbd2795671de15b6e76ad6d86102d7ff48ffdf362135fcc604d7ed9523d8f9dcb842bec782cbe822101796421a8480b8d5358c2013ef02c5b91498d03e930aa765e8b5fed71987a602b89b162ca3fe3f56ae8e773a0ff9089c789fe2ba0b5334fae562415d502fd71007a378dc6d2c6f49617ca21328c099eb28b34026e88e074f57aad04d3d23eb657d46778435cd8ab97"], 0xaa)

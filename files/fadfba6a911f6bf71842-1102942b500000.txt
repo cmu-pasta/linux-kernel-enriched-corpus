@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=49b789b2d6c990f9cd17c3a0f5f9ca2bd392a3f9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, 0x0)
+r0 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000000)={0x1f, 0x0, @fixed={[], 0x10}}, 0xe)
+setsockopt$bt_l2cap_L2CAP_OPTIONS(r1, 0x6, 0x1, &(0x7f0000000040)={0x39, 0xffff, 0x9f7, 0x4, 0x9, 0x1, 0x2}, 0xc)

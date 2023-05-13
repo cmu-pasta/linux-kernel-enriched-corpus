@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=efc234d0d3f0d6b900fe67b5334dc76cde55dbd4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000014c0)=ANY=[@ANYBLOB="38000000240007050000004007a2a30005000000", @ANYRES32=r1, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}}, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000004c0)=@newtfilter={0x84, 0x2c, 0xd27, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {}, {0xc}}, [@filter_kind_options=@f_rsvp={{0x9, 0x1, 'rsvp\x00'}, {0x54, 0x2, [@TCA_RSVP_SRC={0x8, 0x3, @broadcast}, @TCA_RSVP_DST={0x8, 0x2, @loopback}, @TCA_RSVP_POLICE={0x40, 0x5, [@TCA_POLICE_TBF={0x3c, 0x1, {0xffffff55}}]}]}}]}, 0x84}}, 0x0)
+r2 = socket(0x1000000010, 0x80002, 0x0)
+sendmmsg$alg(r2, &(0x7f0000000200), 0x4924924924926d3, 0x0)

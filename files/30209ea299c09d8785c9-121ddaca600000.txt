@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=bae9a2236bfede42cf3d219e6bf6740c583568a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true}
+dup2(0xffffffffffffffff, 0xffffffffffffffff)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000740)='hugetlb.2MB.usage_ir_bytes\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000001900)={0x0, 0x0, 0x0, 0x80000000})
+getsockopt$inet_mreq(0xffffffffffffffff, 0x0, 0x24, 0x0, 0x0)
+syz_mount_image$ext4(0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0)
+r1 = bpf$MAP_CREATE(0x100000000000000, &(0x7f00000000c0)={0x19, 0x4, 0x4, 0x4, 0x0, 0xffffffffffffffff, 0x0, [0x0, 0x0, 0x0, 0x0, 0x2000000]}, 0x3c)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000440)={r1, &(0x7f0000000340), &(0x7f0000000400)="1c"}, 0x20)

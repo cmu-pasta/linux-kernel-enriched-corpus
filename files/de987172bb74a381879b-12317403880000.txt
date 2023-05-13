@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dacc7707e9dc2ff70c53cb2ad92b4c675818ac68
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r0, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r1, {0x2, 0x0, @multicast1}, 0x2}}, 0x2e)

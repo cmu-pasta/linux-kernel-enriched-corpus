@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=83bec290888c08680fb630ec3a2bc87d0ad4b73f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+unshare(0x400)
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000b31ff7)='/dev/ppp\x00', 0x0, 0x0)
+ioctl$EVIOCGPROP(r0, 0xc004743e, &(0x7f0000000100)=""/246)
+r1 = epoll_create(0x400000001ffe)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f00001b3073))
+ioctl$EVIOCGREP(r0, 0x4004743c, &(0x7f0000d1df52)=""/174)

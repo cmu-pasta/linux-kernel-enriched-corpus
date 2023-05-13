@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=bf5ad261c3083e45f8adb6b2aee7a9758fdc5f3d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x3, 0x3c)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x13, &(0x7f0000000100)=0x100000001, 0x4)
+connect$inet6(r1, &(0x7f0000000300)={0xa, 0x0, 0x0, @ipv4={[], [], @local}}, 0x1c)
+r2 = socket$inet_sctp(0x2, 0x5, 0x84)
+r3 = socket$inet6_sctp(0xa, 0x10000000005, 0x84)
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(r3, 0x84, 0x1d, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_PR_SUPPORTED(r2, 0x84, 0x71, 0x0, 0x0)
+getsockopt$inet_sctp_SCTP_STATUS(0xffffffffffffffff, 0x84, 0xe, 0x0, 0x0)
+getsockopt$inet_sctp6_SCTP_GET_LOCAL_ADDRS(r0, 0x84, 0x6d, 0x0, 0x0)
+setsockopt$inet6_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f0000000340)='tls\x00', 0x4)
+setsockopt$inet6_tcp_TLS_TX(r1, 0x11a, 0x1, &(0x7f0000000180)=@gcm_256={{0x303}, "e5738612dc00dd02", "c408ee5dfa1bb5f044b4ea4ab57a3a932943170243333b60859335878286b7fb", '\x00', "fffffffffffffffe"}, 0x38)
+setsockopt$inet6_IPV6_ADDRFORM(r1, 0x29, 0x1, &(0x7f0000000040), 0x4)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a47a3f854d62145d90529133dd6861b35389e8ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x6000)=nil, 0x6000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$ion(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ion\x00', 0x0, 0x0)
+ioctl(r0, 0xc0184900, &(0x7f0000002000-0x101)="97cffb5da6711f5037f8abdd3aded88db0eaf6313cc6de0d5dde0738a226c23c624906b5fc2a9f95acb7bd5e478fba82a59df95719b6d27f41cc82d119ff2a4032bc916de1fab6276fcfa652aeed1787f5d6c5f71e87fe650b9fbec34e37f1818d8edc6d251c52197f1774000100014098d28179834e3105a0e0ddc7065d3c14bfaeb3047d5343bf9e2f01f98f5b656e8fca7ce6364c784b6d6c73c6d6f80dfbc9180ce0edf67e8e28c4bf22634b8b296c6a25c7197cb3ab32ae2a200153bf035e77bdcf950000000000000001bd2f0a44395db0cc9ee9b8956213c7e77798cbd5bf111e0ae8d6208a166b9aa82cbe509e41f470a4b74acfb7e934e41d0d0c5c8e")

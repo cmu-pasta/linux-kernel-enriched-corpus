@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e1d2492507fca6102dbce03c16b40a21130c8dbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true}
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, &(0x7f0000000040)={0x2, 0x4e21, @remote}, 0x10)
+r1 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r1, &(0x7f0000000040)={0x2, 0x0, @remote}, 0x10)
+sendmsg$rds(r1, &(0x7f0000000340)={&(0x7f0000000080)={0x2, 0x4e21, @remote}, 0x10, &(0x7f0000000300)=[{&(0x7f00000000c0)=""/16, 0x10}], 0x1}, 0x0)

@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=4a34894fea0d35908bf6cd90a82764b6d382e4a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/snmp6\x00')
+pread64(r0, 0x0, 0x0, 0x103f00)
+ioctl$EVIOCGBITSND(r0, 0x80404532, 0x0)
+r1 = syz_open_dev$dri(&(0x7f0000000000)='/dev/dri/card#\x00', 0x0, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_NAME_TYPE_CMD(0xffffffffffffffff, 0x8982, &(0x7f00000002c0)={0x6, 'virt_wifi0\x00'})
+r2 = openat$ion(0xffffffffffffff9c, &(0x7f0000000240)='/dev/ion\x00', 0x0, 0x0)
+ioctl$ION_IOC_ALLOC(r2, 0xc0184900, &(0x7f0000000040)={0x5, 0x2b, 0x0, <r3=>0xffffffffffffffff})
+r4 = dup(r3)
+ioctl$DRM_IOCTL_PRIME_FD_TO_HANDLE(r1, 0xc00c642e, &(0x7f00000000c0)={<r5=>0x0, 0x0, r4})
+ioctl$DRM_IOCTL_GEM_CLOSE(r1, 0x40046f41, &(0x7f0000000100)={r5, 0x7000002})
+ppoll(&(0x7f00000000c0)=[{}], 0x20000000000000c3, 0x0, 0x0, 0xffffffffffffff34)
+close(r1)

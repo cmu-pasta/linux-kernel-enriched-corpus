@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8520d40df737068b42e2cba944d14c37d143e3bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":19,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+symlink(&(0x7f0000000140)='..', &(0x7f00000000c0)='./file0\x00')
+bpf$BPF_MAP_GET_FD_BY_ID(0xe, &(0x7f0000000140), 0xc)
+mount(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000140)='proc\x00', 0x0, 0x0)

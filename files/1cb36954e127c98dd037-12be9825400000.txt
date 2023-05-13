@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6bb079cd37376cf6c336c3e106110dc5574428ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000040)='/dev/dsp\x00', 0xe02, 0x0)
+ioctl$int_in(r0, 0x800000c0045002, &(0x7f0000000000)=0x10000)
+read$FUSE(r0, &(0x7f0000002180), 0x184)

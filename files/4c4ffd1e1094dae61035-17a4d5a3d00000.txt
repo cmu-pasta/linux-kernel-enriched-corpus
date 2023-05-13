@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7b96018c1b606f1a0f3f72f9f6cdc2fda085c745
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat(0xffffffffffffffff, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1800003, 0x12, r0, 0x0)
+preadv(r0, &(0x7f0000000280), 0x100000000000008d, 0x4, 0x0)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r1, &(0x7f0000000000)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+ioctl$UI_BEGIN_FF_ERASE(0xffffffffffffffff, 0xc00c55ca, &(0x7f0000000040)={0x5, 0x1})
+write$bt_hci(r1, &(0x7f0000000040)=ANY=[], 0x7)

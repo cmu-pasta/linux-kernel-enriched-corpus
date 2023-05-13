@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1f2ecd7a23dba87e5ca3505ec44514a462cfe8c0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":1,"close_fds":false,"devlinkpci":true}
+r0 = io_uring_setup(0x6a6, &(0x7f0000000000))
+r1 = socket$packet(0x11, 0x2, 0x300)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000080)=[r1], 0x1)

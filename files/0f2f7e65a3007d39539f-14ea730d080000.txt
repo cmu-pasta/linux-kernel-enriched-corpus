@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e722dbad407ff7a7d27e1fd43013aea974f0841b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$ext4(&(0x7f0000000000)='ext2\x00', &(0x7f0000000100)='./file0\x00', 0x1f00, 0x1, &(0x7f0000000200)=[{&(0x7f0000010000)="200000008000004000000000600000000f0000000000000001000000010000005b0000000040000020000000d8f4655fd8f4655f0100ffff53ef", 0x3a, 0x400}], 0x0, &(0x7f0000013c00))

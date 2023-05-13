@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=6fc82d37863439177eb3d2f7b6c7a0e72913c8dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f00000003c0)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0x0, 0x20000004, &(0x7f0000000080)={0xa, 0x4e22}, 0x1c)
+r2 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0xe, 0x4, &(0x7f0000000480)=ANY=[@ANYBLOB="b4050000200080006110600000000000c60000000000000095000000000000009f33ef60916e6e893f1eeb0be20000d072f5b89c3043c47c896ce0bce66a245ad98a6f77ef26dcca5582054d54d53cd2b6db714e4b94bdae214fa68a0557eb3c5ca683a4b6fc89398f2b9000f224891060017c4700de60beac671e8e8fdecb03588aa600fa71f871ab5c2ff88afc6002084e5b52710aeee835cf0d78e45f70983826fb8579c1fb47d2c5553d2ccb5fc5b51fe6b174ebd9907dcff414ed55b0d18a93ee341ab59016f81860324b800300000000000092d9c5fe34ccb80a61ff"], &(0x7f0000003ff6)='GPL\x00', 0x4, 0xfd90, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x366, 0x10, &(0x7f0000000000), 0x1dd}, 0x48)
+r3 = bpf$MAP_CREATE(0x0, &(0x7f0000000200)=@base={0x12, 0x4, 0x4, 0x12}, 0x48)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f0000000080)={@map=r3, r2, 0x5}, 0x10)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000240)={r3, &(0x7f00000001c0), &(0x7f0000000200)=@tcp6=r0, 0x1}, 0x20)
+accept4(r0, 0x0, 0x0, 0x0)

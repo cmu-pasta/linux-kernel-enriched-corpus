@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9089d89de0502e120f234ca0fc8a703f7368b31e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"tmpdir":true}
+clone(0x40000000007fc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect(r0, &(0x7f0000000080)=@rc={0x1f, @any, 0x5f}, 0x80)

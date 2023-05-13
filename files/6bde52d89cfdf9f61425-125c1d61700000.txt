@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4d666adb3fbcfe329b8cc75958b976aea0a3c48a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+creat(&(0x7f0000000000)='./bus\x00', 0x0)
+r1 = open(&(0x7f0000000780)='./bus\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x0, 0x4002011, r1, 0x0)
+mremap(&(0x7f000000d000/0x2000)=nil, 0xfffffffffffffe74, 0x1000, 0x3, &(0x7f0000007000/0x1000)=nil)

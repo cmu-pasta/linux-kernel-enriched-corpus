@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=41f079fc054bda515d93a93341f9c4b6cd10614d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = syz_open_dev$usb(&(0x7f0000000040)='/dev/bus/usb/00#/00#\x00', 0x1ff, 0x1)
+ioctl$KVM_SET_CPUID(r0, 0x802c550a, &(0x7f0000000080)={0x2, 0x0, [{0x60, 0x704000, 0x7ff0bdbe}]})
+ioctl$KVM_SET_CPUID(0xffffffffffffffff, 0x802c550a, &(0x7f0000000080)={0x2, 0x0, [{0x74, 0x704000, 0x4320}]})
+socket$inet6(0xa, 0x40000080806, 0x0)

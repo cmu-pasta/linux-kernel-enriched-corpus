@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6eb39fe53528ad49dc2a32900d152ea3ddde4dd9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false,"devlinkpci":true}
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+r0 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r0, &(0x7f0000000000)={0x0, 0x3f000000, &(0x7f0000000080)=[{&(0x7f00000002c0)="2e00000010008108040f80ecdb4cb92e0a480e0026000000e8bd6efb350009000e000100400000ff050005001201", 0x33fe0}], 0x1, 0x0, 0x0, 0x6558}, 0x0)
+r1 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r1, &(0x7f0000000000)={0x0, 0x3f000000, &(0x7f0000000080)=[{&(0x7f00000002c0)="2e00000010008108040f80ecdb4cb92e0a480e0026000000e8bd6efb350009000e000300400000ff050005001201", 0x33fe0}], 0x1, 0x0, 0x0, 0x6558}, 0x0)

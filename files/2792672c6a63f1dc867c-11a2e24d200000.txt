@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=106319f5d94ac049166744eee79e455ce4d0435c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000001400)={&(0x7f0000001440)=@newspdinfo={0x14, 0x23, 0xb17868c1a843bc51}, 0x14}}, 0x0)

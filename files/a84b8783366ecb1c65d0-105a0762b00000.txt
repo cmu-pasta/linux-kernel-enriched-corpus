@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=85810864c00a07b6d124b9fbc09f24ee5d6aeec3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000340)=ANY=[@ANYBLOB, @ANYRES32=0x0, @ANYBLOB="010001000a2a04009c0012800b00010062617461647600008c0002800c0001004241544d414e5f560d0001004241544d414e5f49560000000c0001004241544d414e5f560c0001004241544d414e5f560c0001004241544d414e5f560c0001004241544d414e5f560d0001004241544d414e5f49560000000c0001004241544d414e5f560d0001004241544d414e5f49560000000d0001004241544d414e5f495600000008000500", @ANYRES32=0x0, @ANYBLOB, @ANYRES32], 0xcc}}, 0x0) (fail_nth: 11)

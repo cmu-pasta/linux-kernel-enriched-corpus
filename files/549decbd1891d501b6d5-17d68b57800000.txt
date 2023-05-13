@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=aec313f3f7ebc2ee0abb1104a3631ab8fd1e90f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = eventfd(0x0)
+ioctl$KVM_CHECK_EXTENSION(r0, 0xae03, 0x0)
+r3 = syz_open_dev$mouse(&(0x7f00000000c0)='/dev/input/mouse#\x00', 0x3ff, 0x400002)
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000140)={0x2, r3, 0x1})
+ioctl$KVM_HYPERV_EVENTFD(r1, 0x4018aebd, &(0x7f0000000080)={0x0, r2})

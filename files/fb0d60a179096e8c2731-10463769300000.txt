@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=484483daf3652b40dae18531923aa9175d392a4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat(0xffffffffffffffff, &(0x7f0000000040)='/proc/self/exe\x00', 0x0, 0x103)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x2800004, 0x12, r1, 0x0)
+execveat(r0, &(0x7f0000000b00)='./file0\x00', 0x0, 0x0, 0x1000)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, 0x0)

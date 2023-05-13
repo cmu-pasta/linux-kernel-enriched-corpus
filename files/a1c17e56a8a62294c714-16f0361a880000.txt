@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=45705298ba02f0e3f1b99cddfa115a58e0cfa3cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f00000004c0)='contention_begin\x00'}, 0x10)
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000000), 0x40241, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000040)={'syzkaller0\x00', 0x5032})
+io_setup(0x20fe, &(0x7f00000001c0)=<r1=>0x0)
+io_submit(r1, 0x1, &(0x7f0000001a40)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x8, 0x0, r0, &(0x7f0000000180), 0xd}]) (fail_nth: 6)

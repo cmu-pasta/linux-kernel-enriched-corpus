@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=3fd2badc3dc77e680e01b9330b217a361014a4f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+mkdir(&(0x7f0000000300)='./file0\x00', 0x0)
+mount(0x0, 0x0, &(0x7f0000018ffa)='tmpfs\x00', 0x0, 0x0)
+r0 = open(&(0x7f00000001c0)='./file0\x00', 0x0, 0x0)
+fchdir(r0)
+mkdir(&(0x7f0000000200)='./file1\x00', 0x0)
+symlink(&(0x7f0000000040)='./file0/f.le.\x00', &(0x7f0000000140)='.//ile0\x00')
+mkdir(&(0x7f00000000c0)='./file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000300)='./file0\x00', &(0x7f0000000100)='overlay\x00', 0x0, &(0x7f00000002c0)=ANY=[@ANYBLOB='upperdir=./file0,lowerdir=.:file0,workdir=./file1'])
+r1 = open(&(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+open(0x0, 0x2, 0x80)
+renameat(r1, &(0x7f0000000240)='.//ile0\x00', r1, &(0x7f00000007c0)='./file0/f.le.\x00')

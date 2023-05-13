@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ebeba334a8a886e3d5dc25641e201e894d4d9657
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tmpdir":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000400)=@newspdinfo={0x30, 0x24, 0x1, 0x0, 0x0, 0x0, [@encap={0x1c, 0x4, {0x0, 0x0, 0x0, @in6=@mcast2}}]}, 0x30}}, 0x0)
+r1 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r1, &(0x7f0000000080)={0x1000000efffffff, 0x400000000000000, &(0x7f0000000000)={&(0x7f00000001c0)=ANY=[@ANYBLOB="020d000010000000000000d30000000003000600252000000200006ae00000010000000001000000080012000200020000000000fa0000003000000002030000001000c6ac000000020000000008000092ab000000000001020014bb00200000ffffffde00006e0003000500e41f0000020000f3df0000210008000002000000"], 0x80}}, 0x0)

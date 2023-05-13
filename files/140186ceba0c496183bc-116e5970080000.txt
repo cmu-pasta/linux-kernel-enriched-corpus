@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6bac8e4041387bf55a777be01856df7b084e5457
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e20, @multicast1}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x20020094, &(0x7f00000018c0)={0x2, 0x4e20}, 0x10)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000200)=@base={0xf, 0x4, 0x4, 0x12}, 0x48)
+bpf$BPF_PROG_DETACH(0x8, 0x0, 0x0)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000280)={r1, &(0x7f0000000340), &(0x7f0000000040)=@tcp=r0}, 0x20)
+sendto$inet(r0, &(0x7f00000000c0)="c701", 0xfffffdef, 0x4001, 0x0, 0x0)

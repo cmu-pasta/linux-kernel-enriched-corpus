@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2386340f7a641010bb1e17228d1e9319592c01ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000040)={0xc, 0x3, &(0x7f00000000c0)=@framed={{0xffffff85, 0x0, 0x0, 0x0, 0x18, 0x6c}}, &(0x7f0000000000)='syzkaller\x00', 0x1, 0xcf, &(0x7f0000000480)=""/207}, 0x48)
+syz_open_dev$evdev(0x0, 0x2, 0x111000)

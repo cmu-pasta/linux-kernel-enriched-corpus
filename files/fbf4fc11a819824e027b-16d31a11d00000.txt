@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6db38eb9cb472457269ecd5afb61280d0ba7f9f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socket$nl_generic(0x10, 0x3, 0x10)
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$ieee802154(&(0x7f0000000380)='802.15.4 MAC\x00', r0)
+sendmsg$IEEE802154_ADD_IFACE(r1, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000400)={&(0x7f00000003c0)={0x30, r2, 0x9, 0x70bd2a, 0x0, {}, [@IEEE802154_ATTR_PHY_NAME={0x9, 0x1f, 'phy0\x00'}, @IEEE802154_ATTR_DEV_TYPE={0x5, 0x20, 0x1}, @IEEE802154_ATTR_DEV_TYPE={0x5, 0x20, 0x1}]}, 0x30}, 0x1, 0x0, 0x0, 0x800}, 0x4000004)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000500)='nl802154\x00', 0xffffffffffffffff)
+sendmsg$NL802154_CMD_DEL_SEC_LEVEL(r3, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000001c0)={0x44, r4, 0x1, 0x0, 0x0, {}, [@NL802154_ATTR_SEC_LEVEL={0x24, 0x22, 0x0, 0x1, [@NL802154_SECLEVEL_ATTR_CMD_FRAME={0x8}, @NL802154_SECLEVEL_ATTR_FRAME={0x8}, @NL802154_SECLEVEL_ATTR_LEVELS={0x5}, @NL802154_SECLEVEL_ATTR_DEV_OVERRIDE={0x5}]}, @NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x2}]}, 0x44}}, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=7b4d75ac2b92f0f490d5b410588fafa42a99686a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = dup2(r0, r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x0)
+r2 = io_uring_setup(0xa4, &(0x7f0000000080))
+r3 = socket$xdp(0x2c, 0x3, 0x0)
+io_uring_register$IORING_REGISTER_FILES(r2, 0x2, &(0x7f0000001580)=[r3], 0x1)
+io_uring_register$IORING_REGISTER_FILES_UPDATE(r2, 0x6, &(0x7f0000000300)={0x0, 0x0}, 0x0)

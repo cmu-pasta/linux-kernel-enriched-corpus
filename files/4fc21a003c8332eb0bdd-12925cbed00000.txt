@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=9b10491371879700d6a21c15684c2232ff015084
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"sysctl":true,"segv":true}
+creat(0x0, 0x0)
+syz_open_dev$dri(&(0x7f0000000080)='/dev/dri/card#\x00', 0x1, 0x80400)
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+preadv(r0, 0x0, 0x0, 0x0, 0x0)
+openat$zero(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000c80)='./file0/file0\x00', 0xc0, 0x0)
+mknodat$null(r0, &(0x7f00000003c0)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', 0x20, 0x103)
+ioctl$SNDRV_SEQ_IOCTL_GET_SUBSCRIPTION(0xffffffffffffffff, 0xc0505350, 0x0)
+renameat2(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0)
+mkdir(0x0, 0x0)
+r1 = creat(0x0, 0x0)
+write$cgroup_type(r1, 0x0, 0x0)
+unlink(0x0)
+open(0x0, 0x200042, 0x0)
+pipe2$9p(0x0, 0x0)
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept4(r2, 0x0, 0x0, 0x0)
+syz_io_uring_setup(0x7ad9, 0x0, &(0x7f0000fed000/0x10000)=nil, &(0x7f0000ff3000/0x4000)=nil, 0x0, 0x0)
+syz_open_dev$loop(0x0, 0x2, 0x0)
+syz_usbip_server_init(0x3)

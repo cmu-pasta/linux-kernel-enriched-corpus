@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d1908f0b2b3357cf512e197c1060c6f17bc93b23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+sendmsg$NL80211_CMD_TRIGGER_SCAN(0xffffffffffffffff, 0x0, 0x0)
+syz_80211_inject_frame(&(0x7f0000000300)=@device_b, &(0x7f0000000040)=@mgmt_frame=@beacon={@wo_ht={{}, {}, @device_b, @device_a, @from_mac}, 0x0, @default, 0x1, @val={0x0, 0x6, @default_ap_ssid}, @val={0x1, 0x8, [{0x2, 0x1}, {0x4, 0x1}, {0xb, 0x1}, {0x16, 0x1}, {0xc}, {0x12}, {0x18}, {0x24}]}, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void, @void}, 0x36)
+nanosleep(0x0, 0x0)

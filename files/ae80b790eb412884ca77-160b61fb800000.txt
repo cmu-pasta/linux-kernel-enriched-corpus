@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=757195710b3cfe529411282e0861cec7d6ef1c04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mkdir(&(0x7f0000000100)='./file0\x00', 0x0)
+mount(&(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='./file0\x00', &(0x7f00000000c0)='selinuxfs\x00', 0x1000, &(0x7f0000000000))
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f0000000140)='./file0\x00', &(0x7f0000000200)="6df920696e6955798aeccd5f3127f497528d16c1290415cab0d16e87cff43f0cbee60d87244525214b3cef400166bdc96b8e4c178c882f18c5468c313136f410a3e8bead6db07fad082e32da2d5b293369a17ee5721da9eb9eeea5e7d32453c9256aec953f9809d905d911fcabc685977cddd7319286e23eef5be2a7ef93e632091a48b573ec8c6e1f6f5b9d6ebfdfb224c9d43bf0c667d10de01258bfac6d8b363422a34e3dbe421c4dee96135a81c248989c23d3d91fe0ed0a29317be09b5e661fe5dd44cd2e602aaf086585d94295384838fc914fcf122c61e6c836613915f3f7e6695fc8183bc5de452372cdd32a9612f006cec0ad1134a104467bb398a06f500c37846404a6b3067bc37bc4d5cfcc91fbc25c889294952762f1a5a33673e9e85b89ea3df865b2afe775b78a51ec04ad8cd6813a14d66a0fd9723942f007282541aa4228d37eb463b0290405367f", 0x2010020, &(0x7f0000000240))

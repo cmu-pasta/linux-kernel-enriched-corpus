@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7f8435a93a2e0bc29ac5d559ea9b516b73d8541e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_io_uring_setup(0x87, &(0x7f0000000080), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000140)=<r1=>0x0, &(0x7f0000000040)=<r2=>0x0)
+r3 = socket$phonet_pipe(0x23, 0x5, 0x2)
+syz_io_uring_submit(r1, r2, &(0x7f0000000200)=@IORING_OP_RECV=@pass_buffer={0x1b, 0x4, 0x0, r3, 0x0, 0x0}, 0x3)
+syz_io_uring_submit(r1, r2, &(0x7f00000012c0)=@IORING_OP_LINK_TIMEOUT={0xf, 0x0, 0x0, 0x0, 0x0, &(0x7f0000001280)={0x77359400}}, 0x10001)
+syz_io_uring_submit(r1, r2, &(0x7f0000000100)=@IORING_OP_CLOSE={0x13, 0x2}, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f00000001c0)=@IORING_OP_POLL_ADD, 0x0)
+io_uring_enter(r0, 0x450c, 0x0, 0x0, 0x0, 0x0)

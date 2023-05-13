@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=12be9aa373be9d8727cdd172f190de39528a413a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e24, @multicast2}, 0x10)
+connect$inet(r0, &(0x7f0000000480)={0x2, 0x4e24, @local}, 0x10)
+recvfrom(r0, &(0x7f00000004c0)=""/4096, 0x1000, 0x40000000, 0x0, 0x0)
+writev(r0, &(0x7f0000000200)=[{&(0x7f00000000c0)='X', 0xd4010000}], 0x1)

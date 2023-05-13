@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+ioctl$UFFDIO_API(0xffffffffffffffff, 0xc018aa3f, 0x0)
+clone(0x4800a000, 0x0, 0x0, 0x0, 0x0)

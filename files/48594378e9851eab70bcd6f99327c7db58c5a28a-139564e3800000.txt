@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=cd662bc3f6022c0979d01a262c318fab2ee9b56f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+r0 = syz_open_dev$loop(&(0x7f0000000100)='/dev/loop#\x00', 0x0, 0x2)
+ioctl$LOOP_SET_STATUS64(r0, 0x4c04, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x5, 0x0, 0x4, "5c6e5d5491f9fa1506463d7ad2356af587d7b874127d142ac7ca894a3847c10a1403c15d5e0e5202e54bff8294141db5ba7abce5eb2a1b28a2e4dbbd0ce445fb", "32b1b696c7e9d4c6494e39e72b67765e88c8bd63c86b044da7bee1f0166e79c343c4647379e6d8b69c73fd94e4178061e424bccb2272d4e0d5cc4307ab127e2c", "2708d6c3b26eb8c44635aa81fe69ab61c85f1fc6af9145975780c2e8e4bf95bb"})
+r1 = syz_open_dev$loop(&(0x7f0000ca9ff5)='/dev/loop#\x00', 0x0, 0x82)
+r2 = memfd_create(&(0x7f0000614000)="74086e750000000000000000008c00", 0x0)
+pwritev(r2, &(0x7f0000f50f90)=[{&(0x7f0000000040)="aa", 0x1}], 0x1, 0x81006)
+ioctl$LOOP_CHANGE_FD(r1, 0x4c00, r2)
+sendfile(r1, r1, &(0x7f0000000080)=0x4, 0x502000004)

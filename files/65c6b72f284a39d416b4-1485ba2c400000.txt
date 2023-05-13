@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a622455acd7051c6cf85c360cd116118a587726
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$unix(0xa, 0x2, 0x0)
+sendmsg(r0, &(0x7f00000001c0)={&(0x7f0000000000)=@in={0xa, 0x4e23, @remote={0xac, 0x14, 0x14, 0xbb}}, 0x80, &(0x7f0000000080), 0x0, &(0x7f0000000340)}, 0xfc00)
+r1 = open(&(0x7f0000000180)='./file0\x00', 0x40, 0x40)
+mount$9p_fd(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000140)='9p\x00', 0x10000, &(0x7f0000000280)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c, {[{@aname={'aname', 0x3d, '(ppp0GPLppp0posix_acl_accessposix_acl_access'}, 0x2c}, {@access_client='access=client', 0x2c}, {@version_9p2000='version=9p2000', 0x2c}, {@cache_fscache='cache=fscache', 0x2c}, {@version_L='version=9p2000.L', 0x2c}]}})

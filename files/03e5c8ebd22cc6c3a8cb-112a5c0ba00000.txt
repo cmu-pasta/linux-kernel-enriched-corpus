@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3327fb1975fd130ad77d601f4facd655f0b5fa8c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f0000005000)='/dev/sg#\x00', 0x0, 0x8002)
+write(r0, &(0x7f0000000080)="b63db85e1e8d040000000000f0011dcc606aed5ed2bc7018cebc9b97ae21b14d872c678ce22c9b16004bbc69146d17", 0x2f)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9d6ac89f01521148a6e4212d85d9e27ff67be237
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_io_uring_setup(0x1d28, &(0x7f0000000380), &(0x7f000066c000/0x13000)=nil, &(0x7f00000e4000/0x1000)=nil, &(0x7f0000000000), &(0x7f0000000140))
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f0000000080)=[{&(0x7f0000000480)=""/4096, 0x8000000}], 0x1)

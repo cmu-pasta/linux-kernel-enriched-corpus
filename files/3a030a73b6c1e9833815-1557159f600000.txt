@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f012bdf297a7a4c860c38a88b44fbee43fd9bbf3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000080)='./file0\x00', 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000340)={0x15, 0x65, 0xffff, 0x8001, 0x8, '9P2000.L'}, 0x15)
+r2 = dup(r1)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x26f)
+mount$9p_fd(0x0, &(0x7f0000000140)='./file0\x00', &(0x7f0000000180)='9p\x00', 0x0, &(0x7f0000000400)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c, {[{@dfltuid={'dfltuid'}}, {@fscache='fscache'}, {@access_user='access=user'}, {@cache_none='cache=none'}]}})

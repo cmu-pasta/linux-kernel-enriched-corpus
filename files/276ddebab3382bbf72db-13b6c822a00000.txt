@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=28b6bf730a5e8d288db5c794d5c6ccc49f746d74
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$EBT_SO_SET_ENTRIES(r0, 0x0, 0x80, &(0x7f0000000040)=@broute={'broute\x00', 0x20, 0x2, 0x1fc, [0x0, 0x0, 0x0, 0x0, 0x0, 0x200002c0], 0x0, 0x0, &(0x7f00000002c0)=[{0x0, '\x00', 0x0, 0xffffffffffffffff, 0x1, [{{{0x9, 0x0, 0x0, 'veth1_to_team\x00', '\xb7-6tnl0\x00', 'irlan0\x00', 'ifb0\x00', @remote, [], @dev, [], 0xac, 0xac, 0xd4, [@quota={'quota\x00', 0x18}]}}, @common=@AUDIT={'AUDIT\x00', 0x4}}]}, {0x0, '\x00', 0x1, 0xfffffffffffffffe}, {0x0, '\x00', 0x1, 0xfffffffffffffffe, 0x1, [{{{0x11, 0x0, 0x0, 'veth1_to_team\x00', 'yam0\x00', 'ip6gre0\x00', 'vcan0\x00', @link_local, [], @local, [], 0x70, 0x70, 0x98}}, @common=@AUDIT={'AUDIT\x00', 0x4}}]}]}, 0x24c)
+ioctl$RTC_WKALM_SET(0xffffffffffffffff, 0x4028700f, &(0x7f0000000040)={0x1, 0x0, {0x0, 0x0, 0x0, 0x1d, 0x0, 0xf0a}})

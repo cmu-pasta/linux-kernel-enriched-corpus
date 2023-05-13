@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=85be4764c59f9e394252768cb1763984edea365c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+syz_init_net_socket$bt_l2cap(0x1f, 0x4, 0x0)
+r1 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+ioctl$sock_SIOCOUTQ(r1, 0x5411, 0x0)
+getsockopt$sock_int(r1, 0x1, 0x3, 0x0, 0x0)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r3 = openat$6lowpan_control(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+ioctl$FICLONE(r2, 0x40049409, r3)
+ioctl$sock_inet_SIOCGIFPFLAGS(r0, 0x8935, 0x0)
+ioctl$sock_SIOCOUTQ(r2, 0x5411, 0x0)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r4, &(0x7f00000000c0), 0xe)
+bind$bt_l2cap(r4, &(0x7f0000000100), 0xe)

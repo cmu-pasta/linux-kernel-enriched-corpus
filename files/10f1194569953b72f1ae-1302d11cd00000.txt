@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @default, @bcast, @bcast, @rose, @null, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}]}, 0x48)
+listen(r0, 0x0)
+unshare(0x40000000)

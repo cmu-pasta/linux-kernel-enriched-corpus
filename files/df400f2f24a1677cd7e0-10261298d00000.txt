@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=949ecf93b67ab1df8f890571d24ef9db50872c96
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"tmpdir":true}
+setsockopt$SO_VM_SOCKETS_BUFFER_MAX_SIZE(0xffffffffffffffff, 0x28, 0x2, 0x0, 0x0)
+write$cgroup_int(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet6_tcp_buf(0xffffffffffffffff, 0x6, 0xb, &(0x7f0000000240)=""/149, &(0x7f0000000140)=0x95)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000880)={&(0x7f0000000300)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000840)={0x0}, 0x1, 0x0, 0x0, 0x8000}, 0x4004881)
+unshare(0x40000000)

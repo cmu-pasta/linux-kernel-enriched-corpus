@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c9eebb3d2277a526840c1049ae16762b9b11e50e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault":true,"fault_call":6,"fault_nth":1,"netdev":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f00000000c0)={0xa, 0x4e21, 0x0, @empty}, 0x1c)
+setsockopt$inet_sctp6_SCTP_DEFAULT_PRINFO(r0, 0x84, 0x72, 0x0, 0x0)
+setsockopt$inet_sctp6_SCTP_STREAM_SCHEDULER(r0, 0x84, 0x7b, &(0x7f0000000500)={0x0, 0x1}, 0x8)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x4e21, 0x0, @loopback}, 0x1c)
+write$binfmt_script(r0, &(0x7f0000000040)={'#! ', './file0'}, 0x10094)
+write$binfmt_script(r0, &(0x7f0000000000)=ANY=[@ANYBLOB], 0x1a000)

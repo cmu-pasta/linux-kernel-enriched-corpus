@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=381cb436fe60dc03d7fd2a092b46d7f09542a72a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+openat$hwrng(0xffffffffffffff9c, &(0x7f0000000000)='/dev/hwrng\x00', 0x101000, 0x0)
+clone(0x200002041fc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = getpid()
+pause()
+ptrace(0x10, r0)
+ptrace$getsig(0x4, r0, 0x770000, 0x0)

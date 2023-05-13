@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=86a202a5d3e7fac68dadd37e14fa74fca0e0c5a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+sendmsg$TIPC_NL_NAME_TABLE_GET(0xffffffffffffffff, 0x0, 0x0)
+ioctl$BTRFS_IOC_TREE_SEARCH(0xffffffffffffffff, 0xd0009411, 0x0)
+ioctl$BTRFS_IOC_GET_SUBVOL_ROOTREF(0xffffffffffffffff, 0xd000943d, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+getsockopt$TIPC_IMPORTANCE(r1, 0x10f, 0x7f, 0x0, 0x0)
+ioctl$BTRFS_IOC_TREE_SEARCH(0xffffffffffffffff, 0xd0009411, 0x0)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$BTRFS_IOC_GET_SUBVOL_ROOTREF(r0, 0xd000943d, 0x0)

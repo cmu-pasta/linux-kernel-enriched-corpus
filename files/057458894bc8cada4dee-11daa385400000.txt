@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d0d39d5cbbf35a2161298bd1724e8e88f75ed0e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket(0x1e, 0x4, 0x0)
+read(r0, &(0x7f00000000c0)=""/247, 0xf7)
+setsockopt$packet_tx_ring(r0, 0x10f, 0x87, &(0x7f0000000080)=@req3={0x89, 0x0, 0x0, 0xfffffffffffffeff}, 0x3d4)

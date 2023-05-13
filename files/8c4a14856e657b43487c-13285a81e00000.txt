@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=7b4d75ac2b92f0f490d5b410588fafa42a99686a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+sendmsg$nl_route(0xffffffffffffffff, 0x0, 0x0)
+r0 = io_uring_setup(0xa4, 0x0)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000280)=[0xffffffffffffffff], 0x1)
+setsockopt$inet6_tcp_TCP_MD5SIG(0xffffffffffffffff, 0x6, 0xe, &(0x7f0000000580)={@in={{0x2, 0x4e21, @multicast2}}, 0x0, 0x0, 0x0, 0x0, "af5eb3f3133f7ba636f2c92800b6b7facc62c3c4e2d6b785ea8b418853c9ced33554bd04cdee3b09603605073a60c9f564e92085e5c30039f7cdbaa76f010c7766e90988eb751136bbbf1135a26b317a"}, 0xd8)
+r1 = socket$rds(0x15, 0x5, 0x0)
+r2 = io_uring_setup(0xa4, &(0x7f0000000080))
+io_uring_register$IORING_REGISTER_FILES(r2, 0x2, &(0x7f0000000280)=[r1], 0x1)
+getsockopt$inet_sctp6_SCTP_GET_ASSOC_ID_LIST(0xffffffffffffffff, 0x84, 0x1d, &(0x7f0000000440)=ANY=[@ANYBLOB="14006f00331a83011b56ba3e6183e0dc93768ef0ee3cac9ae00a1c8874c5422cc349ad5b223afe04f80779f9e818da4efdcc7b6b671e842b4830ed8cb6d52a06f92658b9291799713082672b835b270769", @ANYRESHEX], &(0x7f000095dffc)=0x2)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=45705298ba02f0e3f1b99cddfa115a58e0cfa3cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000140), 0x8002, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000280)={'\x00', 0x846512678b3a18b2})
+write$tun(r0, &(0x7f0000000440)={@void, @void, @eth={@dev, @local, @void, {@ipv6={0x86dd, @udp={0x0, 0x6, "00f2d1", 0x10, 0x11, 0x0, @empty, @private1, {[], {0x0, 0x0, 0x10, 0x0, @gue={{0x2}}}}}}}}}, 0x20000486) (fail_nth: 2)

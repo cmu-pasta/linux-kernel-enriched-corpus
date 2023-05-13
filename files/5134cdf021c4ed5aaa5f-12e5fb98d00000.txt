@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=39b72114839a6dbd66c1d2104522698a813f9ae2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+ioctl$UFFDIO_REGISTER(0xffffffffffffffff, 0xc020aa00, &(0x7f0000001fe2)={{&(0x7f0000ffc000/0x1000)=nil, 0x1000}})
+r0 = socket(0x40000000015, 0x5, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+bind$inet(r0, &(0x7f0000000340)={0x2, 0x0, @loopback}, 0x10)
+setsockopt$SO_TIMESTAMP(r0, 0x1, 0x40, &(0x7f00000000c0)=0x3, 0x4)
+sendto$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvmmsg(r0, &(0x7f0000000d80), 0x36f, 0x20102, 0x0)

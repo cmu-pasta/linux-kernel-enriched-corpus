@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=24b862308fbaab6563613b1ea41a03040b7d8ae6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000400)='nl802154\x00', 0xffffffffffffffff)
+sendmsg$NL802154_CMD_SET_SEC_PARAMS(r0, &(0x7f0000000680)={0x0, 0x0, &(0x7f0000000640)={&(0x7f0000000480)={0x94, r1, 0x1, 0x0, 0x0, {}, [@NL802154_ATTR_SEC_ENABLED={0x5}, @NL802154_ATTR_SEC_OUT_KEY_ID={0x6c, 0x20, 0x0, 0x1, [@NL802154_KEY_ID_ATTR_INDEX={0x5}, @NL802154_KEY_ID_ATTR_SOURCE_EXTENDED={0xc, 0x5, 0x9}, @NL802154_KEY_ID_ATTR_SOURCE_SHORT={0x8, 0x4, 0xbce9}, @NL802154_KEY_ID_ATTR_SOURCE_SHORT={0x8, 0x4, 0xfffff000}, @NL802154_KEY_ID_ATTR_SOURCE_SHORT={0x8, 0x4, 0x8}, @NL802154_KEY_ID_ATTR_IMPLICIT={0x34, 0x3, 0x0, 0x1, [@NL802154_DEV_ADDR_ATTR_EXTENDED={0xc, 0x4, {0xaaaaaaaaaaaa0002}}, @NL802154_DEV_ADDR_ATTR_EXTENDED={0xc, 0x4, {0xaaaaaaaaaaaa0302}}, @NL802154_DEV_ADDR_ATTR_MODE={0x8, 0x2, 0x3}, @NL802154_DEV_ADDR_ATTR_PAN_ID={0x6}, @NL802154_DEV_ADDR_ATTR_MODE={0x8, 0x2, 0x2}]}, @NL802154_KEY_ID_ATTR_MODE={0x8}]}, @NL802154_ATTR_WPAN_DEV={0xc, 0x6, 0x100000001}]}, 0x94}}, 0x40)

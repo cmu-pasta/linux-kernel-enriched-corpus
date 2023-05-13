@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=bae9a2236bfede42cf3d219e6bf6740c583568a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000000)={0x1, 'syz_tun\x00'}, 0x18)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000080)={0x1, 'irlan0\x00'}, 0x18)
+ftruncate(0xffffffffffffffff, 0x8200)
+mkdir(&(0x7f0000f4eff8)='./file0\x00', 0x0)
+mount(&(0x7f0000000040)='./file0\x00', &(0x7f0000000140)='./file0\x00', &(0x7f0000000180)='jffs2\x00', 0x201000, &(0x7f00000002c0))
+pivot_root(&(0x7f0000001380)='./file0\x00', &(0x7f00000016c0)='./file0\x00')

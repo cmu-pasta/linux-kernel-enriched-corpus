@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=332ba47915d0e39e94b42a622f195f0804ecb67f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+syz_mount_image$ntfs3(&(0x7f0000000080), &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, &(0x7f0000001200), 0x0, &(0x7f0000000000)={[{@iocharset={'iocharset', 0x3d, 'maccyrillic'}}]})

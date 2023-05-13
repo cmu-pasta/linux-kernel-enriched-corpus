@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fd5821fbdc1bf93afdb86fa444717719ac161cf6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000080)={&(0x7f0000000040)='sys_exit\x00', r0}, 0x10)

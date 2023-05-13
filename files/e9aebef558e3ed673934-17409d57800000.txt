@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1226e1f63ae68eed25833eb1722c73c40dc021c6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = open(&(0x7f00000002c0)='./file0\x00', 0x40, 0x0)
+ioctl$DRM_IOCTL_RES_CTX(r0, 0x40086602, &(0x7f0000000280)={0x200000a7, &(0x7f00000000c0)})
+r1 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r1, &(0x7f0000f56000)={0x0, 0x0, &(0x7f00008feff0)={&(0x7f0000000000)=ANY=[@ANYBLOB="020300091000000000000000000000000200130002000000000000000000000005000600000000000a000000000000000000000000000000000000000000000000000000000000000200010000000000000000020000000005000500000000000a00000000000000ff010000000000000000000000000001000000000000000011741a95bc5913785c7db00f2522f7743b213cfa722e230fad8c53e029d827d4e14bd282"], 0xa4}, 0x1}, 0x0)
+ioctl$sock_inet6_SIOCADDRT(0xffffffffffffffff, 0x890b, &(0x7f0000000540)={@ipv4={[], [0xff, 0xff], @remote={0xac, 0x14, 0x14, 0xbb}}, @local={0xfe, 0x80, [], 0xaa}, @local={0xfe, 0x80, [], 0xaa}, 0x0, 0x100, 0x2, 0x100, 0x3, 0x802a0008})

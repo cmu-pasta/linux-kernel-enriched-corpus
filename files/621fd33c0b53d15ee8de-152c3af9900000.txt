@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=0c4fd9c6aa04ec116d01e915d3b186f71a212cb2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"close_fds":true}
+pipe(&(0x7f0000000400)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000040)=[{&(0x7f0000000140)="18", 0x1}, {&(0x7f0000000000)="e5", 0xfffffe6d}], 0x2, 0x0)
+close(r1)
+socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r1, 0x8933, &(0x7f0000000100)={'team0\x00', <r2=>0x0})
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000000)=ANY=[@ANYBLOB="a400000024000b14000000800000000000001200", @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000000b00010074617072696f00007400020056000100020000000000000000000000000000000000080004000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000100002800c0001800800040001000080080005"], 0xa4}}, 0x0)
+splice(r0, 0x0, r1, 0x0, 0x10973, 0x0)
+clock_adjtime(0x0, 0x0)

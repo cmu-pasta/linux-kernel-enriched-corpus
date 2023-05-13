@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3f01234c57305ddc8d7e5ee9a5cde314217977d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = syz_open_procfs(0x0, &(0x7f0000dec000)='smaps\x00')
+sendfile(r0, r0, &(0x7f0000b58000)=0x200000, 0xffff)

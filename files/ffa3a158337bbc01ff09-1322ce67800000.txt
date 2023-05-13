@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=bea1c185923957c5339d5b43bca13e71047453da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_X86_SETUP_MCE(0xffffffffffffffff, 0x4008ae9c, &(0x7f0000000000)={0x200010, 0x1, 0x6})
+syz_kvm_setup_cpu$x86(r1, 0xffffffffffffffff, &(0x7f0000000000/0x18000)=nil, &(0x7f00000000c0)=[@text16={0x10, &(0x7f0000000300)="c16a00012e260f01ca0f300f350f20e06635000100000f22e066b8ef0000000f23c80f21f866350c00e0000f23f80f21976766c7442400a56c05676766c7442402af3f00006766c744240600000000670f011424b8f1008ee80faeaf0100", 0x5e}], 0x1, 0x0, &(0x7f0000000100), 0x0)
+setsockopt$RDS_GET_MR(0xffffffffffffffff, 0x114, 0x2, &(0x7f0000000240)={{&(0x7f0000000040)=""/38, 0x26}, &(0x7f0000000080), 0x3a}, 0x20)
+chroot(&(0x7f0000000140)='./file0\x00')
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+openat(0xffffffffffffffff, &(0x7f0000000180)='./file0\x00', 0x0, 0x0)
+getsockname$packet(0xffffffffffffffff, &(0x7f0000000380)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @link_local}, &(0x7f0000000100)=0x14)
+setsockopt$inet6_tcp_TCP_REPAIR_WINDOW(0xffffffffffffffff, 0x6, 0x1d, &(0x7f0000000200)={0x0, 0x6}, 0x14)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

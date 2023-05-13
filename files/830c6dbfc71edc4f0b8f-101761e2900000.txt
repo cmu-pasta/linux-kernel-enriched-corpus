@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=b003b7d348cc44ee143bf8d6d71481e9b1ac1b50
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":9,"fault_nth":22,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r1 = dup(r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+r3 = socket$netlink(0x10, 0x3, 0x0)
+r4 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r4, &(0x7f0000000100)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r3, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000240)=ANY=[@ANYBLOB="480000001000050700"/20, @ANYRES32=r5, @ANYBLOB="0000000000000000280012000c00010076657468"], 0x48}}, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000080)={0x0, 0x6c, &(0x7f0000000040)={&(0x7f0000000000)=@newlink={0x28, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, r5, 0xf}, [@IFLA_PROTO_DOWN={0x8, 0x1c, 0xffffffef}]}, 0x28}}, 0x0)

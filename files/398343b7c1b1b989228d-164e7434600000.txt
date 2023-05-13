@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=9853146f1bf4c6496218371ab4847d895cfa444f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_open_procfs(0x0, &(0x7f0000000080)='mountinfo\x00')
+mkdir(&(0x7f00000001c0)='./file0\x00', 0x0)
+mount$fuse(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000080)='fuse.', 0x0, &(0x7f00000002c0)=ANY=[@ANYBLOB="66642ce43ae7e3ddfa46e48775911dfba0192ff1ba2f48da", @ANYRESHEX, @ANYBLOB, @ANYRESDEC=0x0, @ANYBLOB, @ANYRESDEC=0x0, @ANYBLOB])

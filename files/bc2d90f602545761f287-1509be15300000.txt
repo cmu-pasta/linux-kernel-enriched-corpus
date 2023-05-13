@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=197466040929f23a1afc35d6577b0fa59b9fdfc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_io_uring_setup(0x2de5, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f00000000c0)=<r1=>0x0, &(0x7f0000000140)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f00000001c0)=@IORING_OP_FILES_UPDATE={0x14, 0x4, 0x0, 0x0, 0x0, &(0x7f0000000440)=[0xffffffffffffffff], 0x1}, 0x0)
+io_uring_enter(r0, 0x304, 0x0, 0x0, 0x0, 0x700)

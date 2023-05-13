@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=229e0b718232b004dfddaeac61d8d66990ed247a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"tmpdir":true}
+r0 = open(&(0x7f0000000000)='./bus\x00', 0x141042, 0x0)
+mmap(&(0x7f0000003000/0x2000)=nil, 0x2000, 0x0, 0x1012, r0, 0x0)
+write$tun(r0, &(0x7f0000000400)=ANY=[@ANYRES16], 0x1)
+r1 = perf_event_open(&(0x7f0000000180)={0x6, 0x70, 0x0, 0x0, 0x0, 0x0, 0x300}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f0000002000/0x2000)=nil, 0x2000, 0x1000005, 0x10013, r0, 0x0)
+close(r1)

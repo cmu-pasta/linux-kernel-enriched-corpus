@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=94823dab98e65c0f0bf0e3c704852bee20a3abec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = syz_io_uring_setup(0x187, &(0x7f00000002c0), &(0x7f00006d5000/0x2000)=nil, &(0x7f00006d6000/0x4000)=nil, &(0x7f0000000000)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000040)={<r3=>0xffffffffffffffff, <r4=>0xffffffffffffffff})
+connect$unix(r3, &(0x7f0000000080)=@file={0x0, './file0\x00'}, 0x6e)
+syz_io_uring_submit(r1, r2, &(0x7f0000000200)=@IORING_OP_SEND={0x1a, 0x0, 0x0, r4, 0x0, 0x0}, 0x0)
+io_uring_enter(r0, 0x2a6e, 0x0, 0x0, 0x0, 0xe)

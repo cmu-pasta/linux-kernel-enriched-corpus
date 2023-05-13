@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=75b0feac9a3f9e361fd60605e261f8a4ffef1c40
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = memfd_secret(0x0)
+ftruncate(r0, 0x5) (async)
+r1 = mmap$IORING_OFF_SQ_RING(&(0x7f0000ffc000/0x3000)=nil, 0x3000, 0x280000b, 0x4011, r0, 0x0)
+syz_memcpy_off$IO_URING_METADATA_FLAGS(r1, 0x0, &(0x7f0000000040), 0x0, 0x4)

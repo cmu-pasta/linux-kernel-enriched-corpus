@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4c0ccb254972cc51bdf6838cb1eff4fcc00de597
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x3f, 0x0)
+r1 = dup2(r0, r0)
+readv(r1, &(0x7f0000000280)=[{&(0x7f0000000040)=""/173, 0xad}], 0x1)

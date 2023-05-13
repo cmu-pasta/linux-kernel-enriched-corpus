@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=9e518193167f18e65d29d854e50c2ec9c90cca19
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000080)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000240)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000180)='./bus\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./bus\x00', &(0x7f0000000080)='overlay\x00', 0x0, &(0x7f0000000100)=ANY=[@ANYBLOB='lowerdir=./bus,workdir=./file1,upperdir=./file0'])
+chdir(&(0x7f00000002c0)='./bus\x00')
+creat(&(0x7f0000000280)='./file0\x00', 0x1)
+execve(&(0x7f0000000180)='./file0\x00', 0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='fdinfo/3\x00')
+r1 = open(&(0x7f0000000080)='./bus\x00', 0x141042, 0x0)
+sendfile(r1, r0, 0x0, 0x283)
+syz_open_procfs(0x0, &(0x7f0000000040)='personality\x00')
+openat$vicodec0(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+socket(0x10, 0x803, 0x0)

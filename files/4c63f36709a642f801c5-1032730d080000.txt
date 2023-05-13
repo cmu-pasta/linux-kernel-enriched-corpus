@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=e8616085ae2398519d922bdd9c2d97cd18a66d29
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+r1 = socket$key(0xf, 0x3, 0x2)
+sendmsg$key(r1, &(0x7f0000000000)={0x40000000, 0x0, &(0x7f0000000040)={&(0x7f0000000240)=ANY=[@ANYBLOB="0207a20902"], 0x10}}, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x0, @local}, 0x10)
+connect$inet(r0, &(0x7f0000000480)={0x2, 0x0, @multicast1}, 0x10)
+setsockopt$inet_IP_XFRM_POLICY(r0, 0x0, 0x11, &(0x7f0000000080)={{{@in6=@ipv4={'\x00', '\xff\xff', @dev}, @in6=@private0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0xee00}, {}, {}, 0x0, 0x0, 0x1}, {{@in=@rand_addr=0x64010101, 0x10000, 0x32}, 0x0, @in6=@loopback, 0x0, 0x0, 0x0, 0xb7, 0x1fb, 0xffffffff}}, 0xe8)
+sendmmsg(r0, &(0x7f0000000180), 0x400000000000354, 0x2873dedf99c)
+ioctl$sock_ipv6_tunnel_SIOCADDTUNNEL(0xffffffffffffffff, 0x89f1, 0x0)
+socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NL80211_CMD_TDLS_MGMT(0xffffffffffffffff, 0x0, 0x0)
+socket$netlink(0x10, 0x3, 0x0)
+getsockname$packet(0xffffffffffffffff, 0x0, 0x0)

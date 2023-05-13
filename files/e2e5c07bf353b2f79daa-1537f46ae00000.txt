@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=03d4470b64b2524f9dfdc814940972203d04d398
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":3,"close_fds":false,"devlinkpci":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, 0x0)
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r1, &(0x7f00000000c0), 0x10)

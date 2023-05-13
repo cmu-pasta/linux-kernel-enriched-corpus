@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4a3b0ba28ec7d0277338be02e1331068504dc228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+capset(&(0x7f0000000380)={0x19980330}, &(0x7f00000003c0))
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000000)='lp\x00', 0x3)

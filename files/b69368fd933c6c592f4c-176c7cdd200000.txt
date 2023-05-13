@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=2109fb7c8fb7f76e8269485c0ca0f04e2e1ac3fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+syz_emit_ethernet(0x46, &(0x7f0000000000)={@link_local, @link_local, [], {@ipv6={0x86dd, {0x0, 0x6, 'CCg', 0x10, 0x0, 0x0, @ipv4, @local, {[@srh={0x32}], @icmpv6=@echo_request}}}}}, 0x0)

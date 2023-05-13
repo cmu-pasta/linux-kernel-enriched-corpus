@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=0df4c1a9c14776f5fd163180e3580ad88b32649a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket$nfc_raw(0x27, 0x3, 0x0)
+ioctl$sock_SIOCGPGRP(r0, 0x8904, &(0x7f0000879000-0x4)=<r1=>0x0)
+capset(&(0x7f0000063000)={0x20071026, r1}, &(0x7f000035c000-0x18)={0x3ff, 0x8, 0xc61, 0x100000001, 0x9, 0x4})
+r2 = openat$vnet(0xffffffffffffff9c, &(0x7f0000a2c000)='/dev/vhost-net\x00', 0x2, 0x0)
+ioctl$int_in(r2, 0xaf01, &(0x7f00001e3000)=0x0)
+r3 = eventfd(0x0)
+ioctl$VHOST_SET_VRING_KICK(r2, 0x4008af20, &(0x7f0000858000-0x8)={0x0, r3})
+syz_open_dev$midi(&(0x7f0000bfe000-0xb)='/dev/midi#\x00', 0x1, 0x80)
+ioctl$VHOST_RESET_OWNER(r2, 0xaf02, 0x0)
+write$eventfd(r3, &(0x7f00001d4000-0x8)=0x0, 0x8)

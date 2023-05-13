@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9ef8c538552daecf5ee8a9314d051763ef372080
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+openat$mice(0xffffffffffffff9c, &(0x7f0000000000)='/dev/input/mice\x00', 0x0)
+mkdir(&(0x7f0000000080)='./file0\x00', 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+r1 = syz_open_dev$sndpcmp(&(0x7f0000000500)='/dev/snd/pcmC#D#p\x00', 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000040)='9p\x00', 0x0, &(0x7f0000000140)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})

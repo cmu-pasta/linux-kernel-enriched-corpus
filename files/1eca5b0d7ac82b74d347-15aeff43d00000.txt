@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=003444d4ad1415f3ca15e38dbecbe0ee0fa40e9e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":4,"fault_nth":6,"close_fds":false,"segv":true}
+syz_io_uring_setup(0x7459, 0x0, &(0x7f0000ffb000/0x4000)=nil, &(0x7f0000ffe000/0x1000)=nil, 0x0, 0x0)
+r0 = io_uring_setup(0x4ea3, 0x0)
+mmap$IORING_OFF_CQ_RING(&(0x7f0000ffa000/0x4000)=nil, 0x104000, 0x0, 0x13, r0, 0x8000000)
+io_uring_setup(0x7e40, 0x0)
+syz_io_uring_setup(0x345, &(0x7f0000000000), &(0x7f0000ffb000/0x2000)=nil, &(0x7f0000ffd000/0x1000)=nil, 0x0, 0x0)

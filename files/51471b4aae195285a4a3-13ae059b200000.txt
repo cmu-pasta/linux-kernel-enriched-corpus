@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=922b64d383a6ce0cce80fc5b044f0ec9036a8d6b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet6_sctp(0xa, 0x80000000000001, 0x84)
+connect$inet6(r0, &(0x7f00008c0000)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":38,"leak":true,"close_fds":false,"devlinkpci":true,"tmpdir":true}
+syz_emit_ethernet(0x1, &(0x7f0000000000)=ANY=[@ANYBLOB="aaaaaaaaaaaa000000000000080045000061000000000006907800000000e000000100f7ffff0301907800c8d1d6090000000000009a280ebca23c09903661233c6227b94859beea48a6f2c0f1fa8318c20f8b50dabbec7066539b69049834b843944f835743"], 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000580)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000040)=@newlink={0x50, 0x10, 0x705, 0x0, 0x0, {}, [@IFLA_OPERSTATE={0x8, 0x4}, @IFLA_LINKINFO={0x28, 0x12, @veth={{0xc, 0x1, 'veth\x00'}, {0x18, 0x2, @VETH_INFO_PEER={0x14}}}}]}, 0x50}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=dc0ead75c30e6aa27153b6cab86194e55e290a98
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"devlinkpci":true}
+r0 = syz_usb_connect(0x0, 0xd0, &(0x7f0000000000)=ANY=[@ANYBLOB="120100008e32f720f00a57d2874e0000000109021200010000000009040f0000ffa52c0091f253218fa0a4279ef79d3a30604cab5a26a64b1c687369f434b1ee4104122df2763b3e3a530340f9"], 0x0)
+syz_usb_control_io$printer(r0, 0x0, &(0x7f0000000440)={0x34, &(0x7f0000000280)={0x0, 0x0, 0x11, "6c3868b4c423c7f5a951443226a5c80bc8"}, 0x0, 0x0, 0x0, 0x0, 0x0})

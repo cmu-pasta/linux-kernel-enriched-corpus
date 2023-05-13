@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0a6d199d4e60c03fe2cb8e2398cc7f4d654eb634
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000100)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000300)={0xa, 0x0, 0x0, @ipv4={[], [], @local}}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000340)='tls\x00', 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000180)=@gcm_256={{0x303}, "e573b037de8616dc", "c408ee5dfa1bb5f044b4ea4ab57a3a932943170243333b60859335878286b7fb", "998a9de9", "fffffffffffffffe"}, 0x38)
+sendto$inet6(r0, &(0x7f00000001c0)="3649125cfef19c02ada88a6e5b0f9085d77efe", 0xfffffdef, 0x0, 0x0, 0x0)
+setsockopt$inet6_IPV6_ADDRFORM(r0, 0x29, 0x1, &(0x7f00000001c0), 0x4)

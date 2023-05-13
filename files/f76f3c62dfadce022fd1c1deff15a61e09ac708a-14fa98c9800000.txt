@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cb561a307af2189d57b6227959c41ed7e53515f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000000)='/dev/audio\x00', 0x4000000000000202, 0x0)
+write$sndseq(r0, &(0x7f0000736000-0x120)=[{0x0, 0x0, 0x0, 0x0, @time={0x0, 0x0}, {0x0, 0x0}, {0x0, 0x0}, @raw32={[0x0, 0x0, 0x0]}}], 0xfffffee4)

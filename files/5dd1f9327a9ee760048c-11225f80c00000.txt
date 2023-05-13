@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=4d03c161c6cc140b6234f534c6009d8c9da39f6c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+ioctl(r0, 0x9, 0x0)
+setsockopt$inet_sctp6_SCTP_FRAGMENT_INTERLEAVE(r0, 0x84, 0x12, 0x0, 0x0)
+r1 = socket$inet6(0xa, 0x2000000802, 0x0)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r1, 0x29, 0x20, 0x0, 0x0)
+setsockopt$inet6_int(r1, 0x29, 0x21, 0x0, 0x0)
+unshare(0x40000000)
+r2 = socket$inet6(0xa, 0x3, 0x3a)
+setsockopt$inet6_int(r2, 0x29, 0xc8, 0x0, 0x0)
+setsockopt$inet6_MRT6_ADD_MIF(r2, 0x29, 0xca, 0x0, 0x0)
+setsockopt$SO_TIMESTAMPING(r2, 0x1, 0x25, 0xffffffffffffffff, 0x0)
+setsockopt$inet6_MRT6_ADD_MFC(r2, 0x29, 0xc9, 0x0, 0x0)
+socket$inet_smc(0x2b, 0x1, 0x0)
+r3 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_kcm_SIOCKCMCLONE(0xffffffffffffffff, 0x89e2, 0x0)
+setsockopt$sock_int(r3, 0x1, 0x2b, 0x0, 0x0)
+ioctl$sock_bt_hidp_HIDPCONNDEL(0xffffffffffffffff, 0x400448c9, 0x0)
+ioctl(r3, 0x1000008912, 0x0)
+r4 = socket$kcm(0x10, 0x2, 0x4)
+sendmsg$kcm(r4, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000200)=[{&(0x7f0000000000)="39000000140081ae00d175040f62b04a2b546fc54c1960b89c40ebb373585806dbb7d553b4a400000000000000000000000000000000000000", 0x39}], 0x1}, 0x0)

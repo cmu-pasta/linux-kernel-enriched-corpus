@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=528adc617286a11273518fca9fe85ba514a61f2a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='freezer.self_freezing\x00', 0x275a, 0x0)
+write$binfmt_script(r2, &(0x7f0000000080)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000003, 0x28011, r2, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x60000b, 0x9)
+sendmmsg$unix(r1, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r0, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+sched_setattr(0x0, &(0x7f00000000c0)={0x38, 0x5, 0x0, 0x8000, 0x0, 0x0, 0x80000000, 0x0, 0x0, 0x3}, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

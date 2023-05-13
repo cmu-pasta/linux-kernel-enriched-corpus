@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c620fe14aac810396d3c3edc9ad73848bf69a29e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_mount_image$erofs(&(0x7f0000000000), &(0x7f0000001a80)='./file0\x00', 0x4000000, 0x2, &(0x7f0000000200)=[{&(0x7f00000000c0)="e2e1f5e09521e909020018000c0024", 0xf, 0x400}, {&(0x7f0000000080)="0600270a954405bc26a96695a3bc32c1459f2511bcc1fb4b276e6b5751ed4708000000000200007faa094f90000000000000", 0x32, 0x480}], 0x0, &(0x7f00000002c0)=ANY=[], 0x0)
+ioctl$FS_IOC_FIEMAP(r0, 0xc020660b, &(0x7f0000000380)={0x9566a929, 0x3})

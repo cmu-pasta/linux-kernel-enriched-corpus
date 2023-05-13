@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=78e9ad0e6952a3ca16e8234724b2fa92d041b9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/nullb0\x00', 0x4002, 0x0)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f0000000100)={0x3, 0x40, 0xfa00, {{0xa, 0x4e23, 0x9, @mcast1={0xff, 0x1, [], 0x1}, 0x9}, {0xa, 0x4e23, 0x6c, @remote={0xfe, 0x80, [], 0xbb}, 0x5}, 0xffffffffffffffff, 0x9}}, 0x48)

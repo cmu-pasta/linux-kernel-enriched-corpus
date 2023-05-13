@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e9f2778be553554577092c642fad149cd55ab496
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":4,"fault_nth":99,"leak":true,"close_fds":false}
+syz_open_procfs(0x0, 0x0)
+getsockopt$packet_int(0xffffffffffffffff, 0x107, 0x0, 0x0, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_generic(r0, &(0x7f00000001c0)={0x0, 0x4, &(0x7f0000000100)={&(0x7f0000000200)=ANY=[@ANYBLOB="34000000290029082dbd7000000000000400000008000c"], 0x34}, 0x1, 0xffffff7f0e000000}, 0x0)

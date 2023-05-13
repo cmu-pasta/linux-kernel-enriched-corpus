@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4e787d7ede986c6bdabd8a46e10dcee11b5768c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = syz_open_dev$vim2m(&(0x7f0000000000)='/dev/video#\x00', 0x3, 0x2)
+ioctl$vim2m_VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000080)={0x3, @sliced={0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x101]}})

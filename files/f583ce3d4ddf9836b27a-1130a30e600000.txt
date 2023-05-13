@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=af9d9384bbda6732044cf6335966df874a40cff1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f00000000c0))
+r0 = socket$kcm(0x2, 0x3, 0x84)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000200)='cgroup.s\x01@\x00\x00', 0x26e1, 0x0)
+setsockopt$sock_attach_bpf(r0, 0x1, 0x3e, &(0x7f0000000280)=r1, 0x4)
+sendmsg$kcm(r0, &(0x7f0000003d00)={&(0x7f0000000380)=@un=@abs={0x0, 0x0, 0xffffff7f}, 0xff3a, 0x0}, 0x0)

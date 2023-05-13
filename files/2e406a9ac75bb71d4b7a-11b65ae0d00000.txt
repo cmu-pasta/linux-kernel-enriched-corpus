@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=abe95dc3e3e9667fc23b8d81f29ecad95c6f106f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = socket(0x200000000000011, 0x3, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+bind$packet(r0, &(0x7f00000000c0)={0x11, 0x800, r2, 0x1, 0x0, 0x6, @dev}, 0x14)
+sendmmsg$alg(r0, &(0x7f00000066c0)=[{0x0, 0x0, &(0x7f0000000080)=[{&(0x7f00000002c0)="cb458f3a00a61aff9eeea162f3e2", 0xe}], 0x1}], 0x1, 0x0)

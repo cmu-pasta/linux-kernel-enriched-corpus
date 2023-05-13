@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40cdeb3bf27f6ec1fa468f8d7fff780368704d67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+sched_setattr(0x0, &(0x7f0000000000)={0x0, 0x6, 0x0, 0x0, 0x0, 0x9917, 0xffff}, 0x0)
+futex(&(0x7f0000000280)=0x2, 0x800000000006, 0x1, 0x0, 0x0, 0x2000000000002)
+ioctl$TCSETS(0xffffffffffffffff, 0x5402, 0x0)

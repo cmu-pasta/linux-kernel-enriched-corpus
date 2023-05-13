@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e6028c53b349b6a97a83fe01a2013ac52db59710
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = open(&(0x7f0000000080)='./file0\x00', 0x40c5, 0x0)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='9p\x00', 0x0, &(0x7f00000000c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})

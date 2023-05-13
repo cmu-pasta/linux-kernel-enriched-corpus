@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c1334b21be1dfecc75cbbb93c879332967482a3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_open_dev$usbfs(&(0x7f0000000840), 0x90f, 0x28101)
+syz_usbip_server_init(0x4)

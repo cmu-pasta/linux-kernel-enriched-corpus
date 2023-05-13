@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e2fdad19640cdf94dec600b3c67260b6095e5f7d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_io_uring_setup(0x1c16, &(0x7f0000000200), &(0x7f0000002000/0x1000)=nil, &(0x7f0000004000/0x2000)=nil, &(0x7f0000000040), &(0x7f00000000c0)=<r0=>0x0)
+syz_io_uring_setup(0x3ede, &(0x7f0000000240), &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000000100)=<r1=>0x0, &(0x7f0000000040))
+syz_io_uring_submit(r1, r0, &(0x7f0000000100)=@IORING_OP_OPENAT2={0x1c, 0x1, 0x0, 0xffffffffffffff9c, 0x0, 0x0, 0x0, 0x0, 0x12345}, 0xfffffffe)
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000001100)='fdinfo/4\x00')
+pread64(r2, &(0x7f0000002140)=""/17, 0x11, 0x0)

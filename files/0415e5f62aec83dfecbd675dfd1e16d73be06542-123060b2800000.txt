@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4a021a59298be53e9addad8d5f11fe597625281f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:1 FaultNth:9 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+mount(&(0x7f0000ae1000-0xc)="2e2f66696c65302f62757300", &(0x7f000059e000)="2e2e", &(0x7f0000e3b000)="64657670747300", 0x0, 0x0)

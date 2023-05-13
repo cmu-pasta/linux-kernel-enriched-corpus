@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=751ed5b74aa9a00ac4b39c32881fd32d6f6b875c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$unix(0x2, 0x6, 0x0)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x0, @local={0xac, 0x14, 0x14, 0xaa}}, 0x10)
+r1 = open(&(0x7f0000000f80)='./file0\x00', 0x40, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000f00)='./file0\x00', &(0x7f0000000f40)='9p\x00', 0x0, &(0x7f0000000fc0)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}, 0x2c})
+connect$unix(r0, &(0x7f0000000080)=@file={0x0, './file0\x00'}, 0x6e)

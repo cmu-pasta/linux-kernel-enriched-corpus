@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=3622a023cf3fd3b8c308d8e460192f4ad48416eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"waitrepeat":true}
+r0 = syz_open_dev$adsp(&(0x7f0000000480)='/dev/adsp#\x00', 0x2000000000000000, 0x101500)
+getsockopt$inet6_IPV6_IPSEC_POLICY(r0, 0x29, 0x22, &(0x7f00000004c0)={{{@in=@broadcast, @in=@local}}, {{@in=@rand_addr}, 0x0, @in=@local}}, &(0x7f00000005c0)=0xe8)
+mmap(&(0x7f0000ffb000/0x3000)=nil, 0x3000, 0xdadafc0dff55e357, 0x10, r0, 0x0)
+r1 = msgget$private(0x0, 0x0)
+msgrcv(r1, &(0x7f0000000200)=ANY=[@ANYBLOB], 0x1, 0x0, 0x800)
+sched_setaffinity(0x0, 0x1c2, &(0x7f0000002800)=0x2)
+getsockopt$inet_sctp6_SCTP_MAXSEG(r0, 0x84, 0xd, &(0x7f00000000c0)=@assoc_value={0x0, 0x8}, &(0x7f00000002c0)=0x8)
+setsockopt$inet6_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000080)='westwood\x00', 0x9)
+getsockopt$SO_COOKIE(r0, 0x1, 0x39, &(0x7f0000000440), &(0x7f0000000600)=0x8)
+msgctl$IPC_RMID(r1, 0x0)

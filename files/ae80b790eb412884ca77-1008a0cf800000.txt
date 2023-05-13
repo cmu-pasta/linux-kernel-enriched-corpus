@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=757195710b3cfe529411282e0861cec7d6ef1c04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"tmpdir":true,"waitrepeat":true}
+perf_event_open(&(0x7f0000000180)={0x2, 0x70, 0x3e4}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+mkdir(&(0x7f0000000080)='./file0\x00', 0x0)
+mount(&(0x7f0000000140)='./file0\x00', &(0x7f0000000200)='/\x00', &(0x7f0000000280)='overlay\x00', 0x32, &(0x7f0000000300))
+mount(&(0x7f0000000100)='./file0\x00', &(0x7f0000000240)='./file0\x00', &(0x7f00000002c0)='ocfs2\x00', 0x800, &(0x7f0000000300))
+mount(&(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='./file0\x00', &(0x7f00000000c0)='binfmt_misc\x00', 0x0, &(0x7f0000000180))
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f00000003c0))

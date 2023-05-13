@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=313930e3454228da05722f6b8a84123d77e842a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+preadv(r0, 0x0, 0x0, 0xd9f, 0x0)
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x2, 0x5c831, 0xffffffffffffffff, 0x0)

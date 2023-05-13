@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9c65accb85b71ee72e58b2874fc7608a28e4d641
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+pipe(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+flock(r0, 0x1)

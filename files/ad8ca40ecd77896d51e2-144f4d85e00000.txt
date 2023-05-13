@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":6,"fault_nth":25,"leak":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+socketpair$unix(0x1, 0x1, 0x0, 0x0)
+r0 = dup(0xffffffffffffffff)
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/ptmx\x00', 0x0, 0x0)
+ioctl$TCSETS(r1, 0x40045431, &(0x7f00005befdc))
+r2 = syz_open_pts(r1, 0x0)
+ioctl$TIOCSETD(r2, 0x5423, &(0x7f0000000000)=0x7)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=280dc3881aceb90226df17588dd00223ae760369
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet(0x2, 0x4000000805, 0x0)
+r1 = socket$inet_sctp(0x2, 0x5, 0x84)
+r2 = dup3(r0, r1, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r1, 0x84, 0x64, &(0x7f0000d6cff0)=[@in={0x2, 0x4e20, @loopback}], 0x10)
+sendto$inet(r2, &(0x7f0000fa3fff)='\t', 0x1, 0x0, &(0x7f00006f7000)={0x2, 0x0, @remote={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+sendto$inet(r1, &(0x7f00003cef9f)='7', 0x34000, 0x0, &(0x7f0000618000)={0x2, 0x4e20, @loopback}, 0x10)
+getsockopt$inet_sctp_SCTP_GET_ASSOC_ID_LIST(r1, 0x84, 0x1d, &(0x7f00000001c0)=ANY=[@ANYBLOB="b4040000", @ANYRES32=0x0, @ANYRES32=<r3=>0x0], &(0x7f0000a8a000)=0xf6)
+getsockopt$inet_sctp6_SCTP_SOCKOPT_PEELOFF(r2, 0x84, 0x7a, &(0x7f000059aff8)={r3}, &(0x7f000034f000)=0x2059b000)

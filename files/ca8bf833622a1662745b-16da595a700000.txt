@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=507c1be447a4c69f108a0b8cd281fcab44eaf774
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = io_uring_setup(0x6d61, &(0x7f0000000180))
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f0000000140)=[{&(0x7f00000000c0)=""/38, 0x26}], 0x1)
+io_uring_register$IORING_UNREGISTER_BUFFERS(r0, 0x1, 0x0, 0x0)
+io_uring_register$IORING_REGISTER_PROBE(r0, 0x10, &(0x7f0000000200)=ANY=[@ANYBLOB="00000000000000000004002000000000000000200000000001"], 0x20)

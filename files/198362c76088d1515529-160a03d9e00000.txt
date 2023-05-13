@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=39d35c93d0856ca3134bf97f8bb3f249808c2751
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='net/ipv6_route\x00')
+r1 = openat$6lowpan_enable(0xffffffffffffff9c, &(0x7f0000000080)='/sys/kernel/debug/bluetooth/6lowpan_enable\x00', 0x2, 0x0)
+sendfile(r1, r0, 0x0, 0x5000)

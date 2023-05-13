@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=2b6a5e7ed9c189aadc974fc5ff168b131c005947
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:namespace Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000acd000-0x9)='/dev/kvm\x00', 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+utime(&(0x7f000024e000)='./file0\x00', &(0x7f0000a98000)={0x6df2, 0x0})
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f00006cf000)={0x10004, 0x0, 0x0, 0x1000, &(0x7f0000a98000/0x1000)=nil})
+ioctl$KVM_SMI(r2, 0xaeb7)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_INTERRUPT(r2, 0x4004ae86, &(0x7f00003d5000-0x4)=0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=2a3c5f6dc8ee7d04e8531e92b2bcef857aba69d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+syz_mount_image$btrfs(&(0x7f0000000080)='btrfs\x00', &(0x7f0000000100)="2e2f66696c6530fe", 0x0, 0x1, &(0x7f0000000200)=[{&(0x7f0000000500)="8da4363a00000000000000000000004d0100000000000000000000fffffdfc00ecf6f2a2299748aeb81e1b00920efd9a000001000000000001000000000000005f42485266535f4dd2", 0x49, 0x10000}], 0x0, &(0x7f0000000240))

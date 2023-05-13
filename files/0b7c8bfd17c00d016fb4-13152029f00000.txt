@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f46045740b4e7debd13768f0a6d9a4ff215cb8bf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_open_dev$ttys(0xc, 0x2, 0x0)
+write$FUSE_STATFS(r0, &(0x7f0000000380)={0x60}, 0x60) (fail_nth: 3)

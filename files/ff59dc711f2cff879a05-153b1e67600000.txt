@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5f9ccca48ab84b8ed5baaa82833746eac6d14734
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f00000005c0)='TIPCv2\x00')
+sendmsg$TIPC_NL_PUBL_GET(r0, &(0x7f0000000680)={0x0, 0x0, &(0x7f0000000640)={&(0x7f0000000000)={0x18, r1, 0x323, 0x0, 0x0, {}, [@TIPC_NLA_SOCK={0x4}]}, 0x18}}, 0x0)
+connect$inet6(0xffffffffffffffff, 0x0, 0x0)
+sendmsg$TIPC_NL_PUBL_GET(0xffffffffffffffff, 0x0, 0x0)

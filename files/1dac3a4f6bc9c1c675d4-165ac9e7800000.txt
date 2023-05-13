@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ab584ffc694205cc6ad6c3deaf90f8f40b64d8f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$sndpcmc(&(0x7f0000000040)='/dev/snd/pcmC#D#c\x00', 0x1, 0x202)
+ioctl(r0, 0x4800c4153, &(0x7f0000000040))

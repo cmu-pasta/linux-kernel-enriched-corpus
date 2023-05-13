@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e1d2492507fca6102dbce03c16b40a21130c8dbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r0, 0x1000008912, 0x0)
+r1 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r1, &(0x7f0000000040)={0x2, 0x4e21, @remote}, 0x10)
+sendmsg$rds(r1, &(0x7f0000000340)={&(0x7f0000000080)={0x2, 0x104e21, @remote}, 0x10, &(0x7f0000000300)=[{&(0x7f00000000c0)=""/16, 0xfd0f}], 0x1}, 0x0)
+recvmmsg(r1, &(0x7f0000000b40)=[{{0x0, 0x0, &(0x7f0000000180)=[{&(0x7f0000000580)=""/139, 0xfd10}], 0x1}}], 0x1, 0x0, 0x0)

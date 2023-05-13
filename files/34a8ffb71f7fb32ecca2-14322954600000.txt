@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1ac7a7a8440522302ccb634ba69f8e1e6f203902
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$loop(&(0x7f00000000c0)='/dev/loop#\x00', 0x0, 0x1100082)
+r1 = memfd_create(&(0x7f0000000440)='\x00\x81\x00\x00\x00\x00', 0x0)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+r2 = syz_open_dev$radio(0x0, 0x1, 0x2)
+ioctl$VIDIOC_G_FREQUENCY(r2, 0xc02c5638, 0x0)

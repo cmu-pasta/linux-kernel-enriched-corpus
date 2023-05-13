@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b7f57a105abec9e5033221954c5ae7f9147d0627
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x6, 0x0)
+connect$inet6(r0, &(0x7f00000000c0)={0xa, 0x0, 0x0, @dev, 0x8}, 0x1c)
+setsockopt$inet6_IPV6_DSTOPTS(r0, 0x29, 0x3b, &(0x7f0000000000), 0x8)

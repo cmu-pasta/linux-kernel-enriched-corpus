@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f95b5ff2a219684ecc266ffa24cf3d08839739e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"ieee802154":true,"segv":true}
+syz_mount_image$hfs(&(0x7f0000000000), &(0x7f0000000280)='./bus\x00', 0x1000448, &(0x7f00000000c0)={[{@iocharset={'iocharset', 0x3d, 'cp737'}}, {@type={'type', 0x3d, "a35cd298"}}]}, 0x4, 0x254, &(0x7f00000002c0)="$eJzs3U9rE0EYx/HfTNI22lK3f6TgsVrwJG29iBdB+iI8iKhNhGKooBXUk3gW8SZ49+ZZfA2exDegJ0++gNxWZnbSbGN2s4kk0z/fDyRsm3l2nqc76c4TKBWAM+v2zs9P13+7h5Fqqkm6KVlJDaku6aLWGs/3D/YO2q1m2YlqPsI9jLJI88+Y3f3WoFAX5yOCxH1V10L+e5iMNE3TX7GTQHT+3T+AlebCu9O/3ph6ZpPxOnYCkZmOOnqhxdh5AADiCvd/G+7zC2H/bq20EW77p+r+34mdQGS5+7/vslLjru8F/1Kv3/MtnHvddrvEceaaVbayjmwwzbCu0udizz3aa7eu7T5pN63e6FaQG7bqn5vZ0u0aku36gN60xPi1z/saZlwN2wX5r4wz44fRUzlkvpnv5p5J9FHNw/1fPTXuMvkrlfRdqSz/zeIz+iqTbFRBlUt+kkthBn39XKHKxuCORN0VtaSjHxAk3Tzfz5ZELfdFZdVtFVfno1YGRm0PiVrtj+qt5uLISTPvzB2zrj/6op3c/t+6n/aGqrwz3Rg/MqyM0nrqfmRSITE7Uhn4P2/1UDe0+Ozlq8cP2u3WUw6O8UFd05hrJiyNY1EyB+UHNc1polNE/v2EqehddK3djZ0MYnD7LpP1f7l+ZdO3SO4pKdmnp8NOnjvjVkFvsOyfz4/Uwc0Xd3BVe67LV6Ur1WdMQp6nhNnRD93n838AAAAAAAAAAAAAAAAAAICTZhp/sRC7RgAAAAAAAAAAAAAAAAAAAAAATjr+/y9wdv0NAAD//+kOfwo=")
+r0 = memfd_create(&(0x7f0000000180)='-B\xd5NI\xc5j\x9appp\xf0\b\x84\xa2m\x00\v\x18\x004\xa6Ey\xdb\xd1\xa7\xb1S\xf1:)\x00\xca\xd7Uw\x00\xbc\xfa2\xb3\xbb\x8d\xac\xacva}knh#\xcf)\x0f\xc8\xc0:\x9cc\x10d\xee\xa9\x8b\x066\xb8G\xd1c\xe1$\xff\x97k\xde\xc5\xe96\xddU)\xc98M\xcd\xfb\xcc\x82n=\x7f=\xcdJx\xaa\x8f~\xb90a\xa9\xb2\x04K\x98\x93=\xabQ\xf7\x05\x1d\xa1\xce\x8b\x19\xea\xef\xe3', 0x0)
+r1 = dup(r0)
+write$cgroup_pid(r1, &(0x7f0000000040), 0x12)
+mmap(&(0x7f0000000000/0x1000)=nil, 0x1000, 0x4, 0x11, r0, 0x0)
+sendfile(r0, r1, &(0x7f0000000100), 0x6c03)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000300)='blkio.bfq.io_merged_recursive\x00', 0x275a, 0x0)

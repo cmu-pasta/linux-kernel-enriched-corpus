@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f0d603856d8b3cc9b8e09228f2f548c18ef907ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$apparmor_thread_exec(0xffffffffffffff9c, &(0x7f0000000140)='/proc/thread-self/attr/exec\x00', 0x2, 0x0)
+write$apparmor_exec(r0, &(0x7f0000000000)={'exec ', "262600c7c8f1bc0a95a126578f539c9c5db20436e4e2cda74f0a6c99af66a4e6d0b055ea36ece6"}, 0x2c)

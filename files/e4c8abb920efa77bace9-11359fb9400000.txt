@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=3490860a465e6b39227c6906f0ef2d40ad4d5bb1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+bpf$OBJ_PIN_MAP(0x6, &(0x7f0000000280)={&(0x7f00000001c0)='./file0\x00'}, 0x10)
+sched_setaffinity(0x0, 0x8, &(0x7f0000000240)=0x40000000000009)
+perf_event_open(&(0x7f0000000340)={0x1, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x50d, 0x0, 0x0, 0x0, 0x3}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$sndseq(&(0x7f0000000580)='/dev/snd/seq\x00', 0x0, 0x0)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_PORT(r0, 0xc0a85320, &(0x7f0000068f50)={{0x80}, "706f72ff0700000000000000000000000000000000000000000000001f0000ffffffffffffffef000003ff00000000000012000000000000000000000600", 0xc3, 0x80003})
+clock_gettime(0x7, &(0x7f0000000540))
+r1 = openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000040)='/dev/sequencer2\x00', 0x10000080002, 0x0)
+r2 = dup2(r0, r1)
+read(0xffffffffffffffff, &(0x7f00000000c0)=""/85, 0x321)
+sendmmsg(0xffffffffffffffff, &(0x7f00000002c0), 0x400000000000025, 0x0)
+bpf$BPF_GET_BTF_INFO(0xf, &(0x7f00000002c0)={r1, 0x10, &(0x7f0000000080)={&(0x7f00000003c0)=""/179, 0xb3, <r3=>0x0}}, 0x10)
+write$smack_current(r2, &(0x7f00000004c0)='*vmnet1\x00', 0x8)
+bpf$BPF_BTF_GET_FD_BY_ID(0x13, &(0x7f0000000480)=r3, 0x4)

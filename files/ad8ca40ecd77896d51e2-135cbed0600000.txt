@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":3,"fault_nth":9,"leak":true,"close_fds":false}
+sysinfo(&(0x7f0000000000)=""/22)
+sendmsg(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x392, &(0x7f0000000440)}, 0x0)
+r0 = socket$inet(0x10, 0x3, 0x0)
+ioctl$sock_ifreq(r0, 0x89f1, &(0x7f0000000180)={'ip6_vti0\x00\x00\x00?)\f\xfc\x00', @ifru_flags=0x2})

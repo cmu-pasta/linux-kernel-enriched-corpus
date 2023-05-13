@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=aa7e496533e1fb4871793a15bac6b7f7be4b9dea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:17 FaultNth:3 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+setsockopt$inet6_mreq(r0, 0x29, 0x1b, &(0x7f00000001c0)={@remote={0xfe, 0x80, [], 0xbb}}, 0x14)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000000240)={'lo\x00', 0x95fe})
+r2 = socket$packet(0x11, 0x200000002, 0x300)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000000)={'bridge0\x00'})
+getsockopt$inet_sctp_SCTP_PR_SUPPORTED(r2, 0x84, 0x71, &(0x7f0000000200)={<r3=>0x0, 0x18}, &(0x7f0000000440)=0x8)
+getpeername(r1, &(0x7f00000004c0)=@pppol2tpin6={0x0, 0x0, {0x0, <r4=>0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0x0, 0x0, 0x0, @loopback}}}, &(0x7f0000000340)=0x80)
+getsockopt$inet_sctp_SCTP_MAXSEG(r4, 0x84, 0xd, &(0x7f0000000300)=@assoc_id=r3, &(0x7f0000000400)=0x4)
+ioctl$sock_inet_SIOCGIFNETMASK(0xffffffffffffffff, 0x891b, &(0x7f0000000580)={'ip6_vti0\x00', {0x2, 0x4e23}})
+getsockopt$inet_sctp6_SCTP_GET_PEER_ADDRS(0xffffffffffffff9c, 0x84, 0x6c, &(0x7f0000000740)=ANY=[@ANYBLOB], &(0x7f00000002c0)=0x1)
+setsockopt$inet_sctp_SCTP_RESET_ASSOC(r2, 0x84, 0x78, &(0x7f0000000280), 0x4)
+setsockopt$packet_add_memb(r2, 0x107, 0x1, &(0x7f0000000040)={0x0, 0x1, 0xffffff89, @dev={[0xaa, 0xaa, 0xaa, 0xaa, 0xaa], 0x13}}, 0xfda9)
+socket$inet_sctp(0x2, 0x5, 0x84)
+ioctl$sock_SIOCBRDELBR(r1, 0x89a1, &(0x7f0000000480)='bridge0\x00')
+getsockopt$inet_sctp_SCTP_RECVRCVINFO(r1, 0x84, 0x20, &(0x7f00000000c0), &(0x7f0000000100)=0x4)
+r5 = socket(0x1e, 0x805, 0x0)
+setsockopt$packet_tx_ring(r5, 0x10f, 0x87, &(0x7f0000000040)=@req3={0x80000000, 0x0, 0x2, 0x3ff}, 0xfeda)

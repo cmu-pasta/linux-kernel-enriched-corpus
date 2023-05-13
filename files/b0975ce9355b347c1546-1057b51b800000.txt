@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0ba0487bee95b61e3d4e2edeba86156391b7b167
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = socket(0x1e, 0x2, 0x0)
+sendmsg(r0, &(0x7f000095ffc8)={&(0x7f00004aeb5c)=@generic={0x10000000001e, "bc07000000008d0000000001e526cc573c5bf86c483724c71e14dd6a739effea1b48006be61ffe00000003000000f8000007003f010039d8f986ff01000000000000af50d5fe32c419d67bcbc7e3ad316a198374edb9b7341c1fd4cb24281e27800000100076c3979ac40000bd837e2e78a1dfd300881a1565b3b16d7436"}, 0x80, &(0x7f0000000240)=[{&(0x7f0000000280)}], 0x1, &(0x7f00002d4000), 0x0, 0x2000000000000000}, 0x0)

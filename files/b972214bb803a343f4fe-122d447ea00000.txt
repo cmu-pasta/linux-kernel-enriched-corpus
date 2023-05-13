@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=83687867d4a435fce7c6045b34425b1cfb3bf2d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2b, 0x801, 0x0)
+connect$inet(r0, &(0x7f0000000180)={0x2, 0x0, @local}, 0x10)
+setsockopt$MISDN_TIME_STAMP(r0, 0x0, 0x1, &(0x7f0000000080)=0x400, 0x4)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a13951ba83ba7ba6e67fa8b504e8bc31f61616cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f00000001c0)='./file1\x00', 0x0)
+mkdir(&(0x7f00000002c0)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000280)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000240)='./file0/file0\x00', 0x0)
+mount$overlay(0x400000, &(0x7f0000000000)='./bus\x00', &(0x7f0000000100)='overlay\x00', 0x0, &(0x7f0000000400)=ANY=[@ANYBLOB='lowerdir=./bus,workdir=./file1,upperdir=./file0'])
+rmdir(&(0x7f0000000140)='./file0/file0\x00')
+rmdir(&(0x7f00000000c0)='./bus/file0\x00')

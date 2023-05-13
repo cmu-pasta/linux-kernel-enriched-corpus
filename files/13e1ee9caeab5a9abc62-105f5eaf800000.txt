@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=1557fb40b5ed0a1ed2ba18268e04da194674d770
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tmpdir":true,"cgroups":true,"netdev":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1, 0x0)
+ioctl(r0, 0x3, &(0x7f00000001c0))
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x13, &(0x7f00000000c0)=0x100000001, 0x4)
+setsockopt$inet6_tcp_TCP_MD5SIG(r1, 0x6, 0xe, &(0x7f0000000640)={@in6={{0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}}}, 0x0, 0x1, 0x0, "0d77bded7125338de47145b71f2226c0b6950feba57b7d52d9e6d13509bb602e4818224696dafe09c25ed1d5e1e8dd9525d4425e2c4707a00f8dd47a4c19b884282e4f743e00c7a3eff599b13d518d10"}, 0xd8)
+connect$inet6(r1, &(0x7f0000000140)={0xa, 0x0, 0x0, @loopback={0x0, 0x1}}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f0000000340)='tls\x00', 0x4)
+setsockopt$inet6_tcp_TLS_TX(r1, 0x11a, 0x1, &(0x7f0000000100)={0x303, 0x33}, 0x28)
+sendto$inet6(r1, &(0x7f00000005c0), 0xfffffdef, 0x0, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}}, 0x1c)
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r2, &(0x7f0000c16ff0)={0x2, 0x1, @multicast1=0xe0000001}, 0x10)
+sendto$inet(r2, &(0x7f0000fa0fff), 0xffffffffffffffc3, 0x20020007, &(0x7f0000e97fcf)={0x2, 0x1, @loopback=0x7f000001}, 0x10)

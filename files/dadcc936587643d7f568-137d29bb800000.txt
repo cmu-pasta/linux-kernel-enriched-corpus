@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=3ba0ae52fe0d556bb53fe23b66de56d9d0b2eafd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:1 FaultNth:1 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+r0 = perf_event_open(&(0x7f0000940000)={0x2, 0x78, 0x38d}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r0, 0x40082406, &(0x7f000099aff9)="6370757e3600dd")

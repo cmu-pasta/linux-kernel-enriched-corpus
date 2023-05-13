@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6225e7b911f6977538f7bd519ba9811d9fc2cb94
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = syz_open_dev$audion(&(0x7f0000bc7000-0xc)='/dev/audio#\x00', 0xf2c, 0xa03)
+mmap(&(0x7f0000000000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+getdents64(r0, &(0x7f0000000000)=""/112, 0x70)
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$usbmon(&(0x7f00008be000)='/dev/usbmon#\x00', 0x0, 0x0)
+mmap(&(0x7f0000ac6000/0x4000)=nil, 0x4000, 0x1000004, 0x8011, r1, 0x0)
+ioctl$KVM_SET_NR_MMU_PAGES(r1, 0x9204, 0xf0b1)

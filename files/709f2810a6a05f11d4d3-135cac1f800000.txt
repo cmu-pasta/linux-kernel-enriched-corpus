@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a6e7dc43d03d34acd6ea76b3a1d0139a6100d66a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":6,"fault_nth":2}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f00000000c0)=0x100000001, 0x151)
+connect$inet6(r0, &(0x7f0000000140)={0xa}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000080)='tls\x00', 0x152)
+mmap(&(0x7f0000003000/0xffc000)=nil, 0xffc000, 0x2, 0x32, 0xffffffffffffffff, 0x0)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000100)={0x303, 0x33}, 0x28)
+sendto$inet6(r0, &(0x7f00000005c0), 0xfffffdef, 0x40, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote={0xfe, 0x80, [], 0xbb}}, 0x1c)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=2bf7b7983c2398ec6f0c4c6c87cb50223e8873f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+ioctl$BINDER_SET_MAX_THREADS(0xffffffffffffffff, 0x40046205, 0x4)
+r0 = socket$bt_l2cap(0x1f, 0x3, 0x0)
+mmap(&(0x7f0000001000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$sock_inet_SIOCGIFPFLAGS(r0, 0x8935, &(0x7f0000001000)={@generic="e82ba3a5350b56e59856c0266308c82f", @ifru_flags=0x4202})
+r1 = openat$selinux_commit_pending_bools(0xffffffffffffff9c, &(0x7f000025f000)='/selinux/commit_pending_bools\x00', 0x1, 0x0)
+ioctl$DRM_IOCTL_SET_CLIENT_CAP(r1, 0x4010640d, &(0x7f00005bf000-0x10)={0xab, 0x3})
+getsockopt$inet_sctp6_SCTP_RESET_STREAMS(0xffffffffffffffff, 0x84, 0x77, &(0x7f0000082000-0x10)={0x0, 0x7fffffff, 0x4, [0x0, 0x6b95296e, 0x3ff, 0x3]}, &(0x7f0000bc3000)=0x10)
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r2 = openat$kvm(0xffffffffffffff9c, &(0x7f0000598000-0x9)='/dev/kvm\x00', 0x0, 0x0)
+r3 = ioctl$KVM_CREATE_VM(r2, 0xae01, 0x0)
+ioctl$KVM_SET_TSS_ADDR(r3, 0xae47, 0x0)
+r4 = ioctl$KVM_CREATE_VCPU(r3, 0xae41, 0x0)
+ioctl$KVM_RUN(r4, 0xae80, 0x0)

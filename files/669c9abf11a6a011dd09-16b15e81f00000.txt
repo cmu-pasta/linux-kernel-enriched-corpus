@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=08967990c042213d9aea7b6e111cb6ad7e746fd1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000080), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_TREAD(r0, 0x40045402, &(0x7f0000000000)=0x1)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r0, 0x40345410, &(0x7f0000000100)={{0x1}})
+ioctl$SNDRV_TIMER_IOCTL_PARAMS(r0, 0x40505412, &(0x7f0000000440)={0x0, 0x20000006, 0x0, 0x0, 0x6})
+fcntl$setstatus(r0, 0x4, 0x82000)
+ioctl$SNDRV_TIMER_IOCTL_START(r0, 0x54a0)
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f0000000140), 0x40000000040201, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, &(0x7f0000000500)={0x0, 0xfffffffffffffd83, 0xfa00, {0x0, 0x0}}, 0xfdbc)
+r2 = open(&(0x7f0000000200)='./file0\x00', 0x4008040, 0x0)
+r3 = gettid()
+fcntl$setownex(r2, 0xf, &(0x7f0000000000)={0x2, r3})
+fcntl$setlease(r2, 0x400, 0x0)
+creat(&(0x7f0000000040)='./file0\x00', 0x0)

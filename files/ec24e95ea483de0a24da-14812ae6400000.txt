@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f7649aa07ffca82dc93dc5cebc00c665849f5138
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz'}, 0x0, 0x0, 0xfffffffffffffffb)
+keyctl$setperm(0x5, r0, 0x4042000)
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f00000016c0)={<r1=>0xffffffffffffffff})
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000caaffb)={0x0, <r2=>0x0}, &(0x7f0000cab000)=0xc)
+setresuid(r2, 0x0, 0x0)
+request_key(&(0x7f00000000c0)='user\x00', &(0x7f0000000180)={'syz', 0x3}, &(0x7f00000001c0)='[/keyringbdevselinux%&\x00', r0)

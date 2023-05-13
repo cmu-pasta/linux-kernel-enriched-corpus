@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=8f063539d4ecf1faf3132624b57a641e923ee25a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+getsockopt$inet_sctp_SCTP_AUTH_ACTIVE_KEY(0xffffffffffffffff, 0x84, 0x7d, &(0x7f0000000000), &(0x7f0000001680)=0x7)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000100)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_ENABLE(r0, 0x8912, 0x400200)
+r1 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000140)='/dev/kvm\x00', 0x0, 0x0)
+r2 = ioctl$KVM_CREATE_VM(r1, 0xae01, 0x0)
+r3 = ioctl$KVM_CREATE_VCPU(r2, 0xae41, 0x0)
+ioctl$KVM_SET_CPUID(r3, 0x4080aebf, &(0x7f0000000240)=ANY=[])
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000100))
+ioctl$KVM_CREATE_VCPU(0xffffffffffffffff, 0xae41, 0x0)
+openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000100)='./cgroup.net/syz1\x00', 0x200002, 0x0)
+ioctl$TUNSETFILTEREBPF(0xffffffffffffffff, 0x800454e1, &(0x7f0000000500))
+write$RDMA_USER_CM_CMD_QUERY(0xffffffffffffffff, &(0x7f0000000400)={0x13, 0x10, 0xfa00, {&(0x7f0000000180)}}, 0x18)

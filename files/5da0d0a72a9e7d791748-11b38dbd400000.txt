@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ec324fb855382395411b32d87a6eafd5da721ecc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_sctp(0x2, 0x1, 0x84)
+sendto$inet(r0, &(0x7f0000a34fff)='H', 0x1, 0x0, &(0x7f0000030ff0)={0x2, 0x0, @local={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+sendto$inet(r0, &(0x7f0000000000)="c6", 0x1, 0x0, &(0x7f0000033ff0)={0x2, 0x0, @remote={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+shutdown(r0, 0x1)
+getsockopt$inet_sctp6_SCTP_PR_ASSOC_STATUS(r0, 0x84, 0x74, &(0x7f0000000080)={0x0, 0xfffffffe00000000, 0xb0}, &(0x7f0000000040)=0x18)

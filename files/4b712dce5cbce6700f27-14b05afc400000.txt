@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4f9bcca389d81bbf195a60813c12cc8debf4f876
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true}
+r0 = memfd_create(&(0x7f00000000c0)='md5sum\x00', 0x0)
+mmap(&(0x7f0000001000/0x1000)=nil, 0x1000, 0x0, 0x51, r0, 0x0)
+mkdir(&(0x7f0000000040)='./control\x00', 0x0)
+r1 = socket$inet_sctp(0x2, 0x1, 0x84)
+getsockopt$inet_sctp_SCTP_ADAPTATION_LAYER(r1, 0x84, 0x7, &(0x7f0000000000), &(0x7f0000000080)=0x4)
+r2 = syz_open_procfs(0x0, &(0x7f0000000040)='smaps\x00')
+readv(r2, &(0x7f00000021c0)=[{&(0x7f0000000140)=""/79, 0x432}, {&(0x7f00000001c0)=""/4096, 0x1000}], 0x2)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=7dad5a2676b60426b152a941cc525162e438178b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+syz_mount_image$afs(&(0x7f0000000000)='afs\x00', &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f00000001c0)=ANY=[@ANYBLOB="736f757263653d255e5d245b2b255d28247b3a0f6b5b292d3a2c736f757263653d255e5d245b2b2e5d28257b3a0f805b292d3a2c008ce4aca1963c6b05d2ca96a8350f09bdd0c776e5d9a41b9ed30f7286e84332a022c1a3f7a4726211f35f6fdcf692dc2c105462809a95082701d91ab755b50e464999653eb7f0264230bf10c9c96e08aca80a9387b21814b75cd7a01b800174a714f4527eb49964313f4e4e844255d7"])

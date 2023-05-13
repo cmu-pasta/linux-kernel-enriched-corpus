@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=2c85ca2b1aedb22ed1029383751e36cee3f7d047
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+close(r0)
+r1 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000040)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_BIND(r1, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_BIND_IP(r0, &(0x7f0000000000)={0x2, 0x28, 0xfa00, {0x0, {0xa, 0x0, 0x0, @loopback}}}, 0x30)
+setsockopt$netrom_NETROM_IDLE(r0, 0x103, 0x7, &(0x7f0000000000)=0x6, 0x4)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=9e08d4ed48b48a64c2e71c84e289a76a6d084be2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCVHANGUP(r0, 0x5437, 0x0)
+r1 = syz_open_dev$tty20(0xc, 0x4, 0x0)
+ioctl$KDSIGACCEPT(r1, 0x4b4e, 0x3c)
+ioctl$KDGETKEYCODE(0xffffffffffffffff, 0x4b4c, 0x0)

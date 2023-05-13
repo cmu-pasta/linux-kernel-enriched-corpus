@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=a01db4c67933e9e4be8e721a8ee15a9530f1ac04
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+getsockopt$IP6T_SO_GET_REVISION_TARGET(r1, 0x29, 0x45, &(0x7f0000000280)={'icmp\x00'}, &(0x7f00000002c0)=0x1e)
+bind$inet6(r0, &(0x7f0000000040)={0xa, 0x4e22, 0x0, @loopback}, 0x1c)
+listen(0xffffffffffffffff, 0x0)
+sendto$inet6(r0, &(0x7f0000000140), 0x0, 0x20000004, &(0x7f0000000080)={0xa, 0x100000004e22, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000080)='tls\x00', 0x152)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000100), 0x28)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x0, 0x40031, 0xffffffffffffffff, 0x0)
+mmap(&(0x7f00000be000/0x3000)=nil, 0x3000, 0xc, 0x100132, r0, 0x0)
+sendto$inet6(r0, &(0x7f00000005c0), 0x39a191, 0x0, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote}, 0x1c)

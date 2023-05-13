@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=884fbebcbeb7193b713f187815d9b7bb95717985
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_CHECKPOINT(r0, 0x4004662b, &(0x7f0000000000)=0x2)

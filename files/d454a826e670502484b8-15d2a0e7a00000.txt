@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0654529ad3cc1d67a6d9812d8b75489c03dfb983
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+bind$pptp(0xffffffffffffffff, 0x0, 0x0)
+r0 = inotify_init1(0x0)
+fcntl$setown(r0, 0x8, 0xffffffffffffffff)
+fcntl$getownex(r0, 0x10, &(0x7f0000000080)={0x0, <r1=>0x0})
+ptrace$setopts(0x4206, r1, 0x0, 0x0)
+ptrace(0x4207, r1)
+ptrace(0x9, r1)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=def6d6dbcf7763479083eba56bae3560b57d29c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000000c0)={'wlan1\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r0, &(0x7f0000001f40)={0x0, 0x0, &(0x7f0000001f00)={&(0x7f0000000140)={0x2c, r1, 0x105, 0x0, 0x0, {{0x2}, {@val={0x8, 0x3, r2}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x148c}], @chandef_params=[@NL80211_ATTR_CHANNEL_WIDTH={0x8, 0x9f, 0xb}]]}, 0x2c}}, 0x0)

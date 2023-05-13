@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1a5c16dbb7316522ed0710399acb1f82a69495db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+move_mount(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0)
+syz_io_uring_setup(0x71df, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x1}, &(0x7f0000563000/0x1000)=nil, &(0x7f000025b000/0x2000)=nil, 0x0, 0x0) (async)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

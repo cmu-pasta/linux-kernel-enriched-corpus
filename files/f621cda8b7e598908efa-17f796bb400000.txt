@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=ee4b8d085d9b5e12ed804fa4a936136609c1a1ab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x7a05, 0x1700)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+syz_genetlink_get_family_id$tipc2(&(0x7f00000007c0)='TIPCv2\x00')
+ioctl(r1, 0x1000008912, &(0x7f0000000100)="0adc1f023c123f3188a070")
+write$cgroup_subtree(r0, &(0x7f0000000800)=ANY=[@ANYRESDEC=r0, @ANYRESOCT=r0, @ANYRES32=r1, @ANYPTR, @ANYRES16], 0x39)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='memory.events\x00', 0x7a05, 0x1700)
+write$cgroup_int(0xffffffffffffffff, &(0x7f00000001c0), 0x12)
+r3 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r3, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+listen(r3, 0xfffffffffffffffd)
+accept4$llc(r2, 0x0, &(0x7f0000000240), 0x0)
+r4 = accept(r3, 0x0, 0x0)
+socket$inet6(0xa, 0x0, 0x0)
+r5 = syz_genetlink_get_family_id$tipc(&(0x7f00000006c0)='TIPC\x00')
+setsockopt$sock_void(r0, 0x1, 0x3f, 0x0, 0x0)
+sendmsg$TIPC_CMD_GET_BEARER_NAMES(r4, &(0x7f0000000780)={&(0x7f0000000680)={0x10, 0x0, 0x0, 0x10000000}, 0xc, &(0x7f0000000840)={&(0x7f0000000700)={0x1c, r5, 0x800, 0x70bd2a, 0x25dfdbff}, 0x1c}, 0x1, 0x0, 0x0, 0x20000004}, 0x80)
+ioctl$sock_ifreq(0xffffffffffffffff, 0x0, 0x0)
+ioctl$sock_FIOGETOWN(0xffffffffffffffff, 0x8903, 0x0)
+connect$nfc_llcp(0xffffffffffffffff, &(0x7f0000000600)={0x27, 0x0, 0x1, 0x7, 0x101, 0xffffffff, "15ea998b147344866e24591b1e39409e322735e51360d4f3ea64665c2cce04e96dc4ed70243790c27712bbac5c6edde767ee82225485cf837f70e4f5b91274", 0x17}, 0x60)

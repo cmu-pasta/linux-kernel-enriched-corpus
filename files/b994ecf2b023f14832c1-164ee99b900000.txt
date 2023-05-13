@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=352510b0a559c9f3820035667d6aada33d160d0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = socket$inet6(0xa, 0x80000000000002, 0x0)
+dup(r0)
+syz_mount_image$afs(&(0x7f0000000000)='afs\x00', &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000640)=ANY=[@ANYBLOB="736f757263653d255e5d375b2b255d28247b3a0f6b5b292d3a2c736f757263653d255e5d245b2b2e5d28257b3a0f805b292d3a2c64796e"])

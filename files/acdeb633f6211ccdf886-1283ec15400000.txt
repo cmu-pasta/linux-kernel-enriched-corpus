@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=76bcaf9c3aa61e36e7d81c40cf27599a6311fead
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1}
+mkdir(&(0x7f00000001c0)='./file0\x00', 0x0)
+mount(&(0x7f0000000040)=@nullb='[d::]:/llb:\x00', &(0x7f0000000080)='./file0\x00', &(0x7f0000000100)='ceph\x00', 0x0, 0x0)

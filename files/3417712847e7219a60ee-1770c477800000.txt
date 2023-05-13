@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=36655971fdb3895ea3e9d059210a3331bf936ae3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:true FaultCall:3 FaultNth:75 EnableTun:false UseTmpDir:true EnableCgroups:true HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+r0 = socket(0xa, 0x1, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000000)="c626262c8523bf012cf66f")
+mkdir(&(0x7f0000000180)='./file0\x00', 0x0)
+syz_fuse_mount(&(0x7f0000000340)='./file0\x00', 0xa001, 0x0, 0x0, 0x0, 0x0)

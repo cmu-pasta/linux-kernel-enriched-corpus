@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cb3b80ba8aa00f25e4fe8ddf1a381a6686803e28
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault":true,"fault_call":1,"fault_nth":36,"tmpdir":true,"cgroups":true}
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000180)='autofs\x00', 0x0, 0x0)

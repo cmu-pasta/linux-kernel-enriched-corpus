@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=a3d4ff47a1ab00d2c606ecd522b8c0e2133943e3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, &(0x7f00000000c0)=<r1=>0x0)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nfc(&(0x7f0000000100), r2)
+sendmsg$NFC_CMD_DEV_UP(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000001c0)={0x1c, r3, 0x1, 0x123, 0x234, {}, [@NFC_ATTR_DEVICE_INDEX={0x8, 0x1, r1}]}, 0x1c}}, 0x0)
+write$nci(r0, &(0x7f0000000280)=@NCI_OP_CORE_RESET_RSP, 0x6)
+read$nci(r0, 0x0, 0x0)
+write$nci(r0, &(0x7f0000000340)=@NCI_OP_CORE_INIT_RSP, 0x14)
+write$nci(r0, &(0x7f0000000400)=@NCI_OP_RF_DISCOVER_MAP_RSP, 0x4)
+sendmsg$NFC_CMD_START_POLL(r2, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000004c0)={0x24, r3, 0x1, 0x123, 0x234, {}, [@NFC_ATTR_DEVICE_INDEX={0x8, 0x1, r1}, @NFC_ATTR_PROTOCOLS={0x8, 0x3, 0xffffffff}]}, 0x24}}, 0x0)

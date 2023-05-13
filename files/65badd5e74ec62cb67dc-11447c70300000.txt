@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=65eb47f7cf80068180a0fc45f3eb108278fd00b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$kcm(0x29, 0x2, 0x0)
+r1 = memfd_create(&(0x7f0000000080)='-\x00\x7f\x0e\xa6\x8d\xa7i\xfc\xe2K\xd0+J\xcb\x91\xb1\xc5\xda\x9e\x93\x99\x00\x9c\xac\x85\xb2+\x1drw\x9c@<{>\xd9\x80\xb9\x16\x1f\x9c\xba!\xcb\x93\x85[\xad\x81\xcd\x9a\x002E\xd9/\xc8\x8b\xcf&\xe3H\x83-\xcczQ\xd6\xbf\xc4\xf4\xdb\xfaX\xc3\x0f\xbc\xfbR7\xf3P\xf0\x1b', 0x0)
+pwritev(r1, &(0x7f0000000040)=[{&(0x7f00001f2000)="aa", 0x1}], 0x1, 0x800000, 0x0)
+sendfile(r0, r1, 0x0, 0x1ffe00)
+r2 = dup(r0)
+write$6lowpan_enable(r2, 0x0, 0x0)

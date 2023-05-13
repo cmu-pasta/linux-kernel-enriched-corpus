@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b96d0a0eaa2196cfa0667e1359772777ee06c80a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true}
+sendmsg$NFT_MSG_GETOBJ(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000100)={0xa, 0x8}, 0x293, &(0x7f0000000040)={0x0}}, 0x0)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000100)=ANY=[@ANYBLOB="1400000010000000006c0000000000000000000a20000000000a01040000000000000000000000000900010073797a300000000038000000120a0100000000000000000000000000040004800900020002f5ff002000ec000900010073797a3000000000080003"], 0x1}}, 0x0)
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_MSG_GETCHAIN(r0, &(0x7f00000001c0)={0x0, 0x241, &(0x7f0000000080)={0x0}, 0x8}, 0x0)
+r1 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r1, &(0x7f0000000c40)={0x0, 0x0, &(0x7f0000000c00)={&(0x7f0000000180)={{0x14}, [@NFT_MSG_NEWSET={0x14, 0x2, 0xa, 0x6234f84c1300dfc9}], {0x14}}, 0x3c}}, 0x0)

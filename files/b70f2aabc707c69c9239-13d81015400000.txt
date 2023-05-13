@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7cd3db70971bc10523485d12d95fdefa301fb819
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x0, 0x0)
+r0 = creat(&(0x7f0000000080)="e91f7189591e9233614b00", 0x109)
+write$binfmt_elf32(r0, &(0x7f0000000740)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x3, 0x0, 0x0, 0x38, 0x0, 0x0, 0x0, 0x20, 0x2}, [{0x5, 0x3, 0x7, 0xffffffff, 0x101, 0xd9e6, 0x2, 0x58}], "", [[], []]}, 0x258)
+execve(&(0x7f00000000c0)="e91f7189591e9233614b00", 0x0, 0x0)

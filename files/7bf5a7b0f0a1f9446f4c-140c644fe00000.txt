@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=62d96ed19ad3463333a20b6cac86441bff7c4719
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000001240)=ANY=[@ANYBLOB="12010000000000406a056100400000000001090224000100000000090400000103010000092100000001220100090581030004020000f8f5c0090542ee66921062d21592175fa72ee5378e879fe2a5729c9c739aae054931a077191e1f75d11000247937948e"], 0x0)
+r1 = syz_open_dev$evdev(0x0, 0x0, 0x0)
+ioctl$EVIOCGKEY(r1, 0x80284504, 0xffffffffffffffff)
+ioctl$EVIOCGRAB(r1, 0x40044590, 0x0)
+ioctl$EVIOCGBITSND(r1, 0x80404532, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f00000001c0)={0x24, 0x0, 0x0, &(0x7f0000000100)={0x0, 0x22, 0x1, {[@local=@item_012={0x0, 0x2, 0x9}]}}, 0x0}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bbfa653205516be2a33b51c381ef827c534ba596
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+r0 = socket$inet6_sctp(0xa, 0x80000000000001, 0x84)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000cf6fe4)=[@in6={0xa, 0x4e23, 0x0, @loopback}], 0x1c)
+connect$inet6(r0, &(0x7f00008c0000)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendmmsg(r0, &(0x7f000060d000)=[{{0x0, 0x0, &(0x7f0000c38ff0)=[{&(0x7f0000000080)='\x00', 0x1}], 0x1}}], 0x1, 0x8000)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r1, 0x8914, &(0x7f0000000440)={'lo\x00'})

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=611b50e30eb1634e75688903289148fe2a042c1d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":2,"fault_nth":3}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mount$bpf(0x20000000, &(0x7f0000000100)='./file0\x00', &(0x7f0000000700)='bpf\x00', 0x2005890, &(0x7f0000000740)=ANY=[])
+mount$bpf(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000380)='bpf\x00', 0x1800a0, 0x0)

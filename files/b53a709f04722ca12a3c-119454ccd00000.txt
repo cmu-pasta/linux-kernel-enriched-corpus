@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=d603c6480bec5fd902234e6556d01b745d890495
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x800000003, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f00000007c0)={0x0, 0x0, 0x0}, 0x0)
+r2 = socket(0x11, 0x800000003, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r2, 0x8933, &(0x7f0000000600)={'team0\x00', <r3=>0x0})
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000380)=@newqdisc={0x48, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {0x0, 0xffff}}, [@qdisc_kind_options=@q_htb={{0x8, 0x1, 'htb\x00'}, {0x1c, 0x2, [@TCA_HTB_INIT={0x18}]}}]}, 0x48}}, 0x0)
+r4 = socket(0x11, 0x800000003, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r4, 0x8933, &(0x7f0000000600)={'team0\x00', <r5=>0x0})
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000380)=@newqdisc={0x48, 0x24, 0xf0b, 0x0, 0x0, {0x0, 0x0, 0x0, r5, {0x0, 0xffff}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_htb={{0x8, 0x1, 'htb\x00'}, {0x1c, 0x2, [@TCA_HTB_INIT={0x18}]}}]}, 0x48}}, 0x0)

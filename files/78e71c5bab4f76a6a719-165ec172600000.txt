@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a0e85017c37a10447d1729523e7ba4fda8ef3f4a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+bind$rxrpc(r0, 0x0, 0x0)
+bind$rxrpc(r0, &(0x7f0000000080)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x0, @multicast1}}, 0x24)

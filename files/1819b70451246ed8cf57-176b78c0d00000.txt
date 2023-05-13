@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9249981aa39ae8e2098804e40acb6ed594ba957d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000340)=ANY=[@ANYBLOB="4400000024000b0f001000"/20, @ANYRES32=r3, @ANYBLOB="00000000ffffffff0000000009000100677265640000000014000200100003000a"], 0x44}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000001c40)={&(0x7f0000000380)=@newqdisc={0x170, 0x24, 0x1, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_gred={{0x9, 0x1, 'gred\x00'}, {0x140, 0x2, [@TCA_GRED_STAB={0x104, 0x2, "7f90fed70592b8b92035252c4fdba73dc0ada668987a0415bf107973fa681bc008751cbfedf66a94d7623559173ef1c8625d297490a4e1485d1208081038f41d55fb147b097d9e5cdd08faf0de52bc4ea2d554a7cebf37caa8c3d5276364dbc8741cf26665d0615ff8c4f026d16576df5ed29b27d1a25a9c7d6c7db4accfc56b3ecd9fbbaf1a4ff081d3b9592e949847bede1f4ac154e88d1a5673b423c1a7d8b10eb3c14eeea76b1966997b289da7a6a21af4fea3324582f56e6a1bbd8f00fc597ab33b68e029138deb5fc6d202dcf989e5d0991717e5e8d6e5050798a062eac42f28d6df2cc98e539c0237819ce202a4c2b21c39a442c32aac65002f296d0c"}, @TCA_GRED_PARMS={0x38, 0x1, {0x0, 0x0, 0x0, 0x9, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xff, 0x0, 0x0, 0xfffffffd}}]}}]}, 0x170}}, 0x0)

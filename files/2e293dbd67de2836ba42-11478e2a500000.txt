@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_io_uring_submit(0x0, 0x0, &(0x7f0000000200)=@IORING_OP_STATX={0x15, 0x58ff346b9ab41012, 0x0, 0xffffffffffffffff, 0x0, 0x0}, 0x0)
+io_uring_enter(0xffffffffffffffff, 0x450c, 0x0, 0x0, 0x0, 0x0)

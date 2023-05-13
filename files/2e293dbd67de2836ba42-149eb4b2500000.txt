@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x80000000000002, 0x0, 0x0)
+bind$inet(r0, &(0x7f0000000440)={0x2, 0x4e23, @broadcast}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000480)={0x0, 0x0}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$inet_tcp_TCP_CONGESTION(r0, 0x6, 0xd, &(0x7f0000000100)='bbr\x00', 0x4)
+r1 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r2 = dup(r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+setsockopt$sock_int(r0, 0x1, 0x8, &(0x7f0000000600)=0x1801, 0x4)
+sendmmsg(r0, 0x0, 0x0, 0x0)
+sendto$inet(r0, &(0x7f00000012c0)="0c268a927f1f6588b967481241ba7860fcfaf65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e758044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0x1534, 0x11, 0x0, 0x27)

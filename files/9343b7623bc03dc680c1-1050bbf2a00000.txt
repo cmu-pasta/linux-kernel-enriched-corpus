@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=5398f3c62652afebdf4fa9c6a2d9f867172d1406
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"cgroups":true,"close_fds":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f00000002c0)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000200)='cgroup2\x00', 0x0, 0x0)
+r0 = open(&(0x7f0000000340)='./file0\x00', 0x0, 0x0)
+r1 = openat$cgroup_subtree(r0, &(0x7f0000000000)='cgroup.subtree_control\x00', 0x2, 0x0)
+write$cgroup_subtree(r1, &(0x7f00000000c0)={[{0x2d, 'pids'}]}, 0x6)
+r2 = open(&(0x7f0000000300)='./file0\x00', 0x200000000000, 0x0)
+r3 = openat$cgroup_subtree(r2, &(0x7f0000000000)='cgroup.subtree_control\x00', 0x2, 0x0)
+write$cgroup_subtree(r3, &(0x7f0000000180)={[{0x800000000002b, 'pids'}]}, 0x6)
+getsockopt$inet_sctp_SCTP_GET_PEER_ADDRS(0xffffffffffffffff, 0x84, 0x6c, 0x0, 0x0)
+ioctl$VIDIOC_S_FMT(0xffffffffffffffff, 0xc0d05605, 0x0)
+sendmsg$inet_sctp(0xffffffffffffffff, 0x0, 0x240400c4)
+r4 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup\x00', 0x200002, 0x0)
+r5 = openat$cgroup_procs(r4, &(0x7f00000002c0)='cgroup.threads\x00', 0x2, 0x0)
+r6 = openat$cgroup_procs(r4, &(0x7f0000000300)='cgroup.procs\x00D\xa6\xb9\x19\x1a\a/\xcb\x80\xd0\x8c@\xe4h\x98\x03bp\xde\x89*\xb5a>Xu\x8b\x7f\x16\xff/\rjS', 0x2, 0x0)
+sendfile(r5, r6, 0x0, 0x2)

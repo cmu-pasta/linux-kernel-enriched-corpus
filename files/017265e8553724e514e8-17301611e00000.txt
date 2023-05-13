@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f82ab89451323208e343f4a8632014ef12b1252d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty20(0xc, 0x4, 0x1)
+writev(r0, &(0x7f0000001440)=[{&(0x7f0000000180)="64f8c84b9c019323eec0e2d4d6f853740173256a5a003c8991c93376cc0135ddca349765d7241ee95782891bb06e2a8014c049e77d36b4fdd7337b951a2f2d9ad194b471c3b2eba5a4555ccff7238d250a403ec8402ab96df5f24100bb0ebbc5af1fbb70d2b1ae039692267b1fb99442e53ec9e1ed7d6c9ffe26d209ea41a52f3289c461ea7d8efb5d2ac997e016d3817eda68db4198ec643b61f20990d403d3106b79cd582724a7efb14d50e11466065d2cd985981e0432a846f6b680d83029fea7730eec1fb6ca1e3d98ff93a3952d64a424a212a93ffc9b19464f859b78", 0xdf}], 0x1)
+r1 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000180)='/dev/fb0\x00', 0x0, 0x0)
+ioctl$FBIOPUT_VSCREENINFO(r1, 0x4601, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4, 0x0, {}, {0x0, 0x4000000}, {}, {}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2})

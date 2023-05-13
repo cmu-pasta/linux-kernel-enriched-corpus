@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=cabffad18eb74197f84871802fd2c5117b61febf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000080)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0xffffffffffffffa0, [{{0x9, 0x2, 0xfffffffffffffeb4}}]}}, 0x0)
+syz_usb_ep_write$ath9k_ep1(r0, 0x82, 0xdc, &(0x7f0000001d00)={[{0xd8, 0x4e00, "3430127eb36813c01931d6eb53cef222a48cec4bc4cf877d24fc2ee2cf6989af6193149e025d3797ca6423529fdbdfac133f36d4b69506a029502679c0ca2526af9f3584354cd510219fa7b56c1e4ee82d3c8fb00e9f4e3d6640daa9259ccd14c91b57d3cc342ac756e0140ac38ab2f1e77d114959794ba75e5310f79ef41872ba5c374ddb859f9b3ff63a53e8f5d68c4df580f65ce77df2bdc6ab5d5f1f0e22ba3e77df5dbaf33f5a39f67566614ef9a1b2eef1b9663996fec672f858d49fd63aab1cf0c112520ee640ef8e5aaff715f6aa15501ffd35c6"}]})
+syz_usb_disconnect(0xffffffffffffffff)
+syz_usb_disconnect(0xffffffffffffffff)
+syz_usb_ep_write$ath9k_ep1(r0, 0x82, 0x0, &(0x7f0000000140)=ANY=[@ANYRESOCT, @ANYRESDEC=r0, @ANYRESHEX, @ANYBLOB, @ANYRES16, @ANYRESOCT=0x0, @ANYRES64, @ANYRESHEX, @ANYRES16=0x0])
+syz_usb_ep_write$ath9k_ep1(r0, 0x82, 0x10, &(0x7f0000000000)=ANY=[@ANYBLOB])

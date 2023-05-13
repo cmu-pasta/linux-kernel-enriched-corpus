@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=17a6ed226769660f3e5dad7b22b13466b938e290
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'bridge0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)=@newlink={0x5c, 0x10, 0x403, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0xa0d37969891024d9}, [@IFLA_LINKINFO={0x2c, 0x12, 0x0, 0x1, @vlan={{0x9, 0x1, 'vlan\x00'}, {0x1c, 0x2, 0x0, 0x1, [@IFLA_VLAN_ID={0x6}, @IFLA_VLAN_FLAGS={0xc, 0x2, {0xe, 0xa}}, @IFLA_VLAN_INGRESS_QOS={0x4}]}}}, @IFLA_LINK={0x8, 0x5, r2}, @IFLA_MASTER={0x8, 0xa, r2}]}, 0x5c}}, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6c7899acf008be2ddcddb46a2567c2153193632a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+ioctl$PERF_EVENT_IOC_MODIFY_ATTRIBUTES(0xffffffffffffffff, 0x4008240b, 0x0)
+sendmsg$kcm(0xffffffffffffffff, &(0x7f0000000540)={0x0, 0x0, 0x0}, 0x80)
+ioctl$PERF_EVENT_IOC_PERIOD(0xffffffffffffffff, 0x40086602, 0x0)
+ioctl$PERF_EVENT_IOC_PERIOD(0xffffffffffffffff, 0x40082404, &(0x7f0000000080)=0x1000)
+write$cgroup_subtree(0xffffffffffffffff, 0x0, 0xfdef)
+ioctl$TUNSETPERSIST(0xffffffffffffffff, 0x400454cb, 0x0)

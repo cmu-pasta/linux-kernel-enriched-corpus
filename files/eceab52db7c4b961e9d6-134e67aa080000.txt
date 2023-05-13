@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=771e9420eb1aebfbc3d6a7ff0e34460cb1f12d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+ioctl$sock_ipv6_tunnel_SIOCGETTUNNEL(r0, 0x89f0, &(0x7f00000000c0)={'syztnl1\x00', 0x0})
+rt_sigreturn()
+openat$vhost_vsock(0xffffffffffffff9c, 0x0, 0x2, 0x0)

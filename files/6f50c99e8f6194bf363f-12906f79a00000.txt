@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9e9babd01df34db0c4d4dbde8ca57a0380e6db0b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x2, 0x31, 0xffffffffffffffff, 0x0)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000100), 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000540)='tls\x00', 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000040)=@ccm_128={{0x304}, "26e714af366de3d7", "d2bf8ea96a10c130e3372e1bb68ecddb", "567f44f2", "8c0fb0ebef26de10"}, 0x28)
+sendto$inet6(r0, &(0x7f00000005c0), 0xffffffffffffff7f, 0x0, 0x0, 0xfffffd56)

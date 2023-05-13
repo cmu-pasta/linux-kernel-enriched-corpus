@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=53c05996968fc87df17de205b461f4f96d5b5907
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = fsopen(&(0x7f0000000040)='pstore\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r0, 0x1, &(0x7f0000000080)='smackfstransmute', &(0x7f00000000c0)=')\x00', 0x0)

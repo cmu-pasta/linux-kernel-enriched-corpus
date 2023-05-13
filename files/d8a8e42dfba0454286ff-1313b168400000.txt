@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ccf34b892706ff6f3321da526329476eab23d5a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":5,"fault_nth":1,"tun":true,"tmpdir":true,"netdev":true,"segv":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000280))
+timer_create(0x2, &(0x7f0000044000)={0x0, 0x12}, &(0x7f0000044000))
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x3, 0x31, 0xffffffffffffffff, 0x0)
+timer_settime(0x0, 0x0, &(0x7f000004a000)={{0x0, 0x1}, {0x0, 0xe4c}}, &(0x7f0000040000))
+timer_gettime(0x0, &(0x7f0000000040))

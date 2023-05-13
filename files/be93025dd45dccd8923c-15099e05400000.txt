@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=116fe3d309b59e4276d16112ac9aa708f9ace8fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f00000000c0)='/dev/video#\x00', 0x4, 0x202)
+write(r0, &(0x7f0000000040), 0x0)
+mmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x3, 0x11, r0, 0x0)

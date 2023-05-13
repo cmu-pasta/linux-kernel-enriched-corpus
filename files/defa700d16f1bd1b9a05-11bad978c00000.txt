@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=b06f4b773e34bfb6e0786a7de002dbda789bfe4a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x0)
+r1 = accept(r0, 0x0, 0x0)
+syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+ioctl$sock_SIOCBRADDBR(r0, 0x89a0, 0x0)
+accept(r0, 0x0, 0x0)
+getsockopt$bt_rfcomm_RFCOMM_LM(r1, 0x12, 0x3, 0x0, &(0x7f0000000180))
+ioctl$SIOCAX25GETINFOOLD(0xffffffffffffffff, 0x89e9, 0x0)
+accept(r0, 0x0, 0x0)
+sendmsg(r1, &(0x7f00000001c0)={0x0, 0x0, 0x0}, 0x0)

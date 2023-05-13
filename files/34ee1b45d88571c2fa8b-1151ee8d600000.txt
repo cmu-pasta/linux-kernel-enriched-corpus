@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f2aebe90b8c56806b050a20b36f51ed6acabe802
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000003e40)=ANY=[@ANYBLOB="12010000000000108c0d2200000000000001090224000100000000090410000903001900092100000001222200090581130000000000"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f0000000140)={0x24, 0x0, 0x0, &(0x7f00000001c0)=ANY=[@ANYBLOB="002222000000005d7a0bc4eb48fd0a8c930baf9db9b50827d9c68a500b18c1187be891"], 0x0}, 0x0)
+r1 = syz_open_dev$hiddev(&(0x7f0000000180)='/dev/usb/hiddev#\x00', 0x0, 0x0)
+ioctl$HIDIOCGCOLLECTIONINDEX(r1, 0x4018480c, &(0x7f00000008c0)={0x2, 0xffffffff})

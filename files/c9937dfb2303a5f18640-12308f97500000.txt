@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=dac215157cdf29ade72d0436f902d39988cb0edf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xb, 0xffffffffffffffff, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = syz_io_uring_setup(0x187, &(0x7f00000002c0), &(0x7f0000ee7000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, 0x0, 0x0)
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+io_uring_enter(r0, 0x2a6e, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fd3bf7c929e76cc17dafbfb3a051937b148c8649
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$f2fs(0x0, &(0x7f0000000540)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+mount$9p_rdma(&(0x7f0000000000), &(0x7f0000000040)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f00000000c0)={'trans=rdma,', {}, 0x2c, {[{@rq}]}})

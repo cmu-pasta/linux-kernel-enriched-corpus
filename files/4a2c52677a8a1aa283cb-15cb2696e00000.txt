@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b0e069ac9b03eab43b106c22fcc8bd778a7ccfb5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"devlinkpci":true}
+r0 = socket$kcm(0x11, 0x3, 0x0)
+sendmsg$kcm(r0, &(0x7f0000000100)={&(0x7f0000000040)=@nfc={0x27, 0x3}, 0x80, 0x0, 0x0, 0x0, 0x0, 0x50}, 0x0)

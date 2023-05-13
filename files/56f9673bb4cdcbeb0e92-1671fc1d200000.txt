@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2b061d1fabd9760e98f92163543189b637c4af36
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$usbmon(0x0, 0x0, 0x0)
+mmap(&(0x7f0000a19000/0x400000)=nil, 0x400000, 0x2, 0x8012, r0, 0x0)
+r1 = syz_open_dev$usbmon(&(0x7f0000000080)='/dev/usbmon#\x00', 0x40000aec, 0x2)
+ioctl$KVM_SET_NR_MMU_PAGES(r1, 0x40189206, 0x20000ffb)
+syz_open_dev$usb(&(0x7f0000000080)='/dev/bus/usb/00#/00#\x00', 0x40000fffff9, 0x0)

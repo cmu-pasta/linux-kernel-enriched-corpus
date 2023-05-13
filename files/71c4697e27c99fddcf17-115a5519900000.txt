@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=dcf9952b9a45b106ab44a8f10f607bda54c789dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = openat$rfkill(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r2 = fcntl$dupfd(r0, 0x406, r1)
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$SNDRV_SEQ_IOCTL_SET_CLIENT_POOL(r2, 0x4058534c, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+r3 = bpf$MAP_CREATE(0x0, &(0x7f0000000000)={0x2, 0x4, 0x7, 0x1, 0x0, 0x1}, 0x40)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000040)={0x0, 0x0, 0x0, 0x0, 0xfff, r3}, 0x38)
+poll(&(0x7f0000000040)=[{r3}, {r2}], 0x2, 0xd57e)

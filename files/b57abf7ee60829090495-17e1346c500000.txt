@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ef1fb5e20e4bfeed2f4db6e050f1a49b01976c97
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_io_uring_setup(0xcf1, &(0x7f0000000240)={0x0, 0x3, 0x2, 0x1}, &(0x7f0000ffd000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f0000000080)=<r0=>0x0, &(0x7f0000000040)=<r1=>0x0)
+r2 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+syz_io_uring_submit(r0, r1, &(0x7f0000000200)=@IORING_OP_CONNECT={0x10, 0x6, 0x0, r2, 0x0, 0x0}, 0x0)

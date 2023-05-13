@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=9f22eba3f419132dcb1ec2c218aad1cdc87107f5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+pipe(&(0x7f0000000ff8)={<r0=>0x0, <r1=>0x0})
+setsockopt$inet6_tcp_buf(r1, 0x6, 0x1c, &(0x7f0000000040), 0x0)
+socketpair$inet6(0xa, 0x4, 0x7e09, &(0x7f0000000040))
+splice(r1, &(0x7f0000c4bff8), 0xffffffffffffffff, &(0x7f0000000000), 0x1000, 0x0)
+getsockopt$IP6T_SO_GET_INFO(r0, 0x29, 0x40, &(0x7f0000000080)={'security\x00'}, &(0x7f0000000100)=0x54)
+syz_emit_ethernet(0x1, &(0x7f0000000000)=ANY=[@ANYBLOB], 0x0)
+r2 = socket$inet6(0xa, 0x80003, 0xa)
+connect$inet6(r2, &(0x7f0000032fe4)={0xa, 0x0, 0x0, @mcast2={0xff, 0x2, [], 0x1}, 0x5}, 0x1c)
+sendmmsg(r2, &(0x7f0000001300)=[{{0x0, 0x0, &(0x7f0000001180), 0x240, &(0x7f00000011c0)}}], 0x249, 0x0)

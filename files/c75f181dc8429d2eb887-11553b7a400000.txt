@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=603f369e687f580d19ce56b553219452128804c1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":24}
+syz_mount_image$vfat(&(0x7f0000000000)='vfat\x00', &(0x7f0000000580)='./file0\x00', 0x0, 0x0, &(0x7f0000001a80), 0x0, &(0x7f0000000040)=ANY=[])
+mount$overlay(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f00000000c0)='overlay\x00', 0x0, &(0x7f0000000100)={[{@upperdir={'upperdir', 0x3d, './file0'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@workdir={'workdir', 0x3d, './file0'}, 0x5c}]})

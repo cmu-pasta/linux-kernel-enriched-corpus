@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ebcbbb6576958a496500fee9cf7aa83ea00b5920
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_SETSEL(r0, 0x4b61, &(0x7f0000000040)={0x3, {0x3}})
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_SETSEL(r1, 0x5609, &(0x7f0000000040)={0x3, {0x3}})

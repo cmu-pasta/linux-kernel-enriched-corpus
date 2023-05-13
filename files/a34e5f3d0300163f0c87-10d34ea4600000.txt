@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=5c3fd3a41060d8d775822814f4651f86a68eb0aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @null, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x0)
+socketpair(0x0, 0x6, 0x68, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+accept(r0, 0x0, 0x0)
+ioctl$sock_SIOCBRADDBR(r1, 0x89a0, &(0x7f0000000080)='bcsf0\x00')
+ioctl$sock_SIOCBRDELBR(r1, 0x89a1, &(0x7f0000000b00)='bcsf0\x00\x00\x00\x00\x00\x00h\x11\x00')
+close(r0)

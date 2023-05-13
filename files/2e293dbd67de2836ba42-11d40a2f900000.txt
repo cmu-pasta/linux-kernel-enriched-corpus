@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"vhci":true,"wifi":true,"tmpdir":true,"segv":true}
+r0 = openat$ttyS3(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/ttyS3\x00', 0x0, 0x0)
+ioctl$TIOCMSET(r0, 0x5418, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/3\x00')

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4245014e02008bcc5addec56380de372f9ba8b1e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+pipe2(0x0, 0x84800)
+clone(0x10002102001ffc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+ioctl$FICLONERANGE(0xffffffffffffffff, 0x4020940d, 0x0)
+unshare(0x40000000)

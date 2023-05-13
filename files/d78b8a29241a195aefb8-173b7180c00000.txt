@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ab4ee03213b801410f0194d6b5435e8e3c95af94
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$kcm(0x10, 0x4000000002, 0x10)
+sendmsg$kcm(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)=[{&(0x7f0000000380)="2e0000002b00812db6500000185082cf0124b0e9a06ec400094100000000001800000093c39cb2b26d3c2ceeaadfaf86e5ec0e", 0x33}], 0x1}, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+bind$inet(0xffffffffffffffff, 0x0, 0x0)
+socket$inet(0x2, 0x3, 0x7f)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, 0x0, 0x0)
+setsockopt$sock_attach_bpf(0xffffffffffffffff, 0x1, 0x32, 0x0, 0x0)

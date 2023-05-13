@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=b5095bfec44ec84213bac54742a82483aad578ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000140)="696f00431c28676e500b6699de8f7bb44a7df33c2bf8f64b6432be4eedf49cda36e8cd0e6d244bd9b4b26354c6cc721d7b9abcd0")
+bind$alg(r0, &(0x7f0000001100)={0x26, 'hash\x00', 0x0, 0x0, 'sha1-generic\x00'}, 0x58)
+r2 = accept4$alg(r0, 0x0, 0x0, 0x0)
+sendfile(r2, r1, &(0x7f0000000080), 0x40)
+mknod(&(0x7f0000000180)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f0000000200)='./file0\x00', &(0x7f0000000280), &(0x7f0000000080))
+pipe2$9p(&(0x7f0000000340)={0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$pfkey(0xffffffffffffff9c, &(0x7f00000001c0)='/proc/self/net/pfkey\x00', 0x0, 0x0)
+splice(r4, &(0x7f0000000240)=0x7ffd, r3, 0x0, 0x1ff, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4330ceda236ce503797ca3e7469ae720ca6329cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x10)
+write(r0, &(0x7f0000000040)="29000000140003b7ff000000040860eb0100100006a407fff00fd57f25ffffff0100002a00f3ff0000", 0x29)

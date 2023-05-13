@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=aca8ddff5a88508a32694be18712d7e69a533513
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000100)='/dev/loop-control\x00', 0x400000000000, 0x0)
+r1 = dup(r0)
+ioctl$sock_inet6_tcp_SIOCINQ(r1, 0x4c81, 0xfffffffffffffffe)

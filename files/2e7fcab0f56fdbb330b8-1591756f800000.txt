@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=638315cdb2995506f6c1404695773403d5840628
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mkdir(&(0x7f00000004c0)='./file0\x00', 0x7c)
+r0 = bpf$PROG_LOAD(0x5, &(0x7f00000ba000)={0x6, 0x3, &(0x7f0000346fc8)=@framed={{0x18}, [], {0x95}}, &(0x7f0000f6bffb)='GPL\x00', 0x1, 0xfb, &(0x7f00001a7f05)=""/251}, 0x48)
+mount(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000000)='./file0\x00', &(0x7f00000001c0)='bpf\x00', 0x0, &(0x7f0000000080))
+bpf$OBJ_PIN_PROG(0x6, &(0x7f00000005c0)={&(0x7f0000000600)='./file0/file0\x00', r0}, 0x10)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000100)='./file0/file0\x00', 0x40, 0x4)

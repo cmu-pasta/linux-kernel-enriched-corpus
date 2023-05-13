@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=07f3e6dba96f0eb3cabab986adcd8a58b9bdbe9d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$can_bcm(0x1d, 0x2, 0x2)
+connect(r0, &(0x7f0000000740)=@ll={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @link_local}, 0x80)
+r1 = socket(0x200000000000011, 0x4000000000080002, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000140)={'vcan0\x00', <r2=>0x0})
+bind$packet(r1, &(0x7f00000003c0)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @random="3958973cdaf2"}, 0x14)
+pipe(&(0x7f00000000c0)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+recvfrom(r0, &(0x7f0000000040)=""/50, 0x32, 0x0, 0x0, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r4=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$can_bcm(r0, &(0x7f0000000000)={&(0x7f0000000300)={0x1d, r4, 0x0, 0x8000000}, 0x10, &(0x7f00000002c0)={&(0x7f0000000400)=ANY=[@ANYBLOB="010000007fffffff0200000000000000", @ANYRES64=0x0, @ANYRES64=r3, @ANYRES64=0x0, @ANYRES64=0x0, @ANYBLOB="01d9ae26b7"], 0x4058}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8a47019c46b0fcffca58d29c2b8edbe7f1b999f9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$802154_raw(0x24, 0x3, 0x0)
+sendmmsg(r0, &(0x7f00000033c0)=[{{0x0, 0x0, 0x0}}, {{0x0, 0x0, 0x0}}], 0x2, 0x0)

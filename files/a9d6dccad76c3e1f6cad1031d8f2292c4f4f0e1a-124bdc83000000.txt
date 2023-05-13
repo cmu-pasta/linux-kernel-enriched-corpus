@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0f3f51343d723b1f87bdf56364a2b3a1824e36d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x1e, 0x5, 0x0)
+sendmsg(r0, &(0x7f00007ca000)={&(0x7f0000fdc000-0x80)=@generic={0x100010000000001e, "01ff0100000020df00000000008f0000805bf86c48020002000000f1ffffff009a4800ffe6a5000000010300000000e4ff064b3f013a000000080000000000000000ac50d5fe32c4880000007fffffff6a008356edb9a6341c1fd45624281e00070ece000206c3975bc40000fd00000900000000000b0000db000004da36"}, 0x80, &(0x7f0000145000)=[], 0x0, &(0x7f000036e000-0x2060)=[{0x10, 0x18b, 0x80000000, ""}, {0x10, 0x88, 0xe1b, ""}, {0x10, 0x197, 0x8, ""}], 0x3, 0x40}, 0x4)

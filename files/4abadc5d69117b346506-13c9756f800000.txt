@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a85a088887c207571b990ac7b4c55ee20fc35d6b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r0, 0x11b, 0x4, &(0x7f0000000040)={&(0x7f0000000000)=""/2, 0x200002000, 0x800, 0x2}, 0x18)

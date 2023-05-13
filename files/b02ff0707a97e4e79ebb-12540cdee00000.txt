@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=edc6b3c90f71717117ea824f7220875ae1e8fd2f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"devlinkpci":true}
+sendmsg$nl_generic(0xffffffffffffffff, &(0x7f0000005000)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000200)={0x48, 0x14, 0x7, 0x0, 0x0, {0xa, 0xf0ffff, 0x600}, [@nested={0x34, 0x0, [@typed={0xc, 0x0, @u64=0x9effffff}, @generic="9c3703b6d603b7820df7a2b744831e8e5fd46561c4386cbc05000000ffe313f9fa"]}]}, 0x48}}, 0x0)
+r0 = socket(0x200000000000011, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000180)={'vxcan0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000300)={0x11, 0xd, r1}, 0x14)
+sendmmsg(r0, &(0x7f0000000d00), 0x400004e, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0f3f51343d723b1f87bdf56364a2b3a1824e36d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x1e, 0x2, 0x0)
+bind(r0, &(0x7f0000d81000-0x80)=@generic={0x1e, "0103000000000000000000000000000009a979f321b30c7bc8790405c7bad62e0a43a632ed4938d36d73fb8f8401a3ff59829a2b0afe7ce43a4b2470a0c5216669ca021f6f65dcf160e7e58f358c0002f0000158d19bcb31f1314a8ef151622ca5bdb9c8ead2000077aeb81c90001d6d7c980ee590c8b9f70dc136cb184a"}, 0x80)
+r1 = socket(0x1e, 0x1000000000002, 0x0)
+sendmsg(r1, &(0x7f0000316000)={&(0x7f00004ae000+0xb5c)=@generic={0x10000000001e, "010000000000000000000001e526cc573c5bf86c483724c71e14dd6a739effea1b48006be61ffe06d79f00000000000000076c3f010039d8f986ff03000000000000af50d5fe32c419d67bcbc7e3ad316a198356ed0008341c1fd45624281e27800ece70b076cf979ac40000bd767e2e78a1dfd300981a1565b3b16d7436"}, 0x80, &(0x7f0000985000-0x20)=[], 0x0, &(0x7f00002d4000)=[], 0x0, 0x0}, 0x0)

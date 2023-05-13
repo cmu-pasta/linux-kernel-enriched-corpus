@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2109fb7c8fb7f76e8269485c0ca0f04e2e1ac3fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false}
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$sock_inet_SIOCSIFADDR(r0, 0x8916, &(0x7f0000000100)={'lo\x00', {0x2, 0x0, @local}})
+connect$x25(0xffffffffffffffff, 0x0, 0x0)
+socket$rds(0x15, 0x5, 0x0)
+syz_emit_ethernet(0x36, &(0x7f0000000300)={@local, @broadcast, [], {@ipv4={0x800, {{0x5, 0x4, 0x0, 0x0, 0x28, 0x0, 0x0, 0x0, 0x32, 0x0, @dev, @remote={0xac, 0x14, 0x223}}, @icmp=@timestamp_reply}}}}, 0x0)

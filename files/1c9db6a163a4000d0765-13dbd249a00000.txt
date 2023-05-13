@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c14270323f22e896228f470164aac59114d388be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$inet6(0xa, 0x2, 0x0)
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+bind$rxrpc(r0, &(0x7f0000000900)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x4e21, @multicast1}}, 0x24)
+syz_emit_ethernet(0xffa1, &(0x7f0000000000)={@random="e187a48d30b3", @dev={[], 0x1c00000000000000}, [], {@ipv4={0x800, {{0x5, 0x4, 0x0, 0x0, 0x1c, 0x0, 0x0, 0x0, 0x11, 0x0, @remote={0xac, 0x14, 0xffffffffffffffff}, @multicast1}, @udp={0x0, 0x4e21, 0x8}}}}}, 0x0)

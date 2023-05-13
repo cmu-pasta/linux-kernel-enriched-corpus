@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=739ce0bc6e4097668cbf94c862f3b643b364d589
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket(0x1d, 0x2, 0x6)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000000)=0x14)

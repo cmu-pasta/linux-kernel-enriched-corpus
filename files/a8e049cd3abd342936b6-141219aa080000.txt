@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c620fe14aac810396d3c3edc9ad73848bf69a29e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$loop(&(0x7f0000000040), 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/exe\x00', 0x0, 0x0)
+ioctl$LOOP_CONFIGURE(r0, 0x4c0a, &(0x7f0000000180)={r1, 0x0, {0x10, 0x0, 0x0, 0xd70e000000000000, 0x0, 0x0, 0x0, 0x0, 0x8, "00fe6eac970f2ffbf990a9dc9979d44e70e820c0beb906d46497e2dc634cd3f603ee14beeb5a3de531b8afca9e368a23defacb73ec8d0b50671003b11a91db99", "fba24588cb82cf3c4ab07efb8f6b234ec81d304bf786fb288e1a338588733478bb4d243da9ce8b062d48a101b927509b7affa2dbc25e3e96c0beb56589a6f622", "1bed9db6700739b2dbf5f7c5fea5ed84afdbdaf622817d3f3353958486f0fbc0"}})
+r2 = syz_open_dev$loop(&(0x7f0000000040), 0x0, 0x0)
+ioctl$LOOP_CONFIGURE(r2, 0x4c08, &(0x7f0000000180)={0xffffffffffffffff, 0x0, {0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, "00fe6eac970f2ffbf990a9dc9979d44e70e820c0beb906d46497e2dc634cd3f603ee14beeb5a3de531b8afca9e368a23defacb73ec8d0b50671003b11a91db99", "fba24588cb82cf3c4ab07efb8f6b234ec81d304bf786fb288e1a338588733478bb4d243da9ce8b062d48a101b927509b7affa2dbc25e3e96c0beb56589a6f622", "1bed9db6700739b2dbf5f7c5fea5ed84afdbdaf622817d3f3353958486f0fbc0"}})

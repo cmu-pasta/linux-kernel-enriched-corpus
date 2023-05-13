@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8383817177a44b0715b1d781b2e840212f364aec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+r0 = socket(0xa, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r0, 0x0, 0x48b, &(0x7f0000000000)={0x2, 'veth1_to_team\x00'}, 0x18)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000040)={0x2, 'ip%tnl0\x00\x00\x00\x00\x03\x8c\x04\x00'}, 0x18)

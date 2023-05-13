@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":7,"fault_nth":26,"leak":true,"close_fds":false}
+sysinfo(&(0x7f0000000000)=""/22)
+sendmsg(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x392, &(0x7f0000000440)}, 0x0)
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r1 = dup(r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+r2 = socket$inet(0x10, 0x2, 0x0)
+select(0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$sock_ifreq(r2, 0x89f1, &(0x7f0000000180)={'ip6gre0\x00\xeej\x01\x0f\'@\x03\x00', @ifru_flags})

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+preadv(0xffffffffffffffff, 0x0, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+bpf$MAP_UPDATE_ELEM(0x2, 0x0, 0x0)
+bpf$MAP_LOOKUP_ELEM(0x1, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0x3, 0xffffffffffffffff, 0x0)
+clone(0x70024103, 0x0, 0x0, 0x0, 0x0)

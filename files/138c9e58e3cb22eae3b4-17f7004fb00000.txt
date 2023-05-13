@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7ba969b81ee134a698aa779020a64afa3d98b1c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","cgroups":true,"close_fds":true,"tmpdir":true,"segv":true}
+syz_mount_image$exfat(0x0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount(&(0x7f0000000080)=@nbd={'/dev/nbd', 0x0}, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000100)='ext4\x00', 0x0, 0x0) (fail_nth: 66)

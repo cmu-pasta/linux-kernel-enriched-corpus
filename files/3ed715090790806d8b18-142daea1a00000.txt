@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2820deb61d92a8d7ab17a56ced58e963e65d76d0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":8,"fault_nth":1,"close_fds":false}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000140)='/dev/ptmx\x00', 0x0, 0x0)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl(r1, 0x1000008912, 0x0)
+ioctl$TCSETS(r0, 0x40045431, &(0x7f00005befdc))
+setsockopt$inet6_MRT6_ADD_MFC_PROXY(0xffffffffffffffff, 0x29, 0xd2, 0x0, 0x0)
+r2 = syz_open_pts(r0, 0x109002)
+fcntl$setstatus(r2, 0x4, 0x102800)
+ioctl$TCSETSF(r2, 0x5404, 0x0)
+write(r2, &(0x7f0000000000), 0xffffff86)

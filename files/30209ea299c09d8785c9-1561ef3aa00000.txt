@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=bae9a2236bfede42cf3d219e6bf6740c583568a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$IPVS_CMD_SET_DEST(r0, 0x0, 0x1)
+r1 = bpf$MAP_CREATE(0x0, 0x0, 0x0)
+ioctl$FIDEDUPERANGE(0xffffffffffffffff, 0xc0189436, &(0x7f00000000c0)={0x200, 0x1ff, 0x3, 0x0, 0x0, [{r1, 0x0, 0xfffffffffffff801}, {0xffffffffffffffff, 0x0, 0x5}, {0xffffffffffffffff, 0x0, 0x4}]})
+setsockopt$kcm_KCM_RECV_DISABLE(0xffffffffffffffff, 0x119, 0x1, 0x0, 0x0)
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+connect$inet6(r2, &(0x7f00000000c0)={0xa, 0x0, 0x0, @local, 0x1}, 0x1c)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000540)='hqgetl\x14\x00\x00\x00\t\x00\x00\x00age_ir?\x00\x00\x00es\x00p\x80#\xbe\xc4\xe5\x05\xab\xcd\x7f\xd3so2\xcb\x85o\xd5\x11\xfe.\xb6\xf9\xf2;\xd0\xbe\xa6\xe9\xb9\xa4Aa\xbe\xfb\x9c\xff\xf1', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r3, 0x40305828, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x7fffffff})

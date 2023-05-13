@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=98799903537cb8ae8be110083004df85361984eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, 0x0, 0x10)
+syz_io_uring_setup(0x40c7, &(0x7f0000000080)={0x0, 0x9e71, 0x2, 0x2, 0xed}, &(0x7f0000ffd000/0x1000)=nil, &(0x7f0000ffd000/0x3000)=nil, 0x0, 0x0)

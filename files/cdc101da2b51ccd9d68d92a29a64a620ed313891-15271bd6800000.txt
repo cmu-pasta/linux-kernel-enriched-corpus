@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2a3912bdea810372dabe3287629dd421874f66f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000fea000-0x9)="2f6465762f6b766d00", 0x101000, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_TSS_ADDR(r1, 0xae47, 0x0)
+personality(0x800000f)
+dup3(r0, r1, 0x80000)

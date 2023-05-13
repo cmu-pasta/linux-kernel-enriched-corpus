@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f5f4af9fb9ffb3112ad6e30f717f769decdccdfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault":true,"fault_call":3,"fault_nth":9,"leak":true,"close_fds":false}
+socketpair$unix(0x1, 0x3, 0x0, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x2, &(0x7f0000005d00)={&(0x7f0000000180)=ANY=[@ANYBLOB="5c0000001000070d00"/20, @ANYRES32=0x0, @ANYBLOB="0000000000000000280012000c0001006970366772650000180002001400070001feffff0000000000000000000000010c000300aaaaaaaaaaaa000008000a00060dc65be90b3fcf7b31fd911f", @ANYRES32=0x33e0], 0x5c}, 0x1, 0x0, 0x0, 0x8004}, 0x0)

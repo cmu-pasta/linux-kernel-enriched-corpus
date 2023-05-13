@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=81c5bd9a640893480a3807f32d5ee164f2856df6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x3f, 0x0)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000280)={0x11})

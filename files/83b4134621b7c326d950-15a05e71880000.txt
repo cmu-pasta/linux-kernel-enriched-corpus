@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4e9b25cf532f36c34872e2250f538cd46f024a69
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = shmget$private(0x0, 0x4000, 0x54001800, &(0x7f0000000000/0x4000)=nil)
+shmat(r0, &(0x7f0000000000/0x4000)=nil, 0xffffffffffffcfff)

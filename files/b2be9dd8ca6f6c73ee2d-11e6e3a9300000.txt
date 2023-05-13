@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1ba91281b259ac58a0040a7f5bc11b43544e6656
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000280)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000000)=ANY=[@ANYBLOB="c0000000270005000000000000000000e0000002000040000000000000000000fe8000000000000000000000000000aa00"/64, @ANYRES32=0x0, @ANYRES32, @ANYBLOB], 0xc0}}, 0x0)
+sendfile(r2, r1, 0x0, 0x100000002)

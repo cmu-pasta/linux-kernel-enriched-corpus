@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b8101ffcec107c0567a0cd8acbbacec91e9ee8de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+ioctl$HIDIOCAPPLICATION(0xffffffffffffffff, 0x40086602, 0x20004000)
+syz_open_dev$hiddev(0x0, 0x6, 0x905200)
+r0 = syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000080)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x1, [{{0x9, 0x2, 0x29}}]}}, 0x0)
+syz_usb_ep_write$ath9k_ep1(r0, 0x82, 0xc0c, &(0x7f0000001a80)=ANY=[@ANYBLOB])
+write$hidraw(0xffffffffffffffff, 0x0, 0x0)

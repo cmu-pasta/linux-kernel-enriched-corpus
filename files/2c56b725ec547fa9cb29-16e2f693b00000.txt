@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f781089c358c45cd327899286278af037883d902
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$udambuf(0xffffffffffffff9c, &(0x7f0000005b40), 0x2)
+r1 = creat(&(0x7f0000000280)='./file0\x00', 0x80)
+close(r1)
+ioctl$UDMABUF_CREATE_LIST(r0, 0x40087543, &(0x7f00000003c0)=ANY=[])
+fcntl$F_SET_FILE_RW_HINT(r1, 0x40e, &(0x7f0000000000)=0x3)
+ioctl$TUNGETDEVNETNS(r1, 0x40086200, 0x20000000)

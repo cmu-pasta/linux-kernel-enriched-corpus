@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3babacc2ed6bddb8e168d022ef77d32db0e05ea6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+unshare(0x6c060000)
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r0 = socket$inet(0x2, 0x4000000000000001, 0x0)
+timer_delete(0x0)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+recvmsg(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000180)=[{&(0x7f0000003ac0)=""/4096, 0x1000}], 0x1, &(0x7f0000000200)=""/20, 0x14, 0x3e8}, 0x100)

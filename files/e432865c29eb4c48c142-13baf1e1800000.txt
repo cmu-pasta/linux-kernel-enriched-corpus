@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a3cc92fe3fe3bf47b6ab9f5c840d43a2aa24ccc9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0xfff000)=nil, 0xfff000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = socket(0x10, 0x3, 0x0)
+r1 = dup(r0)
+write(r1, &(0x7f0000ef4000)="2400000058001f0014f9f407002304000afff51108000100febfffff0800020001000000", 0x24)
+r2 = socket$inet(0x10, 0x2, 0x0)
+sendto$inet(r2, &(0x7f0000010000-0x55)="32000000120025e7000007940d0914040200000000000000000100008328564112002e0000000000fc08080042eb4e05d79278c337d68456f2c4de5accf85cd2aac435f0da01f9ba3089a8c1b5fde995a101110dc2", 0x55, 0x0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7b4d75ac2b92f0f490d5b410588fafa42a99686a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+io_uring_setup(0xa4, 0x0)
+r0 = io_uring_setup(0xa4, &(0x7f0000000080))
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000280)=[0xffffffffffffffff], 0x1)

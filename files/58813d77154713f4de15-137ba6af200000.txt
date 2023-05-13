@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c45c729acf79a28024d696e933e418b1c7a4a300
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+r0 = memfd_create(&(0x7f00000000c0)='queue1\x00\x00\x00\x00\x00\x00\x00\x001;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x04\x00\x00\x00\x00\x00\x00\x00\xcc\xbf}\xdd\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xb2\x1e\x00', 0x0)
+r1 = syz_open_dev$sndseq(&(0x7f0000000040)='/dev/snd/seq\x00', 0x0, 0x100000000000001)
+dup2(r1, r0)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r1, 0xc08c5332, &(0x7f0000000200)={0x0, 0x0, 0x0, 'queue0\x00'})
+write$sndseq(r0, &(0x7f0000000000)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @connect}], 0xffffff76)

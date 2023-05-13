@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=2b7237838ebf377bdd8aaaba436fd82bff37323e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:true Debug:false Repro:false}
+pwritev(0xffffffffffffffff, &(0x7f0000001c00)=[{&(0x7f0000000000)="f9dad31173c8327e73778738bc44df718fafca77cf837dd1aabc2be72dae6d8a5112d12a0ff7a83fbddd0a4b6f6624e9aa6e09567c8d98f45760fa07", 0x3c}], 0x1, 0x0)
+mkdir(&(0x7f0000000580)='./file0\x00', 0x0)
+r0 = open(&(0x7f00000002c0)='./file0\x00', 0x0, 0x0)
+rmdir(&(0x7f0000001300)="2f2f66696c653002")
+pipe(&(0x7f0000000000)={<r1=>0xffffffffffffffff})
+r2 = open(&(0x7f00000005c0)="2f2f66696c6530022f66696c653000", 0x2800, 0x4)
+vmsplice(0xffffffffffffffff, &(0x7f00000000c0), 0x182, 0x0)
+open_by_handle_at(r1, &(0x7f0000000200)={0x8, 0x40}, 0x40000)
+pwritev(r1, &(0x7f0000000740)=[{&(0x7f0000000400)="7662be05ef6850156a99f065e09e8a69391c4ac2a0ae295050b7c37b6b0627dbabba50037027785dfcabdfd495600cedfe3298d877dca8a2b55c1362d260e6c5d2581e3e468838b2a080a1d3229008910d61801ac8a1d675931a914d213c85a428ed0ceb4d29bedece4cdf4586e15779c7e749b330c05af8017b92185b679d76d1e5fa3a1bc81c6a99a93077dc31cc9045844325ca2259f3ef59f61ca6da1b4c5093b6d419d86e8f0bff642303ccb5d7440735cc74d3abea128ae378c8ff6b28bc24bd8d76c1b6e08f5d5c574116842e30c87d0aea43f41938e9ac93c26d5ab826d3a64cb412630259c4", 0xea}], 0x1, 0x0)
+close(r1)
+symlinkat(&(0x7f0000000000)="2f2f66696c653002", r0, &(0x7f0000000080)='./file0\x00')
+renameat(r0, &(0x7f00000001c0)='./file0\x00', r2, &(0x7f0000000200)="2f2f66696c653002")
+syncfs(r0)

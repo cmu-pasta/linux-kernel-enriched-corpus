@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=484483daf3652b40dae18531923aa9175d392a4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"cgroups":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+ioctl$sock_bt_bnep_BNEPCONNDEL(0xffffffffffffffff, 0x400442c9, &(0x7f00000002c0)={0x81, @local})
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='cpuset.effective_cpus\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f00000004c0)={0x0, 0x0, 0x61bd, 0x1c2dc0000})
+write$cgroup_int(r0, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffffff, 0x0, 0x0, 0x0)
+syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$FS_IOC_GET_ENCRYPTION_POLICY_EX(r0, 0xc0096616, 0x0)
+ioctl$sock_bt_bnep_BNEPGETCONNLIST(0xffffffffffffffff, 0x800442d2, &(0x7f0000000400)={0x0, 0x0})
+write$cgroup_type(0xffffffffffffffff, 0x0, 0x0)
+ioctl$FITRIM(0xffffffffffffffff, 0x4030582b, 0x0)

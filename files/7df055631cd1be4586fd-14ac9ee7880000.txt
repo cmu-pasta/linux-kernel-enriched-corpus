@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7ba391f8e821454d748011f0dbd3ed0f862dfb78
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = syz_io_uring_setup(0x1c16, &(0x7f0000000100), &(0x7f0000000000/0x4000)=nil, &(0x7f0000000000/0x2000)=nil, &(0x7f0000000040), &(0x7f00000001c0))
+io_uring_enter(r0, 0x4236, 0x0, 0x0, 0x0, 0x0)
+ioctl$FS_IOC_SETFLAGS(0xffffffffffffffff, 0x40086602, &(0x7f0000000000)=0x800)
+io_uring_enter(r0, 0x4236, 0x0, 0x0, 0x0, 0x0)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x18, &(0x7f0000000080)=[0xffffffffffffffff], 0x1)
+syz_io_uring_setup(0x8be, &(0x7f0000000240), &(0x7f0000000000/0x3000)=nil, &(0x7f0000001000/0x4000)=nil, 0x0, 0x0)

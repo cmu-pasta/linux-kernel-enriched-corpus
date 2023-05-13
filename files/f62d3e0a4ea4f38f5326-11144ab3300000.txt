@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=94823dab98e65c0f0bf0e3c704852bee20a3abec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = syz_io_uring_setup(0x1a5, &(0x7f00000002c0), &(0x7f0000ffd000/0x3000)=nil, &(0x7f000042c000/0x2000)=nil, &(0x7f0000000080)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+r3 = mmap$IORING_OFF_SQ_RING(&(0x7f0000ffd000/0x1000)=nil, 0x1000, 0x100000d, 0x13, r0, 0x0)
+syz_io_uring_submit(r3, r2, &(0x7f0000000040)=@IORING_OP_FILES_UPDATE={0x14, 0x0, 0x0, 0x0, 0x0, &(0x7f00000000c0)=[0xffffffffffffffff], 0x1}, 0x0)
+io_uring_enter(r0, 0x2a71, 0x0, 0x0, 0x0, 0x0)

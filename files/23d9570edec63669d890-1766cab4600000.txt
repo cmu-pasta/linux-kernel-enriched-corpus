@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1500555c00f44465bc789c9e7c667a4c8e78aae3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r1, &(0x7f00000000c0)={0xa, 0x4e22}, 0x1c)
+listen(r1, 0x0)
+sendto$inet6(r0, 0x0, 0xfffffffffffffe32, 0x20004004, &(0x7f0000000040)={0xa, 0x20004e22, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000340)='tls\x00', 0x1f0)
+r2 = dup3(r0, r1, 0x0)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000080)=@gcm_256={{0x304}, "3a4a2a630562e414", "f8eeed867ba39dfd983369b9e0577802e4c9d6984c1ec96f7004b5e5ea14138a", "98f8021a", "cdab99b956ea77ed"}, 0x38)
+sendmsg$TIPC_CMD_SHOW_PORTS(r2, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={0x0}, 0x7}, 0x0)

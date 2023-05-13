@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=3d97ba93fb3566000c1c59691ea427370d33ea1b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"devlinkpci":true}
+r0 = socket(0x200000000000011, 0x3, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000100)={'ipvlan0\x00', <r2=>0x0})
+bind$packet(r0, &(0x7f0000000240)={0x11, 0x0, r2}, 0x14)
+getsockname$packet(r0, &(0x7f00000003c0)={0x11, 0x0, <r3=>0x0}, &(0x7f0000000040)=0x14)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=ANY=[@ANYBLOB="3c0000001000810500"/20, @ANYRES32=0x0, @ANYBLOB="f300000000000000120012000b0001006970766c616e00000400020008000500", @ANYRES32=r3], 0x3c}}, 0x0)
+r4 = socket(0x10, 0x80002, 0x0)
+sendmmsg$alg(r4, &(0x7f0000000140), 0x2, 0x0)

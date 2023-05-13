@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a7d678fba80c34b5770cc1b5638b8a2709ae9f3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"netdev":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r0, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r1, {0x2, 0x0, @broadcast}, 0x2}}, 0x2e) (async)
+sendto$inet6(r1, 0x0, 0x0, 0x4008000, &(0x7f0000000100)={0xa, 0x4e22, 0x800, @mcast1, 0x2}, 0x1c)
+listen(0xffffffffffffffff, 0x6)
+ioctl$sock_inet6_SIOCSIFADDR(0xffffffffffffffff, 0x8916, 0x0)

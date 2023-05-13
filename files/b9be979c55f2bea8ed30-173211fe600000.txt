@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=369d7776ffde266ffe528cf8740346435362f37f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(&(0x7f000001d000)={0x1, 0x70, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_bp={0x0}}, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = socket(0x2000000000000021, 0x2, 0x10000000000002)
+connect$rxrpc(r0, &(0x7f0000000040)=@in4={0x21, 0x0, 0x2, 0x10, {0x2, 0x4e21, @loopback}}, 0x24)
+sendmmsg(r0, &(0x7f0000005c00)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f0000000200)=ANY=[@ANYBLOB="18000000000000001001000001000000770000f200000000a6e217b91c3b0d873722b41afb8ed58f2109e448e6cc4bd0f11a26f4233e3ba1ff40e062a43f80b1bae2728316e63e58afdf284732bd1e1970881ddd3c9f310f827c195f3c5d57c67a08466517ba1300000000858003ffffffffffffffff3e26b5ca26bb434dbd0e4885c214e577bb081876e63e7c2834533925db8b54b33da7b9c7aefca1f9c49c6400000000000000000000000061e2448f23a7e49736a335440c5b7681c58dc647494f0dbc811becd7c487d283b2d0574510c4fdbb54c61ba9e635c0b3a3df610d9975d1d9570b38026b259815dba598ffa069c01b3d196c15d34a5918d6909192ec97032c320044fa934bf944d6d5ce621d91c17f1c4377a54c7febb46f83a7847a97259b8f1fca2c2816029f82e8e0291f4082d92d0ae76b94a18647bb44cbe9366a08fb3f0502644307c51085f7215fd44635e5967f21e8f59bd021f309d910cb5d37cb"], 0x18}}], 0x1, 0x4048000)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)

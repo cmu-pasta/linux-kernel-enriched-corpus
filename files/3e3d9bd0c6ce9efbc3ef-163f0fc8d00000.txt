@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=98799903537cb8ae8be110083004df85361984eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_mount_image$udf(0x0, 0x0, 0x8, 0x0, 0x0, 0x2288840, 0x0)
+utimensat(r0, 0x0, 0x0, 0x100)
+syz_io_uring_setup(0xe84, &(0x7f0000000380)={0x0, 0x120a, 0x2, 0x2, 0x4}, &(0x7f0000fef000/0xf000)=nil, &(0x7f0000ff4000/0x2000)=nil, 0x0, 0x0)

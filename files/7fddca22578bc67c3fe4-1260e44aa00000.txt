@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=413121f25a7a81d0b2d05f76ff673538842d1cd6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":4,"fault_nth":6,"leak":true,"netdev":true,"close_fds":true}
+r0 = accept4(0xffffffffffffffff, 0x0, 0x0, 0x80000)
+recvfrom$netrom(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r1, &(0x7f0000000080)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000000c0)={0x28, 0x23, 0x1, 0x0, 0x0, {0x20000000004, 0xe00000000000000}, [@typed={0x14, 0xc, @ipv6=@ipv4={[0x2000000], [], @empty}}]}, 0x28}}, 0x0)

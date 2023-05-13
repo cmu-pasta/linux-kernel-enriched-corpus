@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=33bc463a99d8af2e848dc3073d67a40857a65574
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(r1, &(0x7f00000001c0)={0x0, 0x2f, &(0x7f0000000180)={0x0}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000002c0)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000003c0)=ANY=[@ANYBLOB="380000002400070f5603000000dcf6f309566f3a", @ANYRES32=r2, @ANYBLOB="00000000ffffffff00000000090001006866736300000000080002"], 0x38}}, 0x0)
+r3 = socket(0x10, 0x8000000803, 0x0)
+sendmsg$nl_route_sched(r3, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000500)=@newtfilter={0x3c, 0x2c, 0xe27, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {}, {0xfff1, 0x3}}, [@filter_kind_options=@f_tcindex={{0xc, 0x1, 'tcindex\x00'}, {0xc, 0x2, [@TCA_TCINDEX_MASK={0x6}]}}]}, 0x3c}}, 0x0)
+sendmsg$TCPDIAG_GETSOCK(0xffffffffffffffff, 0x0, 0x4008044)

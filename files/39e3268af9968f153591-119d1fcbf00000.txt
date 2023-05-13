@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=986f19010adae2c7146d67116ce1ab5787ddfba3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x36, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000072e1bd40820514009dbb0000000109022400011b00000009040000022a3e750009058b33cf21a92b0009050b", @ANYRES16], 0x0)
+openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000200), 0x65a05, 0x6000000)
+syz_usb_disconnect(r0)

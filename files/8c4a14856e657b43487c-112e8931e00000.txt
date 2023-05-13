@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7b4d75ac2b92f0f490d5b410588fafa42a99686a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = io_uring_setup(0x782, &(0x7f0000000080))
+socket$inet(0x2, 0x80001, 0x84)
+ioctl$VT_DISALLOCATE(0xffffffffffffffff, 0x5608)
+r1 = socket$inet6_sctp(0xa, 0x5, 0x84)
+dup2(r1, 0xffffffffffffffff)
+io_uring_register$IORING_REGISTER_FILES(r0, 0x2, &(0x7f0000000300)=[0xffffffffffffffff, 0xffffffffffffffff], 0x2)

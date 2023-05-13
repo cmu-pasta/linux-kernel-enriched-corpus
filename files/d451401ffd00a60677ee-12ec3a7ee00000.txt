@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=32c85d199d85c11202246570956a2cbe272f235a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+socket$nl_route(0x10, 0x3, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000000)={0x26, 'skcipher\x00', 0x0, 0x0, 'cbc(serpent)\x00'}, 0x58)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$alg(r1, 0x0, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r1, 0x84, 0x64, 0x0, 0x0)
+recvmsg$kcm(r1, 0x0, 0x0)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+sendmsg$NL80211_CMD_REQ_SET_REG(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000180)={0x50, r2, 0x225, 0x70bd28, 0x25dfdbfc, {}, [@NL80211_ATTR_SOCKET_OWNER={0x4}, @NL80211_ATTR_REG_RULES={0x2c, 0x22, 0x0, 0x1, [@NL80211_ATTR_POWER_RULE_MAX_EIRP={0x8, 0x6, 0x3a}, @NL80211_ATTR_DFS_CAC_TIME={0x8}, @NL80211_ATTR_FREQ_RANGE_START={0x8, 0x2, 0xe1e}, @NL80211_ATTR_POWER_RULE_MAX_EIRP={0x8, 0x6, 0x1}, @NL80211_ATTR_REG_RULE_FLAGS={0x8, 0x1, 0x8}]}, @NL80211_ATTR_SOCKET_OWNER={0x4}, @NL80211_ATTR_REG_ALPHA2={0x6, 0x21, 'a\x00'}]}, 0x50}, 0x1, 0x0, 0x0, 0x4004040}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d985a778743b31346220fdd46cab08fe67fdc5e1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = creat(&(0x7f0000000100)='./file0\x00', 0x0)
+close(r0)
+openat$smackfs_cipso(0xffffffffffffff9c, &(0x7f0000000140)='/sys/fs/smackfs/cipso2\x00', 0x2, 0x0)
+write$FUSE_NOTIFY_STORE(r0, &(0x7f00000005c0)=ANY=[@ANYBLOB='E'], 0x1)

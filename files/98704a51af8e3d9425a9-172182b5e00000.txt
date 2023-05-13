@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=76bbdfd28722f0160325e4350b57e33aa95b0bbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+mknod$loop(&(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='[d::]:/8:'], &(0x7f00000000c0)='./file0\x00', &(0x7f0000000140)='ceph\x00', 0x0, 0x0)

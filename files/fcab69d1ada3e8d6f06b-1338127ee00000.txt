@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e5054b48470ac0510465d011d8bb2bb72669e41a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+pipe(&(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f00000000c0)=[{&(0x7f0000000180)="77690addcfbe1fbb66ec", 0xff3b}], 0x1, 0x1)
+close(r1)
+r2 = openat$6lowpan_enable(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/bluetooth/6lowpan_enable\x00', 0x2, 0x0)
+splice(r0, 0x0, r2, 0x0, 0x10001, 0xa)
+read$FUSE(r1, 0x0, 0x0)

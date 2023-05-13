@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9eb19240b5f95e762a06b5fa578d180120af03a1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_80211_inject_frame(0x0, 0x0, 0x0)
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000100)='nl80211\x00', 0xffffffffffffffff)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r2, 0x8933, &(0x7f0000000700)={'wlan0\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_FRAME(r1, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000240)={0x64, r0, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_FRAME={0x47, 0x33, @probe_request={@wo_ht, @val, @val, @val={0x3, 0x1}, @val={0x2d, 0x1a}, @val={0x72, 0x6}}}]}, 0x64}}, 0x0)

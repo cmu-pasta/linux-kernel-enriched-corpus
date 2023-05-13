@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=47292b6ab8e8bd1d10f7339c0bd667f4712a7a64
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+mount(&(0x7f0000fb6000)='\x00', &(0x7f0000d78000)='.', &(0x7f0000000040)='ubifs\x00', 0x0, 0x0)
+semop(0x0, &(0x7f00000000c0)=[{0x1, 0x0, 0x17fe}], 0x2aaaaaaaaaaaae02)

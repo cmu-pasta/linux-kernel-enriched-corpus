@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a5428a35500f99087c534be8fbe0c39ef0bdbf8e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":false}
+r0 = socket$kcm(0x29, 0x5, 0x0)
+ioctl$sock_ifreq(r0, 0x89a2, &(0x7f0000000080)={'virt_wifi0\x00', @ifru_hwaddr})

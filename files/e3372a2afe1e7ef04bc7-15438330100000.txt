@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cd4d85b003438d8608d16e0c203918070bbc8d88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$dri(&(0x7f00000001c0)='/dev/dri/card#\x00', 0x1, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_DUMB(r0, 0xc02064b2, &(0x7f0000000080)={0x7, 0x1, 0x6, 0x0, <r1=>0x0})
+ioctl$DRM_IOCTL_MODE_DESTROY_DUMB(r0, 0xc00464b4, &(0x7f00000000c0)={r1})

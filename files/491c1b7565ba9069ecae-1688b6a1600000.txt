@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=40d69d7e4e6b8b6effdbee578ee417baa6da281a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":8,"fault_nth":2,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+close(r0)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+ioctl$sock_kcm_SIOCKCMCLONE(0xffffffffffffff9c, 0x89e2, &(0x7f0000000040)={r0})
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f0000000080)={&(0x7f0000000000)=""/38, 0x12c000, 0x800}, 0x18)
+setsockopt$XDP_UMEM_FILL_RING(r1, 0x11b, 0x5, &(0x7f00000000c0)=0x8000, 0x4)
+setsockopt$XDP_RX_RING(r1, 0x11b, 0x2, &(0x7f0000003a80)=0x40, 0x4)
+r2 = bpf$MAP_CREATE(0x0, &(0x7f0000000280)={0x11, 0x4, 0x4, 0xf59}, 0x2c)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000100)={r2, &(0x7f00000001c0), &(0x7f0000000040)}, 0x20)

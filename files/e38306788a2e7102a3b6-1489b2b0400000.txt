@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0e75779a6f0faac461510c6330514e8f0e893038
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = syz_open_dev$binder(&(0x7f000000fff3)='/dev/binder#\x00', 0xffffffffffffffff, 0x0)
+ioctl$BINDER_WRITE_READ(r0, 0xc0306201, &(0x7f0000012000)={0x58, 0x0, &(0x7f0000000340)=ANY=[@ANYBLOB="1063084000000000000000000763044000000000076304400000000000634040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", @ANYPTR=&(0x7f00000002c0)=ANY=[], @ANYPTR=&(0x7f0000000300)=ANY=[]], 0x0, 0x0, &(0x7f0000000100)})

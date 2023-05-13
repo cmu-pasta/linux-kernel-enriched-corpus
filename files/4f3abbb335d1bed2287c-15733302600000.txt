@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6ab0ca35ca218415f8c179f5d6ffab0fbc613390
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000440)=@deltaction={0x14, 0x68, 0xf19, 0x0, 0x0, {0x2}}, 0x14}}, 0x0)

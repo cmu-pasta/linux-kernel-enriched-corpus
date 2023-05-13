@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8d094d6bc5fba75ff8d065959e44152c39e58690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/ipc\x00')
+syz_emit_ethernet(0x1016, &(0x7f00000000c0)=ANY=[@ANYRESHEX=r0], 0x0)

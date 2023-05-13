@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=cf86490d75109a7648fc749a4c9a8d59fabe398d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000006c0)={0x0, 0x0, &(0x7f0000000680)={&(0x7f00000004c0)=@allocspi={0x104, 0x16, 0x607, 0x0, 0x0, {{{@in, @in=@dev}, {@in6=@dev, 0x0, 0x33}, @in6=@ipv4}, 0x0, 0xc3b3}, [@mark={0xc, 0x15, {0x0, 0x9}}]}, 0x104}}, 0x0)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8e599aa994f78719d580f20a59db1416dfb0d198
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+syz_mount_image$jffs2(&(0x7f0000000380)='jffs2\x00', &(0x7f00000003c0)='./file1\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000002780)={[{@rp_size={'rp_size'}}]})

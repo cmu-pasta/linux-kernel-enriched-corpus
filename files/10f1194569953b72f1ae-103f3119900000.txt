@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@bcast, @null, @bcast, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @default, @null, @default, @null]}, 0x48)
+listen(r0, 0x0)
+sendmsg$TIPC_NL_UDP_GET_REMOTEIP(0xffffffffffffffff, 0x0, 0x0)
+unshare(0x40000000)
+setsockopt$inet_sctp_SCTP_SOCKOPT_CONNECTX(0xffffffffffffffff, 0x84, 0x6e, 0x0, 0x0)

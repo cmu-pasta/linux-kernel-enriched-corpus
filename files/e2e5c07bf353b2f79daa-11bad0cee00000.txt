@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=03d4470b64b2524f9dfdc814940972203d04d398
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault":true,"fault_call":1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r0, &(0x7f0000000100), 0x10)

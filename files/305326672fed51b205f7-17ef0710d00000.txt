@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=80b2343d6c19226dfa59e33b151c168d96253420
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$qrtr(0x2a, 0x2, 0x0)
+socket$key(0xf, 0x3, 0x2)
+clock_gettime(0x0, &(0x7f0000000240)={<r0=>0x0, <r1=>0x0})
+ioctl$VIDIOC_DQBUF(0xffffffffffffffff, 0xc0585611, &(0x7f0000000280)={0xfff, 0x4, 0x4, 0x0, 0x7, {r0, r1/1000+10000}, {0x1, 0xc, 0x0, 0x81, 0x1, 0x5b, "58bdb41f"}, 0x8, 0x2, @offset=0x7ff})
+openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000300)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+socket$inet(0x2, 0x1, 0x3)
+socket$bt_cmtp(0x1f, 0x3, 0x5)
+memfd_create(&(0x7f0000000000)='/&@\x00', 0x0)

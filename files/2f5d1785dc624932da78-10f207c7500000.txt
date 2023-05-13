@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1e32c5b7e3876954b2923984a921f62e0c3b5dfb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$DRM_IOCTL_MODE_RMFB(0xffffffffffffffff, 0xc00464af, 0x0)
+r0 = syz_open_dev$vcsn(&(0x7f0000000100)='/dev/vcs#\x00', 0x2, 0x101700)
+r1 = io_uring_setup(0x94d, &(0x7f0000000200)={0x0, 0x81f5, 0x2, 0x0, 0x4c, 0x0, r0})
+close(r1)

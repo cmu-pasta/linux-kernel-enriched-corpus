@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=93d147e9dda6e77db7f2da0ec1e8ab98161796b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+unshare(0x8000000)
+shmget$private(0x0, 0xfffffffffeffffff, 0x4800, &(0x7f0000ffc000/0x3000)=nil)

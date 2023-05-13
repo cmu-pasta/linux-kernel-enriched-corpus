@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7a8266bb19dc560d27673f04595eb27070aa31dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_io_uring_setup(0x4953, &(0x7f0000000140)={0x0, 0x0, 0x3}, &(0x7f0000000000/0x3000)=nil, &(0x7f0000000000/0x3000)=nil, &(0x7f0000000040), &(0x7f0000000080))
+syz_usb_connect$printer(0x0, 0x36, 0x0, 0x0)
+io_uring_enter(r0, 0x1000, 0xfc0f, 0x3, 0x0, 0x0)
+io_uring_setup(0x50e8, &(0x7f0000000040))

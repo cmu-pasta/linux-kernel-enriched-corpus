@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=847509538d7dd5ceaf7f23d1bb632e1647429879
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000280)={0x12, 0x22, 0x4, 0x400, 0x0, 0x1}, 0x3c)
+r0 = socket$rxrpc(0x21, 0x2, 0xa)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_TCP_REPAIR(r1, 0x6, 0x13, &(0x7f0000000040)=0x1, 0x4)
+r2 = syz_genetlink_get_family_id$team(&(0x7f0000001840)='team\x00')
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f0000001880)={{{@in6=@initdev, @in=@dev, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in=@multicast2}, 0x0, @in6=@remote}}, &(0x7f0000001980)=0xe8)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f00000019c0)={'veth1_to_team\x00', <r4=>0x0})
+getsockname$packet(0xffffffffffffffff, &(0x7f0000001a00)={0x11, 0x0, <r5=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000001a40)=0x14)
+getsockopt$inet_pktinfo(0xffffffffffffffff, 0x0, 0x8, &(0x7f0000001a80)={<r6=>0x0, @multicast1, @loopback}, &(0x7f0000001ac0)=0xc)
+sendmsg$TEAM_CMD_NOOP(0xffffffffffffffff, &(0x7f0000001c40)={&(0x7f0000001800)={0x10, 0x0, 0x0, 0x20}, 0xc, &(0x7f0000001c00)={&(0x7f00000002c0)=ANY=[@ANYBLOB="fc000000", @ANYRES16=r2, @ANYBLOB="000425bd70effadbdf1a4209c4960f1afa637deb9e5f0b937a62de4a240378fdcdde9baf9943fdfb43bad0a9427bba358fef0ee1081577a4", @ANYRES32=r3, @ANYBLOB="400002003c00010024000100757365725f6c696e6b75705f656e61626c65640000000000000000000000000008000300060000000400040008000600", @ANYRES32=r4, @ANYBLOB="08000100", @ANYRES32=r5, @ANYBLOB="98000200400001002400010071756575655f69640000000000000000000000000000000000000000000000000800030003000000080004000700000008000600", @ANYRES32=r6, @ANYBLOB="54000100240001006270665f686173685f66756e6300000000000000000000000000000000000000080003000b00000024000400ffff3b060d0f0000010007071f0000000800050500040000ff7f0197b5000000"], 0xfc}, 0x1, 0x0, 0x0, 0x4000000}, 0x20000084)
+connect$inet6(r1, &(0x7f0000000140), 0x1c)
+r7 = bpf$MAP_CREATE(0x0, &(0x7f0000000000)={0x5}, 0xfffffffffffffdcb)
+bpf$MAP_CREATE(0x2, &(0x7f0000003000)={0x3, 0x0, 0x77fffb, 0x0, 0x10020000000, 0x0}, 0x2c)
+setsockopt$inet6_tcp_TCP_ULP(r1, 0x6, 0x1f, &(0x7f00000000c0)='tls\x00', 0x4)
+bpf$MAP_GET_NEXT_KEY(0x3, &(0x7f0000000100)={r7, &(0x7f00000002c0), 0x0}, 0x18)

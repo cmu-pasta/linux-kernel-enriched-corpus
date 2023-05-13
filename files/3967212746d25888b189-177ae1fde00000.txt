@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=57e2b844f7c5648c0a9b9b1cd079c4dac2c80daf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$PERF_EVENT_IOC_ENABLE(0xffffffffffffffff, 0x8912, 0x400200)
+syz_mount_image$tmpfs(&(0x7f0000000000)='tmpfs\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)

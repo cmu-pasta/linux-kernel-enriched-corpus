@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1bef50bdd9622a1969608d1090b2b4a588d0c6ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"close_fds":true,"vhci":true}
+r0 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000000080)='/dev/adsp1\x00', 0x0, 0x0)
+close_range(r0, 0xffffffffffffffff, 0x6)

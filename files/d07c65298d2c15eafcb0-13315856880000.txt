@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=cd1ba3adb3de6924d6e88ba5bb6564425ae710bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000001740), 0x0, 0x0)
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x1, 0x200000005c831, 0xffffffffffffffff, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x800000, 0x4) (async)
+writev(r0, &(0x7f00000000c0)=[{0x0}], 0x1) (rerun: 32)

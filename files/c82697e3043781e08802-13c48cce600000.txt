@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=a2176c353f66aa0dab0a37c901fb010771a9c3b2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$inet6(0xa, 0x400000000001, 0x0)
+dup(r0)
+open(&(0x7f0000000280)='./file0\x00', 0x110000141042, 0x0)
+socket$can_raw(0x1d, 0x3, 0x1)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_FILL_RING(r1, 0x11b, 0x5, 0x0, 0x0)
+setsockopt$XDP_UMEM_COMPLETION_RING(r1, 0x11b, 0x6, 0x0, 0x0)
+pselect6(0x40, &(0x7f00000000c0), 0x0, &(0x7f0000000140)={0xff, 0x401}, 0x0, 0x0)

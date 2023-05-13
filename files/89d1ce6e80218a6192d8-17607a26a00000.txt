@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+socket$kcm(0x29, 0xfffffffffffffffd, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f000000d000)={0xa, 0x3, &(0x7f0000008000)=@framed={{0xffffff85, 0x0, 0x0, 0x0, 0x22, 0x7}}, &(0x7f0000014ff5)='syzka\x00\x00\x00\x05\x00\xf3', 0x2, 0x1000, &(0x7f0000014000)=""/4096}, 0x48)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

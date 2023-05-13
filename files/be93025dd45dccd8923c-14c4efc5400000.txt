@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=116fe3d309b59e4276d16112ac9aa708f9ace8fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1}
+r0 = syz_open_dev$video(&(0x7f0000000000)='/dev/video#\x00', 0x4, 0x802)
+r1 = dup2(r0, r0)
+write$binfmt_elf32(r1, &(0x7f0000001340)=ANY=[], 0x10ff)
+mmap$binder(&(0x7f0000fff000/0x1000)=nil, 0x1000, 0x2000002, 0x13, r1, 0x0)

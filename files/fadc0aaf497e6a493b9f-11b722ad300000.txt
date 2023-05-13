@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=67dc31fb1ed1677321f5e458f77147f079e1e26b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000002c0)='/sys/power/resume', 0x121a02, 0x0)
+write$cgroup_int(r0, &(0x7f0000000000)=0x900, 0xfdef)

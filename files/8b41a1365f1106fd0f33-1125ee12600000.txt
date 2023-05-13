@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=18cd046b8cd9550398a589c3952ee6a3cd94408e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, 0x0, 0x0)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000080)={0x18}, 0xfffffe47)
+write$FUSE_NOTIFY_RETRIEVE(r2, 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000140)='9p\x00', 0x0, &(0x7f0000000480)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})
+lsetxattr$trusted_overlay_upper(0x0, 0x0, 0x0, 0x0, 0x2)

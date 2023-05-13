@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=57eba87aff7669512fb68e56a932b01805342d13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:3 FaultNth:6 EnableTun:false UseTmpDir:false EnableCgroups:false HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+perf_event_open(&(0x7f0000348f88)={0x2, 0x70, 0x3e6}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+getsockopt$ARPT_SO_GET_ENTRIES(0xffffffffffffffff, 0x0, 0x61, &(0x7f0000000940)=ANY=[@ANYBLOB], &(0x7f0000000080)=0x1)
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ppp\x00', 0x0, 0x0)
+ioctl$EVIOCGPROP(r0, 0xc004743e, &(0x7f0000000a80)=""/246)

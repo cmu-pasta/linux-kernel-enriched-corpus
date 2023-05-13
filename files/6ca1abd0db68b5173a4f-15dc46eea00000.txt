@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e0386951a18418e694300a50e4daa5af6786bc49
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_mreqn(r0, 0x0, 0x23, &(0x7f0000000740)={@multicast2, @loopback}, 0xc)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000100)={'lo\x00'})
+setsockopt$inet_msfilter(r0, 0x0, 0x29, &(0x7f0000000040)={@multicast2, @loopback, 0x1, 0x1, [@broadcast]}, 0x14)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000080)={'lo\x00\x00\x00$\x00\x00\x00\x00\x00\x00\b\x00\x00\x11', 0x1})

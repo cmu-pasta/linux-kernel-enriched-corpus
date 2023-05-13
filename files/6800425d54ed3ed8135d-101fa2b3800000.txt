@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d92fcc0778b311ee1e89f5ea4de9fc4f65f5b7a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 EnableTun:true UseTmpDir:true EnableCgroups:true HandleSegv:true WaitRepeat:false Debug:false Repro:false}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000180)='/dev/infiniband/rdma_cm\x00', 0x2, 0x0)
+write$rdma_cm(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="10000000000000fa", @ANYPTR64=&(0x7f0000000100)=ANY=[@ANYRES32=0xffffffff], @ANYBLOB="00050000000000001b004e214c000000ffffffffff000000000000000000000108000000", @ANYRES32], 0x38)

@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=c14d620a28ea77843c2632f5b05b315c44a2dd06
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true}
+pipe(&(0x7f00000000c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+write$binfmt_elf32(r1, &(0x7f0000000340)=ANY=[], 0xff0e)
+close(r1)
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r2, 0x6, 0x13, &(0x7f00000000c0)=0x800000100000001, 0x4)
+connect$inet6(r2, &(0x7f0000000140), 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r2, 0x6, 0x1f, &(0x7f0000000040)='tls\x00', 0x355)
+setsockopt$inet6_tcp_TLS_TX(r2, 0x11a, 0x1, &(0x7f0000000100), 0x28)
+splice(r0, 0x0, r1, 0x0, 0x100000000, 0x0)
+writev(r2, &(0x7f0000000540)=[{&(0x7f00000003c0)='c', 0x1}], 0x1)
+connect$unix(r1, &(0x7f0000000280)=@file={0x0, './file0\x00'}, 0x6e)
+connect$inet6(r1, &(0x7f0000000000)={0xa, 0x0, 0x0, @loopback}, 0x1c)

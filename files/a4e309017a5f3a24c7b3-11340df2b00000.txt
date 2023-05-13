@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=fd5821fbdc1bf93afdb86fa444717719ac161cf6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$ext4(0x0, 0x0, 0x80a00, 0x5, &(0x7f0000000540)=[{&(0x7f0000010000)="200000000002000019000000600100000f000000000000000000000004000000000002000020000020000000ddf4655fddf4655f0100ffff53ef010001000000ddf4655f000000000000000001000000000000000b0000000001000008000000d24200001203", 0x66, 0x400}, {0x0, 0x0, 0x4e0}, {0x0, 0x0, 0x642}, {0x0, 0x0, 0x800}, {0x0, 0x0, 0x1500}], 0x3, &(0x7f0000000180)={[{@errors_remount}]})

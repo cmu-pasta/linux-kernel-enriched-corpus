@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ef0fa4c7084a1a7f971f3d5055106ab7cb01d0e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"segv":true}
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000040)={0x0, 0x60}}, 0x0)
+r0 = socket(0x1000000010, 0x80002, 0x0)
+sendmmsg$alg(r0, &(0x7f0000000200), 0x10efe10675dec16, 0x0)

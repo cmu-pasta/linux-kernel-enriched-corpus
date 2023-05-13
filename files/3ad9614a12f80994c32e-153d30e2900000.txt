@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b5c381ffe72bbead5fc6a7f46a0d2550972816ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000040)={0x1, &(0x7f0000001780)=[{0x6, 0x0, 0x0, 0x7ffffffb}]})
+epoll_create(0x14)
+vmsplice(r0, 0x0, 0x0, 0x8)
+clone(0x20002044dfc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+exit_group(0x0)

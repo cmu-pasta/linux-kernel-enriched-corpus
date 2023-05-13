@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=58c436c13ed984480edba66a224daff9c184de12
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault":true,"fault_call":1,"fault_nth":27,"leak":true,"close_fds":false,"tmpdir":true}
+r0 = openat$selinux_load(0xffffffffffffff9c, &(0x7f0000000300)='/selinux/load\x00', 0x2, 0x0)
+write$selinux_load(r0, &(0x7f0000000180)={0xf97cff8c, 0x8, 'SE Linux'}, 0x10)

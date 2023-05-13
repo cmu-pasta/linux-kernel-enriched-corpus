@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b7758cb0e1d1856940c14a3bee1220be5a922120
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = openat$md(0xffffffffffffff9c, &(0x7f0000000000)='/dev/md0\x00', 0x0, 0x0)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f00000002c0)={[], 0x0, 0xfffffffffffffcf0, 0x96e})

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=24be997a573ef9d497d6d7302518779b75d8119a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"tmpdir":true}
+creat(&(0x7f0000000280)='./bus\x00', 0x0)
+pwritev2(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x12)
+write$cgroup_type(0xffffffffffffffff, &(0x7f0000000200)='threaded\x00', 0xf642e7e)
+ioctl$EXT4_IOC_MOVE_EXT(0xffffffffffffffff, 0xc028660f, 0x0)
+lseek(0xffffffffffffffff, 0x0, 0x3)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}, @null, @default, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x2}, @rose, @default, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}]}, 0x48)
+setsockopt$sock_attach_bpf(r0, 0x1, 0x32, &(0x7f00000001c0), 0x4)
+listen(r0, 0x0)
+preadv(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+ioctl$sock_kcm_SIOCKCMCLONE(0xffffffffffffffff, 0x89e2, &(0x7f0000000600))
+unshare(0x40000000)
+ioprio_get$pid(0x2, 0x0)

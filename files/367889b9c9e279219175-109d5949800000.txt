@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=26f9acc61df47dcc8a5677eea2cae46b700c70c6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:false Collide:false Repeat:false Procs:1 Sandbox: Fault:true FaultCall:3 FaultNth:4 EnableTun:false UseTmpDir:true HandleSegv:false WaitRepeat:false Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+sendto$llc(0xffffffffffffffff, &(0x7f0000001000)="", 0x0, 0x0, &(0x7f0000002000)={0x1a, 0x0, 0x0, 0x0, 0x0, 0x0, @empty=[0x0, 0x0, 0x0, 0x0, 0x0, 0x0], [0x0, 0x0]}, 0x10)
+r0 = openat$ppp(0xffffffffffffff9c, &(0x7f0000001000-0x9)='/dev/ppp\x00', 0x0, 0x0)
+ioctl$EVIOCGPROP(r0, 0xc004743e, &(0x7f0000001000)=""/246)

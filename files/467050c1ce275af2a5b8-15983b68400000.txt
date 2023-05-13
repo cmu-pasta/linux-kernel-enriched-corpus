@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b830ba394114596a75b51add2ec8f1f040639903
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"sandbox":"","fault_call":-1,"tmpdir":true}
+mknod(&(0x7f0000000100)='./file0\x00', 0x0, 0x0)
+pipe(&(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+write(r1, &(0x7f00000001c0), 0xfffffef3)
+mount$9p_fd(0x0, &(0x7f0000000300)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f0000000380)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}, 0x2c})
+read(r0, &(0x7f0000000200)=""/250, 0x50c7e3e3)

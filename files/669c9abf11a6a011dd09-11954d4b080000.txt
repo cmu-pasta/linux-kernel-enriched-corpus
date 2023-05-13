@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=08967990c042213d9aea7b6e111cb6ad7e746fd1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_TREAD(r0, 0x40045402, &(0x7f0000000040)=0x1)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r0, 0x40345410, &(0x7f0000000080)={{0x1}})
+ioctl$SNDRV_TIMER_IOCTL_PARAMS(r0, 0x40505412, &(0x7f0000000440)={0x0, 0x20000006, 0x0, 0x0, 0xd})
+ioctl$int_in(r0, 0x5452, &(0x7f0000000240)=0xffffffffffffff00)
+ioctl$SNDRV_TIMER_IOCTL_START(r0, 0x54a0)
+r1 = open(&(0x7f0000000280)='.\x00', 0x0, 0x0)
+fcntl$setown(r1, 0x8, 0xffffffffffffffff)
+fcntl$notify(r1, 0x402, 0x25)
+creat(&(0x7f0000000040)='./file0\x00', 0x0)
+r2 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000b40), 0x41081, 0x0)
+write$binfmt_elf32(r2, &(0x7f0000004240)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x38}, [{}], "", ['\x00', '\x00', '\x00', '\x00', '\x00']}, 0x558)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40b0c218e639f1d882b86abff2549cfe11c5101e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+sendmsg$kcm(0xffffffffffffffff, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, &(0x7f0000000100)={0x1, 0x3, &(0x7f0000000200)=@framed={{0xffffff85, 0x0, 0x1200000000000000, 0x0, 0x2e, 0xffffffb5, 0x0, 0x0, 0x10}}, &(0x7f0000000240)='EP\xd4\x00\x1f\x91\xeb/W\xb72$C0%\x03\x9c0\x96\xb2\fkC\x93H\xbfh\x9c\b`\x857\xd6\">c\xad\xc0bO\xba\xe2\xe1\t5\x9d\xcei\"2L\xcc\x13\x16\vh\xca\xe6C\x06\x97%\x9d\xd5-\x1fs\xe1j\xdc5\x92\xd0)%\xdf\xfa\xe8^\x9c\xd29\x8clg\xc8\x7f\xb5\xb1&\x02\xf1E\xb4\x84\xbeE\x91)f\xe8\xb7\xe2\xf6`i\xc5m\xd7l\x1d\xc1\x12\x01<:kM\xe9\x99\xcd\xcd\xc8\x85Z\xee47\xdc\xc8u\x80\xcf\xbeTo\xbb\xfb\xc0\xebV\xd8\xbb\xbe\xa2\x90J|s\xc2', 0x1, 0x348, &(0x7f0000000480)=""/195, 0x0, 0x0, [0x42]}, 0x48)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

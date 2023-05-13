@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=80b047eb9aff0254f4adc620c6891c0ca3276309
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+mmap(&(0x7f0000002000/0x1000)=nil, 0x1000, 0x2, 0x840000000000a132, 0xffffffffffffffff, 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000000)='TIPCv2\x00')
+sendmsg$TIPC_NL_UDP_GET_REMOTEIP(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000001640)=ANY=[@ANYBLOB=' \x00\x00\x00', @ANYRES16=r1, @ANYBLOB="030b0020000000000000130000000c0009800800020005000041d28c7f1832d435f4c4b10d1c362f68910ded9719ee3e995857ea99cbec38ed6d2b999d4ccd7988392bb1fec558ac6d85b94234790b063d8602a313d1d079431f5b5b821ca01be01261756d01840de5990ef8b6a3bf1b4985022d10c55d8f546a76bbf7715b450c8e8d81e191d8f79bdc36e23bdc7b101548c511637eac2479f07af94fe187d92979ac1d57fa3aa611f16fd9dc2c213333f5ef1e1351169ac7429baaac33db3b4bc791bf2af6c4abe3db4808c87f06040f7dbf2b8a4663978f7fc84d"], 0x20}}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1fd307e3587fb6b381eb350d93868d610392bdd3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000080)='/dev/audio\x00', 0x0, 0x0)
+ioctl$int_in(r0, 0x800000c004500a, &(0x7f0000000300)=0x52e5cf88)
+ioctl$SNDCTL_DSP_SPEED(r0, 0xc0045002, &(0x7f00000000c0))
+readv(r0, &(0x7f0000395000)=[{&(0x7f00004d2000)=""/4096, 0x1000}], 0x1)
+ioctl$SNDCTL_DSP_SYNC(r0, 0x5001, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=24ccec06ddb9163ea5db28312192e9d5bf2d136e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+setsockopt$inet_sctp_SCTP_EVENTS(0xffffffffffffffff, 0x84, 0xb, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x20}, 0xb)
+r0 = io_uring_setup(0x40000000e, &(0x7f00000005c0)={0x0, 0x0, 0x0, 0x0, 0x0, [], {0x0, 0x0, 0x0, 0x0, 0x0, 0x2}})
+dup3(r0, 0xffffffffffffffff, 0x0)

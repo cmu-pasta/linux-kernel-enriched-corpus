@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=426083b1e91873f7dc28032bfa16cbd46695cc17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+ioctl(r0, 0x20000000008912, &(0x7f00000001c0)="0a5c2d0240316285717070")
+socket$inet6(0xa, 0x3, 0x87)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x0)
+setsockopt$inet_tcp_int(r1, 0x6, 0x80000000000002, &(0x7f00000005c0)=0x16c, 0x4)
+setsockopt$inet_tcp_TCP_MD5SIG(r1, 0x6, 0xe, &(0x7f0000000280)={@in={{0x2, 0x4e21, @local}}, 0x0, 0x2, 0x2, "a77760f5a7645bc43c241d69912dda0c63c2a66726f8cfafd6c8fe2c98de7ba44947a79015f0fe57917cb62a93987a938fdedfce7bbba4fec2d8a09c41fb233245f2604b9e07b8ab79ec15ef2818a179"}, 0xd8)
+bind$inet(r1, &(0x7f0000deb000)={0x2, 0x4e23, @multicast1}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f00000008c0)={0x2, 0x4e23, @local}, 0x10)
+setsockopt$sock_int(r1, 0x1, 0x8, &(0x7f0000000100), 0x4)
+syz_genetlink_get_family_id$ipvs(&(0x7f0000002240)='IPVS\x00')
+sendmsg$IPVS_CMD_SET_INFO(0xffffffffffffffff, &(0x7f0000003340)={0x0, 0x0, &(0x7f00000022c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="fc00040000000000080004001000000000000000000000000000000000002aae00"], 0x1}, 0x1, 0x0, 0x0, 0x4000001}, 0x20000000)
+getsockopt$XDP_STATISTICS(0xffffffffffffffff, 0x11b, 0x7, &(0x7f0000000140), &(0x7f0000000380)=0x18)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+recvmsg(r1, &(0x7f0000000240)={&(0x7f0000000040)=@nfc, 0x80, &(0x7f0000000180)=[{&(0x7f0000003ac0)=""/4096, 0xdc00}], 0x1, &(0x7f0000000200)=""/20, 0x14}, 0x100)
+write$binfmt_elf64(r1, &(0x7f0000002300)=ANY=[@ANYRES64], 0x1000001bd)

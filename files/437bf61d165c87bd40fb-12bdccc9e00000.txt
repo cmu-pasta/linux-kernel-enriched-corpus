@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b96d0a0eaa2196cfa0667e1359772777ee06c80a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000280)={0x0, 0x8, &(0x7f0000000240)={&(0x7f0000000100)=ANY=[@ANYBLOB="14000000100000001e6c0000000000000000000a20000000000a01000000000000000000000000000900010073797a300000000038000000120a0105000000000000000000000000040004800900020000397d00000000000900010073797a30000000000800034000001801140000001100df0000000000000000000000000a"], 0x80}}, 0x0)
+r1 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r1, &(0x7f0000002c80)={0x0, 0x0, &(0x7f0000002c40)={&(0x7f0000000040)={{0x14}, [@NFT_MSG_DELTABLE={0x14, 0x2, 0xa, 0x397159c7cfc62e5d}], {0x14}}, 0x3c}}, 0x0)

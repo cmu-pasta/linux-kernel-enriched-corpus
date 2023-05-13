@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=58c8c0504f894fc4ee82bffec04c6e9e45b14d3f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080)='/dev/nullb0\x00', 0x4000000004002, 0x0)
+io_setup(0x105, &(0x7f00000004c0)=<r1=>0x0)
+io_submit(r1, 0x8, &(0x7f00000000c0)=[&(0x7f0000000140)={0x3a000000, 0x2759, 0xd, 0x1, 0x0, r0, &(0x7f0000000000)="98", 0x3e80000000}])
+syz_open_dev$audion(&(0x7f0000000040)='/dev/audio#\x00', 0xffffffffffffff81, 0x20000)

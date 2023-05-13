@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=39b72114839a6dbd66c1d2104522698a813f9ae2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+getsockopt$EBT_SO_GET_INIT_ENTRIES(0xffffffffffffffff, 0x0, 0x83, &(0x7f0000000200)={'nat\x00', 0x0, 0x0, 0x0, [], 0x1, &(0x7f0000000180)=[{}], 0x0}, 0x0)
+r0 = socket(0x40000000015, 0x5, 0x0)
+setsockopt$SO_TIMESTAMP(r0, 0x1, 0x1d, &(0x7f0000000040)=0x3, 0x4)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+sendto$inet(r0, 0x0, 0x0, 0x0, &(0x7f000069affb)={0x2, 0x0, @loopback}, 0x10)
+recvmmsg(r0, &(0x7f0000000080), 0xfa, 0x2, 0x0)

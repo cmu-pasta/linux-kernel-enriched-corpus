@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e4aa1eaddc70a7c6cbb9098b795fa85da2f88cd4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true,"tmpdir":true}
+setsockopt$inet_mreqsrc(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000000)={@multicast1, @multicast1, @broadcast}, 0xc)
+pipe(&(0x7f00000002c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+r3 = socket(0x11, 0x800000003, 0x0)
+setsockopt$packet_buf(r3, 0x107, 0xf, &(0x7f00000001c0)="a2e6999b", 0x4)
+bind(r3, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000000)=ANY=[@ANYBLOB="3803"], 0x50)
+write$binfmt_misc(r1, &(0x7f0000000000)=ANY=[], 0xfffffecc)
+splice(r0, 0x0, r2, 0x0, 0x4ffe0, 0x0)

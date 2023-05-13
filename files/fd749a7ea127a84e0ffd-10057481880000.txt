@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f961d22c6b459871150d210a06ba550e44e3bcbd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+timer_create(0x0, 0x0, 0x0)
+r0 = creat(&(0x7f0000000040)='./file0\x00', 0x0)
+write$eventfd(r0, &(0x7f0000000080), 0xfffffe5e)
+mkdir(&(0x7f00000000c0)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+chdir(&(0x7f0000000540)='./bus\x00')
+open(&(0x7f0000000140)='./file0\x00', 0x145981, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ac6fc97113de554dc57614c3ffa4c6a2c2668a97
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000040)=ANY=[@ANYBLOB="12010000000018105e04da070000000000010902240001000000000904000009030000000921000000012222000905810308"], 0x0)
+syz_usb_connect$cdc_ecm(0x4, 0x0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f00000001c0)={0x24, 0x0, 0x0, &(0x7f0000000140)={0x0, 0x22, 0x22, {[@global=@item_012={0x2, 0x1, 0x9, "f800"}, @global=@item_4={0x3, 0x1, 0x1, "814166e2"}, @global=@item_4={0x3, 0x1, 0x7, "8000"}, @local=@item_012={0x2, 0x2, 0x2, "6a01"}, @global=@item_4={0x3, 0x1, 0x0, "0900be00"}, @main=@item_4={0x3, 0x0, 0x8, "5effe6ff"}, @local=@item_012={0x2, 0x2, 0x1, "6aa3"}, @local=@item_4={0x3, 0x2, 0x0, "5d8c3dda"}]}}, 0x0}, 0x0)
+syz_usb_ep_write(r0, 0x0, 0x11, &(0x7f0000000080)="c96a7f5e958aad2e70ce1509000000b9b4")

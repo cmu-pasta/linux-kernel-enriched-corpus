@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=20e67aeb8f4d140004dc23d091050826326d1535
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+io_uring_setup(0xf1, &(0x7f0000000580)={0x0, 0x0, 0x7})
+prlimit64(0x0, 0xe, &(0x7f0000000000)={0xb, 0x8d}, 0x0)
+sched_setattr(0x0, &(0x7f0000000040)={0x38, 0x2, 0x0, 0x0, 0x5}, 0x0)

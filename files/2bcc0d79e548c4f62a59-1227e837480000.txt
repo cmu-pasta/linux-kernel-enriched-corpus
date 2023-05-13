@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=898a3244f5d773e613fe29741b57add220bea9e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000180), 0x80c002000104082, 0x0)
+ioctl$BLKRRPART(r0, 0x125f, 0x0)

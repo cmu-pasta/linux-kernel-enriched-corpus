@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=3256c011ec68c385985faee3785aab3081e244b3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{Threaded:true Collide:true Repeat:true Procs:8 Sandbox: Fault:false FaultCall:-1 FaultNth:0 EnableTun:false UseTmpDir:false HandleSegv:false WaitRepeat:true Debug:false Repro:false}
+mmap(&(0x7f0000000000/0x14000)=nil, 0x14000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+r0 = timerfd_create(0x7, 0x80800)
+r1 = syz_open_dev$sndpcmp(&(0x7f0000010000-0x12)='/dev/snd/pcmC#D#p\x00', 0x9bb2, 0x8000)
+bpf$BPF_PROG_ATTACH(0x8, &(0x7f000000b000+0x357)={r0, r1, 0x3, 0x1}, 0x10)
+r2 = syz_open_dev$dspn(&(0x7f0000010000-0xa)='/dev/dsp#\x00', 0x1, 0x2)
+ioctl$int_in(r2, 0x800000c004500a, &(0x7f0000007000-0x8)=0x0)
+mmap(&(0x7f0000014000/0x1000)=nil, 0x1000, 0x3, 0x32, 0xffffffffffffffff, 0x0)
+ioctl$ION_IOC_MAP(r2, 0xc0084902, &(0x7f0000014000)={<r3=>0x0, r2})
+ioctl$ION_IOC_IMPORT(r2, 0xc0084905, &(0x7f0000006000-0x8)={r3, r2})
+write(r2, &(0x7f0000015000-0x2)="", 0x0)
+writev(r2, &(0x7f000000c000-0x8)=[{&(0x7f000000d000-0xcc)="4121dcd046b907dfe2988e2e564900d227428284160a41cd17f5b79ac8cc6d", 0x1f}], 0x1)

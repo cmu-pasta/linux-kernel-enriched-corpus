@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4da2f3f5441ea1a95fb9c2a58229d09b80722bb8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false,"segv":true}
+syz_mount_image$f2fs(0x0, &(0x7f0000001600)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount$bpf(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000080)='bpf\x00', 0x0, 0x0)

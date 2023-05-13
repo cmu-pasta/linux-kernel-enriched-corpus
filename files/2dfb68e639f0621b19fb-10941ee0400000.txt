@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1a97a5bd119fd97995f752819fd87840ab9479a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x3, 0xff)
+connect$inet6(r0, &(0x7f0000000080)={0xa, 0x0, 0x0, @dev, 0x9}, 0x1c)
+sendmsg$key(r0, &(0x7f0000000040)={0x20480, 0x0, &(0x7f0000000180)={&(0x7f0000000000)={0x2, 0x0, 0x84ffffff00000000, 0x0, 0x7, 0x0, 0x0, 0x0, [@sadb_x_filter={0x5, 0x1a, @in=@broadcast, @in=@local}]}, 0x38}}, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.stat\x00', 0x26e1, 0x0)
+ioctl$FS_IOC_FSSETXATTR(r1, 0x40086602, &(0x7f0000000100)={0x17e})

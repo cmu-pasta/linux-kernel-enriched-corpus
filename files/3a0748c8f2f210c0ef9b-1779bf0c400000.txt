@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=004b0f7b61d4901cbfecfc33de7996e8cbe0a278
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"","fault_call":-1}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+sendmmsg(r0, &(0x7f0000002c00)=[{{0x0, 0x0, &(0x7f00000028c0), 0x0, &(0x7f0000002940)}}], 0x1, 0x20004010)

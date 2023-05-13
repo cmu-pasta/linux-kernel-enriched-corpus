@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f2d92a59b90bf133aebeca9559d0711b5efcd169
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$kcm(0x29, 0x5, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000240))
+unshare(0x40040000)
+ioctl$sock_kcm_SIOCKCMCLONE(r0, 0x89e2, &(0x7f0000000280)={<r1=>r0})
+close(r1)

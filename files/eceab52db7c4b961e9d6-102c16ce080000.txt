@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=771e9420eb1aebfbc3d6a7ff0e34460cb1f12d77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","close_fds":true,"wifi":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$netlbl_mgmt(&(0x7f00000001c0), r0)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NLBL_MGMT_C_VERSION(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000340)={0x14, r1, 0x33ed42a1c638d875, 0x0, 0x0, {0x5}}, 0x14}}, 0x0)

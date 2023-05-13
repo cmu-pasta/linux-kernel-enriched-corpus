@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8c0c68130548c7ec737d9ccc018a7589a768c0a9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000800)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000008280)=@newsa={0x14c, 0x10, 0x1, 0x0, 0x0, {{@in=@multicast1, @in=@local}, {@in=@multicast2, 0x0, 0x6c}, @in=@remote, {}, {}, {}, 0x0, 0x0, 0xa}, [@algo_comp={0x48, 0x3, {{'deflate\x00'}}}, @coaddr={0x14, 0x1c, @in=@multicast2}]}, 0x14c}}, 0x0)
+bpf$MAP_CREATE(0xd00000000000000, &(0x7f0000000000)={0x6, 0x4, 0x20000000007ffd, 0x7c, 0x0, 0x1}, 0x40)

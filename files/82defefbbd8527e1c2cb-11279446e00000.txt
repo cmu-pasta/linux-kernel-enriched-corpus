@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5efc1b8ee47e4d47eab6aefdaa195a72ca78146b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true}
+r0 = openat$uinput(0xffffffffffffff9c, &(0x7f0000000140)='/dev/uinput\x00', 0x0, 0x0)
+ioctl$UI_DEV_SETUP(r0, 0x405c5503, &(0x7f00000000c0)={{}, 'syz1\x00', 0x42})
+ioctl$UI_DEV_CREATE(r0, 0x5501)
+syz_open_dev$evdev(&(0x7f0000000b00)='/dev/input/event#\x00', 0x4, 0x0)
+fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)

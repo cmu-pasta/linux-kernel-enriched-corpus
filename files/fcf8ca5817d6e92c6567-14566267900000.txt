@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6774efe58779e7a05ba1bb41a2dc29453d8a6b24
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":true,"segv":true}
+r0 = socket$inet_mptcp(0x2, 0x1, 0x106)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e24, @multicast2}, 0x10)
+connect$inet(r0, &(0x7f0000000480)={0x2, 0x4e24, @local}, 0x10)
+sendto$inet(r0, &(0x7f0000000100)="f6", 0xffffffe7, 0xc000, 0x0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='pids.events\x00', 0x275a, 0x0)
+writev(r1, &(0x7f0000000600)=[{&(0x7f00000000c0)='\x00', 0x1}], 0x1)
+mmap(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1, 0x10012, r1, 0x0)
+connect(r0, &(0x7f00000002c0)=@pppol2tpv3in6={0x18, 0x1, {0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0xa, 0x0, 0x0, @mcast1}}}, 0x80)

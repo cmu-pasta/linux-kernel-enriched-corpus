@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=afa337a1ede8e89814a04c6b82a4eb86953d80a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault":true,"fault_call":7,"close_fds":false,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+getpid()
+syz_genetlink_get_family_id$netlbl_unlabel(0x0)
+r0 = syz_open_dev$vcsa(0x0, 0x9, 0x545200)
+ioctl$SNDRV_CTL_IOCTL_HWDEP_INFO(r0, 0x80dc5521, 0x0)
+r1 = io_uring_setup(0x196, &(0x7f0000000040))
+io_uring_register$IORING_REGISTER_FILES(r1, 0x2, &(0x7f00000002c0)=[0xffffffffffffffff], 0x2e2)
+io_uring_register$IORING_UNREGISTER_FILES(r1, 0x3, 0x0, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f299d80a1bd931e1bd62c2fc01a5d99da07e64b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault":true,"fault_call":3,"fault_nth":33,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$kcm(0x29, 0x2, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000240))
+bpf$MAP_CREATE(0x0, &(0x7f0000346fd4)={0x0, 0x0, 0x0, 0x854}, 0x2c)
+bpf$PROG_LOAD(0x5, &(0x7f00000ba000)={0x1, 0x5, &(0x7f0000346fc8)=@framed={{0x18}, [@alu={0x8000000201a7f19, 0x0, 0x201a7fa6, 0x48, 0x1, 0x14}], {0x95}}, &(0x7f0000000000)='GPL\x00', 0x0, 0xfb, &(0x7f00001a7f05)=""/251}, 0x14)

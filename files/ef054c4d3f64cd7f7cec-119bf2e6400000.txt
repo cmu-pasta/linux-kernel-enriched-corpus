@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2318b559efec9fda6c77bd5c3d57c8fc3255d922
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true}
+mkdirat(0xffffffffffffff9c, &(0x7f00000001c0)='./file0\x00', 0x0)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000440)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000080)='fuse\x00', 0x0, &(0x7f0000000240)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x4004}, 0x2c, {'user_id'}, 0x2c, {'group_id'}})
+read$FUSE(r0, &(0x7f0000002000), 0x1301)
+read$FUSE(r0, &(0x7f0000001000), 0xffffff20)
+utimes(&(0x7f0000000000)='./file0\x00', &(0x7f0000000040)={{0x77359400}, {0x77359400}})
+write$FUSE_INIT(r0, &(0x7f0000000100)={0x50, 0x0, 0x1}, 0x50)
+write$FUSE_NOTIFY_DELETE(r0, &(0x7f0000000180)={0x29, 0x6, 0x0, {0x1}}, 0x1e)
+write$FUSE_INIT(r0, &(0x7f00000002c0)={0x50, 0x0, 0x2}, 0x50)

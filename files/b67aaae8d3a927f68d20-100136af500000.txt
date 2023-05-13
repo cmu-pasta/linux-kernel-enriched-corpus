@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=26567b12e74b8791e1db50da6039ee1705e5a7ed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$fb1(0xffffffffffffff9c, &(0x7f0000000040)='/dev/fb1\x00', 0x20081, 0x0)
+ioctl$FBIOPUT_CON2FBMAP(r0, 0x4610, &(0x7f0000000080)={0x34, 0x1})
+r1 = openat$fb1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/fb1\x00', 0x0, 0x0)
+ioctl$FBIOPUT_CON2FBMAP(r1, 0x4610, &(0x7f0000000040)={0x1, 0x1})

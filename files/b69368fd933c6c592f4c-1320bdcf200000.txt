@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=2109fb7c8fb7f76e8269485c0ca0f04e2e1ac3fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+syz_emit_ethernet(0x1, &(0x7f0000000000)=ANY=[@ANYBLOB="aaaaaaaaaaaa04000005000086dd60b409000004320035000000000000000000ffffe0000002ff020000000000000000000000000001830090780009040060b680fa0000000000000800000000000000ffffffffffff00000000000000000000ffffac14ffbb"], 0x0)

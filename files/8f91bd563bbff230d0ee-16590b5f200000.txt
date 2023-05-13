@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=68feeee5bd9da3f858ae67f3cbed4460fc4e2bef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000440)={&(0x7f0000001600)=ANY=[@ANYBLOB="28000000220001000000000000000000040000001400170002000000000000000000000000060001"], 0x1}}, 0x0)
