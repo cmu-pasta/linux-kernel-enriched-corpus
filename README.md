@@ -99,7 +99,7 @@ Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 
 ### 1.4.3. Total Crashes over time
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/c67bc7b8-6574-4208-8caa-e509eb5900b7)
-![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/09d07213-ff06-429e-8816-fa4970eee90d)
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/86ff9b82-68f4-4311-a453-92311cc5223b)
 
 
 ### 1.4.4. CVEs:
