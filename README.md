@@ -82,7 +82,7 @@ A detailed comparison of the three will be provided in the research document.
 
 ## 1.4. Results
 
-Experiments performed by fuzzing 1 instance using 2VCPUs and 4GB RAM for 24 hours.
+Experiments performed by fuzzing 1 instance using 2VCPUs and 4GB RAM for 24 hours. Corpus comparison experiments performed with 8 such VMs.
 
 System Used : [ThinkMate](https://www.thinkmate.com/system/rax-xf2-11s1-sh), Intel® Xeon® Gold 6226R.
 
@@ -91,12 +91,17 @@ Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 ### 1.4.1. Coverage over time 
 ![image](https://user-images.githubusercontent.com/6431196/230729436-cffbe63d-3138-4ee4-8f5d-40aacf614637.png)
 ![image](https://user-images.githubusercontent.com/6431196/230729362-cd2bcb4b-1f35-40c0-8d32-7bb42bd6c973.png)
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/ce9a8da6-870d-4004-afbe-3951a7d78b82)
 
 ### 1.4.2. Unique Crashes over time
 ![image](https://user-images.githubusercontent.com/6431196/230729328-376a6c41-dad5-4688-987e-0cdbefdd9dc6.png)
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/83ba1e65-475f-42e8-a7ee-a15329e227aa)
+
 
 ### 1.4.3. Total Crashes over time
 ![image](https://user-images.githubusercontent.com/6431196/230729342-45330ceb-1df3-44aa-aa23-1fdbd79bcea1.png)
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/09d07213-ff06-429e-8816-fa4970eee90d)
+
 
 ### 1.4.4. CVEs:
 * [CVE-2023-26544](https://www.cve.org/CVERecord?id=CVE-2023-26544)
