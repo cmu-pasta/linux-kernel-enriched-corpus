@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8e9ea22655c782ac9af556ba3d4d822530a59390
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"wifi":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x3f, &(0x7f0000000240)=ANY=[@ANYBLOB="11010000733336088dea1adb23610000000109022d0001100000000904000003fe03010009cd8d1f00020000000905050200de7e001009058b1e", @ANYRES8], 0x0)
+syz_usb_control_io(r0, 0x0, &(0x7f00000007c0)={0x84, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+setsockopt$packet_tx_ring(0xffffffffffffffff, 0x107, 0xd, &(0x7f0000000040)=@req={0xfffffffd, 0x0, 0x7fff}, 0x10)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+ioctl$FS_IOC_GETFLAGS(r1, 0xc0105b08, &(0x7f0000000040))
