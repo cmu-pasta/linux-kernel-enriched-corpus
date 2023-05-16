@@ -89,7 +89,7 @@ System Used : [ThinkMate](https://www.thinkmate.com/system/rax-xf2-11s1-sh), Int
 Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 
 ### 1.4.1. Coverage over time 
-![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/24c12d4f-51e8-41e7-ab19-55d334650a50)
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/edfcd41e-2295-42a1-ba0a-1aee7d989833)
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/ce9a8da6-870d-4004-afbe-3951a7d78b82)
 
 ### 1.4.2. Unique Crashes over time
