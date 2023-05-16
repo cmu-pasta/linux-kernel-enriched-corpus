@@ -1,10 +1,28 @@
-# Linux Kernel Enriched Corpus for Fuzzers
+Table of Contents
+- [1. Linux Kernel Enriched Corpus for Fuzzers](#1-linux-kernel-enriched-corpus-for-fuzzers)
+  - [1.1. Using Enriched corpus with Syzkaller](#11-using-enriched-corpus-with-syzkaller)
+  - [1.2. Using Enriched corpus with HEALER](#12-using-enriched-corpus-with-healer)
+  - [1.3. Citing](#13-citing)
+    - [1.3.1. Fetching Corpus Manually](#131-fetching-corpus-manually)
+    - [1.3.2. Generating corpus.db File](#132-generating-corpusdb-file)
+    - [1.3.3. Corpus Files Available](#133-corpus-files-available)
+  - [1.4. Results](#14-results)
+    - [1.4.1. Coverage over time](#141-coverage-over-time)
+    - [1.4.2. Unique Crashes over time](#142-unique-crashes-over-time)
+    - [1.4.3. Total Crashes over time](#143-total-crashes-over-time)
+    - [1.4.4. CVEs:](#144-cves)
+    - [1.4.5. New Bugs Reported:](#145-new-bugs-reported)
+    - [1.4.6. More bugs discovered (includes bugs that were found sooner than syzbot \& bugs undiscovered by syzbot)](#146-more-bugs-discovered-includes-bugs-that-were-found-sooner-than-syzbot--bugs-undiscovered-by-syzbot)
+
+
+# 1. Linux Kernel Enriched Corpus for Fuzzers
 
 Documentation for using and generating the Enriched corpus provided here.
 
 For more questions, feel free to email [Palash Oswal](https://oswalpalash.com) or [Rohan Padhye](https://rohan.padhye.org).
 
-## Using Enriched corpus with Syzkaller
+
+## 1.1. Using Enriched corpus with Syzkaller
 
 The latest copy of the Corpus file [corpus.db](./corpus.db) is available in the releases for this repository. The file is updated daily.
 
@@ -15,7 +33,7 @@ cd workdir
 wget https://github.com/cmu-pasta/linux-kernel-enriched-corpus/releases/download/latest/corpus.db
 ```
 
-## Using Enriched corpus with HEALER
+## 1.2. Using Enriched corpus with HEALER
 
 The corpus programs are stored in `files` directory and can directly be imported to [HEALER](https://github.com/SunHao-0/healer).
 
@@ -25,7 +43,7 @@ mkdir -p output/corpus
 cp -vr <path/to/files/> output/corpus/
 ```
 
-## Citing
+## 1.3. Citing
 
 Please use the following BibTeX to cite enriched corpus.
 ```
@@ -44,25 +62,25 @@ url={https://www.proquest.com/dissertations-theses/improving-linux-kernel-fuzzin
 } 
 ```
 
-### Fetching Corpus Manually
+### 1.3.1. Fetching Corpus Manually
 
 [collect.py](./collect.py) : currently fetches `syz` reproducers from all fixed Linux Kernel upstream crashes in [syzbot](https://syzkaller.appspot.com/upstream/fixed).
 
 This script can be modified to fetch corpus programs from other kernel versions and to fetch "C" Programs instead of `syz` reproducers.
 
-### Generating corpus.db File
+### 1.3.2. Generating corpus.db File
 
 If you have a collection of `syz` programs that need to be converted to a syzkaller comptaible `corpus.db` file, you can use `syz-db.go pack` from syzkaller.
 
 An implementation of this is available in the GitHub actions workflow [here](./.github/workflows/corpusgen.yml).
 
-### Corpus Files Available 
+### 1.3.3. Corpus Files Available 
 1. [corpus.db](./corpus.db) : Enriched Corpus (version 0 for `syz-db`)
 2. [ci-qemu-upstream-corpus.db](./ci-qemu-upstream-corpus.db) : Corpus Obtained from Syzbot (version latest per `syz-db`)
 3. [enriched-ci-qemu-upstream-corpus.db](./enriched-ci-qemu-upstream-corpus.db) : Enriched Version of the Corpus Obtained from Syzbot (version 0 for `syz-db`)
 A detailed comparison of the three will be provided in the research document.
 
-## Results
+## 1.4. Results
 
 Experiments performed by fuzzing 1 instance using 2VCPUs and 4GB RAM for 24 hours.
 
@@ -70,23 +88,23 @@ System Used : [ThinkMate](https://www.thinkmate.com/system/rax-xf2-11s1-sh), Int
 
 Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 
-### Coverage over time 
+### 1.4.1. Coverage over time 
 ![image](https://user-images.githubusercontent.com/6431196/230729436-cffbe63d-3138-4ee4-8f5d-40aacf614637.png)
 ![image](https://user-images.githubusercontent.com/6431196/230729362-cd2bcb4b-1f35-40c0-8d32-7bb42bd6c973.png)
 
-### Unique Crashes over time
+### 1.4.2. Unique Crashes over time
 ![image](https://user-images.githubusercontent.com/6431196/230729328-376a6c41-dad5-4688-987e-0cdbefdd9dc6.png)
 
-### Total Crashes over time
+### 1.4.3. Total Crashes over time
 ![image](https://user-images.githubusercontent.com/6431196/230729342-45330ceb-1df3-44aa-aa23-1fdbd79bcea1.png)
 
-### CVEs:
+### 1.4.4. CVEs:
 * [CVE-2023-26544](https://www.cve.org/CVERecord?id=CVE-2023-26544)
 * [CVE-2023-26605](https://www.cve.org/CVERecord?id=CVE-2023-26605)
 * [CVE-2023-26606](https://www.cve.org/CVERecord?id=CVE-2023-26606)
 * [CVE-2023-26607](https://www.cve.org/CVERecord?id=CVE-2023-26607)
 
-### New Bugs Reported:
+### 1.4.5. New Bugs Reported:
 * https://lkml.org/lkml/2023/2/20/128
 * https://lkml.org/lkml/2023/2/20/773
 * https://lkml.org/lkml/2023/2/20/785
@@ -99,7 +117,7 @@ Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 * https://lkml.org/lkml/2023/4/13/1350
 [and many more](https://twitter.com/oswalpalash/status/1627776397828853760)
 
-### More bugs discovered (includes bugs that were found sooner than syzbot & bugs undiscovered by syzbot)
+### 1.4.6. More bugs discovered (includes bugs that were found sooner than syzbot & bugs undiscovered by syzbot)
 
 | Title                                                     | Found in #Instance | Date of Discovery | Branch (if found by syzbot)| New/Earlier |
 |-----------------------------------------------------------|--------------------|-------------------|--------------------|------------------|
