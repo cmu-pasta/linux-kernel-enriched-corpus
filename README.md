@@ -25,6 +25,25 @@ mkdir -p output/corpus
 cp -vr <path/to/files/> output/corpus/
 ```
 
+## Citing
+
+Please use the following BibTeX to cite enriched corpus.
+```
+@phdthesis{
+author={Oswal,Palash B.},
+year={2023},
+title={Improving Linux Kernel Fuzzing},
+journal={ProQuest Dissertations and Theses},
+pages={43},
+note={Copyright - Database copyright ProQuest LLC; ProQuest does not claim copyright in the individual underlying works; Last updated - 2023-05-15},
+abstract={In the Linux Kernel project, one of the most rapidly evolving code bases, fuzz testing is a successful approach for vulnerability detection. However, with the high rate of change in the kernel code, testing each change thoroughly becomes a challenge. With this study, we explore various ways to improve the current Linux Kernel testing landscape. We identify and contribute novel ways of leveraging previously discovered crashes in the Linux Kernel. We call it enriched corpus. We also investigate aspects of program generation for system call fuzzers using iterative deepening. We work with the state of the art kernel fuzzers like syzkaller and HEALER . During this research, we identified many new kernel bugs, and contribute a new open source framework for enriching fuzzer corpus. We also identify challenges in working with corpus and discuss our ongoing experiments and lay out future areas for research. These findings provide insight into improving the Linux Kernel fuzz testing process for higher system reliability and security.},
+keywords={Enriched corpus; Fuzz testing; Healer; Linux kernel; Syzkaller; Computer science; Computer engineering; Information technology; 0489:Information Technology; 0984:Computer science; 0464:Computer Engineering},
+isbn={9798379515645},
+language={English},
+url={https://www.proquest.com/dissertations-theses/improving-linux-kernel-fuzzing/docview/2812311865/se-2},
+} 
+```
+
 ### Fetching Corpus Manually
 
 [collect.py](./collect.py) : currently fetches `syz` reproducers from all fixed Linux Kernel upstream crashes in [syzbot](https://syzkaller.appspot.com/upstream/fixed).
