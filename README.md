@@ -89,16 +89,22 @@ System Used : [ThinkMate](https://www.thinkmate.com/system/rax-xf2-11s1-sh), Int
 Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 
 ### 1.4.1. Coverage over time 
-![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/edfcd41e-2295-42a1-ba0a-1aee7d989833)
+1 VM (2vCPU and 4G RAM) for 24 hours.  
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/edfcd41e-2295-42a1-ba0a-1aee7d989833)  
+8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/ce9a8da6-870d-4004-afbe-3951a7d78b82)
 
 ### 1.4.2. Unique Crashes over time
-![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/7a4cdbd5-1d70-49a5-8633-21fc17156f45)
+1 VM (2vCPU and 4G RAM) for 24 hours.  
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/7a4cdbd5-1d70-49a5-8633-21fc17156f45)  
+8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/83ba1e65-475f-42e8-a7ee-a15329e227aa)
 
 
 ### 1.4.3. Total Crashes over time
-![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/c67bc7b8-6574-4208-8caa-e509eb5900b7)
+1 VM (2vCPU and 4G RAM) for 24 hours.  
+![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/c67bc7b8-6574-4208-8caa-e509eb5900b7)  
+8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/86ff9b82-68f4-4311-a453-92311cc5223b)
 
 
