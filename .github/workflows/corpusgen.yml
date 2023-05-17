@@ -32,7 +32,9 @@ jobs:
         wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
         echo "Downloaded Corpus From Syz-CI"
         go run syz-db.go unpack ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db temp/
+        echo "Unpacking Retrived Corpus"
         cp -v ../../../linux-kernel-enriched-corpus/files/* temp/
+        echo "Packing Enriched Syz-CI Google Corpus"
         go run syz-db.go pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
         cd ../../../
         rm -vr syzkaller
