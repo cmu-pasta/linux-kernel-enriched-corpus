@@ -3,16 +3,17 @@ Table of Contents
   - [1.1. Using Enriched corpus with Syzkaller](#11-using-enriched-corpus-with-syzkaller)
   - [1.2. Using Enriched corpus with HEALER](#12-using-enriched-corpus-with-healer)
   - [1.3. Citing](#13-citing)
-    - [1.3.1. Fetching Corpus Manually](#131-fetching-corpus-manually)
-    - [1.3.2. Generating corpus.db File](#132-generating-corpusdb-file)
-    - [1.3.3. Corpus Files Available](#133-corpus-files-available)
-  - [1.4. Results](#14-results)
-    - [1.4.1. Coverage over time](#141-coverage-over-time)
-    - [1.4.2. Unique Crashes over time](#142-unique-crashes-over-time)
-    - [1.4.3. Total Crashes over time](#143-total-crashes-over-time)
-    - [1.4.4. CVEs:](#144-cves)
-    - [1.4.5. New Bugs Reported:](#145-new-bugs-reported)
-    - [1.4.6. More bugs discovered (includes bugs that were found sooner than syzbot \& bugs undiscovered by syzbot)](#146-more-bugs-discovered-includes-bugs-that-were-found-sooner-than-syzbot--bugs-undiscovered-by-syzbot)
+  - [1.4. DIY](#14-diy)
+    - [1.4.1. Fetching Corpus Manually](#141-fetching-corpus-manually)
+    - [1.4.2. Generating corpus.db File](#142-generating-corpusdb-file)
+  - [1.5. Corpus Files Available](#15-corpus-files-available)
+  - [1.6. Results](#16-results)
+    - [1.6.1. Coverage over time](#161-coverage-over-time)
+    - [1.6.2. Unique Crashes over time](#162-unique-crashes-over-time)
+    - [1.6.3. Total Crashes over time](#163-total-crashes-over-time)
+    - [1.6.4. CVEs:](#164-cves)
+    - [1.6.5. New Bugs Reported:](#165-new-bugs-reported)
+    - [1.6.6. More bugs discovered (includes bugs that were found sooner than syzbot \& bugs undiscovered by syzbot)](#166-more-bugs-discovered-includes-bugs-that-were-found-sooner-than-syzbot--bugs-undiscovered-by-syzbot)
 
 
 # 1. Linux Kernel Enriched Corpus for Fuzzers
@@ -62,25 +63,27 @@ url={https://www.proquest.com/dissertations-theses/improving-linux-kernel-fuzzin
 } 
 ```
 
-### 1.3.1. Fetching Corpus Manually
+## 1.4. DIY
+
+### 1.4.1. Fetching Corpus Manually
 
 [collect.py](./collect.py) : currently fetches `syz` reproducers from all fixed Linux Kernel upstream crashes in [syzbot](https://syzkaller.appspot.com/upstream/fixed).
 
 This script can be modified to fetch corpus programs from other kernel versions and to fetch "C" Programs instead of `syz` reproducers.
 
-### 1.3.2. Generating corpus.db File
+### 1.4.2. Generating corpus.db File
 
 If you have a collection of `syz` programs that need to be converted to a syzkaller comptaible `corpus.db` file, you can use `syz-db.go pack` from syzkaller.
 
 An implementation of this is available in the GitHub actions workflow [here](./.github/workflows/corpusgen.yml).
 
-### 1.3.3. Corpus Files Available 
+## 1.5. Corpus Files Available 
 1. [corpus.db](./corpus.db) : Enriched Corpus (version 0 for `syz-db`)
-2. [ci-qemu-upstream-corpus.db](./ci-qemu-upstream-corpus.db) : Corpus Obtained from Syzbot (version latest per `syz-db`)
+2. [ci-qemu-upstream-corpus.db](./ci-qemu-upstream-corpus.db) : Corpus Obtained from Syz-CI (Google's syzbot) (version latest per `syz-db`)
 3. [enriched-ci-qemu-upstream-corpus.db](./enriched-ci-qemu-upstream-corpus.db) : Enriched Version of the Corpus Obtained from Syzbot (version 0 for `syz-db`)
-A detailed comparison of the three will be provided in the research document.
+A detailed comparison of the three is provided in the [research document](https://www.proquest.com/docview/2812311865). More documentation to follow.
 
-## 1.4. Results
+## 1.6. Results
 
 Experiments performed by fuzzing 1 instance using 2VCPUs and 4GB RAM for 24 hours. Corpus comparison experiments performed with 8 such VMs.
 
@@ -88,33 +91,33 @@ System Used : [ThinkMate](https://www.thinkmate.com/system/rax-xf2-11s1-sh), Int
 
 Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 
-### 1.4.1. Coverage over time 
+### 1.6.1. Coverage over time 
 1 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/edfcd41e-2295-42a1-ba0a-1aee7d989833)  
 8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/ce9a8da6-870d-4004-afbe-3951a7d78b82)
 
-### 1.4.2. Unique Crashes over time
+### 1.6.2. Unique Crashes over time
 1 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/7a4cdbd5-1d70-49a5-8633-21fc17156f45)  
 8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/83ba1e65-475f-42e8-a7ee-a15329e227aa)
 
 
-### 1.4.3. Total Crashes over time
+### 1.6.3. Total Crashes over time
 1 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/c67bc7b8-6574-4208-8caa-e509eb5900b7)  
 8 VM (2vCPU and 4G RAM) for 24 hours.  
 ![image](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/assets/6431196/86ff9b82-68f4-4311-a453-92311cc5223b)
 
 
-### 1.4.4. CVEs:
+### 1.6.4. CVEs:
 * [CVE-2023-26544](https://www.cve.org/CVERecord?id=CVE-2023-26544)
 * [CVE-2023-26605](https://www.cve.org/CVERecord?id=CVE-2023-26605)
 * [CVE-2023-26606](https://www.cve.org/CVERecord?id=CVE-2023-26606)
 * [CVE-2023-26607](https://www.cve.org/CVERecord?id=CVE-2023-26607)
 
-### 1.4.5. New Bugs Reported:
+### 1.6.5. New Bugs Reported:
 * https://lkml.org/lkml/2023/2/20/128
 * https://lkml.org/lkml/2023/2/20/773
 * https://lkml.org/lkml/2023/2/20/785
@@ -127,7 +130,7 @@ Kernel Versions Tested:  Linux v6.0.8 and v6.1.20
 * https://lkml.org/lkml/2023/4/13/1350
 [and many more](https://twitter.com/oswalpalash/status/1627776397828853760)
 
-### 1.4.6. More bugs discovered (includes bugs that were found sooner than syzbot & bugs undiscovered by syzbot)
+### 1.6.6. More bugs discovered (includes bugs that were found sooner than syzbot & bugs undiscovered by syzbot)
 
 | Title                                                     | Found in #Instance | Date of Discovery | Branch (if found by syzbot)| New/Earlier |
 |-----------------------------------------------------------|--------------------|-------------------|--------------------|------------------|
