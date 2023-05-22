@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8bb5b7e42e49c84d1a7218775fe92853d610bad5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+sendmsg$netlink(r0, &(0x7f0000001ac0)={0x0, 0x0, &(0x7f0000000640)=[{&(0x7f0000000240)={0x11c, 0x29, 0x1, 0x0, 0x0, "", [@nested={0x10b, 0x0, 0x0, 0x1, [@typed={0xc, 0x0, 0x0, 0x0, @u64}, @typed={0xc, 0x0, 0x0, 0x0, @str='!\\$].\x14^\x00'}, @generic="50bb2d6f67cf9d6fabadb107d0def49c88ea04abde1d5e8d3fb22a1b5046778bdafefc46b0449a2348c26c2126237dd5b37f5ae655b1086cda40e00aec58754734be31d750351dc076eb47d96219c08c029d1608a487f26fbe816b89f7cb81bff81a8b7a82565856555ee923c65973deb0a99b962bc0fe94a3ecfcae3697bd7b85b3a282167c43dbf137115a40ebddcad74875cf0d972df9e99f07976773f4d98fe3fa370d47eb640dc5061dc35817c8a66c29be82fdc3f4393c05a007d12b505a84dfdb98d568175b62c63dffc47efb8474421d726d1e5331e1ddfd4df70b57e000"/239]}]}, 0x11c}], 0x1}, 0x0)
