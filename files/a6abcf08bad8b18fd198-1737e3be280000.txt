@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a48f98b0e0e04ef593cbc75e242bdfe44f04c87c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000240)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000540), 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000080)=@gcm_128={{0x303, 0x39}, "837ad552eed22b08", "a4326bf47c648997a7347f1767b503c5", '\x00', "72d69f076b510300"}, 0x28)
+write$binfmt_elf64(r0, &(0x7f0000000580)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, [{}], "", ['\x00', '\x00']}, 0x278)
