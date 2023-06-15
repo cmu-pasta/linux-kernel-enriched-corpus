@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=782391b2ec6027a6246334225708309955ed6d88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+mmap$fb(&(0x7f0000002000/0x4000)=nil, 0x4000, 0x100000e, 0x12, r0, 0xa9000)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='cpuacct.stat\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000040)=ANY=[], 0xfea7)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=782391b2ec6027a6246334225708309955ed6d88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = openat$fb1(0xffffffffffffff9c, &(0x7f0000000600), 0x0, 0x0)
+mmap(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x1000006, 0x12, r0, 0x0)
