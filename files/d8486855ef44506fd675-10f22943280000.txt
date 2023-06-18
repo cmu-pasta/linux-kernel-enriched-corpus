@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4a70b4f4cc6f5ec71852023effc9995560fa3fea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe(&(0x7f0000000d00)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r2)
+write$binfmt_script(r1, &(0x7f0000000300)={'#! ', './file0', [{0x20, '#%-r@%'}, {}, {0x20, 'memory.events\x00'}, {0x20, 'memory.events\x00'}, {}, {0x20, '-\\\'.'}, {0x20, 'memory.events\x00'}, {0x20, 'syz0'}]}, 0x4b)
+r3 = socket(0x2, 0x3, 0x100000001)
+bind$inet(r3, &(0x7f0000000080)={0x2, 0x0, @local}, 0x10)
+connect$inet(r3, &(0x7f00000000c0)={0x2, 0x0, @multicast1}, 0x10)
+splice(r0, 0x0, r2, 0x0, 0x4ffdd, 0xd)
