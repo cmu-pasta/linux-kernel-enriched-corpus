@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5b4561f4d8ade7fa7b299887558adc21ce61b98c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+connect$bt_sco(r1, &(0x7f0000000040)={0x1f, @none}, 0x8)
+r2 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+write$rfkill(r2, &(0x7f0000000000)={0x0, 0x0, 0x3, 0x1}, 0x8)

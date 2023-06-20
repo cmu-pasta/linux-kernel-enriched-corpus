@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5b4561f4d8ade7fa7b299887558adc21ce61b98c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000000)={0x1f, @fixed}, 0x8)
+mkdir(&(0x7f0000000000)='./file0\x00', 0x150)
+mount$bpf(0x20000000, &(0x7f0000000100)='./file0\x00', 0x0, 0x120100c, 0x0)
+pivot_root(&(0x7f0000000240)='./file0\x00', &(0x7f0000000280)='./file0\x00')

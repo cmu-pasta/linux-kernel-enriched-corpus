@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5a1cc909fe8866fda32cc0b7ef6586f02e4505c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$sock_inet6_SIOCADDRT(r0, 0x890b, &(0x7f0000000080)={@local, @rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02', @loopback, 0x0, 0x0, 0x0, 0x0, 0x0, 0x102})
