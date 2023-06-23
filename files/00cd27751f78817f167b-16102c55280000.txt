@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=93e9cc1709f48a74386c683ef23e38410a92e6fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$ndb(&(0x7f00000002c0), 0x0, 0x80)
+ioctl$BLKRRPART(r0, 0x125f, 0x0)

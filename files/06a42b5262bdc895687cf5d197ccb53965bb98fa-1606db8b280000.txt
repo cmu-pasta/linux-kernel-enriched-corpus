@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=06a42b5262bdc895687cf5d197ccb53965bb98fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$kcm(0x2, 0x3, 0x84)
+ioctl$sock_kcm_SIOCKCMUNATTACH(r0, 0x89e1, 0x0)

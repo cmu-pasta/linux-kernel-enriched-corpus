@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a3a1acf69343d0392ce28e36e933ef51a092792a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0xa, 0x3, 0x3f)
+ioctl$SIOCAX25ADDUID(r0, 0x89e1, 0x0)
