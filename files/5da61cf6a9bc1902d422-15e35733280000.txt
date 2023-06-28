@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c36ce232f06c8c614ceea8c67c656fe4657e187a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+bind$netlink(r0, &(0x7f00000000c0)={0x10, 0x0, 0x0, 0x2000000}, 0xc)
+sendmsg$TCPDIAG_GETSOCK(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000000)=ANY=[@ANYBLOB="4c0000001400210100000000000000001004"], 0x4c}}, 0x0)
