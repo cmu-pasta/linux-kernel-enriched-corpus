@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=811f33cba20d93c36d7799fb7ea7cdeb89041adf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000180), 0x0, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r0, 0x3b81, &(0x7f00000000c0)={0xc, 0x0, <r1=>0x0})
+ioctl$IOMMU_TEST_OP_CREATE_ACCESS(r0, 0x3ba0, &(0x7f0000000000)={0x38, 0x5, r1, 0x0, <r2=>0xffffffffffffffff, 0x1})
+r3 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r3, 0x3b81, &(0x7f00000002c0)={0xc, 0x0, <r4=>0x0})
+ioctl$IOMMU_IOAS_MAP$PAGES(r0, 0x3b85, &(0x7f0000000140)={0x28, 0x2, r4, 0x0, &(0x7f0000bfd000/0x400000)=nil, 0x400000})
+ioctl$IOMMU_TEST_OP_ACCESS_PAGES$syz(r0, 0x3ba0, &(0x7f0000000240)={0x38, 0x7, r2, 0x0, 0x10001, 0x0, 0x0, 0x0, 0x2ca80c})
+r5 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_VFIO_IOMMU_GET_INFO(r0, 0x3b70, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r5, 0x3b81, &(0x7f0000000080)={0xc, 0x0, <r6=>0x0})
+ioctl$IOMMU_IOAS_UNMAP$ALL(r0, 0x3b86, &(0x7f00000001c0)={0x18, r6}) (async)
+ioctl$IOMMU_IOAS_UNMAP$ALL(r0, 0x3b86, &(0x7f00000001c0)={0x18, r6})
