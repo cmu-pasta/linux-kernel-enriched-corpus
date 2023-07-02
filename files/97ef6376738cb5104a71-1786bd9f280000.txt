@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f67dc02e17c08c6182702aa9df980d049359f31b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000080)={0x26, 'hash\x00', 0x0, 0x0, 'sha512\x00'}, 0x58)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$nl_netfilter(r1, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000300)=ANY=[], 0x20002154}}, 0x0)
