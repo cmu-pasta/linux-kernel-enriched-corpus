@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f67dc02e17c08c6182702aa9df980d049359f31b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000080)={0x26, 'hash\x00', 0x0, 0x0, 'sha224-arm64-neon\x00'}, 0x58)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$NL80211_CMD_START_P2P_DEVICE(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000300)={&(0x7f00000008c0)=ANY=[], 0xfffffd42}}, 0x0)

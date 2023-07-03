@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=4894a6d412735394296e80976329c1a6848acc14
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+open(&(0x7f0000000000)='./file0\x00', 0x141042, 0x0)
+mkdir(&(0x7f00000002c0)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000280)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+chdir(&(0x7f00000001c0)='./bus\x00')
+r0 = open(&(0x7f00000001c0)='./file0\x00', 0x0, 0x0)
+r1 = open(&(0x7f0000000000)='./file0\x00', 0x141042, 0x0)
+sendfile(r1, r0, 0x0, 0x7ffff000) (fail_nth: 4)
