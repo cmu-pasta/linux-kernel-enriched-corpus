@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d281b5f8c68f2fe0f1227568dedfcd910d82c68e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+r0 = socket$l2tp6(0xa, 0x2, 0x73)
+finit_module(r0, 0x0, 0x3)

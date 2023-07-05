@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=d281b5f8c68f2fe0f1227568dedfcd910d82c68e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"tmpdir":true,"segv":true}
+ioctl$sock_SIOCGIFBR(0xffffffffffffffff, 0x8940, &(0x7f0000000100)=@generic={0x3, 0x2, 0x8})
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+finit_module(r0, 0x0, 0x3)
+close(0xffffffffffffffff)
+write$P9_RRENAME(0xffffffffffffffff, 0x0, 0x0)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000080))
+dup3(0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+ioctl$sock_SIOCGIFBR(0xffffffffffffffff, 0x8940, 0x0)
+syz_open_dev$vcsn(0x0, 0x0, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f67dc02e17c08c6182702aa9df980d049359f31b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000040)={0x26, 'hash\x00', 0x0, 0x0, 'md5\x00'}, 0x58)
+r1 = accept(r0, 0x0, 0x0)
+sendto$x25(r1, &(0x7f0000000100)="df49f9d49c7f4c52fd992df3fbce33e816afeaaf4017327c", 0xfffffffffffffdcb, 0x0, 0x0, 0xcb)

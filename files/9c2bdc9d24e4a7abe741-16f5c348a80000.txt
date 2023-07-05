@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d281b5f8c68f2fe0f1227568dedfcd910d82c68e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+finit_module(r0, 0x0, 0x2)
+socket$netlink(0x10, 0x3, 0x0)
+syz_open_procfs$userns(0x0, 0x0)
+migrate_pages(0x0, 0x9, 0x0, 0x0)

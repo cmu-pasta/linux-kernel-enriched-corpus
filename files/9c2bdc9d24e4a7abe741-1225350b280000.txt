@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d281b5f8c68f2fe0f1227568dedfcd910d82c68e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"netdev":true,"cgroups":true,"close_fds":true,"usb":true,"swap":true,"tmpdir":true,"segv":true}
+openat$mixer(0xffffffffffffff9c, 0x0, 0x90143, 0x0)
+r0 = openat$mixer(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+r1 = openat$smackfs_relabel_self(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+finit_module(r0, 0x0, 0x1)
+dup3(r0, r1, 0x0)
+r2 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+setsockopt$inet6_IPV6_IPSEC_POLICY(r2, 0x29, 0x22, 0x0, 0x0)
+socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+setsockopt$inet6_IPV6_IPSEC_POLICY(r2, 0x29, 0x22, 0x0, 0x0)
+prctl$PR_SET_MM_MAP(0x23, 0xe, &(0x7f0000000180)={&(0x7f0000ffd000/0x3000)=nil, &(0x7f0000ffa000/0x4000)=nil, &(0x7f0000ffb000/0x2000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000ffa000/0x1000)=nil, &(0x7f0000ffe000/0x2000)=nil, &(0x7f0000ffa000/0x2000)=nil, &(0x7f0000ffb000/0x2000)=nil, &(0x7f0000ffa000/0x3000)=nil, &(0x7f0000ffb000/0x3000)=nil, &(0x7f00000000c0), 0x0, r2}, 0x68)
+ioctl$SNDCTL_DSP_SPEED(0xffffffffffffffff, 0xc0045002, 0x0)
