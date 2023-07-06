@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=01383b29d139cf9c9f9d9bd6e9947474ffe657a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xa000)=nil, 0xa000, 0x2, 0x2172, 0xffffffffffffffff, 0x0)
+munmap(&(0x7f0000001000/0x3000)=nil, 0x3000)
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+process_vm_writev(r0, &(0x7f0000000340)=[{&(0x7f0000000240)=""/205, 0xcd}], 0x1, &(0x7f0000000540)=[{&(0x7f0000000380)=""/222, 0x7ffff000}], 0x2d7, 0x0)

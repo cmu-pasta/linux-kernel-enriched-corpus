@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=01383b29d139cf9c9f9d9bd6e9947474ffe657a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xa000)=nil, 0xa000, 0xa, 0x2172, 0xffffffffffffffff, 0x0)
+munmap(&(0x7f0000001000/0x3000)=nil, 0x3000)
+r0 = gettid()
+process_vm_writev(r0, &(0x7f0000000200)=[{&(0x7f00008f9f09)=""/247, 0xf7}, {&(0x7f0000000180)=""/60, 0x3c}, {&(0x7f00000001c0)=""/12, 0xc}], 0x3, &(0x7f0000000140)=[{&(0x7f0000217f28)=""/231, 0xe7}, {&(0x7f0000000040)=""/219, 0xffffff19}], 0x2, 0x0)
