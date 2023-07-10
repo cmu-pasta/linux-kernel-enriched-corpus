@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2efdf7d22ac297f25a96c18287cf2b310f9c827a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"swap":true,"tmpdir":true}
+r0 = socket$igmp(0x2, 0x3, 0x2)
+setsockopt$IPT_SO_SET_REPLACE(r0, 0x0, 0x40, &(0x7f0000000500)=@raw={'raw\x00', 0x8, 0x8000000, 0x1fffffbf, 0x318, 0x11, 0x148, 0x0, 0x10, 0x3e8, 0x2a8, 0x2a8, 0x3e8, 0x2a8, 0xac, 0x0, {[{{@uncond, 0x10, 0x70, 0x90, 0x1c}, @unspec=@TRACE={0x20}}, {{@ip={@dev, @rand_addr, 0x0, 0x0, 'syzkaller0\x00', 'veth1_to_batadv\x00'}, 0x0, 0x70, 0xd0}, @common=@SET={0x60}}], {{'\x00', 0xc8, 0x70, 0x98}, {0x28}}}}, 0x258)

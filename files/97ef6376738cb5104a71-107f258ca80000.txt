@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f67dc02e17c08c6182702aa9df980d049359f31b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000200)=0x4)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(0xffffffffffffffff, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000240)={0x26, 'hash\x00', 0x0, 0x0, 'poly1305\x00'}, 0x58)
+r1 = accept$alg(r0, 0x0, 0x0)
+sendmsg$alg(r1, &(0x7f0000000040)={0x0, 0x4, &(0x7f0000000200)=[{&(0x7f0000000100)="f297c0eccf859705acf9834f5b4b6039b63eac610b", 0x15}, {&(0x7f0000001400)="c98812c1be8a", 0xffffffc8}, {&(0x7f00000012c0)="406f2bef596a8a3130012ee7bf", 0xd}, {&(0x7f0000001300)="7f5549f794326461", 0x8}], 0x4, &(0x7f00000000c0)=[@op={0x18}], 0x18}, 0x0)
+openat$cgroup_procs(0xffffffffffffffff, 0x0, 0x2, 0x0)

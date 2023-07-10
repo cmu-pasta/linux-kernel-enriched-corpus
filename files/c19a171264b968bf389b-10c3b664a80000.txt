@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2efdf7d22ac297f25a96c18287cf2b310f9c827a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"swap":true}
+bind$alg(0xffffffffffffffff, &(0x7f0000000000)={0x26, 'skcipher\x00', 0x0, 0x0, 'cbc(aes-aesni)\x00'}, 0x58)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600013, 0x15)
