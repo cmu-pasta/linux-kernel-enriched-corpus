@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8686f4eaf0cb055fef09377c1db8d484d0a1a4f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = userfaultfd(0x1)
+ioctl$UFFDIO_API(r2, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r2, 0xc020aa00, &(0x7f0000000100)={{&(0x7f00000e2000/0xc00000)=nil, 0xc00000}, 0x1})
+r3 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r3, &(0x7f0000b7a000/0x18000)=nil, &(0x7f0000000140)=[@text32={0x20, 0x0}], 0x1, 0xfffffdfd, 0x0, 0x0)
