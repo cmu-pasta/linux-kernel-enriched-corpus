@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=2291abe7b808272cc87dbe92910139597af23eaa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+ioctl$sock_ipv4_tunnel_SIOCCHGTUNNEL(0xffffffffffffffff, 0x89f3, &(0x7f0000000180)={'gre0\x00', &(0x7f0000000100)=ANY=[@ANYBLOB='s\x00'/16, @ANYRES32=0x0, @ANYBLOB="0000000000000000000000004d0000340000000000009078ac1e0001ac1e00014420000000000000000000000000000000200000ffffffffffffffff00000006"]})
+r0 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000000))
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='memory.events\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000100)=ANY=[], 0xfecc)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x1, 0x12, r1, 0x0)
+ioctl$UFFDIO_COPY(r0, 0xc028aa03, &(0x7f0000000040)={&(0x7f0000ffb000/0x4000)=nil, &(0x7f0000ffd000/0x3000)=nil, 0x4000})
