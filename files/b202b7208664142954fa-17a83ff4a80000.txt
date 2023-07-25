@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0c8e5c99b3db338c8956fcb7231eb1f7e2d707f9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"wifi":true,"ieee802154":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000100)={0x0, 0x24}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000080)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000100)=0x14)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000008c0)=ANY=[@ANYBLOB="480000001000050700"/20, @ANYRES32=r2, @ANYBLOB="0000000000000000280012000c00010076657468"], 0x48}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000740)=@newqdisc={0x38, 0x24, 0xf1d, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {0xfff1, 0xffff}}, [@qdisc_kind_options=@q_ingress={0xc}, @TCA_RATE={0x6}]}, 0x38}}, 0x0)
