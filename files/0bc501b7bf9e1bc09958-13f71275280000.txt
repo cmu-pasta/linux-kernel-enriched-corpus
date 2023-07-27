@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a5e995e7eeca5b4c96332a0db404d4810de5e62e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000100)={0x26, 'hash\x00', 0x0, 0x0, 'sha512\x00'}, 0x58)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmsg$netlink(r1, &(0x7f0000000500)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xc080}, 0xc810)
+sendmsg$nl_route(r1, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000240)=ANY=[@ANYBLOB, @ANYRES32=0x0], 0x7ffff000}}, 0x0)
