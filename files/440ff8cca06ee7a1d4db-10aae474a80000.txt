@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=803080b3af1b4362e78602fa90577b7185569d88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+getrandom(&(0x7f0000000080)=""/240, 0xfffffffffffffe77, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x8031, 0xffffffffffffffff, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+madvise(&(0x7f0000000000/0x400000)=nil, 0x400000, 0x19)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=f37d348ca257cf5543adc8bad074174a58527139
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000040), &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000))
+mount$tmpfs(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='huge=always,size=0'])
+chdir(&(0x7f0000000140)='./file0\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cpuacct.usage_percpu\x00', 0x275a, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cpuacct.usage_percpu\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x1, 0x12, r1, 0x0)
+ftruncate(r1, 0x8979)
+prctl$PR_SET_NAME(0xf, &(0x7f0000000180)='\'\x00')
+ftruncate(r0, 0x8979)
