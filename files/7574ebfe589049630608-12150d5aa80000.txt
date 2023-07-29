@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b818d74b68cb6b6a4e0eec6d8189a2b1ac9ce8c3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000100), 0x0, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r0, 0x3b81, &(0x7f0000000000)={0xc, 0x0, <r1=>0x0})
+ioctl$IOMMU_DESTROY$ioas(r0, 0x3b80, &(0x7f0000000040)={0x8, r1}) (async, rerun: 64)
+ioctl$IOMMU_TEST_OP_CREATE_ACCESS(r0, 0x3ba0, &(0x7f0000000080)={0x38, 0x5, r1})

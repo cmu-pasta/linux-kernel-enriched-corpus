@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c8dd3b254fe77feaac61c01bd1de7e1b9a876703
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x803, 0x0)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000380), r2)
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route_sched(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000900)=ANY=[@ANYBLOB="3000000024001d0f3a61aa51acb1d59e1a43ca38", @ANYRES32=r3, @ANYBLOB="00000000f1ffffff000000000b000100636c73616374"], 0x30}}, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000180)=@delchain={0x44, 0x64, 0xf31, 0x0, 0x0, {0x0, 0x0, 0x0, r3, {}, {0xfff2, 0xffff}}, [@filter_kind_options=@f_flower={{0xb}, {0x14, 0x2, [@TCA_FLOWER_KEY_ENC_OPTS={0x8, 0x6b, 0x0, 0x1, [@TCA_FLOWER_KEY_ENC_OPTS_VXLAN={0x4, 0x2, 0x0, 0x1, [@TCA_FLOWER_KEY_ENC_OPT_VXLAN_GBP={0x8, 0x8, 0x289}]}]}]}}]}, 0x44}}, 0x0)
