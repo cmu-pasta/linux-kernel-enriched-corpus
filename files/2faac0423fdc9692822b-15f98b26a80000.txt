@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3858fb1b3effd456cbbdbab1a91af7ddbc1ba1fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$fuse(0x0, &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount(&(0x7f00000000c0)=@nullb, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='udf\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=@nullb, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='romfs\x00', 0x5, 0x0)
