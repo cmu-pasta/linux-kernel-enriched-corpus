@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ea246366261b677aca36882d39ea7aee4ff6e41a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f0000000080)={{0x12, 0x1, 0x0, 0xb9, 0x1, 0x7c, 0x40, 0x47d, 0x5002, 0xb95b, 0x0, 0x0, 0x0, 0x1, [{{0x9, 0x2, 0x12, 0x1, 0x0, 0x0, 0x0, 0x0, [{{0x9, 0x4, 0x0, 0x0, 0x0, 0x18, 0xbb, 0x26}}]}}]}}, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ecm(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000180)={0x2c, &(0x7f0000000000)={0x0, 0x0, 0x8, {0x8, 0x1, "d510ec56a910"}}, 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_control_io$hid(r0, &(0x7f0000000200)={0x24, &(0x7f0000000cc0)=ANY=[@ANYBLOB="200f73000000732466a8ccc017cae2cdcd6dde4f8080fd2735a8fa3216a1a1c3ecfa3ce41457a316ffec6a6f00507045b0c32ea371fbacacbdbaa905e6908f749ce2000698e1f55e8c5145cc9a87b3975fe578306481743e4c1e5bdc0dbb8e535ceab3706dca39003d257df74c5ec61a3907bd241924fe84a1911eda22920f8feb5c78308592d7411eac7f8f776347ddb6f22d3f2f5f24211e0504349d0d151fc528b2ba3102bcf290dc38ece82addcf21fc3dfb49aa1f64c3b909abd6704203bb763672"], 0x0, 0x0, 0x0}, 0x0)
+syz_usb_control_io(r0, &(0x7f0000001880)={0x2c, &(0x7f0000001700)={0x0, 0x0, 0x1, {0xfffffffffffffd70}}, 0x0, 0x0, 0x0, 0x0}, 0x0)

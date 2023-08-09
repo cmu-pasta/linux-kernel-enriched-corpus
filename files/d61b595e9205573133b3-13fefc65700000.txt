@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=51eb6817dbfff41e4ebcdc4e03b11fd4251e952b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)
