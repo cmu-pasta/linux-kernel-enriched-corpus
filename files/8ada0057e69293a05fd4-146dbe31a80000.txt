@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d0d26e8e827ccae311b332a7e1109d608c8713d9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r0, 0x11b, 0x4, &(0x7f00000000c0)={&(0x7f0000000000)=""/5, 0x202000, 0x1000}, 0x20)
+setsockopt$XDP_RX_RING(r0, 0x11b, 0x2, &(0x7f0000000040)=0x20, 0x4)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000240)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'caif0\x00', <r2=>0x0})
+setsockopt$XDP_UMEM_COMPLETION_RING(r0, 0x11b, 0x6, &(0x7f0000000180)=0x20, 0x4)
+setsockopt$XDP_UMEM_FILL_RING(r0, 0x11b, 0x5, &(0x7f0000000140)=0x4000, 0x4)
+bind$xdp(r0, &(0x7f00000001c0)={0x2c, 0x0, r2}, 0x10)
+r3 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_TX_RING(r3, 0x11b, 0x3, &(0x7f0000000080)=0x1000000, 0x4)
+bind$xdp(r3, &(0x7f0000000100)={0x2c, 0x1, r2, 0x0, r0}, 0x10)
