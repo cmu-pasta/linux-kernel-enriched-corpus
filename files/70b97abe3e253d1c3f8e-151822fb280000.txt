@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=49b6f675bead6969f913a3f7dcef4d28fdd13296
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000140), &(0x7f0000000480)='./file0\x00', 0x28000cc, &(0x7f0000000000)=ANY=[], 0xfe, 0x318, &(0x7f00000004c0)="$eJzs3M9LG2kYwPEniYlJRJPDsssuLL7sXnYvg7p7XHYNiy7LBlZcs/QHFEad2JBpIjNBmyLVnnot/SN6EHvzJrT+A156ay+99OalUEo9SKdkMmM0jjVqYqx+PyDzZt7nmXnfmSjPhLxuX3t0p5i3tbxekXBcSUhEZEckLWHxhbxt2G3HZL8V+bnv3cuV/67f+CeTzY5NKjWemfplRCk1MPh+cSnhhW30ylb61vbbkTdbX299u/1x6nbBVgVblcoVpavp8uuKPm0aarZgFzWlJkxDtw1VKNmGVe8v1/vzZnl+vqr00mx/ct4ybFvppaoqGlVVKauKVVX6nF4oKU3TVH9ScJzc6uSknjll8kybB4MOsayMHhGRxKGe3GpXBgQAALqquf4P10r6E9f/3wfW/88Wl9Z+2Kz0/b8+4NX/G7Gg+v/XV/VjHaj/4yLSvvp/7u5vfwXM/nBFdLWcqf7HxTAYO7QrdOBVrf5Per+/rgc314bcBvU/AAAAAAAAAAAAAAAAAAAAAABfgh3HSTmOk/K3/k+viMRFxHGc5uUErBe5RFq4/+7rbo8TndFYuNczIGI+XMgt5OpbL2BTREwxZEhSsuu+HzwiTtRfeaRq0vLcXPbylxdyEbcnk5eCmz8sKUk35TuOM/53dmxY1R3Mj0rSzc+IRN1DpeSr4PyRwPyY/PTjvvNrkpIXM1IWU2bd93Uj//6wUn/+m23KT7hxAAAAAABcBpraE/j8rmlH9dfz956vgz4f8J6vhwKfz3vku57uzh0AAAAAgKvCrt4r6qZpWJ9pJOT4mPY2nh7VNeoNu4Xj+DP093hfYlppCrYi3kXwv8twyjFHWg2OB115/+TFP/ZN0I88zyvfaiPcyi1oNEK7jmNY9mBtNuqsZ/c/NjoqRiZOfuTYSe97SAK6vnn85EP7rvPv6/FjZtqxRrSDf3IAAAAAdEmj6Pf3jHZ3QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXEHn8e/Euj1HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4KL4FAAA//8X6PzU") (async)
+creat(0x0, 0x0)
+mkdir(0x0, 0x0) (async)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)

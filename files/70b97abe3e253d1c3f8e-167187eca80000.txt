@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=49b6f675bead6969f913a3f7dcef4d28fdd13296
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"cgroups":true,"close_fds":true,"swap":true,"tmpdir":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='blkio.bfq.io_service_bytes_recursive\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000080)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x280000b, 0x28011, r0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x15)
+munmap(&(0x7f000073c000/0x1000)=nil, 0x1000)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='smaps\x00')

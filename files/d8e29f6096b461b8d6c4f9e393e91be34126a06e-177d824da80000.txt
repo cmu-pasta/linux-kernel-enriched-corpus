@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d8e29f6096b461b8d6c4f9e393e91be34126a06e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x89b0, &(0x7f0000000080)={'vlan1\x00', &(0x7f0000000000)=@ethtool_coalesce})

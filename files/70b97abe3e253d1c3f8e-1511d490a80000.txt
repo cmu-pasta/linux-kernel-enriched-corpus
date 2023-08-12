@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=49b6f675bead6969f913a3f7dcef4d28fdd13296
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$efs(&(0x7f00000002c0), &(0x7f0000000300)='./file0\x00', 0x0, &(0x7f0000000340), 0x1, 0x291, &(0x7f0000000380)="$eJzs3b9uHEUcB/DvXu7I5Q+SiwABBTiJAhps4wTSuHAK3oA0dMG5WCYXQJgmUSSSmiavQJcCUSJK3gIKkHiBFOkQzaLzLnd7xnfKYewjp89H8s7M/pnfzBYrWb8ZOwAAAAAAAADAMukmOZ9kJcmF4YmyLMvt+0//TNJLci5JUVWHt6adpFM/u1mWv6cs/xjWX6zv7db3tcbdN0Nlq+pv/6dXlxnGu/3NhzvVGLrN53qN+4r6+d64/1zdP1/kwYm8LUjy6OO9K59eTx59UpWTeosZ1FSj8bQOXLhal8Wz9FJ/E5odnqvLC0ce4kxbo8MJG36ENqv3ttUtiq/L6vSbdXm6Lkffprr16kcLGCsAAAAAAABE/h/mJ/+/T/6/Iv8PAAAAAADA4p1pXR/l9IopefXkUpKLjadm5QofJ/kuyfdJfkjyW5Ifk/x6YCHAnMpxTFl+AAAAAAAAAKB27aecGrdao73N2/ef/twsk7x0xFDtw04+fNLci/3WOzPiX0zy8hHiH7o3++GTiXUcZ2fEf+UIsTNt/tcm5j/z/b9+HPEPzP/mjPiXjiP+t+VE/LenxV/76s4Xa3t37727e+fGTn+n/9nGxuUP1q+sr7+/sXZrd9Bfr45zD2py/u3XZsz/jbk7n3To/AEAAAAAAID/1MF9/gDA8mvlfLtYHddbq1XjVFa6nVu7g/5Gda39d/u9TF6/XLU7WWl3GquQXiged88M26vbnw9unvy8AAAAgNre3Xu3bwwG/S/3Fj0SAAAAAAAAAAAA4FmN1/8dX2XRcwQA/qEzZf//6aycbe737xa/dDv/7r+MAAD/Jyfx+7+KisrzVln0lwlgbg8WPQBguWw2/lA6LIu/AgAA///CuKTj") (async)
+r0 = socket(0x10, 0x803, 0x0)
+sendto(r0, 0x0, 0x0, 0x0, 0x0, 0x0) (async)
+epoll_ctl$EPOLL_CTL_ADD(0xffffffffffffffff, 0x1, 0xffffffffffffffff, 0x0)

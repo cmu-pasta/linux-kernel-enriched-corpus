@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=49b6f675bead6969f913a3f7dcef4d28fdd13296
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$MAP_LOOKUP_ELEM(0x2, &(0x7f0000000040)={0xffffffffffffffff, 0x0, 0x0}, 0x20)
+bpf$MAP_GET_NEXT_KEY(0x3, 0x0, 0x0)
+mlock(&(0x7f0000800000/0x800000)=nil, 0x800000)
+munmap(&(0x7f0000400000/0xc00000)=nil, 0xc00000)
+mlock(&(0x7f0000cf8000/0x3000)=nil, 0x3000)
+openat$hwrng(0xffffffffffffff9c, 0x0, 0x0, 0x0)
