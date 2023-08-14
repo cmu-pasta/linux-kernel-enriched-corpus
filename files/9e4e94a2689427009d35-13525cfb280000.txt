@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6fe3c93209dfd48301d1cad0ab1efd53c87462e1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+finit_module(r0, 0x0, 0x2)
