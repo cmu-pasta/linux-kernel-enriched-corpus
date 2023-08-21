@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=66f48a45762e3568449d268c42bf62e63419100b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000500)={&(0x7f0000000240)=ANY=[@ANYBLOB="400000001000390400"/20, @ANYRES32, @ANYBLOB="0bf30000000000002000128008000100677265001400028008000100", @ANYRES32, @ANYBLOB], 0x40}}, 0x0)
