@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c6e589459b0834bd58b999a6a4cdb17aabd9ce75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+r1 = dup(r0)
+r2 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r2, &(0x7f0000000280)={0x26, 'skcipher\x00', 0x0, 0x0, 'ecb(cipher_null)\x00'}, 0x58)
+r3 = accept4(r2, 0x0, 0x0, 0x0)
+recvfrom(r3, &(0x7f0000000080)=""/175, 0x20026080, 0x0, 0x0, 0x0)
+sendfile(r3, r1, 0x0, 0x81000)
