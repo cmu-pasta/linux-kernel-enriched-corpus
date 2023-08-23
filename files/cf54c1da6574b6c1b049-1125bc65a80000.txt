@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2d33d17d191d25b5c07c036b92de70038b4a871f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true,"vhci":true,"sysctl":true,"tmpdir":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000040)={0x1f, @fixed}, 0x8)
