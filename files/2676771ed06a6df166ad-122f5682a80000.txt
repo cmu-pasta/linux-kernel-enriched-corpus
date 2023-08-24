@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=88ac0d3c441de933fb130d5db4a9f4358beb584a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":false,"wifi":true,"ieee802154":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000000c0)={'wlan1\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)={0x24, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x2}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_CONNECT(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000240)={0x3c, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_SSID={0xa, 0x34, @default_ap_ssid}, @NL80211_ATTR_USE_RRM={0x4}, @NL80211_ATTR_AUTH_TYPE={0x8}, @chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8}]]}, 0x3c}}, 0x0)
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, &(0x7f0000000300)=@mgmt_frame=@probe_response={@wo_ht={{}, {}, @device_b, @device_a, @from_mac=@device_b, {0x0, 0x1}}, 0x0, @default, 0x1, @val={0x0, 0x6, @default_ap_ssid}, @val={0x1, 0x8, [{0x2, 0x1}, {0x4, 0x1}, {0xb, 0x1}, {0x16, 0x1}, {0xc}, {0x12}, {0x18}, {0x24}]}, @void, @void, @void, @void, @void, @void}, 0x36)

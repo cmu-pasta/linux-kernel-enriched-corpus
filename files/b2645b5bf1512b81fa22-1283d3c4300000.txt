@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=67a401e351628de6fc46dd9b9435c107e562e665
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true,"wifi":true}
+sendmsg$NL80211_CMD_CONNECT(0xffffffffffffffff, 0x0, 0x0)
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, 0x0, 0x0)

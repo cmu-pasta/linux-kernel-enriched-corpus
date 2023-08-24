@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=2aed88c146f92de6b8e26646b9ed8e008f0860b1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000200), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000700)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r1, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000240)={0x24, r2, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x2}]}, 0x24}}, 0x0)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000200), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f0000000700)={'wlan1\x00', <r5=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000300)={&(0x7f00000005c0)={0x24, r4, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0xb}]}, 0x24}}, 0x0)
+r6 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$netlink(r6, &(0x7f0000006440)={0x0, 0x0, &(0x7f00000063c0)=[{&(0x7f0000001000)=ANY=[@ANYBLOB="40000000100001000000000000000000080000000000000008000000", @ANYRES32=0x0, @ANYBLOB="14001b00000000000000000000000000000000010c0014"], 0x40}], 0x1}, 0x0)
