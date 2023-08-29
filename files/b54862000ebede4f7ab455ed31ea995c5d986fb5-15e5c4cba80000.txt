@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b54862000ebede4f7ab455ed31ea995c5d986fb5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x840000000002, 0x3, 0x100)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x0, @remote}, 0x10)
+sendmmsg$inet(r0, &(0x7f0000005240)=[{{0x0, 0x1f4, 0x0, 0x0, 0x0, 0x0, 0x10}, 0xfffffdef}], 0x4000095, 0x0)
+setsockopt$inet_int(r0, 0x0, 0x13, 0x0, 0x0)

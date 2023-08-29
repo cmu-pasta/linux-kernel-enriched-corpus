@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4ace1ee6717ccffd08eb759b6741baf1dea34673
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000080)={{0x6, @rose}, [@remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @default, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}, @default, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x2}]}, 0x48)
+connect$netrom(r0, 0x0, 0x0)
+listen(r0, 0x0)
+r1 = accept$netrom(r0, 0x0, 0x0)
+accept4$netrom(r0, 0x0, &(0x7f0000000400), 0x800)
+accept$netrom(r0, 0x0, 0x0)
+writev(r0, 0x0, 0x0)
+writev(r1, &(0x7f0000000040)=[{&(0x7f0000000100)="f5fafeba86945e62f07dda6fa6d455b56892304356eccff0d74663b44694d3ba44d5a9dcf86990ad59b092a56179b9760d8edd26957cf22f3975e868f5d36f64e8cb6d8f6153a8de829f22bafe4d3a1d50634022a8644b83d0ccbf8693087a4a74d48a", 0x63}, {0x0}, {0x0}, {0x0}], 0x4)
