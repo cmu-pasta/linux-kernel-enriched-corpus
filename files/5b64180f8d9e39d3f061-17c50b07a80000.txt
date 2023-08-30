@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=86b0595d376f873f86d99b5ef356456c00685534
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000140), 0x2, 0x0)
+syz_mount_image$fuse(&(0x7f0000000080), &(0x7f00000000c0)='./file0\x00', 0x0, &(0x7f0000002440)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x8000}}, 0x0, 0x0, 0x0)
+syz_mount_image$fuse(&(0x7f0000000280), &(0x7f0000000300)='./file1\x00', 0x0, &(0x7f00000028c0)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x1000}, 0x2c, {}, 0x2c, {}, 0x2c, {[{}, {@default_permissions}, {}, {@default_permissions}, {}]}}, 0x0, 0x0, 0x0)
