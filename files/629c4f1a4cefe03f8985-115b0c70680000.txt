@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=384b9a05e5d4c3e74e31427e43a08f40f71db54a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+creat(&(0x7f0000000000)='./file0\x00', 0x40)
+mount$afs(0x0, &(0x7f0000000400)='./file0\x00', &(0x7f0000000440), 0x2010800, &(0x7f0000000480)={[{@flock_local}, {@flock_openafs}, {@dyn}, {@dyn}, {@flock_openafs}, {@dyn}], [{@flag='nomand'}]})
