@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ef9605001826ed9db7e9ae5b0c08ec9b347a5148
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_io_uring_setup(0x46d9, &(0x7f0000001a80), 0x0, 0x0)
+syz_io_uring_setup(0x24f9, &(0x7f0000000080)={0x0, 0x0, 0x10100}, &(0x7f0000000100), &(0x7f0000000140))
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000240)='fdinfo/4\x00')
+lseek(r0, 0x4, 0x0)
