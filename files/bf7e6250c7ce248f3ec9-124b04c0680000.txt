@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ca4ff394c64aec3684d0034896290c72a83b7077
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x2, 0x300)
+r1 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'hsr0\x00', <r2=>0x0})
+sendto$packet(r0, 0x0, 0x0, 0x0, &(0x7f0000000040)={0x11, 0x8100, r2, 0x1, 0x0, 0x6, @multicast}, 0x14)
