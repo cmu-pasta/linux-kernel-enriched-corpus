@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e4b275515655e20e17e6fa68330b6656bf5588d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000100), 0x109901, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000200)={'syzkaller1\x00', 0xc201})
+r1 = socket$kcm(0x2, 0xa, 0x2)
+ioctl$SIOCSIFHWADDR(r1, 0x8914, &(0x7f0000000140)={'syzkaller1\x00', @link_local})
+write$tun(r0, &(0x7f0000000000)=ANY=[@ANYBLOB="000086dd0500000000005400000060ec9704e4973a00fc000000000000000000000000000006ff020000000000000000000000000001000200000000000000000000000021"], 0xfdef)
