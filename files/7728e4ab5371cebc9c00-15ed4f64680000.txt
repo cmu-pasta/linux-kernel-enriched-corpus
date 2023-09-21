@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=8aae4a4419fc238d9c6b55584611f2dbdd8eb99e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mbind(&(0x7f000043a000/0x2000)=nil, 0x2000, 0x2, &(0x7f0000000000)=0x100000001, 0x4, 0x0)
+set_mempolicy_home_node(&(0x7f0000439000/0x2000)=nil, 0x2000, 0x0, 0x0)
