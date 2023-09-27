@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d1c7caf741af3fc26af8740d0e5a49270fd1e5d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000040)={'wlan1\x00', &(0x7f0000000000)=@ethtool_ringparam={0x11, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x80}})
