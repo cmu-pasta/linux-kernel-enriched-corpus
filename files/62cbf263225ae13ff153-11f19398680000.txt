@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=a2a88a95e00bf01e29795e282ef62be622d45939
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000100)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r2 = socket$l2tp6(0xa, 0x2, 0x73)
+bind$l2tp6(r2, &(0x7f0000000000)={0xa, 0x0, 0x0, @loopback}, 0x20)
+connect$l2tp6(r2, &(0x7f0000000040)={0xa, 0x0, 0x0, @empty}, 0x20)
+sendfile(r2, r1, 0x0, 0x10000a006)

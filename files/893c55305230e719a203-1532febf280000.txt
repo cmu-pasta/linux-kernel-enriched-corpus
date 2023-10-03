@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5a3acae37e90c2937a595dc2bcb1ce4f74439b1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = syz_open_dev$tty20(0xc, 0x4, 0x1)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000080)=0x15)
+ioctl$TCSETSF2(r0, 0x404c4701, &(0x7f0000000040)={0x2, 0x0, 0x0, 0x0, 0x0, "ebeed70000000000000000960000000800", 0x0, 0x2})
+syz_genetlink_get_family_id$tipc(0x0, 0xffffffffffffffff)
+r1 = syz_open_dev$tty20(0xc, 0x4, 0x1)
+ioctl$TCSETSF2(r1, 0x404c4701, &(0x7f0000000040)={0x2, 0x0, 0x0, 0x0, 0x3, "ebeed70000000000000000960000000800", 0x0, 0x2})
+ioctl$TCSETSF2(r1, 0x404c4701, &(0x7f0000000040)={0x2, 0x0, 0x0, 0x0, 0x3, "ebeed70000000000000000960000000800", 0x0, 0x2})
