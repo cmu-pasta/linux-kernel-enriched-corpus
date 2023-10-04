@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+fspick(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x1)
+syz_init_net_socket$802154_dgram(0x24, 0x2, 0x0)
+openat$nci(0xffffffffffffff9c, &(0x7f0000000200), 0x2, 0x0)
+ioctl$DRM_IOCTL_GET_SAREA_CTX(0xffffffffffffffff, 0xc010641d, &(0x7f0000000800)={0x0, &(0x7f0000000780)=""/98})

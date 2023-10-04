@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+write$nci(r0, &(0x7f0000000000)=@NCI_OP_CORE_RESET_NTF={0x0, 0x0, 0x3, 0x0, 0x6, {0x9, 0x6, 0x1, 0x3, 0x9, 0xffffffff}}, 0xc)

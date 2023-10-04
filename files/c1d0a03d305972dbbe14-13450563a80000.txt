@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, 0x0)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NFC_CMD_DEV_UP(r1, &(0x7f0000000140)={0x0, 0x0, 0x0}, 0x0)
+write$nci(r0, &(0x7f0000000000)=@NCI_OP_CORE_RESET_NTF={0x0, 0x0, 0x3, 0x0, 0x6, {0x9, 0x6, 0x1, 0x3, 0x9, 0xffffffff}}, 0xc)

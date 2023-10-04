@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$nci(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+memfd_create(&(0x7f0000000080)='/dev/virtual_nci\x00', 0x0)
+r0 = openat$btrfs_control(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = geteuid()
+mount$binderfs(&(0x7f0000000400), 0x0, &(0x7f0000000480), 0x42000, &(0x7f00000004c0)={[{@max={'max', 0x3d, 0x1}}, {@stats}, {@stats}, {@stats}, {@stats}, {@max={'max', 0x3d, 0x8000000000000001}}, {@stats}, {@stats}, {@max={'max', 0x3d, 0x7fff}}], [{@obj_role={'obj_role', 0x3d, '%-\'({]'}}, {@audit}, {@euid_gt}, {@fowner_lt={'fowner<', r1}}, {@obj_user={'obj_user', 0x3d, '^'}}]})
+bpf$MAP_CREATE(0x0, &(0x7f00000005c0)=@base={0xa, 0x6ecd, 0x8001, 0x1d, 0x1826, r0, 0x47, '\x00', 0x0, r0, 0x1, 0x3, 0x3}, 0x48)
+ioctl$DRM_IOCTL_MODE_GETPLANE(r0, 0xc02064b6, &(0x7f0000000a80)={0x0, <r2=>0x0, 0x0, 0x0, 0x0, 0x4, &(0x7f0000000a40)=[0x0, 0x0, 0x0, 0x0]})
+ioctl$DRM_IOCTL_MODE_SETGAMMA(0xffffffffffffffff, 0xc02064a5, &(0x7f0000000bc0)={r2, 0x1, &(0x7f0000000b00)=[0x0], &(0x7f0000000b40)=[0x401, 0x2, 0xff, 0x7, 0x1, 0x2], &(0x7f0000000b80)=[0x8, 0x8001]})

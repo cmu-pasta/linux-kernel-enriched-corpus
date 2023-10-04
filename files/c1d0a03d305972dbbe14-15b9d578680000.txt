@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nfc(&(0x7f0000000100), r1)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, &(0x7f0000000000))
+sendmsg$NFC_CMD_DEV_UP(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={0x0}}, 0x0)
+write$nci(r0, &(0x7f0000000200)=@NCI_OP_CORE_INIT_RSP_V2={0x0, 0x0, 0x2, 0x1, 0x0, {0x0, 0x7, 0x2e, 0x0, 0x7f, 0x4, 0x0, 0x8, 0x91, "96b7bb446151bd0d69eee16f81dbeb22ba6f53ca4332dea0a05c6f4f2b2f60dc10126812a71016c87b86614ab61923e35dc41f9d3576442882a730fb4db77cec2fa236ea1721f7247e52ff5252c5203142de2cd59263a519dc4455aec353cb0745adeea129711a92197a491dd9731daf12f9a812f64e8434024d4dcb74cce9a7b706e7237d236bd9f25f9299b5059359a4"}}, 0xa2)

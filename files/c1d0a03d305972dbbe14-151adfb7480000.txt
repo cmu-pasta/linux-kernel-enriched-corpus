@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=54e325b7dba364be709b288d62692bfff062e7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true}
+r0 = openat$nci(0xffffff9c, &(0x7f0000000000), 0x2, 0x0)
+dup3(0xffffffffffffffff, r0, 0x80000)
+socket$igmp6(0xa, 0x3, 0x2)
