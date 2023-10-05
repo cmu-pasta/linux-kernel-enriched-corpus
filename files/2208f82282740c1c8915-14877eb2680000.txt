@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f146dcf1bef6e4824f0413233e1ed0d5163ca250
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000100)='./file1\x00', 0x0)
+mkdir(&(0x7f00000001c0)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+mknod$loop(&(0x7f0000000280)='./file0/file0\x00', 0x0, 0x1)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f00000002c0), 0x0, &(0x7f0000000080)=ANY=[@ANYBLOB='workdir=./file1,lowerdir=./file0,upperdir=./bus,index=on'])
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x0, 0x0)
+name_to_handle_at(r0, &(0x7f0000000240)='./bus/file0\x00', &(0x7f0000000300)=@FILEID_INO32_GEN_PARENT={0x10, 0x2, {{0x7f, 0x1}, 0x8, 0x2}}, 0x0, 0x1600)
