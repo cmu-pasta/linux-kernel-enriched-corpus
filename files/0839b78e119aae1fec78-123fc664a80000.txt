@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=19cf2724120ef8c51c8d2566df0cc34617188433
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"cgroups":true,"close_fds":true,"vhci":true,"wifi":true,"swap":true,"tmpdir":true}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, &(0x7f00000000c0)=<r1=>0x0)
+r2 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nfc(&(0x7f0000000100), r2)
+sendmsg$NFC_CMD_DEV_UP(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000001c0)={0x1c, r3, 0x1, 0x123, 0x234, {}, [@NFC_ATTR_DEVICE_INDEX={0x8, 0x1, r1}]}, 0x1c}}, 0x0)
+read$nci(r0, &(0x7f0000000200)=""/100, 0x64)
+write$nci(r0, &(0x7f0000000280)=@NCI_OP_CORE_RESET_RSP, 0x6)
+read$nci(r0, &(0x7f00000002c0)=""/100, 0x64)
+write$nci(r0, &(0x7f0000000340)=@NCI_OP_CORE_INIT_RSP, 0x14)
+write$nci(r0, &(0x7f0000000400)=@NCI_OP_RF_DISCOVER_MAP_RSP, 0x4)
+sendmsg$NFC_CMD_START_POLL(r2, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000004c0)={0x24, r3, 0x1, 0x123, 0x234, {}, [@NFC_ATTR_DEVICE_INDEX={0x8, 0x1, r1}, @NFC_ATTR_PROTOCOLS={0x8, 0x3, 0xffffffff}]}, 0x24}}, 0x0)
+write$nci(r0, &(0x7f0000000580)=@NCI_OP_CORE_SET_CONFIG_RSP, 0x5)
+write$nci(r0, &(0x7f0000000640)=@NCI_OP_CORE_SET_CONFIG_RSP, 0x5)
+write$nci(r0, &(0x7f0000000700)=@NCI_OP_RF_DISCOVER_RSP, 0x4)
+write$nci(r0, &(0x7f0000000740)=@NCI_OP_RF_DISCOVER_NTF={0x1, 0x0, 0x3, 0x3, 0x0, @b={0x0, 0x1, 0x1, 0x1}}, 0x9)
+sendmsg$NFC_CMD_ACTIVATE_TARGET(r2, &(0x7f0000000780)={0x0, 0x0, &(0x7f00000007c0)={&(0x7f0000000900)=ANY=[@ANYBLOB=',\x00\x00\x00', @ANYRES16=r3, @ANYBLOB="010023010000340200001c00000008000100", @ANYRES32=r1, @ANYBLOB="08000400000000000800030021000010008d5829a91f56d60917dea1a7bb6973b45fe083d5d5c36574950fb534d83f7428656990c993cedba8e3ef81dd842eef386c40fd9930d52490d2fa6f52a688c1c6692a8aa0e0dea16ec7c81bb9932e1132bae7c8df27b065403fb5bbf94309a42629c87656fa015d4bc714a66e5b28f95bc8dc5dbabe5b31d76598b5c8735f34"], 0x2c}}, 0x0)
