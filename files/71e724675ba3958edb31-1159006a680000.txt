@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=d270ab9cb965979df029e5e0d41d4d47783edef8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000380)={0x2, 0x4e22, @broadcast}, 0x10)
+setsockopt$sock_int(r0, 0x1, 0x800000000f, &(0x7f0000000080)=0x100000001004, 0x4)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$sock_int(r1, 0x1, 0xf, &(0x7f0000000000)=0x2, 0x4)
+bind$inet6(r1, &(0x7f0000000240)={0xa, 0x4e22, 0x0, @ipv4={'\x00', '\xff\xff', @broadcast}}, 0x1c)
+listen(r0, 0x0)
