@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=1dc7fb89638309effe3bce6ac9ad7dba877eadfa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$binderfs(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder0\x00', 0x0, 0x0)
+ioctl$BINDER_SET_CONTEXT_MGR_EXT(r0, 0x40046207, 0x0)
+r1 = openat$binderfs(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder0\x00', 0x0, 0x0)
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f0000000080)={0x8, 0x0, &(0x7f0000000400)=ANY=[@ANYBLOB="04630440"], 0x0, 0x0, 0x0})
+r2 = openat$binderfs(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder0\x00', 0x0, 0x0)
+r3 = openat$binderfs(0xffffffffffffff9c, &(0x7f00000000c0)='./binderfs/binder0\x00', 0x0, 0x0)
+r4 = dup2(r2, r3)
+ioctl$BINDER_SET_CONTEXT_MGR_EXT(r4, 0x4018620d, &(0x7f0000000000))
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f0000001480)={0x8, 0x0, &(0x7f0000000180)=ANY=[@ANYBLOB="05630440"], 0x0, 0x0, 0x0})
+mmap$binder(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x1, 0x11, r3, 0x0)
+ioctl$BINDER_WRITE_READ(r1, 0xc0306201, &(0x7f0000000040)={0x4c, 0x0, &(0x7f0000000500)=[@transaction_sg={0x40486311, {0x1, 0x0, 0x0, 0x0, 0x1807, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x700}], 0x0, 0x0, 0x0})
