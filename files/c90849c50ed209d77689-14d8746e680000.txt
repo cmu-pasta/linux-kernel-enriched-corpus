@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=db16409f7159ddd1392828676c10e60dbad9c4a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000000)={0x1f, 0xffff, 0x2}, 0x6)

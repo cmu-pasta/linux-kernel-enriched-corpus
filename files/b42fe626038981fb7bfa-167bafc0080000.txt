@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d94a809ad1d24d41b7c4caf892d204dbf1112bff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","netdev":true,"resetnet":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"tmpdir":true}
+mknodat(0xffffffffffffff9c, &(0x7f0000000180)='./file1\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000040)='./file1\x00', 0x80600, 0x21)
+creat(&(0x7f0000000100)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000580)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000340)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+chdir(&(0x7f0000000540)='./bus\x00')
+open(&(0x7f00000000c0)='./file0\x00', 0xb, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d94a809ad1d24d41b7c4caf892d204dbf1112bff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+mknodat(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0)
+mkdir(&(0x7f0000000100)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='upperdir=./bus,workdir=./file1,lowerdir=.'])
+chdir(&(0x7f0000000540)='./bus\x00')
+open$dir(&(0x7f0000000180)='./file0\x00', 0x7f, 0x0)

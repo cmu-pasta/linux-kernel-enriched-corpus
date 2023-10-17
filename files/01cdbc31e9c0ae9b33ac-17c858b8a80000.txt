@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=71599b6d7c51b125a7a699d9a79d0c802880b980
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket(0x200000100000011, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f00000005c0)={'gre0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000180)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @dev}, 0x14)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000000100)=0x800b, 0x4)
+sendmsg$netlink(r0, &(0x7f0000002ac0)={0x0, 0x892f, &(0x7f0000000140)=[{&(0x7f0000000000)=ANY=[@ANYBLOB="0301892f10061f0689000000000001000000002f0000ac141420ef06e63a808a8972bd0f72e410820c520f0604e4fdfe4b8894305af79f6b4c119510da9fe3c06376c33076a167d50261a67ad29b308cde521aa0c385c73fed0c3ac7ec19866e16bdbd"], 0x3000}], 0x1}, 0x0)

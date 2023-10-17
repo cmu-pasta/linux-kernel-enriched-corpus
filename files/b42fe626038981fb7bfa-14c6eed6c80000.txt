@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d94a809ad1d24d41b7c4caf892d204dbf1112bff
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000240)='./file0\x00', 0x0)
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0)
+mknodat(r0, &(0x7f00000003c0)='./file0\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000180)='./file1\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f00000002c0), 0x0, &(0x7f0000000080)=ANY=[@ANYBLOB='workdir=./file1,lowerdir=./file0,upperdir=./bus,index=on'])
+chdir(&(0x7f0000000140)='./bus\x00')
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x0, 0x0)
+openat(r1, &(0x7f0000000340)='./file0\x00', 0x3, 0x0)
