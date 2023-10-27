@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9ee9b64f5810a0c61b22ff81936711276c3cee08
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true,"tmpdir":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000080)=@newtaction={0x78, 0x30, 0x1, 0x0, 0x0, {}, [{0x64, 0x1, [@m_ct={0x60, 0x1, 0x0, 0x0, {{0x7}, {0x38, 0x2, 0x0, 0x1, [@TCA_CT_PARMS={0x18}, @TCA_CT_ZONE={0x6}, @TCA_CT_LABELS={0x14, 0x7, "07c8035a6aee32f27d73babc47828b3f"}]}, {0x4}, {0xc}, {0xc}}}]}]}, 0x78}}, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r1, 0x40305828, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x20040006})
