@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=66cb6f6ce620bc296062efb912e86c71bf30b54c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_TEST_OP_CREATE_ACCESS(r0, 0x3ba0, &(0x7f0000000140)={0x6a60, 0xd})
