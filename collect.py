@@ -15,7 +15,11 @@ def get_reproducers(bug):
         page = requests.get("https://syzkaller.appspot.com" + bug)
         soup = BeautifulSoup(page.content, 'html.parser')
         # parse last table in page that has class "list_table"
-        table = soup.find_all('table', class_="list_table")[-1]
+        try:
+                table = soup.find_all('table', class_="list_table")[-1]
+        except IndexError:
+                print("No reproducers for bug : ",bug)
+                return
         # find td that has text "syz", only one
         td = table.find_all('td', text="syz")
         for entry in td:
