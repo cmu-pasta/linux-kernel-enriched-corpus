@@ -2,6 +2,7 @@
 
 
 from bs4 import BeautifulSoup
+import os
 import requests
 import re
 import multiprocessing
@@ -12,6 +13,10 @@ Save reproducers to text files
 '''
 
 def get_reproducers(bug):
+        existing_files = [f for f in os.listdir("files/") if f.startswith(bug_id)]
+        if existing_files:
+                print(f"Files for bug {bug_id} already exist. Skipping...")
+                return
         page = requests.get("https://syzkaller.appspot.com" + bug)
         soup = BeautifulSoup(page.content, 'html.parser')
         # parse last table in page that has class "list_table"
