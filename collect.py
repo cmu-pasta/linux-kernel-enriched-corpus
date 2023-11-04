@@ -13,6 +13,8 @@ Save reproducers to text files
 '''
 
 def get_reproducers(bug):
+        # get the id from the bug
+        bug_id = bug.split("=")[1]
         existing_files = [f for f in os.listdir("files/") if f.startswith(bug_id)]
         if existing_files:
                 print(f"Files for bug {bug_id} already exist. Skipping...")
@@ -32,8 +34,6 @@ def get_reproducers(bug):
             link = entry.find('a').get('href')
             page = requests.get("https://syzkaller.appspot.com" + link)
             # bug = files/bug?id=17ee94193810ddc5d820094d4e509d47ad5bf6bc
-            # get the id from the bug
-            bug_id = bug.split("=")[1]
             # link = /text?tag=ReproSyz&x=1789e141d00000
             # get the x from the link
             x = re.search(r'x=(.*)', link).group(1)
