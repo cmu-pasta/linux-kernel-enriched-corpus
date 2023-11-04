@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c52a390cc51ea48ee5881574a1616e259735ab05
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000040), 0xffffffffffffffff)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$TIPC_NL_BEARER_ENABLE(r1, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000340)=ANY=[@ANYBLOB='(\x00\x00\x00', @ANYRES16=r0, @ANYBLOB="d158000000000000000003000000140001800d0001002389842b64c2dc401a42c3ac64946c455b46d0303407c08fb165e9"], 0x28}}, 0x0)
