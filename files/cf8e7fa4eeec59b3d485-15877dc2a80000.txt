@@ -1,6 +1,2 @@
-# https://syzkaller.appspot.com/bug?id=0be1740a2972a1852f35a3ed7dc70577610edcbd
-# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
-#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
-r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000100), 0x0)
-ioctl$SNDRV_SEQ_IOCTL_SET_PORT_INFO(r0, 0xc0a85320, &(0x7f00000003c0)={{0x80}, 'port0\x00', 0xe7, 0x161c60, 0x0, 0x0, 0x0, 0x0, 0x5, 0x0, 0x7, 0x80})
-ioctl$SNDRV_SEQ_IOCTL_SET_PORT_INFO(r0, 0xc0a85320, &(0x7f00000003c0)={{0x80}, 'port0\x00', 0xe7, 0x161c60, 0x0, 0x0, 0x0, 0x0, 0x5, 0x0, 0x7, 0x80})
+429 Too Many Requests
+Please contact us at syzkaller@googlegroups.com if you need access to our data.
