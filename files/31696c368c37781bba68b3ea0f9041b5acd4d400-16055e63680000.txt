@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=31696c368c37781bba68b3ea0f9041b5acd4d400
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e22, 0x0, @local, 0xb}, 0x1c)
+listen(r1, 0x0)
+syz_emit_ethernet(0x8a, &(0x7f00000002c0)=ANY=[@ANYBLOB="aaaaaaaaaaaaaafde504c63286dd6010843500540600fe8000000000000000000000000000bbfe8000000000000000000000000000aa00004e22c0b573b8de088e37e11765d2ecfb2877252a5822650711cfb4f1843633705787f58735a05f3cade1d465ddf339527af9dbfb889694c686a36b7dd86c8551ac1f6eb835dbb81c5916b53f9a1d4fd80a77359636593c1f674e13d7fd4fd680fc6c3d048b1f142286e93273de6e52faa97215e6bf7a75957268106ded16bde2af4475bb7c76b09490bd03b80754", @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB], 0x0)
