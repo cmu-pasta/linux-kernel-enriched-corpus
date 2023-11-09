@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b8f9b896b9d8ab425e9dc5fe9f8b59dd864cbf6d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r0, &(0x7f0000000040)={0x28, 0x0, 0x0, @local}, 0x10)
