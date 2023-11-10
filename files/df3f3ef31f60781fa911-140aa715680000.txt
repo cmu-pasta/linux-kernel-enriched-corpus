@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=a00a44550a20a20a8ea8209f9bb47476d51be1ba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$ptp0(0xffffffffffffff9c, &(0x7f0000000300), 0x0, 0x0)

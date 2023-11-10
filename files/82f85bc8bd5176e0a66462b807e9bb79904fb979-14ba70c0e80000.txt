@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=82f85bc8bd5176e0a66462b807e9bb79904fb979
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x10, 0x3, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'lo\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000240)=@newqdisc={0x38, 0x24, 0xd0f, 0x0, 0x0, {0x60, 0x0, 0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_fq={{0x7}, {0xc, 0x2, [@TCA_FQ_LOW_RATE_THRESHOLD={0x8, 0x11, 0x4800}]}}]}, 0x38}}, 0x0)
