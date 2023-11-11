@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3bbb3e55a700de55ee8766bf308d43e1d00c58df
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$ptp0(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+read$ptp(r0, &(0x7f0000000080)=""/90, 0x5a)
+ioctl$PTP_PIN_GETFUNC(r0, 0x3d13, 0x0)
