@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=db22dd6b3c00807eb062e69a8f53eae650baddbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$smackfs_logging(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+pwritev2(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)='2', 0x1}, {0x0}], 0x2, 0x0, 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f00000002c0), 0x0, &(0x7f00000001c0)=ANY=[@ANYBLOB='workdir=./file1,lowerdir=./file0,upperdir=./bus,index=on'])
+chdir(&(0x7f0000000140)='./bus\x00')
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='cgroup.controllers\x00', 0x275a, 0x0)
+close_range(0xffffffffffffffff, 0xffffffffffffffff, 0x2)

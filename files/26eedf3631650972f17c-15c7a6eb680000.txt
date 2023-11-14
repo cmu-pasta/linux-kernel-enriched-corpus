@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=713f5465e870438d9395337085bdaad50cf71b46
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+mkdir(&(0x7f0000000400)='./file0\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f00000000c0), 0x0, &(0x7f0000000480)=ANY=[@ANYBLOB='lowerdir=.:f'])
