@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4b44a54ec1549ca9274715d46562bd9da3a43e65
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000fc0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+recvmsg$unix(r1, &(0x7f0000001140)={0x0, 0x0, 0x0}, 0x0)
+sendmsg$inet(r0, &(0x7f0000001300)={0x0, 0x0, &(0x7f0000001000)=[{&(0x7f0000001080)='A', 0x1}], 0x1}, 0x1) (async, rerun: 64)
+recvmsg$unix(r1, &(0x7f0000000140)={0x0, 0x0, 0x0}, 0x40010083) (rerun: 64)

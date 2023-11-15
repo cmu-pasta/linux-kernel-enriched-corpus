@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=34f977f6e45547b7385a93f051f23a3bdba01f76
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+ioctl$sock_ifreq(r0, 0x8990, &(0x7f0000000000)={'bond0\x00', @ifru_names='ip6gre0\x00'})
