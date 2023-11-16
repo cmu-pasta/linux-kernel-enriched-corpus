@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5df3b7c9472993ecae3a79ba7ca912151b939488
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$tty20(0xc, 0x4, 0x0)
+ioctl$PIO_UNIMAP(r0, 0x541d, 0x0)
+r1 = syz_open_dev$tty20(0xc, 0x4, 0x0)
+ioctl$PIO_UNIMAP(r1, 0x5423, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{}]})
