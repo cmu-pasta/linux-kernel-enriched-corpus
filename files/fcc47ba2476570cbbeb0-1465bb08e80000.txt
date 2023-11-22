@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5b894d3634b64fc31e8a6d9870310cc4473871cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+creat(&(0x7f0000000080)='./file0\x00', 0x0)
+mount(&(0x7f0000000000)=@nullb, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000040)='cramfs\x00', 0x0, 0x0) (fail_nth: 41)
