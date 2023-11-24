@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=ab9818c316c74f24c7a649e2c00ff09ce360f2c8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000080)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000300)=0x2, 0x54)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f0000000540), 0x4)
+ioctl$int_in(r0, 0x5421, &(0x7f0000000000)=0x7) (async)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f00000001c0)=ANY=[], 0x208e24b)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000100)=@gcm_128={{0x303}, "474866172f5ff011", "bd1449000000000000004900", "a4774ec6", "32b188e5e713ed00"}, 0x28)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f00000000c0), 0x40, &(0x7f0000000580)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX, @ANYBLOB=',wfdno=', @ANYRESHEX=r0, @ANYBLOB=',aname=cgroup.controllers\x00,posixacl,version=9p2000,access=any,fsmagic=0x8000000000000000,obj_role=^T(:{,fowner=', @ANYRESDEC=0xee00, @ANYBLOB="2c66756e633d4649524d574152455f434845434b2c000959dd22d25bf28cf61c3c8db30a4b96502401341c6f1cabcd47237ec41b4652b86bc661bc6be8d862938acf14831a2c9ca3e8b84a09f2a21b4ad1c6bb5619432b78f39ab7ae0acab1828da1d8fdf720"]) (async)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', 0x0, 0x40, &(0x7f0000000580)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX, @ANYBLOB=',wfdno=', @ANYRESHEX=r0, @ANYBLOB=',aname=cgroup.controllers\x00,posixacl,version=9p2000,access=any,fsmagic=0x8000000000000000,obj_role=^T(:{,fowner=', @ANYRESDEC=0xee00, @ANYBLOB="2c66756e633d4649524d574152455f434845434b2c000959dd22d25bf28cf61c3c8db30a4b96502401341c6f1cabcd47237ec41b4652b86bc661bc6be8d862938acf14831a2c9ca3e8b84a09f2a21b4ad1c6bb5619432b78f39ab7ae0acab1828da1d8fdf720"])
+sendfile(r0, r1, 0x0, 0xf2090293) (async)
+sendfile(r0, r1, 0x0, 0xf2090293)

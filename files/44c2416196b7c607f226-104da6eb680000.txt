@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=16c2569fd30931db21366111d982e40a8a86ea13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f00000003c0)={'netdevsim0\x00', <r1=>0x0})
+r2 = bpf$PROG_LOAD_XDP(0x5, &(0x7f0000001800)={0x6, 0x3, &(0x7f0000000500)=ANY=[@ANYBLOB="1800000000000000000000000000000095"], &(0x7f0000000300)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x40, '\x00', r1}, 0x90)
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f0000000080)={r2, r1, 0x25, 0x8}, 0x10)
