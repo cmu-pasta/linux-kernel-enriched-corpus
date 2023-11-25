@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=15a4f5b5516891c5c0eb4588d16e6179c782568e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x0, 0x0)
+mkdirat(r0, &(0x7f00000001c0)='./file0\x00', 0x0)
+r1 = openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0)
+symlinkat(&(0x7f0000000180)='./bus\x00', r1, &(0x7f0000000240)='./bus\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f00000002c0), 0x0, &(0x7f0000001240)=ANY=[@ANYBLOB='workdir=./file1,lowerdir=./file0,upperdir=./bus,index=on'])
+linkat(r1, &(0x7f0000000280)='./bus\x00', r1, &(0x7f0000000300)='./file1\x00', 0x0)
+chdir(&(0x7f0000000140)='./bus\x00')
+unlink(&(0x7f0000000200)='./file1\x00') (fail_nth: 20)

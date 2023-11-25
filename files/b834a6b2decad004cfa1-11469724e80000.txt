@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=287a39bd6e9d42a458b0d8685fb7e219b141eddb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e22, 0x0, @empty}, 0x1c)
+listen(r1, 0x0)
+r2 = socket$inet_mptcp(0x2, 0x1, 0x106)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x4e22, @local}, 0x10)
+sendmmsg$inet(r2, &(0x7f0000000900)=[{{0x0, 0x0, &(0x7f00000007c0)=[{&(0x7f0000000080)="ab6f721c70aaff3e2f60ff9914672e5098d1528bdfe47fb86de6708de9d583fe7805932b0100872858db842750674965e3def3381d018592dae174c300c073d75f865ecde0ea7a31e519a3d71fa70ae63bf958debafe71fe9acbd4b69a0e51327831f5e21c09760fb029834b5a806fbc2a6f016272e56f9bac3f04314bb4ac4d8314d6d6535ea3ddf1f21b3476321754a9c81207b23a9ae98efed7cca6a493cee9ffe7b3cd84e0d44afac2bc401be5bbd274c3affa1ec85009ecc82fa7c94f87969369b8396b", 0xc6}, {0x0}], 0x2}}], 0x1, 0x0)
