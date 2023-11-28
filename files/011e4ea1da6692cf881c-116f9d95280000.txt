@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=a1d68f25c702940d846a5a7f22fc756980fdaffd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe2$9p(&(0x7f00000001c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = dup(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x880)
+r3 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000100)='fd/4\x00')
+splice(r3, 0x0, r2, 0x0, 0x100, 0x0)
+write$FUSE_BMAP(r1, &(0x7f0000000100)={0x18}, 0xfffffeed)
