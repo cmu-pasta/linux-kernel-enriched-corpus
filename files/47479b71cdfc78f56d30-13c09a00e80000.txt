@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1d6242153d966a4181cb081e291f83d7bd960182
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true}
+r0 = creat(&(0x7f0000000040)='./bus\x00', 0x0)
+fcntl$setstatus(r0, 0x4, 0x6000)
+io_setup(0x202, &(0x7f0000000200)=<r1=>0x0)
+ftruncate(r0, 0x81fd) (async)
+io_submit(r1, 0x3b, &(0x7f0000000540)=[&(0x7f00000000c0)={0x25, 0x0, 0x0, 0x1, 0x0, r0, &(0x7f0000000000), 0x4000}]) (rerun: 32)
+creat(0x0, 0x0)
+syncfs(0xffffffffffffffff)
