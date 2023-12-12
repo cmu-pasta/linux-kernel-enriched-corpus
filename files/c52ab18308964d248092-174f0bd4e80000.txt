@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=44cb8fd2b2b3fce62c3f9b92a821cc16c3ad16fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = openat$hwrng(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+preadv(r0, &(0x7f0000001880)=[{&(0x7f0000001a80)=""/102400, 0x19000}], 0x1, 0x0, 0x0)
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000001000), 0x0, 0x0)
+r2 = dup(r1)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000002, 0x12, r2, 0x0)
+ioctl$BLKFRASET(r1, 0x1264, &(0x7f0000000480)=0xa01b)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=db76757748a025ae291aa11531555d5f865f13d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mknodat$null(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x103)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f00000000c0)='efivarfs\x00', 0x0, 0x0)
