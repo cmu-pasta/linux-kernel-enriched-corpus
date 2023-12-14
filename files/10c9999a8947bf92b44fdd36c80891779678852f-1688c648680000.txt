@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=10c9999a8947bf92b44fdd36c80891779678852f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"segv":true}
+r0 = socket$l2tp6(0xa, 0x2, 0x73)
+r1 = socket$l2tp6(0xa, 0x2, 0x73)
+ioctl$ifreq_SIOCGIFINDEX_team(r1, 0x8933, &(0x7f0000000340)={'team0\x00', <r2=>0x0})
+ioctl$sock_inet6_SIOCADDRT(r0, 0x890b, &(0x7f0000000000)={@rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02', @mcast1, @ipv4={'\x00', '\xff\xff', @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x0, 0x8, 0x5, 0x400, 0x8c, 0x0, r2})
+r3 = socket$l2tp6(0xa, 0x2, 0x73)
+ioctl$sock_inet6_SIOCADDRT(r3, 0x890b, &(0x7f0000000000)={@rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02', @mcast1, @ipv4={'\x00', '\xff\xff', @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x0, 0x8, 0x1, 0x400, 0x6, 0x42002a0}) (fail_nth: 6)
