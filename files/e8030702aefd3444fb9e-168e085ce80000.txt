@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d235582be5214054da8aea1b32a063a2e8a5d97d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x1, 0x1, 0x0)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000200)=@base={0xf, 0x4, 0x4, 0x12}, 0x48)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000140)={r1, &(0x7f0000000000), &(0x7f0000000100)=@tcp6=r0}, 0x20)
