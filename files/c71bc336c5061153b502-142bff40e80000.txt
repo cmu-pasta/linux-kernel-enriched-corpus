@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=df3679c3f08491eaf5160c5706dfd8a5dd8cb24e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"ieee802154":true,"segv":true}
+r0 = socket(0x10, 0x3, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'lo\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000002c0)=ANY=[@ANYBLOB="7800000024000b0f000000000000000060000000", @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000000a0001006e6574656d00040048000200000000008600020000000000000100000000ffffffff"], 0x78}}, 0x0)
+r3 = socket$inet_dccp(0x2, 0x6, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x4e20, @dev}, 0x10) (rerun: 32)
+sendmmsg(r3, &(0x7f0000002980), 0x400000000000239, 0x0)
