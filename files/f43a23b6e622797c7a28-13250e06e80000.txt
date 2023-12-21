@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=fe0ace9ad737bf592a5f023450535bf74d10e00d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true}
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000040)=[{0x20, 0x0, 0x0, 0xfffff010}, {0x20, 0x0, 0x0, 0xfffff034}, {0x6}]}, 0x10)
+writev(r0, &(0x7f0000000140)=[{&(0x7f0000000180)="03009576", 0x4}, {&(0x7f0000000380)="996cd5cb6ee06b1833960f4342a7d7d5ebd27d574516b8369c06c6bcf0ff25b33b9562cda69fd460a4c86c0393dc13bd9540e9ea14348f1d14bcaabe061e705a8fbfa478cc97322b1f31d540c0f49ebcd3b50c97d4059381b6e5e0cc304bf023bd94d8fc3990dfd60a728cbf5cf5757fd64125afb20d8561c0669d9fe8f2d56e86660b49e7f190c90820bcd8a1e03f833efaeb3056b8cfd5071e792957aa04e993f6be2a5a8537d3c62f437ada892d2f4fa42e13ce50614a608f1d43ef85ec52eb4b2326beed1a2ec013f6a4b37d5eebad693f22673b35f438081cdf744c2971f010659ea8924bd982ccf49f5876da", 0xef}, {0x0}, {0x0}], 0x4)
