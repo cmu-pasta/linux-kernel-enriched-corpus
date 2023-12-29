@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f3b6b931ce5ba0afef8e3dd0c3b905f3d4b0da7d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = add_key$keyring(&(0x7f0000000000), &(0x7f0000000840)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffb)
+add_key(&(0x7f00000003c0)='dns_resolver\x00', 0x0, &(0x7f0000000080)="00000102", 0x4, r0)
