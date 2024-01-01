@@ -75,6 +75,7 @@ If you have a collection of `syz` programs that need to be converted to a syzkal
 An implementation of this is available in the GitHub actions workflow [here](./.github/workflows/corpusgen.yml).
 
 ## 1.5. Corpus Files Available 
+[![Up to date Reproducers](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/actions/workflows/fetch.yml/badge.svg)](https://github.com/cmu-pasta/linux-kernel-enriched-corpus/actions/workflows/fetch.yml)
 1. [corpus.db](./corpus.db) : Enriched Corpus (version 0 for `syz-db`)
 2. [ci-qemu-upstream-corpus.db](./ci-qemu-upstream-corpus.db) : Corpus Obtained from Syz-CI (Google's syzbot) (version latest per `syz-db`)
 3. [enriched-ci-qemu-upstream-corpus.db](./enriched-ci-qemu-upstream-corpus.db) : Enriched Version of the Corpus Obtained from Syzbot (version 0 for `syz-db`)
