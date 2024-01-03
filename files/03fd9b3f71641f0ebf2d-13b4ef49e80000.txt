@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f0ed49c8e4f8f5aa5141214fd68255671aab9de3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$usbfs(&(0x7f0000000000), 0x203, 0x0)
+r1 = dup(r0)
+r2 = mmap$IORING_OFF_CQ_RING(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x2000003, 0x12, r1, 0x8000000)
+syz_io_uring_setup(0x251d, &(0x7f0000000380)={0x0, 0xe913, 0x0, 0x0, 0x2}, &(0x7f0000000100), &(0x7f0000000080)=<r3=>0x0)
+syz_io_uring_submit(r2, r3, &(0x7f0000000040)=@IORING_OP_FADVISE={0x18, 0x0, 0x0, @fd_index})
+io_uring_setup(0x7cba, &(0x7f0000000740)={0x0, 0xdc7b, 0x8, 0x3, 0x3b7})
+syz_io_uring_setup(0x5a19, &(0x7f0000000640)={0x0, 0x36fe, 0x0, 0x1, 0xb2, 0x0, r1}, 0x0, &(0x7f0000000700)) (rerun: 64)

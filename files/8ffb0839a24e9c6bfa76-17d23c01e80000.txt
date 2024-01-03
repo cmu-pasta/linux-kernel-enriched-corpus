@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f193558290c97e1f2b95f6b4f425151428ef8653
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000140)={0x26, 'skcipher\x00', 0x0, 0x0, 'ecb(arc4)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000c18000)="ad", 0x1)
+r1 = accept4(r0, 0x0, 0x0, 0x80800)
+sendmmsg$alg(r1, &(0x7f0000000c00)=[{0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000040)='yb', 0x2}], 0x1}], 0x1, 0x0)
+recvmsg(r1, &(0x7f00000005c0)={0x0, 0x0, &(0x7f00000001c0)=[{&(0x7f00000000c0)=""/81, 0x51}], 0x1}, 0x0)
