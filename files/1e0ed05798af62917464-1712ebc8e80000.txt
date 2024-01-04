@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2a09c6c0da20f31d4df7b07d2e439143e51cbca9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000400)='./file0\x00', 0x0) (async)
+mkdir(0x0, 0x0)
+bpf$OBJ_GET_PROG(0x7, &(0x7f0000000200)=@generic={0x0, 0x0, 0x8}, 0x18)
+unshare(0x6c020600) (fail_nth: 67)

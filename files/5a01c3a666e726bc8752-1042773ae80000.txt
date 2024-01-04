@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a20e027793708d13530a4b9f63284683a326cd18
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e22, 0x0, @empty}, 0x1c)
+listen(r1, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x4)
+writev(r2, &(0x7f0000000080)=[{&(0x7f0000000180)="580000001500add427323b470c45b45602067fffffff81004e22000d00ff0028925aa8002000eaa57b00090080000efffeffe809000000ff0000f03a0200f0ffffffffffffffffffffffffe7ee0000000000000000020000", 0x78}], 0x1)
