@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=104330681e649191287203cf8ccf7489d0f082da
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x3, 0x8000000003c)
+connect$inet6(r0, &(0x7f00000000c0)={0xa, 0x0, 0x0, @dev, 0x9}, 0x1c)
+sendmsg(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000400)=[{&(0x7f0000000040)=',', 0x1}], 0x1}, 0xc900)
+sendmmsg$inet6(0xffffffffffffffff, &(0x7f0000001ac0)=[{{0x0, 0x0, &(0x7f0000000200)=[{&(0x7f0000000440)="1d", 0x1}, {&(0x7f0000000500)="5ea4c5a8f42c5781f806d61cd033c58e98d68f641481cf1801a494e85f4d0fcaa63fdc2e161ea00948495a0fa35c26beda", 0x31}], 0x2}}], 0x1, 0x0)
+writev(r0, &(0x7f0000000980)=[{&(0x7f00000002c0)='\'', 0x300}], 0x1)

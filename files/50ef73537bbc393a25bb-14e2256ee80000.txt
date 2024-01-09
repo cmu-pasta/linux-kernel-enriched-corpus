@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=952064d00e4000d0d4c6c3c2565bd0aa3e131a36
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$packet(0x11, 0x2, 0x300)
+setsockopt$packet_rx_ring(r0, 0x107, 0x5, &(0x7f00000000c0)=@req3={0x8000, 0x200, 0x80, 0x20000, 0x0, 0x0, 0x400}, 0x1c)
+mmap(&(0x7f0000568000/0x2000)=nil, 0x1000000, 0x0, 0x11, r0, 0x0)
