@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=95cf773c5edc5886c515044c19da9a39a067b384
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+ioctl$sock_SIOCGIFVLAN_ADD_VLAN_CMD(r0, 0x8982, &(0x7f0000000380)={0x0, 'dummy0\x00', {0x2}, 0xfff})
