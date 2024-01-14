@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=15d49724382a3f99f97c2b91be4b8dfd8e38cb03
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket(0x200000100000011, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'geneve0\x00', <r1=>0x0})
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r1, 0x1, 0x0, 0x6, @random="f090594872e0"}, 0x14)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000000100)=0x800b, 0x4)
+sendmsg$netlink(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f00000000c0)=[{&(0x7f0000001a80)={0x10f, 0x2d, 0x0, 0x0, 0x0, "", [@nested={0x10, 0x0, 0x0, 0x1, [@typed={0xa, 0x0, 0x0, 0x0, @str=':[\x89O\'\x03'}]}, @generic="652fd4b4c8a6f2279f70cb6de2d77efebdf1a1fa492a745606e85c2bfaadddd995f954e5aacac1a0f21b54c1dd5d25dbfcf4046ba38378bf228dca6834e449b67639308dddf32ea0afe125546322585cb14c3fc65b7d9b7c49bc1f7a820c9e6dce08658d7ed10d58f123068b22344fe53402ecc885162c2e58", @generic="11411086c5eacd83a2a518285006f4115a3f4797f7690cde0e3b63d4309b4a509a2c69eef0108f08ce391061064483203ef774ffea98d9f1292dbff646354750ab4f448578cb3201596d9519dcf76795bc3a08fa32be4583badcf72068e3fa535b732382"]}, 0x4000}], 0x1}, 0x0)
