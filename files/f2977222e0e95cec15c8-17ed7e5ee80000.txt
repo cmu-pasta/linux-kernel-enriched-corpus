@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=a1f67637560a1229ac73473bd3adfbbbaf59eadb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe(&(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+write$binfmt_misc(r1, &(0x7f0000000100)=ANY=[], 0xfffffecc)
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r2, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r2, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r2, 0x6, 0x1f, &(0x7f0000000540), 0x4)
+setsockopt$inet6_tcp_TLS_TX(r2, 0x11a, 0x1, &(0x7f0000000140)=@ccm_128={{0x304}, "d86fa6717533ea34", "b4d4ef5ef514e07d4c4884409cabe84c", "cf4c1637", "0cba799052b9544e"}, 0x28)
+splice(r0, 0x0, r2, 0x0, 0x3, 0xe) (rerun: 32)

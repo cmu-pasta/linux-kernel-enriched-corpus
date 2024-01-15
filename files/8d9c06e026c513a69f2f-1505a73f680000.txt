@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e5f7e4d4e152d293f88a12f360dbf1b91d0cdd8e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_io_uring_setup(0x24fa, &(0x7f0000000080)={0x0, 0x0, 0x10100}, &(0x7f0000000540)=<r1=>0x0, &(0x7f0000000100)=<r2=>0x0)
+syz_io_uring_submit(r1, r2, &(0x7f00000001c0)=@IORING_OP_READV=@pass_iovec={0x1, 0x2a, 0x0, @fd_index, 0x0, &(0x7f0000000140)=[{0x0}], 0x1})
+io_uring_enter(r0, 0x2d3e, 0x0, 0x0, 0x0, 0x0)
