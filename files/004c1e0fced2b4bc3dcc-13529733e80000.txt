@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c865dea21aa2fd88da3894d9c6bb07bf2916a881
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000001000), 0x71e42, 0x0)
+pwritev2(r0, &(0x7f0000001140)=[{&(0x7f0000000000)=',', 0x3e80000000}], 0x1, 0x0, 0x0, 0x0)

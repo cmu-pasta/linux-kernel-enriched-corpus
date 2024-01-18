@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f7fd11a1733c141726eeeb4726fd69e796ef9708
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000100)={0x6, &(0x7f0000000000)=[{}, {}, {}, {0x7ffc}, {}, {0x1}]})
+r0 = syz_open_dev$sg(&(0x7f00000060c0), 0x0, 0x8002)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+ioctl$SCSI_IOCTL_GET_PCI(r1, 0x5393, &(0x7f0000000000))
