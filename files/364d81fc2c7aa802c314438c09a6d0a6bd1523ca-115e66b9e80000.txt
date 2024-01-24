@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=364d81fc2c7aa802c314438c09a6d0a6bd1523ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000040)=ANY=[], 0x208e24b)
+r1 = syz_init_net_socket$llc(0x1a, 0x1, 0x0)
+connect$llc(r1, &(0x7f00000001c0)={0x1a, 0x0, 0x0, 0x8, 0x0, 0x0, @dev}, 0x10)
+sendfile(r1, r0, 0x0, 0xffefffff)
+connect$llc(r1, 0x0, 0x0)
+sendmsg$rds(r0, 0x0, 0x84)
+r2 = syz_init_net_socket$nl_rdma(0x10, 0x3, 0x10)
+ioctl$sock_ifreq(r2, 0x89f0, &(0x7f0000000000)={'bond0\x00', @ifru_names='ip6gre0\x00'})
+ioctl$sock_ifreq(0xffffffffffffffff, 0x89a2, 0x0)
