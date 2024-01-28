@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e217e779406d3001cbd165d4ec5e4ba35314b379
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f00000000c0), 0x0, 0x0)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, 0x0}, 0x0)
+ioctl$SG_IO(r0, 0x2285, &(0x7f0000000300)={0x53, 0xfffffffffffffffc, 0x6, 0x0, @buffer={0x2, 0x2, &(0x7f0000000040)=""/2}, &(0x7f00000001c0)="b91047eaf052", 0x0, 0x0, 0x0, 0x0, 0x0})
