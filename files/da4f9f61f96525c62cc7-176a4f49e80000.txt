@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=35ad8663b6821d67d00b661f2a9b1a602f3d7e3d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdir(&(0x7f00000011c0)='./file0\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mkdir(&(0x7f00000000c0)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000001140)=ANY=[@ANYBLOB='workdir=./file1,lowerdir=./file0,upperdir=./bus,xino=on'])
+unlink(0x0)
+chdir(&(0x7f0000001280)='./bus\x00')
+r0 = open(&(0x7f0000000280)='./file0\x00', 0x60142, 0x0)
+fcntl$setstatus(0xffffffffffffffff, 0x4, 0x0)
+r1 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000002c0)='/sys/power/resume', 0x149a82, 0x0)
+sendfile(r1, r1, 0x0, 0x7)
+sendfile(r0, r1, 0x0, 0x1000000201007)
