@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7c54975d5857d7107ac357606c3c744771ef7610
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usbip_server_init(0x2)
+syz_usbip_server_init(0x5)
+write$usbip_server(r0, 0x0, 0x2010)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7c54975d5857d7107ac357606c3c744771ef7610
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+prctl$PR_SET_KEEPCAPS(0x8, 0x0)
+nanosleep(0x0, 0x0) (async)
+rt_sigreturn() (async)
+getrlimit(0x0, 0x0) (rerun: 64)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7c54975d5857d7107ac357606c3c744771ef7610
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = memfd_create(&(0x7f0000000380)='#\'%noY%v\x00\x7f\xe5\xd0ql\xe2m]\'\xe5+\xe8\xe1g\x9d\x8ef\x069\x9b\x93\xb0\x7f_,y<~\xab\x84\x00\x00\x00\x00\x00\x14\x14}\n\x81\xc7\x85|oC\xca\v\x00\xba]fn\r\xdf!\x94\x0f\xaf\xb7\x93\xe8\xb6\xc3N\x16&\xf9{\xaf;\xcf\x8c\xa8\xb9\x06\xaf\xd0\xfb:\x90LNF;\x02\x00\x00/1\xb9V\xf0*\xcb\xdc\x05n<\xcf$\xbb\bLY\xdf \x98q\xb2v\\\xa9\xcf*tM\a\xc43\xd0d\xee\x13Q\xd7\xf4\xef\xac\xa7\x01\xb4\x8c\xc1\x8c\x04,\xe0r\x01\xff\xff\xd9V!>.\x8b\xcf5\x0f\x96\xe6`\xa5.j\xe3D)0\x86\xe1\x81FX\xb9\xaa\xe4\xd2\xaf\xf61\xf9_-\xa3\xb2dM\xee\v ', 0x0)
+write(r0, &(0x7f0000000700)='/', 0x1)
+sendfile(r0, r0, &(0x7f0000000200), 0x87)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x5, 0x11, r0, 0x0)
+umount2(&(0x7f0000000080)='./file0\x00', 0x0)
