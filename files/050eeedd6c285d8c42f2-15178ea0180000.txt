@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3a2a90f464c2ffaa367091680395c4ac2007d59f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000080)={0x26, 'skcipher\x00', 0x0, 0x0, 'cbc(arc4-generic)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000c18000)="ad56b6c5910fae9d6dcd3292ea54c7b6ef915d564c90c200", 0x18)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+syz_genetlink_get_family_id$ipvs(&(0x7f0000000140), r1)
