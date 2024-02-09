@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=09ad995e4c4711a1a4f14da05c1943831fdf4402
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+r1 = dup(r0)
+sendmsg$IPSET_CMD_CREATE(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000100)={0x58, 0x2, 0x6, 0x5, 0x0, 0xf0ffff, {}, [@IPSET_ATTR_PROTOCOL={0x5, 0x1, 0x6}, @IPSET_ATTR_FAMILY={0x5, 0x5, 0x2}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz2\x00'}, @IPSET_ATTR_REVISION={0x5}, @IPSET_ATTR_DATA={0xc, 0x7, 0x0, 0x1, [@IPSET_ATTR_TIMEOUT={0x8}]}, @IPSET_ATTR_TYPENAME={0x13, 0x3, 'hash:net,iface\x00'}]}, 0x58}}, 0x0)
