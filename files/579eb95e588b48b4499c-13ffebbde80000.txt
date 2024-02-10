@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=9a47578994d053f13849ec527e3ec2960070973d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cpuacct.stat\x00', 0x275a, 0x0)
+write$binfmt_script(r2, &(0x7f00000002c0)=ANY=[@ANYBLOB="377c889cf745a22e44b045a9aaf456ddb4d5b005c2d4ea040000000000ebeb787ce472acf3c2570000000000000000f98ecaa04026b735d79abc946854888c7a180eca"], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x280000b, 0x28011, r2, 0x0)
+r3 = dup(r1)
+r4 = ioctl$KVM_CREATE_VCPU(r3, 0xae41, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000180)={0x0, 0x3, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r4, &(0x7f0000000000/0x18000)=nil, &(0x7f0000000100)=[@text16={0x10, 0x0}], 0x1, 0x1c, 0x0, 0x0)
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f00000001c0)={0x0, 0x4000})
+ioctl$KVM_NMI(r4, 0xae9a)
+ioctl$KVM_CREATE_PIT2(0xffffffffffffffff, 0x4040ae77, &(0x7f0000000000)={0x5})
+ioctl$KVM_RUN(r4, 0xae80, 0x0)
