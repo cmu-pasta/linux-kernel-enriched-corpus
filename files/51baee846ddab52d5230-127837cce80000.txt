@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a7698f8d8d337d0f4e05073735a4d0812d3de828
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000000)={0x18, 0x0, 0x0, 0x0}, 0x90)
+syz_emit_vhci(&(0x7f0000000100)=@HCI_EVENT_PKT={0x4, @hci_ev_cmd_complete={{0xe, 0xf}, @hci_rp_le_read_iso_tx_sync={{}, {0x8, 0xc8, 0x3, 0x209, "8388f1"}}}}, 0x12)
+syz_emit_vhci(&(0x7f0000000000)=ANY=[@ANYBLOB="043e821dfafdc4425770eaea47459f2dcf21"], 0x85)
