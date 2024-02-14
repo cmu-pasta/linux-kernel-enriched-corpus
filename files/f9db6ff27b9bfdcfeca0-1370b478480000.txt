@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=45898750e2d6c192a563d612375937f8ae35fdb2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = socket(0x40000000015, 0x5, 0x0)
+bind$inet(r0, &(0x7f0000000840)={0x2, 0x0, @local}, 0x10)
+connect$inet6(r0, &(0x7f0000000040)={0xa, 0x0, 0x0, @private1}, 0x1c)
+sendto$rose(r0, 0x0, 0x0, 0x40, 0x0, 0x0)
+r1 = socket(0x40000000015, 0x5, 0x0)
+bind$inet(r1, &(0x7f0000000840)={0x2, 0x0, @local}, 0x10)
+connect$inet6(r1, &(0x7f0000000040)={0xa, 0x0, 0x0, @private1}, 0x1c) (async)
+sendto$rose(r1, 0x0, 0x0, 0x40, 0x0, 0x0) (async)
+bind$rds(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x0, @local}, 0x10)
