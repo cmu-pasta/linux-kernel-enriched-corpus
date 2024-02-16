@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=68fe3119847862315e52aa14961144b5a909bc23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$pppoe(0x18, 0x1, 0x0)
+connect$pppoe(r0, &(0x7f0000000140)={0x18, 0x0, {0x203, @dev={'\xaa\xaa\xaa\xaa\xaa', 0x35}, 'macvlan1\x00'}}, 0x1e)
+sendmmsg(r0, &(0x7f0000008a00)=[{{0x0, 0x0, 0x0}}], 0x1, 0x0)
+recvfrom(r0, 0x0, 0x0, 0x40010022, 0x0, 0x0)

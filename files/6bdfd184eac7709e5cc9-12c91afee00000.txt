@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=68fe3119847862315e52aa14961144b5a909bc23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+r0 = socket$pppoe(0x18, 0x1, 0x0)
+connect$pppoe(r0, &(0x7f0000000000)={0x18, 0x0, {0x4, @dev={[], 0xa}, 'lo\x00'}}, 0x1e)
+sendmmsg(r0, &(0x7f0000007700), 0x512, 0x0)
+recvmmsg(r0, &(0x7f0000004000)=[{{0x0, 0xfffffffffffffd2b, 0x0}}, {{0x0, 0xfffffffffffffdae, 0x0}}], 0x2a7, 0x0, 0x0)

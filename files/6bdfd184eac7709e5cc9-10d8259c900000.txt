@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=68fe3119847862315e52aa14961144b5a909bc23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+ioctl$IMCTRLREQ(0xffffffffffffffff, 0x80044945, 0x0)
+r0 = socket$packet(0x11, 0x3, 0x300)
+r1 = dup(r0)
+ioctl$PERF_EVENT_IOC_ENABLE(r1, 0x8912, 0x400200)
+r2 = syz_open_pts(r1, 0x180)
+ioctl$TCSETAW(r2, 0x5407, 0x0)
+bpf$MAP_CREATE(0x0, 0x0, 0x0)
+r3 = socket$pppoe(0x18, 0x1, 0x0)
+connect$pppoe(r3, &(0x7f0000000140)={0x18, 0x0, {0x7, @dev={[], 0x34}, 'macvlan1\x00'}}, 0x1e)
+sendmmsg(r3, &(0x7f000000d180), 0x4000000000000eb, 0x0)
+recvmmsg(r3, &(0x7f0000000000)=[{{0x0, 0x0, 0x0}}], 0x4d, 0x0, 0x0)

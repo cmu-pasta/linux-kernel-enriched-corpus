@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=68fe3119847862315e52aa14961144b5a909bc23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"netdev":true,"close_fds":true}
+r0 = socket$pppoe(0x18, 0x1, 0x0)
+connect$pppoe(r0, &(0x7f0000000000)={0x18, 0x0, {0x4, @dev={'\xaa\xaa\xaa\xaa\xaa', 0xa}, 'lo\x00'}}, 0x1e)
+recvmmsg(r0, &(0x7f000000a380)=[{{0x0, 0x0, 0x0}}], 0x1, 0x10083, 0x0)
+write$binfmt_script(r0, 0x0, 0x0)
