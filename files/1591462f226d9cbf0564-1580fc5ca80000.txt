@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=b934188668db347cbcbaa3e11d4e47b65a013c30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000300)={'vxcan1\x00', <r1=>0x0})
+sendmsg$nl_route(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000080)=ANY=[@ANYBLOB="2000000010000104000000f5ffffffffffffff00", @ANYRES32=r1, @ANYBLOB='\v'], 0x20}}, 0x0)
+r2 = socket$can_j1939(0x1d, 0x2, 0x7)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000300)={'vxcan1\x00', <r4=>0x0})
+bind$can_j1939(r2, &(0x7f0000000e40)={0x1d, r4}, 0x18)
+sendmsg$can_j1939(r2, &(0x7f0000000480)={&(0x7f0000000280), 0x18, &(0x7f0000000440)={&(0x7f0000000340)="c4f6ff31f2b82b237f", 0x9}}, 0x0)
+r5 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$can_j1939(r2, &(0x7f0000000400)={&(0x7f0000000380), 0x18, &(0x7f00000003c0)={&(0x7f0000000580)='d', 0x1}}, 0x0)
+ioctl$sock_SIOCGIFINDEX(r5, 0x8933, &(0x7f0000000300)={'vxcan1\x00', <r6=>0x0})
+r7 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r7, &(0x7f00000000c0)={0x0, 0xe00, &(0x7f0000000540)={&(0x7f0000000140)=ANY=[@ANYBLOB="2000000010000104000100"/20, @ANYRES32=r6, @ANYBLOB="04"], 0x20}}, 0x0)

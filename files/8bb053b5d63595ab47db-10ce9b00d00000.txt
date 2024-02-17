@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0d8351bbe54fd04a492c2daab0164138db008042
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"leak":true,"close_fds":false}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_PEER_ADDR_PARAMS(r0, 0x84, 0x9, &(0x7f0000000000)={0x0, @in={{0x2, 0x0, @empty}}, 0x0, 0x0, 0x80002bf, 0x0, 0x32}, 0x9c)
+setsockopt$inet_sctp6_SCTP_MAXSEG(r0, 0x84, 0xd, &(0x7f00000000c0)=@assoc_value={0x0, 0xa4c}, 0x8)
+bind$inet6(r0, &(0x7f00004b8fe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendto$inet6(r0, &(0x7f0000847fff)='X', 0x14be6, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
