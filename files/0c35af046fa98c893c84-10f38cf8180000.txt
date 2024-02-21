@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e57fe4d9ab627bfdd49ac1cb2bada26fa6705763
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$can_raw(0x1d, 0x3, 0x1)
+getsockopt$CAN_RAW_FILTER(r0, 0x65, 0x8, &(0x7f0000001440)=[{}], &(0x7f0000001480)=0x8)
