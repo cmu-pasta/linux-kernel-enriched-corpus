@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=700ccc1340a92ecee94e24030a9b2bef45e8717f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000001540)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+r3 = socket$packet(0x11, 0x3, 0x300)
+sendmsg$unix(r1, &(0x7f00000015c0)={0x0, 0x0, &(0x7f0000000300)=[{&(0x7f0000000380)="9d", 0x1}], 0x1, &(0x7f0000001580)=[@rights={{0x20, 0x1, 0x1, [r1, r0, r2, r3]}}, @rights={{0x14, 0x1, 0x1, [r1]}}], 0x38, 0x2000c000}, 0x8001)
