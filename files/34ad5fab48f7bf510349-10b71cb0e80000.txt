@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=07e8a116caf1c2b3076db37616c45c211f2d302a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_genetlink_get_family_id$tipc(&(0x7f0000000040), 0xffffffffffffffff)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$TIPC_CMD_SET_LINK_WINDOW(r1, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000440)={0x30, r0, 0x1, 0x0, 0x0, {{}, {}, {0x14, 0x18, {0x0, @bearer=@l2={'ib', 0x3a, 'wlan0\x00'}}}}}, 0x30}}, 0x0)
+syz_genetlink_get_family_id$tipc(&(0x7f0000000140), r1)
