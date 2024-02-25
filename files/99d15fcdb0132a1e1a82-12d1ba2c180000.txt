@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=96f45277755b5c20e5f4924016a87fec1cfe8679
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r1, 0x107, 0xf, &(0x7f0000000100)=0x9, 0x4)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000080)={'syz_tun\x00', <r2=>0x0})
+sendto$packet(r1, &(0x7f0000000180)="05030400d3fc02000000ab5d71acedd7c9560385dcb1894f84d7dc059806c52405ce811cc352", 0xff88, 0x0, &(0x7f0000000140)={0x11, 0x0, r2, 0x1, 0x0, 0x6, @broadcast}, 0x14)
