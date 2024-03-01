@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=95af0aea576730efb5bed6052908f473f9b2c7d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+r1 = socket$kcm(0x10, 0x2, 0x4)
+listen(r0, 0x0)
+sendmsg$kcm(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000080)=[{&(0x7f0000000200)="89000000120081ae08060cdc016b3f087f03e30a0000000000e2ffca1b1f0000000006c00e72f750375ed08a56331dbf9ed7815e381ad6e747033a0093b837dc6cc01e32efacc8c7a6ecbec3d35300120800030006010000bdad446b9bbc7a46e3988285dcdf12f21308f868fece01955fed0009d78f0a947ee2b49e33538afa8af92347514f0b56a2", 0x89}], 0x1}, 0x0)
