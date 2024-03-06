@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=703fe1bb0d9043c4001d70abcbf129afe286249f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r1 = syz_open_procfs$pagemap(0xffffffffffffffff, &(0x7f0000000200))
+ioctl$PAGEMAP_SCAN(r1, 0xc0606610, &(0x7f0000000040)={0x60, 0x1, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ffc000/0x4000)=nil, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x64})
