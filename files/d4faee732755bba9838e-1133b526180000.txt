@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5bf72bee1c99f0c620a0021904812e4968a71e12
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, &(0x7f0000000840)={0x2, 0x4e23, @local}, 0x10)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='memory.stat\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000000)=ANY=[], 0x208e24b) (rerun: 32)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000002, 0x28011, r1, 0x0) (rerun: 32)
+sendmsg$rds(r0, &(0x7f0000000800)={&(0x7f0000000080)={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10, 0x0, 0x0, &(0x7f0000000100)=[@rdma_args={0x48, 0x114, 0x1, {{}, {0x0}, &(0x7f0000000640)=[{&(0x7f0000001880)=""/4096, 0x1000}], 0x1}}], 0x48}, 0x0)

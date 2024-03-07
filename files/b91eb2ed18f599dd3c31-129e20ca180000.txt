@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f1e59da6d63130a2e9d2753398781568f2bbd401
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"segv":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+io_setup(0x1, &(0x7f0000000040)=<r1=>0x0)
+io_submit(r1, 0x1, &(0x7f0000001600)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x5, 0x0, r0, 0x0}])
+io_cancel(r1, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0}, 0x0)
