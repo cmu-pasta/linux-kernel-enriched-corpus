@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=b7c2fe56f078c23b43875a493fd4b4b83e73eae9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+syz_80211_inject_frame(&(0x7f0000000100)=@device_b, &(0x7f0000000340)=@data_frame={@a_msdu=@type00={{0x0, 0x2, 0xb}, {}, @device_b, @device_a, @initial, {}, "", @value}, @a_msdu}, 0x1a)
