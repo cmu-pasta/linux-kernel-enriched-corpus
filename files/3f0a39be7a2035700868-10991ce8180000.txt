@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=aed04243938d34ca4c777711b29f1a3003ef5632
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f00000000c0)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)
+writev(r0, &(0x7f0000000040)=[{&(0x7f0000000100)="1c79a0e674e7f14059e4575d48290b6dce2d3421e8cde7e073381307ff16dd934facd3f930788f6f0f6e4d22866b8dc7cf552c58b391363f50c45b1c4967d30aaa4fa4146e6a02396c3bfe97a7072dd7d730eea6c5d40cc7e5a84a2b20b3bb260428ae7a014f3feb73effcfdb791e659974891894ede5b484fb615e000c5c5cca13da84ec546404a2681f9aaf3e0f741809eadf129a04ba5e6e29c8d5ff48a1ba98bc8106a0b6e36259a49bebe599c86abcb72313bb2579e00b3a4115f463a5640b2786b136ab1b9756135cd2a15730efa4ce1b792b8286e4d02bc9caede1567de6f59b6f23ad71aa4570078df66152d7800af092f34fe06e8868a0d1706d4846a7af1c27db708c7347eb016792a4969983b4f8a6465983f9aa77a98fba439dd8fc02126bed849549eec58dfe20c7ee53d2e05c016b3e92e7f6a13f1a6793a8afe0e7601ce5cc503b8cca46f1e6c0a0e05", 0x151}], 0x1)
