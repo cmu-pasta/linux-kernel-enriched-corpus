@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4dfa0f4cf95a0b47155b0ea7bcc250a74f88d44b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$hfs(&(0x7f0000000100), &(0x7f00000000c0)='./bus\x00', 0x0, &(0x7f0000000080)=ANY=[@ANYRES8=0x0, @ANYRESOCT], 0x1, 0x280, &(0x7f0000000680)="$eJzs3U9rE0EYx/HfbLZJakvd/pGCBw9VwZO09SJeBOmL8CCiNhGKoYKtoF4UzyLeBO/ePIuvwZP4BuzJky+gt5WZnTRp3N0kDbtr0+8HDGszz84zndnMPqVlBeDMurP16/ON3/afkWqqxXEcS4GkphRKuqDV5vPd/Z39TruVd6Kai9AlySiJNP+02d5tp4XaOBfhRfZ/oeb7v4Zi2Pk+qDoJVM5d/SkCqeGvTvd+s/TMivGm6gQqZg51WHUOAIBqhb39P/D7/Ly/fw8C6arf9qdq/z/rm5/b/19ooVt5xcbO73n3Vq/ecyWcfT/oVolS/HrcvupKVtaxG0wzrKp0uQSzj3c67evbTzutQG912+trtuJeW8nS7eplm2otpTbNMeRsOebcGGbsGDYz8l8+SY8fx0/liPlufpj7JtIntdz8W2Fs7DS5mYoGZirJfz37jG6UUdIqY5SLrpOLvgd9+zLCKJvpFYm6K2pRx39AEHXz/FDPiVoaiEpGt5E9Ohe1nBq1OSRqZTCqt5qzI4tm3pu7Zk1/9FVbR/NvL59a8lE//Mq0bVxLvzJyxxO6ltEIiQVjDQOTeadHuqmFvZevnjzsdNp1+YNne2UczEgqq68pOAhLmZ0ZvzRKG1f8n3x7Czk4aEijNK7rRF3U1FCho6j48wml6E26Vu9VnQyqYO+7TFL/9dUr665Esi9Rzn16POzkfWfcyKgNltzrubEquLnsCm7UmuvyNenK6D02fJ5Twmzppx703f8DAAAAAAAAAAAAAAAAAADgVCjqTyBm/fndb5YDAAAAAAAAAAAAAAAAAAAAAICJDD7/V9KtSZ7/2+T5v8Cp8TcAAP//taZ86Q==")
+open(&(0x7f00000000c0)='./bus\x00', 0x14da42, 0x0)
+mount(&(0x7f0000000380)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='./bus\x00', 0x0, 0x1000, 0x0)
+r0 = creat(&(0x7f00000002c0)='./bus\x00', 0x0)
+lseek(r0, 0x200, 0x0)
+r1 = open(&(0x7f0000000000)='./bus\x00', 0x0, 0x0)
+sendfile(r0, r1, 0x0, 0x1ff01)
