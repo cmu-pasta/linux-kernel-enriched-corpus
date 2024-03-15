@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=5d49633aa824566a74b43b46212cdf65ccafd919
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = getpgid(0x0)
+syz_pidfd_open(r0, 0x0)
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, 0x0)
+r1 = getpgid(0x0)
+syz_pidfd_open(r1, 0x0) (fail_nth: 2)
+ioctl$UI_DEV_SETUP(0xffffffffffffffff, 0x5501, 0x0)
+pipe(0x0)
+setsockopt$sock_timeval(0xffffffffffffffff, 0x1, 0x42, 0x0, 0x0)
+socket$pppl2tp(0x18, 0x1, 0x1)
+openat$vimc2(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+fcntl$dupfd(0xffffffffffffffff, 0x406, 0xffffffffffffffff)
+ioctl$sock_SIOCGPGRP(0xffffffffffffffff, 0x8904, 0x0)
+ioprio_get$pid(0x3, 0x0)
+lstat(0x0, 0x0)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, 0x0, 0x0, 0x4080010)
