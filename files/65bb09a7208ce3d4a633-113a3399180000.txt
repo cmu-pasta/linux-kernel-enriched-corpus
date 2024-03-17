@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1ff7ebb6a8cab0ff011b2adc0f9c9b12ec5a22b6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000640)={0x0, 0x0, &(0x7f0000000600)={&(0x7f0000000580)=@delnexthop={0x20, 0x69, 0x1, 0x0, 0x0, {}, [{0x8, 0x8}]}, 0x20}}, 0x0)
