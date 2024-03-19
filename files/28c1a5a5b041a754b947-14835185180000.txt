@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=855d88d8bd9e2566cedfb01b8d926662c9347516
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000140), 0x40000000040201, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000500)={0x0, 0x18, 0xfa00, {0x0, 0x0}}, 0x20)
+openat$sequencer2(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
