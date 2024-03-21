@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=82983bc28f0291f60cd54268fe0c6fbf65daa33d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f0000000380)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r1, 0x0, 0xe6, 0x200c0004, &(0x7f0000000300)={0xa, 0x4e22, 0x0, @ipv4={'\x00', '\xff\xff', @empty}}, 0x1c)
+shutdown(r1, 0x1)
