@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=002d0d295b2e6a205cebc772ce627d85f0c96bbc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_io_uring_setup(0x3b8e, &(0x7f0000000080), &(0x7f0000000140), 0x0)
+r0 = syz_io_uring_setup(0x6f3c, &(0x7f0000000000)={0x0, 0x0, 0x10180}, &(0x7f0000000100), &(0x7f0000000200))
+syz_io_uring_setup(0x100022a5, &(0x7f0000001c40)={0x0, 0x0, 0x10}, &(0x7f0000001d40), &(0x7f0000000300))
+io_uring_enter(r0, 0xd6d, 0x0, 0x0, 0x0, 0x0)
