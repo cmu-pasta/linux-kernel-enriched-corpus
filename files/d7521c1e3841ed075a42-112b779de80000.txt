@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b782969c57f9a53232da138103194415dcca9966
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+r0 = open(&(0x7f0000007f80)='./bus\x00', 0x145142, 0x0)
+ftruncate(r0, 0xa000000)
