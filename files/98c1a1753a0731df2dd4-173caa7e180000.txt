@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5db1ce6279a56dfd7967b45ad5f3cfc1b0433fc0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='memory.current\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000180)=ANY=[@ANYRESDEC, @ANYBLOB], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+fcntl$lock(0xffffffffffffffff, 0x0, 0x0)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, 0xffffffffffffffff, &(0x7f0000fe5000/0x18000)=nil, 0x0, 0x0, 0x46, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5db1ce6279a56dfd7967b45ad5f3cfc1b0433fc0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000100)=@base={0x1, 0x100004, 0x220104, 0xb, 0x1}, 0x48)
+bpf$BPF_MAP_LOOKUP_AND_DELETE_BATCH(0x19, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x0, 0x1, r0}, 0x38)

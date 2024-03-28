@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=af9e2c0ebc28dc4870f7574a0083eade4f75bf58
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$fuse(0x0, &(0x7f0000002080)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000180), 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r2])

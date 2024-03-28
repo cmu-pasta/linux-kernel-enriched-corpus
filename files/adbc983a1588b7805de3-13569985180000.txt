@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e7dc03859135ea1ffdf78657489f4b551241fb3b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true,"swap":true,"tmpdir":true}
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+process_vm_writev(r0, &(0x7f0000001880)=[{&(0x7f0000004800)=""/139, 0x8b}, {&(0x7f0000000480)=""/4096, 0x1000}, {&(0x7f0000001480)=""/120, 0x78}, {&(0x7f0000001540)=""/139, 0x8b}, {&(0x7f0000001600)=""/227, 0xe3}, {&(0x7f0000001700)=""/251, 0xfb}, {&(0x7f00000001c0)=""/19, 0x13}, {&(0x7f0000001800)=""/87, 0x57}], 0x8, &(0x7f00000003c0)=[{&(0x7f0000000200)=""/197, 0xc5}, {&(0x7f0000001a00)=""/63, 0x3f}, {&(0x7f0000001a80)=""/226, 0xe2}, {&(0x7f0000001b80)=""/243, 0xf3}, {&(0x7f0000001c80)=""/83, 0x53}, {&(0x7f00000001c0), 0x200000}], 0x6, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x15)

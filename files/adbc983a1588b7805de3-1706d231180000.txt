@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e7dc03859135ea1ffdf78657489f4b551241fb3b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"swap":true,"tmpdir":true}
+bpf$MAP_CREATE_RINGBUF(0x0, &(0x7f00000002c0)={0x1b, 0x0, 0x0, 0x20000000}, 0x10)
