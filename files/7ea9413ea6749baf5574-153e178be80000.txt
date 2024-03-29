@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5f051c21d9b97c8d9a384d2f6cabc59be24c79c6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+write$nci(0xffffffffffffffff, &(0x7f00000000c0)=ANY=[@ANYBLOB='`'], 0x4)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nfc(&(0x7f0000000100), r1)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$IOCTL_GET_NCIDEV_IDX(r0, 0x0, &(0x7f0000000180)=<r4=>0x0)
+sendmsg$NFC_CMD_DEV_UP(r3, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000000)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r2, @ANYBLOB="010000000000000000000200000008000100", @ANYRES32=r4], 0x1c}}, 0x0)
+write$nci(r0, &(0x7f00000000c0)=ANY=[], 0x3)
