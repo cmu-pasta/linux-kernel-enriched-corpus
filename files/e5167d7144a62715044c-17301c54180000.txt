@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=f11c83033371e9b528f7a504c939c109cd770f80
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+setsockopt$packet_int(r0, 0x107, 0xf, &(0x7f0000006ffc)=0x4000000000000200, 0xe50fb6c50bc849c9)
+r1 = socket(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x803, 0x0)
+syz_genetlink_get_family_id$tipc2(&(0x7f0000000700), r2)
+ioctl$sock_ipv4_tunnel_SIOCGETTUNNEL(0xffffffffffffffff, 0x89f0, &(0x7f0000000240)={'syztnl0\x00', &(0x7f00000001c0)={'syztnl1\x00', 0x0, 0x0, 0x8, 0x0, 0x0, {{0x5, 0x4, 0x0, 0x0, 0x14, 0x0, 0x0, 0x0, 0x0, 0x0, @dev, @dev}}}})
+getsockname$packet(r2, &(0x7f0000000100)={0x11, 0x0, <r3=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000500)=ANY=[@ANYBLOB="3c0000001000014400eeffffffff071af7000000", @ANYRES32=r3, @ANYBLOB="01000000010000001c0012000c000100627269646765"], 0x3c}}, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000180)=ANY=[@ANYBLOB="6000000024000b0e000000000080000000000000", @ANYRES32=r3, @ANYBLOB="00000000ffffffff0000004508000100746266003400020008000600a4230000280001"], 0x60}}, 0x0)
+bind$packet(r0, &(0x7f0000000040)={0x11, 0x0, r3, 0x1, 0x0, 0x6, @dev}, 0x14)
+sendto$inet6(r0, &(0x7f0000000280)="4103095cf21d480407020200c52cf7c25975e005b02f0800eb2b2ff0dac8897c6b118777faffffff3066090cb600c5471d130a66321a54e7df305f80a88161b6fd8f24286a57c3feffff", 0x5c13, 0x806, 0x0, 0x2f)

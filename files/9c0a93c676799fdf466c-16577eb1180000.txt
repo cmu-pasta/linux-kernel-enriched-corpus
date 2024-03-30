@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d0acd73deda53a92350d9b889bab30deb714a9fb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+r1 = fsopen(&(0x7f0000000080)='qnx6\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r1, 0x1, &(0x7f0000000000)='source', &(0x7f0000000040), 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r1, 0x6, 0x0, 0x0, 0x0)
+ioctl$BLKFLSBUF(r0, 0x1261, 0x0)
