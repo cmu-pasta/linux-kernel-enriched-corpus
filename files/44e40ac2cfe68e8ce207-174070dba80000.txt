@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4a0cc45ea1628b55671583457d498d3eb0af1376
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$vmci(0xffffffffffffff9c, &(0x7f0000000380), 0x2, 0x0)
+ioctl$IOCTL_VMCI_VERSION2(r0, 0x7a7, &(0x7f0000000000)=0x90000)
+ioctl$IOCTL_VMCI_INIT_CONTEXT(r0, 0x7a0, &(0x7f00000000c0)={@hyper})
+ioctl$IOCTL_VMCI_QUEUEPAIR_ALLOC(r0, 0x7a8, &(0x7f0000000180)={{@hyper}, @any, 0x0, 0x0, 0x2})
+ioctl$IOCTL_VMCI_QUEUEPAIR_ALLOC(0xffffffffffffffff, 0x7a8, &(0x7f0000000180)={{@hyper}, @any, 0x0, 0x0, 0x2})

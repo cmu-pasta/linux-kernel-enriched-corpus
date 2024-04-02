@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=3c0c173ff55822aacb81ce7ae27a6676fba29a5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":8,"sandbox":"","fault_call":-1}
+socket$inet6(0xa, 0x1000000000002, 0x0)
+r0 = syz_open_dev$loop(&(0x7f0000000200)='/dev/loop#\x00', 0x0, 0x1000082)
+r1 = memfd_create(&(0x7f0000000140)="74086e750000000000000000008c00", 0x2)
+ioctl$LOOP_CHANGE_FD(r0, 0x4c00, r1)
+sync()
+pwritev(r0, &(0x7f0000000180)=[{&(0x7f0000000040)}], 0x1, 0x0)
+pipe2$9p(&(0x7f0000000500)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000000340)='9p\x00', 0x0, &(0x7f00000003c0)={'trans=fd,', {'rfdno', 0x3d, r2}, 0x2c, {'wfdno', 0x3d, r3}, 0x2c, {[{@version_u='version=9p2000.u', 0x2c}]}})
+write$P9_RSTATu(r3, &(0x7f0000000180)=ANY=[@ANYBLOB="790400007d01000500580000000000000000000000000000000000000000000000000000000000002300000000390000000000100076657273696f6e3d3970323030302e750d00776c616e3176626f786e657430030039700005007266646e6f0c00769aae6d5ffff068a6be6b2cc3fd626f786e657431287d2524", @ANYRES32=0x0, @ANYRES32=0x0, @ANYRES32=0x0], 0x87)

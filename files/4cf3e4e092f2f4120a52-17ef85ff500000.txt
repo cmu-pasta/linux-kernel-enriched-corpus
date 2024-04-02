@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ff04a9f8688ede707e2c6808102a3f83a53d293a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":false,"wifi":true}
+r0 = socket$kcm(0x29, 0x2, 0x0)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r0, 0x8914, &(0x7f0000000340)='wlan1\x00\x1b\x1a\xec\xd8n\xff\xc3\x87\xe2\xa3\x80\x8a\xb2\xd9\xa8L\x06\xb5\x12\x03F\xd9\x1f\xb9\xf2-\xda,C\xfdj\xe3\x8d\xe3\xd6\xe0|6l\xe9\xd9;\xea\x84\x13\xdf\xf7\xber\'\x8a\xd5W\xbb\xac%j\x9d\xeb\xba\xe6\xc4\xc4\xa9\xf5\xd5\xa1\xf5\\\x9b\xb2\a\xde\xbb\xc18\x84\xb5:f\xcb\xe8oOArYZ\xe1\xc9\x86\xfe')
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040)='nl80211\x00')
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000300)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_MCAST_RATE(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000080)={&(0x7f00000002c0)={0x24, r2, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_MCAST_RATE={0x8, 0x6b, 0xb4}]}, 0x24}}, 0x0)

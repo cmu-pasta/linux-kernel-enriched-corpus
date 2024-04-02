@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=238d8ca1fc8d91b49addf4c875d7f486af4b5163
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sw_sync_info(0xffffffffffffff9c, &(0x7f0000000280), 0x0, 0x0)
+read$FUSE(r0, &(0x7f0000002200)={0x2020}, 0x2020)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+r2 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r2, 0xc0285700, &(0x7f0000000140)={0x400, "03e6ff8dda080600000a00000032000000000000000200", <r3=>0xffffffffffffffff})
+r4 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r4, 0xc0285700, &(0x7f00000001c0)={0x7fffffff, "0392938eda08a5513db99d08fdae429e4ae4c5bac9dd8259be4ee64b32c65e0a", <r5=>0xffffffffffffffff})
+ioctl$SYNC_IOC_MERGE(r5, 0xc0303e03, &(0x7f0000000040)={"334f00d6daf062d63d5e4449e903f93e48fe794d00c0adb017e82012f78982ac", r3, <r6=>0xffffffffffffffff})
+ppoll(&(0x7f0000000280)=[{r1, 0xd}, {r6}], 0x2, 0x0, 0x0, 0x0)
+close_range(r1, 0xffffffffffffffff, 0x0)

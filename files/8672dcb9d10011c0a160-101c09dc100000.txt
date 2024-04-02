@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ad374c1a1c899ec29813e4b2c6461078dfe5cb33
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"","fault":true,"fault_call":6,"fault_nth":29,"close_fds":false,"segv":true}
+syz_open_dev$sg(&(0x7f00000003c0)='/dev/sg#\x00', 0x0, 0x0)
+r0 = syz_open_dev$loop(0x0, 0x0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+socketpair$unix(0x1, 0x5, 0x0, 0x0)
+r2 = fcntl$dupfd(0xffffffffffffffff, 0x0, r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f0000000140)={[], 0x0, 0x3, 0x6})

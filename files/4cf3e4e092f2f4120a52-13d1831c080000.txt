@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ff04a9f8688ede707e2c6808102a3f83a53d293a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","close_fds":false,"wifi":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8914, &(0x7f000000a6c0)={'wlan1\x00'})
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000380), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f00000003c0)={'wlan1\x00', <r4=>0x0})
+sendmsg$NL80211_CMD_SET_MCAST_RATE(r2, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000480)={0x24, r3, 0x6c67a15d04fd4e9b, 0x0, 0x0, {{}, {@val={0x8, 0x3, r4}, @void}}, [@NL80211_ATTR_MCAST_RATE={0x8, 0x6b, 0xf0}]}, 0x24}}, 0x0)

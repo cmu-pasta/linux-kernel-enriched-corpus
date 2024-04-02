@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9b6cad151b16cc24fe15fc086a3e53c0a3b2a43c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"netdev":true,"close_fds":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+r0 = syz_open_dev$ndb(&(0x7f0000000080)='/dev/nbd#\x00', 0x0, 0x0)
+r1 = socket(0x2, 0x5, 0x0)
+r2 = socket$inet6(0xa, 0x6, 0x0)
+listen(r2, 0x6)
+ioctl$NBD_SET_SOCK(r0, 0xab00, r1)
+ioctl$NBD_DO_IT(r0, 0xab03)

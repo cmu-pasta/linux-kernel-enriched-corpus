@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ae030eb9ebdf91c462fb4105b3492e3c1f2a005c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+syz_usbip_server_init(0x3) (rerun: 64)
+syz_usbip_server_init(0x3) (rerun: 64)

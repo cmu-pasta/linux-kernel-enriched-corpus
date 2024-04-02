@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d38f8eae55e27aaef60b4748bc77ecb712dba4b9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+open(&(0x7f0000000440)='./file0\x00', 0x110000141042, 0x0)
+clone(0x4007fc, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = userfaultfd(0x0)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000380))
+ioctl$PPPIOCGMRU(0xffffffffffffffff, 0x80047453, 0x0)
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000080)={{&(0x7f0000909000/0x4000)=nil, 0x4000}, 0x1})
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000040)=ANY=[], 0x208e24b)

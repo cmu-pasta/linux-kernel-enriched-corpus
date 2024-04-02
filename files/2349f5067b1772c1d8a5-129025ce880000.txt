@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3c0c173ff55822aacb81ce7ae27a6676fba29a5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdir(&(0x7f0000000280)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x137) (async)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000140), 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESDEC=r1])
+sync()

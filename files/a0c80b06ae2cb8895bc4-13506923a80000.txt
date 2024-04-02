@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=25062417c53d6c6fdc534368298c046d89c37ed3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = openat$6lowpan_control(0xffffffffffffff9c, &(0x7f0000000240), 0x2, 0x0)
+write$6lowpan_control(r0, &(0x7f0000000280)='connect aa:aa:aa:aa:aa:11 0', 0x1b)
+openat$sw_sync(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+ioctl$SYNC_IOC_MERGE(0xffffffffffffffff, 0xc0383e04, 0x0)
+openat$uinput(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+socketpair(0x0, 0x0, 0x0, 0x0)
+syz_clone(0xd4004080, 0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$sock_ax25_SIOCADDRT(0xffffffffffffffff, 0x890b, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000000)={0x1f, 0x3, @none}, 0xe)
