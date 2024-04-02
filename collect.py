@@ -8,7 +8,7 @@ import re
 import multiprocessing
 
 '''
-Query https://syzkaller.appspot.com/upstream/fixed for all bugs that have been fixed and have "C" and "syz" reproducers
+Query https://syzkaller.appspot.com/upstream for all bugs against upstream kernel and have "C" and "syz" reproducers
 Save reproducers to text files
 '''
 
