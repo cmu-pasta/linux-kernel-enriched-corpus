@@ -44,7 +44,7 @@ def get_reproducers(bug):
 def main():
     # Query the page
     bugs = []
-    page = requests.get("https://syzkaller.appspot.com/upstream/fixed")
+    page = requests.get("https://syzkaller.appspot.com/upstream/")
     soup = BeautifulSoup(page.content, 'html.parser')
     # parse table rows
     rows = soup.find_all('tr')
