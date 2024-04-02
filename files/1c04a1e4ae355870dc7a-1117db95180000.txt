@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=371873989564922b25b65a0c8bebb3e702ebe24a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0x12, 0x4, 0x8, 0xc}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0x14, &(0x7f0000000340)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020642500000000002008007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000000300000095"], &(0x7f0000000040)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000300)={&(0x7f0000000080)='signal_deliver\x00', r1}, 0x10)

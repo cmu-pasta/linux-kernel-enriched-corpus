@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5459ac33e08b7a1e59c1c598377687218602b620
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = memfd_create(&(0x7f00000000c0)='[\xdbX\xae[\x1a\xa9\xfd\xfe\xad\xd1md\xc8\x85HX\xa9%\f\x1ae\xe0\x90\x93\x12l\xb6Z\x95\xab\x00{\xe9\xc2Y\xd1c\x81\x9eG\xf9,\xe2\xc6a\x8b\xe8\xf1\xb3\x86\xe2+Op\xd0\xa2\x8a\x1eb;(\xb5\xe1jS\xd6\x91%||\xa0\x8ez\xadT\xc8\f\xe5\x89\xbf3:\x99\x1e\xac`\xc3\xcf\xd3\xae\xd2\a\x11\xa9\x95\xd2q#\xc6\xca\x97!*\x886Ka\x13\xf9\x0fSe\x9c.\xf1\xcd\xd7\xdf< K\\\xb7\xa0\xfbf', 0x0)
+write$binfmt_elf32(r0, &(0x7f00000002c0)=ANY=[@ANYBLOB="7f454c466000002ed8e40700000027b90300060000c00200000000b738000000000035f4c38422a3bc822000050000000402030000000000000040000400b3d7c52ebf31a897ffff0300000000090014f8ffffffffffffff03"], 0xd8)
+execveat(r0, &(0x7f0000000000)='\x00', 0x0, 0x0, 0x1000)
+timer_create(0x0, &(0x7f0000000000)={0x0, 0x14, 0x0, @thr={0x0, 0x0}}, &(0x7f0000000240)=<r1=>0x0)
+timer_settime(r1, 0x0, &(0x7f0000000180)={{0x0, 0x989680}, {0x0, 0x1c9c380}}, 0x0)
+socket(0x22, 0x0, 0x100)
+setsockopt$inet_tcp_buf(0xffffffffffffffff, 0x6, 0x0, &(0x7f00000002c0)="30508b075b82adfd81d6d55c2f275abb6b923fea7b857af52c796f864d215b8f0f178590d407b9867a5905f018d438bc9525de5d9aeb330e1214eecfb4ba968567db8aee343223698d352708e444d88050abf353a2416bb8d85e34", 0x5b)

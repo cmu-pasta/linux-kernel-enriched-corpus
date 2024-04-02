@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2ba1ba09e0a77fe153a9cb6bd5d2e9bc0f1b1982
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x0, 0x0)
+r0 = getpid()
+process_vm_readv(r0, &(0x7f0000008400)=[{&(0x7f0000000300)=""/54, 0xfffffff7}, {&(0x7f0000006180)=""/152, 0x98}], 0x2, &(0x7f0000008640)=[{&(0x7f0000008480)=""/95, 0x7ffff000}], 0x286, 0x0)
+prctl$PR_SCHED_CORE(0x3e, 0x2, r0, 0x1, 0x0)
+ioctl$PPPIOCSCOMPRESS(0xffffffffffffffff, 0x4010744d)
+syz_open_dev$mouse(0x0, 0x8000000000000001, 0x2000)

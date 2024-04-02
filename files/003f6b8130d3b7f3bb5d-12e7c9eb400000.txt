@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+clone(0x802122001ffc, 0x0, 0xfffffffffffffffe, &(0x7f0000000040), 0xffffffffffffffff)
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r0, 0x0, 0x48c, &(0x7f0000000080)={0x1, 'veth0_to_bridge\x00'}, 0x18)

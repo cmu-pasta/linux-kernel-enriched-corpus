@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=768ac7ea11025c4c5357855d4e42e5d1e089023c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mount(0x0, 0x0, 0x0, 0x0, 0x0)
+r0 = openat$cgroup_procs(0xffffffffffffffff, &(0x7f0000004880)='cgroup.procs\x00', 0x2, 0x0)
+writev(r0, &(0x7f00000001c0)=[{&(0x7f0000000180)='0', 0x1}], 0x1)
+sendmsg$IPCTNL_MSG_EXP_NEW(0xffffffffffffffff, &(0x7f0000000440)={0x0, 0x0, 0x0}, 0x40000)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+r1 = getpid()
+sched_setscheduler(r1, 0x2, &(0x7f0000000200)=0x4)
+syz_mount_image$ext4(&(0x7f00000004c0)='ext4\x00', &(0x7f0000000500)='./file0\x00', 0x0, &(0x7f0000000240)=ANY=[], 0x21, 0x4a6, &(0x7f0000000a40)="$eJzs3cFPG9kZAPBvBgiEkEDaHNqqbdI0bVpFscFJUJRTemlVRZGqRj31kFBwEMLGCJs00BzI/1CpkXpq/4QeKvVQKae97233tpfsYaXsbrSrsNIevJqxIYRgYDcES/j3k55m3jzj7z2sec98gF8APetcRKxFxLGIuBcRo+3rSbvEzVbJHvfyxaPp9RePppNoNu98luTt2bXY8jWZE+3nHIqIP/4u4i/Jm3HrK6vzU5VKealdLzaqi8X6yurluerUbHm2vFAqTU5Mjl+/cq10YGM9W/3P89/O3frT///3k2fvr/36b1m3RtptW8dxkFpDH9iMk+mPiFvvIlgX9LXHc6zbHeE7SSPiexFxPr//R6MvfzUBgKOs2RyN5ujWOgBw1KV5DixJC+1cwEikaaHQyuGdieG0Uqs3Lt2vLS/MtHJlYzGQ3p+rlMfbucKxGEiy+kR+/qpe2la/EhGnI+Lvg8fzemG6Vpnp5hsfAOhhJ7at/18OttZ/AOCIG+p2BwCAQ2f9B4DeY/0HgN5j/QeA3mP9B4DeY/0HgN5j/QeAnvKH27ez0lxvf/71zIOV5fnag8sz5fp8obo8XZiuLS0WZmu12fwze6p7PV+lVlucuBrLD4uNcr1RrK+s3q3Wlhcad/PP9b5bHjiUUQEAuzl99umHSUSs3Tiel9iyl4O1Go62tNsdALqmr9sdALrGbl/Qu/yMD+ywRe9rOv6J0JOD7wtwOC7+UP4fepX8P/Qu+X/oXfL/0LuazcSe/wDQY+T4Ab//BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgG9vJC9JWmjvBT4SaVooRJyMiLEYSO7PVcrjEXEqIj4YHBjM6hPd7jQA8JbST5L2/l8XRy+MbG89lnw1mB8j4q//vPOPh1ONxtJEdv3zzeuNJ+3rpW70HwDYy8Y6vbGOb3j54tH0RjnM/jz/TWtz0Szueru0WvqjPz8OxUBEDH+RtOst2fuVvgOIv/Y4In6w0/iTPDcy1t75dHv8LPbJQ42fvhY/zdtax+x78f0D6Av0mqfZ/HNzp/svjXP5cef7fyifod7exvy3/sb8l27Of30d5r9z+41x9b3fd2x7HPGj/p3iJ5vxkw7xL+wz/kc//un5Tm3Nf0VcjJ3jb41VbFQXi/WV1ctz1anZ8mx5oVSanJgcv37lWqmY56iLG5nqN31649Kp3cY/3CH+0B7j/8U+x//vr+/9+We7xP/Vz3d+/c/sEj9bE3+5z/hTw//tuH13Fn+mw/j3ev0v7TP+s49XZ/b5UADgENRXVuenKpXykhMnTpxsnnR7ZgLetVc3fbd7AgAAAAAAAAAAAAAAdHIY/07U7TECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwdH0TAAD//yyP2UE=")
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff})
+sched_setscheduler(0x0, 0x0, 0x0)
+shutdown(0xffffffffffffffff, 0x0)
+connect$unix(r2, &(0x7f000057eff8)=@abs, 0x6e)
+sendmmsg$unix(r3, &(0x7f0000000000), 0x651, 0x0)
+recvmmsg(r2, 0x0, 0x0, 0x2, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='hugetlb.2MB.rsvd.usage_in_bytes\x00', 0x275a, 0x0)
+unshare(0x60000200)
+bind$inet6(0xffffffffffffffff, &(0x7f0000000240)={0xa, 0x4e21, 0x0, @ipv4={'\x00', '\xff\xff', @loopback}, 0xfffffffc}, 0x1c)
+unshare(0x20000)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet_sctp(0x2, 0x800000000001, 0x84)
+fsetxattr$security_ima(r0, &(0x7f0000000000)='security.ima\x00', &(0x7f0000000040)=@sha1={0x1, "2b8c11fd83cf09b095776b2b1b637095d7776f2d"}, 0x15, 0x2)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(r0, 0x84, 0x64, &(0x7f0000094000)=[@in={0x2, 0x0, @loopback}], 0x10)
+r1 = openat$audio(0xffffffffffffff9c, &(0x7f0000000080)='/dev/audio\x00', 0x100, 0x0)
+sendto$inet(r0, &(0x7f00000000c0)="cf", 0x1, 0x0, &(0x7f0000a04000)={0x2, 0x0, @local={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+r2 = socket$netlink(0x10, 0x3, 0x4)
+fcntl$dupfd(r1, 0x406, r1)
+writev(r2, &(0x7f000051c000)=[{&(0x7f0000000140)="480000001400190d09004beafd0d8c560284470080ffe00600000000000000a2bc5603ca00000f7f89000000200000000101ff0000000309ff5bffff00c7e5ed5e00000000000000", 0x48}], 0x1)

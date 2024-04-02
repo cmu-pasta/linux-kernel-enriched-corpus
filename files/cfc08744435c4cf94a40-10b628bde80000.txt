@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=7fc86d0324e1d39cd4c7cbad54f476d78c21fe55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+ioctl$F2FS_IOC_MOVE_RANGE(0xffffffffffffffff, 0xc020f509, 0x0)
+r0 = socket(0xa, 0x3, 0x4)
+ioctl$sock_kcm_SIOCKCMCLONE(0xffffffffffffffff, 0x89e2, &(0x7f0000000080)={<r1=>r0})
+getsockopt$inet6_mreq(r1, 0x29, 0x0, &(0x7f0000000240)={@remote}, 0x0)
+r2 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="180100001c00000000000000120000f1850000006d00000095"], &(0x7f0000000000)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000001700)={&(0x7f0000001740)='hrtimer_expire_entry\x00', r2}, 0x10)
+ioctl$BTRFS_IOC_GET_SUBVOL_INFO(0xffffffffffffffff, 0x81f8943c, 0x0)
+r3 = socket$netlink(0x10, 0x3, 0xa)
+ioctl$sock_SIOCGIFVLAN_DEL_VLAN_CMD(r3, 0x89a0, &(0x7f0000000000)={0x1, 'vlan1\x00', {}, 0xfe01})

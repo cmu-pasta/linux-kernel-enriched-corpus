@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3f6abb475683ecec692080da47c6a0157a24c301
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_usbip_server_init(0x5)
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r0)

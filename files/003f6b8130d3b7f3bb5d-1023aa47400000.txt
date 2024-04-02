@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$midi(&(0x7f0000000080)='/dev/midi#\x00', 0x638, 0x8083)
+ioctl$SNDRV_RAWMIDI_IOCTL_PARAMS(r0, 0xc0305710, &(0x7f0000000040)={0x0, 0x0, 0x10000001002, 0x0, [0xfffffffe]})
+close(r0)
+r1 = gettid()
+timer_create(0x0, &(0x7f0000044000)={0x0, 0x12}, &(0x7f0000044000))
+timer_settime(0x0, 0x0, &(0x7f000006b000)={{0x0, 0x8}, {0x0, 0x9}}, &(0x7f0000000280))
+tkill(r1, 0x1000000000016)

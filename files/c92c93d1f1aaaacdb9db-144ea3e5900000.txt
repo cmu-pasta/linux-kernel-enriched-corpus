@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=f9a770285edcbd541a1712c9e50ae0a4510d18b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = epoll_create1(0x0)
+r1 = epoll_create1(0x0)
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+r3 = epoll_create1(0x0)
+r4 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r4, 0x1, r2, 0x0)
+setsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(0xffffffffffffffff, 0x84, 0x9, 0x0, 0x0)
+r5 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r3, 0x1, r5, 0x0)
+epoll_ctl$EPOLL_CTL_ADD(r5, 0x1, r4, 0x0)
+r6 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r6, &(0x7f0000000040))
+epoll_ctl$EPOLL_CTL_ADD(r6, 0x1, r1, &(0x7f00000001c0)={0xa0000019})

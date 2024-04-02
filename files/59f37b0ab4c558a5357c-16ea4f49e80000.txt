@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c6ba4a47d96ab08066ed4035718329a62340be87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+sendmsg$BATADV_CMD_GET_MESH(r1, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={0x0, 0x92}}, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000003c0)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000500)=@newqdisc={0x60, 0x24, 0xe0b, 0x0, 0x0, {0x0, 0x0, 0x0, r2, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_netem={{0xa}, {0x30, 0x2, {{0x0, 0x80000001}, [@TCA_NETEM_DELAY_DIST={0x6, 0x2, "3efc"}, @TCA_NETEM_JITTER64={0xc, 0xb, 0x5}]}}}]}, 0x60}}, 0x0)

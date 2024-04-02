@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=99c8551967f413d108cfdd2950a0cb5652de07b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f00000060c0), 0x0, 0x8002)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x5393, &(0x7f0000000000)={0x1d, 0x0, 0x0, "12183fe770e75e1800001c0300000400d860ae62748b110440e664de02"})

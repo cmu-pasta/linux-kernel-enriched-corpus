@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7508f47ba8f85b2d6960defc7509c6fa936a37aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x3)
+connect$bt_rfcomm(r0, &(0x7f0000000040)={0x1f, @none, 0xa}, 0xa)
+getsockopt$inet6_IPV6_FLOWLABEL_MGR(0xffffffffffffffff, 0x29, 0x20, &(0x7f0000000100)={@initdev={0xfe, 0x88, '\x00', 0x0, 0x0}, 0x0, 0x2}, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x3)
+ioctl$FS_IOC_GETFSLABEL(r1, 0x400452c8, &(0x7f0000000100))

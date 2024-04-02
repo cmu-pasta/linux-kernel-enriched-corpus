@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4fcb4de43fa47a86c2f17c42968c1fdc21fb22ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000002800)={0x0, 0x0, &(0x7f00000006c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="34000000100000002100"/20, @ANYRES32=0x0, @ANYBLOB="00000000000000000d00128009000100697069700000000004000280"], 0x34}}, 0x0)
+syz_usb_connect(0x0, 0x36, &(0x7f0000000000)=ANY=[@ANYBLOB="12010000c481bf084c05e10201b4000000010902240001000000000904000002000000000905090200faffffff09058202"], 0x0)
+perf_event_open(0x0, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+clone(0x0, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)

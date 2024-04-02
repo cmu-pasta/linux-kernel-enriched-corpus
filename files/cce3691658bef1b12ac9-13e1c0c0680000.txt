@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3ff5923b83d4031858bfc3491fc07b5a713a3433
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$vga_arbiter(0xffffffffffffff9c, &(0x7f0000000000), 0x20202, 0x0)
+write$vga_arbiter(r0, &(0x7f0000000040)=@other={'lock', ' ', 'mem'}, 0x9)
+write$vga_arbiter(r0, &(0x7f0000000080)=@other={'unlock', ' ', 'io'}, 0xa) (async)
+write$vga_arbiter(r0, &(0x7f0000000080)=@other={'unlock', ' ', 'io'}, 0xa)

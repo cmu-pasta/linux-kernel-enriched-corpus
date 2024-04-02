@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=972172d5c7c0d6ce6801e3755b8007ea19f1bd38
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000040)={0x1f, 0x21, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)

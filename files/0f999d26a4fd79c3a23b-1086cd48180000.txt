@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7db244c3429f1580ae2a888c910ecd4cffc301d2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+r0 = syz_open_dev$dri(&(0x7f0000000180), 0x2, 0x0)
+ioctl$DRM_IOCTL_MODE_GETRESOURCES(r0, 0xc04064a0, &(0x7f0000000140)={0x0, &(0x7f0000000080)=[<r1=>0x0], 0x0, 0x0, 0x0, 0x1})
+ioctl$DRM_IOCTL_MODE_GETCRTC(r0, 0xc06864a1, &(0x7f00000001c0)={0x0, 0x0, r1, <r2=>0x0})
+ioctl$DRM_IOCTL_MODE_PAGE_FLIP(r0, 0xc01864b0, &(0x7f0000000340)={r1, r2, 0x1, 0x0, 0x8001})

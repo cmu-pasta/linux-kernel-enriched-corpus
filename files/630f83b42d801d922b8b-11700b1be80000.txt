@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5aa4e6a57aa25b519191296eb1cea73c72d30ce5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = fsopen(&(0x7f0000000280)='ceph\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r0, 0x1, &(0x7f0000000000)='source', &(0x7f0000000040)='c:::\x00', 0x0)
+r1 = gettid()
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+tkill(r1, 0xb)

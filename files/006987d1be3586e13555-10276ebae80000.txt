@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2dcd51f01af907004b3a141286e3675ca61231bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"sysctl":true,"tmpdir":true,"segv":true}
+openat$qrtrtun(0xffffffffffffff9c, &(0x7f0000000100), 0x0)
+r0 = socket$qrtr(0x2a, 0x2, 0x0)
+connect$qrtr(r0, &(0x7f0000000040)={0x2a, 0xffffffff, 0xfffffffe}, 0xc)
+write$binfmt_script(r0, 0x0, 0x0) (fail_nth: 18)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b1f88a7644e9f89d278921e020d254f531567dc2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socketpair(0x1, 0x2, 0x0, &(0x7f00000002c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='blkio.throttle.io_serviced_recursive\x00', 0x26e1, 0x0)
+ioctl$PERF_EVENT_IOC_SET_FILTER(r1, 0x89a0, &(0x7f0000000080))
+socketpair(0x1, 0x5, 0x0, &(0x7f0000000740)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r2, 0x89a2, &(0x7f0000000080))
+ioctl$PERF_EVENT_IOC_SET_FILTER(r0, 0x89a1, &(0x7f0000000080))

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7349616606afa3c986c377792f7ccbf9daae1142
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+timer_create(0x0, &(0x7f0000000040)={0x0, 0x21}, &(0x7f0000000100))
+timer_settime(0x0, 0x0, &(0x7f000006b000)={{0x0, 0x8}, {0x0, 0x989680}}, 0x0)
+openat$ptmx(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000001880)={0x8, 0x689}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=2aabc827b8aea09353150377f96630a3ff18f6a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+listen(r0, 0x0)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000680)={0x10, 0x4, &(0x7f0000000380)=ANY=[@ANYBLOB="18020000de2000000000000000000000850000003d00000095"], &(0x7f00000000c0)='GPL\x00', 0x1}, 0x90)
+r2 = bpf$MAP_CREATE(0x0, &(0x7f00000023c0)=@base={0x12, 0x4, 0x8, 0xb}, 0x48)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f00000001c0)={@map=r2, r1, 0x7}, 0x10)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000500)={r2, &(0x7f0000000240), &(0x7f00000004c0)=@tcp6=r0}, 0x20)
+sendmmsg$inet6(r0, &(0x7f0000000300)=[{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xf06}}, {{0x0, 0x0, &(0x7f0000000180)=[{&(0x7f0000000200)="b0", 0x20000201}], 0x1}}], 0x2, 0x0)

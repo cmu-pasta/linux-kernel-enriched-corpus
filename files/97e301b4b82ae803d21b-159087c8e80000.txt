@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ee595bf9e099fff0610828e37bbbcdb7a2933f58
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+syz_mount_image$hfs(&(0x7f0000000e80), &(0x7f0000000140)='./file1\x00', 0x2014800, &(0x7f0000000300)=ANY=[], 0xb, 0x288, &(0x7f0000000ec0)="$eJzs3cFqE1EUxvHvTic1tbWOWhHEVbXgStq6ETcFKT6DK1GbCMVQQSuoG4tr8QHcu/EBfAhXIrjWlSsfoLuRe2cmuaEzmZA2cxv8/yBhTO6ZnDMzydwzYEcA/lv3tn99vv3HPow0pzlJd6VIUluKJV3Wlfarvf3d/V63M2pFcy7CPoyySHNkzM5etyzUxrmIXGL/FWvJfw3TkaZp+jt0EgjOfftLRNKZ/Nvp3m83ntl0HIROIDBzqEO91nLoPAAAYeXn/yg/zy/l8/coktby075//v95LnC+x3UYOoHAvPO/67JSY/fveffWoN9zLZx9Pyq6xEk+a17ZkTU0wTR1XaXLJVp4utvr3tp53utEeq+tnDdsRdKWOtmhW6jJdrWkNy1Jecy1jbDoamjZGjYr8r9UFnecrV3HfDPfzUOT6JM6/flfnBpbsys76e+p+61B/uvVa3RVJtmoo1W2+k/x1eENW1Nlu7wjUbF7Lmj4AkFSl+d8/hiKyqrbGB1l91JJ1GZN1IqN+uJFDY7m6shpMx/NA7Oqv/qqbW/+H9mtvaZxvpl2jBuZHxlFPaW9YexGJv5LB9dK1xlNVg8m8kFPdEfLL9+8ffa41+u+CLjQVshP9xZaOhVpTH+hOAhOSz4ntxA381nzM7vpih/p2sHhfprQnMFOrx7zrsmE0DQ77zJZ/+f1K+uuRbJPyYh5elq3cm+NGxUd0EX3fNabAJr8+nx1b7BY3cGN23Ndvynd8F6s6UYSm+dCXbkzw2zrhx5x/R8AAAAAAAAAAAAAAAAAAGDWNPFfDkLXCAAAAAAAAAAAAAAAAAAAAADArDu5+/9mfxt7zPv/Dt1Mh/v/AmH8CwAA//9EFHid")
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+r1 = openat(r0, &(0x7f0000000040)='.\x00', 0x0, 0x0)
+openat(r1, &(0x7f0000000000)='./file0\x00', 0x10240, 0x0)

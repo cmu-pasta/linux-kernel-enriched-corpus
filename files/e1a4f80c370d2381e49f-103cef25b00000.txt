@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=149d7751733001d683eca36df500722bff6cc350
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false,"segv":true}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x2, 0x31, 0xffffffffffffffff, 0x0)
+syz_io_uring_setup(0x3ede, &(0x7f0000000180), &(0x7f0000002000/0x2000)=nil, &(0x7f0000ffd000/0x3000)=nil, 0x0, 0x0)
+clone(0x0, 0x0, 0x0, 0x0, 0x0) (fail_nth: 18)

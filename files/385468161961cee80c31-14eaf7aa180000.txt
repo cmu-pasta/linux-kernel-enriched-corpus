@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=bfb92f62cc4ed962e2feac704c3c4a6fd9659ba5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"vhci":true,"swap":true,"segv":true}
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000080)=@newsa={0x13c, 0x1a, 0x713, 0x0, 0x0, {{@in6=@private2, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee00}, {@in=@multicast2, 0x0, 0x32}, @in=@loopback, {}, {}, {}, 0x0, 0x0, 0x2}, [@algo_aead={0x4c, 0x12, {{'rfc4106(gcm(aes))\x00'}, 0x0, 0x80}}]}, 0x13c}}, 0x0)
+r0 = socket(0x11, 0x800000003, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000000600)={'team0\x00', <r1=>0x0})
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000000)=ANY=[@ANYBLOB="a400000024000b04000000000002000000001200", @ANYRES32=r1, @ANYBLOB="00000000ffffffff000000000b00010074617072696f00007400020056000100020000000000000000000000000000000000080004000000000000000000000000000000000000000000000b000000000000000008000000000000000000000000000000000000000000000000000000000000000800050001000000100002800c000180080004"], 0xa4}}, 0x0)

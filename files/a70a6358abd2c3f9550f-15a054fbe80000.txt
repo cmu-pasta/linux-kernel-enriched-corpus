@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=df466e1151a7e45dd880d8c7033f1ad48acebfb4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+write$nci(r0, 0x0, 0x0)
+write$nci(r0, 0x0, 0x0)
+write$nci(r0, 0x0, 0x0)
+write$nci(r0, 0x0, 0x0)
+write$nci(r0, 0x0, 0x0)
+sendmsg$NFC_CMD_START_POLL(0xffffffffffffffff, 0x0, 0x0)
+write$nci(r0, 0x0, 0x0)

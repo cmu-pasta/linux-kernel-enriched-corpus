@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ebbbd5f466e1068e36f527e0a142aa864fc755db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000080)='erspan0\x00', 0x10)
+connect$inet(r0, &(0x7f0000000100)={0x2, 0x0, @rand_addr=0x7fffffff}, 0x10)
+write$binfmt_aout(r0, 0x0, 0x0)

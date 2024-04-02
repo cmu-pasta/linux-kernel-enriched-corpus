@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1478b5549a29676cdc4027bbae3d8328f167407f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect$cdc_ncm(0x0, 0x6e, &(0x7f0000000480)=ANY=[@ANYBLOB="12010000020000402505a1a440000102030109025c0002010000000904000001020d0000052406000105240000000d240f0100000000000000000006241a0000000905810340000000000904010000020d00000904010102020d0000090582020020000000090503020002000000"], 0x0)
+syz_usb_control_io$uac1(0xffffffffffffffff, 0x0, &(0x7f00000003c0)={0x44, &(0x7f0000000180)={0x0, 0x0, 0x1, 'O'}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_ep_write(r0, 0x0, 0x49, &(0x7f0000000140)="a0bb6d1075da4965da177f488306729d538d82cfed7269c3d3ae681f9658bc1f1241f9b2efec8bf52d95270c9063d5593adf076f3fe3a1329b45b86c430253916e")
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, &(0x7f0000000640)={0x44, 0x0, 0x0, 0x0, &(0x7f0000000380)={0x20, 0x80, 0x1c, {0x1a, 0x1, 0x9, 0x7fff, 0x0, 0x4, 0x9, 0x101, 0x8, 0xdf5, 0x100}}, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, &(0x7f0000000100)={0x14, 0x0, &(0x7f00000000c0)={0x0, 0x3, 0x1a, {0x1a}}}, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)

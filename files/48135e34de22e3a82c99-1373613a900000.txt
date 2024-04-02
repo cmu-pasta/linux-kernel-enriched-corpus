@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=dca9e53cde5cb0b734ea6f65ae9b2bbfe424a48c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r2 = dup(r1)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x8912, 0x400200)
+ioctl$PERF_EVENT_IOC_ENABLE(r2, 0x2400, 0x8)
+connect$bt_l2cap(r0, &(0x7f0000000040)={0x1f, 0x0, @fixed}, 0xe)
+shutdown(r0, 0x1)

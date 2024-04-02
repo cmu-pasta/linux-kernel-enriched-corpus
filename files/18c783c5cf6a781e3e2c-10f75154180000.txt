@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=7e6dfcb0a8b554fbcb2146143f84f65aa2954657
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='blkio.bfq.io_merged_recursive\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000640), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000340)={'wlan1\x00'})
+sendmsg$NL80211_CMD_FRAME(0xffffffffffffffff, 0x0, 0x0)
+preadv(r0, &(0x7f00000015c0)=[{&(0x7f0000000080)=""/124, 0xffffffff000}], 0x5, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cgroup.controllers\x00', 0x275a, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+write$cgroup_int(r3, &(0x7f0000000000), 0xffd2)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+sendfile(r4, r2, 0x0, 0x100000064)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f00000014c0), 0xffffffffffffffff)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r6, 0x8933, &(0x7f00000003c0)={'wlan0\x00', <r7=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r6, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000000)={0x2c, r5, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r7}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x994}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8, 0xb7, 0x78}]}, 0x2c}}, 0x40880)

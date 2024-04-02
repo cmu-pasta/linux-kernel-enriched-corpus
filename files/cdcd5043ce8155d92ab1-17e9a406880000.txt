@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=75cf599d7211c156c9f4bdad353b077f211df7d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x6, 0x4, &(0x7f00000008c0)=ANY=[@ANYBLOB="180200001b00000000000000b296ffff850000004100000095000000000000003af1f53778422dccc1c3e37fb12b70dbbaa62f65a7762b5ed9fef666387df316ddb9043bb1e719eb042c080f5e94778ec365075dd75aaaa969f99760a84a18cb0534ba5f8ac821babe00f7e9d8af4c5b4692af9eac983e8f8ff0d8569126438aad51f49add53f80d45951be3d4"], &(0x7f00000000c0)='GPL\x00', 0x4, 0x1000, &(0x7f000062b000)=""/4096, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000740)={r0, 0x0, 0x0, 0xd, 0x0, 0x0, 0xf000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}, 0x48)

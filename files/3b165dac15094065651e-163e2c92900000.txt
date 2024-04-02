@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=2718db8862c02114386f3359b90b058f3ebdeea4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"close_fds":false,"vhci":true,"tmpdir":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000040)={'netdevsim0\x00', <r2=>0x0})
+ioctl$sock_inet6_SIOCADDRT(r0, 0x890b, &(0x7f0000000100)={@private2, @private2, @ipv4={[0xfc], [], @broadcast}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6, r2})
+r3 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+setsockopt$inet6_int(r3, 0x29, 0x24, &(0x7f00000000c0)=0x9, 0x4)
+connect$inet6(r3, &(0x7f00000004c0)={0xa, 0x0, 0x0, @mcast1, 0x5}, 0x1c)
+write(r3, &(0x7f0000000140)="27e40c9c81cf88102ee6869282e499fc6c0124c5cce6a9265311ecb1fcaab1da9162c1a40dde469c", 0x28)

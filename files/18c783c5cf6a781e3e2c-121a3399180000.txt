@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=7e6dfcb0a8b554fbcb2146143f84f65aa2954657
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+prlimit64(0x0, 0xe, &(0x7f0000001880)={0x8, 0x689}, 0x0)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x4)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f00000000c0)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmmsg$unix(r2, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f00000014c0), 0xffffffffffffffff)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r4, 0x8933, &(0x7f00000003c0)={'wlan1\x00', <r5=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r4, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000000)={0x2c, r3, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x994}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8, 0xb7, 0x78}]}, 0x2c}}, 0x40880)

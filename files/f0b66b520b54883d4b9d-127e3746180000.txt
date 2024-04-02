@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=416a58dce9f16ea8e68f9f58cb06bc0f4869ada8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x100008b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+r0 = getpid()
+sched_setscheduler(r0, 0x1, &(0x7f0000000100)=0x5)
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000001480)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+connect$unix(r1, &(0x7f000057eff8)=@abs, 0x6e)
+sendmmsg$unix(r2, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0) (rerun: 64)

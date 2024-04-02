@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2c2730c5bfc930926519b6ca5edd1c5052e84418
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$evdev(&(0x7f0000000140), 0x0, 0x121041)
+fcntl$setstatus(r0, 0x4, 0x42800)
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f00000000c0)={0x0, 0x0, 0x0, {0x0, 0x100000000000001}, {0x74, 0x2}})
+write$evdev(r0, &(0x7f0000000040), 0x373)
+r1 = open(&(0x7f0000000200)='./file0\x00', 0x400a0c0, 0x0)
+r2 = gettid()
+fcntl$setownex(r1, 0xf, &(0x7f0000000080)={0x2, r2})
+fcntl$setlease(r1, 0x400, 0x0)
+creat(&(0x7f0000001440)='./file0\x00', 0x0)

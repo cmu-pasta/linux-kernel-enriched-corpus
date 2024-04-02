@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f35281f65a6c33ca898b72786b2d5f722037a506
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x6, 0x0)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e20}, 0x1c)
+r1 = socket$inet_dccp(0x2, 0x6, 0x0)
+listen(r0, 0x6)
+setsockopt(r1, 0x10d, 0x800000000d, &(0x7f00001c9fff)="03", 0x1)
+connect$inet(r1, &(0x7f0000e5c000)={0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x20}}, 0x10) (async)
+sendmmsg(r1, &(0x7f0000005700)=[{{&(0x7f0000003900)=@pptp, 0x80, &(0x7f0000003b80), 0x3a5, &(0x7f0000003bc0)}}], 0x3a6, 0x0)
+sendmmsg(r1, &(0x7f0000001e80)=[{{0x0, 0x0, &(0x7f0000000640)=[{&(0x7f0000000880)="ed", 0x1}], 0x1}}], 0x1, 0x0) (rerun: 64)

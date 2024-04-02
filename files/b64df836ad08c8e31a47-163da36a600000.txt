@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7c27d8aa6c0f824004399b6b14776c9c7d8dc34d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"sandbox":"","fault_call":-1,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000180)='/dev/fuse\x00', 0x2, 0x0)
+mount$fuse(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000000)='fuse\x00', 0x0, &(0x7f0000001440)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x4000}, 0x2c, {'user_id'}, 0x2c, {'group_id'}})
+clone(0x80000000103, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+chdir(&(0x7f0000000080)='./file0\x00')
+pivot_root(&(0x7f00000000c0)='./file0\x00', &(0x7f0000000100)='./file0\x00')

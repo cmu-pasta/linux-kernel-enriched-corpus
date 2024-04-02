@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+read(0xffffffffffffffff, &(0x7f0000003200)=""/4096, 0x1000)
+r0 = syz_open_dev$video(&(0x7f0000000100)='/dev/video#\x00', 0x7fff, 0x42000)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000140)={0x0, 0x4000000a5fc, 0x1, {0x2, @raw_data="14aa34ef357e730728d77ed7a6a23b6d0227513734b833111429be2889875cea977e6a0e402b6363b304e7a2f555b8297f88b4291fddc0ac9caff7dda0c9f87b310c1919aa9791d62723584eb9b043d2a8fd33a054016ed11ec972dc9cb8956eeea74a06cbb064b1c6d0811b288ce1d45131ac77302ac8740c75550deccb835f314c9e442329d9d0e3b22429e8de3fb18235e253596b2c4e6ede53c6733493e2b222af6eb7f3dda2e4329dbc5b5b0eb3e099505b064b16021fff8bc6ac2747405556bf1f68b43967"}})
+syz_open_dev$media(&(0x7f0000000200)='///./media#\x00', 0x20, 0xffffffffffffffff)
+syz_open_dev$video4linux(&(0x7f0000000180)='/dev/v4l-subdev#\x00', 0x5d0, 0x3c300)

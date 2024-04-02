@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b397b847962e20689fafdfe4732866cf2508891a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_procfs$pagemap(0x0, &(0x7f0000000100))
+ioctl$PAGEMAP_SCAN(r0, 0xc0606610, &(0x7f0000000200)={0x60, 0x0, &(0x7f0000ffb000/0x4000)=nil, &(0x7f0000ffc000/0x1000)=nil, 0x0, &(0x7f0000000140)=[{}], 0x1000000000000000})

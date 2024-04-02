@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d7d8a783ce5b32b9c9d9f0479b435709ab045cae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$inet_udp_encap(r0, 0x11, 0x64, &(0x7f0000000080)=0x2, 0x4)
+socket$packet(0x11, 0x3, 0x300)
+syz_emit_ethernet(0xbe, &(0x7f00000000c0)={@local, @dev={'\xaa\xaa\xaa\xaa\xaa', 0x3}, @void, {@ipv4={0x800, @udp={{0x5, 0x4, 0x0, 0x0, 0xb0, 0x0, 0x0, 0x0, 0x11, 0x0, @empty, @empty}, {0x0, 0x4e20, 0x9c, 0x0, @wg=@initiation={0x1, 0x0, "de85e58318d930236224d1f95413fb55f7aca5d97ffbd7c614c1ced8d9bf90e5", "d145c6cd5cfaaa7640de5eb21f6c7e2565b59d029ba24d72de886fb301a09e5d5fc27a94c2ae19accc1d8eb042202ed7", "9e14173a4a7a56fa6ad33416d04981acab85f95422ba1af04b8dcab5", {"71c8c6fe5187e3118c2492814769ba35", "0f8840b4469a5349db26cfc71d815a21"}}}}}}}, 0x0)

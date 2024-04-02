@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7fc86d0324e1d39cd4c7cbad54f476d78c21fe55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="180100001c00000000000000120000f1850000006d00000095"], &(0x7f0000000000)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000001700)={&(0x7f0000000380)='hrtimer_expire_entry\x00', r0}, 0x10)
+r1 = socket$alg(0x26, 0x5, 0x0)
+accept$alg(r1, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.stat\x00', 0x275a, 0x0)

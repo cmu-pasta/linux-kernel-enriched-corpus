@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=75cf599d7211c156c9f4bdad353b077f211df7d6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000180)={0x6, 0x4, &(0x7f0000000300)=ANY=[@ANYBLOB="18020000000000000000000000000030850000002c00000095000000000000002b4003fe37a077ae55f52c0d80a2649baca85309be96d5a45bbbdb5ff7ffffffd075b3eee14473f51be98db7efbb059842ba4470e8e04acb807fbbabc68abdcce9f672b6bb61c302dfd5c11071adac29fd64d33a3502fbeb1ed99dd0e792f24c420bfcc2635421d339ad521d6953b1137850d9e9ebf65ee988ea2dbee528678eb47efb7b3f19046c6f1bd1bf56e5853ed96137f95b3a11954ed1c8a8676468cf2405e48723d4b1ff"], &(0x7f00000000c0)='GPL\x00', 0x0, 0x1000, &(0x7f0000001400)=""/4106, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x18)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000240)=@newlink={0x34, 0x10, 0x801, 0x0, 0x0, {}, [@IFLA_XDP={0xc, 0x2b, 0x0, 0x1, [@IFLA_XDP_FD={0x8, 0x1, r1}]}, @IFLA_GROUP={0x8}]}, 0x34}}, 0x0)

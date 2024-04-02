@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=889c6ffa4b60ce28909082580e78a68b136c373f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$tty20(0xc, 0x4, 0x1)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000080)=0x15)
+ioctl$TCSETSF2(r0, 0x404c4701, &(0x7f0000000040)={0x2, 0x0, 0x1, 0x0, 0x0, "ebeed70000000000000000960000000800", 0x0, 0x2})

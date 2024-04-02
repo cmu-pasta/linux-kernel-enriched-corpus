@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4ae34a6dfa6e27bc7774b7c8f5b9b7bd6f3f950c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r0)
+ptrace$setregs(0xf, r0, 0x100000001, 0x0)

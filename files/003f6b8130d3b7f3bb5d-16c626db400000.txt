@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+semget$private(0x0, 0x4000, 0x3f)
+syz_open_dev$sndpcmp(0x0, 0x0, 0x10000)
+syz_open_dev$admmidi(&(0x7f0000000100)='/dev/admmidi#\x00', 0x81, 0xfffffffffffffffe)

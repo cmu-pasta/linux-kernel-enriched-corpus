@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d5e559272f9c037065203113b6583f3b0fef74ac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"","fault_call":-1,"close_fds":false}
+recvmsg(0xffffffffffffffff, 0x0, 0x0)
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080)='/dev/nullb0\x00', 0x4000000004002, 0x0)
+ioctl$BLKFRASET(r0, 0x1264, &(0x7f0000000040)=0x1d7a8c1b)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r0, 0x0)
+setsockopt$ALG_SET_KEY(0xffffffffffffffff, 0x117, 0x1, 0x0, 0x0)
+accept(0xffffffffffffffff, 0x0, 0x0)
+bind$alg(0xffffffffffffffff, 0x0, 0x0)
+sendmsg$SEG6_CMD_SET_TUNSRC(0xffffffffffffffff, 0x0, 0x0)

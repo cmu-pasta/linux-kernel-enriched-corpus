@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=583c7c84c00bc67712aa94eedbbbaac89cd54a2a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":false}
+socket$nl_route(0x10, 0x3, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+socket$l2tp6(0xa, 0x2, 0x73)
+socket$nl_route(0x10, 0x3, 0x0)
+socket$igmp(0x2, 0x3, 0x2)
+socket$nl_route(0x10, 0x3, 0x0)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000100)=ANY=[@ANYBLOB="4000000010003b15000000000008000000004888", @ANYRES32=0x0, @ANYBLOB="d530d995212cf95a2000128008000100687372001400028008000200", @ANYRES32=r2, @ANYBLOB="08000100", @ANYRES64=r1], 0x40}}, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=@base={0x4, 0x0, 0x31}, 0x48)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000100)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+ioctl$SIOCSIFHWADDR(r3, 0x89f0, &(0x7f0000000900)={'bridge0\x00', @random='\x00\x00\x00 \x00'})

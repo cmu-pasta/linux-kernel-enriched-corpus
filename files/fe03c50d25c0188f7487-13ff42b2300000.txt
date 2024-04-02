@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=eb1cbdc16362169b59e7aae96d5c4f6951862d42
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000100)={<r0=>0xffffffffffffffff})
+r1 = syz_open_dev$ndb(&(0x7f0000000000), 0x0, 0x0)
+ioctl$NBD_SET_SOCK(r1, 0xab00, r0)
+ioctl$NBD_CLEAR_SOCK(r1, 0xab04)
+r2 = socket$inet_udplite(0x2, 0x2, 0x88)
+r3 = dup(r2)
+ioctl$NBD_SET_SOCK(r1, 0xab00, r3)
+ioctl$NBD_SET_FLAGS(r1, 0xab0a, 0xfffffffffffffffe)
+ioctl$NBD_SET_SOCK(r1, 0xab03, 0xffffffffffffffff)

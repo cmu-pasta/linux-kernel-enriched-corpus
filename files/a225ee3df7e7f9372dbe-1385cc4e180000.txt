@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d0d8879a66b36bd60a0d815b7755e558a9afc82f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sequencer(0xffffffffffffff9c, &(0x7f0000000c40), 0x882, 0x0)
+write$sequencer(r0, &(0x7f0000000c80)=[@generic, @v={0x93, 0x0, 0x0, 0x0, @generic, 0x0, 0x577}, @e={0xff, 0x0, 0x0, 0x0, @generic}], 0x11)

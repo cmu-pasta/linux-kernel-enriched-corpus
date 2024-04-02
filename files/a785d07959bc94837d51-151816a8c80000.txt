@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=a274d65fc733448ed518ad15481ed575669dd98c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x300000b, 0x4031, 0xffffffffffffffff, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

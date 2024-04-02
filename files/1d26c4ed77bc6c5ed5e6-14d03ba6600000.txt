@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0b8caec7249e3d0cda81e332e6a0e675c91dafa4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000180)='./file0\x00', 0x0)
+write$P9_RVERSION(r1, 0x0, 0x0)
+r2 = dup(r1)
+sendmsg$TIPC_NL_LINK_SET(r2, 0x0, 0xc0)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x26f)
+mount$9p_fd(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f00000002c0)='9p\x00', 0x0, &(0x7f0000000400)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r1}})

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b4018d5a9f5a86b2096c046e918fcae30db4a3cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+r0 = syz_open_dev$usbfs(&(0x7f0000003f00), 0x1ff, 0xa401)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+ioctl$USBDEVFS_SUBMITURB(r1, 0x8038550a, &(0x7f0000000000)=@urb_type_control={0x2, {}, 0x0, 0x0, &(0x7f0000000240)={0x3, 0x16, 0x3}, 0x8, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0})

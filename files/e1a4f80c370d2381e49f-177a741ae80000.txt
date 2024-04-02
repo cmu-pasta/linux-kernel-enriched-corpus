@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=149d7751733001d683eca36df500722bff6cc350
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$hpet(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+mmap$dsp(&(0x7f0000ff9000/0x1000)=nil, 0x1000, 0x0, 0x12, r0, 0x0)
+syz_clone3(&(0x7f0000001600)={0x0, 0x0, 0x0, 0x0, {}, 0x0, 0x0, 0x0, 0x0}, 0x58) (fail_nth: 33)

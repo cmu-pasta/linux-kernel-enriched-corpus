@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=df466e1151a7e45dd880d8c7033f1ad48acebfb4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+ioctl$ifreq_SIOCGIFINDEX_team(0xffffffffffffffff, 0x8933, &(0x7f00000002c0))
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)=ANY=[@ANYBLOB="440000001000010477ca7531573fc400925e4a44", @ANYRES32, @ANYBLOB="0d01140000000000240012000c00040062720064676500000c0002f60800000001080000080001"], 0x44}}, 0x0)
+r0 = socket(0x10, 0x803, 0x0)
+getsockname$packet(r0, &(0x7f0000000100)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0xa)
+sendmsg$nl_route(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000280)=ANY=[@ANYBLOB="480000001000050700001100fbffffff00000002", @ANYRES32=r1], 0x48}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ff9d1fea27c1bb7723b5e025eea857d02e07c5fd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+open(&(0x7f0000000440)='./file0\x00', 0x110000141042, 0x0)
+mount(&(0x7f0000000080)=ANY=[@ANYBLOB='[d::]::'], &(0x7f00000000c0)='./file0\x00', &(0x7f0000000040)='ceph\x00', 0x0, 0x0)

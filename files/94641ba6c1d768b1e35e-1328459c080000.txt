@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f35281f65a6c33ca898b72786b2d5f722037a506
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = socket$inet6(0xa, 0x6, 0x0)
+bind$inet6(r0, &(0x7f0000000040)={0xa, 0x4e20}, 0x1c)
+r1 = socket$inet_dccp(0x2, 0x6, 0x0)
+listen(r0, 0x6)
+setsockopt(r1, 0x10d, 0x800000000d, &(0x7f00001c9fff)="03", 0x1)
+connect$inet(r1, &(0x7f0000e5c000)={0x2, 0x4e20, @empty}, 0x10)
+sendto$inet(r1, &(0x7f0000000080)="40c8b8f9194159e73c44093c291a", 0xe, 0x0, 0x0, 0x0) (rerun: 64)
+sendmmsg(r1, &(0x7f0000000fc0)=[{{0x0, 0x0, &(0x7f00000005c0)=[{&(0x7f00000002c0)='Q', 0x1}], 0x1}}], 0x1, 0x0) (rerun: 64)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=2c2730c5bfc930926519b6ca5edd1c5052e84418
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = open(&(0x7f0000000200)='./file0\x00', 0x4008040, 0x0)
+r1 = gettid()
+fcntl$setownex(r0, 0xf, &(0x7f0000000080)={0x2, r1})
+fcntl$setlease(r0, 0x400, 0x0)
+open(&(0x7f0000000180)='./file0\x00', 0x14d842, 0x0)
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f0000001080)={0x0, 0x0, 0x0, {0x0, 0x1}, {0x74, 0x2}, @ramp})
+r2 = syz_open_dev$evdev(&(0x7f00000000c0), 0x0, 0x822b01)
+syz_open_dev$evdev(&(0x7f0000000000), 0x0, 0x0)
+r3 = syz_open_dev$evdev(&(0x7f00000013c0), 0x0, 0x0)
+ioctl$EVIOCGVERSION(r3, 0x5452, &(0x7f0000000000)=""/113)
+write$char_usb(r2, &(0x7f0000000040)="e2", 0x2ad8)

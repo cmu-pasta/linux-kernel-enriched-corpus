@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=205f82d8433e16ef8331dfc14de5bb7e42c39f17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_open_dev$evdev(0x0, 0x0, 0x0)
+syz_open_dev$evdev(&(0x7f0000000000), 0x1, 0x36640)
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000100)=ANY=[@ANYBLOB="1201000079381010c2154000f3070182030109021b0001000000080904000001e1f8550009058b0b40af5440b12bba864073a5d621a5ab6ca04705929a953ac3d7768c9b8eb64af13ab0e41a32f5dfd6331194fef3b05b06b30a8e5342addd0b6552f10e6ca61a61df43626f3da84f56997b4be098b786ff99832d23f57664c1713eb2a6d95ea75d7fac62b65043854ef11cc65c88d925d7028991689d3ec5d40cdfb55364c713e5022148d7cf94eed2b766"], 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)

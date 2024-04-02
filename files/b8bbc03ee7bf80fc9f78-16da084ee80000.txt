@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a26b0f3d97b4997c571201749d830c6b0a239ce0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, 0x0, 0x0)
+bpf$MAP_GET_NEXT_KEY(0x2, &(0x7f0000000080)={r0, 0x0, 0x0}, 0x20)
+bpf$MAP_UPDATE_CONST_STR(0x2, &(0x7f0000001800)={{r0}, 0x0, &(0x7f00000017c0)='%-010d \x00'}, 0x20)
+bpf$BPF_BTF_GET_NEXT_ID(0x17, &(0x7f0000000240)={0x401}, 0x8)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000140)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="18010000080000000000000000000004850000006d00000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x80)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f00000003c0)='kmem_cache_free\x00', r1}, 0x10)
+socketpair(0xa, 0x3, 0x9c, &(0x7f0000000300))

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=9b43c44b30fccdef6049230c1826ca5d3a2f8b6d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$dri(&(0x7f0000000180), 0x0, 0x0)
+r1 = syz_open_dev$dri(&(0x7f0000000180), 0x0, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_DUMB(r1, 0xc02064b2, &(0x7f0000000200)={0x7b, 0x3f, 0x7e, 0x0, <r2=>0x0})
+ioctl$DRM_IOCTL_MODE_DESTROY_DUMB(r0, 0xc00464b4, 0x0)
+r3 = syz_open_dev$dri(0x0, 0x0, 0x0)
+syz_open_dev$dri(0x0, 0x0, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_DUMB(r0, 0xc02064b2, &(0x7f0000000080)={0x6, 0x3f, 0x85}) (async)
+ioctl$DRM_IOCTL_MODE_DESTROY_DUMB(r0, 0xc00464b4, &(0x7f0000000200)={r2})
+syz_open_dev$dri(0x0, 0x0, 0x0)
+ioctl$DRM_IOCTL_MODE_GETRESOURCES(0xffffffffffffffff, 0xc04064a0, 0x0)
+ioctl$DRM_IOCTL_MODE_GETCONNECTOR(0xffffffffffffffff, 0xc05064a7, 0x0)
+ioctl$DRM_IOCTL_MODE_GETCONNECTOR(r3, 0xc05064a7, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_DUMB(r3, 0xc02064b2, 0x0)

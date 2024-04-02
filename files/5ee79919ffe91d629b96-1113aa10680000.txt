@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e2f6e81aca595aca980b8562ad6fa5f965d31b0a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000000200)='/sys/module/ppp_mppe', 0x0, 0x0)
+r1 = io_uring_setup(0x6851, &(0x7f0000000dc0))
+dup2(r0, r1)
+syz_usb_connect_ath9k(0x5, 0x5a, &(0x7f0000000140)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x1, [{{0x9, 0x2, 0x48}}]}}, 0x0)

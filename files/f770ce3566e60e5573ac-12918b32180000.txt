@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=43ccdb00b33285a46a0cbabcf4abb9dd8f3a2d09
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = syz_init_net_socket$802154_raw(0x24, 0x3, 0x0)
+setsockopt$SO_BINDTODEVICE(r0, 0x1, 0x19, &(0x7f0000000000)='nr0\x00', 0x10)
+sendmsg$802154_raw(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000040)="d20900000000000002", 0x9}}, 0x0)

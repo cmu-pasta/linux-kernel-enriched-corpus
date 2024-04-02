@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9ed44c22919e3cd2c71907b963fb048ac1115073
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+writev(r0, &(0x7f0000000100)=[{&(0x7f0000000340)="9f8194be5ace602f096d07ff00cd66299667b70536342623b372d82fefa01f9a2d378583297f99b4e5970000000000000081f47cd0c15449712f00c51c638e6aea4a8dee825286b31a260e60482bb0b4179b315d02d6ae2a66f0de245745a93f1c988414bb8f8303f280a1964903c8c918c343d182125ad73d38d71876d514344c2cde8700e76b2429c5ace91e", 0x8d}, {0x0}, {0x0}], 0x3)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f0000000000)=0xd)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TCXONC(r1, 0x540a, 0x0)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TCXONC(r2, 0x540a, 0x1)

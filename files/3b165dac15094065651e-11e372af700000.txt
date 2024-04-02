@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=2718db8862c02114386f3359b90b058f3ebdeea4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","netdev":true,"close_fds":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket(0x11, 0x800000003, 0x0)
+bind(r1, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r1, &(0x7f0000005400)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000005c0)=ANY=[@ANYBLOB="4001000024000b0f00e400000000f10febca0746", @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000f6090001006e6574656d00000010010200ca000000b00e"], 0x140}}, 0x0)
+r3 = socket$inet6(0xa, 0x2, 0x0)
+connect$inet6(r3, &(0x7f0000000040)={0xa, 0x0, 0x0, @initdev={0xfe, 0x88, '\x00', 0x0, 0x0}, 0x4}, 0x1c)
+connect$inet6(r3, &(0x7f0000000080)={0xa, 0x4e2c, 0x0, @ipv4={'\x00', '\xff\xff', @local}}, 0x1c)
+sendmmsg(r3, &(0x7f00000092c0), 0x26700, 0x0)
+r4 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r4, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000240)=@newlink={0x34, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0xffffffff}, [@IFLA_XDP={0xc, 0x2b, 0x0, 0x1, [@IFLA_XDP_FD={0x8}]}, @IFLA_GROUP={0x8}]}, 0x34}}, 0x0)

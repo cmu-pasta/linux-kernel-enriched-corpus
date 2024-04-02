@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6351653ec5f8fccc6be0a033579d038be811eb48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0x6, 0x4, 0x3, 0x5}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000440)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000060000007b8ad8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000080000850000000100000095"], &(0x7f0000000240)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f0000000100)='ext4_es_insert_delayed_block\x00', r1}, 0x10)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000180)='memory.events\x00', 0x26e1, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000580)='memory.events\x00', 0x100002, 0x0)
+write$cgroup_type(r2, &(0x7f0000000180), 0x2000)

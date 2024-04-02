@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=81a0f574954f58bad034dfe581f848a9dc1cd056
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./file0\x00', &(0x7f0000000040)='cgroup2\x00', 0x0, 0x0)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0x9, 0x4, &(0x7f0000000400)=ANY=[@ANYBLOB="180000000000000000000000000000006112000000000000950000000000000051fa7824c74186dcbeec0696c37b64e3b24da3183dbe97e805165c0f63cdc2e82818254950ee03568b88091e6a86450545c0e18e09"], &(0x7f0000000100)='GPL\x00'}, 0x70)
+bpf$BPF_LINK_CREATE(0x1c, &(0x7f0000000140)={r1, r0, 0x2}, 0x10)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9623d77a6280008dc6f9d85261fbdf16090a35e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","leak":true,"tun":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+bpf$BPF_TASK_FD_QUERY(0x14, &(0x7f0000000080)={0x0, 0xffffffffffffffff, 0x0, 0x7, &(0x7f0000000000)='cgroup\x00'}, 0x30)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000080)={0x9, 0x4, &(0x7f0000000740)=ANY=[@ANYBLOB="18000000000000000000000000000000611200000000000095000000000000007c0493250b892e97c689c050ff0473608c1d28d0d608324f94e579b2f0b86dcea49b49891ebb4551aa4171724158a9edfd857fdc2692bcd51f1fd36f48ffd6b2f6b4b802203918463a81a869c52040fb0d1919d9d36f6539b21a37d8265e6e328514696b4f87e03111f4a66a6e6f4fcf57dddc6f3296482dcf9a108259de134615d9070000000b6ac06db09ba86a18158464b2932722681b919989400d0426e1825a9c1e1f156dad32ccc0ed5587fb393d7a48a1886ee5836e40343ac0c1068f2dfb113cd0f8e8fb"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x70)
+bpf$BPF_LINK_CREATE(0x1c, &(0x7f0000000100)={r1, r0, 0x2}, 0x10)
+socket$inet6_tcp(0xa, 0x1, 0x106)
+bpf$BPF_GET_PROG_INFO(0xf, 0x0, 0x0)

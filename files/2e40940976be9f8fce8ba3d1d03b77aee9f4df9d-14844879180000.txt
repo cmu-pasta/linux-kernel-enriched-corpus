@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$romfs(&(0x7f0000000140), &(0x7f0000000000)='./file0\x00', 0x8303, &(0x7f0000000240)=ANY=[@ANYRES64=0x0], 0x1, 0x170, &(0x7f0000000280)="$eJzs2r9Kw1AUBvAjDRU7OjoVKlHQNmmiddVRHATfoLS5afDGlESQdrGbOAkK18GXUHwCBx+gb6CLqC9RSXNRm/rnImgsfL+lH5yT5PYEMp1yGPhVFpWJltunOw+zYeAXa/Zag1VZnRKbRFSMQ38wOK/QmLvXen9AlQ8asjX/nPyWFl2xdcw87lhZHwkAAAAAAAAAAAAAAAAAAAAAABTpBRkKLeEfMY871XfVqNPdrXPuhFH6utzfHTFTel7ucM0wwS/i+dgj9aUnIn09Tp7YCOO6OXr9mQwLLcHv0/M19v22EXW6Zc+vu47r7FmWXTNXTHPVMob3MtJ31C+JdLlvdm2m1sm00X2znsq+mXz/2pwnTg7ST3t7/wifBCKF5mFP4CZDHe+Z0ohUnnVFROOlx+yHoBw0+hfHmNiQI+Xmw189z7fflYnQI9q+TWJz2i7dxN+/SiPgTVn/8YTy8gYKzVn9dwD42ksAAAD///pXMFw=")
+statfs(&(0x7f0000000080)='./file0\x00', 0x0)
+open(&(0x7f0000000040)='./file0\x00', 0x10000, 0x5)

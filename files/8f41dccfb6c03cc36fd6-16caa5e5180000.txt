@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=d5bfa3656b464f6ea64d9f5789b64fb0ce3e4442
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"tmpdir":true}
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x7a05, 0x1700)
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+mmap(&(0x7f0000000000/0x400000)=nil, 0x400000, 0xfa88efd1b96bc335, 0x12, r0, 0xf94e8000)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', 0x0, 0x0, 0x0)
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x1, 0x0)
+ioctl$BLKZEROOUT(r1, 0x1262, &(0x7f0000000140)={0x0, 0x1000000})
+ioctl$LOOP_SET_BLOCK_SIZE(r1, 0x4c09, 0x5)
+write$P9_RVERSION(0xffffffffffffffff, &(0x7f00000001c0)={0x15, 0x65, 0xffff, 0x2, 0x8, '9P2000.L'}, 0x15)

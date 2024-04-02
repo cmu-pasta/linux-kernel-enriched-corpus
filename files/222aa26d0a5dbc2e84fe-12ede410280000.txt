@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=d5346cf7f8dfa39e8f25b5b085dfec6cf6bb288e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000180)=@bloom_filter={0x1e, 0x0, 0x974c, 0xffffffc1, 0x0, 0x1, 0x13000000, '\x00', 0x0, 0xffffffffffffffff, 0x0, 0x4, 0x0, 0x4}, 0x48)

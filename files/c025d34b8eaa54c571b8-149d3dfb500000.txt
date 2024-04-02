@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=378c929b412e1ceac0d515df2156365827384ba4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"segv":true}
+syz_usb_connect(0x0, 0xb6, &(0x7f0000000080)=ANY=[@ANYBLOB="12010000de6409104f1711a3318d000000010902a400010000300009043a0002ffffff0009050b0a0000010000800e1ff85c4a32b0be18bda941dd8aa1d4bee1bf0a5e71cdb9b14eacc3110070ef3c03a393e0a80c56d9cc3d98c78f24cc58179b63f5cd1a6e9289cbe067b2459ec248599ca9aeb36de887e26e360449c379ce8cd27f69aa8baa7b7179dbd616b87e439e0a2b83274b1619b2a25ef1bf57b0cc59ac984dc05c2d700d0cc35a6309058111"], 0x0)
+ioctl$HIDIOCSFEATURE(0xffffffffffffffff, 0xc0404806, 0x0)

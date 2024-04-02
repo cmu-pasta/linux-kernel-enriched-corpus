@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e577e83a2928bb47693791855b6572d57cffa3be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='memory.current\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+ioctl$FIBMAP(r0, 0x1, &(0x7f0000001880))
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x15) (async, rerun: 64)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f0000000080)={&(0x7f0000000000)=""/15, 0x2a000, 0x1000}, 0x20)

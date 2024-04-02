@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=28110fef8f5f9ce9420d16f1e36ae8dd80b253af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+socket(0x25, 0x6, 0x1f)
+connect$bt_sco(0xffffffffffffffff, 0x0, 0x0) (async)
+connect$bt_sco(r0, &(0x7f00000001c0)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x12}}, 0x8)
+syz_genetlink_get_family_id$team(&(0x7f0000000240), 0xffffffffffffffff)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000280)={'vxcan1\x00'}) (async)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000280)={'vxcan1\x00'})
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000000380)) (async)

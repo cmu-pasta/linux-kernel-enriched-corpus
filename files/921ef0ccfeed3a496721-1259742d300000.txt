@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=91323fd786290b79727ab1199617755e944d7738
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f00000000c0)={{0x12, 0x1, 0x0, 0x0, 0x0, 0x0, 0x10000000140, 0x926, 0x3333, 0x40, 0x0, 0x0, 0x0, 0x1, [{{0x9, 0x2, 0x24, 0x1, 0x0, 0x0, 0x0, 0x0, [{{0x9, 0x4, 0x0, 0x0, 0x1, 0x3, 0x1, 0x0, 0x0, {0x9, 0x21, 0x0, 0x0, 0x1, {0x22, 0x1}}, {{{0x9, 0x5, 0x81, 0x3, 0x8}}}}}]}}]}}, 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000dc0)={0x2c, &(0x7f0000000b40)={0x0, 0x0, 0x2, {0x2}}, 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_ep_write(r0, 0x0, 0x100, &(0x7f0000000100)="9ae33c5fd8b0c0eac100b89d5246d4f3636253df0301219fd63c9702f96de700000000474eb4e92b6cf3355da045883cf4f6c10dbf96eb13acd58dbb42f62beafb6ad18ba95c0403097555ed36e626de09de23730830e4c81aa46feb2b31575b0768890e5fef6e7b9aaeafa83652adc1d13f2e19051e6e1202b9a8d97782883a8022ada904e6975d611bf95df5a7627ab397f7054cf600de91946586247cedf19a3a4f71dc9861d28df217c2fc34481facd08ed9ce0f0e7e6638bf75b30ae57caf57fb919c2a189fbdd5721d651b4c8a1bd06855d4ea0ecd7246d6c4fb3dc87ea8b411901490c9071ed01dd682503811441b75a8c275d7e1dad497bf0cec27fe")

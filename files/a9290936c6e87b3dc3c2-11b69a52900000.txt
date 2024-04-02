@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=2d8bf01d3fb2f5cbf7270c0d4a5855376c1bcc5e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, 0x0, 0x0)
+setsockopt$SO_TIMESTAMP(0xffffffffffffffff, 0x1, 0x40, 0x0, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x89f1, 0x0)
+ioctl$sock_SIOCGIFVLAN_ADD_VLAN_CMD(0xffffffffffffffff, 0x8982, 0x0)
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000140), 0x8)
+syz_emit_vhci(&(0x7f0000000440)=ANY=[@ANYBLOB="04030b05c80000000000000001061d753c27cf208f8301f0239177c9d2e4e1218b70007cd07fdfa75de08037e36bae89db6c0d5e16b394793ac081f2952535"], 0xe)
+ioctl$EXT4_IOC_MIGRATE(0xffffffffffffffff, 0x6609)

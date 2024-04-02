@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ebbbd5f466e1068e36f527e0a142aa864fc755db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"netdev":true,"resetnet":true,"cgroups":true,"close_fds":true,"wifi":true,"tmpdir":true,"segv":true}
+socket$inet(0x2, 0x1, 0x2f9)
+socket$inet_smc(0x2b, 0x1, 0x0) (async)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000200)='cgroup.stat\x00', 0x26e1, 0x0)
+r1 = socket$kcm(0x2, 0x5, 0x0)
+setsockopt$sock_attach_bpf(r1, 0x1, 0x3e, &(0x7f00000002c0)=r0, 0x4)
+sendmsg$inet(r1, &(0x7f00000004c0)={&(0x7f0000000080)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0xff}}, 0x10, &(0x7f0000000000)=[{&(0x7f00000000c0)="9f", 0x1}], 0x1}, 0x3e8)

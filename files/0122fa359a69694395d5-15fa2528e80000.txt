@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8f4c492a5a2ba52c107a01f408c5402b3b9f0ec8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$uinput(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+ioctl$UI_ABS_SETUP(r0, 0x401c5504, &(0x7f0000000000)={0x400000100002f, {0x0, 0x0, 0x100003}})
+ioctl$UI_SET_EVBIT(r0, 0x40045564, 0x3)
+ioctl$UI_DEV_SETUP(r0, 0x405c5503, &(0x7f0000000080)={{}, 'syz1\x00'})
+ioctl$UI_DEV_CREATE(r0, 0x5501)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file0\x00', 0x0)
+mount(0x0, &(0x7f0000000440)='./file0\x00', &(0x7f0000000040)='ramfs\x00', 0x0, 0x0)
+chdir(&(0x7f0000000080)='./file0\x00')
+syz_mount_image$fuse(0x0, &(0x7f00000000c0)='./file1\x00', 0x0, 0x0, 0x0, 0x0, 0x0)

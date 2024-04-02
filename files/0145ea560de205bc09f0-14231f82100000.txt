@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=73899123694e8ceeb69f8ad8a5b1716fbbd8f589
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true,"tmpdir":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose, 0xfffffffe}, [@rose, @default, @default, @netrom, @bcast, @rose, @rose, @null]}, 0x48)
+ioctl$DRM_IOCTL_IRQ_BUSID(0xffffffffffffffff, 0xc0106403, &(0x7f00000001c0))
+listen(r0, 0x0)
+unshare(0x40000000)
+r1 = accept(r0, 0x0, 0x0)
+write$binfmt_elf64(r1, &(0x7f0000000080)=ANY=[@ANYBLOB], 0x0)
+fcntl$setstatus(0xffffffffffffffff, 0x4, 0x3800)
+getpid()
+write$binfmt_elf64(0xffffffffffffffff, 0x0, 0x0)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8fd658522e73345eeed8b37392ba68c207cc1f4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+ptrace$setopts(0x4206, r0, 0x0, 0x0)
+timer_create(0x0, 0x0, &(0x7f00000001c0))
+timer_settime(0x0, 0x0, &(0x7f0000000100)={{0x0, 0x989680}, {0x0, 0x9}}, 0x0)

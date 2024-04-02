@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=0b8caec7249e3d0cda81e332e6a0e675c91dafa4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+syz_open_dev$sndpcmc(0x0, 0x7fffffff, 0x0)
+ioctl$TIOCGPTPEER(0xffffffffffffffff, 0x5441, 0x7ff)
+pipe2$9p(&(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+mkdir(&(0x7f0000000180)='./file0\x00', 0x0)
+recvfrom$x25(0xffffffffffffffff, 0x0, 0x0, 0x2, 0x0, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000980)=ANY=[@ANYBLOB="1500000065ffff0010000008003950323030300900fc9cd866b42938ab0142624904b40d651a9b3672476a814ac42843aa88e1db60ba47b6bb30407402000000349f062e4624400100000000000000e03a80b9374275d0f7b100237209ffe467ab1296c3c5085a515cf18151210b8615d54f1c7f3e9ef2ec1577c935216a586171a0aca40d531e7d4986fe59ec1406936a1b561565ffefd7652e6c949d9a7f95f42d36d892d4b30cc1fc50434686595553e6f3381cf655df317fe9ca3533e7afb1ced5c006e691b4999cf6c0aae1178e256baacb07e6f80b9f8e6bc4f3b57d528930399f5c7903c06e4298f2d6774ba4d327c8c4c783340d84b8252dc0961fdc1816a67772058c027c491d1761cd867b446e1d09fc35834cb3e8e0ed7bde47964dc091ec1ce2dd7bfa8c430600000000000000ce550d9645db0c58453350fa101f5aae17559fcfd2bd00000000c2621a68b48ccc39235cdf20d22060d3c8f352e341635ee4aab0aad9d953e0a7dd37de2bfc4fc5d81bfa4264c89a612bf74868309f840cc82f1cb476a4eaa8728c3425a50c9ffb680f44aff1e913a7f5b3158696196345a4caebc08e692861bbd2304b31f7c58fe55f668b9420ea754930458873cec2e3869c70cc78c2a06f70c33a4c09e6195262ae96eec759aae838435429bd039f8ffde4c529d7dc83c298a16cd17d01d46e41ebfeef9fc6f935e8f745bd1208d4d5b226eff70000000000000000"], 0x15)
+ioctl$RTC_ALM_SET(0xffffffffffffffff, 0x40247007, 0x0)
+write$P9_RAUTH(r1, &(0x7f0000000040)={0x14, 0x67, 0x1}, 0x14)
+write$P9_RGETATTR(r1, &(0x7f0000000500)={0xa0, 0x19, 0x1}, 0xa0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000100)='9p\x00', 0x0, &(0x7f0000000600)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1])
+request_key(0x0, 0x0, 0x0, 0x0)
+umount2(&(0x7f0000000140)='./file0\x00', 0xb)
+openat$hwrng(0xffffffffffffff9c, 0x0, 0x2000, 0x0)

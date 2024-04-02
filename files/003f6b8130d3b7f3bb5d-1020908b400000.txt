@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+openat$qat_adf_ctl(0xffffffffffffff9c, &(0x7f0000000100)='/dev/qat_adf_ctl\x00', 0x40000, 0x0)
+syz_genetlink_get_family_id$team(&(0x7f0000000240)='team\x00')
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffff9c, 0x8933, &(0x7f0000000740)={'team0\x00'})
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffff9c, 0x8933, &(0x7f0000000780)={'irlan0\x00'})
+ioctl$ifreq_SIOCGIFINDEX_team(0xffffffffffffff9c, 0x8933, &(0x7f00000007c0)={'team0\x00'})
+getsockopt$inet6_IPV6_IPSEC_POLICY(0xffffffffffffffff, 0x29, 0x22, &(0x7f0000000800)={{{@in6=@mcast2, @in6=@local}}, {{@in=@broadcast}, 0x0, @in=@multicast1}}, &(0x7f0000000900)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000a40)={{{@in=@local}}, {{@in=@multicast1}, 0x0, @in=@broadcast}}, &(0x7f0000000b40)=0xe8)
+getsockname(0xffffffffffffffff, &(0x7f0000000b80)=@can, &(0x7f0000000c00)=0x80)
+getpeername$packet(0xffffffffffffff9c, &(0x7f00000012c0)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @local}, &(0x7f0000001300)=0x14)
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffff9c, 0x8933, &(0x7f0000001440)={'yam0\x00'})
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f0000001480)={{{@in=@broadcast, @in6=@remote}}, {{@in6=@mcast2}, 0x0, @in=@rand_addr}}, &(0x7f0000001580)=0xe8)
+r0 = socket$inet6(0xa, 0x1, 0x8010000000000084)
+bind$inet6(r0, &(0x7f0000ef8cfd)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+listen(r0, 0x7)
+r1 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendto$inet6(r1, &(0x7f0000000000)="f8", 0x1, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+setsockopt$inet_sctp6_SCTP_PEER_ADDR_PARAMS(r1, 0x84, 0x9, &(0x7f0000000140)={0x0, @in6, 0x0, 0x0, 0x8000, 0x0, 0x11}, 0x98)
+setsockopt$inet6_buf(r0, 0x29, 0x2b, &(0x7f0000000040)="a5", 0x1)
+write$binfmt_misc(r1, &(0x7f00000002c0)=ANY=[@ANYBLOB="5bcae2dd887cf085bbd0f45b0139b0037bc7f7b2c957963fcbca1ccf9d0dc5896c59befbb1cd9d2574895537046ca1641665f9efaddcee6273af615bd25329231cc40483"], 0x44)

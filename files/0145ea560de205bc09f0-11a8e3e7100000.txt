@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=73899123694e8ceeb69f8ad8a5b1716fbbd8f589
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true,"tmpdir":true,"segv":true}
+pipe(&(0x7f0000000140)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000840)=[{&(0x7f0000000680)="30dd96866c8619c7522155d10efb2cc5b0a761c91083a81d8483c1db9a56744d590452367251d70f3ce7bbb664fe975a105cadf789618f7a51abddc6ad6564ac6f08b316b1de15f1c2bb3f58722383a5a9c68233a39fba38b43f871fb52eabc279cf67bd8dc1cbc964fece03ffd57b8a789640692dbbb17fbe53bce58c461d9fae317cbf87901aed080b695e19f766bb1413ae000000000000002d1e15875ad5b244082fac18c28973c5677ba706d48f019a6973cc21278c6533c792f292e952ccbd96e0a9c5117a4d9b85f2ac4c72deaf542c3369a34dce3775f849be4a77095980f6eeb79a1798d8ca6e383267790219917c635f6d3db5000000000000009e47d7c7f5ee98e29287cfb1f09d4bfe4a6936fb96770f51d161ca774752e97b4cbba0cc84176c009586bfbea7fb1e7b9a995c6a175a694a30a64feed3730151503404777bc6b1bcea4755ab8aacc81ead62ebf576d13445d09fa510033c5a4971b48f0907477ceeaf717d4d429c70191b65a8e35197524bd11c988eff77ad06896a01c497c10034e2", 0xffffff32}], 0x1, 0x0)
+ioctl$int_in(r0, 0x5421, &(0x7f0000000180)=0x1000)
+connect$inet6(0xffffffffffffffff, &(0x7f0000000000)={0xa, 0x0, 0x0, @empty}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(0xffffffffffffffff, 0x6, 0x1f, &(0x7f0000000040)='tls\x00', 0x355)
+setsockopt$inet6_tcp_TLS_TX(r1, 0x11a, 0x1, &(0x7f0000000080)=@ccm_128={{0x303}, "000c7ee68e134cae", "89addc0c4a3a2984d35f9f006f64f6bd", "0b64af3b", "286072ca6b1c7593"}, 0x28)
+splice(r0, 0x0, r1, 0x0, 0x100000000, 0x0)
+r2 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r2, &(0x7f0000000000)={{0x6, @rose, 0x6}, [@rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @bcast, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @null, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @bcast, @bcast]}, 0x48)
+listen(r2, 0x0)
+accept(r2, 0x0, 0x0)

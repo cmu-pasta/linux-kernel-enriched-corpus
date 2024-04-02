@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5b958512cfd271399fd6c2f6cd9817279098103b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"close_fds":true}
+mkdir(&(0x7f0000000400)='./file0\x00', 0x0)
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000002080), 0x42, 0x0)
+mount$fuse(0x0, &(0x7f00000042c0)='./file0\x00', &(0x7f0000002000), 0x0, &(0x7f0000002140)={{'fd', 0x3d, r0}, 0x2c, {'rootmode', 0x3d, 0x4000}})
+read$FUSE(r0, &(0x7f0000004340)={0x2020, 0x0, <r1=>0x0}, 0x2020)
+clone(0x80000100, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+read$FUSE(r0, &(0x7f00000021c0)={0x2020}, 0x2020)
+newfstatat(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0)
+write$FUSE_INIT(r0, &(0x7f0000004200)={0x50, 0x0, r1}, 0x50)

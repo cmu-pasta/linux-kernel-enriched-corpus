@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c6ba4a47d96ab08066ed4035718329a62340be87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0xe, 0x4, &(0x7f00000008c0)=ANY=[@ANYBLOB="b4050000fdff7f006110580000000000c60000000000000095000000000000009f33ef60916e6e713f1eeb0b725ad99b817fd98cd824498949714ffaac8a6f770600dcca55f21f3ca9e822d182054d54d53cd2b6db714e4beb5447000001000000008f2b9000f22425e4097ed62cbc891061017cfa6fa26fa7088c60897d616148a1c1e43f00001bde60beac671e8e8fdecb03588aa623fa71f31bf0f871ab5c2ff88afc60027f4e5b52710aeee835cf6b6091077a0ad80d0000000098b51fe6b1b8d9dbe87dcff414ed000000000000000000000000000000000000000000000000000000b347abe6352a080f8140e5fd10747b6ecdb3540546bf636e3d6e700e5bc6d3fd0500000022eb9e1403e6c8f7a187eaf60f3a17f0f046a307a403c19d9829c90bd2114252581567acae715cbe326c2ed0a432c5b9104006acaf02c45aa59c350e89755738d87623d24195405f2e76ccb7b37b41215c184e731fb1"], &(0x7f0000003ff6)='GPL\x00', 0x4, 0xfd90, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x366, 0x10, &(0x7f0000000000), 0x1dd}, 0x48)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000000200)=@base={0xf, 0x4, 0x4, 0x12}, 0x48)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f0000000080)={@map=r1, r0, 0x26}, 0x10)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000300)={r1, &(0x7f0000000180), &(0x7f00000000c0)=@tcp6}, 0x20)
+bind$unix(0xffffffffffffffff, &(0x7f00000001c0)=@file={0x1, './file0\x00'}, 0x6e)
+sendmmsg$unix(0xffffffffffffffff, &(0x7f0000002100)=[{{&(0x7f0000000280)=@file={0x1, './file0\x00'}, 0x6e, 0x0}}], 0x1, 0x0)
+recvmsg$unix(0xffffffffffffffff, &(0x7f0000000800)={0x0, 0x0, &(0x7f00000007c0)=[{&(0x7f0000000700)=""/109, 0x6d}], 0x1}, 0x0)

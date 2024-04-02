@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=df466e1151a7e45dd880d8c7033f1ad48acebfb4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"swap":true}
+openat$nci(0xffffffffffffff9c, &(0x7f0000000200), 0x2, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=371873989564922b25b65a0c8bebb3e702ebe24a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"wifi":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0x12, 0x4, 0x8, 0xc}, 0x48)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f00000000c0)=@base={0x1b, 0x0, 0x0, 0x8000}, 0x48)
+r2 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0x10, &(0x7f0000000280)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r1, @ANYBLOB="0000000000000000b702000002100000850000008600000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000000300000095"], &(0x7f0000000040)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+r3 = socket$kcm(0x2, 0x200000000000001, 0x0)
+setsockopt$sock_attach_bpf(r3, 0x1, 0x3e, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000001c0)={&(0x7f0000000180)='kfree\x00', r2}, 0x10)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='cgroup.controllers\x00', 0x26e1, 0x0)

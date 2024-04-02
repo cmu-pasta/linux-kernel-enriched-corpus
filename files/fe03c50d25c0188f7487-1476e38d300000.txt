@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=eb1cbdc16362169b59e7aae96d5c4f6951862d42
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false}
+r0 = syz_open_dev$ndb(&(0x7f0000000000), 0x0, 0x0)
+r1 = syz_init_net_socket$ax25(0x3, 0x2, 0x0)
+r2 = dup(r1)
+ioctl$NBD_SET_SOCK(r0, 0xab00, r2)
+ioctl$NBD_DO_IT(r0, 0xab03)

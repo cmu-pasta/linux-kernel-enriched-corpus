@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=fac5f2b27f118ee8e46803569b944e47f1a65b77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE_RINGBUF(0x0, &(0x7f0000000180)={0x1b, 0x0, 0x0, 0x40000, 0x0, 0x0}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000680)={0x11, 0xf, &(0x7f0000000c80)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b702000014000000b7030000000000008500000083000000bf0900000000000055090100000000009500000000000000bf91000000000000b7020000000000008500000084000000b7000000000000009500000000000000a1d8262831f440f91919b72b29a5bc3c12dddb1c531fe66f211ecde4fc2614124213c2d9a4d1c8325cdb42514659e7c99e7da6f733c0c54ae10f6fdefae6afc9ee48992a84fb5710e9dae454ffd48bd70a5f553543b15089e3151f3a28f3b0e6cf141bc4c1441c03d15cee9774"], &(0x7f0000001dc0)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000001480)='contention_end\x00', r1}, 0x10)
+perf_event_open(0x0, 0x0, 0xbfffffffffffffff, 0xffffffffffffffff, 0x0)

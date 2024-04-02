@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=90f227ee167de747dd786ed148cb8bf203141fce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$l2tp6(0xa, 0x2, 0x73)
+ioctl$AUTOFS_DEV_IOCTL_TIMEOUT(0xffffffffffffffff, 0xc018937a, &(0x7f0000000080)={{0x1, 0x1, 0x18}, './file0\x00'})
+gettid()
+ioctl$AUTOFS_DEV_IOCTL_TIMEOUT(0xffffffffffffffff, 0xc018937a, &(0x7f00000001c0)={{0x1, 0x1, 0x18, 0xffffffffffffffff, {0xfffffffffffffffc}}, './file0\x00'})
+openat$nci(0xffffffffffffff9c, &(0x7f0000000200), 0x2, 0x0)

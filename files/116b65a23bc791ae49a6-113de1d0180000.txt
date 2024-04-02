@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f6ffea2de7c1400aa1d6c764518cfc9265380355
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$cec(&(0x7f0000000000), 0xffffffffffffffff, 0x0)
+ioctl$CEC_ADAP_S_LOG_ADDRS(r0, 0xc05c6104, &(0x7f0000000040)={"3ab6bc10", 0x0, 0x6, 0x3, 0x0, 0x6, "c585e438dd58a4ce07adf9ad60d69a", "acb44b67", "00000400", "9934a24c", ["c3e3557f33f1196d71701d5a", "cd1b50c7ebf9730b5c2abd93", "9ec400", "86e81ef56c080000aea9f380"]})
+r1 = syz_open_dev$cec(&(0x7f00000000c0), 0x0, 0x4)
+ioctl$CEC_ADAP_S_LOG_ADDRS(r1, 0xc05c6104, &(0x7f0000000100)={"d967c18d", 0x0, 0x40, 0x0, 0x81, 0x7f, "326db90bb2bf528907bed4abad5b7c", "e869f642", "f3d1fc85", "1dc91f12", ["9b624c0e90a4890756daad2f", "f15350d4c31c8a102b24d8df", "dfbcc04a717b8bfb08a2b8e4", "664079e2d3d4047504772221"]})

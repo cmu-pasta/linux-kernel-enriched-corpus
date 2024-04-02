@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ab5506de11b4247ca849ffe03643db76ac32b29c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0xe, 0x4, 0x8, 0x8}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000440)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000017b8af8ff00000000bfa2000000000000070200001bffffffb703000008000000b704000000000000850000000100000095"], &(0x7f0000000240)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000040)={&(0x7f0000000000)='ext4_remove_blocks\x00', r1}, 0x10)

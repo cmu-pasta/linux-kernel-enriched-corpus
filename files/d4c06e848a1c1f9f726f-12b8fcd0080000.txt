@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=2c2730c5bfc930926519b6ca5edd1c5052e84418
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = open(&(0x7f0000000300)='.\x00', 0x0, 0x0)
+r1 = open(&(0x7f0000000280)='.\x00', 0x0, 0x0)
+fcntl$notify(r1, 0x402, 0x5)
+fcntl$setown(r1, 0x8, 0xffffffffffffffff)
+fcntl$setown(0xffffffffffffffff, 0x8, 0xffffffffffffffff)
+fcntl$setown(0xffffffffffffffff, 0x8, 0xffffffffffffffff)
+symlinkat(&(0x7f0000000040)='\x13\x13w\xc5\xfc5\xd4\x14T\xd5\xd4\x1d)\xad\x1a`)Y\x81F\xe6\xbe\x16nA\xad\r\xbd@T\x03<\x9f3\xbb\xda\x82$\xa2\xf3\xd7r\xe7cnH\xb3<\xbfp\x83r\xe8\xf1\xb9\x93>\xc5\x12wC\xbe\"\x06 \x9e\xf0-\xf9\xcb\xf2\xf6\xe8\x80\xd38/\x00', r0, &(0x7f0000000180)='./file0\x00')
+r2 = syz_open_dev$evdev(&(0x7f0000000140), 0x0, 0x121041)
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f00000000c0)={0x0, 0x0, 0x0, {0x0, 0x100000000000001}, {0x74, 0x2}})
+ioctl$int_in(r2, 0x5452, &(0x7f0000000040)=0x4)
+write$evdev(r2, &(0x7f0000000040), 0x373)

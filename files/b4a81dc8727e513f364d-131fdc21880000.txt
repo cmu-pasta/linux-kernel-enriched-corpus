@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=330c57bb9492535fc883e94c3bbb1c74aa8e29af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000080)=ANY=[@ANYBLOB="1500000065ffff097b00000800395032303030"], 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000bc0)={0xa8, 0x0, 0x0, [{}]}, 0xa8)
+write$FUSE_NOTIFY_RETRIEVE(r2, &(0x7f00000000c0)={0x14c}, 0x137)
+mount$9p_fd(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000b80), 0x0, &(0x7f0000000600)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}})
+chdir(&(0x7f0000000080)='./file0\x00')
+openat$incfs(0xffffffffffffff9c, &(0x7f0000000040)='.pending_reads\x00', 0x2041, 0x0)

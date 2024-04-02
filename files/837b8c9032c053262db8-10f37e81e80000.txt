@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=8b244535698423c2d40b6cd41f7db77b855bc4e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nfc_llcp(0x27, 0x1, 0x1)
+memfd_create(0x0, 0x0)
+mkdir(0x0, 0x0)
+r1 = open(&(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+r2 = openat$cgroup_procs(r1, &(0x7f0000000600)='cgroup.procs\x00', 0x2, 0x0)
+writev(r2, &(0x7f0000000440)=[{0x0}], 0x1)
+prlimit64(0x0, 0xe, &(0x7f0000000280)={0x9, 0x8d}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000400)=0x8)
+r3 = getpid()
+sched_setscheduler(r3, 0x2, &(0x7f0000000200)=0x4)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r4=>0xffffffffffffffff, <r5=>0xffffffffffffffff})
+connect$unix(0xffffffffffffffff, &(0x7f0000000300)=@file={0x0, './file0\x00'}, 0x6e)
+connect$unix(r4, &(0x7f000057eff8)=@abs, 0x6e)
+sendmmsg$unix(r5, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r4, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+r6 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000180), 0x2, 0x0)
+r7 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+prctl$PR_SCHED_CORE(0x3e, 0x2, r3, 0x3, &(0x7f0000000140))
+sendfile(r6, r7, 0x0, 0x20000023896)
+listen(r0, 0x0)

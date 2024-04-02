@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5459ac33e08b7a1e59c1c598377687218602b620
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","fault_call":-1,"close_fds":false,"ieee802154":true,"tmpdir":true}
+r0 = gettid()
+clone(0x200, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r1 = memfd_create(&(0x7f0000000180)='\xb5\xe25\x95S\x00\x00\x00\x00\x93h0\x00', 0x0)
+execveat(r1, &(0x7f0000000500)='\x00', 0x0, 0x0, 0x1000)
+r2 = memfd_create(&(0x7f0000000140)='\x00\x04\x00\x00', 0x0)
+write$binfmt_elf32(r2, &(0x7f0000000180)=ANY=[@ANYBLOB="7f454c466000002ed8e4f97765ce27b90300060000000000000000b738000000570035f4c38422a3bc822000050000e6520203000600efe72bb30000000020000400b3d7c52ebf31a8b70be85ecbe9ff0008de00f8ffffffffffffff03000000110000000d60395a70"], 0xd8)
+execveat(r2, &(0x7f0000000000)='\x00', 0x0, 0x0, 0x1100)
+tkill(r0, 0x13)

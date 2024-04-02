@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c816e42fd653b6d43aaad193649241add2de2d6e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$tipc(0x1e, 0x2, 0x0)
+bind$tipc(r0, &(0x7f00000001c0)=@nameseq={0x1e, 0x1, 0x0, {0x41, 0x0, 0x3}}, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$tipc(&(0x7f0000000000), 0xffffffffffffffff)
+sendmsg$TIPC_CMD_GET_NODES(r1, &(0x7f0000000500)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000480)={0x1c, r2, 0x1, 0x0, 0x0, {{}, {0x0, 0x6}}}, 0x1c}, 0x1, 0x0, 0x0, 0x4004084}, 0x0) (rerun: 64)

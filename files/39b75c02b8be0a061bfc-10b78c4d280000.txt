@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f840e63afb7e6f398b7b1917816a0d4867e6a8eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000200), 0x8402, 0x0)
+fallocate(r0, 0x11, 0x0, 0x10000000002)

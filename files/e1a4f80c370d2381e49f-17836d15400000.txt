@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=149d7751733001d683eca36df500722bff6cc350
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000040)='/dev/net/tun\x00', 0x0, 0x0)
+fcntl$getflags(r0, 0x401)
+r1 = openat$selinux_status(0xffffffffffffff9c, &(0x7f0000000000)='/selinux/status\x00', 0x0, 0x0)
+mmap$binder(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x0, 0x11, r1, 0x0)
+mprotect(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x4)
+creat(&(0x7f0000000000)='./file0\x00', 0x0)
+mprotect(&(0x7f0000ffc000/0x2000)=nil, 0x2000, 0x0)

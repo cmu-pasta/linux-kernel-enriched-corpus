@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=64cde8e5c96747afca4a0aeaaae6482340ca232e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = userfaultfd(0x1)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000040)={{&(0x7f00000e2000/0xc00000)=nil, 0xc00000}, 0x1})
+ioctl$UFFDIO_COPY(r0, 0xc028aa05, &(0x7f0000000080)={&(0x7f0000c15000/0x1000)=nil, &(0x7f00000fb000/0x3000)=nil, 0x1000})

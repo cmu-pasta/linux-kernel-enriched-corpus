@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=5459ac33e08b7a1e59c1c598377687218602b620
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"procs":1,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"devlinkpci":true,"tmpdir":true,"segv":true}
+clone(0x200, 0x0, 0xfffffffffffffffe, 0x0, 0xffffffffffffffff)
+r0 = memfd_create(&(0x7f0000000540)='\x97&\x89\\\xd0\xe7\xca\x16ZO\x94:\xe1\x01\xe5`iq@Nse;\xa8Fpj\x0e\x04!\xd5\xc5YBz\x94\xaf\x13\xe9\xd2\x0f\xc2G\x86Xe\xf1/V\x8cvS\xa6K&u\x9dX\xcc\r\x12\x11\x99\xe7\xce\xaeA\xb8-E\xa1\xf8\xe4~IS\xc1\x04\xf78\xf1\'\xdfv\x90\xbc\xd1\xda\x88j\x16\xeb>\x8c\xa1\x03\xf3\xaf\xfd\xf4&a?\xcaG\n\xe5j\x9b}\xc6G\x86\xb2\xdeY\x17yX $\xfcU\x9d\x80dX\xcc\xab\x84\xd1\x01_\x7f\xf4tW.\x81\n\xf3\v\x8d\x12pa\x91\x9b\x8cxd\x06\xa7k\n\x86\xc3\xb6\x910\xf2L\xf0\xaf\xe1jd\xda\x1f\x8bVrd\xa4\xb34\xfcUj\x1ad:#\x96\xf9\xd3\x1c]ImZlU\".\x18)\xcf\x1am\xd5\xe0\xdb\xdc\xd7\x8e\xe0\xa3\x82\xec\x9b\xfb\xc9\x81\x9c\xdc\xb7\x0f\xdd\xd3\xd7\xbe\x89\x7f3\x1d\x1c@\x8eu\x85\xces\x89\x95&3FX\xb1\xaf\xa6\x96\xa2\x13\x1f-\b\xcf', 0x0)
+fcntl$setown(r0, 0x8, 0x0)
+execveat(r0, &(0x7f0000000500)='\x00', 0x0, 0x0, 0x1000)
+timer_create(0x0, &(0x7f0000000040)={0x0, 0x12}, &(0x7f00000000c0))
+timer_settime(0x0, 0x0, &(0x7f0000000340)={{0x0, 0x8}, {0x0, 0x9}}, 0x0)
+r1 = gettid()
+write$binfmt_elf64(r0, &(0x7f0000000640)={{0x7f, 0x45, 0x4c, 0x46, 0x4c, 0x6, 0x2, 0x1f, 0x8, 0x2, 0x3e, 0x5, 0x324, 0x40, 0x10f, 0x64bfb127, 0x80, 0x38, 0x2, 0x5, 0x8, 0x2}, [{0x60000005, 0x8, 0x5, 0x400, 0x1, 0x5, 0x1000, 0x4a}], "", [[]]}, 0x178)
+tkill(r1, 0x16)

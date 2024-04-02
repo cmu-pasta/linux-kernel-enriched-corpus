@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f0000000100)={0x9, 0x3, &(0x7f0000000000)=@framed, &(0x7f00000007c0)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x80)
+r1 = fsopen(&(0x7f0000000000)='cgroup2\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r1, 0x6, 0x0, 0x0, 0x0)
+r2 = fsmount(r1, 0x0, 0x0)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f0000000040)={@map=r2, r0, 0x2}, 0x10)

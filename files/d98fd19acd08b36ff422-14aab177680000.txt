@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=29f52d4baeec7d90c9fd0fb991721f3cad42a4d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+syz_mount_image$bfs(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x1000000, &(0x7f0000000140)=ANY=[@ANYRESOCT], 0x4, 0x93, &(0x7f0000002280)="$eJzszrGpwmAUBeDzp3pVFniFG/w7OIqk1M5KETKRqzhCNrCwtYlIqthYiCjyfcW9HLgXzul6/E+bjH0yPtju9uvVZprhJzVJSpK/JIt2yufl/Ga4HLqhpLvvT/UEAABe16TOckmtT5/6NxYCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+DK3AAAA//+K8CJb")
+open(&(0x7f00000000c0)='./bus\x00', 0x14d042, 0x0)
+r0 = open(&(0x7f0000000400)='./bus\x00', 0x14113e, 0x0)
+write$binfmt_script(r0, &(0x7f0000000440)=ANY=[], 0x208e24b) (async)
+r1 = creat(&(0x7f0000000080)='./file1\x00', 0x0)
+write$binfmt_script(r1, &(0x7f0000001440)={'#! ', './bus'}, 0x9)

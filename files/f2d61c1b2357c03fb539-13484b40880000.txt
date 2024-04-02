@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=ef08e0a5350d565e0a2992021d9111e2180cd829
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+syz_mount_image$msdos(&(0x7f0000001a80), &(0x7f0000000180)='./file1\x00', 0xaea1, 0x1, &(0x7f0000000300)=[{&(0x7f00000001c0)="040705090000040409000200027400f8017b910e3ef901445f105de77e5eea711a2e387f5d6b3439bf000000000000fe000000", 0x33}], 0x200000, &(0x7f00000000c0)=ANY=[], 0x0)

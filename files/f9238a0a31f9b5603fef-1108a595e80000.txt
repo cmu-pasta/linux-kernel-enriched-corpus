@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b397b847962e20689fafdfe4732866cf2508891a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_procfs(0x0, &(0x7f00000000c0)='task\x00')
+fchdir(r0)
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000000)='proc\x00', 0x0, 0x0)
+r1 = syz_clone(0x0, 0x0, 0x36, 0x0, 0x0, 0x0)
+r2 = syz_open_procfs$pagemap(r1, &(0x7f0000000200))
+ioctl$PAGEMAP_SCAN(r2, 0xc0606610, &(0x7f0000000180)={0x60, 0x3, &(0x7f0000ffc000/0x1000)=nil, &(0x7f0000ffc000/0x1000)=nil, 0x7fff, 0x0, 0x0, 0x230e, 0x2, 0x0, 0x20, 0x4})

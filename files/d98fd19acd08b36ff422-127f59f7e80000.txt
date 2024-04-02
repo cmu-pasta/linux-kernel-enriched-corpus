@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=29f52d4baeec7d90c9fd0fb991721f3cad42a4d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_mount_image$bfs(&(0x7f0000000040), &(0x7f0000000080)='./file0\x00', 0x1000004, &(0x7f0000000100)=ANY=[], 0xff, 0x96, &(0x7f0000000280)="$eJzszrEJwlAYBOB7qbTJAhZukB0cRVJqZ6UITuQqjpANLGxtIhIttLAQRJHvK97jOH64w3k/SZ30u6R/slpvFvPl8OZuHP5IlaQkGSWZ1kM+zoau3PrutG27kvb6f3svAADwvirNQy5pmtcX5bODAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7MJQAA//9+BiHp")
+r0 = creat(&(0x7f0000001140)='./file0\x00', 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='cpu.stat\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000600)=ANY=[], 0x208e24b)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000380)={0x0, 0x18, 0xfa00, {0x0, 0x0}}, 0x20)

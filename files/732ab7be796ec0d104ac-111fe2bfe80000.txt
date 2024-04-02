@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=63317cf5454383b7565d3fccd5aa4e2efbf6e5a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000040)={'lo\x00', <r2=>0x0})
+sendmsg$nl_route_sched(r0, &(0x7f00000012c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000018c0)=ANY=[@ANYBLOB='L\x00\x00\x00$\x00Ae\x00'/20, @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000f1090001006e6574656d0000001c00020020080000367675d6a6b7cd8400000720ff0700f0"], 0x4c}}, 0x0)
+r3 = socket$inet_mptcp(0x2, 0x1, 0x106)
+bind$inet(r3, &(0x7f0000000040)={0x2, 0x4e24, @multicast2}, 0x10)
+sendto$inet(r3, 0x0, 0x0, 0x20004888, 0x0, 0x0)
+sendmmsg$inet(r3, &(0x7f0000000100)=[{{&(0x7f0000000000)={0x2, 0x4e24, @local}, 0x10, 0x0}}], 0x1, 0x20004814)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+r5 = syz_genetlink_get_family_id$mptcp(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$MPTCP_PM_CMD_FLUSH_ADDRS(r4, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)={0x14, r5, 0x1}, 0x14}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=416a58dce9f16ea8e68f9f58cb06bc0f4869ada8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"wifi":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000040)=@base={0x3, 0x4, 0x4, 0x8000009, 0x0, 0x1}, 0x48)
+socket$inet(0x2, 0x2, 0x3)

@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=9ca9b7d67c3c4b8596fc41d03c9b9af33196671c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000440), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r0, 0xc0285700, &(0x7f0000000080)={0x0, "f3e97c6a0e4cef5500000100010000000000000000000000000700"}) (rerun: 64)
+r1 = openat$sw_sync(0xffffffffffffff9c, &(0x7f00000001c0), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r1, 0xc0285700, &(0x7f0000000100)={0x411, "3cc3b83ea15992492c5b432fe0a52daa4d070d87f9793c3c0100", <r2=>0xffffffffffffffff})
+r3 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r3, 0xc0285700, &(0x7f0000000100)={0x401, "3cc3b83ea15992492c5b4319e0a52daa4d070d41213ed368f3f887f9793c3c01", <r4=>0xffffffffffffffff})
+ioctl$SYNC_IOC_MERGE(r2, 0xc0303e03, &(0x7f00000002c0)={"4aa2c572c776d29f8f0d0aa0489324ea1cde22e51649d56cf72b0945b5f44398", r4, <r5=>0xffffffffffffffff})
+poll(&(0x7f00000000c0)=[{r5}], 0x1, 0x0)
+r6 = openat$sw_sync_info(0xffffffffffffff9c, &(0x7f0000000180), 0x20000, 0x0)
+read$eventfd(r6, &(0x7f0000000280), 0x8)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=d5346cf7f8dfa39e8f25b5b085dfec6cf6bb288e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f00000027c0)=@base={0x3, 0x4, 0x4, 0x10001}, 0x48)

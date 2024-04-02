@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"segv":true}
+syz_mount_image$tmpfs(&(0x7f0000000040), &(0x7f00000001c0)='./file0\x00', 0x1408, 0x0, 0x1, 0x0, &(0x7f0000006380)) (async)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000004340)=ANY=[@ANYBLOB="1500000065ffff001000000800395032303030"], 0x15)
+r2 = dup(r1) (rerun: 32)
+write$FUSE_INIT(r2, &(0x7f0000004240)={0x50}, 0x50)
+r3 = socket$inet6(0xa, 0x802, 0x0)
+setsockopt$inet6_buf(r3, 0x29, 0x39, &(0x7f0000000040)="ff0204000000000100000000000000000000000000000205", 0x18)
+connect$inet6(r3, &(0x7f0000001080)={0xa, 0x0, 0x0, @private0}, 0x1c)
+mount$9p_fd(0x0, &(0x7f0000000180)='./file0\x00', &(0x7f00000043c0), 0x0, &(0x7f0000004400)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r3}, 0x2c, {[], [], 0x6b}})
+quotactl$Q_SYNC(0xffffffff80000102, 0x0, 0x0, 0x0)

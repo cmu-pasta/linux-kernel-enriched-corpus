@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ec52226dd9acba9c3ecd371356c8eacef26f3ba5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"swap":true}
+openat$iommufd(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x60005f, 0x19)
+r0 = syz_open_procfs$pagemap(0x0, &(0x7f0000000600))
+madvise(&(0x7f0000000000/0xc00000)=nil, 0xc00000, 0x15)
+ioctl$PAGEMAP_SCAN(r0, 0xc0606610, &(0x7f00000007c0)={0x60, 0x0, &(0x7f000007c000/0x4000)=nil, &(0x7f0000839000/0x1000)=nil, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x2})

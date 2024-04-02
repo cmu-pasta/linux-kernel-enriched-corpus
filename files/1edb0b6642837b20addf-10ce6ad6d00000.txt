@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=baf7423ac235592c5cb574c2447665946316cd06
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = openat$uhid(0xffffffffffffff9c, &(0x7f0000000040)='/dev/uhid\x00', 0x2, 0x0)
+write$UHID_CREATE(r0, &(0x7f0000001400)={0x0, {'syz0\x00', 'syz0\x00', 'syz1\x00', &(0x7f0000000400)=""/4096, 0x1000}}, 0x120)

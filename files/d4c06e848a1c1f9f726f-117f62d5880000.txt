@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=2c2730c5bfc930926519b6ca5edd1c5052e84418
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true}
+r0 = open(&(0x7f0000000280)='.\x00', 0x0, 0x0)
+fcntl$notify(r0, 0x402, 0x32)
+unshare(0xc040400)
+r1 = gettid()
+fcntl$setownex(r0, 0xf, &(0x7f0000000140)={0x2, r1})
+creat(&(0x7f0000000000)='./file0\x00', 0x0)
+r2 = syz_open_dev$evdev(&(0x7f00000000c0), 0x0, 0x822b01)
+r3 = syz_open_dev$evdev(&(0x7f0000001700), 0x0, 0x0)
+ioctl$EVIOCGKEYCODE(r3, 0x5452, &(0x7f00000000c0)=""/185)
+ioctl$EVIOCGRAB(0xffffffffffffffff, 0x40044590, &(0x7f0000000800)=0x10000)
+write$char_usb(r2, &(0x7f0000000040)="e2", 0x1680)

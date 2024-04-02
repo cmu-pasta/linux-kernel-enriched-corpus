@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000080)={0xffffffffffffffff, 0x2800000002000000, 0xe, 0x55, &(0x7f0000000140)="a06ad876d56a0064d082778c3938", &(0x7f0000000380)=""/85, 0x700, 0x4000000}, 0x28)

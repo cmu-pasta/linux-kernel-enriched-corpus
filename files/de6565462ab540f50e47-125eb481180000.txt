@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2aabc827b8aea09353150377f96630a3ff18f6a3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f0000000040)={0xa, 0x4e22}, 0x1c)
+listen(r0, 0x0)
+setsockopt$inet6_int(r0, 0x29, 0x3, &(0x7f0000000000)=0x4, 0x4)
+syz_emit_ethernet(0x8a, &(0x7f0000000800)=ANY=[@ANYBLOB, @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB], 0x0) (async)
+syz_emit_ethernet(0x8a, &(0x7f0000000800)=ANY=[@ANYBLOB="aaaaaaaaaaaa0180c200000086dd600425be00540600fe8000000000000000000000000000bbfe8000000000000000000000000000aa00004e22", @ANYRES32=0x41424344, @ANYRES32=0x41424344, @ANYBLOB="f0"], 0x0)

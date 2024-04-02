@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=9623d77a6280008dc6f9d85261fbdf16090a35e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":8,"fault_nth":2,"leak":true,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = socket$inet6(0xa, 0x40000080806, 0x0)
+bind$inet6(r0, &(0x7f000047b000)={0xa, 0x4e20}, 0x1c)
+listen(r0, 0x20000003)
+r1 = socket$inet6(0xa, 0x6, 0x0)
+connect$inet6(r1, &(0x7f0000419000)={0xa, 0x4e20, 0x0, @loopback}, 0x1c)
+r2 = accept4(r0, 0x0, 0x0, 0x0)
+setsockopt$inet6_opts(r2, 0x29, 0x37, &(0x7f0000000000)=ANY=[], 0x8)
+connect(r2, 0x0, 0x0)
+dup3(r2, r1, 0x0)

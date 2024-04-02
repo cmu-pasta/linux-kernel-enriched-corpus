@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ffcd9fe8ab38b442cea8141c50af27067c46fe52
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$minix(&(0x7f0000000140), &(0x7f0000000180)='./file0\x00', 0x2000004, &(0x7f0000000040)=ANY=[], 0x3, 0x18b, &(0x7f00000005c0)="$eJzs201Kw0AUwPE3ST/9ALHqQgSFgrixn1B1Vw/gIUqNpdhKsW5aBOlRPIZH8QiCLty5spI2SWlSPyiaNOb/2/S9PGYyWczwUogAiKyq7IkSJQmRsuyk1u4yKuglAfDJ0Pp9HwKIHv1tOBhH6ocDzGMDQPi9nIp0ROT59bYuesLTH5j1ql3Xkt76QGQ7ZtVVStLu/uJeZF/SZj3rnX08fsmeXy3PrB9k7fuvyGrMrqxLxqqfO+O3vul2zpyItxwAQJQpybnzqQuaXDRbRsHJ46O86OSJUV5y5WUnT47yXF37qwcAMDdtav8/Pj3Ep+u6a//HXPsfQHh1e/3LWqtlXH8emC/9M0sD6xiYXNEnE38x4S8HuyLi170WMFCLsQyCUAdpzyYK7EgC4JP8TbuT7/b6h812rWE0jKtKqVI5KRwfFfNmo5+aMcT9Fz+AkJq0AUGvBAAAAAAAAAAAAAAAzGtDNoNeAgAAAACf+PGBUdDPCAAAAAAAAAAAAAAAAADAf/MRAAD//6MEDZs=")
+creat(&(0x7f0000000100)='./bus\x00', 0x0)
+statfs(&(0x7f00000000c0)='./bus\x00', 0x0)

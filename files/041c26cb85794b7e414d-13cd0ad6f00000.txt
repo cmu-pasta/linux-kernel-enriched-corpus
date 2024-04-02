@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=d5c4cc1b75d400b9b5bb19c152ff12dd98dd196c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+accept4$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x0, @multicast2}, 0x0, 0x80800)
+bpf$BPF_GET_PROG_INFO(0xf, 0x0, 0x0)
+unshare(0x24020480)
+unshare(0x28000800)
+unshare(0x20000280)
+unshare(0x40000)
+unshare(0x200)
+unshare(0x10000)
+io_uring_enter(0xffffffffffffffff, 0x8a6, 0x1, 0x0, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0xb00000000065808, 0x0) (async)
+accept4$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x0, @multicast2}, 0x0, 0x80800)
+unshare(0x24020480) (async)
+unshare(0x20000280) (async)
+unshare(0x40000)
+unshare(0x200) (async)
+openat$vcsa(0xffffffffffffff9c, &(0x7f0000000040), 0x20200, 0x0) (async)
+unshare(0x20600) (async)
+unshare(0x10000) (async)

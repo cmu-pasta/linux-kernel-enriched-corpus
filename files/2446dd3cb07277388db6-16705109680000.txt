@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=28110fef8f5f9ce9420d16f1e36ae8dd80b253af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f0000000000)={0x1f, @none}, 0x8) (async)
+connect$bt_sco(r0, &(0x7f0000000040)={0x1f, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x11}}, 0x8)
+setsockopt$bt_BT_VOICE(r0, 0x112, 0xb, &(0x7f0000000080)=0x30, 0x2)

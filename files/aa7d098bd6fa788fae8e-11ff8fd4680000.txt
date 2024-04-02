@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=7349616606afa3c986c377792f7ccbf9daae1142
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$nl_sock_diag(0x10, 0x3, 0x4)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b4018d5a9f5a86b2096c046e918fcae30db4a3cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false}
+socketpair(0x1, 0x1, 0x0, &(0x7f0000000000))
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000001c0)=@base={0x12, 0x28, 0x4, 0x2}, 0x48)
+bpf$MAP_DELETE_ELEM(0x2, &(0x7f0000000040)={r0, &(0x7f0000000240), 0x20000000}, 0x20)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f00000001c0)=@base={0x12, 0x28, 0x4, 0x2}, 0x48)
+bpf$MAP_DELETE_ELEM(0x2, &(0x7f0000000040)={r1, &(0x7f0000000240), 0x20000000}, 0x20)

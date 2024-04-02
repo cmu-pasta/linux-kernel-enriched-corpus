@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e577e83a2928bb47693791855b6572d57cffa3be
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"usb":true,"tmpdir":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = gettid()
+setsockopt$sock_timeval(r0, 0x1, 0x49, &(0x7f0000000040)={0x77359400}, 0x10)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='memory.current\x00', 0x275a, 0x0)
+write$binfmt_script(r2, &(0x7f0000000100)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r2, 0x0)
+process_vm_writev(r1, &(0x7f0000c22000)=[{&(0x7f000034afa4)=""/1, 0x1f80}], 0x1, &(0x7f0000c22fa0)=[{&(0x7f0000000080)=""/1, 0x2034afa5}], 0x1, 0x0)

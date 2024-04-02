@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c6ba4a47d96ab08066ed4035718329a62340be87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000080)=@base={0x9, 0x1, 0x9, 0x1ff}, 0x48)
+syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, &(0x7f0000000740)="76082c360978b178c4f0dea81896b77c0a78ded17f5fc3161a022c562094c46cce132ca440d18c40dcbc78bec03cd21afbdc35be5f7b3301467a9467a5ba409dc475d40f399e8ae5705e2d4c1e37")
+write$cgroup_subtree(0xffffffffffffffff, &(0x7f00000002c0)=ANY=[@ANYRESDEC], 0x32600)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000000)={&(0x7f0000000300)="7092a305a41730da7c9bf96026a0cb6a101aa7dd79997bf94f25083b1997d2ff2d0ce199fda4445647e3b870ad016a2c0842699e0b0a82249ac97c5dc60c8cd4b4ae", 0x0, &(0x7f0000000100), &(0x7f00000001c0)="0f66e2e5f1a9a133ed7654dcd47fa630b8e0c730a8eb48b124564a7e67b23156231c92707f4eb238cbc73b144a16d921f31ea1e9e014bf5f573a9ec224eb0d98622f71458a5495a565a7bb5bc57de2ceae0e83e99a78227722b90f81f64d375d9aea0d09f50e62fb85aec276c1d225415921171b5cff001789bccc51eff4a78d8dbdfa901989821dfbd6ff000000c07b77d50000000000a80000000000000000373c9eb285e75e1063d5fe025eb9ff442d9d2bd63ea7327f9c450c2e747d4409000000a01798d43961166221a88f150352134723d71d932daadc1f5a2825522b73e4e6aebaf50d79aea939e1f5a09374572e588ef04224ffb82510a6", 0x50b1, r0}, 0x38)

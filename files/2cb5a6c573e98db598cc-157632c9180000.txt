@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=2fee650ad5556cef0890b93d78bcc147553a8b67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE_CONST_STR(0x0, &(0x7f0000000340), 0x48)
+bpf$BPF_MAP_CONST_STR_FREEZE(0x16, &(0x7f0000000480)={r0}, 0x4)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000004c0)={0x11, 0x18, &(0x7f00000001c0)=ANY=[@ANYBLOB="18000000000000000000000000000000b7080000000000007b8af8ff00000000b7080000000000007b8af0ff00000000bfa100000000000007010000f8ffffffbfa400000000000007040000f0ffffffb70200000000000018230000", @ANYRES32=r0, @ANYBLOB="0000000000000000b70500000000000085000000a5000000180100002020640500000000002020207b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000a50000000800000095"], &(0x7f0000000600)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000001c0)={&(0x7f0000000000)='kfree\x00', r1}, 0x10)
+syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+sendmsg$unix(0xffffffffffffffff, 0x0, 0x0)
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$BPF_MAP_CONST_STR_FREEZE(0x16, 0x0, 0x0)

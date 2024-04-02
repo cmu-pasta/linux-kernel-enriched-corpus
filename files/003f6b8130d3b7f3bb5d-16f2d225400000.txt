@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = socket$inet6(0xa, 0x2100000000000002, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+bind$netlink(r1, &(0x7f0000000080)={0x10, 0x0, 0x0, 0x1}, 0xc)
+setsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f00000001c0)={{{@in6=@remote, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0xa}, {}, {}, 0x0, 0x0, 0x1}, {{@in6=@loopback, 0x0, 0x2b}, 0x2, @in=@broadcast, 0x0, 0x3, 0x0, 0x9}}, 0xe8)
+connect$inet6(r0, 0x0, 0x0)
+r2 = inotify_init1(0x0)
+fcntl$setown(r2, 0x8, 0xffffffffffffffff)
+fcntl$getownex(r2, 0x10, &(0x7f0000000200)={0x0, <r3=>0x0})
+ptrace$setopts(0x4206, r3, 0x0, 0x0)
+ptrace(0x4207, r3)
+ptrace$getregset(0x9, r3, 0x0, 0x0)

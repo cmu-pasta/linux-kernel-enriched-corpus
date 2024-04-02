@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=62535d152abca3a1d1e00ee0f22bf53869ccdc56
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+syz_mount_image$squashfs(&(0x7f0000000180), &(0x7f0000000100)='./file0\x00', 0x0, &(0x7f0000000280)=ANY=[], 0x3, 0x188, &(0x7f0000007780)="$eJzsks9O4lAUxr/blj8zk0xmklmxgWTIDC6UtqgxbnSJex9AUioSiwptohAWNcawcGFc+gS8hokvIAvjA7BmQdyZmJp7e9rc+gre34Lv3o9z7vkDR37fLwB4X44d7EKg4ydmjMEAUGaxt9BivSN9Jr2NBU8Ut0f+FWnJH46OW57nDirbFfzOGABehZda/s6lhoV46mU5dvjhAEAURRH32sDsBwA5RgfQl2JKBvCHD/EWxSzHDh+EJ/wHUA96Z3V/OFrt9lodt+Oe2HZj01w3zQ27ftj1XFN8RjSOKEGjgOsKAL6vb1ILOQDXFPMdWZjUGn3PklxOXtph7W8uk6tJuYkyPKR1C0h+L2Af/1AEcB4yya2KVwyIwZpg0PlF91zLkPqLaxVF1Jpz6rUnYGBJ2hRG+oY1Ry692PKlsRUmbU9Iq6RN0inpnLT86S9jiBdu6FYLgTxvIxhYfEkXrSAYWHxh4mSnnv0rlBfGq95r2eEeNSgUCoVCoVAoFArFV+cjAAD//43NfSA=")
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000040)='./file2\x00', 0x0, 0x0)
+preadv(r0, &(0x7f0000000580)=[{&(0x7f0000000080)=""/71, 0xfdef}], 0x1, 0x7400, 0x0) (fail_nth: 33)

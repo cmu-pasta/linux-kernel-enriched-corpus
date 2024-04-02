@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"wifi":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=@base={0x4, 0x0, 0x1e}, 0x48)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000180)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$SIOCSIFHWADDR(r0, 0x89f0, &(0x7f0000000900)={'bridge0\x00', @random='\x00\x00\x00 \x00'})

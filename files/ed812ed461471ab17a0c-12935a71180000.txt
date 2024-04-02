@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d1386e3da81605d861923a6828c78d60bc4bef1d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+r1 = dup(r0)
+ioctl$SG_BLKTRACESETUP(r1, 0xc0481273, &(0x7f0000000380)={'\x00', 0x0, 0xe20a, 0x5e00})
+ioctl$SG_BLKTRACETEARDOWN(r1, 0x1276, 0x0)

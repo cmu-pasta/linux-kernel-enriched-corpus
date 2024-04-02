@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=52974892becd2391f75f44df381205bbfe3af9d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+setsockopt$sock_timeval(r0, 0x1, 0x15, &(0x7f0000000140)={0x0, 0x2710}, 0x10)
+connect(r0, &(0x7f00000000c0)=@hci, 0x80)

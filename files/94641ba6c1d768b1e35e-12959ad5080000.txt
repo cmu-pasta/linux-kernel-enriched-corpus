@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f35281f65a6c33ca898b72786b2d5f722037a506
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6(0xa, 0x6, 0x0)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0x4e20}, 0x1c)
+r1 = socket$inet_dccp(0x2, 0x6, 0x0)
+listen(r0, 0x101)
+setsockopt(r1, 0x10d, 0x800000000d, &(0x7f00001c9fff)="03", 0x1)
+connect$inet(r1, &(0x7f0000e5c000)={0x2, 0x4e20, @dev}, 0x10)
+sendmmsg(r1, &(0x7f0000005700)=[{{0x0, 0x0, &(0x7f0000000540)=[{&(0x7f0000000a80)="fa2b", 0x2}], 0x1}}], 0x1, 0x0) (rerun: 64)
+sendmmsg(r1, &(0x7f0000000780)=[{{0x0, 0x0, &(0x7f0000000280)=[{&(0x7f00000002c0)="0026d04a51311a3647198b265e31b64e16bcb26e5f7bcc2b93e0933afcf26cd19df0c208faf35cce83321b5c533b5f59c5ed6169e33e7c213c33e9acb8c83c9e3490c840820c0bb8202a7af2e26e4271de6bda4234690df12d5f31458b2f97443cf68933e4554d700a564ca0aefe84e9ffc4b9d1ac8d7fe7c0b320ba4ea5299182f4e466f0ad7bc0b1b50bd07c28b8877653af7bc9aed825bab28947f9a58ee27ca7e4418de72a49ac717c53112c0d5ff78c6cc270650fc66b393020029f827ecf57556b7ee2cf0f4f855f565db14cac40547f1e87f4ec1d239d964ecd88b8467946e2491b9a181e5d82361d101959478f30e60937230beff7517fbe05ed4f51352511d2f79dbb01225c6a500f03cb1e423e88eedff4d201d4751e1a14380f397049a9ea95cb4ee7df2a205a563a40c8663385bb854738ee4e7fd23d73d08dc03150d6f1024538b2450fe1d60d805e9490ac5b5f36dfeda5ca895a99b5b3286450a6b0c60000d11f026b8688052924de2b067f77816ca3ad684a8bdba165d17318a00cceddefdc28e4daa6", 0x18b}], 0x1, 0x0, 0x0, 0x1}}], 0x1, 0x0)

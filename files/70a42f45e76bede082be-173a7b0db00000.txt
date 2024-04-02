@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=fb453bc21cf8eb5cd3ba91406b5d22e8915cf299
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","close_fds":false}
+bpf$PROG_LOAD(0x5, &(0x7f0000000200)={0x0, 0xe, &(0x7f0000000580)=ANY=[@ANYBLOB="b702000002005532bfa300000000000007030000fdfdfff67a40e1057a5935de2324dbac0af0ffd8ffffff79a4f0ff00000000b7060000ffffffff2d6405000000000065042000010000400404000001000000b7050000000000006a0a00fe00000000850000000a000100b70000000000000095000020000000009c050000002c9fbc429adad5ff4c6f"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0}, 0x78)
+r0 = socket(0x10, 0x2, 0x0)
+r1 = socket(0x11, 0x800000003, 0x0)
+bind(r1, &(0x7f0000000080)=@generic={0x11, "0000010000000000080044944eeba71a4976e252922cb18f6e2e2aba000000012e0b3836005404b0e0301a4ce875f2e3ff5f163ee340b7679500800000000000000101013c5811039e15775027ecce66fd792bbf0e5bf5ff1b0816f3f6db1c00010000000000000049740000000000000006ad8e5ecc326d3a09ffc2c654"}, 0x80)
+getsockname$packet(r1, &(0x7f0000005400)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @dev}, &(0x7f0000000000)=0x14)
+sendmsg$nl_route_sched(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000005c0)=ANY=[@ANYBLOB="4001000024000b0f000000000000f10febca0546", @ANYRES32=r2, @ANYBLOB="00000000ffffffff000000000a0001006e6574656d00000010010200ca000000"], 0x140}}, 0x0)
+r3 = socket$inet6_sctp(0xa, 0x1, 0x84)
+setsockopt$inet_sctp6_SCTP_PEER_ADDR_PARAMS(r3, 0x84, 0x9, &(0x7f0000000000)={0x0, @in={{0x2, 0x0, @empty}}, 0x0, 0x0, 0x400, 0x0, 0x32}, 0x9c)
+bind$inet6(r3, &(0x7f00004b8fe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+sendto$inet6(r3, &(0x7f0000847fff)='X', 0x34000, 0x0, &(0x7f000005ffe4)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7fc86d0324e1d39cd4c7cbad54f476d78c21fe55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0x4, &(0x7f00000002c0)=ANY=[@ANYBLOB="180100001c00000000000000120000f1850000006d00000095"], &(0x7f0000000000)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000001700)={&(0x7f0000001740)='hrtimer_expire_entry\x00', r0}, 0x10)
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5002, 0x0, 0x10, 0xffffffffffffffff, 0x0)
+bind$alg(0xffffffffffffffff, 0x0, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000080)={&(0x7f0000000040)='mmap_lock_acquire_returned\x00'}, 0x10)
+write$cgroup_int(0xffffffffffffffff, &(0x7f00000001c0), 0xfffffdef)

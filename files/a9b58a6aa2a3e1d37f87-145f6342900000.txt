@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=36224d13b0348322d4e59eef4556a7966e349f70
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"tmpdir":true,"segv":true}
+syz_emit_vhci(&(0x7f00000001c0)=@HCI_EVENT_PKT={0x4, @hci_ev_conn_complete={{0x3, 0xb}, {0x4, 0xc8, @any, 0x1}}}, 0xe)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+getsockopt$bt_BT_CHANNEL_POLICY(r1, 0x112, 0xf, 0x0, 0x0)
+bind$bt_hci(r0, 0x0, 0x0)
+syz_emit_vhci(0x0, 0xa)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r2, &(0x7f0000000000), 0x8)

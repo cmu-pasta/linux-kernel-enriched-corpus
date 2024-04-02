@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d7d403fea672271960437d3641cff6703890aef9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000000)=ANY=[@ANYBLOB="1201280080c9fc089c0e00008aaf0000000109021b0001000000000904e4000196a11b000705810b8290d8f8735c7ca52097a37d363969a973b2"], 0x0)
+syz_usb_connect(0x0, 0x24, &(0x7f0000000080)=ANY=[], 0x0)
+syz_usb_connect$hid(0x0, 0x36, &(0x7f00000001c0)=ANY=[], 0x0)
+syz_usb_connect$printer(0x0, 0x36, &(0x7f0000000000)=ANY=[], 0x0)
+syz_usb_connect(0x0, 0x2d, &(0x7f0000000380)={{0x12, 0x1, 0x0, 0x3d, 0x5, 0xd5, 0x0, 0x8dd, 0x987, 0x6dd, 0x1, 0x2, 0x3, 0x1, [{{0x9, 0x2, 0x1b, 0x1, 0x0, 0x0, 0x0, 0x0, [{{0x9, 0x4, 0x0, 0x0, 0x1, 0xff, 0x4, 0xb, 0x0, [], [{{0x9, 0x5, 0x83}}]}}]}}]}}, 0x0)
+syz_usb_ep_write$ath9k_ep2(r0, 0x83, 0xffffffffffffffdd, &(0x7f0000000180)=ANY=[])

@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=5459ac33e08b7a1e59c1c598377687218602b620
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":6,"sandbox":"namespace","fault_call":-1,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"tmpdir":true,"segv":true}
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, 0x0, 0x0)
+unshare(0x24020400)
+mknod(&(0x7f00000056c0)='./file0\x00', 0x1040, 0x0)
+execve(&(0x7f0000f8aff8)='./file0\x00', 0x0, 0x0)
+r0 = gettid()
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f000000d000)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+getpid()
+execve(&(0x7f0000000000)='./bus\x00', 0x0, 0x0)
+fcntl$setsig(r1, 0xa, 0x12)
+dup2(r1, r2)
+tkill(r0, 0x16)
+r3 = memfd_create(&(0x7f0000000040)='\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00', 0x0)
+write$binfmt_elf64(r3, &(0x7f00000003c0)=ANY=[@ANYBLOB="7f454c4600000000000000000000000003003e0000000000000000030000000040000000000000000019c954050007efa973c915f53b3800020000000004005938ab4af2dc3f9f008000f800000000000000000000000000000000000000000050d79cea9c68811f4dbc8bbc336b4dd0a22945be3beefbc38dd486d9b996796bd0c65301329e6830a46c52dbdb20c2d75310cc3b9b7ecebceb9ca0110c83078cc67087e9648bf9018c9b397942115741b96396fed18b3c4b20d97ca0586d03302d00d0231545ab2fa1b4738e510c077a615968429f39049198d46f36718f774dbd277e61c974ffaa6e1a055e5fae7848be126c66c47fb74529de3b0a63ad40a043adedf09074f4c2f0a11ed4188b5996d264673255cdd598ccc4761bd11a942c23432c87c87bb90705ae48547fedba8a45edc17c39525f6c9d486701f1"], 0x13d)
+execveat(r3, &(0x7f0000000100)='\x00', 0x0, 0x0, 0x1000)

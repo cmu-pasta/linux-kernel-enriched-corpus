@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=90f227ee167de747dd786ed148cb8bf203141fce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$can_raw(0x1d, 0x3, 0x1)
+bind$can_raw(r0, &(0x7f0000000000), 0x10)

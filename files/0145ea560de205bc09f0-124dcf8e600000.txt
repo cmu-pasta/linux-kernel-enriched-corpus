@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=73899123694e8ceeb69f8ad8a5b1716fbbd8f589
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault_call":-1,"leak":true,"netdev":true,"close_fds":true}
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+connect$netrom(r0, &(0x7f0000000000)={{0x6, @rose}, [@rose, @rose, @default, @netrom, @netrom, @rose, @rose]}, 0x48)
+listen(r0, 0x0)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+ioctl$sock_SIOCBRADDBR(r1, 0x89a0, 0x0)
+accept$netrom(r0, &(0x7f0000000140)={{0x3, @bcast}, [@null, @netrom, @rose, @rose, @default, @netrom, @default, @bcast]}, &(0x7f00000001c0)=0x48)
+ioctl$sock_inet6_SIOCDELRT(0xffffffffffffffff, 0x890c, &(0x7f0000000440)={@mcast2, @mcast1, @initdev={0xfe, 0x88, [], 0x0, 0x0}, 0x0, 0x4, 0x4, 0x400, 0x10000, 0x8793c9b26109e526})
+setsockopt$netrom_NETROM_IDLE(r0, 0x103, 0x7, &(0x7f0000000240)=0x3e73, 0x4)
+bpf$BPF_GET_BTF_INFO(0xf, 0x0, 0x0)

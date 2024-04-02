@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=28110fef8f5f9ce9420d16f1e36ae8dd80b253af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+syz_emit_vhci(&(0x7f0000000080)=@HCI_EVENT_PKT={0x4, @hci_ev_encrypt_change={{0x8, 0x4}, {0x2f, 0xc8}}}, 0x7)

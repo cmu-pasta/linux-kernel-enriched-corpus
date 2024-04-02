@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=149d7751733001d683eca36df500722bff6cc350
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":2,"fault_nth":65,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = syz_open_dev$usb(&(0x7f0000000000)='/dev/bus/usb/00#/00#\x00', 0x202, 0x0)
+mmap(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x0, 0x20011, r0, 0x0)
+clone(0x0, &(0x7f0000000180), &(0x7f0000000040), &(0x7f0000001180), &(0x7f00000011c0))

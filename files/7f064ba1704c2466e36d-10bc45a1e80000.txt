@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=9995f17bfe30a2bd6d1ffb720547366addbcc042
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+write$binfmt_script(0xffffffffffffffff, 0x0, 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x11, 0xffffffffffffffff, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000100), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000040)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_FRAME(r1, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000440)={0x4c, r2, 0x7562f43b63fde81f, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_FRAME={0x2f, 0x33, @action={@with_ht={{{}, {}, @device_a, @device_b}}, @channel_switch={0x0, 0x4, {{0x25, 0x3}, @void, @val={0x76, 0x6, {0x9, 0x6, 0x24, 0x9}}}}}}]}, 0x4c}}, 0x0)
+sendfile(r0, 0xffffffffffffffff, 0x0, 0x10000a006)

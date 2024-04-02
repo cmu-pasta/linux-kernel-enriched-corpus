@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5689aff48689f3ca418d44391fe4a4390a1ac21a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","close_fds":false}
+r0 = syz_io_uring_setup(0x3087, &(0x7f0000000b00), &(0x7f0000ffd000/0x2000)=nil, &(0x7f00006d4000/0x4000)=nil, &(0x7f00000001c0)=<r1=>0x0, &(0x7f0000000040)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x40, &(0x7f0000000140)=0x307e, 0x0, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f0000000000)=@IORING_OP_REMOVE_BUFFERS={0x1f, 0x0, 0x0, 0x800, 0x0, 0x0, 0x0, 0x0, 0x1, {0x1}}, 0x0)
+io_uring_enter(r0, 0x450c, 0x0, 0x0, 0x0, 0x0)

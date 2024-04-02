@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7a33f4ddf8c51a1b9512fff5e1c708fa395676cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+getsockname(r0, &(0x7f0000000040)=@llc={0x1a, 0x0, 0x0, 0x0, 0x0, 0x0, @remote}, &(0x7f00000000c0)=0x80) (async)
+connect$bt_l2cap(r0, &(0x7f0000000000)={0x1f, 0xfff8, @fixed}, 0xe) (async, rerun: 64)
+shutdown(r0, 0x1) (rerun: 64)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000780)={0x1f, 0x0, @none}, 0xe)

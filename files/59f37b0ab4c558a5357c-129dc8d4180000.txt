@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c6ba4a47d96ab08066ed4035718329a62340be87
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+clock_gettime(0x0, &(0x7f0000000280)={0x0, <r0=>0x0})
+syz_genetlink_get_family_id$l2tp(0x0, 0xffffffffffffffff)
+pselect6(0x40, &(0x7f0000000180)={0xc}, 0x0, 0x0, &(0x7f00000002c0)={0x0, r0+60000000}, 0x0)

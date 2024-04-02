@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e4ea0f7f538f608005d910e3a7848a14a1e43ca0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/profiling', 0x2, 0x0)
+write$FUSE_NOTIFY_RETRIEVE(r0, &(0x7f0000000000)={0x30}, 0x3b)

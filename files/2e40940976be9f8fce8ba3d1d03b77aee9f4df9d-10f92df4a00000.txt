@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=0b210638616bb68109e9642158d4c0072770ae1c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"sandbox":"none","fault_call":-1,"close_fds":false}
+sched_setattr(0x0, &(0x7f0000000000)={0x0, 0x6, 0x0, 0x0, 0x0, 0x9916, 0x80000000000ffff}, 0x0)

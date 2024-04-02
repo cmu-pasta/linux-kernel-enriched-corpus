@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3a8c2a5708b04ae7399f9228b07ddfe335630cdc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000080)=ANY=[@ANYBLOB="1201000079381010c2154000f3070182030109021b0001000000000904000301e104550009058b0b40bcc96f3fb42043c8c25ab9d3d10b1ce04565d180c4b56c0aed1a00e3e7559eb73a3741cb5720e9dba591e092e52761931e9352a57d4dd5149cf29cb2b21a7d00702482499cac7ca5eb923fff36238b34dd89f81d72d1f325145bef0c866d7228a654beabe1feef5759cc58d1a41be1afbf5bd37222f469dc59c1a8d3a97b81d67b37e6e50455eea24b474cb37f2c9845da9360e3"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io$uac1(r0, 0x0, 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+write$char_usb(r1, &(0x7f0000000040)='1', 0x1)

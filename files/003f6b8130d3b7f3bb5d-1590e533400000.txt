@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)="68756765746c04000000000000006167655f69725f5aa2f4657300", 0x275a, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x7fffffff})

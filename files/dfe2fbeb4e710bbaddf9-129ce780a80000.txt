@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=8abf881230c991425441c1edfa1be1ce11688bc5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"sysctl":true}
+sendmsg$NL80211_CMD_TDLS_OPER(0xffffffffffffffff, &(0x7f00000009c0)={0x0, 0x0, 0x0}, 0x884)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000680)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0xc0}, 0x4004)
+getsockname$packet(0xffffffffffffffff, &(0x7f0000000500)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @broadcast}, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$FAT_IOCTL_SET_ATTRIBUTES(0xffffffffffffffff, 0x40047211, 0x0)
+sendmsg$DEVLINK_CMD_TRAP_GROUP_SET(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, 0x0}, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(0xffffffffffffffff, 0x0, 0x0)
+socket$netlink(0x10, 0x3, 0x0)
+socket$nl_generic(0x10, 0x3, 0x10)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000140), 0xffffffffffffffff)
+sendmsg$NL80211_CMD_REQ_SET_REG(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000180)=ANY=[@ANYBLOB='0\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="01006b1b6a52000000001b00000006002100df69"], 0x30}}, 0x0)
+write(0xffffffffffffffff, 0x0, 0x0)

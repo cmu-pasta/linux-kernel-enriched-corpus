@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=85acb8fb9e2f6cbd86b9c3c5cda6f07d19a31862
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+r1 = creat(&(0x7f0000000400)='./file0\x00', 0x100)
+fallocate(r1, 0x100000011, 0x0, 0x2811fdff)
+bind$bt_l2cap(r0, &(0x7f0000000040)={0x1f, 0x0, @any, 0x8e9}, 0xe)
+connect$bt_l2cap(r0, &(0x7f0000000000)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0xfd}, 0xe)
+sendmmsg(r0, &(0x7f0000000b80), 0x735, 0x24044840)

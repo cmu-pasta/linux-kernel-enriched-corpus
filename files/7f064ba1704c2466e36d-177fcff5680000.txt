@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=9995f17bfe30a2bd6d1ffb720547366addbcc042
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='blkio.bfq.io_merged_recursive\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000640), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000340)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_FRAME(0xffffffffffffffff, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000000)=ANY=[@ANYBLOB="af030000", @ANYRES16=r2, @ANYBLOB="010028057000fcdbdf253b00000008000300", @ANYRES32=r3, @ANYBLOB="04008e00080057001b0a000004006c000500190107000000080026006c090000560333"], 0x398}}, 0x0)
+preadv(r0, &(0x7f00000015c0)=[{&(0x7f0000000080)=""/124, 0xffffffff000}], 0x5, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='cgroup.controllers\x00', 0x275a, 0x0)
+r4 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cgroup.controllers\x00', 0xb00000000065808, 0x0)
+r5 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='cgroup.controllers\x00', 0x275a, 0x0)
+write$cgroup_int(r5, &(0x7f0000000000), 0xffd2)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+sendfile(r6, r4, 0x0, 0x100000064)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f00000014c0), 0xffffffffffffffff)
+r8 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r8, 0x8933, &(0x7f00000003c0)={'wlan0\x00', <r9=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r8, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000000)={0x2c, r7, 0x1, 0x0, 0x0, {{}, {@val={0x8, 0x3, r9}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x994}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8, 0xb7, 0x78}]}, 0x2c}}, 0x40880)

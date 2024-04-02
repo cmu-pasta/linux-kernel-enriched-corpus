@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b97ec15bfe317ac1ddccb41f2a913d4f7a31c6d7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"collide":true,"repeat":true,"procs":1,"sandbox":"none","fault_call":-1,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000733000)={0x5, 0x1, 0x5, 0xb}, 0x1c)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f0000fe6000)={0x3, 0x4, 0x4, 0x100000009}, 0x2c)
+bpf$PROG_LOAD(0x5, &(0x7f00004b1000)={0x8, 0x7, &(0x7f0000261000)=@framed={{}, [@map={0x18, 0x9, 0x1, 0x0, r1}, @map={0x18, 0x4, 0x1, 0x0, r0}]}, &(0x7f0000cd0000)='GPL\x00', 0xb4c3, 0x259, &(0x7f0000cdd000)=""/4096}, 0x48)

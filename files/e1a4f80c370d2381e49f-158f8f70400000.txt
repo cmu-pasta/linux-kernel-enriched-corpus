@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=149d7751733001d683eca36df500722bff6cc350
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":8,"sandbox":"none","fault":true,"fault_call":7,"fault_nth":55,"tun":true,"tmpdir":true,"cgroups":true,"netdev":true,"resetnet":true,"segv":true,"waitrepeat":true}
+r0 = socket$inet6(0xa, 0x1000000000002, 0x0)
+ioctl(r0, 0x8912, &(0x7f0000000280))
+r1 = openat$ion(0xffffffffffffff9c, &(0x7f0000000080)='/dev/ion\x00', 0x0, 0x0)
+ioctl$ION_IOC_ALLOC(r1, 0xc0184900, &(0x7f0000000000)={0xfffb, 0x1a, 0x0, <r2=>0xffffffffffffffff})
+mmap(&(0x7f0000004000/0x4000)=nil, 0x4000, 0xffffffffffffffff, 0x6012, r2, 0x0)
+mremap(&(0x7f0000004000/0x2000)=nil, 0x2000, 0x1000, 0x3, &(0x7f0000000000/0x1000)=nil)
+pipe2(&(0x7f0000000480), 0x0)
+clone(0x0, &(0x7f0000000080), &(0x7f00000000c0), &(0x7f0000000040), &(0x7f0000000180))
