@@ -6,11 +6,26 @@ import os
 import requests
 import re
 import multiprocessing
+import time
 
 '''
 Query https://syzkaller.appspot.com/upstream for all bugs against upstream kernel and have "C" and "syz" reproducers
 Save reproducers to text files
 '''
+
+last_request_time = multiprocessing.Value('d', 0.0)
+request_lock = multiprocessing.Lock()
+
+def rate_limited_get(url):
+    """Perform a get request ensuring at least 1 second between calls, even with multiprocessing."""
+    with request_lock:
+        now = time.time()
+        with last_request_time.get_lock():
+            elapsed = now - last_request_time.value
+            if elapsed < 1.0:
+                time.sleep(1 - elapsed)
+            last_request_time.value = time.time()
+    return requests.get(url)
 
 def get_reproducers(bug):
         # get the id from the bug
@@ -19,7 +34,7 @@ def get_reproducers(bug):
         if existing_files:
                 print(f"Files for bug {bug_id} already exist. Skipping...")
                 return
-        page = requests.get("https://syzkaller.appspot.com" + bug)
+        page = rate_limited_get("https://syzkaller.appspot.com" + bug)
         soup = BeautifulSoup(page.content, 'html.parser')
         # parse last table in page that has class "list_table"
         try:
@@ -32,7 +47,7 @@ def get_reproducers(bug):
         for entry in td:
             # get the href of the link
             link = entry.find('a').get('href')
-            page = requests.get("https://syzkaller.appspot.com" + link)
+            page = rate_limited_get("https://syzkaller.appspot.com" + link)
             # bug = files/bug?id=17ee94193810ddc5d820094d4e509d47ad5bf6bc
             # link = /text?tag=ReproSyz&x=1789e141d00000
             # get the x from the link
