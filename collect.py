@@ -13,19 +13,24 @@ Query https://syzkaller.appspot.com/upstream for all bugs against upstream kerne
 Save reproducers to text files
 '''
 
-last_request_time = multiprocessing.Value('d', 0.0)
-request_lock = multiprocessing.Lock()
-
-def rate_limited_get(url):
-    """Perform a get request ensuring at least 1 second between calls, even with multiprocessing."""
-    with request_lock:
-        now = time.time()
-        with last_request_time.get_lock():
+def rate_limited_get(url, delay=1.0):
+    """A simplified rate limiter for get requests in a multiprocessing environment."""
+    global last_request_time
+    while True:
+        with request_lock:
+            now = time.time()
             elapsed = now - last_request_time.value
-            if elapsed < 1.0:
-                time.sleep(1 - elapsed)
-            last_request_time.value = time.time()
+            if elapsed >= delay:
+                last_request_time.value = time.time()
+                break
+        time.sleep(delay - elapsed)  # Sleep the remaining time if any
     return requests.get(url)
+
+def init_worker(lock, last_time):
+    """Initialize global variables on the worker process."""
+    global request_lock, last_request_time
+    request_lock = lock
+    last_request_time = last_time
 
 def get_reproducers(bug):
         # get the id from the bug
@@ -76,7 +81,9 @@ def main():
 
     # for each bug, get the reproducers from "https://syzkaller.appspot.com/$bug"
     # run the following code in 15 parallel processes to speed up
-    pool = multiprocessing.Pool(15)
+    lock = multiprocessing.Lock()
+    last_time = multiprocessing.Value('d', time.time())
+    pool = multiprocessing.Pool(15, initializer=init_worker, initargs=(lock, last_time))
     pool.map(get_reproducers, bugs)
 
 if __name__ == "__main__":
