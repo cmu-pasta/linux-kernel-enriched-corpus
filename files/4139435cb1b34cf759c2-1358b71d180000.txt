@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=874bf0a9464205c21d77d8a3e7bc9dff824329a5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+open_by_handle_at(0xffffffffffffffff, &(0x7f00000000c0)=@FILEID_BTRFS_WITH_PARENT_ROOT={0x28, 0x4e, {0x2, 0x26, 0x80, 0x3, 0x7, 0x75bc}}, 0x200d81)

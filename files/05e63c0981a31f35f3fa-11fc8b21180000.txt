@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=706c16afc2fea6b4735c8a009071f61037a2b811
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f0000000440)='./file1\x00', 0x0)
+mount(0x0, &(0x7f0000000240)='./file1\x00', &(0x7f0000000000)='tmpfs\x00', 0x0, &(0x7f0000000300)='usrquota')
+chdir(&(0x7f0000000080)='./file1\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='net_prio.prioidx\x00', 0x275a, 0x0)
+quotactl_fd$Q_GETNEXTQUOTA(r0, 0xffffffff80000901, 0x0, 0x0)

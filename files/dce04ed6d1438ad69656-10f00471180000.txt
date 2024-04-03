@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=af179086d4c4e7312e83a6b2116a6a37c1a177b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f00000015c0), 0x2, 0x0)
+ioctl$VHOST_SET_VRING_BASE(r0, 0xaf01, 0x0)
+ioctl$VHOST_SET_LOG_BASE(r0, 0x4008af04, &(0x7f00000001c0)=&(0x7f0000000040))
+r1 = eventfd(0x0)
+ioctl$VHOST_SET_VRING_BASE(r0, 0x4008af12, &(0x7f0000000080)={0x1, 0x7f})
+ioctl$VHOST_SET_LOG_FD(r0, 0x4004af07, &(0x7f0000000240)=r1)
+ioctl$VHOST_SET_MEM_TABLE(r0, 0x4008af03, &(0x7f0000000a00)={0x1, 0x0, [{0x0, 0xe7, &(0x7f0000000700)=""/231}]})
+ioctl$VHOST_SET_VRING_KICK(r0, 0x4008af20, &(0x7f00000005c0)={0x1, r1})
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000140)={0x0, 0x0, 0x0, &(0x7f0000000180)=""/53, 0x0})
+ioctl$VHOST_SET_VRING_ADDR(r0, 0x4028af11, &(0x7f0000000280)={0x1, 0x1, &(0x7f0000000380)=""/247, &(0x7f00000000c0)=""/87, &(0x7f0000000480)=""/74})
+ioctl$VHOST_VSOCK_SET_RUNNING(r0, 0x4004af61, &(0x7f0000000000)=0x1)
+sendmsg$nl_route_sched(0xffffffffffffffff, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={0x0, 0x8b}}, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000300)='hugetlb.2MB.rsvd.usage_in_bytes\x00', 0x275a, 0x0)
+write$binfmt_script(r2, &(0x7f0000000040)=ANY=[], 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x200000b, 0x28011, r2, 0x0)
