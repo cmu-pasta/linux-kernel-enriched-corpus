@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7a00bc87922fb0ab4555e91b968e4615bdaf0172
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+rt_sigaction(0x19, &(0x7f0000000000)={0xfffffffffffffffc, 0xfc000003, 0x0}, 0x0, 0x8, &(0x7f0000000440))
+r0 = memfd_create(&(0x7f00000006c0)='\x00\xac=\x9d\xd2\xdb\xe6\xbf\xb4\xf2\xed\x04\x00\x00\x00\xd4N\x12\x9b\x1f\t\xd1Z+\x86T\x16\xf8\x01\x00\x00\x00\x9f+\x8d!\x0fG\xab\xc2\xdc\xa3\xb3\xae8\x9f9?\xefo\xa4k\x01\xb2>\xa1\x9c\x86xm\xe6\x9bZ4\x91\x1a\xdb\xdd\x89\xb9\xc0LF;\xd6\x84\x195\x06\x00\x00\x00~\xf3S\x12\"p^\xc1jP\x8a\xc6[\xbd\xe7q]\xdd\r\x1aZS\x01*\x1b\xfd\xbcMA\xdcq\xa1\x00\xb3\xf9\x91r\x7f\xdc\xf1\xc3G,\xdb\xccS\x15\x95b\x17\xab\xe4?\x96\x95\xa4kP\x99YO\xb8V\xd5p\x90X\xaaf', 0x0)
+fallocate(r0, 0x0, 0x400000000000000, 0x800000000007) (async)
+fallocate(r0, 0x0, 0x400000000000000, 0x800000000007)

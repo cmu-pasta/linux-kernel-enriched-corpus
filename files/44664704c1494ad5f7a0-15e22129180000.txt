@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4c96204951a296d3cf40fceb6d1969f2bf1d0cbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+mount(&(0x7f0000000340)=ANY=[@ANYBLOB='mtd', @ANYRESDEC=0x0], &(0x7f00000000c0)='./file0\x00', &(0x7f0000001200)='jffs2\x00', 0x0, 0x0)
+setxattr$trusted_overlay_upper(&(0x7f0000000200)='./file0\x00', &(0x7f0000000580), 0x0, 0x0, 0x0)

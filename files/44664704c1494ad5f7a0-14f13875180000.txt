@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4c96204951a296d3cf40fceb6d1969f2bf1d0cbf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000))
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='mtd', @ANYRESHEX=0x0], &(0x7f00000000c0)='./file0\x00', &(0x7f0000001200)='jffs2\x00', 0x0, 0x0)
+setxattr(&(0x7f0000000080)='./file0\x00', &(0x7f00000001c0)=@random={'user.', '!/{,)k#\x00'}, 0x0, 0x0, 0x0)
