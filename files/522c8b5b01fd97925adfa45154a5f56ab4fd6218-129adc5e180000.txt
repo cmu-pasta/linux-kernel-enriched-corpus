@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=522c8b5b01fd97925adfa45154a5f56ab4fd6218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x10, 0x80002, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000001240)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000380)=ANY=[@ANYBLOB="7800000030001b0500000000000000000000000064000100600001000b000100736b626d6f640000340002800a000300bbbbbbbbbbbb0000240002"], 0x78}}, 0x0)
+syz_genetlink_get_family_id$smc(&(0x7f00000001c0), r0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b10e4faa22954e046b25115a60476ca829ce95e5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+madvise(&(0x7f0000a93000/0x4000)=nil, 0x4000, 0x80000000e)
+mremap(&(0x7f0000a96000/0x1000)=nil, 0x1000, 0x800000, 0x3, &(0x7f0000130000/0x800000)=nil)
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)
+mremap(&(0x7f00007fd000/0x2000)=nil, 0x2000, 0x2000, 0x7, &(0x7f00008d7000/0x2000)=nil)
+migrate_pages(0x0, 0x4, &(0x7f00000002c0)=0x200000007f, &(0x7f0000000300)=0xa)
+madvise(&(0x7f00003c1000/0x1000)=nil, 0xdfc3efff, 0x14)
