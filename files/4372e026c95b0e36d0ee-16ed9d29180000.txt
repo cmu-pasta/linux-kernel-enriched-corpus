@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=5bb123d417047343d9606e0c3a0c5930ef5da86b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+open_by_handle_at(0xffffffffffffffff, &(0x7f0000000040)=@ocfs2_parent={0x1}, 0x0)

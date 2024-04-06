@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=14bba5dbd156f707ab9233482fc84afddddb7648
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_emit_ethernet(0x4e, &(0x7f0000000080)={@local, @multicast, @void, {@ipv6={0x86dd, @tcp={0x0, 0x6, "f600", 0x18, 0x6, 0x0, @remote, @local, {[], {{0x0, 0x4001, 0x41424344, 0x41424344, 0x0, 0x0, 0x6, 0xc2, 0x0, 0x0, 0x0, {[@generic={0xfe, 0x2}]}}}}}}}}, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000040)='./file1\x00', 0x103042, 0x0)
+ioctl$FS_IOC_RESVSP(r0, 0x40305828, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x100000001})
