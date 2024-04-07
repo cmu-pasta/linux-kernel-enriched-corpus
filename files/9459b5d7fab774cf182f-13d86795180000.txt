@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b80fd248f57df04565f213da87d30ddaa567d496
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000640)=@base={0x1e, 0x0, 0xfffffe00, 0x4, 0x0, 0x1, 0xbb17}, 0x48)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000a40)={0x3, 0xc, &(0x7f0000000440)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000005900000095"], 0x0}, 0x90)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000440)=ANY=[], &(0x7f0000000a00)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000002c0)={&(0x7f0000000280)='ext4_drop_inode\x00', r1}, 0x10)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f951f664994b715781832e7cdb5e750a25ebba19
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000001c40)={0x0, 0x3, &(0x7f0000001300)=ANY=[@ANYBLOB="1800000001000000000000000000000095"], 0x0}, 0x90)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./cgroup\x00', 0x0, 0x0)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000001c40)={0x8, 0x3, &(0x7f0000001300)=ANY=[], &(0x7f0000000240)='syzkaller\x00'}, 0x90)
+bpf$BPF_LINK_CREATE(0x1c, &(0x7f0000000180)={r1, r0, 0x16, 0x0, @val=@tcx={@prog_fd}}, 0x40)
+r2 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_RX_RING(r2, 0x11b, 0x5, &(0x7f0000001980)=0x100, 0x2)
