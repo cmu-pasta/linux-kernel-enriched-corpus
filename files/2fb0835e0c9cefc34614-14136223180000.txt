@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dfa240be3eb362e7a636b698b5d63312863c7d9c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true}
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000280)={0xe, 0x4, &(0x7f0000000000)=ANY=[@ANYBLOB="180000000000000000000000000000007301a200000000009500000000000000"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0xf}, 0x90)
+syz_emit_vhci(&(0x7f0000000000)=ANY=[@ANYBLOB="043e751d", @ANYBLOB], 0x24)
+syz_emit_vhci(&(0x7f00000017c0)=ANY=[@ANYBLOB="043e071b47"], 0x22)
