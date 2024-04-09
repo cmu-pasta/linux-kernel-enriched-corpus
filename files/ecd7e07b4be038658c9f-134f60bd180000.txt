@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=392814820716e9afd3d7e5e754eccb8b9c9fd8b9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000280)={0x20, 0x29, 0xb, 0x20, 0x25dfdbfd, {0x2}, [@typed={0x4, 0x3}, @typed={0x8, 0x98, 0x0, 0x0, @fd=r0}]}, 0x20}}, 0x0)
