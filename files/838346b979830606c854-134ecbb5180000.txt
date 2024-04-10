@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7e83f466f7f3e632f4db43d327e799bf04805958
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./cgroup\x00', 0x0, 0x0)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0x8, 0x4, &(0x7f0000000040)=@framed={{0xffffffb4, 0x0, 0x0, 0x0, 0x0, 0x61, 0x11, 0x5c}, [@ldst={0x6}], {0x95, 0x0, 0x74}}, &(0x7f0000003ff6)='GPL\x00', 0x2, 0xfd90, &(0x7f000000cf3d)=""/195}, 0x48)
+bpf$BPF_LINK_CREATE(0x1c, &(0x7f0000000180)={r1, r0, 0x16, 0x0, @void}, 0x10)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+setsockopt$bt_BT_DEFER_SETUP(r2, 0x112, 0x10, 0x0, 0x0)

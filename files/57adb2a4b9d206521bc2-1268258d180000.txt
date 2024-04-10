@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=093e11f4d3012f5c5b1459a8111cfd39967e2db7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = open(&(0x7f0000000240)='./bus\x00', 0x1412fc, 0x0)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x0, 0x4002011, r0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600722, 0x19)
