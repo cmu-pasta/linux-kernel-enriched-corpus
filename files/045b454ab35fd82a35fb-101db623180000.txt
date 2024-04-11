@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=0fbf9e29f563d33fee22a862bc357bd6330fd9e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = epoll_create(0x10000e9)
+r1 = openat$udambuf(0xffffffffffffff9c, &(0x7f0000000040), 0x2)
+r2 = memfd_create(&(0x7f0000000340)='y\x105\xfb\xf7u\x83%:r\xc2\xb9x\xa4q\xc1\xea_\x8cZ7\xe7a\x9b\x11x\x0e\xa1\xcf\x1a\x98S7\xc9\x00\x00\x00\x00\x00\x00\a\x00\x00\x00\x00\x00\x00\x04\x879\xa24\xa9am\xde\xb2\xd3\xcbZJoa\xc4\x1acB\xaa\xc1\xfb Q\xd4\xf4\x01\xa52\xe2DG\xd4\xbd{\x9f\xa9\x97\x9b@\xdb\x00b\xe1br\xb6\x008\xe3\x10\xff\xc2\x9d\r2\x9e\x8e\x04sW\x1b\xb7\xb3\xa2\xc9&@\xca\xda\xdc\xe2/\x97X\xac\b\xb0\xc2<\x80E\x1a\xbc\xc7W\xda9VsA\xaf\xc6\xcf\xe1\xa1\xb5M\xa2\x85\xa6y\xc4J\xf1\xf7\xfcD\x95\xe3\xeb\xc7\xbc\x91\xb0\xa8\x9eo\xebF(\x9dL\x01vRk\xaacB\x04\xa7I\v\x86EZ\x96\xd5\x14OD\\\xe8R\xe4\xcd\xec\xcc\xd1\x0fre\xe86\xcd\xeb\xc4$\x98\x06J\xd6dD\x8d_U`ji{\xab\x97\xaf;l\x1f\xaf\xb38U\xcb\xfa\xb3j\x92\f\x81\xa0\xa2-g\b\x99\x0e\x8d\x8d\x16\xd9w\\\xf8\xce\xb0j\x9d\'\x93\xef\x1d\xa0H\xd9\xbd\xd9\xaf\x12$\x8d\x16%\x8b\x00', 0x3)
+ftruncate(r2, 0xffff)
+r3 = syz_io_uring_setup(0x5169, &(0x7f0000000080)={0x0, 0x0, 0x10100}, &(0x7f0000000100), &(0x7f0000000000)=<r4=>0x0)
+syz_io_uring_setup(0x2292, &(0x7f0000000280), &(0x7f0000000400)=<r5=>0x0, &(0x7f0000000180))
+syz_io_uring_submit(r5, r4, &(0x7f00000001c0)=@IORING_OP_READ=@pass_buffer={0x16, 0x0, 0x0, @fd_index=0x3, 0x0, 0x0}) (async)
+io_uring_enter(r3, 0xb15, 0x0, 0x0, 0x0, 0x0)
+fcntl$addseals(r2, 0x409, 0x7)
+r6 = ioctl$UDMABUF_CREATE(r1, 0x40187542, &(0x7f0000000100)={r2, 0x2, 0x0, 0x1000})
+r7 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cpu.stat\x00', 0x275a, 0x0)
+write$UHID_CREATE2(r7, &(0x7f00000001c0)=ANY=[], 0x118)
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x5, 0x12, r7, 0x0)
+r8 = fcntl$dupfd(r6, 0x0, r2)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r8, &(0x7f00000000c0))
+epoll_ctl$EPOLL_CTL_MOD(r0, 0x3, r8, &(0x7f0000000000))

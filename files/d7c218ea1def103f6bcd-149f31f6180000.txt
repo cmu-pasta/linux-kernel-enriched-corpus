@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=43a7ecd16f9d362888d71184a49a8f5e0c08f448
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"wifi":true,"segv":true}
+syz_mount_image$vfat(&(0x7f0000000040), &(0x7f0000000100)='./file0\x00', 0x214c0e1, 0x0, 0x0, 0x0, &(0x7f0000000000))
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='mtd', @ANYRESHEX=0x0], &(0x7f00000000c0)='./file0\x00', &(0x7f0000001200)='jffs2\x00', 0x0, 0x0)
+chdir(&(0x7f0000000140)='./file0\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./bus\x00', 0x0)
+setxattr$trusted_overlay_origin(&(0x7f0000000180)='./bus\x00', &(0x7f00000001c0), &(0x7f0000000280), 0xfff7, 0x0)

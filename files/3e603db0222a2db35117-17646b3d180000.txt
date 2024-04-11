@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4d376e10e96103543bd602959ff330eb52dd0293
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r0, 0x40345410, &(0x7f0000000100)={{0x1, 0x0, 0x0, 0x3}})
+ioctl$SNDRV_TIMER_IOCTL_PARAMS(r0, 0x40505412, &(0x7f00000002c0)={0x1, 0x20000006})
+ioctl$SNDRV_TIMER_IOCTL_START(r0, 0x54a0)
+r1 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r1, 0x40345410, &(0x7f0000000100)={{0x1, 0x0, 0x0, 0x3}})
+ioctl$SNDRV_TIMER_IOCTL_START(r1, 0x54a0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1ba1f9ddf715caf0d59a122500fa7c3912d23a35
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0x19, 0x4, 0x8, 0x8}, 0x48)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+recvmsg$unix(r2, &(0x7f0000000300)={0x0, 0x0, 0x0}, 0x0)
+r3 = bpf$MAP_CREATE_RINGBUF(0x0, &(0x7f00000009c0)={0x1b, 0x0, 0x0, 0x40000, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0}, 0x48)
+sendmsg$unix(r2, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000700)=[{&(0x7f00000003c0)="af415818f0f6c580e6e9760997883e48b6c80f20aabbe488a2b186d9d8c8ccf93e60cdeb9fdf99eb99a2577e974a48eafe67fb97cacdc167f0d36f12f0bdf1f3cb056d86dd868b68fc71990e0b19df6eaf664015a1757ea6271edca7a148acbaa4bb6e796cc36048fc50820918cdca790abd539ed24a4c07411e4e0eec5e4a009a3e9521cf6e2752f8d5798099cc4a02b9c1909cdd31e7c4ed74c1841bab8505a9bd1334c4ac6e69dc44670633ac25e0df11f8a1f02bc00aabca5a94b2d0e4a621466c98ebde84715c655e3ec0bd689ad3bbd1715523ea44017b4031f395", 0xde}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}], 0x7, &(0x7f0000000780)=[@rights={{0x2c, 0x1, 0x1, [r3, r0, r1, r3, r3, r2, r3]}}], 0x30, 0x8000}, 0x8051)
+sendmsg$unix(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000080)="1c", 0x1}], 0x1, &(0x7f0000001080)=ANY=[@ANYBLOB="14000000000000000100000001"], 0x18}, 0x41)
