@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=373f8b39b01a73aa52e27f726d8f268a4d18cd86
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = io_uring_setup(0x30d3, &(0x7f00000002c0))
+madvise(&(0x7f0000ffd000/0x3000)=nil, 0x3011, 0x17)
+r1 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, &(0x7f0000000040))
+ioctl$UFFDIO_WRITEPROTECT(r1, 0xc020aa00, &(0x7f0000000000)={{&(0x7f0000800000/0x800000)=nil, 0x802000}, 0x2})
+r2 = fcntl$dupfd(r1, 0x0, r1)
+ioctl$UFFDIO_CONTINUE(r2, 0xc018aa06, &(0x7f00000000c0)={{&(0x7f0000800000/0x800000)=nil, 0x800000}, 0x1})
+mbind(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x0, 0x0, 0x0, 0x2)
+close_range(r0, 0xffffffffffffffff, 0x0)
+socket$qrtr(0x2a, 0x2, 0x0)
+madvise(&(0x7f0000ffd000/0x3000)=nil, 0x3011, 0x17)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, 0x0)
+fcntl$dupfd(r1, 0x0, r1)
+ioctl$UFFDIO_CONTINUE(r2, 0xc018aa06, 0x0)
