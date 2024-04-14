@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=df3cd0273312f4dc296d888b82fbd4bd7b15e66a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0x12, 0x4, 0x8, 0x8}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f00000007c0)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8ae8ff00000000bfa200000000000007020000f8ffffffb703000008070000b704000000000000850000000300000095000000000000003571cf9d5f2526a90e69cf1354a44e5c896c2627b286cb349b8a9782924ff6927a193eebdcd8b2989b93c0e37e00d3f3b0046a79f0e13cc8170907c5b8027c806b4cc0291e10f46f8081120531fa1de39f3fa3f18ade52539251ee5ec86b81e376f8ec74d4051dfe9f8ac65295ed3c292f1f70b5470ad5da09be9cd7e275ea9686b5b271711148c9ad16bb7a21bd4f3de73d"], &(0x7f0000000240)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000006c0)={&(0x7f0000000000)='block_bio_remap\x00', r1}, 0x10)

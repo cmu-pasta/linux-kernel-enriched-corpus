@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=2ff65ab0b991cb18a6c6b2854980a8517b50378d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+kexec_load(0x0, 0x1, &(0x7f00000001c0)=[{0x0, 0x0, 0x80000}], 0x0)
