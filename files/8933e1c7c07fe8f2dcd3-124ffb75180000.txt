@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ff061e5dafe4183e0ec8e27db8e84bc813c31c5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sequencer(0xffffffffffffff9c, &(0x7f0000000040), 0x8002, 0x0)
+write$P9_RSTATu(r0, &(0x7f0000000340)=ANY=[@ANYBLOB="0d0100007d00000005"], 0x10d)
