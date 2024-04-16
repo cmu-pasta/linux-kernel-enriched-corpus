@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d7bcab262275574f0742cbfbdf142792930d6140
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$sequencer(0xffffffffffffff9c, &(0x7f00000000c0), 0x109001, 0x0)
+r0 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000000), 0x42, 0x0)
+write$dsp(r0, &(0x7f00000001c0)="5cba91a4", 0xffffffd9)

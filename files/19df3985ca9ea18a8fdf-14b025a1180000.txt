@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d7bcab262275574f0742cbfbdf142792930d6140
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000040), 0x42002)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000280)={0x0, 0x0, 0x0, 'queue0\x00'})
+r1 = openat$adsp1(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+read$dsp(r1, &(0x7f0000000100)=""/225, 0xe1)

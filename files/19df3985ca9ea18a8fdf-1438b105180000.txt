@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d7bcab262275574f0742cbfbdf142792930d6140
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000000), 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r0, 0x40345410, &(0x7f00000083c0)={{0x1}})
+r1 = openat$audio1(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+read$dsp(r1, &(0x7f0000000240)=""/4096, 0x1000)

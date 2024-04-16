@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=d7bcab262275574f0742cbfbdf142792930d6140
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$dsp(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+readv(r0, &(0x7f00000000c0)=[{&(0x7f0000000140)=""/12, 0xc}], 0x1)
+openat$sequencer(0xffffffffffffff9c, &(0x7f00000003c0), 0x0, 0x0)
