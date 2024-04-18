@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=610b9592995fe50878a29ed466c10754c8983610
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+open(&(0x7f0000000180)='./bus\x00', 0x14927e, 0x0)
+syz_mount_image$fuse(0x0, &(0x7f0000000080)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount(&(0x7f0000000080)=@nbd={'/dev/nbd', 0x0}, &(0x7f0000000040)='./bus\x00', 0x0, 0x1000, 0x0)
+r0 = open(&(0x7f0000000100)='./bus\x00', 0x0, 0x0)
+mount(&(0x7f0000000040)=@nbd={'/dev/nbd', 0x0}, &(0x7f0000000000)='./file0\x00', &(0x7f00000001c0)='ufs\x00', 0x0, 0x0)
+ioctl$BTRFS_IOC_DEFRAG(r0, 0xab04, 0x3)
+lstat(0x0, 0x0)
+mount(0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$AUTOFS_DEV_IOCTL_CATATONIC(0xffffffffffffffff, 0xc0189379, 0x0)

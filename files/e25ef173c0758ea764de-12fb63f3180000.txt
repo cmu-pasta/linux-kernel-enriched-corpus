@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=24d6b56a04b99e3239e606c6c421ab6fb38a4605
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/ipc\x00') (fail_nth: 13)

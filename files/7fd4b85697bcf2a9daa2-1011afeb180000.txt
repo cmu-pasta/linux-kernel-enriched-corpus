@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=157ebc959295301f2c2b37fc55c9fc11c88f8945
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x3, 0x200000005c832, 0xffffffffffffffff, 0x0) (rerun: 64)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+r0 = io_uring_setup(0xb54, &(0x7f0000000000))
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f00000002c0)=[{&(0x7f0000001700)=""/4095, 0x440000}], 0x100000000000011a)
+openat$sw_sync_info(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0) (async)
