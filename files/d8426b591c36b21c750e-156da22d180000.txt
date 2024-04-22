@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3dee4a128fd17a826da21ea5521f2d35aeff37e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f00000004c0))
+mprotect(&(0x7f0000ffc000/0x3000)=nil, 0x3000, 0xc)
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000180)={{&(0x7f0000ffc000/0x3000)=nil, 0x3000}, 0x3})
+ioctl$UFFDIO_COPY(r0, 0xc028aa03, &(0x7f0000000000)={&(0x7f0000ffd000/0x1000)=nil, &(0x7f0000ffb000/0x3000)=nil, 0x1000, 0x3})
+r1 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f00000000c0)={0x1, &(0x7f0000000040)=[{0x6, 0x0, 0x0, 0x7fffffff}]})
+open_tree(0xffffffffffffffff, 0x0, 0x0)
+close_range(r1, 0xffffffffffffffff, 0x0)
+mprotect(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0xf)
