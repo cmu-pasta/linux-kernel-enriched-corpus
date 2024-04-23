@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4d05838c1c89e78a005ffb547b136e3061affbec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"usb":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPGETCONNLIST(r1, 0x400442c8, &(0x7f0000000000)={0x4, 0x0})

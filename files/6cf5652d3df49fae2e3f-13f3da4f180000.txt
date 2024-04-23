@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=56fe1fcb92d8b88b5096fcad21cf582a45bb822f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPGETCONNLIST(r1, 0x400442c8, &(0x7f0000000000)={0x4, 0x0})
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0)
+mount$fuse(0x0, 0x0, 0x0, 0x0, &(0x7f0000000400)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=0x0])
+mount(0x0, &(0x7f0000000380)='./file1\x00', &(0x7f0000000100)='autofs\x00', 0x0, &(0x7f0000000400))
+chdir(&(0x7f00000000c0)='./file1\x00')
+syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
