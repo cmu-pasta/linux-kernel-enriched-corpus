@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2f0c664ab14fb7dfaff18ee81a1b21548c03ce3b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"wifi":true}
+r0 = socket$igmp6(0xa, 0x3, 0x2)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000380)={'veth0_to_bridge\x00', <r2=>0x0})
+r3 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000000)={'bridge0\x00', <r4=>0x0})
+sendmsg$nl_route(r1, &(0x7f0000000280)={0x0, 0x20, &(0x7f0000000580)={&(0x7f0000000a40)=@newlink={0x28, 0x10, 0x403, 0x0, 0x25dfdbfe, {0x0, 0x0, 0x0, r2}, [@IFLA_MASTER={0x8, 0xa, r4}]}, 0x28}, 0x1, 0xba01}, 0x0)

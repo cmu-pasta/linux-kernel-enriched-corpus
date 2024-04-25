@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=87846412444711db5b0b2d537d4f981780109365
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000100)={0x0, 0x0})
+setsockopt$packet_rx_ring(0xffffffffffffffff, 0x107, 0x5, 0x0, 0x0)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)
+openat$rdma_cm(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+syz_genetlink_get_family_id$batadv(0x0, 0xffffffffffffffff)
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+r1 = syz_open_dev$evdev(&(0x7f0000000040), 0x0, 0x0)
+timer_settime(0x0, 0x0, &(0x7f0000000280)={{0x0, 0x989680}, {0x0, 0x989680}}, 0x0)
+readv(r1, 0x0, 0x0)
+syz_mount_image$ext4(&(0x7f0000000040)='ext4\x00', &(0x7f0000000500)='./file0\x00', 0xc901, &(0x7f00000002c0), 0x1, 0x4d6, &(0x7f0000000540)="$eJzs3c9rG9kdAPDvjK00TpzaaXtIA01Dk+KENpIdN4npIU2hNKdA2/SeurZsjGXLWHISm9A69A8olNIWeuqpl0L/gELJuaeyENi9L7vLLstusnvYw260SBrlh1fyDyJbif35wPO8mdHo+30WM5o389AEcGCdjohrEfGkVqudj4ihbHmalVhvlvrrHj+6N1UvSdRqNz9KIsmWtd4ryaZHs80OR8Svrkf8Nvlq3Mrq2vxkqVRczuYL1YWlQmV17cLcwuRscba4OD4+dnniysSlidGutLOe09WfvfeXP/7z51f/+8M7b9/64Nzv6mkNZuufb0c3NZuea/wvWvojYnk3gvVAX9aeXK8TAQBgW+rn+N+IiO9FxPkYir7G2RwAAACwn9R+MhifJxE1AAAAYN9KG2NgkzSfjQUYjDTN55vjZb8VR9JSuVL9wUx5ZXG6OVZ2OHLpzFypOJqNFR6OXFKfH2vUn81f3DA/HhHHI+LPQwON+fxUuTTd64sfAAAAcEAc3dD//3So2f8HAAAA9pnhXicAAAAA7Dr9fwAAANj/9P8BAABgX/vFjRv1Ums9/3r69urKfPn2heliZT6/sDKVnyovL+Vny+XZxm/2LWz1fqVyeelHsbhyt1AtVqqFyurarYXyymL11twLj8AGAAAA9tDx7z54K4mI9R8PNErdoV4nBeyJ6zt58bu7lwew9/p6nQDQM/29TgDomVyvEwB6LnlWTdut7zh45/+7kw8AANB9I9/ufP9/82sD6237CcDrw04MB5f7/3Bw7fT+//92KQ9g7+WcAcCBl2yx/uXv/9dqO0oIAADousFGSdJ8di9wMNI0n4841ngsQC6ZmSsVRyPi6xHx5lDua/X5scaWyZZ9BgAAAAAAAAAAAAAAAAAAAAAAAACgqVZLogYAAADsaxHp+0n2/K+RobODG68PHEo+G2pMI+LO32/+9e5ktbo8Vl/+8dPl1b9lyy/24goGAAAAsFGrn97qxwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABANz1+dG+qVfYy7oc/jYjhdvH743BjejhyEXHkkyT6n9suiYi+LsRfvx8RJ9rFT+ppxXCWRbv4A12Jn2a1ncQfiPpWR7sQHw6yB/Xjz7V2+38apxvT9vt/f1ZeVufjX/r0+NfX4fhzbJsxTj78d6Fj/PsRJ/vbH/9a8ZMO8c9sM/5vfr221mld7R8RI22/f5IXYhWqC0uFyurahbmFydnibHFxfHzs8sSViUsTo4WZuVIx+9s2xp++858nm7X/SIf4w1u0/+w22//Fw7uPvtms5trFP3em/ed/okP8NPvu+35Wr68fadXXm/XnnfrXG6c2a/90h/Zv9fmf22b7z//yD+9s86UAwB6orK7NT5ZKxeXXttIfr0QaKq9h5fevRhqvZKXXRyYAAKDbnp309zoTAAAAAAAAAAAAAAAAAAAAOLj24ufENsZc701TAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA29WUAAAD//+f11+s=")
+r2 = fspick(0xffffffffffffff9c, &(0x7f0000000000)='.\x00', 0x0)
+fsconfig$FSCONFIG_CMD_RECONFIGURE(r2, 0x7, 0x0, 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0, 0x0)
+ioctl$BTRFS_IOC_SNAP_CREATE_V2(r0, 0x50009417, 0x0)
+inotify_add_watch(0xffffffffffffffff, 0x0, 0x83000605)
+r3 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000240)={0x11, 0x3, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f00000004c0)='contention_begin\x00', r3}, 0x10)
+r4 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nfc(&(0x7f0000000200), r4)
