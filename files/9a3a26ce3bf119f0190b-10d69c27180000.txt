@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=762fac26cd6af436411b4ac479f0c759d02216e9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"segv":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x6)
+r0 = open(&(0x7f0000000300)='.\x00', 0x0, 0x0)
+ioctl$FS_IOC_SETFLAGS(r0, 0x40086602, &(0x7f00000001c0)=0x20000008)
+syz_clone(0x8200000, &(0x7f00000001c0), 0x0, 0x0, &(0x7f0000000340), 0x0)
