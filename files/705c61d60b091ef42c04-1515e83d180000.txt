@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e3e1859fd6b541e7d4453c7ca4bd24c39985b5b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cpuacct.usage_sys\x00', 0x275a, 0x0)
+ioctl$FS_IOC_GETFSMAP(r0, 0x40305839, &(0x7f0000000000)=ANY=[@ANYBLOB="0000000000000000afff000000000000000000000002"])
+r1 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r1, &(0x7f0000000600)={0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000040)="2e00000010008188e6b62aa73772cc9f1ba1f848480000005e140602000000000e000a0010000000028000001294", 0x2e}], 0x1}, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=e3e1859fd6b541e7d4453c7ca4bd24c39985b5b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":false,"wifi":true}
+r0 = socket$kcm(0x10, 0x2, 0x4)
+close(r0)
+socket$kcm(0x10, 0x3, 0x0)
+sendmsg$inet(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000100)=[{&(0x7f0000000140)="5c00000013006bcd9e3fe3dc6e48aa31086b8703470000007ea60264070af365040014000d000a0010000000dee517d34460bc24eab55603000000000000003651f60a84c9f5d1938037e786a6d0bdd7fcf50e4509c5bb5a00f69853", 0x5c}], 0x1, 0x0, 0x0, 0x1f00c00e}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000280), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r2, 0x8933, &(0x7f00000002c0)={'wlan0\x00', <r4=>0x0})
+sendmsg$NL80211_CMD_ABORT_SCAN(r1, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000300)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r3, @ANYBLOB="379500009f833d3234d308f8000008000300", @ANYRES32=r4], 0x1c}}, 0x0)

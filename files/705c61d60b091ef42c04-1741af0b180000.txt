@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e3e1859fd6b541e7d4453c7ca4bd24c39985b5b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"wifi":true,"tmpdir":true}
+r0 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r0, &(0x7f0000000600)={0x0, 0x0, &(0x7f0000000040)=[{&(0x7f0000000000)="2e00000010008188e6b62aa73772cc9f1ba1f848480000005e140602000000000e000a0010000000028000001294", 0x2e}], 0x1, 0x0, 0x0, 0x65580000}, 0x0)
+mkdir(&(0x7f0000000040)='./file0\x00', 0x0)
+mount$bind(&(0x7f00000002c0)='.\x00', &(0x7f0000000200)='./file0/../file0\x00', 0x0, 0x101091, 0x0)
+pivot_root(&(0x7f0000000140)='./file0\x00', &(0x7f0000000180)='./file0\x00')

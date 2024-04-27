@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e3e1859fd6b541e7d4453c7ca4bd24c39985b5b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"wifi":true,"tmpdir":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'wlan0\x00', <r1=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000000040)={'team0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000580)={&(0x7f0000000100)=ANY=[@ANYBLOB="4400000010000304000000000000000000000400", @ANYRES32=r1, @ANYBLOB="a8070386b58e27e514001280070000006d6163766c6160000400028008000500", @ANYRES32=r1, @ANYBLOB='\b\x00\n\x00', @ANYRES32=r2], 0x44}}, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x26e1, 0x0)
+r3 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000180)='memory.events\x00', 0x7a05, 0x1700)
+ioctl$FS_IOC_RESVSP(r3, 0x40305828, &(0x7f0000000140)={0x0, 0x1, 0x0, 0x80000001})
