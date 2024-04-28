@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=77f8ed52da4ad226baf7cf4b6c97a4c5a5f42dfc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xb, &(0x7f0000000180)=ANY=[@ANYBLOB="18000000000000000000000000001afc180100002020702500000000002020207b1af8ff00000000bfa100000000000007010000f8ffffffb702000002000000b703000000090000850000000400000095"], &(0x7f0000000040)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x88, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+connect$unix(r1, 0x0, 0x0)
+sendmmsg$unix(r2, &(0x7f0000000000), 0x651, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f0000000080)='sched_switch\x00', r0}, 0x10)
+rt_sigaction(0x19, &(0x7f0000000000)={0xfffffffffffffffc, 0x44000006, 0x0}, 0x0, 0x8, &(0x7f0000000440))
+r3 = memfd_create(&(0x7f00000006c0)='\x00\xac=\x9d\xd2\xdb\xe6\xbf\xb4\xf2\xed\x04\x00\x00\x00\xd4N\x12\x9b\x1f\t\xd1Z+\x86T\x16\xf8\x01\x00\x00\x00\x9f+\x8d!\x0fG\xab\xc2\xdc\xa3\xb3\xae8\x9f9?\xefo\xa4k\x01\xb2>\xa1\x9c\x86xm\xe6\x9bZ4\x91\x1a\xdb\xdd\x89\xb9\xc0LF;\xd6\x84\x195\x06\x00\x00\x00~\xf3S\x12\"p^\xc1jP\x8a\xc6[\xbd\xe7q]\xdd\r\x1aZS\x01*\x1b\xfd\xbcMA\xdcq\xa1\x00\xb3\xf9\x91r\x7f\xdc\xf1\xc3G,\xdb\xccS\x15\x95b\x17\xab\xe4?\x96\x95\xa4kP\x99YO\xb8V\xd5p\x90X\xaaf', 0x0)
+fallocate(r3, 0x0, 0x400000000000004, 0x7)

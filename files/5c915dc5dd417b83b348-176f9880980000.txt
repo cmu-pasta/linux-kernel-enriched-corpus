@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=cd52c54e916eb62b2334ed614a06509cb3a3fbaa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_emit_vhci(&(0x7f0000000380)=ANY=[@ANYBLOB="02c80053004f0001000f0104007400ff0f068104000000050002020400010003000e0503001504200b04"], 0x58)
