@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e6f8fe57cea144e72896950c7f7fd0c5cbd5afd5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$bfs(&(0x7f0000000240), &(0x7f0000000100)='./file0\x00', 0x0, &(0x7f0000000000)=ANY=[@ANYRESDEC, @ANYRES64, @ANYRESHEX=0x0, @ANYRES16, @ANYRES16, @ANYBLOB="001000000000000000030300", @ANYRES16=0x0], 0x4, 0xac, &(0x7f0000000140)="$eJzszjFOhEAYBeAHGtEGD2DhDbiDZ7G0pMJYcBsre0/hEUw8gIWtDZuFhVBstcWSbL4vmcz8M/OS9/X/8ZA6Ge4zGlbaruiTtnt9+cziJlyQMkmV5HY/1NPd79O0F4f377+353mtotdb9AUAAE5XpklyN499maZ5H48/y5/H5OpouDpHQwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBt7QIAAP//jUMfww==")
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mkdir(&(0x7f0000000400)='./file1/file0\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f0000002200)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1/file0'}}]})
+r0 = syz_mount_image$fuse(&(0x7f0000000040), &(0x7f00000000c0)='./file0\x00', 0xc0b2, &(0x7f0000000440)={{}, 0x2c, {'rootmode', 0x3d, 0x2000}, 0x2c, {'user_id', 0x3d, 0xffffffffffffffff}, 0x2c, {'group_id', 0x3d, 0xee01}, 0x2c, {[{@max_read={'max_read', 0x3d, 0x4}}, {@allow_other}, {@max_read={'max_read', 0x3d, 0x10000}}], [{@subj_role={'subj_role', 0x3d, '.,+:'}}, {@smackfsroot={'smackfsroot', 0x3d, 'overlay\x00'}}, {@seclabel}, {@smackfsroot={'smackfsroot', 0x3d, 'lowerdir'}}, {@rootcontext={'rootcontext', 0x3d, 'unconfined_u'}}, {@subj_role}, {@smackfshat}, {@obj_role={'obj_role', 0x3d, '^/*'}}]}}, 0x0, 0x0, 0x0)
+openat(r0, &(0x7f0000000340)='./file0\x00', 0x1200, 0x1)
