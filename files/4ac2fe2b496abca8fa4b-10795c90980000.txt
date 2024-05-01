@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=02a2e37b8a0f276e1332f6c4cb80bf0c0b9ae80c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0xf, 0x4, 0x8, 0x8}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xd, &(0x7f0000000280)=ANY=[@ANYBLOB="1806000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b7040000000000008500000003000000850000000e00000095"], &(0x7f0000000240)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000001c0)={&(0x7f0000000080)='kfree\x00', r1}, 0x10)
+r2 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0xf, 0x4, 0x4, 0x4}, 0x48)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000000)={<r3=>0xffffffffffffffff})
+bpf$MAP_UPDATE_ELEM_TAIL_CALL(0x2, &(0x7f0000000780)={{r2}, &(0x7f0000000700), &(0x7f0000000740)=r3}, 0x20)
+bpf$BPF_PROG_TEST_RUN(0xa, 0x0, 0x0)
