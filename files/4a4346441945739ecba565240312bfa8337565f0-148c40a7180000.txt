@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4a4346441945739ecba565240312bfa8337565f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+ioctl$TUNSETDEBUG(0xffffffffffffffff, 0x400454c9, 0x0)
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000080)={'syzkaller0\x00', 0xca58c30f81b6079f})
+socketpair(0x1, 0x1, 0x0, &(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$PERF_EVENT_IOC_SET_FILTER(r1, 0x8914, &(0x7f0000000080))
