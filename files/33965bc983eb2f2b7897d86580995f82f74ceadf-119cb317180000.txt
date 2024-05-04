@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=33965bc983eb2f2b7897d86580995f82f74ceadf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f00000006c0)={'lo\x00', <r1=>0x0})
+r2 = socket(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r2, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f0000000080)=@newqdisc={0x48, 0x24, 0xd0b, 0x0, 0x0, {0x0, 0x0, 0x0, r1, {}, {0xffff, 0xffff}}, [@qdisc_kind_options=@q_cbs={{0x8}, {0x1c, 0x2, @TCA_CBS_PARMS={0x18}}}]}, 0x48}, 0x1, 0x8100000018000000}, 0x0)
+r3 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r3, 0x6, 0xa, &(0x7f0000000000)=0xbf, 0x4)
+bind$inet6(r3, &(0x7f0000d84000)={0xa, 0x2, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_int(r3, 0x6, 0x2000000000000022, &(0x7f0000000200)=0x1, 0x4)
+sendto$inet6(r3, &(0x7f00000000c0)="044aac2f202c5feda71e039a57a93088fdcce4afe28aac61837792741a190670ccbe1a2b00aa77a87d56a3f12c7920ad02928a5d1014e5b896f000fcf6521928480be9af82613a5c661f4110adba358afd8b5b4ef1702051e393ede2698112a1f1bdf1d0f568546ed322ab4c53545bd2cd6e48522f0c154cb3c6864dc30ae921db100f1ee97a234503338f8fdf356472da0c7ab62f274f34", 0x116d962d5f73552, 0x20000845, &(0x7f0000b63fe4)={0xa, 0x2}, 0x1c)
+shutdown(r3, 0x1)
+recvmmsg(r3, &(0x7f0000000bc0)=[{{0x0, 0x0, &(0x7f0000000400)=[{&(0x7f0000000c00)=""/4111, 0xd80}], 0x1}}], 0x1, 0x122, 0x0)

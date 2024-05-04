@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=dfd0f77bb5b62cf3112673a86df0a3f5ea9b4be3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+madvise(&(0x7f00000ec000/0x800000)=nil, 0x800000, 0x17)
+r0 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000040))
+ioctl$UFFDIO_WRITEPROTECT(r0, 0xc020aa00, &(0x7f0000000000)={{&(0x7f0000800000/0x800000)=nil, 0x802000}, 0x2})
+r1 = fcntl$dupfd(r0, 0x0, r0)
+ioctl$UFFDIO_CONTINUE(r1, 0xc018aa06, &(0x7f00000000c0)={{&(0x7f0000800000/0x800000)=nil, 0x800000}, 0x1})
+syz_io_uring_setup(0x239, &(0x7f0000000080)={0x0, 0x0, 0x10100}, &(0x7f0000000000), &(0x7f00000001c0))
+madvise(&(0x7f0000ffd000/0x2000)=nil, 0x2000, 0x15)
+r2 = fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)
+ioctl$UFFDIO_ZEROPAGE(r2, 0xc018aa06, &(0x7f0000000100)={{&(0x7f00003ea000/0x400000)=nil, 0x400000}, 0x1})
+madvise(&(0x7f00003c1000/0x1000)=nil, 0xdfc3efff, 0x19)
