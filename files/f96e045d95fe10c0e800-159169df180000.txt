@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=92de8bb883054281478375dc014b93e44f2457ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600722, 0x19)
+ioctl$vim2m_VIDIOC_REQBUFS(0xffffffffffffffff, 0xc0145608, 0x0)
+mremap(&(0x7f0000000000/0x9000)=nil, 0xa00000, 0x600000, 0x3, &(0x7f0000a00000/0x600000)=nil)
+mremap(&(0x7f0000a96000/0x1000)=nil, 0x1000, 0x400000, 0x3, &(0x7f0000000000/0x400000)=nil)
