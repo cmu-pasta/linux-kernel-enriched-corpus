@@ -1,0 +1,3 @@
+429 Too Many Requests
+Allowed rate is 15 requests per 15 seconds.
+Please contact us at syzkaller@googlegroups.com if you need access to our data.
