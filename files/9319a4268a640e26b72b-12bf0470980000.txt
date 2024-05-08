@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3637780d6c03e5e0a8775019d27a7907971d3650
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0xb, 0x31, 0xffffffffffffffff, 0x0)
+syz_open_dev$vim2m(&(0x7f0000000080), 0x0, 0x2)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x19)

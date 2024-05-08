@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=43cee39ceef8a494230beabd6d2329dfd17b6979
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$kcm(0x29, 0x2, 0x0)
+r1 = memfd_create(&(0x7f0000000000)='e\xf4E\x88-\x00', 0x0)
+pwritev(r1, &(0x7f00000000c0)=[{&(0x7f0000000100)='v', 0x1}], 0x1, 0x4000001, 0x0)
+sendfile(r0, r1, 0x0, 0x80000001) (fail_nth: 6)
+sendfile(r0, r1, 0x0, 0x7)
