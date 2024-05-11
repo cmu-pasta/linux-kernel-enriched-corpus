@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=72fed8a62752a506a7f476b6499add51573044f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x89901)
+fchdir(r0)
+fsopen(0x0, 0x0)
+r1 = landlock_create_ruleset(&(0x7f0000000240)={0x1fff}, 0x10, 0x0)
+landlock_restrict_self(r1, 0x0)
+linkat(0xffffffffffffff9c, &(0x7f0000000000)='.\x00', 0xffffffffffffff9c, &(0x7f0000000700)='./file7\x00', 0x0)
