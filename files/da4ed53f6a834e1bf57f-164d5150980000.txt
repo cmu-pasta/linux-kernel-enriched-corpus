@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d64830618d0b5ef44cc925225dd9b5cd9b7c0c4d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$cuse(0xffffffffffffff9c, &(0x7f00000001c0), 0x2, 0x0)
+read$FUSE(r0, &(0x7f0000000340)={0x2020}, 0x2020)
+write$FUSE_NOTIFY_STORE(r0, &(0x7f0000000300)={0x28, 0x7}, 0x28)
+mprotect(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1)
+read$FUSE(r0, &(0x7f0000000340)={0x2020}, 0x2020)
