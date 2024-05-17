@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=6ddc4ada3a11e8cf25975677eff2036b356c9b13
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"vhci":true,"wifi":true}
+r0 = syz_open_dev$hidraw(&(0x7f0000000080), 0x0, 0x10000)
+dup(r0)
+syz_usb_connect$cdc_ncm(0x1, 0x6e, &(0x7f0000000040)=ANY=[@ANYBLOB="12010000090000082502000000000000000109025c00020100f92a0904000001020900000524060001053408fa6e0d240f0100000000000d000a0006471a010000190581"], 0x0)
+r1 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+close_range(r1, 0xffffffffffffffff, 0x0)
