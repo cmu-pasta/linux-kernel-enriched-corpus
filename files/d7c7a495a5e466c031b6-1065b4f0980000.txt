@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b09511bdbf2b3fe0d134a6e7077e9de5db9f163a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+syz_mount_image$fuse(0x0, &(0x7f0000000400)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000840)=ANY=[@ANYBLOB="78226e6f65786163638173733d616e792c63616368653d66736361636865"])
+chdir(&(0x7f0000000280)='./file0\x00')
+r0 = creat(&(0x7f00000003c0)='./bus\x00', 0x0)
+write$FUSE_WRITE(r0, &(0x7f0000000040)={0x18}, 0x18)
