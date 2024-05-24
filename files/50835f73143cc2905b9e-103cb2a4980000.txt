@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=c124ed5f4fb2b852b116d34bc4a60011225aaabd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = fsmount(r0, 0x0, 0x0)
+close_range(r0, 0xffffffffffffffff, 0x0)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+creat(&(0x7f0000000540)='./file0\x00', 0x0)
+ioctl$FS_IOC_SETFSLABEL(r1, 0x41009432, &(0x7f0000000580)="bf25d3ad4ab51f69ec68cec9500edb0700b1503bc4066fdeac96b4406924b0acaf8e95b7434e31f206d90f2c036397e0d5812a959079f1a5035e625e19ec7f3c6eb1fc6a863af4f8bae11d730391a057642938eb59a580088cf1d214cf2494faa7959e949365df53deaf189cbd7d3fa677e83a0b3271a8dd8d42e6bb1ac53c02301196280ec309549b9b6e8f1d0f6137bb611d205233cf0889013a8c67b11af8540885d915b83ff03bc9170d43ffe6b40df188cff00f442aa9a8660364c7cdecf74b2f601dcc98e061020e80fb6e498b774dabc74f301143d78058318e56f0b8bcf3037d9b7a9f152530bd7564901ea559f0b79afb3d001a2c7e6d1af1198c00")
+r2 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000000000)='/sys/module/nf_conntrack_irc', 0x0, 0x0)
+close_range(r2, 0xffffffffffffffff, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x88c42, 0x0)
+ioctl$FS_IOC_GETFSLABEL(r2, 0x81009431, 0x0)
