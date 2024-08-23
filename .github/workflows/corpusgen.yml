@@ -24,7 +24,9 @@ jobs:
       run: |
         cd ..
         git clone https://github.com/google/syzkaller
-        cd syzkaller/tools/syz-db
+        cd syzkaller
+        git checkout 9efbf01ce756705010a1d1627bc76b3636ab43c0 
+        cd tools/syz-db
         go run syz-db.go pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
         cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
         wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
