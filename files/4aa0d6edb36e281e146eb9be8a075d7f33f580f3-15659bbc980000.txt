@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4aa0d6edb36e281e146eb9be8a075d7f33f580f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000a00), 0xffffffffffffffff)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r2, 0x8933, &(0x7f0000000040)={'wlan0\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_WIPHY(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000040)={0x24, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_WIPHY_RTS_THRESHOLD={0x8}, @NL80211_ATTR_TXQ_QUANTUM={0x8, 0x10c, 0xffffffff}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_SET_COALESCE(r0, &(0x7f0000000200)={0x0, 0xffffffffffffff8c, &(0x7f0000000b00)={&(0x7f0000000040)={0x28, r1, 0x1, 0x0, 0x0, {{0x2}, {@val={0x8, 0x3, r3}, @void}}}, 0x28}, 0x1, 0x6c00}, 0x0)

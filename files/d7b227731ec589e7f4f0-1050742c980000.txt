@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b04cd1f22b28e7b20324f4ce17eea3be4aac78bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$kcm(0xa, 0x2, 0x11)
+setsockopt$sock_attach_bpf(r0, 0x1, 0x3d, &(0x7f00000002c0), 0x8)
+sendmsg$sock(r0, &(0x7f0000000400)={&(0x7f0000000240)=@in6={0xa, 0x4e20, 0x0, @loopback}, 0x80, 0x0}, 0x0)

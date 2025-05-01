@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=d4463a2d3563cdc5823b22d4e115144d0af7e88c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+sendmsg$nl_generic(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000001c0)={0x14, 0x24, 0x9, 0x0, 0x0, {0x6}}, 0x14}}, 0x0)

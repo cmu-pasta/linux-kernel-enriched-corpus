@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=00b8bd6553d3f0e1d42566841a6d6346ffbecdaf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+sendmsg$kcm(0xffffffffffffffff, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000000)=[{0x0}, {&(0x7f0000000580)="d4fa0c511aad03aa5ed217677bc41c027d9c830c439c7f821ddd78b6915cb170e7603acf9e433c2903bb6773f4b0130668a1e5b5e08d21d0b69c28ca3455aed65855c86f3d1e5789d26375a0d85eaf5e92e19c9affcf76e7a94e76556d2b104ebf645747fadc91460f4b3c94e1a89b51be4a6aa4c65285f988329a8163b69c51b801500a5bacd0463976e2960e2679ef2feee5e6ce6bb78a51fb0e15820d13e4a5aa9e0742a6f8d677ad28fea356657bb550c8311b682d9003c82267a15aa7334bc53b65b9119a1a7d905c7dd365b85c230bbad0d5d0a79819e112637819d9a187cfdf782c6127d2d4281926ab0e22f7346b616fe28ed0b9f4a0c9fdac6d3a90a9c38b5e31448a45546388c95045bc22fe88c43b82a0a5d3eb61c238a5159ea98db9c00aeef644ae98a8cb8dffff3b7ba14d7971910b559623af8295", 0x13c}], 0x2}, 0x0)
+mount$9p_fd(0x0, 0x0, 0x0, 0x0, &(0x7f0000000580)=ANY=[@ANYBLOB, @ANYRESHEX, @ANYBLOB, @ANYRESHEX, @ANYBLOB, @ANYRESDEC])
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8b18, &(0x7f0000000000)={'wlan1\x00'})
