@@ -19,23 +19,23 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup Go environment
-      uses: actions/setup-go@v4.0.0
+      uses: actions/setup-go@v5
+      with:
+        go-version: '>=1.26.0'
     - name: Clone syzkaller and prep corpus
       run: |
         cd ..
-        git clone https://github.com/google/syzkaller
-        cd syzkaller
-        git checkout 9efbf01ce756705010a1d1627bc76b3636ab43c0 
-        cd tools/syz-db
-        go run syz-db.go pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
+        git clone --depth 1 https://github.com/google/syzkaller
+        cd syzkaller/tools/syz-db
+        go run syz-db.go -os "" -arch "" pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
         cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
         wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
         echo "Downloaded Corpus From Syz-CI"
-        go run syz-db.go unpack ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db temp/
+        go run syz-db.go -os "" -arch "" unpack ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db temp/
         echo "Unpacking Retrived Corpus"
         for f in ../../../linux-kernel-enriched-corpus/files/* ; do cp -v "$f" temp/ ; done
         echo "Packing Enriched Syz-CI Google Corpus"
-        go run syz-db.go pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
+        go run syz-db.go -os "" -arch "" pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
         cd ../../../
         rm -vr syzkaller
         cd linux-kernel-enriched-corpus
