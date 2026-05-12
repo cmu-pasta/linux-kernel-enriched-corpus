@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$inet6(0xa, 0x803, 0x6)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+truncate(&(0x7f0000000280)='./file1\x00', 0x4000)
+ioctl$EXT4_IOC_MOVE_EXT(r0, 0x8004587d, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x105042, 0x1ff)
+ioctl$FITRIM(r0, 0xc0185879, &(0x7f0000000340)={0x6, 0x8001, 0xffff})
+sendmsg$BATADV_CMD_SET_MESH(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000080)=ANY=[@ANYBLOB="1c000000", @ANYRES16=0x0, @ANYBLOB="cfc8a64fb4ab9619f0"], 0x1c}}, 0x0)
+ioctl$KVM_SET_MSRS(0xffffffffffffffff, 0xc008ae88, &(0x7f0000000040)={0x1, 0x0, [{0x21d}]})
+syz_80211_inject_frame(&(0x7f0000000240)=@device_b, &(0x7f0000000000)=ANY=[@ANYBLOB="80000000080211000001080211000000aa09b799c0d70000000000000000000064000110000602020202020201010b"], 0xb5)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(0xffffffffffffffff, 0x8933, &(0x7f00000000c0)={'wlan1\x00'})
+socket$kcm(0x10, 0x2, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl80211(0x0, 0xffffffffffffffff)
+sendmsg$NL80211_CMD_SET_INTERFACE(r1, 0x0, 0x0)
+sendmsg$NL80211_CMD_CONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, 0x0}, 0x0)
+sendmsg$kcm(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000140)=[{&(0x7f0000000040)="2e00000010008108040f80ecdb4cb92e0a480e000f000000e8bd6efb250314000e000100240248ff05000500", 0x2c}, {0x0}], 0x2}, 0x0)

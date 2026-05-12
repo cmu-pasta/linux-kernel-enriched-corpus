@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=06bf6d5e0baeabdedeba2bc300abf20a7a150e11
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap$auto(0x0, 0x20009, 0xdf, 0xeb1, 0x401, 0x8000)
+r0 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000280)='/proc/thread-self/fail-nth\x00', 0x1c1402, 0x0)
+write$auto(r0, &(0x7f0000000040)='7\x00\\\xa0\x04|\x03\xcb\x12\xfa\b\x1c\xc7k', 0x81)
+io_setup$auto(0x7ffe, 0x0)
+clone$auto(0x20003b48, 0x2, 0x0, 0x0, 0x5)
+write$auto(0xffffffffffffffff, 0x0, 0x5)

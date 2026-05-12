@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=7a23f21acc9a5bdb71818e4b763160f48c33ff75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/nullb0\x00', 0x14be02, 0x0)
+mmap$auto(0x0, 0x810004, 0xffb, 0x8000000008011, 0x3, 0x8000)
+ioctl$auto_BLKFLSBUF(r0, 0x1261, 0x0)
+r1 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000080)='/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/device:08/adr\x00', 0x0, 0x0)
+read$auto(r1, 0x0, 0x20)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$auto_NFC_CMD_LLC_SET_PARAMS(r2, 0x0, 0x4000000)
+r3 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/fail-nth\x00', 0x802, 0x0)
+writev$auto(r3, &(0x7f0000000200)={0x0, 0x7}, 0x3)
+openat$auto_snd_pcm_oss_f_reg_pcm_oss(0xffffffffffffff9c, &(0x7f0000000180)='/dev/dsp\x00', 0x8000, 0x0)
+openat$auto_def_blk_fops_fs(0xffffffffffffff9c, 0x0, 0x90600, 0x0)
+openat$auto_blk_mq_debugfs_fops_blk_mq_debugfs(0xffffffffffffff9c, 0x0, 0x301802, 0x0)
+openat$auto_tty_fops_tty_io(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ttyprintk\x00', 0x40001, 0x0)
+mkdir$auto(&(0x7f0000000000)='./cgroup.cpu/cpuset.cpus\x00', 0x8cd)
+socket$nl_generic(0x10, 0x3, 0x10)
+mmap$auto(0x0, 0x400008, 0xdf, 0x9b72, 0x2, 0x8000)
+socket(0x1a, 0x2, 0x0)
+openat$auto_snd_rawmidi_f_ops_rawmidi(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/midiC2D0\x00', 0x1, 0x0)
+openat$auto_tty_fops_tty_io(0xffffffffffffff9c, 0x0, 0x800, 0x0)

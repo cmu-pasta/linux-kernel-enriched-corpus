@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=27fe4a84236153b25f0ea48b3e92d53487c6859f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000280)='./file0\x00', 0x10)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000140)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000340), 0x0, &(0x7f0000000080)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1'}}]})
+chdir(&(0x7f0000000140)='./bus\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.freeze\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000003, 0x28011, r0, 0x0)
+lseek(r0, 0x5, 0x1)

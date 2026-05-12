@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=1895138e798ec13f66ff7bb6a6a3cfd88a907c8b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true,"callcomments":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000380)={0x8, 0x100008b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000200)=0x7)
+openat$sequencer(0xffffffffffffff9c, &(0x7f0000000300), 0x48c00, 0x0)
+r0 = syz_open_dev$sndmidi(&(0x7f00000004c0), 0x2, 0x141102)
+writev(r0, &(0x7f0000000840)=[{&(0x7f00000002c0)="94", 0xf000}, {0x0}], 0x2)
+r1 = fsopen(&(0x7f00000001c0)='bpf\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r1, 0x6, 0x0, 0x0, 0x0)
+fsmount(r1, 0x0, 0x0)
+bpf$OBJ_PIN_MAP(0x6, &(0x7f00000000c0)=@generic={&(0x7f0000000000)='./file0\x00'}, 0x18)
+ioctl$TIOCSETD(0xffffffffffffffff, 0x5423, 0x0)
+fcntl$dupfd(0xffffffffffffffff, 0x0, 0xffffffffffffffff)

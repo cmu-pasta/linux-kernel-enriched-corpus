@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b45605b56ff08942274e9bcc198cc177ec2940f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$auto_snd_rawmidi_f_ops_rawmidi(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/midiC2D0\x00', 0x1, 0x0)
+write$auto(r0, &(0x7f00000000c0)='/Eev/audio1\x00VI\xa3\xaa\xb1;\x9dJ\xc6\xc0\'\xdbV\xd4\xee\xc2\xdd\xa7\xee$\x8d\xc4\xe9d\x03\rF\xec\xb8\xb1Z|\xffGP\x97)\xcf\a\xfb\\n\x89C:\x84D\x1du\xb4\x9ab\xce\xa7tU\x14w\xb4\x14\x1dU\x9d\x8b\xa4U\x953.O\xab\"4\x8a\xbbY8@Z5`\xa4m\xffb\x17\xbb\x7f\xea4*\xa4\xf4\xb4\x90\xc0\xbf\xd4m\xbf\xc7\x15\xbe\x01\x98\xd7lD\x97)}\xfaK\xdf>f\xb8&\x959-\n\xccWw\xe2\x9cK\fE\a\xca\xd36\xe8\xcb?(\xfaI\xe2\xae,\x95k8\x83\xcf\xc5D\xcc', 0x100000a3d9)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+futex$auto(0x0, 0x85, 0x38, 0x0, 0x0, 0x80800005)
+r1 = openat$auto_mtd_fops_mtdchar(0xffffffffffffff9c, &(0x7f0000000400)='/dev/mtd0\x00', 0x68082, 0x0)
+ioctl$auto_BLKPG2(r1, 0x1269, 0x0)
+bpf$auto(0x0, &(0x7f0000000780)=@link_update={0xa, @new_map_fd=0x5, 0x4007, @old_prog_fd=0x13b}, 0xa3)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8d97274192665c0be31ae75baf799798ac8a2d39
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_io_uring_setup(0x10d, &(0x7f0000000380)={0x0, 0x0, 0x80, 0x0, 0x4000}, &(0x7f0000000340)=<r1=>0x0, &(0x7f0000000280))
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x4, &(0x7f0000000440)=0xfffffffc, 0x0, 0x4)
+io_uring_enter(r0, 0x3516, 0x0, 0x0, 0x0, 0x0)
+r2 = syz_open_procfs(0x0, &(0x7f0000000080)='fdinfo/3\x00')
+read$qrtrtun(r2, &(0x7f00000004c0)=""/57, 0x39)

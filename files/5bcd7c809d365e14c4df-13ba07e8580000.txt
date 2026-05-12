@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=62a46dd3f8baebfe72b39157db44d0bd696e384e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"sysctl":true}
+r0 = syz_open_dev$media(&(0x7f0000001a80), 0x3, 0x0)
+r1 = syz_open_dev$media(&(0x7f0000001a80), 0x3, 0x0)
+ioctl$MEDIA_IOC_ENUM_LINKS(r1, 0xc0287c02, &(0x7f0000000380)={0x80000000, 0x0, &(0x7f0000000500)=[{{}, {<r2=>0x80000000}}]})
+ioctl$MEDIA_IOC_ENUM_LINKS(r0, 0xc0287c02, &(0x7f0000000300)={r2, &(0x7f0000000340)=[{}, {<r3=>0x80000000}], &(0x7f0000000480)=[{{}, {<r4=>0x80000000}}]})
+ioctl$MEDIA_IOC_ENUM_LINKS(r0, 0xc0287c02, &(0x7f0000000280)={r4, 0x0, &(0x7f0000000200)=[{{<r5=>0x80000000, <r6=>0x0}}]})
+ioctl$MEDIA_IOC_SETUP_LINK(r0, 0xc0347c03, &(0x7f0000000400)={{r3, r6, 0x3}, {r5}})
+r7 = syz_open_dev$vim2m(&(0x7f0000000240), 0x2000a54, 0x2)
+ioctl$vim2m_VIDIOC_REQBUFS(r7, 0xc0145608, &(0x7f0000000040)={0x6, 0x1, 0x1})
+ioctl$vim2m_VIDIOC_STREAMOFF(r7, 0x40045612, &(0x7f0000000000)=0x1) (fail_nth: 9)

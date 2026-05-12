@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000005c0)=ANY=[@ANYBLOB="19000000040000000800000010"], 0x50)
+r1 = socket$inet6_udplite(0xa, 0x2, 0x88)
+accept4$inet6(r1, 0x0, &(0x7f0000000200), 0x800)
+ioctl$sock_inet_SIOCSIFDSTADDR(r1, 0x8918, 0x0)
+r2 = socket$can_raw(0x1d, 0x3, 0x1)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r2, 0x8933, &(0x7f0000000080)={'vcan0\x00', <r3=>0x0})
+bind$can_raw(r2, &(0x7f0000000000), 0x10)
+read(r2, &(0x7f0000002500)=""/4103, 0x1007)
+setsockopt$CAN_RAW_RECV_OWN_MSGS(r2, 0x65, 0x4, &(0x7f0000000340)=0x1, 0x4)
+r4 = socket$xdp(0x2c, 0x3, 0x0)
+bind$xdp(r4, &(0x7f0000000280)={0x2c, 0x9, r3, 0x21}, 0x10)
+setsockopt$SO_TIMESTAMP(r2, 0x1, 0x1d, &(0x7f00000000c0)=0x80, 0x4)
+sendmsg$can_raw(r2, &(0x7f0000000240)={&(0x7f0000000780)={0x1d, r3}, 0x10, &(0x7f0000000440)={&(0x7f00000002c0)=@canfd={{0x1}, 0x38, 0x0, 0x0, 0x0, "838c5967c67418a8fe2990ee78323b40326fe7a6b734cb5c486e640708569d66090ed93bfa336cda146da024c7bb0b8903bcab83412b11b27e85ea5bf7cb6d92"}, 0xc}, 0x1, 0x0, 0x0, 0x20000845}, 0x44040)
+r5 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000180)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000019007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000000100000095"], &(0x7f0000000240)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x90)
+bpf$MAP_UPDATE_ELEM_TAIL_CALL(0x2, &(0x7f0000000880)={{r0}, &(0x7f0000000800), &(0x7f0000000840)=r5}, 0x20)
+syz_open_procfs$namespace(0x0, 0xfffffffffffffffe)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f00000000c0)={0xffffffffffffffff, <r6=>0xffffffffffffffff})
+r7 = socket$pppl2tp(0x18, 0x1, 0x1)
+getsockopt$IP_VS_SO_GET_SERVICES(r7, 0x0, 0x482, 0x0, 0x0)
+ioctl$SIOCSIFHWADDR(r6, 0x8b04, &(0x7f0000000040)={'wlan1\x00', @random="e1ffffff00"})

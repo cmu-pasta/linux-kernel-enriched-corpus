@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=44fd77a867a0a5bc6fec6cb2939ebb6c905aa26b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$cuse(0xffffffffffffff9c, &(0x7f0000000540), 0x2, 0x0)
+read$FUSE(r0, 0x0, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f00000000c0)={{{@in=@empty, @in6=@mcast1}}, {{@in=@dev}, 0x0, @in6=@loopback}}, &(0x7f0000000040)=0xe8)
+syz_usb_connect$hid(0x0, 0x0, 0x0, 0x0)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000180)={0x18, 0x5, &(0x7f0000000140)=ANY=[@ANYBLOB="1800000000000000000000003b810000850000007d000000850000005000000095"], &(0x7f0000000280)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000480)={&(0x7f0000000100)='sys_exit\x00', r1}, 0x10)
+signalfd(0xffffffffffffffff, 0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000640)=0x2)
+r2 = syz_open_dev$MSR(&(0x7f00000001c0), 0x0, 0x0)
+read$msr(r2, &(0x7f0000019680)=""/102392, 0x18ff8)
+capset(&(0x7f0000000080)={0x20071026}, &(0x7f0000000040)={0x200000, 0x200000})
+r3 = syz_open_dev$usbfs(0x0, 0x76, 0x101b01)
+r4 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+setsockopt$inet_opts(0xffffffffffffffff, 0x0, 0x80000000000008, 0x0, 0x0)
+write$UHID_CREATE2(r4, &(0x7f0000000180)=ANY=[], 0x118)
+ioctl$USBDEVFS_SETINTERFACE(r3, 0x80045510, 0x0)

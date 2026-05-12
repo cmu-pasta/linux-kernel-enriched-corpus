@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=917c822417dd43e6aa802d5f8a0423db3fc5be61
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"close_fds":true,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$fou(&(0x7f0000000200), 0xffffffffffffffff)
+sendmsg$FOU_CMD_ADD(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000000)={0x2c, r1, 0x209, 0x70bd25, 0x0, {}, [@FOU_ATTR_PORT={0x6, 0x1, 0x4e20}, @FOU_ATTR_TYPE={0x5, 0x4, 0x2}, @FOU_ATTR_AF={0x5, 0x2, 0xa}]}, 0x2c}}, 0x0)
+syz_emit_ethernet(0x36, &(0x7f0000000380)={@local, @link_local, @void, {@ipv4={0x800, @udp={{0x5, 0x4, 0x0, 0x0, 0x28, 0x0, 0x0, 0x0, 0x11, 0x0, @empty, @empty}, {0x0, 0x4e20, 0x14, 0x0, @gue={{0x2}, "877c172e"}}}}}}, 0x0)

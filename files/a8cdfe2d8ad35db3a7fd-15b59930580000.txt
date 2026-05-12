@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=de718886ec5e78a97aa1a73f881087b793813af8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0x400000004, 0x4000000000df, 0x40eb1, 0x3fe, 0x300000000000)
+prctl$auto(0x1000000003b, 0x1, 0x4, 0x5, 0x7)
+mremap$auto(0x0, 0x7, 0x3fd6, 0x3, 0x20000000)

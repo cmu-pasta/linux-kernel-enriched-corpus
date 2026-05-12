@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=b45605b56ff08942274e9bcc198cc177ec2940f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+unshare$auto(0x40000080) (async, rerun: 64)
+openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000140)='/dev/mtdblock0\x00', 0x14fe02, 0x0) (rerun: 64)
+mmap$auto(0x0, 0x810004, 0xffb, 0x8000000008011, 0x3, 0x8000)
+prctl$auto(0x3e, 0x1, 0x0, 0x1, 0x0)
+r0 = openat$auto_mtd_fops_mtdchar(0xffffffffffffff9c, &(0x7f0000000400)='/dev/mtd0\x00', 0x68082, 0x0)
+ioctl$auto_BLKPG2(r0, 0x1269, 0x0) (rerun: 64)
+ioctl$auto_MEMGETINFO(r0, 0x80204d01, 0x0) (rerun: 64)
+syz_genetlink_get_family_id$auto_ethtool(&(0x7f0000000d80), 0xffffffffffffffff) (async)
+r1 = openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ram5\x00', 0x1eba02, 0x0)
+setresuid$auto(0x0, 0xee00, 0x0)
+ioctl$auto_BLKALIGNOFF(r1, 0x127a, 0x0) (async)
+prctl$auto(0x3e, 0x1, 0x0, 0x1, 0x0)
+close_range$auto(0x2, 0x8, 0x0) (rerun: 64)
+socket$nl_generic(0x10, 0x3, 0x10)
+close_range$auto(0x2, 0x8, 0x0) (async, rerun: 32)
+r2 = openat$auto_kvm_chardev_ops_kvm_main(0xffffffffffffff9c, 0x0, 0x6ab82, 0x0)
+ioctl$auto_KVM_CREATE_VM(r2, 0xae01, 0x0)

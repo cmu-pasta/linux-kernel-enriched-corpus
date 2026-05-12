@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=df79917a62799224dcb49dd528f85a546efd5359
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000240)={0x6, 0x3, &(0x7f0000000140)=ANY=[@ANYBLOB="1800000002000000000000000000000095"], &(0x7f0000000180)='syzkaller\x00'}, 0x90)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000080)={'syz_tun\x00', <r2=>0x0})
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f00000000c0)={r0, r2}, 0x40)
+syz_emit_ethernet(0xe80, &(0x7f0000000340)=ANY=[@ANYBLOB, @ANYRES32=0x41424344, @ANYRES32=0x41424344], 0x0)

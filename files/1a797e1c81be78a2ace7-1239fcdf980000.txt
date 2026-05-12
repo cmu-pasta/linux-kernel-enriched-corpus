@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8d5ab7d1b3980bf05cca096cd20382c06b519302
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, &(0x7f0000000d40)=ANY=[@ANYBLOB="5000000008021100000108021100000050505050505000000000000000000000640000000006"], 0x4e7)
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, &(0x7f0000000d40)=ANY=[@ANYBLOB="500000000802110000010802110000005050505050500000000000000000000064000000000601"], 0x4e7)
+syz_80211_inject_frame(&(0x7f0000000300)=@device_b, &(0x7f0000000540)=@mgmt_frame=@beacon={{{}, {}, @broadcast}, 0x0, @default, 0x245, @val, @void, @void, @val={0x4, 0x6}, @val={0x6, 0x2}, @void, @void, @void, @val={0x3c, 0x4}, @void, @val={0x72, 0x6}, @void, @void}, 0x40)

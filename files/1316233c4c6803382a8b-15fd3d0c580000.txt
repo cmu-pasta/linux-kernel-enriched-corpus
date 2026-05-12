@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=c55170bce867512e121f3ab7e03601404ca01d6e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x5)
+close(0x4)
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+syz_mount_image$ext4(&(0x7f0000000200)='ext4\x00', &(0x7f0000000000)='./file1\x00', 0x0, &(0x7f00000000c0)={[{@quota}, {@bsdgroups}, {@nouid32}, {@errors_remount}, {@jqfmt_vfsv1}, {@oldalloc}, {@stripe={'stripe', 0x3d, 0x5}}]}, 0x2, 0x46b, &(0x7f0000000580)="$eJzs3M1vFOUfAPDvzLbw+/HWivgColaJsfGlpQWVgxeNJh4wmugB9VTbQgiFGloTIUSqMXgxMSR6Vo8m/gXevBj1ZGLiSe+GhCgX0FPNzM5Ad9ltt3TZrd3PJxl4nn2e7TzfPvPMPDPPbgPoWUPZP0nEtoj4LSIGqtnaCkPV/65dOTf595Vzk0ksLr72Z5LXu3rl3GRZtXzf1iIznEakHyXFTmrNnTl7YmJmZvp0kR+dP/nO6NyZs08ePzlxbPrY9KnxQ4cOHhh75unxp9oSZxbX1T3vz+7d/dIbF1+ePHLx7R+/ydq7rShfGsct2XTzS0NZ4H8t5urLHon/r2l36832Jemkr4sNYVUqEZF1V38+/geiEjc6byBe/LCrjQNuq+zatLl58cIisIEl0e0WAN1RXuiz+99y69DUY124/Fz1BiiL+1qxVUv6Ii3q9Nfd37bTUEQcWfjni2yLdjyHAABYwSeTnx+OJxrN/9K4e0m9HcUaymBE3BEROyPizojYFRF3ReR174mIe1e5//qloZvnP+mlWwqsRdn879libat2/lfO/mKwUuS25/H3J0ePz0zvL34nw9G/OcuPLbOP71745dNmZUvnf9mW7b+cCxbtuNRX94BuamJ+Ip+UtsHlDyL29DWKP7m+EpBExO6I2LO6H72jTBx/7Ou9zSqtHP8y2rDOtPhVxKPV/l+IuvhLyfLrk6P/i5np/aPlUXGzn36+8Gqz/a8p/jbI+n9L7fFflHx5pkgMvrV0vXYuVr1yeeH3j5ve09zq8b8peT0/H5XLru9NzM+fHovYlBzO8zWvj994b5kv62fxD+9rPP53Fu/J+v++iMgO4vsj4oGIeLBo+0MR8XBE7Fsm/h+eb162Hvp/quH57/rxP5jU9P/qE5UT33/bbP+t9f/BPDVcvJKf/1bQagPX8rsDAACA/4o0/wx8ko5cT6fpyEj1M/y7Yks6Mzs3//jR2XdPTVU/Kz8Y/Wn5pGtgyfPQsWSh+InV/HjxrLgsP1A8N/6sEnl+ZHJ2ZqrLsUOv29pk/Gf+qHS7dcBt12gdbbzBF9qAjad+/Ke12fOvdLIxQEf5vjb0rhXGf9qpdgCd5/oPvavR+D9fl7cWABuT6z/0LuMfepfxD72rbvxX4tdutQTooLV8r1+ilxORrotmtJRo/e9B3O7Em+ujGS0kun1mAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaI9/AwAA//9sbvBf")
+r0 = socket(0x8, 0x3, 0x0)
+ioctl$sock_netrom_SIOCADDRT(r0, 0x6180, 0x0)
+ioctl$IMGETCOUNT(r0, 0x61e2, 0x0)

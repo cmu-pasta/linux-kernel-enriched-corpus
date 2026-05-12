@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+io_setup(0x7, &(0x7f0000000100)=<r0=>0x0)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000b00), 0xffffffffffffffff)
+timer_create(0x2, 0x0, &(0x7f0000000480))
+timer_settime(0x0, 0x1, &(0x7f0000000000)={{0x0, 0x3938700}, {0x0, 0x989680}}, 0x0)
+timer_create(0x2, 0x0, &(0x7f0000000480)=<r3=>0x0)
+timer_settime(r3, 0x1, &(0x7f0000000000)={{0x0, 0x3938700}, {0x0, 0x989680}}, 0x0)
+timer_delete(r3)
+setsockopt$sock_timeval(r2, 0x1, 0x14, &(0x7f0000000000)={0x0, 0xea60}, 0x10)
+io_submit(r0, 0x2, &(0x7f00000004c0)=[&(0x7f00000001c0)={0x0, 0x4, 0x0, 0x0, 0x0, r2, &(0x7f0000000140)="01", 0x1}, &(0x7f0000000080)={0x0, 0x0, 0x2, 0x8, 0x1, r1, 0x0, 0x0, 0x7}])
+mprotect(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1)

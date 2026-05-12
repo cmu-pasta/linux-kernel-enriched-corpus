@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=893eaef17eb4089392c95f371a231c02519d4d26
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_split_huge_pages_fops_huge_memory(0xffffffffffffff9c, &(0x7f0000000080), 0x1, 0x0)
+write$auto(r0, &(0x7f0000000040)='/sys/kernel/debug/split_huge_pages\x00', 0x4)

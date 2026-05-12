@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=cb1a315fd3e5879d9d7e5fc48efee27368d56147
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+ioctl$SNDRV_TIMER_IOCTL_SELECT(0xffffffffffffffff, 0x40345410, &(0x7f0000000180)={{0x0, 0x2}})
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(0xffffffffffffffff, 0x40605346, &(0x7f0000000280)={0x0, 0x0, {0xffffffffffffffff}})
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000180)=0x4)
+sched_setaffinity(0x0, 0x8, &(0x7f0000000200)=0x400000bce)
+connect$bt_l2cap(r0, 0x0, 0x0)
+socket$pptp(0x18, 0x1, 0x2)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(0xffffffffffffffff, 0x40345410, 0x0)
+accept4(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r1 = socket$packet(0x11, 0x3, 0x300)
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+r3 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000b00)={0x3, 0xc, &(0x7f0000000c40)=ANY=[@ANYBLOB="18020000000000000000000000000000180100002020642500000000002020207b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b7030000000000008500000006000000850000002300000095"], &(0x7f0000000380)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x90)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f00000002c0)={r3, 0x0, 0xe, 0x0, &(0x7f0000000100)="e0b9547ed387dbe9abc89b6f5bec", 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x50)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000040)={'ip6gretap0\x00', <r4=>0x0})
+sendmsg$nl_route(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000280)=ANY=[@ANYBLOB="6800000010000100"/20, @ANYRES32=r4, @ANYBLOB="0000000000000000480012800e0001006970366772657461700000003400028008000100", @ANYRES32, @ANYBLOB="14000600fe800000000000000000000000000015140007"], 0x68}}, 0x0)
+sendto$packet(r1, &(0x7f00000003c0)="8ea8a8a120e5f8320c30ce5088a846e947cacb", 0x13, 0x4000, &(0x7f0000000140)={0x11, 0x0, r4, 0x1, 0x0, 0x6, @local}, 0x14)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=40ba48ce60e9cebcf275e4ce67b526000f73bf06
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$kcm(0x2, 0x200000000000001, 0x106)
+sendmsg$inet(r0, &(0x7f0000000080)={&(0x7f0000000000)={0x2, 0x4001, @local}, 0x10, 0x0}, 0x30004001)
+sendmsg(r0, &(0x7f0000000880)={0x0, 0x0, &(0x7f0000000840)=[{&(0x7f0000000780)="a9", 0xfffffdef}], 0x11}, 0x0)
+write$cgroup_netprio_ifpriomap(0xffffffffffffffff, 0x0, 0x8)
+sendmsg$sock(r0, &(0x7f0000000280)={0x0, 0x0, 0x0}, 0x20000050)
+sendmsg$inet(r0, &(0x7f0000000080)={&(0x7f0000000000)={0x2, 0x4001, @local}, 0x10, 0x0}, 0x30004001) (async)
+sendmsg(r0, &(0x7f0000000880)={0x0, 0x0, 0x0}, 0x0)

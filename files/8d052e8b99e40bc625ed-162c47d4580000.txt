@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=7a23f21acc9a5bdb71818e4b763160f48c33ff75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+r0 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000080)='/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/device:08/adr\x00', 0x0, 0x0)
+read$auto(r0, 0x0, 0x20)
+r1 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/fail-nth\x00', 0x802, 0x0)
+writev$auto(r1, &(0x7f0000000200)={0x0, 0x7}, 0x3)
+openat$auto_snd_pcm_oss_f_reg_pcm_oss(0xffffffffffffff9c, &(0x7f0000000180)='/dev/dsp\x00', 0x8000, 0x0)
+openat$auto_blk_mq_debugfs_fops_blk_mq_debugfs(0xffffffffffffff9c, 0x0, 0x301802, 0x0)
+r2 = openat$auto_tty_fops_tty_io(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ttyprintk\x00', 0x40001, 0x0)
+ioctl$auto_TCFLSH2(r2, 0x8924, 0x0)
+mkdir$auto(&(0x7f0000000000)='./cgroup.cpu/cpuset.cpus\x00', 0x8cd)

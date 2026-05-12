@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0a19d7ec27b6cd723a1509b08c248abb9bf4a7f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$nl_generic(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000040)={0x1c, 0x10, 0x701, 0x0, 0x0, {0xa}, [@typed={0x6, 0x1, 0x0, 0x0, @str='\x17\x00'}]}, 0x1c}}, 0x0)
+syz_genetlink_get_family_id$mptcp(&(0x7f0000000040), r0)

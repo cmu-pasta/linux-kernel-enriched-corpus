@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=8fa72f6bf8ed852bab30490a709dbb7916a68eba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true,"callcomments":true}
+r0 = signalfd4(0xffffffffffffffff, &(0x7f0000000140)={[0xffefffffff7ffffc]}, 0x8, 0x800)
+r1 = syz_io_uring_setup(0xbd7, &(0x7f0000000540)={0x0, 0x6b0, 0x1000, 0x2, 0x4080032f}, &(0x7f0000000000)=<r2=>0x0, &(0x7f0000000500)=<r3=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r2, 0x4, &(0x7f0000000180)=0xfffffffc, 0x0, 0x4)
+syz_io_uring_submit(r2, r3, &(0x7f00000000c0)=@IORING_OP_READV=@pass_iovec={0x1, 0x0, 0x4004, @fd=r0, 0xa, &(0x7f0000000100)=[{&(0x7f0000000400)=""/203, 0xcb}], 0x1})
+io_uring_enter(r1, 0x847ba, 0x0, 0xe, 0x0, 0x0)
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000240)={0x1, &(0x7f00000003c0)=[{0x6, 0xff, 0x1, 0x3fff0000}]})

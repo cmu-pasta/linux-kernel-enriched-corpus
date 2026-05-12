@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=055045c62299ac2d0ac4126b11a1c5afa8de5fc8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"sysctl":true,"callcomments":true}
+sendmsg$IPSET_CMD_TEST(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000140)={0x0, 0x34}, 0x1, 0x0, 0x0, 0x4800}, 0x20000080)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x20008b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000640)=0x3)
+sched_setaffinity(0x0, 0x8, &(0x7f0000000580)=0x2)
+syz_usb_connect(0x0, 0x3f, &(0x7f00000000c0)=ANY=[@ANYBLOB="11010000733336088dee1adb23610000000109022d0001100000000904000003fe03010009cd8d1f000200000009050502000000001009058b1e20"], 0x0)
+r0 = syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+sendmsg$ETHTOOL_MSG_PAUSE_SET(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000000)={0x0, 0x14}, 0x1, 0x0, 0x0, 0x4c810}, 0x24000000)
+ioctl$FS_IOC_GETVERSION(r0, 0xc0145b0e, &(0x7f0000000000))

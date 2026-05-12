@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=b45605b56ff08942274e9bcc198cc177ec2940f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0xc, 0x0)
+socket$packet(0x11, 0x3, 0x300)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+openat$sequencer(0xffffffffffffff9c, &(0x7f0000000300), 0x80200, 0x0)
+r0 = syz_open_dev$sndmidi(&(0x7f00000004c0), 0x2, 0x141102)
+setsockopt$ALG_SET_KEY(0xffffffffffffffff, 0x117, 0x1, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, &(0x7f0000009a00)=[{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40040}}, {{&(0x7f0000000480)=@file={0x0, './file0\x00'}, 0x6e, 0x0, 0x0, &(0x7f0000001100)=[@cred={{0x18}}], 0x18}}, {{&(0x7f0000001180)=@file={0x0, './file0\x00'}, 0x6e, 0x0, 0x0, 0x0, 0x0, 0x4004000}}], 0x3, 0x0)
+sendmmsg(0xffffffffffffffff, 0x0, 0x0, 0x0)
+writev(r0, &(0x7f0000000840)=[{&(0x7f00000002c0)="94", 0xf000}, {0x0}], 0x2)
+r1 = openat$loop_ctrl(0xffffffffffffff9c, &(0x7f0000000480), 0x2001, 0x0)
+r2 = ioctl$LOOP_CTL_GET_FREE(r1, 0x4c82)
+ioctl$LOOP_CTL_REMOVE(r1, 0x4c81, r2)

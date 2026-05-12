@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=cde92abdaf66fd68a3ed854e20b7acbde6ecfae6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true}
+socket(0x11, 0x800000003, 0x0)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'batadv_slave_0\x00'})
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+setsockopt$ax25_SO_BINDTODEVICE(0xffffffffffffffff, 0x101, 0x19, &(0x7f0000000000)=@bpq0, 0xfffffffffffffe1d)
+ioctl$sock_netdev_private(r2, 0x8914, &(0x7f0000000000))
+ioctl$sock_netrom_SIOCADDRT(r0, 0x890b, &(0x7f0000000700)={0x1, @default, @bpq0, 0x2, 'syz0\x00', @null, 0x1, 0x1, [@null, @null, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @default, @null, @bcast, @default, @default]})
+ioctl$SIOCNRDECOBS(r0, 0x89e2)

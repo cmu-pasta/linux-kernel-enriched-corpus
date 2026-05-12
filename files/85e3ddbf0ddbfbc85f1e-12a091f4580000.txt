@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=22b2fc6ef810d85bdec24503bc6ef5aff39747d4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=@base={0x6, 0x4, 0x5b, 0x8a, 0x0, 0xffffffffffffffff, 0x0, '\x00', 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, @void, @value, @void, @value}, 0x48)
+syz_usb_connect(0x0, 0x36, &(0x7f0000000000)=ANY=[@ANYBLOB="120100002f0c81087f180002ad6b0102030109022400010000000009040000023c7f98000905030200000000000905ba"], 0x0)

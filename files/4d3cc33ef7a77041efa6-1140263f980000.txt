@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=609c457deb86538d75f2302998ba18478d0c29a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000001000), 0x169802, 0x0)
+open_tree(0xffffffffffffff9c, 0x0, 0x89901)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='hugetlb.2MB.usage_in_bytes\x00', 0x275a, 0x0)
+write$binfmt_script(r1, &(0x7f0000000240), 0x208e24b)
+r2 = dup(r0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000006, 0x13, r2, 0x0)
+ioctl$BLKBSZSET(r0, 0x40081271, &(0x7f0000000100)=0x10000)

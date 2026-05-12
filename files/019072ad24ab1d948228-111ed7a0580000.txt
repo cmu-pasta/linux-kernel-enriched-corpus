@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=19ee76d2286a2c374e1bb564efb758702c4680de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+syz_mount_image$tmpfs(0x0, &(0x7f00000000c0)='./file0\x00', 0xd8f3dccb89506ebe, 0x0, 0x0, 0x0, &(0x7f0000000000))
+mount(0x0, &(0x7f0000000040)='./file0\x00', &(0x7f0000000200)='efivarfs\x00', 0x10080, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000000), 0x10000, 0x0)

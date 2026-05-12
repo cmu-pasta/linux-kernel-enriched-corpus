@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=609c457deb86538d75f2302998ba18478d0c29a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x14d802, 0x0)
+r1 = dup(r0)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40081271, &(0x7f0000000040)=0x10000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000002, 0x28011, r1, 0x2c93a000)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x2)
+r2 = socket$packet(0x11, 0x2, 0x300)
+setsockopt$packet_tx_ring(r2, 0x107, 0xd, 0x0, 0x0)
+ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)

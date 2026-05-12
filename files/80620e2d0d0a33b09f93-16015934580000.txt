@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=fa14a1bbb1554883cae38b0ff22c69608eed0e38
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"callcomments":true}
+close_range$auto(0x0, 0xfffffffffffff000, 0x2)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+io_uring_setup$auto(0x6, 0x0)
+openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000080)='/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/device:08/adr\x00', 0x0, 0x0)
+socket$nl_generic(0x10, 0x3, 0x10)
+openat$auto_proc_pid_set_comm_operations_base(0xffffffffffffff9c, &(0x7f0000000100)='/proc/thread-self/comm\x00', 0x800, 0x0)
+r0 = openat$auto_nsim_pp_hold_fops_netdev(0xffffffffffffff9c, &(0x7f0000000040)='/sys/kernel/debug/netdevsim/netdevsim1/ports/3/pp_hold\x00', 0x101001, 0x0)
+io_uring_setup$auto(0x6, 0x0)
+r1 = openat$auto_iommufd_fops_main(0xffffffffffffff9c, &(0x7f0000000400), 0x80001, 0x0)
+ioctl$auto(r1, 0x3b8e, r0) (fail_nth: 9)

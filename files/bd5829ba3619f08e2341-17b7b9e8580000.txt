@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=46e424f758627c994fdd9bc8681b6624d4528ba1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000800), r0)
+r2 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPCTNL_MSG_TIMEOUT_DEFAULT_GET(r2, 0x0, 0x0)
+r3 = syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000e80)='ns/net\x00')
+sendmsg$NL802154_CMD_SET_WPAN_PHY_NETNS(r0, &(0x7f0000000f40)={0x0, 0x0, &(0x7f0000000f00)={&(0x7f0000000ec0)={0x24, r1, 0x1, 0x0, 0x0, {}, [@NL802154_ATTR_NETNS_FD={0x8, 0x1d, r3}, @NL802154_ATTR_WPAN_PHY={0x8}]}, 0x24}}, 0x0) (fail_nth: 55)

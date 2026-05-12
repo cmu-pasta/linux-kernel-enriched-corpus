@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=06bf6d5e0baeabdedeba2bc300abf20a7a150e11
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+futex$auto(0x0, 0x3, 0x2, 0x0, 0x0, 0x71a8dce0)
+mmap$auto(0x0, 0xe982, 0xdf, 0x4000000eb1, 0x401, 0x8000)
+clone$auto(0x20003b46, 0x9, 0x0, 0x0, 0x4)
+setgroups$auto(0xa1, 0x0)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+openat$auto_console_fops_tty_io(0xffffffffffffff9c, 0x0, 0x102, 0x0)
+ioctl$auto(0xffffffffffffffff, 0xae60, 0x10000000000402)

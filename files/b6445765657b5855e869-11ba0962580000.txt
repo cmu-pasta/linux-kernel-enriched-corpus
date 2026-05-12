@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=4ed6d18363f5ee85f96b8afb59cf44fc80fb2624
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true,"callcomments":true}
+mmap$auto(0x0, 0x40009, 0xdf, 0x9b72, 0x7, 0x28000)
+close_range$auto(0x2, 0x8, 0x0)
+r0 = open(&(0x7f0000000040)='./cgroup.cpu/cgroup.procs\x00', 0x101840, 0x33903f3ada88772b)
+read$auto(r0, 0x0, 0x5)
+r1 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000040)='/sys/bus/usb-serial/drivers/ir-usb/new_id\x00', 0xc0082, 0x0)
+write$auto(r1, 0x0, 0x7ff)
+sendfile$auto(0x1, 0x3, 0x0, 0x7ffff000)

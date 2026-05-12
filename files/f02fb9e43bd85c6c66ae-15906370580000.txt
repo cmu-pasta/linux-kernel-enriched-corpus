@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bef91d61cac414bf1191d4574ab34f041555d7dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"tmpdir":true}
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r1 = socket$igmp(0x2, 0x3, 0x2)
+setsockopt$MRT_INIT(r1, 0x0, 0xc8, &(0x7f0000003d40), 0x4)
+setsockopt$MRT_ADD_VIF(r1, 0x0, 0xca, &(0x7f0000003d80)={0x0, 0x0, 0x0, 0x0, @vifc_lcl_addr=@local, @dev}, 0x10)
+setsockopt$inet_mreq(r0, 0x0, 0x23, &(0x7f0000000000)={@multicast1=0xe0000300, @local}, 0x8)
+syz_emit_ethernet(0x2a, &(0x7f0000000080)={@local, @remote, @void, {@ipv4={0x800, @icmp={{0x5, 0x4, 0x0, 0x0, 0x1c, 0x0, 0x0, 0x0, 0x2, 0x0, @empty, @multicast1=0xe0000300}, @address_request}}}}, 0x0)

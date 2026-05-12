@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=00aefe8e90e2c50f3e60d56bfec186b79f29865c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+mmap$auto(0x0, 0x20009, 0xdf, 0xeb1, 0x401, 0x8000)
+remap_file_pages$auto(0x6a27, 0x1000, 0x0, 0x3, 0x4)
+mmap$auto(0x0, 0x8, 0xdf, 0x9b72, 0x2, 0x8000) (async)
+open(&(0x7f0000000080)='./file0\x00', 0x1ffd, 0x12)
+write$auto(0x3, 0x0, 0x100082)

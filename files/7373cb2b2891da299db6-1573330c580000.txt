@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=44fd77a867a0a5bc6fec6cb2939ebb6c905aa26b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000280)={0x18, 0x5, &(0x7f0000000040)=ANY=[@ANYBLOB="180100002100000000000000000000108500000075000000a50000002300000095"], &(0x7f0000000000)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000100)={&(0x7f00000001c0)='mmap_lock_acquire_returned\x00', r0}, 0x10)

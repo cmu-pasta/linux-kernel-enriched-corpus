@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f119ad453dec99a1fb65009ec22c8b1b41822ccf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_mreqsrc(r0, 0x0, 0x27, 0x0, 0x0)
+r1 = socket$inet6(0xa, 0x80002, 0x0)
+setsockopt$inet6_mreq(r1, 0x29, 0x1b, 0x0, 0x0)
+r2 = socket$inet6(0xa, 0x1, 0x100)
+sendmsg$inet(r2, &(0x7f0000000200)={0x0, 0x0, 0x0}, 0x24000840)

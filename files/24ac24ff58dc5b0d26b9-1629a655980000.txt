@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=96fb0b65eaf466c35239cc0cdce744dbbeaa234f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$squashfs(&(0x7f0000000180), &(0x7f00000001c0)='./file0\x00', 0x0, &(0x7f0000000200)=ANY=[@ANYBLOB='\x00'], 0x1, 0x17a, &(0x7f0000000480)="$eJzskj9uE0EUxn+zXv+BAoFE5caWsMAUwHoNCNFAaXoOgGUvxmINstcSxHKxURS5SBGlzAl8jUi5QFJEOYCLVC6s1NFGMzu7GecKmV/hb943b2bee95f0TgqAzebeY+vKAo84VwIXKAmUm/tpHqk9ULrYSqc6bxv2t/TWo12Zr+7YRhM6p/rPNsygGvl5Vb0Zddhra663Mx7cvEDSJIkkV4fZDpmTgEYGzlVF56rJpI8RzYig1dwNUrrmr0ZjrqDYBD88f32R++9533w3/0choGX/grjCd0KUl8Dcl6PjP0isK9zHgNF7hBGaXpfmGdLxgybL9jCMc5mKjjJz5bJ/i/4zksqwL9YGG5D3eKiWuogKOig5Rr1pW9V1Mbb3t+wv0AgsmNL3PyO1opiHvhm0P4UZ2UvtDa0drQuta601u59Mq664UBHzRhK/O9Op5OWHFK6yj0/9/ynsTkw+eqxs93cqYPFYrFYLBaLxWKxPHRuAwAA///pTXlp")
+chdir(&(0x7f0000000300)='./file0\x00')
+openat(0xffffffffffffff9c, &(0x7f0000000640)='./file1\x00', 0x0, 0x0)

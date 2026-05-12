@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=da8848f19a7bb9da6bad97b08db54a49b9a8f5c8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000140)=@ipv6_newnexthop={0x1c, 0x68, 0x5fb9a818fb7378e9, 0x0, 0x0, {0xa, 0x0, 0x2}, [@NHA_BLACKHOLE={0x4}]}, 0x1c}}, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000004380)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000040)=@ipv6_newrule={0x2c, 0x18, 0x409, 0x0, 0x0, {}, [@FIB_RULE_POLICY=@FRA_GOTO={0x8, 0x1e, 0x1}, @FIB_RULE_POLICY=@FRA_SPORT_RANGE={0x8, 0x17, {0x4e21, 0x4e24}}]}, 0x2c}}, 0x0)

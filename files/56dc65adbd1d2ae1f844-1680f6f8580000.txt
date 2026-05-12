@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/syz0\x00', 0x1ff)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_int(r0, &(0x7f0000000340)='cpuacct.usage\x00', 0x2, 0x0)
+write$cgroup_int(r1, &(0x7f00000003c0)=0x1000, 0x12)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDSETKEYCODE(r2, 0x4b4d, &(0x7f0000000100)={0x7f, 0x5})
+r3 = socket(0x10, 0x3, 0x0)
+r4 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r4, &(0x7f0000000280)={0x26, 'hash\x00', 0x0, 0x0, 'digest_null-generic\x00'}, 0x58)
+r5 = accept$alg(r4, 0x0, 0x0)
+getsockopt$sock_int(r5, 0x1, 0x4a, 0x0, &(0x7f0000000080))
+setsockopt$netlink_NETLINK_TX_RING(r3, 0x10e, 0xc, &(0x7f0000000040)={0x200040c}, 0x10)
+write(r3, &(0x7f0000000100)="240000001e005f0214fffffffffffff80700000000000000000000000500080016000000", 0x24)

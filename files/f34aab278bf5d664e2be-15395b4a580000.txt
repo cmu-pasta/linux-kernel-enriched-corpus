@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9490a0568a62c3e5fc659a1261d3e669a8250265
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x1c8)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000240)='./file2\x00', 0xc1)
+mount$overlay(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000200), 0x0, &(0x7f00000000c0)={[{@workdir={'workdir', 0x3d, './file0'}}, {@lowerdir={'lowerdir', 0x3d, '.'}}, {@upperdir={'upperdir', 0x3d, './file2'}}], [], 0x2c})
+open(&(0x7f0000000040)='./file0\x00', 0x551083, 0x28)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket(0x10, 0x803, 0x0)
+getsockname$packet(r1, &(0x7f0000000100)={0x11, 0x0, <r2=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f0000000200)=0x14)
+sendmsg$nl_route(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000380)=ANY=[@ANYBLOB="3c0000001000850600"/20, @ANYRES32=r2, @ANYBLOB], 0x3c}}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=609c457deb86538d75f2302998ba18478d0c29a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x4000000004002, 0x0)
+r1 = dup(r0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb, 0x13, r1, 0x2000)
+r2 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x121003, 0x0)
+ioctl$FS_IOC_SETFLAGS(r2, 0x40081271, &(0x7f0000000980)=0x4000)

@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=06bf6d5e0baeabdedeba2bc300abf20a7a150e11
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_clone(0x60020180, &(0x7f00000006c0), 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=dac1d74c368fcf1cb2c5fe033b527cedcf174dae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x1c0)
+syz_mount_image$fuse(0x0, &(0x7f00000000c0)='./bus\x00', 0x3000009, 0x0, 0x1, 0x0, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file1\x00', 0x42, 0x80)
+mount$overlay(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000b80), 0x8, &(0x7f0000000180)={[{@upperdir={'upperdir', 0x3d, './file0'}}, {@lowerdir={'lowerdir', 0x3d, '.'}}, {@workdir={'workdir', 0x3d, './bus'}}, {@metacopy_on}]})
+linkat(0xffffffffffffff9c, &(0x7f00000001c0)='./file0/file1\x00', 0xffffffffffffff9c, &(0x7f00000003c0)='./file0/file2\x00', 0x1000)
+unlinkat(0xffffffffffffff9c, &(0x7f0000000480)='./file1\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f0000000140)='./file0\x00', &(0x7f0000000380), 0x0, &(0x7f00000003c0)={[{@lowerdir={'lowerdir', 0x3d, './file0'}, 0x3a}], [], 0x2f})
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x20400, 0x38)
+getdents64(r0, 0x0, 0x0) (async)
+getdents64(r0, 0x0, 0x0)

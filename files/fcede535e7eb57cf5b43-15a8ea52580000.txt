@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=139a708c5ffe7bf7261125a618b2b53c6c34c29c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mbind(&(0x7f0000400000/0xc00000)=nil, 0xc00000, 0x1, 0x0, 0x0, 0x2)
+r0 = syz_open_dev$dri(&(0x7f0000000000), 0x2, 0x2000)
+ioctl$DRM_IOCTL_SYNCOBJ_CREATE(r0, 0xc00864bf, &(0x7f00000000c0)={<r1=>0x0, 0x1})
+ioctl$DRM_IOCTL_SYNCOBJ_WAIT(r0, 0xc02864c3, &(0x7f0000000180)={&(0x7f0000000140)=[r1], 0x3, 0x1, 0x3}) (fail_nth: 8)

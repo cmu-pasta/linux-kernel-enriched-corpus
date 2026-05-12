@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5e0dc03439e6d9fadf785fae13460365cbd31339
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = io_uring_setup(0x29e6, &(0x7f0000005100)={0x0, 0x0, 0x82})
+io_uring_register$IORING_REGISTER_BUFFERS2(r0, 0xf, &(0x7f0000005500)={0x3, 0x0, 0x0, &(0x7f0000005480)=[{0x0}, {0x0}, {&(0x7f0000005380)=""/255, 0xff}], 0x0}, 0x20)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='fdinfo/3\x00')
+preadv(r1, &(0x7f0000000640)=[{&(0x7f0000000140)=""/134, 0x86}], 0x1, 0x0, 0x0)

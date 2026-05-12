@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f119ad453dec99a1fb65009ec22c8b1b41822ccf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket(0x840000000002, 0x3, 0xfa)
+setsockopt$inet_mreqn(r0, 0x0, 0x24, 0x0, 0x0)
+r1 = socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r1, 0x0, 0x48b, &(0x7f00000000c0)={0x2, 'dummy0\x00'}, 0x18)
+r2 = socket$inet(0x2, 0x4000000000000001, 0x100)
+sendto$inet(r2, 0x0, 0x0, 0x200007fd, 0x0, 0x0)

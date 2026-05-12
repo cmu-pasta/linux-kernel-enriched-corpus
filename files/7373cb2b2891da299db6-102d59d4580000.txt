@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=44fd77a867a0a5bc6fec6cb2939ebb6c905aa26b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x11, 0x5, &(0x7f0000000000)=ANY=[@ANYBLOB="180000000020000000000000f9ffff0b85000000ae000000850000000700000095"], &(0x7f0000000080)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000480)={&(0x7f0000000040)='sys_exit\x00', r0}, 0x90)

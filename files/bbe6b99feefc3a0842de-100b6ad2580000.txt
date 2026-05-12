@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=06bf6d5e0baeabdedeba2bc300abf20a7a150e11
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_clone(0x2040180, 0x0, 0x62, 0x0, 0x0, 0x0)
+pipe(&(0x7f0000000140)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+write$binfmt_misc(r0, &(0x7f0000000000), 0xfffffecc)

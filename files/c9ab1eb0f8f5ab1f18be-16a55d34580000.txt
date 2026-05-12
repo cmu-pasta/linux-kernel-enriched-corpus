@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8d4e12115fabd515ad50d02e2cec0e6840235a8c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+sendmmsg$unix(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc004500a, &(0x7f0000000240)=0x3)
+ioctl$SNDCTL_DSP_CHANNELS(r0, 0xc0045006, &(0x7f0000000080)=0x7f)
+read$dsp(r0, &(0x7f0000000300)=""/79, 0x4f)

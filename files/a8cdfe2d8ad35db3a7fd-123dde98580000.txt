@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=de718886ec5e78a97aa1a73f881087b793813af8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mmap$auto(0x0, 0x9, 0xfc, 0x1000000eb1, 0x401, 0x8000)
+prctl$auto(0x1000000003b, 0x1, 0x4, 0x5, 0x7)
+mmap$auto(0x0, 0x4, 0x4000000000df, 0x40eb1, 0x401, 0x300000000000)
+mmap$auto(0x0, 0x400000005, 0x4000000000df, 0x40eb1, 0x401, 0x300000000000)

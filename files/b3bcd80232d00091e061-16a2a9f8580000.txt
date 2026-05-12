@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=dc6f4adcf98beaf0f4a32639bc1125e00a53353b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000040)={'netdevsim0\x00', &(0x7f0000000340)=@ethtool_cmd={0x11, 0x0, 0x97, 0x0, 0x1d, 0x0, 0x6, 0x0, 0x0, 0x3, 0x3f, 0x1000000, 0x0, 0x0, 0x7, 0x2}})

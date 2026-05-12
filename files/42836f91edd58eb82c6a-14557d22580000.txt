@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d2c9144d3a3a75b51d4d672e8f2430cbcb650854
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"binfmt_misc":true,"close_fds":true,"ieee802154":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_init_net_socket$rose(0xb, 0x5, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x7, 0x100}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000240)=0x7)
+timer_create(0x0, &(0x7f00000000c0)={0x0, 0x21, 0x2, @thr={0x0, 0x0}}, &(0x7f0000000300))
+fcntl$lock(0xffffffffffffffff, 0x6, &(0x7f0000000040)={0x0, 0x0, 0x60d3, 0x5})
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x1)
+timer_settime(0x0, 0x1, &(0x7f0000000040)={{0x77359400}, {0x0, 0x989680}}, 0x0)
+ftruncate(0xffffffffffffffff, 0x8800000)

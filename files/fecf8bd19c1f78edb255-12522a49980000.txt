@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=fdb4945575d1a5b7ba427b1a67e1c3fa0cce04fc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_usb_connect(0x0, 0x36, &(0x7f0000000200)=ANY=[@ANYBLOB="1201000014da2108ab12a390eb1e000000010902240001b30000040904410017ff5d810009050f1f01040000000905830300b3"], 0x0)
+open$dir(0x0, 0x0, 0x0)
+r0 = syz_open_dev$usbfs(&(0x7f0000000080), 0x76, 0x109301)
+ioctl$USBDEVFS_SUBMITURB(r0, 0x8038550a, &(0x7f0000000980)=@urb_type_bulk={0x3, {0x5, 0x1}, 0x600c, 0xc7, &(0x7f00000003c0)="68924ac614e07886a2bb2b00602eab62cb1908cf34c40aea9fc0223338648d5fae9790709fca03760074f49bc226420041ed7e80eeeeeb825271e7769edca4ef6d35cade8f8faf48d048b424201955d90a1354ae6be9f880a60b19171e30fe409ebdbc4058240c7df57a9b8257b7966d3af76cedb64597b3f651c9598c1302c4e81d83f1cf1b7c7d118f636fb669cf8cf05249723e268cb176d3313246cde296946dab605e135dd2b93042d3f9cecf55d34173befee87d43ee05c6cca73a189058eeb084b235d89767ddd4a12b9918ccd1a4d263bf8806c63f3d57444231bc2795b26b236addd8915079240ebb3f395d293f01", 0xf3, 0x0, 0xffffc38f, 0x8, 0x8, 0x2, &(0x7f00000004c0)="6d25f92cd8a9a63198ed059414b5afbeadc9c1b3ef1d8ba2c0bf5dd8ba2846fa6eb600db6e523de838c3872dc94b9c370e7fb0035c8a446adf302b31a8f7d324495128bc9ea457e351e8db0edf034fd835419e95d00c34f857367aba197a8e87582265"})
+r1 = openat$vhost_vsock(0xffffffffffffff9c, &(0x7f00000015c0), 0x2, 0x0)
+ioctl$VHOST_SET_VRING_BASE(r1, 0xaf01, 0x0)
+ioctl$VHOST_SET_VRING_ADDR(r1, 0x4008af21, &(0x7f00000001c0)={0x0, 0x4000000, 0x0, 0x0, 0x0})
+ioctl$EVIOCSCLOCKID(0xffffffffffffffff, 0x400445a0, &(0x7f0000000080)=0xb309)
+r2 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(0xffffffffffffffff, 0x8933, &(0x7f0000000000)={'batadv_slave_1\x00', <r3=>0x0})
+ioctl$sock_inet6_SIOCADDRT(r2, 0x890b, &(0x7f00000000c0)={@loopback, @private1={0xfc, 0x1, '\x00', 0x1}, @private1={0xfc, 0x1, '\x00', 0x1}, 0xfffffffa, 0x8000, 0x1, 0x100, 0x7, 0x100000, r3})
+setsockopt$packet_fanout(0xffffffffffffffff, 0x107, 0x12, &(0x7f0000000780), 0x4)
+r4 = socket$igmp(0x2, 0x3, 0x2)
+setsockopt$MRT_ADD_MFC_PROXY(r4, 0x0, 0xd2, &(0x7f0000000040)={@remote, @local, 0x0, "5bc124a9f61874ca47cb07b9f68686573b0df3fe51604f4e7dfb79dbf5bcda2e", 0x4, 0x40, 0x1000, 0x550}, 0x3c)

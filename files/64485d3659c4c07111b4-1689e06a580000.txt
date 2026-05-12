@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=91f0f2cb2cf9b94b670cce82d329399ee7a2a880
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f00000001c0)=ANY=[@ANYBLOB="120100009dea7840b418fbff7bdc01020301090212000100000000090401"], 0x0)
+syz_usb_control_io$cdc_ecm(r0, 0x0, &(0x7f00000008c0)={0x1c, &(0x7f0000000100)=ANY=[@ANYBLOB="00000100000001"], 0x0, 0x0})
+r1 = syz_open_dev$I2C(&(0x7f0000000000), 0x1, 0x402)
+ioctl$I2C_RDWR(r1, 0x707, &(0x7f0000000140)={&(0x7f0000000440)=[{0xff, 0x0, 0x1, &(0x7f0000000900)='\n'}], 0x1})

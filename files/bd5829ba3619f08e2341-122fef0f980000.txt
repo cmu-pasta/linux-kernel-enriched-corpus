@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=46e424f758627c994fdd9bc8681b6624d4528ba1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"swap":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$ieee802154(&(0x7f00000006c0), r1)
+sendmsg$IEEE802154_LLSEC_SETPARAMS(r0, &(0x7f0000000780)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000700)={0x20, r2, 0x1, 0x3, 0x0, {0x22}, [@IEEE802154_ATTR_DEV_NAME={0xa, 0x1, 'wpan1\x00'}]}, 0x20}, 0x1, 0x0, 0x0, 0x4080}, 0x0)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000040), r3)
+r5 = gettid()
+sendmsg$NL802154_CMD_SET_WPAN_PHY_NETNS(r3, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000080)={0x34, r4, 0x1, 0x70bd2a, 0x25dfdbfd, {}, [@NL802154_ATTR_WPAN_PHY={0x8}, @NL802154_ATTR_PID={0x8, 0x1c, r5}, @NL802154_ATTR_WPAN_PHY={0x8, 0x1, 0x2}, @NL802154_ATTR_WPAN_PHY={0x8, 0x1, 0x1}]}, 0x34}, 0x1, 0x0, 0x0, 0x8080}, 0x4c084) (fail_nth: 7)

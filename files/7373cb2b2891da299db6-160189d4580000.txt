@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=44fd77a867a0a5bc6fec6cb2939ebb6c905aa26b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000840)=@base={0x5, 0x5, 0x2, 0x4, 0x0, 0xffffffffffffffff, 0x0, '\x00', 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, @void, @value, @void, @value}, 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f00000004c0)={0x11, 0x14, &(0x7f0000000200)=ANY=[@ANYBLOB="1802000002000000000000000000000018010000786c6c2500000000070000007b1af8ff00000000bfa100000000000007010000f8ffffffb700000000000000b703000000000000850000000400000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000000100000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000004c0)={&(0x7f0000000300)='tlb_flush\x00', r1}, 0x10)

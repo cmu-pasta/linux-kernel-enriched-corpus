@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=57cfabf4d241961ea260e979a2788a762b12f254
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_tcp_int(r0, 0x6, 0x20, &(0x7f0000000040)=0x2, 0xf6)
+r1 = syz_open_dev$ndb(&(0x7f0000000000), 0x0, 0x0)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000080)={<r2=>0xffffffffffffffff})
+ioctl$NBD_SET_SOCK(r1, 0xab00, r2)
+r3 = syz_open_dev$ndb(&(0x7f0000000040), 0x0, 0x0)
+sendmsg$AUDIT_USER_TTY(0xffffffffffffffff, 0x0, 0x4000011)
+ioctl$NBD_SET_FLAGS(r3, 0xab0a, 0x1000001000104)
+ioctl$NBD_SET_SOCK(r3, 0xab00, r2)
+ioctl$NBD_SET_SOCK(r3, 0xab00, r2)
+ioctl$NBD_SET_SOCK(r1, 0xab00, r0)
+pipe2$9p(&(0x7f0000000240)={<r4=>0xffffffffffffffff, <r5=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r5, &(0x7f0000000080)=ANY=[@ANYBLOB="1500000065ffff097b000008003950323030302e4c"], 0x15)
+r6 = dup(r5)
+write$FUSE_BMAP(r6, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r6, &(0x7f0000002100)=ANY=[@ANYBLOB="b0000000000000001659ec0889419429aa5db97288b0f8a87ea8e66d9a8b"], 0xb0)
+mount$9p_fd(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000b80), 0x0, &(0x7f0000000500)={'trans=fd,', {'rfdno', 0x3d, r4}, 0x2c, {'wfdno', 0x3d, r6}})
+ioctl$DRM_IOCTL_RM_MAP(r6, 0x4028641b, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x0, &(0x7f0000ffe000/0x1000)=nil})
+ioctl$NBD_DO_IT(r1, 0xab03)
+ioctl$NBD_CLEAR_SOCK(r3, 0xab04)
