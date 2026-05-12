@@ -47,11 +47,14 @@ def get_reproducers(bug):
         except IndexError:
                 print("No reproducers for bug : ",bug)
                 return
-        # find td that has text "syz", only one
-        td = table.find_all('td', text="syz")
-        for entry in td:
-            # get the href of the link
-            link = entry.find('a').get('href')
+        # find repro links in td.repro cells
+        repro_tds = table.find_all('td', class_='repro')
+        links = []
+        for td in repro_tds:
+            for a in td.find_all('a'):
+                if 'ReproSyz' in a.get('href', ''):
+                    links.append(a.get('href'))
+        for link in links:
             page = rate_limited_get("https://syzkaller.appspot.com" + link)
             # bug = files/bug?id=17ee94193810ddc5d820094d4e509d47ad5bf6bc
             # link = /text?tag=ReproSyz&x=1789e141d00000
@@ -75,7 +78,7 @@ def main():
         # if title and stat exist
         if title and stat:
             # check if stat[0] contains "C" in "td"
-            if "C" in stat[0] or "syz" in stat[0]:
+            if "C" in stat[1].get_text() or "syz" in stat[1].get_text():
                 print(title[0].find('a').get('href'))
                 bugs.append(title[0].find('a').get('href'))
     page = requests.get("https://syzkaller.appspot.com/upstream/fixed")
@@ -89,7 +92,7 @@ def main():
         # if title and stat exist
         if title and stat:
             # check if stat[0] contains "C" in "td"
-            if "C" in stat[0] or "syz" in stat[0]:
+            if "C" in stat[1].get_text() or "syz" in stat[1].get_text():
                 print(title[0].find('a').get('href'))
                 bugs.append(title[0].find('a').get('href'))
     # for each bug, get the reproducers from "https://syzkaller.appspot.com/$bug"
