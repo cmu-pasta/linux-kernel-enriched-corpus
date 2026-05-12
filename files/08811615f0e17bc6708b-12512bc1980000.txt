@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=cc32e291ddff2d0fc3a31050a2018b8d58d3d179
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000180)={'syz_tun\x00', <r1=>0x0})
+r2 = bpf$MAP_CREATE(0x0, &(0x7f00000000c0)=@base={0x1b, 0x0, 0x0, 0x8000}, 0x48)
+r3 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=@base={0xe, 0x4, 0x8, 0x8}, 0x48)
+r4 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x6, 0x10, &(0x7f0000000280)=ANY=[@ANYBLOB="1800000000000000000000000000000018110000", @ANYRES32=r2, @ANYBLOB="0000000000000000b702000002000000850000008600000018110000", @ANYRES32=r3, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bca2000000000000a6020000f8ffffffb703000008000000b704000000000000850000003300000095"], &(0x7f0000000180)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x90)
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f0000000000)={r4, r1, 0x25, 0x0, @val=@tcx}, 0x40)
+syz_emit_ethernet(0xfdef, &(0x7f0000000100)={@broadcast, @local, @val={@void}, {@can={0xc, {{}, 0x0, 0x0, 0x0, 0x0, "534ead40a3537293"}}}}, 0x0)

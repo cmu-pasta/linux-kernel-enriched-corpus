@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5b476877496182e2b099fb7cc1c344a03b90be53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+timer_create(0x2, 0x0, &(0x7f0000000480))
+timer_settime(0x0, 0x1, &(0x7f0000000000)={{0x0, 0x3938700}, {0x0, 0x989680}}, 0x0)
+timer_create(0x2, 0x0, &(0x7f0000000480)=<r0=>0x0)
+timer_settime(r0, 0x1, 0x0, 0x0)

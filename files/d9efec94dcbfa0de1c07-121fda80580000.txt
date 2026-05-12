@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=feee6b911a79139455754b0be0495adb996a07fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000080), 0x1000000, &(0x7f0000000900)={[{@upperdir={'upperdir', 0x3d, './file1'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@workdir={'workdir', 0x3d, './bus'}}]})
+r0 = open(&(0x7f0000000140)='./file0\x00', 0x0, 0x0)
+mknodat$loop(r0, &(0x7f0000001600)='./file1\x00', 0x0, 0x0)
+chdir(&(0x7f00000003c0)='./bus\x00')
+r1 = openat$dir(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0, 0x64)
+linkat(r0, &(0x7f0000000100)='./file1\x00', r0, &(0x7f0000000240)='./file0\x00', 0x0)
+unlink(&(0x7f0000000280)='./file1\x00')
+lseek(r1, 0x10000, 0x0) (fail_nth: 6)

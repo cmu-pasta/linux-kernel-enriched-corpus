@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ba0c0515e024183b67473e0e152ef6424e7fa760
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap(&(0x7f0000000000/0xfbe000)=nil, 0xfbe000, 0x8, 0x31, 0xffffffffffffffff, 0xeb0b4000)
+mremap(&(0x7f00003c9000/0x2000)=nil, 0x2000, 0x2000, 0x7, &(0x7f00001de000/0x2000)=nil)
+mremap(&(0x7f00003c9000/0x2000)=nil, 0x2000, 0x2000, 0x7, &(0x7f00001de000/0x2000)=nil)

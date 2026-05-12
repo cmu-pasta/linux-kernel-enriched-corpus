@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=8d5962eb786ecb9cded9906aad76fa06f81b067f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+setpgid(0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x88}, 0x0)
+sendmsg$key(0xffffffffffffffff, 0x0, 0x0)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x7)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+connect$unix(0xffffffffffffffff, 0x0, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000000), 0x48241, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, &(0x7f00000000c0)={'syzkaller1\x00', 0x6bf1c2d5adba8c32})
+ioctl$TUNSETSNDBUF(r1, 0x400454d4, 0x0)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$SIOCSIFHWADDR(0xffffffffffffffff, 0x8914, 0x0)
+bpf$MAP_CREATE_TAIL_CALL(0x0, 0x0, 0x0)

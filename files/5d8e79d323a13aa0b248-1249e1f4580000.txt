@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b2a2181447f3f46d51ae0c8e14bdf3abcfbc6709
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_open_procfs(0x0, &(0x7f00000000c0)='task\x00')
+inotify_init1(0x0)
+syz_open_procfs(0x0, &(0x7f0000000600)='fd/4\x00')

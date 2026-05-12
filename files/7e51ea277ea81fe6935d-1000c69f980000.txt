@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=fc8e46949de677070d0ef2e03405b1df5acdd708
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_usb_connect(0x0, 0x3f, &(0x7f0000000080)=ANY=[@ANYBLOB="1201000016038308c5109a8146e40102230109022d0001000000000904000003030000000905be3b6b032c7870a592b94a009d0d2292b896fd497b3d41c8559a59a1e488efd8062a718e6b62736e149d56c71a8f6aa24996fc6451ffcceef0a549bb8b353ea84cbaaaf2cf370ad950172ff56006ad4eba69a1b9f497ff9b636c9e10ae4abb36255f42e950182a760217785e63b616f2d7315b694f17c0143d17723f776e525ea3fceb"], 0x0)
+syz_usb_control_io(r0, 0x0, &(0x7f0000000680)={0x84, &(0x7f0000000280)=ANY=[], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io(r0, 0x0, &(0x7f0000000780)={0x84, &(0x7f0000000380)=ANY=[], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)

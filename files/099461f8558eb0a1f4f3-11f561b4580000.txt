@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=23b42017412e73fb730cffe0826ecc55030f8583
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000740), 0x8202, 0x0)
+mmap$binder(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1, 0x11, r0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c527e299c2b876c3dc57be457c8728ddd938581c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = bpf$MAP_CREATE(0x100000000000000, &(0x7f0000001800)=ANY=[@ANYBLOB="0a00000016000000b30000007f"], 0x48)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000100)={0x11, 0xb, &(0x7f0000000080)=@framed={{0x18, 0x3, 0x0, 0x0, 0xfffffffe}, [@func={0x85, 0x0, 0x1, 0x0, 0x6}, @map_fd={0x18, 0x0, 0x1, 0x0, r0}, @generic={0x87}, @initr0, @exit, @alu={0x7, 0x0, 0x2, 0x3}]}, &(0x7f0000000000)='GPL\x00', 0x1, 0x0, 0x0, 0x40f00}, 0x94)

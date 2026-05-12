@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a381270c74634fe8126c2c761731888b3a299721
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=ANY=[@ANYBLOB="1400000007"], 0x50)
+pwrite64(0xffffffffffffffff, &(0x7f0000000000)='2', 0x1, 0x4fed0)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000100)={0x1f, 0xffff, 0x3}, 0x6)
+write$binfmt_misc(r0, &(0x7f0000000000), 0xd)

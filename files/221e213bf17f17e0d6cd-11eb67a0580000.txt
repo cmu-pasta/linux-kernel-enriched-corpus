@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=5a1ad3be676e3deb77606714e960534d93222f79
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$hpet(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+io_uring_setup(0x177f, &(0x7f0000000140)={0x0, 0x0, 0x0, 0x0, 0xfffffffd})
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x4)
+sendmmsg$unix(0xffffffffffffffff, 0x0, 0x0, 0x0)
+sched_setaffinity(r0, 0x0, 0x0)
+r1 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r1, &(0x7f0000000400)={0x0, 0x3f00, &(0x7f0000000080)={&(0x7f00000004c0)=ANY=[@ANYBLOB="38000000031401002abd700096dbdf250900020073797a3000000000080041007278650014003300626f6e6430000000000000000000000004f6f2f5f045502013a92a9072de0413fa76f3121c0ae1a68622eae9ef17e972a202aa1be9b262fde78b0aab6f6ed76daa347ac5778d57097e30d59f8f82a88ad102521c73a52d545a6e6938436ead811365952bc5fecbce080da1b55a24afd7f8eaba407c21f424"], 0x85}, 0x1, 0x0, 0x0, 0x4000840}, 0x24004000)
+r2 = socket$nl_rdma(0x10, 0x3, 0x14)
+r3 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000140), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r3, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_SET_OPTION(r3, 0x0, 0x0)
+syz_usb_connect$hid(0x0, 0x36, 0x0, 0x0)
+openat$nmem0(0xffffff9c, &(0x7f0000000300), 0x800, 0x0)
+openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000002540), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(0xffffffffffffffff, &(0x7f0000000140)={0x0, 0x18, 0xfa00, {0x2, 0x0, 0x111, 0x2}}, 0x20)
+sendmsg$RDMA_NLDEV_CMD_PORT_GET(r2, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000140)=ANY=[@ANYBLOB="200000000414010026bd7000ffdbdf2508000100000000000800"], 0x20}, 0x1, 0x0, 0x0, 0x20048000}, 0x20000000)
+syz_open_procfs(0x0, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5a34035b13d7f4215357b46093ca6d5c45c93f93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = syz_open_dev$loop(&(0x7f0000000100), 0xd79, 0x0)
+chdir(&(0x7f0000000480)='./cgroup\x00')
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000280)='.\x00', 0x0, 0x0)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000140)='cgroup.stat\x00', 0x275a, 0x0)
+r3 = syz_open_dev$loop(&(0x7f0000000100), 0xd79, 0x0)
+r4 = openat$cgroup_ro(r1, &(0x7f0000000140)='cgroup.stat\x00', 0x275a, 0x0)
+ioctl$LOOP_CONFIGURE(r3, 0x4c0a, &(0x7f00000002c0)={r4, 0x0, {0x2a00, 0x80010000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x13, 0x1c, "fee8a2ab78fcffffffffffffff2000b8785d960000000000000000000000000f00000000000100000000000000000000000000000200", "2809e897bdb2128bfc82525edd665240f45f819e01982861ac0000000000000000001100", "90be8b1c551265406c7f306003d8a0f4bd00", [0x20]}})
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r2)

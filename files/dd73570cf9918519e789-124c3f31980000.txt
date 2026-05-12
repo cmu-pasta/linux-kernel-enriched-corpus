@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2dc25289d0ed5c5c9ec745614e9060bdccf2fe05
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/pid_for_children\x00')
+ioctl$NS_GET_PARENT(r0, 0x8004b706, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=85d680b6c68ae38fa006890f8f0cbf2633dabe4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket(0x11, 0x80a, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000300)={'bond0\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000400)=ANY=[@ANYBLOB="4c0000001000010400"/20, @ANYRES32=r2, @ANYBLOB="00000000000000002c00128009000100626f6e64000000001c0002800800030004000000050006"], 0x4c}}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ca94a0db1409531cbcbecec752b0d850574260d2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"usb":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000140)={'team0\x00', <r3=>0x0})
+setsockopt$packet_add_memb(r0, 0x107, 0x1, &(0x7f0000000000)={r3, 0x1, 0x6, @remote}, 0x10)
+sendmsg$nl_route(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)=ANY=[@ANYBLOB="2000000011000100"/20, @ANYRES32=r3], 0x20}}, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1ed4e695f9cc2356f3a9eeff0f9dd06e788f1264
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f0000000440)=ANY=[@ANYBLOB="120100002eab5a40401c3405cc6d010203010902120001000000000904"], 0x0)
+syz_usb_control_io$printer(r0, 0x0, 0x0)
+syz_usb_control_io$printer(r0, 0x0, 0x0)
+syz_usb_control_io$printer(r0, 0x0, 0x0)
+syz_open_dev$I2C(&(0x7f00000001c0), 0x1, 0x402)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+r1 = syz_open_dev$usbfs(&(0x7f0000000480), 0x73, 0x188341)
+ioctl$USBDEVFS_IOCTL(r1, 0xc0105512, 0x0)
+ioctl$USBDEVFS_IOCTL(r1, 0xc0105512, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ee7a490448b51172934397f09a7ef045e634f8d1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000), 0xa0342, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3000007, 0x38011, r0, 0x0)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000080)={0xffffffffffffffff, 0x18000000000002a0, 0xe1, 0x0, &(0x7f0000000100)="b9ff03076844268cb89e14f005dd1be0ffff00fe3a21632f77fbac14141de007031762079f4b4d2f87e5feca6aab845013f2325f1a3901050b038da1880b25181aa59d943be3f4aed50ea5a6b8686731cb89ef77123c899b699eeaa8eaa0073461119663906400f30c0600000000000059b6d3296e8ca31bce1d8392078b72f24996ae17dffc2e43c8174b54b620636894aaacf28ff62616363c70a440aec4014caf28c0adc043084617d7ecf41e9d134589d46e5dfc4ca5780d38cae870b9a1df48b238190da450296b0ac01496ace23eefc9d4246dd14afbf79a2283a0bb7e1d", 0x0, 0x8, 0x60000000, 0x0, 0x0, 0x0, 0x0}, 0x50)
+r1 = syz_open_procfs(0x0, &(0x7f0000000240)='maps\x00')
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0xc0686611, &(0x7f0000000180)={0x68, 0x0, 0x17, 0x2000, &(0x7f0000ffd000/0x2000)=nil})

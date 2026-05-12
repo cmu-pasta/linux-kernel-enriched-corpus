@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a65b2c6179b59f8fa5cccb3e63e0963ed27eac55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000040)='/dev/comedi4\x00', 0x181001, 0x0)
+r1 = epoll_create(0x3)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000080)={0x80000010})
+ioctl$COMEDI_DEVCONFIG(r0, 0x40946400, 0x0)

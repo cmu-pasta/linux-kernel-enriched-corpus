@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dc1aaadc6fe7f900a77f0d6b052ad7dcf5e8393c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"ieee802154":true,"swap":true}
+futex(0x0, 0xd, 0x0, 0x0, 0x0, 0x0)
+r0 = socket$inet6(0xa, 0x1, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x89f0, &(0x7f0000001440)={'bridge0\x00', &(0x7f0000000100)=@ethtool_ringparam={0x4, 0x0, 0xc, 0x8001, 0x3, 0x0, 0x3, 0xe}})

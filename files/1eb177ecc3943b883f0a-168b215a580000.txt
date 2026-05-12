@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"usb":true,"callcomments":true}
+openat$auto_snd_rawmidi_f_ops_rawmidi(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/midiC2D0\x00', 0x1, 0x0) (rerun: 64)
+socket$nl_generic(0x10, 0x3, 0x10)
+openat$auto_dvb_frontend_fops_dvb_frontend(0xffffffffffffff9c, &(0x7f0000000000), 0x1, 0x0)

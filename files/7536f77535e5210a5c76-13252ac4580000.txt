@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7eedce59d748e85a76ffd05468bd31c6074d990e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0x400008, 0xdb, 0x9b72, 0x0, 0x100000000008000)
+openat$auto_tomoyo_operations_securityfs_if(0xffffffffffffff9c, &(0x7f0000000040)='/sys/kernel/security/tomoyo/manager\x00', 0x1, 0x0)
+mmap$auto(0x0, 0x20009, 0xdf, 0xeb1, 0x40000000000a5, 0x8000)
+write$auto(0x3, 0x0, 0x7ffffffd)

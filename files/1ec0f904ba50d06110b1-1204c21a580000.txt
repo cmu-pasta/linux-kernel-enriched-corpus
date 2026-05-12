@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ce3ebd4eefb0a2c9f0b4760249f29a563f4e41f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x88}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000240)=0x7)
+r0 = open(&(0x7f00000000c0)='./bus\x00', 0x68042, 0x62)
+r1 = open(&(0x7f0000000080)='./bus\x00', 0x185102, 0x0)
+write$dsp(r0, &(0x7f0000000100)='n', 0x1)
+sendfile(r0, r1, 0x0, 0x1000000201005)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)

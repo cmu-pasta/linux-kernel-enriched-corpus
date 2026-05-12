@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=ecb802bfdf0ae1ff17669c475bcce6bedb49ab0f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000000080))
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)
+munlockall() (fail_nth: 1)

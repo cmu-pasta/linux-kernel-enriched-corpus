@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=7668d17d4214b4da730b7bb85a8aefefdc3cf431
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f00000020c0)='./file0\x00', 0x0)
+mount$tmpfs(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000400), 0x0, &(0x7f00000002c0)={[{@huge_always}]})
+chdir(&(0x7f0000000140)='./file0\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000), 0x208e24b)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xa, 0x28011, r0, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600003, 0x9)

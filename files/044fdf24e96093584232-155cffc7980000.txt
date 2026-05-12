@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=56038cbafead8d07c79de8fd880471ae8114a838
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = add_key$fscrypt_v1(&(0x7f0000000000), &(0x7f0000000040)={'fscrypt:', @desc1}, &(0x7f0000000080)={0x0, "5d9bc136c963254c661fb620148b6f72ca6ae2a44829bfa79ec13499f8ec9077d85d879711d98bb1687ad36dfe5f14a7b0ce15c1e6be0e7ecabfdfde0dfa00b1"}, 0x48, 0xffffffffffffffff)
+pipe2$watch_queue(&(0x7f00000002c0)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x80)
+r2 = socket$unix(0x1, 0x2, 0x0)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f0000caaffb)={0x0, <r3=>0x0}, &(0x7f0000cab000)=0xc)
+setresuid(0xee01, r3, 0xffffffffffffffff)
+keyctl$KEYCTL_WATCH_KEY(0x20, r0, r1, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=fd989e9f72500698b45b278430d94d2bf107aa30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$TIOCL_SETSEL(r0, 0x541c, &(0x7f0000000100)={0x2, {0x2, 0x0, 0x6, 0x1fc}})
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$VT_DISALLOCATE(r1, 0x5608)

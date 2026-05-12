@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2961f97555893246172b21054d52befab466f072
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+socket$inet(0xa, 0x801, 0x0)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000140)={0x0, 0x4, 0x0, 0x0, 0x0, 0x26, 0x0, 0x0, 0x0, '\x00', 0x0, 0x24, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x90)
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nbd(&(0x7f0000000380), 0xffffffffffffffff)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000200)={<r2=>0xffffffffffffffff})
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000000c0)=ANY=[@ANYBLOB="90000000", @ANYRES16=r1, @ANYBLOB="01000000000000000000010000000c0005000c000000000000000c0002000000020000000000040007800c000800000000000700000008000a00000000004400078008000100", @ANYRES32, @ANYBLOB="38000100", @ANYRES32=r2, @ANYBLOB="64800400", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="080001"], 0x90}}, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ba0c0515e024183b67473e0e152ef6424e7fa760
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$rnullb(0xffffffffffffff9c, &(0x7f0000000140), 0x8900, 0x0)
+mremap(&(0x7f0000000000/0x9000)=nil, 0x600002, 0x600002, 0x7, &(0x7f0000a00000/0x600000)=nil)

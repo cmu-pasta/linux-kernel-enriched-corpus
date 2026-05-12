@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=83b5ac14a615fc35c4fdf814634011c4570a5a85
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"cgroups":true,"close_fds":true,"tmpdir":true}
+close_range$auto(0x2, 0x8, 0x0)
+openat$auto_proc_loginuid_operations_base(0xffffffffffffff9c, 0x0, 0x109000, 0x0)
+openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000040)='/proc/irq/11/smp_affinity_list\x00', 0x129542, 0x0)
+write$auto(0x3, 0x0, 0xfffffdef)

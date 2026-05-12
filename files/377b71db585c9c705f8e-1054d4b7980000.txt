@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e0ea1d9288d0cf8017c7fefa745690b4dc5c329f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$kcm(0x10, 0x2, 0x0)
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+socket$inet_dccp(0x2, 0x6, 0x0)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+socket$inet_smc(0x2b, 0x1, 0x0)
+pipe(0x0)
+sendmsg$nl_route(r1, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x1, 0x300000000000000, 0x0, 0x4004}, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'veth1_macvtap\x00'})
+socket$netlink(0x10, 0x3, 0x0)

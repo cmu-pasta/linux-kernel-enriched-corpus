@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e73f7d3fe11e7b14c41c9dcf786c3fa21ff0b0ec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000001540)={0x18, 0x5, &(0x7f0000000040)=ANY=[@ANYBLOB="180100002100000000000000000000008500000075000000a50000002300000095"], &(0x7f00000000c0)='GPL\x00'}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000100)={&(0x7f00000001c0)='mmap_lock_acquire_returned\x00', r0}, 0x10)

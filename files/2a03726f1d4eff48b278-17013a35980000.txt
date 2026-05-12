@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e5379e5d7533cdbc3605ba27b33d8e8848c254d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"sysctl":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+r0 = openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = syz_usb_connect(0x0, 0x24, &(0x7f00000003c0)=ANY=[@ANYBLOB="12010000f354ed10050b3617b10d010203010902120002000000800904000000493e0a00"], 0x0)
+syz_usb_control_io$printer(r1, 0x0, 0x0)
+setsockopt$RDS_FREE_MR(r0, 0x114, 0x3, 0x0, 0x0)
+syz_usb_control_io$cdc_ecm(r1, 0x0, 0x0)
+unshare(0x2000400)
+rt_sigaction(0x16, 0x0, 0x0, 0x8, &(0x7f0000000200))
+sendmsg$IPCTNL_MSG_EXP_NEW(0xffffffffffffffff, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={0x0}}, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0) (fail_nth: 8)

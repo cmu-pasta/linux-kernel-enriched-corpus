@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=40a3dee9031d13c6c6257fdcb477fc254a172398
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f00000000c0)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r1, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)={0x24, r2, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x2}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_CONNECT(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000280)={0x40, r2, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r3}, @void}}, [@NL80211_ATTR_SSID={0xa, 0x34, @default_ap_ssid}, @NL80211_ATTR_AUTH_TYPE={0x8}, @NL80211_ATTR_IE={0xd, 0x2a, [@mesh_config={0x71, 0x7, {0xffffffffffffffff, 0x1, 0xffffffffffffffff, 0x4, 0x1, 0xb, 0x28}}]}]}, 0x40}, 0x1, 0x0, 0x0, 0x40880}, 0x0)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8b18, &(0x7f0000000000)={'wlan1\x00'})

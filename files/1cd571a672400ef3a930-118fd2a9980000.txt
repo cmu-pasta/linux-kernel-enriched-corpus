@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=3007a69de8d5118fd50713754a417c01b9b7c347
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='cgroup.controllers\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000040), 0x18a3c85)
+mmap$IORING_OFF_SQ_RING(&(0x7f0000400000/0xc00000)=nil, 0xc00000, 0x5, 0x401d031, 0xffffffffffffffff, 0x0)
+remap_file_pages(&(0x7f0000800000/0x800000)=nil, 0x800000, 0x0, 0x0, 0x10000)

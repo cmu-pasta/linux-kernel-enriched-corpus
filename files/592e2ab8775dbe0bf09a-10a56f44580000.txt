@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=d03aad4eb11cef28ae32deaa76832494f73b4eba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_usb_connect(0x0, 0x34, &(0x7f00000000c0)=ANY=[@ANYBLOB="120100002c464708c2153b003e66010203010902220001000000000904000001e3fe11000905000000000000000705936b90"], 0x0)
+syz_usb_control_io$printer(r0, &(0x7f0000000080)={0x14, 0x0, &(0x7f0000000040)={0x0, 0x3, 0x4, @lang_id={0x4, 0x3, 0x40f}}}, &(0x7f0000000380)={0x34, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$cdc_ecm(r0, &(0x7f00000004c0)={0x14, 0x0, 0x0}, 0x0)
+ioctl$VHOST_SET_VRING_BASE(0xffffffffffffffff, 0xaf01, 0x0)
+ioctl$VHOST_SET_VRING_BASE(0xffffffffffffffff, 0x4008af12, &(0x7f0000000080)={0x1, 0x7f})
+ioctl$VHOST_SET_LOG_FD(0xffffffffffffffff, 0x4004af07, &(0x7f0000000240))
+ioctl$VHOST_SET_VRING_ADDR(0xffffffffffffffff, 0x4028af11, 0x0)
+ioctl$VHOST_SET_VRING_ADDR(0xffffffffffffffff, 0x4028af11, 0x0)
+ioctl$VHOST_SET_MEM_TABLE(0xffffffffffffffff, 0x4008af03, &(0x7f0000000680)={0x1, 0x0, [{0x0, 0xfffffeac, &(0x7f00000001c0)=""/115}]})
+r1 = syz_open_dev$vcsa(&(0x7f0000000100), 0xda, 0x200000)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_FLAG_CMD(r1, 0x8983, &(0x7f0000000880)={0x7, 'bridge_slave_1\x00', {0x798}, 0x1})
+ioctl$BTRFS_IOC_SCRUB_PROGRESS(0xffffffffffffffff, 0xc400941d, 0x0)

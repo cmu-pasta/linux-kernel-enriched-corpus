@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3cb391a147cbb33edfeb4c802ca5099a685187d8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6(0xa, 0x80002, 0x0)
+setsockopt$inet6_mreq(r0, 0x29, 0x1b, 0x0, 0x0)
+r1 = socket$inet6(0xa, 0x1, 0x100)
+setsockopt$inet6_mreq(r1, 0x29, 0x1e, &(0x7f0000000100)={@remote}, 0x14)
+setsockopt$inet6_mreq(r1, 0x29, 0x1b, &(0x7f0000000000)={@remote}, 0x14)

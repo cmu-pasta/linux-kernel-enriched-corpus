@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+unshare(0x68040200)
+r0 = socket$kcm(0x2, 0xa, 0x2)
+ioctl$SIOCSIFHWADDR(r0, 0x8914, 0x0)
+openat$kvm(0xffffffffffffff9c, 0x0, 0x0, 0x0)

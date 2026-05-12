@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a65b2c6179b59f8fa5cccb3e63e0963ed27eac55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$auto_dvb_dvr_fops_dmxdev(0xffffffffffffff9c, &(0x7f0000000000), 0x20043, 0x0)
+poll$auto(&(0x7f0000000080)={0x3, 0x1, 0xa}, 0x5, 0x106)
+openat$auto_dvb_dvr_fops_dmxdev(0xffffffffffffff9c, &(0x7f0000000000), 0x8440, 0x0)

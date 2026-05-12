@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=ddab56f7ce353a16efd67158ba74f9e081d5aa7e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mknodat$loop(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x1000, 0x0)
+r0 = fanotify_init(0x4, 0x1000)
+mount$9p_fd(0x0, &(0x7f0000000180)='./file0\x00', &(0x7f0000000540), 0x0, &(0x7f0000000580)={'trans=fd,', {}, 0x2c, {'wfdno', 0x3d, r0}})
+fcntl$setstatus(0xffffffffffffffff, 0x4, 0x42000)
+r1 = openat(0xffffffffffffff9c, &(0x7f000000c380)='./file0\x00', 0x20842, 0x0)
+read$FUSE(0xffffffffffffffff, &(0x7f0000003480)={0x2020, 0x0, <r2=>0x0}, 0x2020)
+write$FUSE_STATFS(r1, &(0x7f0000000200)={0x60, 0x0, r2, {{0x9, 0x6, 0x5, 0x2, 0x400069e, 0xae, 0x2400000, 0x800}}}, 0x60)

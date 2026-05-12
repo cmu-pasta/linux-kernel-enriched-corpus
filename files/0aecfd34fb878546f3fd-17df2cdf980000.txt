@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a77dcc06e8bb9e2d0953e5eda733477d83754e23
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+close_range$auto(0x2, 0x8, 0x0)
+socket$nl_generic(0x10, 0x3, 0x10)
+openat$auto_tracing_cpumask_fops_trace(0xffffffffffffff9c, &(0x7f0000000580)='/sys/kernel/debug/tracing/tracing_cpumask\x00', 0x8002, 0x0)
+write$auto(0x3, 0x0, 0x7ffffdef)

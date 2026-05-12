@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4591b68160f3674cfc736d405cce0f6b774317c8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0xb, &(0x7f00000005c0)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020702500000000730000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f0000000040)='contention_begin\x00', r0}, 0x18)
+r1 = openat$fb0(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+ioctl$FBIOPUT_CON2FBMAP(r1, 0x4606, 0x0) (fail_nth: 4)

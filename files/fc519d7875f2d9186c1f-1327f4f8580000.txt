@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5b90694222396ecc0ddc12986c14ca709eb9b187
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0x40009, 0xdf, 0x9b72, 0x7, 0x28000)
+move_pages$auto(0x1, 0x2000000000003, 0x0, 0x0, 0x0, 0x8000400000000000)
+openat$auto_kernel_debug_fops_orangefs_debugfs(0xffffffffffffff9c, &(0x7f0000000640), 0x201, 0x0)
+write$auto(0x3, 0x0, 0xfffffdef)

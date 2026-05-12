@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=33e57cb464a4a170f90844f12f79abcaa8ce6412
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mmap$IORING_OFF_SQ_RING(&(0x7f0000400000/0xc00000)=nil, 0xc00000, 0xb, 0x59032, 0xffffffffffffffff, 0x0)
+r0 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000040)={{&(0x7f0000400000/0xc00000)=nil, 0xc00000}, 0x4})
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r1, &(0x7f0000000080)={0x0, 0x0, 0x0}, 0x0) (async)
+ioctl$UFFDIO_COPY(r0, 0xc028aa03, &(0x7f0000000080)={&(0x7f0000800000/0x800000)=nil, &(0x7f0000582000/0x2000)=nil, 0x800000})

@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+bpf$MAP_CREATE_CONST_STR(0x0, &(0x7f0000000800)=ANY=[@ANYBLOB="02000000040000000800000001"], 0x48)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+ioctl$ifreq_SIOCGIFINDEX_vcan(0xffffffffffffffff, 0x8933, 0x0)
+ioctl$TUNSETOFFLOAD(0xffffffffffffffff, 0x400454c9, 0xba98575a95aeb70d)
+ioctl$TUNSETLINK(0xffffffffffffffff, 0x400454cd, 0x337)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x6)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmmsg$unix(r2, &(0x7f0000000000), 0x400000000000041, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+syz_open_dev$dvb_frontend(&(0x7f0000000080), 0x0, 0x2)

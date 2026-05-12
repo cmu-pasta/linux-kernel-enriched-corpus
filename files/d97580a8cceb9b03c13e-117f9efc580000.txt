@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=523458049e7a152fa28fa89d6a6c7754220fe788
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"swap":true,"tmpdir":true,"callcomments":true}
+madvise(&(0x7f00000ec000/0x800000)=nil, 0x800000, 0x17)
+madvise(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x15)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600707, 0x18)
+pivot_root(0x0, 0x0)

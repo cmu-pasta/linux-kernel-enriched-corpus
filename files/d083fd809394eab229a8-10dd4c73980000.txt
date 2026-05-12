@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=3d4b7e9333d9d32e27123c8a12948a11128c64c6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+syz_usb_control_io$hid(0xffffffffffffffff, 0x0, 0x0)
+socket$netlink(0x10, 0x3, 0x14)
+openat(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+socketpair$unix(0x1, 0x3, 0x0, 0x0)
+r0 = syz_io_uring_setup(0xbd9, &(0x7f0000000640)={0x0, 0xe826, 0x800, 0x1, 0x3c3}, &(0x7f0000000dc0)=<r1=>0x0, &(0x7f0000000000))
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x4, &(0x7f0000000180)=0xfffffffc, 0x0, 0x4)
+io_uring_enter(r0, 0x847ba, 0x0, 0xe, 0x0, 0x0)
+syz_mount_image$bfs(&(0x7f0000002040), &(0x7f0000000100)='./file0\x00', 0x10812, &(0x7f000001f380)=ANY=[@ANYBLOB="007d8e9301efb9bbcbf668e15cffc98b11196d29706d76a0a14cb1227897d8a3b5f2040eb6b833707006b5efd95efe8a8546d5710f863296228f755ef6eb460afd466e8a0b77cc7e6a78657f97bd040b3aa8d83f45ea6ad106fac007ddfcd0f618031c14ad92ea6886199411367e37076c879f10bd843d62796204ec8fb4275151f0feddd3000000000000000094fd796a783123bc99ea63a74353d0cdc37209f5ec034fbb09136b088aabc23b679aef388fceac104f65ae36b78d67a6b4fd63f75fd49ca958b4be972f271cbfdff0bf06e6dfc9c667bf1ee280255bf597256196b671f2a111c3c3079a9131b5604195e102facfa20c832ee2dbcf0e70a7ff0dd6695afd89031b79b9e96f3eb118408d14f28af5b6263f6284e7d54a390dd81d0b254b880a78dab436bfc12b311689308cc7899286b85d0500969ddfc4b5397c8e53599e2cb36cda9df19f8474d11029dc5837171a4a632f392c648a14521b3754992a88ad2f888a5d2b0ad2209fa05c6679e3d82b402258e8df1d7f1bb77c4811e93b2d27e3bf50055a43f3d710dbca3d616d09a85e87000000000000000000000000000000000000000000000000000000000000b71b7224ebb85160c73f13dcc0afef33df7d52858a5bdb1c5a19403e972da7598480210400000000000000"], 0x1, 0xa4, &(0x7f000001f580)="$eJzs0TFqAkEYBeCXLZKtlvQpcoPcIUcJKbWzUgQP4Fm8ikfwBha2NiPrqogLC1aifB/MDO8NAwP/er/6SpOURVJKXa5NprPR37jb01P3K55Olffj2U7zu2lzsv1NPpK8pcub3fz/vHLqW8tHfhwAALhblZ/bfCk+B18O3wIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8ikMAAAD//2pjIxU=")
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='cpu.stat\x00', 0x275a, 0x0)
+openat(0xffffffffffffff9c, &(0x7f00000000c0)='./file1\x00', 0x20441, 0x189)
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000040)='./file1\x00', 0x1, 0x0)
+pwrite64(r3, &(0x7f0000000140)='2', 0xfdef, 0xe7c)
+write$UHID_CREATE2(r2, 0x0, 0x118)

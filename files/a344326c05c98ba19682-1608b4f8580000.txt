@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=685e9d95fc4ea8f99eb80136422c7251f523cef4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true}
+ioctl$TUNSETIFF(0xffffffffffffffff, 0x400454ca, &(0x7f00000000c0)={'geneve0\x00', 0x8000})
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f0000000480)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+sendmsg$inet(r1, &(0x7f0000001780)={0x0, 0x0, 0x0}, 0x8090)
+recvmsg$unix(r0, &(0x7f0000001b40)={0x0, 0x0, 0x0, 0x0, &(0x7f00000000c0)=[@rights={{0x14, 0x1, 0x1, [<r2=>0xffffffffffffffff]}}], 0x18}, 0x0)
+r3 = socket$kcm(0xa, 0x2, 0x88)
+r4 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='cgroup.controllers\x00', 0x26e1, 0x0)
+setsockopt$sock_attach_bpf(r3, 0x1, 0x3e, &(0x7f00000002c0)=r4, 0x4)
+setsockopt$sock_attach_bpf(r3, 0x1, 0x41, &(0x7f0000000040)=r2, 0x4)

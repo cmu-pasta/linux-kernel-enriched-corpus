@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=3ddacab50d5caf393462f1c418922f8461efd66f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+openat$tun(0xffffffffffffff9c, &(0x7f0000000000), 0x40241, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x4)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeef, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+connect$unix(r1, &(0x7f00000003c0)=@file={0x0, './file0\x00'}, 0x6e)
+sendmmsg$unix(r2, &(0x7f0000000000), 0x400000000000041, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+r3 = bpf$MAP_CREATE_RINGBUF(0x0, &(0x7f0000000440)={0x1b, 0x0, 0x0, 0x40000, 0x0, 0x0}, 0x50)
+r4 = bpf$PROG_LOAD(0x5, &(0x7f0000000680)={0x11, 0xf, &(0x7f0000000340)=@ringbuf={{}, {{0x18, 0x1, 0x1, 0x0, r3}}, {}, [], {{}, {}, {0x85, 0x0, 0x0, 0x84}}}, &(0x7f0000001dc0)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000080)='sched_switch\x00', r4}, 0x2d)
+r5 = syz_open_dev$usbfs(0x0, 0x1ff, 0xa401)
+ioctl$USBDEVFS_DISCONNECT_CLAIM(r5, 0x8108551b, &(0x7f0000000000)={0x0, 0x0, "ec9fe44d4dbe56a60274fcffffffffffffff14e315eeb406bfdd73835e57efa94b1a0275781c647aa7e3470c6028643b17832b10b386a6f73791011c26a9aa141f406e312295ee620a9a46577b9249b738fe7750bec83bf6ed5b67213fa7d6c0823fd154ed29ede1ff379742c3f0b46caa357d70ee438f901d7645c3f87e4b21482b76f2ad8eaac090272081f98fd2e3e5a63e008104df635e731a5bfcd942f4529517454618de595cd179445b4bdbf698b9986356f0ebf7d25a57774ef474f86a3ad24ae9f0bf94b99e6b87de5f79d383d05bb32701daed400785a49788f08caecc9e0c48a3740bbe6e1c1fd4f6cfdfe756bc00d08e36655c00"})
+bpf$MAP_CREATE(0x0, &(0x7f00000000c0)=@base={0xa, 0xfe, 0x7fff, 0xcc}, 0x50)

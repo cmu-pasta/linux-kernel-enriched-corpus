@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=17ea775e9bb6d747105f204f36a412cf5cc417a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"callcomments":true}
+syz_emit_vhci(&(0x7f0000000540)=ANY=[@ANYBLOB="043e1f0a"], 0x22)
+syz_emit_vhci(&(0x7f0000000080)=ANY=[@ANYBLOB="0405"], 0x7)

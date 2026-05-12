@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=1687893c5b2789ca4b4f0100710fa9f8a636b6f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":false,"usb":true,"swap":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$ieee802154(&(0x7f0000000400), r1)
+sendmsg$IEEE802154_ADD_IFACE(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)={0x28, r2, 0x1, 0x70bd25, 0x25dfdbfc, {}, [@IEEE802154_ATTR_DEV_TYPE={0x5, 0x20, 0x1}, @IEEE802154_ATTR_PHY_NAME={0x9, 0x1f, 'phy1\x00'}]}, 0x28}, 0x1, 0x0, 0x0, 0x800}, 0x20004040)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nl802154(&(0x7f0000000040), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_802154(r3, 0x8933, &(0x7f0000000180)={'wpan1\x00', <r5=>0x0})
+r6 = getpid()
+sendmsg$NL802154_CMD_SET_WPAN_PHY_NETNS(r3, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000002c0)={0x24, r4, 0x1, 0x70bd27, 0x0, {}, [@NL802154_ATTR_IFINDEX={0x8, 0x3, r5}, @NL802154_ATTR_PID={0x8, 0x1c, r6}]}, 0x24}}, 0x0) (fail_nth: 22)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=0986e0af6fdc7261ad39cd60a928ee075cea78df
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+ioctl$KDSKBENT(r0, 0x4b47, &(0x7f0000000080)={0x0, 0x7f, 0x20f})
+ioctl$EVIOCSFF(0xffffffffffffffff, 0x40304580, &(0x7f00000006c0)={0xd309bedfc70f16ed, 0x0, 0x2, {0x0, 0x1}, {0x7f, 0x2}, @cond=[{0x22f, 0x3ff, 0x404, 0x4, 0x1, 0xa}, {0x0, 0xa0, 0x1, 0x4, 0x7ff, 0xff01}]})
+r1 = syz_open_dev$evdev(&(0x7f00000000c0), 0x2, 0x822b01)
+write$char_usb(r1, &(0x7f0000000040)="e2", 0x12d8)
+socket$vsock_stream(0x28, 0x1, 0x0)
+ioctl$KVM_SET_CLOCK(0xffffffffffffffff, 0x8010aebb, 0x0)
+ioctl$SIOCGSTAMP(0xffffffffffffffff, 0x8906, 0x0)

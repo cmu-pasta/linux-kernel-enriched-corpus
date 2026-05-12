@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8db74500dd3946631798fa62e712fd2bba7f68df
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$evdev(&(0x7f00000000c0), 0x2, 0x862b01)
+ioctl$EVIOCSFF(r0, 0x40304580, &(0x7f0000000b40)={0x54, 0x1, 0x1, {0x0, 0x1}, {0x60, 0x2}, @period={0x59, 0x0, 0x8, 0x2, 0x448, {0x2, 0x8, 0x679c, 0x401}, 0x0, 0x0}})
+write$char_usb(r0, &(0x7f0000000040)="e2", 0x2250)

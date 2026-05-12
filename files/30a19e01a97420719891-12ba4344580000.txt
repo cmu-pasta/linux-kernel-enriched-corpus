@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=c1817949608c796ead264e87656db121277ac7bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+ioctl$TUNATTACHFILTER(0xffffffffffffffff, 0x401054d5, &(0x7f0000000040)={0x4, &(0x7f0000000000)=[{}, {}, {}, {0x6, 0x0, 0x9}]})
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='memory.numa_stat\x00', 0x26e1, 0x0)
+close(r0)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f00000029c0))
+ioctl$SIOCSIFHWADDR(r0, 0x8b1a, &(0x7f0000000000)={'virt_wifi0\x00', @random="0200002000"})
+r1 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000001840)=[{&(0x7f0000000580)="6700000010008188040f56ecdb4cb9cca7480ef434000000e3bd6efb440009000e000a0010000000ba80010000005a8c3774da0a040059a933c1e7a6d3361d83b20000319cdf5656826edaaa11032701c61ec666d482078ccebcb9a4f187f7a4e98f09cdc2649f", 0x67}], 0x1}, 0x0)

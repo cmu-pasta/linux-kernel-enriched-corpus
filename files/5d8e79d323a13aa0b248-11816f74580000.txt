@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b2a2181447f3f46d51ae0c8e14bdf3abcfbc6709
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+fanotify_init(0x0, 0x0)
+ioctl$sock_SIOCBRDELBR(0xffffffffffffffff, 0x89a1, 0x0)
+syz_open_dev$char_usb(0xc, 0xb4, 0x0)
+syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+socket$nl_generic(0x10, 0x3, 0x10)
+copy_file_range(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x1fff, 0x0)

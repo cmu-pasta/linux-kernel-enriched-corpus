@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=452be36e935995d510b187877fcb640a08098560
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+bind$vsock_stream(r0, &(0x7f0000000440)={0x28, 0x0, 0x2710, @local}, 0x10)
+connect$vsock_stream(r0, &(0x7f0000000280)={0x28, 0x0, 0x2710}, 0x10)
+listen(r0, 0x7ff)
+accept4(r0, 0x0, 0x0, 0x80000)

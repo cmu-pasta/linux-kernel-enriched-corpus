@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=cfaf19763c03bed5c2d4d14ffe625ac9fa205efc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x5)
+close(0x4)
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+unshare(0x6a040000)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000180)=@newlink={0x30, 0x10, 0x801, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x3eee}, [@IFLA_MTU={0x8, 0x4, 0x3eee}, @IFLA_GROUP={0x8}]}, 0x30}}, 0x0)

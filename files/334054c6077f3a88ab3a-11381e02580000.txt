@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=1f7741b1ca57d576737e6dc957834fcadc563218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_mount_image$msdos(&(0x7f0000000140), &(0x7f0000000180)='./file2\x00', 0x8084, &(0x7f00000001c0)=ANY=[@ANYBLOB="616c6c6f775f7574696d653d30303030303030303030303030303030303030303030372c646f74732c646f74732c6e6f636173652c646f74732c636865636b3d72656c617865642c646f74732c6e6f646f74732c646f74732c0032884758edd2e7a17e3c116a014262927783807ed4e210440ddebdf7d64a629cc9e873202c6d1e1d7dbabad279cb290d8a6c81b9ee715a035afdc5af3e15b932174f56cf4f009847fbc0e187d20fe47e50595251e835b306e05bc51afba211073e289eb499be4d726e3efbbeb1eb175e92b262c4ee4cee83e529784e53c874b73bb376876e2f3b2e667330e12c337d3a8b8cacccd9d86bc4c2f3b8971a79fb8f69af7b1d19592bf6a7186f7d4322045a99eaa207c407ab52aeadaaf1d089c278fccfb2138f"], 0xfe, 0x16b, &(0x7f0000000600)="$eJzs20GrElEUB/Azab73avPW0WKgTSupVi2LeEE0UBQualVgbTSE3Eyt/BSt+4JBuGrVDZ3QEkWknJHn77fxwB+958rMXO7AfXPzw6A/Gr8fPZ/GaZZF+0Hk8TOL87gSrahMAgC4TH6kFN9TSulkEmdfI6XUdEcAwL5Z/wHg+Gxd/+831BgAsDf2/wBwfF6+ev30YVFcvMjz04hvk7JX9qrPKn/8pLi4k8+dL781Lctea5HfrfL87/xqXPud31ubd+L2rSqfZY+eFSv59ejvf/oAAABwFLr5wtr9fbe7Ka+qP94PrOzf23GjXds0AIAdjD99HrwdDt99rKE4m4+Y1TvobsWXBv6Wgy1acRBtKLYWs0v2f/9yk08loA7Lm77pTgAAAAAAAAAAAAAAgE3+8ahQJyLWRBGdbScLTmqfKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACz8CgAA//9vQEW+")
+open(&(0x7f0000000080)='./bus\x00', 0x400141042, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+r0 = getpid()
+sched_setaffinity(0x0, 0x0, 0x0)
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x7)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmmsg$unix(r2, &(0x7f0000000000), 0x651, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0)

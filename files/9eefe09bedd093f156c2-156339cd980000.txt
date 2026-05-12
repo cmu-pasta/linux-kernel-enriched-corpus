@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=42a641dd303d7d624a19371a24eb958f2643b718
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"callcomments":true}
+r0 = syz_open_procfs$userns(0x0, &(0x7f00000001c0))
+open_by_handle_at(r0, &(0x7f0000000000)=@ceph_nfs_confh={0x10, 0xf1, {0x1001, 0x8000000}}, 0x400040)

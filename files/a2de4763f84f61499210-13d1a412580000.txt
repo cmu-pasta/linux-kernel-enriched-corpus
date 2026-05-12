@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=7ea363dd3a16376336074ef023260e9173f3d23f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000006c0)={0x18, 0xb, &(0x7f0000000640)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020000000000000000000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f00000004c0)='GPL\x00', 0x0, 0x0, 0x0, 0x1f00, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000300)='rcu_utilization\x00', r0}, 0x10) (async, rerun: 64)
+connect$vsock_stream(0xffffffffffffffff, 0x0, 0x0) (async)
+ioctl$F2FS_IOC_SET_COMPRESS_OPTION(0xffffffffffffffff, 0x4002f516, 0x0)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0) (rerun: 32)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000440)={'syz_tun\x00'})
+bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x6, 0xc, &(0x7f00000001c0)=ANY=[], &(0x7f00000001c0)='syzkaller\x00', 0x0, 0x0, 0x0, 0x41000, 0x0, '\x00', 0x0, @xdp, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x94)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX_OLD(0xffffffffffffffff, 0x84, 0x6b, &(0x7f0000000380)=[@in6={0xa, 0x0, 0x0, @remote, 0x9}], 0x1c)
+write$cgroup_pid(0xffffffffffffffff, &(0x7f0000000c40), 0x12) (async)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)

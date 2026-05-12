@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=75459231cae417fe56461f661a6d7568b55be01e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"tmpdir":true,"callcomments":true}
+symlink(&(0x7f0000000040)='.\x00', &(0x7f0000000100)='./file0\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdir(&(0x7f00000004c0)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000400)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1'}}]})
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file1\x00', 0x0, 0x0)
+mknodat$loop(r0, &(0x7f0000000340)='./file1\x00', 0x0, 0x0)
+chdir(&(0x7f0000000140)='./bus\x00')
+rename(&(0x7f0000000140)='./file1\x00', &(0x7f0000001900)='./file0\x00')
+unlinkat(r0, &(0x7f0000000240)='./file1\x00', 0x0) (async)
+openat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x105042, 0x1ff)

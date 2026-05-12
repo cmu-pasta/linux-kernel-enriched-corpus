@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=16e3d6040770c523d17ac10c85282d9d3548f635
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+openat(0xffffffffffffff9c, &(0x7f0000000040)='./file1\x00', 0xd40, 0xd2)
+syz_usb_connect(0x5, 0x24, &(0x7f0000001280)=ANY=[@ANYBLOB="12010003001f66088f0510660548010203010902120001049570810904008100ffffff22"], &(0x7f0000001700)={0xffffffa0, 0x0, 0x0, 0x0, 0x23})
+syz_open_dev$I2C(&(0x7f0000000040), 0x1, 0x2003)
+socketpair$tipc(0x1e, 0x5, 0x0, &(0x7f0000000040)={<r0=>0xffffffffffffffff})
+pipe2$9p(&(0x7f0000000400)={<r1=>0xffffffffffffffff}, 0x800)
+mount$9p_fd(0x0, &(0x7f0000000c40)='./file1\x00', &(0x7f00000000c0), 0x200000, &(0x7f0000000680)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}})

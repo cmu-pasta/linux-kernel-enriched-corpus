@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=1079ec0e1deb47651f5e04ebd34777dc645176a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"wifi":true,"callcomments":true}
+openat$cuse(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000640)=0x6)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x4)
+connect$unix(0xffffffffffffffff, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, 0x0, 0x0, 0x0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+listen(r1, 0x0)
+r2 = bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0xe, 0x4, &(0x7f0000000700)=ANY=[@ANYBLOB="b4050000200080006110600000000000c60000000000000095000000000000009f33ef60916e6e893f1eeb0be20000d072f5b89c3043c47c896ce0bc8731fa595b6b4d45ef26dcca5582054d54d53cd2b685b431c70ea948259c4c869b4fc8db714e4b94bdae214fa68a051d4dca7d2647bec1fc89398d2b9000f224891060017c4700de60beac671e8e8f00cb03588aa6007e71f871ab5c2ff88afc6002084e5b52710aeee835cf0d78e45f70983826fb8579c1fb47d2c59005cff414ed55b0d18a9d446935fb332bb593ee341ab59016f81860324b800c00000000000092d9c5fe34ccb80a61ffcb3363073fd8962823ee45f5d7394e9510f4ac6c702cfabe8a9c55c8dafcdb110036e14c1035cafdfef6a358cbfadb3579a285580a3c080d4e0a48d7bdc38a0437c8c1b3aa408a0000000000002248950b000000"], &(0x7f0000003ff6)='GPL\x00', 0x4, 0xfd90, &(0x7f000000cf3d)=""/195, 0x0, 0x0, '\x00', 0x0, @sk_skb, 0xffffffffffffffff, 0x8, &(0x7f0000000000), 0x366, 0x10, &(0x7f0000000000), 0x1dd}, 0x48)
+r3 = bpf$MAP_CREATE(0x0, &(0x7f0000000200)=ANY=[@ANYBLOB="12000000040000000400000012"], 0x48)
+bpf$BPF_PROG_DETACH(0x8, &(0x7f0000000ac0)=ANY=[@ANYRES32=r3, @ANYRES32=r2, @ANYBLOB='&'], 0x10)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f00000048c0)={r3, &(0x7f00000047c0), &(0x7f0000004880)=@udp=r1}, 0x20)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x19, &(0x7f0000000080), 0x4)

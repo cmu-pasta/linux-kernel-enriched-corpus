@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=80105acbd15530546c3292891c7bfe8aa1e02c54
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0xe983, 0xdf, 0xeb1, 0x401, 0x8000)
+openat$auto_snd_pcm_oss_f_reg_pcm_oss(0xffffffffffffff9c, &(0x7f0000000040)='/dev/audio1\x00', 0x8000, 0x0)
+close_range$auto(0x2, 0x8, 0x0)
+socket(0x1e, 0x805, 0x0)
+openat$auto_snd_ctl_f_ops_control(0xffffffffffffff9c, &(0x7f00000010c0)='/dev/snd/controlC1\x00', 0x802, 0x0)
+ioctl$auto(0x3, 0x40045532, 0x38)
+r0 = openat$auto_snd_pcm_f_ops_pcm1(0xffffffffffffff9c, &(0x7f0000000140)='/dev/snd/pcmC1D0c\x00', 0x28442, 0x0)
+ioctl$auto_SNDRV_PCM_IOCTL_HW_PARAMS_OLD2(r0, 0xc1004111, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=25eb50652444b8a0af22c0f264a1d3a16760ab14
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x5)
+close(0x4)
+syz_open_procfs$namespace(0x0, &(0x7f0000000200)='ns/pid_for_children\x00')
+unshare(0x6a040000)
+r0 = socket(0x8, 0x3, 0x0)
+ioctl$sock_netrom_SIOCADDRT(r0, 0x6180, 0x0)
+close(0x4)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=84755fcc990442b6e1b93e6b6d49701473cd735b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+sendmsg$auto_GTP_CMD_NEWPDP(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000180)={0x0}, 0x1, 0x0, 0x0, 0x8000}, 0x4000804)
+lstat$auto(0x0, &(0x7f0000000180)={0x4, 0x1c, 0x9, 0x63, 0x0, 0x0, 0x0, 0x1000, 0x8, 0x80000000000000a, 0x40000402, 0x9, 0x9, 0xffffffff80000000, 0xd, 0x6, 0x200000100103})
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX(r0, 0x89fc, &(0x7f0000000040)={'bridge0\x00'})

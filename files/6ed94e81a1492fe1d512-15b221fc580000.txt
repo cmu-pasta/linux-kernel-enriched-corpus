@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1ae8310badc9d5ff1d2934b7d99b914d3b4e1062
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x1c0)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f00000002c0)={<r0=>0xffffffffffffffff})
+pipe2$9p(&(0x7f00000001c0)={<r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f00000000c0)='./file0\x00', &(0x7f0000004500), 0x0, &(0x7f0000000300)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}})
+r2 = gettid()
+tkill(r2, 0x4)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=eb55126789275dc78c4a6914794608613b26e170
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+r1 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000140)=ANY=[@ANYBLOB="12010000403f5f201d0650c16fce0102030109021b00010000100509043300011870fd00090582020002"], 0x0)
+syz_emit_ethernet(0x56, &(0x7f0000000140)={@local, @local, @void, {@ipv6={0x86dd, @tcp={0x0, 0x6, '\x00', 0x20, 0x6, 0x0, @remote, @local, {[], {{0x0, 0x4e22, 0x41424344, 0x41424344, 0x0, 0x2, 0x8, 0xc2, 0x0, 0x0, 0x40, {[@mss={0x1e, 0x4, 0xa101}, @mptcp=@mp_join={0x1e, 0x3, 0xe}, @sack={0x5, 0x2}]}}}}}}}}, 0x0)
+syz_usb_control_io$hid(r1, 0x0, 0x0)
+syz_usb_ep_write$ath9k_ep1(r1, 0x82, 0xa8, &(0x7f0000000180)=ANY=[@ANYBLOB="a200004ef3b125948ef66b0ee0b3d41b1b", @ANYRES8=r0])

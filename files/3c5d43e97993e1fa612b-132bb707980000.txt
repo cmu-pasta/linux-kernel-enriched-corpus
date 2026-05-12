@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=88a5ac8dc8852281ef410027ff2b8521665f378f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+ioctl$HCIINQUIRY(0xffffffffffffffff, 0x400448ca, 0x0)
+r2 = syz_mount_image$tmpfs(&(0x7f0000000100), &(0x7f00000000c0)='./file0\x00', 0x21408, 0x0, 0x1, 0x0, &(0x7f0000006380))
+r3 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$netlink(r3, 0x0, 0x0)
+open_tree(r2, 0x0, 0x101)
+bpf$BPF_BTF_LOAD(0x12, 0x0, 0x0)
+recvmmsg(r3, 0x0, 0x0, 0x0, 0x0)
+r4 = dup(r1)
+mmap(&(0x7f00000d3000/0x4000)=nil, 0x4000, 0x2000002, 0x810, r4, 0x5400e000)
+mount$9p_fd(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000180), 0x0, &(0x7f0000000080)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r4}, 0x2c, {[], [], 0x6b}})

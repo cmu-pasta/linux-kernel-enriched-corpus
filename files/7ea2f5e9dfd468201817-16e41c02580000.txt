@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=af9226e58cf1633cfbbe7d324e13befdb0b1d282
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+openat$dlm_plock(0xffffffffffffff9c, 0x0, 0x8000, 0x0)
+r0 = landlock_create_ruleset(&(0x7f0000000240)={0x1fff}, 0x18, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000700)) (async)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+landlock_restrict_self(r0, 0xe) (async)
+landlock_restrict_self(r0, 0xe)

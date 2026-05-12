@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f11774dabfe0c3f2249677224387bfca43f0e9b6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_sctp(0xa, 0x5, 0x84)
+shutdown(r0, 0x0)
+getsockopt$inet_sctp6_SCTP_SOCKOPT_CONNECTX3(r0, 0x84, 0x6f, &(0x7f0000000200)={<r1=>0x0, 0x10, &(0x7f00000001c0)=[@in={0x2, 0x4e23, @rand_addr=0x64010100}]}, &(0x7f0000000140)=0x10)
+getsockopt$inet_sctp6_SCTP_PRIMARY_ADDR(r0, 0x84, 0x7a, &(0x7f0000000340)={r1, @in6={{0xa, 0x3, 0x4, @mcast1}}}, &(0x7f0000000040)=0x84) (fail_nth: 11)

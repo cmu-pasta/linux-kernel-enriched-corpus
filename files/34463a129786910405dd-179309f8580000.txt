@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9f81f36264dc24fb50efce0818c8fe5d262d13fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000280), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000002c0)={'wlan0\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_FRAME(r0, &(0x7f0000000200)={0x0, 0x1100, &(0x7f0000002980)={&(0x7f0000000100)=ANY=[@ANYBLOB="b8000000", @ANYRES16=r1, @ANYBLOB="010000000000000000003b08000008000300", @ANYRES32=r2, @ANYBLOB="080026006c0900000400870088003300e0345100080211000001080211"], 0xb8}}, 0x0)

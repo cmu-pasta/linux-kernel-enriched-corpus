@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2db053ac5452375359f016066cdb2e38c59fc437
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_open_dev$loop(&(0x7f00000000c0), 0x1054c3b7, 0x40801)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f0000000000)={'\x00', 0xfff8, 0x6dc4, 0x10000, 0x200000000ffb, 0x8006})
+sendmsg$IPCTNL_MSG_EXP_NEW(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000100)=ANY=[@ANYBLOB="80000000000201040000000000000000020000052400028014000180080001000000000008000200ac1e00010c00028005000100000000002400038007000180080001000000010d77ffffffffffff000c000280ca3fbe1a0000000024"], 0x80}}, 0x0) (async)
+syz_usb_connect(0x2, 0x3f, &(0x7f0000000100)=ANY=[@ANYBLOB="120100004366b408c70b0800c84f0102030109022d00010000000009040000032eb47d000905f9ffffff00000009050f47"], 0x0)
+syz_open_procfs(0xffffffffffffffff, 0x0)

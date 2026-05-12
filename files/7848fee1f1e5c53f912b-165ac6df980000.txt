@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=141379c8c2a3eb80ace6a787a6ff2b3e8787e8f6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000080)='/proc/thread-self/net/afs/rootcell\x00', 0x48041, 0x0)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffff7, 0x8000)
+move_pages$auto(0x1, 0x40, 0x0, 0x0, 0x0, 0x8000000000000000)
+write$auto(r0, 0x0, 0x8ed)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a5d9e402b78ed92768967de5ddf47bb3d8640f5b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_mount_image$bfs(&(0x7f0000000000), &(0x7f0000000240)='./bus\x00', 0x8008, &(0x7f0000000100)=ANY=[@ANYRES64=0x0], 0xf, 0xab, &(0x7f0000010140)="$eJzs1zGKwkAYBeB/s7CbdptFsLBO4x08ilhqI1aK4A3Ei3gVj5DewiKtiCOYiIidRQT5vmLgzWPgtbM7brubIiKtIlLRme7T3Wy+GA8n9Rl8pCwifiMij4jeX50Pg7r7avqyWo7K6vv58c+69b0AAMDrsug/5nNqLk7NL/Aa/m993vI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgHe7BAAA//+dfyiL")
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='memory.events\x00', 0x275a, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000040)='./file1\x00', 0x143041, 0x0)
+pwritev2(r1, &(0x7f00000001c0)=[{&(0x7f0000000080)="ff", 0xfdef}], 0x1, 0xe7b, 0x0, 0x0)
+write$RDMA_USER_CM_CMD_NOTIFY(r0, &(0x7f0000000bc0)={0xf, 0x8, 0xfa00, {0xffffffffffffffff, 0x11}}, 0x10)

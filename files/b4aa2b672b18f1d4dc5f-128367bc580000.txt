@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=9049957a255c8e866f022254dfb7cbb886b69003
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"wifi":true,"ieee802154":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, 0x0)
+sendmsg$nl_route(r0, 0x0, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.events\x00', 0x26e1, 0x0)
+close(r1)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f00000000c0))
+ioctl$SIOCSIFHWADDR(r1, 0x8b06, &(0x7f0000000000)={'wlan1\x00', @random="060000000010"})
+r2 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r2, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000080)="2e00000010008188e6b62aa73772cc9f1ba1f848480000005e140602000000000e000a000f000000028000001294", 0x2e}], 0x1}, 0x0)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+r4 = syz_init_net_socket$nfc_raw(0x27, 0x3, 0x0)
+ioctl$sock_SIOCDELRT(r4, 0x890c, &(0x7f00000002c0)={0x0, @generic={0x1f, "deed9728e4e7c03ab80b3a34dbff"}, @nl=@proc={0x10, 0x0, 0x25dfdbfe, 0xc00d0020}, @hci={0x1f, 0x2, 0x4}, 0x1, 0x0, 0x0, 0x0, 0x4, &(0x7f00000001c0)='wg1\x00', 0x7, 0xf, 0xd0})
+sendmsg$nl_route(r3, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000000)=@newlink={0x30, 0x10, 0x801, 0x0, 0x0, {}, [@IFLA_MASTER={0x8}, @IFLA_GROUP={0x8}]}, 0x30}}, 0x0)

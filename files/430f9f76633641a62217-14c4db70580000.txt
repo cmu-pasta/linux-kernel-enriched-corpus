@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7a9c52e2e9c9e7410e6a95d636c0f9cc160ece74
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f00000000c0), 0xffffffffffffffff)
+r2 = socket(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000240)={'lo\x00', <r3=>0x0})
+sendmsg$ETHTOOL_MSG_PAUSE_SET(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000240)={0x40, r1, 0x1, 0x70bd2c, 0x25dfdbff, {}, [@ETHTOOL_A_PAUSE_HEADER={0x14, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_INDEX={0x8}, @ETHTOOL_A_HEADER_DEV_INDEX={0x8, 0x1, r3}]}, @ETHTOOL_A_PAUSE_RX={0x5, 0x3, 0x1}, @ETHTOOL_A_PAUSE_RX={0x5}, @ETHTOOL_A_PAUSE_RX={0x5, 0x3, 0x1}]}, 0x40}, 0x1, 0x0, 0x0, 0x8000000}, 0xc080)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2d7b5101c6097e5973db795ca9a4a522e9e29f0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='attr/current\x00')
+writev(r0, &(0x7f0000000240)=[{&(0x7f0000000080)='y', 0x1}], 0x1)
+r1 = socket$inet(0x2, 0x1, 0x100)
+bind$inet(r1, &(0x7f0000000080)={0x2, 0x4e23, @local}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f0000e68000)={0x2, 0x4e23, @local}, 0x10)
+sendto$inet(r1, &(0x7f00000012c0)="09268a927f1f6588b967481241ba7860fcfaf65ac618ded8974895abeaf4b4834ff922b3f1e0b02bd67aa03059bcecc7a95425a3a07e755044ab4ea6f7ae55d88fecf90b1a7511bf746bec66ba", 0x20c8, 0x11, 0x0, 0x27)

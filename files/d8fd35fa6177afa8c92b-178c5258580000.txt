@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7c9e031a56d5e2a90dce005167a852d69a7594e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+setsockopt$SO_BINDTODEVICE(0xffffffffffffffff, 0x1, 0x19, &(0x7f00000000c0)='ip6_vti0\x00', 0x10)
+r0 = syz_open_dev$evdev(&(0x7f0000000000), 0x0, 0x0)
+syz_usb_disconnect(r0)
+syz_usb_connect(0x4, 0x65, &(0x7f0000000500)=ANY=[], 0x0)
+ioctl$EVIOCRMFF(r0, 0xc0085508, &(0x7f00000000c0)=0x7)

@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ram7\x00', 0x14f602, 0x0)
+mmap$auto(0x0, 0x810004, 0xfff, 0x8000000008012, 0x3, 0x8000)
+write$auto(0x3, 0x0, 0xfffffdef)
+bind$auto(0x3, 0x0, 0x6a)
+syz_genetlink_get_family_id$auto_gtp(0x0, 0xffffffffffffffff)
+r0 = openat$auto_proc_oom_adj_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/oom_adj\x00', 0x48402, 0x0)
+read$auto(r0, 0x0, 0x1f40)
+r1 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/fail-nth\x00', 0x802, 0x0)
+openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, 0x0, 0x8500, 0x0)
+writev$auto(r1, &(0x7f0000000200)={0x0, 0x7}, 0x3)
+openat$auto_seq_oss_f_ops_seq_oss(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+openat$auto_dvb_frontend_fops_dvb_frontend(0xffffffffffffff9c, &(0x7f0000000000), 0x1, 0x0)

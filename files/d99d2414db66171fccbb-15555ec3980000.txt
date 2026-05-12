@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=9d3902e6e131ea24ead2958eca154c23c7fd5442
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"swap":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000840)=ANY=[@ANYBLOB="78226e6f65786163638173733d616e792c63616368653d66736361"])
+chdir(&(0x7f0000000280)='./file0\x00')
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, 0xffffffffffffffff, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$KVM_CREATE_VCPU(0xffffffffffffffff, 0xae41, 0x2)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+pwritev2(0xffffffffffffffff, &(0x7f0000000100)=[{&(0x7f0000000080)="ff", 0xabfb}], 0x1, 0x5405, 0x0, 0x0)
+ioctl$VHOST_SET_VRING_ADDR(0xffffffffffffffff, 0x4028af11, &(0x7f0000000280)={0x0, 0x0, 0x0, &(0x7f0000000340)=""/185, 0x0})
+syz_usb_connect$hid(0x6, 0x36, 0x0, 0x0)
+ioctl$SNAPSHOT_FREE(0xffffffffffffffff, 0x3305)
+ioctl$VHOST_VSOCK_SET_RUNNING(0xffffffffffffffff, 0x4004af61, 0x0)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+ioctl$KVM_SET_VCPU_EVENTS(0xffffffffffffffff, 0x4400ae8f, 0x0)

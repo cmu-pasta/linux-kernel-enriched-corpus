@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ddab56f7ce353a16efd67158ba74f9e081d5aa7e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mknodat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0, 0x0)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+write$FUSE_INIT(r2, &(0x7f0000001740)={0x91, 0x0, 0x0, {0x7, 0x21, 0x0, 0x0, 0x7d, 0x1005, 0x0, 0x3}}, 0x50) (async)
+mount$9p_fd(0x0, &(0x7f0000000300)='./file0\x00', &(0x7f0000004380), 0x1814800, &(0x7f0000000280)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c, {[], [], 0x6b}})
+quotactl$Q_SYNC(0xffffffff80000101, 0x0, 0x0, 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c1d9ca1beae7c16582d6f3e75735f2e2fb60ced5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_configfs_file_operations_configfs_internal(0xffffffffffffff9c, &(0x7f0000006900)='/sys/kernel/config/target/dbroot\x00', 0x189002, 0x0)
+pwrite64$auto(r0, &(0x7f0000000000)='/sys/kernel/config/target/dbroot\x00', 0x200, 0x9)

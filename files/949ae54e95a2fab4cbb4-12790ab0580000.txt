@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=8f1f59644e34eb2b3343cdc35ffe79f725baf5db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_emit_ethernet(0x3a, &(0x7f0000000440)={@local, @broadcast, @void, {@ipv4={0x800, @tcp={{0x5, 0x4, 0x0, 0x0, 0x2c, 0x0, 0x0, 0x0, 0x6, 0x0, @empty, @empty}, {{0x0, 0x4e29, 0x41424344, 0x41424344, 0x0, 0x0, 0x6, 0x16, 0x1, 0x0, 0x0, {[@generic={0x2, 0x2}]}}}}}}}, 0x0)

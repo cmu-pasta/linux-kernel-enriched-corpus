@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=34f1e5597c6577cdb920a92a27e66feb1e7d1970
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+fsopen(&(0x7f0000000080)='efivarfs\x00', 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000000), 0x481, 0x0)

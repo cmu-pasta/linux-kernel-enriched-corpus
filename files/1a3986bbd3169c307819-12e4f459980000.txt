@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=84cd48f9e95b92f40cc8ddf39949b31b400c570b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"wifi":true}
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='memory.numa_stat\x00', 0x26e1, 0x0)
+close(r0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000280)='blkio.bfq.io_serviced\x00', 0x26e1, 0x0)
+close(r1)
+r2 = socket$netlink(0x10, 0x3, 0x10)
+bind$netlink(r2, &(0x7f0000514ff4)={0x10, 0x0, 0x0, 0x2ffffffff}, 0xc)
+ioctl$SIOCSIFHWADDR(r1, 0x8b18, &(0x7f0000000000)={'wlan1\x00', @random="010000000700"})
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000140), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f0000000200)={'wlan1\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_FRAME(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000040)={0x40, r5, 0xb7a006d1969b963b, 0x0, 0x0, {{}, {@val={0x8, 0x3, r6}, @void}}, [@NL80211_ATTR_FRAME={0x24, 0x33, @probe_request={{{}, {}, @broadcast, @device_b}, @void, @void, @void, @void, @val={0x72, 0x6}}}]}, 0x40}}, 0x0)
+ioctl$SIOCSIFHWADDR(r0, 0x8b06, &(0x7f0000000000)={'wlan1\x00', @random="02000000000a"})

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a381270c74634fe8126c2c761731888b3a299721
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+bpf$PROG_LOAD(0x5, &(0x7f00000054c0)={0x10, 0x16, &(0x7f0000000340)=ANY=[@ANYBLOB="61122800000000006113380000000000bf1000000000000025000200091b00003d030000000000008701000000000000bc26000000000000bf67000000000000150300000ee600f0670200001400000015030000ffffffffbf050000000000000f650000000000006507f4ff02000400070700006b3128fe1f75000000000000bf540000000000000705000003001500ae430100000000009500000000000000050000000000000095000000000000004d9bd591d568253e9988431ec068e3a82983d58719d72183f2cb7f43dd55788be820b236dcb695dbfd737cbf719506d2d6b05fe70305863f970eac3590"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @sk_msg}, 0x94)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000040)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+write$bt_hci(r0, &(0x7f0000000380)=ANY=[@ANYBLOB="0e0001000200"], 0x8)

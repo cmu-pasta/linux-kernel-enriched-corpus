@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ef5152c26600bb37247933e90d8c8e25e55c2de6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"close_fds":true,"callcomments":true}
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+bind$inet6(r0, &(0x7f0000000000)={0xa, 0xe22, 0x0, @empty}, 0x1c)
+r1 = socket$pppl2tp(0x18, 0x1, 0x1)
+connect$pppl2tp(r1, &(0x7f0000000100)=@pppol2tpv3={0x18, 0x1, {0x0, r0, {0x2, 0x0, @loopback}, 0x4}}, 0x2e)
+syz_emit_ethernet(0x7e, &(0x7f0000000080)={@link_local, @dev={'\xaa\xaa\xaa\xaa\xaa', 0x38}, @void, {@ipv6={0x86dd, @udp={0x0, 0x6, "010100", 0x48, 0x11, 0x0, @remote, @local, {[], {0x3, 0xe22, 0x48, 0x0, @wg=@cookie={0x3, 0x0, "a79366a1c20f180ba9588cb7e3176cf57108fdc24f6dd06a", "1f52f2b588bf834a7904107322cef17e2d32c7cc6a15c356b1676197f11ed20a"}}}}}}}, 0x0)

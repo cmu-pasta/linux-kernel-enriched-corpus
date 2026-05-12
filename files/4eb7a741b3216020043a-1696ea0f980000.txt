@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7b45ae6cf3a67e034ef3de3c11140194a1c432bf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$auto_safesetid_gid_file_fops_securityfs(0xffffffffffffff9c, &(0x7f0000000100), 0x182, 0x0)
+write$auto(0x3, 0x0, 0xfffffdef)

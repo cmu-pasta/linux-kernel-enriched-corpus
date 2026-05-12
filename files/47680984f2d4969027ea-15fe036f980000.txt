@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=592050128a903a55325aeaf0877c97efa74503f6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_mount_image$erofs(&(0x7f0000000040), &(0x7f0000000300)='./file0\x00', 0x0, &(0x7f0000000100)={[{@dax}, {@dax}, {@cache_strategy_readahead}, {@dax}, {@cache_strategy_disabled}, {@cache_strategy_readahead}, {@noacl}]}, 0x1, 0x19d, &(0x7f0000000500)="$eJzsmb1OIlEUx//3DgzLZrMPsM0WS7JsNjtf7G5oKNhk+00WNXYSGQg6gIExERILHsDSwsTGwhewtLLwLbRQKxtKK4sxd+YO3JDwEQnRxPNLOPwu93C495CcAkAQxJvl7vbh5uBPviT8AzJIydfvtVEOV/Kvj3a/Hxb+Hp9dnV42P+6fj9d7ByAIkJn38xMALooafLkOgiBQ9+NCJfChr4Djm/Q1MBjSN8CxKt0Fw7r0LcVbIt8wqnXPNTZbXkWIJYItgiNCbvx8gz5DRTmfrux3ur3tsue57SXKrP4NihwF5Xzq9xX3xlL6Z4PDlp4Dw3/peaTi3kQtUe7/KTGqry1+f7Cld21RScobPrtOGq/gFiQkLyOj+RScMHxV5lNCmR+m39gxO93ej3qjXHNrbtNxcr+tn5b1yzHDQWRW03CtKfMvHc6n90r95IRcnenYK/t+247icO1EcXzixnN+0OfIfomcQYM+8TRiP3rw8FlYVpuSThAEQRAEQRAEQRAEQRAEMQ+P0V9nn8HCX0Fn4PwL3/QUAAD//2HNdY8=")
+execveat(0xffffffffffffff9c, &(0x7f0000000000)='./file2\x00', 0x0, 0x0, 0x0)

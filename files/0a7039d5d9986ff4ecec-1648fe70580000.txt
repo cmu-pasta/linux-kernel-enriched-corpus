@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6ba34746637e9bf649343e4e10b578e32999cdc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000000)={0x1f, 0xffffffffffffffff, 0x3}, 0x6)
+write$bt_hci(r0, &(0x7f0000000580)=ANY=[@ANYBLOB="5300000002"], 0x8)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r1, &(0x7f0000000340)={0x1f, 0xffff, 0x3}, 0x6)
+write(r1, &(0x7f0000000040)="05000000010000", 0x7)

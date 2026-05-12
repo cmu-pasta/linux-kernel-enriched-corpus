@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8e030beda49b8e549cfeb17ed369414ed27331e6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='maps\x00')
+io_uring_setup(0x2e34, &(0x7f0000000180))
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeef, 0x8031, 0xffffffffffffffff, 0x0) (async)
+ioctl$KVM_SET_USER_MEMORY_REGION(r0, 0xc0686611, &(0x7f0000000180)={0x67, 0x0, 0x3f, 0x2000, &(0x7f0000ffe000/0x2000)=nil})

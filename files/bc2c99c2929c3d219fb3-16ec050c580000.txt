@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=de49b257a8e208d668f817a468205db08402f768
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = openat$selinux_load(0xffffffffffffff9c, &(0x7f00000000c0), 0x2, 0x0)
+r1 = openat$selinux_policy(0xffffff9c, &(0x7f0000001040), 0x0, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x100000a, 0x12, r1, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000640)=ANY=[], 0x48)
+setsockopt$EBT_SO_SET_ENTRIES(0xffffffffffffffff, 0x0, 0x80, &(0x7f0000000300)=@broute={'broute\x00', 0x20, 0x0, 0x90, [0x0, 0x0, 0x0, 0x0, 0x0, 0x400000000040], 0x0, 0x0, &(0x7f0000000200)=ANY=[@ANYRESOCT]}, 0x8f)
+write$selinux_load(r0, &(0x7f0000000000)=ANY=[], 0x2000)

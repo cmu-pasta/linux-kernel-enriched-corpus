@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=04af4753ce673298938371169375282f90690283
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000100)={'netdevsim0\x00', <r1=>0x0})
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000001140)={&(0x7f0000000040)=ANY=[@ANYBLOB="68000000100003050000ffffffef000000000000", @ANYRES32=0x0, @ANYBLOB="1546010000000000380012800b0001006d616373656300002800028008000500ffffffff05000d0001000000050003000c0000000c000100000000000000008008000500", @ANYRES32=r1], 0x68}}, 0x4000)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000240)={0xffffffffffffffff, <r3=>0xffffffffffffffff})
+ioctl$sock_SIOCETHTOOL(r3, 0x8946, &(0x7f0000000080)={'netdevsim0\x00', &(0x7f00000002c0)=@ethtool_sfeatures={0x3b, 0x2, [{0xfe}, {0xfffffff9}]}})

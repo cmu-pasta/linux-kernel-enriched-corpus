@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5a34035b13d7f4215357b46093ca6d5c45c93f93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$loop(&(0x7f0000000240), 0x7, 0x180862)
+r1 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/fscaps', 0x40000, 0x2d)
+ioctl$LOOP_CONFIGURE(r0, 0x4c0a, &(0x7f0000000380)={r1, 0x0, {0x0, 0x0, 0x0, 0x4, 0x4000000000000ffd, 0x0, 0x0, 0x1e, 0xc, "faf98317e5a1149989fc8dbe43ea6acc96e3a2503dc3ff03e37d581270bad0099cebdc25f5ab60c9e6d680f985881a7beda9d69098c8b534464c516bdd8a0f35", "3209cc26f7061a74df34400700080000234b30c50997d3bed109ff2176ff7bfe55cd4a5d83cd4a524bd3ffe70c7f3f800b2f7b6aa58dc50a1fcaed1e831fa79a", "67523760fd40f78d2cfc03d81a8ca55ba139c01802c4dae4162e43ac61b7ad33", [0x2, 0x400000000007]}})
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r1)

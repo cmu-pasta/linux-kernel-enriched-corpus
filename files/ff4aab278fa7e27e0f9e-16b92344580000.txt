@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e21909b04e1a3f8c6e8da83ccd2db4e4db268d89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$auto_hsr_node_table_fops_(0xffffffffffffff9c, 0x0, 0x2000, 0x0)
+madvise$auto(0x0, 0xffffffffffff0001, 0x15)
+madvise$auto(0x0, 0xffffffffffff0005, 0x19)
+r0 = openat$auto_sg_fops_sg(0xffffffffffffff9c, &(0x7f0000000000)='/dev/sg0\x00', 0x82802, 0x0)
+socket$nl_generic(0x10, 0x3, 0x10)
+r1 = openat$auto_configfs_file_operations_configfs_internal(0xffffffffffffff9c, &(0x7f0000000100)='/sys/kernel/config/nvmet/discovery_nqn\x00', 0x189002, 0x0)
+write$auto_configfs_file_operations_configfs_internal(r1, &(0x7f0000000140)="8e00", 0x2)
+mmap$auto(0x0, 0x400008, 0xdf, 0x9b72, 0x2, 0x8000)
+ioctl$auto(0x3, 0xc0585611, 0x38)
+ioctl$auto(r0, 0x5385, 0x1000000000000007)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8e030beda49b8e549cfeb17ed369414ed27331e6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0xfffffffffcffffff, 0x20031, 0xffffffffffffffff, 0xbe9f5000)
+mmap(&(0x7f0000000000/0x200000)=nil, 0x200000, 0x300000b, 0x204031, 0xffffffffffffffff, 0xec776000)
+sendmmsg$inet(0xffffffffffffffff, &(0x7f0000000300)=[{{0x0, 0x0, &(0x7f0000000280)=[{&(0x7f00000001c0)="ec4969ce12aee5cbcb87448d7b8d39e591f0817d13f230e3603631a855802b483c", 0x21}], 0x1}}], 0x1, 0x20000800)
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='maps\x00')
+ioctl$KVM_SET_USER_MEMORY_REGION(r0, 0xc0686611, &(0x7f0000000180)={0x68, 0x0, 0x17, 0x2000, &(0x7f0000ffd000/0x2000)=nil})

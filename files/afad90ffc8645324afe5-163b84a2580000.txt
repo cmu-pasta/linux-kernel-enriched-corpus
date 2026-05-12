@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=a9459d48ead3e76b55356b6dc86edd04b850854f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$pppoe(0x18, 0x1, 0x0)
+connect$pppoe(r0, &(0x7f0000000400)={0x18, 0x0, {0x2, @dev={'\xaa\xaa\xaa\xaa\xaa', 0xa}, 'lo\x00'}}, 0x1e)
+r1 = socket$pptp(0x18, 0x1, 0x2)
+bind$pptp(r1, &(0x7f0000000000)={0x18, 0x2, {0x0, @local}}, 0x1e)
+connect$pptp(r1, &(0x7f00000001c0)={0x18, 0x2, {0x1, @multicast1}}, 0x1e)
+ioctl$PPPIOCGCHAN(r0, 0x80047437, &(0x7f0000001f00))
+r2 = openat$ppp(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+ioctl$PPPIOCATTCHAN(r2, 0x40047438, &(0x7f0000000040)=0x2)
+ioctl$PPPIOCBRIDGECHAN(r2, 0x40047435, &(0x7f0000000200)=0x1)
+sendmmsg(r0, &(0x7f00000008c0)=[{{0x0, 0x0, 0x0}}], 0x1, 0x0)

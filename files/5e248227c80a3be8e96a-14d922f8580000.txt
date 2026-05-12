@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=56f3fbdd8a9350928ef506189bd1fd408dcdb218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"tmpdir":true}
+mmap$auto(0x0, 0x4, 0xdf, 0xeb1, 0x401, 0x8000)
+r0 = openat$auto_dvb_demux_fops_dmxdev(0xffffffffffffff9c, &(0x7f0000000000), 0x200, 0x0)
+r1 = openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000280)='/dev/loop11\x00', 0x8001, 0x0)
+r2 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000040)='/proc/kallsyms\x00', 0x101000, 0x0)
+pread64$auto(r2, 0x0, 0x100000000008, 0x8000)
+ioctl$auto_def_blk_fops_fs(r1, 0x1279, 0x0)
+ioctl$auto_dvb_demux_fops_dmxdev(r0, 0x403c6f2b, 0x0)
+readv$auto(0x3, &(0x7f0000003080)={0x0, 0x4}, 0x9)

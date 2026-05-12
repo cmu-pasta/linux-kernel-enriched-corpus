@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=9ad34943cf06696c9e5b0189facda6a14741760c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+openat$auto_proc_loginuid_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/loginuid\x00', 0x109000, 0x0)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/devices/virtual/ptp/ptp0/max_vclocks\x00', 0xa100, 0x0)
+read$auto(0x3, 0x0, 0x80)
+mprotect$auto(0x1ffff000, 0x8000000000000004, 0xd)
+r0 = openat$auto_tracing_mark_raw_fops_trace(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/tracing/trace_marker_raw\x00', 0xc05, 0x0)
+write$auto_tracing_mark_raw_fops_trace(r0, 0x0, 0x10)

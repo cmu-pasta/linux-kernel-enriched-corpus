@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6b4e2b81615c710577f2832bf4d54a7834fa11de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000000c0)=ANY=[@ANYBLOB="01000000120000007f00000001"], 0x48)
+bpf$BPF_GET_MAP_INFO(0xf, 0x0, 0x0)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f00000008c0)={0x6, 0x8, &(0x7f00000002c0)=ANY=[@ANYBLOB="1800000004000000000000000000000018120000", @ANYRES32=r0, @ANYBLOB="0000000000000000b703000000000000850000000c000000b7000000000000009500000000000000fa54140ebe262d08eeeebcc7102f8612b6392de93baa0cfabb1235cea61069d4a796a3ed9f561d2dfed6b7"], &(0x7f0000000040)='GPL\x00', 0x5, 0x0, 0x0, 0x1f00, 0x0, '\x00', 0x0, 0x25, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x7}, 0x94)

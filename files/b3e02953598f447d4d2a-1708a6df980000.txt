@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5d23fead5a1d7058128a5b2a0bf44caefbef3526
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet(0x2, 0x1, 0x0)
+close(0x3)
+r1 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r1, &(0x7f0000000940)={0x26, 'aead\x00', 0x0, 0x0, 'gcm_base(ctr(aes-aesni),ghash-generic)\x00'}, 0x58)
+setsockopt$sock_int(r0, 0x1, 0xf, &(0x7f0000356ffc)=0xffffffffffffff40, 0x4)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x33, &(0x7f00000a2000)={0x1, &(0x7f0000f07000)=[{0x6}]}, 0x10)

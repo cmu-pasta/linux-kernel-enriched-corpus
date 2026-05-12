@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=c7a534499eff38e16168eeb8cac159e53fe3d2e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"swap":true}
+mount$fuse(0x0, 0x0, 0x0, 0x200008, 0x0)
+r0 = openat$selinux_enforce(0xffffffffffffff9c, &(0x7f0000000040), 0x109102, 0x0)
+writev(r0, &(0x7f0000002b00)=[{&(0x7f0000002700)='5', 0x1}, {0x0}], 0x2)
+add_key(&(0x7f0000000000)='big_key\x00', &(0x7f0000000280)={'syz', 0x1}, &(0x7f00000002c0)="1d", 0xfe3a, 0xfffffffffffffffe)
+ioctl$KVM_SET_USER_MEMORY_REGION(0xffffffffffffffff, 0x4020ae46, &(0x7f0000000180)={0x0, 0x3, 0x0, 0x2000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_RUN(0xffffffffffffffff, 0xae80, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=893d78322c40268ea2cf084e37bfc9f52851b9c2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000280)={0x26, 'hash\x00', 0x0, 0x0, 'digest_null\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, 0x0, 0x0)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmmsg$unix(r1, &(0x7f0000000580)=[{{0x0, 0x0, &(0x7f0000000080)=[{&(0x7f0000000300)="c5", 0x1}], 0x1}}], 0x1, 0x400c080)
+accept(r1, 0x0, 0x0)

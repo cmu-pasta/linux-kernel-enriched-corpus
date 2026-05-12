@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=ef5152c26600bb37247933e90d8c8e25e55c2de6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"close_fds":true,"vhci":true,"sysctl":true,"callcomments":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+bind$inet(r0, &(0x7f0000000040)={0x2, 0x4e20, @empty}, 0x10)
+syz_emit_ethernet(0xbe, &(0x7f0000000000)={@dev={'\xaa\xaa\xaa\xaa\xaa', 0x23}, @link_local, @void, {@ipv4={0x800, @udp={{0x5, 0x4, 0x0, 0x0, 0xb0, 0x0, 0x0, 0x0, 0x11, 0x0, @empty, @empty}, {0x0, 0x4e20, 0x9c, 0x0, @wg=@initiation={0x1, 0x0, "7b4b143b7461fd777b1c012bd14efb9f49fcdb8f080c26a04883ad5c8c82b8af", "584cbf2649a50f2dbc43efa8698d0a881c51852e4451b57d037ad3c045942824251d7d17b5191584bcd4fbe40a23424d", "bcfd56f1375461caaa2f19935e6996c7096ffeeb0300000000000064", {"9a3bfbc1f39cb307b3472eb9cdb042d2", "643fcbb2c5a57df67d544af6e8dafe09"}}}}}}}, 0x0)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000140)={0x6, 0x3, &(0x7f0000000680)=ANY=[@ANYBLOB="1800000002000000000000000000000095"], 0x0, 0x3, 0x0, 0x0, 0x41000}, 0x94)
+r1 = bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000480)={0x6, 0x3, &(0x7f0000000680)=ANY=[], &(0x7f00000002c0)='syzkaller\x00', 0x7}, 0x94)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000600)={r1, 0x5, 0xb68, 0x0, &(0x7f0000000000)='%', 0x0, 0xd01, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}, 0x48)
+r2 = socket$pppl2tp(0x18, 0x1, 0x1)
+connect$pppl2tp(r2, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r0, {0x2, 0x0, @dev={0xac, 0x14, 0x14, 0x2e}}, 0x2}}, 0x2e)

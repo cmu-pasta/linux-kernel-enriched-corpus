@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5a34035b13d7f4215357b46093ca6d5c45c93f93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$loop(&(0x7f0000000240), 0xffffffff7ffffffd, 0x1ea1e2)
+r1 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000002c0)='/sys/power/sync_on_suspend', 0x2440, 0x66)
+ioctl$LOOP_CONFIGURE(r0, 0x4c0a, &(0x7f0000000080)={r1, 0x0, {0x0, 0x0, 0x0, 0x4, 0x4000000000000ffd, 0x0, 0x0, 0xa, 0xc, "faf98357e5a1149989fc8dbec3bd02b82a128bbad0099cebdc25f5abb534464c516bdd8a0f3500", "32d8cc26f7061a74df2cfc06c89f3d9e234b30c50997d3bef409ff2176ff7bfe55cd4a5d83cd4a524bd3ffe70c7f3f800b2f7b6aa54cc50a1fcaed1e831fa79a", "715237641a8ccf162e43ac61f700000000009b4100", [0xc, 0x1ff]}})
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r1)

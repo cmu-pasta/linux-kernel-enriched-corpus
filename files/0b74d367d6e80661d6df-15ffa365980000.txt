@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=59deade772c5e78b31343d6e965e29a25fdc0f4b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"tmpdir":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000840)=ANY=[@ANYBLOB="78226e6f65786163638173733d616e792c63616368653d66736361636865"])
+chdir(&(0x7f0000000280)='./file0\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='blkio.bfq.io_serviced\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+ftruncate(r0, 0xc17c)
+r1 = openat$vmci(0xffffffffffffff9c, &(0x7f0000000740), 0x2, 0x0)
+ioctl$IOCTL_VMCI_VERSION2(r1, 0x7a7, &(0x7f0000000080)=0xb0000)
+unshare(0xc040400)
+ioctl$IOCTL_VMCI_INIT_CONTEXT(r1, 0x7a0, &(0x7f0000000000)={@my=0x1})
+ioctl$IOCTL_VMCI_QUEUEPAIR_ALLOC(r1, 0x7a8, &(0x7f0000000640)={{@my=0x1}, @hyper, 0x0, 0x2925, 0x0, 0x20000000, 0x4})

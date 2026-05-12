@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1466684797626866caf7eb7ce1555995744b0238
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+getsockopt$inet_sctp_SCTP_SOCKOPT_CONNECTX3(0xffffffffffffffff, 0x84, 0x6f, &(0x7f0000000100)={0x0, 0x20, &(0x7f0000000000)=[@in={0x2, 0x4e24, @local}, @in={0x2, 0x4e20, @private=0xa010101}]}, 0x0)
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000040)='/dev/comedi4\x00', 0x181001, 0x0)
+mprotect(&(0x7f0000000000/0x800000)=nil, 0x800000, 0x5)
+ioctl$COMEDI_INSNLIST(r0, 0x8010640b, &(0x7f0000000000)={0x0, 0x0})

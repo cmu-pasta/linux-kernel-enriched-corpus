@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=88a5ac8dc8852281ef410027ff2b8521665f378f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdir(&(0x7f0000000140)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, 0x0)

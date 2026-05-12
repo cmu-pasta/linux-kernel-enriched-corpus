@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0f07d77adf845d425968ccca2e5299e0b2ea7586
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = syz_usb_connect(0x2, 0x36, &(0x7f0000000040)=ANY=[@ANYBLOB="120100001a77aa4094225b4210a20102030109022400010000000009040000029233500009050602ff030000000905ba3e79"], 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, &(0x7f0000000440)={0x44, &(0x7f0000000240)=ANY=[@ANYBLOB="40010400000003"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$hid(r0, 0x0, &(0x7f0000000380)={0x2c, &(0x7f00000004c0)=ANY=[@ANYBLOB="00141a000000c2ecd25f75d8b139ec2e302efaa2ddacc3e938ae1b"], 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io(r0, 0x0, &(0x7f0000000880)={0x84, &(0x7f0000000500)={0x40, 0x10, 0x93, "7b75bbbbe58b7a9019768036c23793c2fd2aef72a09ba1dfc7588798511d9b9b269fb67467a45e50fe1adcee3199c57555215716176fc46174d6338dd88aa5cc52f061d85d07d6520f903073c145ec0e833bf1b8d571d222b1c5e78173bf816416f606f738ee173ddb465a27b4bc549a7089313ffed1b58f2cfe4cfb2b657f14a1b412508e3b26ca87e5c913504c38ebb1aa5c"}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})

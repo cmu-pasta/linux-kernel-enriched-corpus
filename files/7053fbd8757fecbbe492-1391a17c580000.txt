@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ad7d3ac863945ac58fbefddcd49f225c9d2e0bce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"swap":true,"callcomments":true}
+syz_emit_ethernet(0x3e, &(0x7f0000000000)={@local, @broadcast, @void, {@ipv4={0x800, @icmp={{0x5, 0x4, 0x0, 0x0, 0x30, 0x0, 0x0, 0x0, 0x1, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}, @local}, @time_exceeded={0x3, 0x3, 0x0, 0x3, 0x0, 0x0, {0x5, 0x4, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2f, 0x0, @broadcast=0xac14140a, @multicast1}}}}}}, 0x0)
+syz_usb_connect(0x0, 0x48, &(0x7f0000000000)=ANY=[@ANYBLOB="12010000a180c52040200055c8a9010203010902360001000a0000090400000496fe090009050505000404000009050d0000000000000905a9"], 0x0)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7639428b3857cad06d53262c3128869ceed409f2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$usbfs(&(0x7f0000000000), 0x200, 0x102)
+mmap(&(0x7f0000ff9000/0x4000)=nil, 0x4000, 0x300000c, 0x28011, r0, 0x1000) (fail_nth: 13)

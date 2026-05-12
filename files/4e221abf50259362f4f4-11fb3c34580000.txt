@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fbe9112afe2d4e1c9da8ca76ddd28a92eb7bda53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+read$msr(0xffffffffffffffff, 0x0, 0x0)
+mremap(&(0x7f0000041000/0x2000)=nil, 0x2000, 0x2000, 0x3, &(0x7f00004c3000/0x2000)=nil)

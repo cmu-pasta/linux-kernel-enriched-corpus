@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=b646ef310afe5b51ae0372e1de8fdd68baad9eb5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+pwritev(0xffffffffffffffff, &(0x7f0000000480)=[{0x0}, {0x0}, {&(0x7f00000003c0)="77cccb0deedbb94f1afd3ccb469a6721cc637e9cbc7f0685c4ab02897a615638b1ba209474e485e5c676dab2f779fc45e14a15eb8cab8dce71eaea08ea87db5609774523b75431043e4a32f82c5b61bea2b9b0eff207d81c7b175cfcb3e448d7fcac8844402e9401582eeb4a08d247096e183b9b7de727a818150a153b9397c4cc61a6bd461f30fb84b679bca11d47c56904a9d359442a5c3693048b8aa179cf9385", 0xa2}, {0x0}, {&(0x7f0000000680)}], 0x5, 0x4, 0x5)
+ioctl$KVM_CREATE_IRQCHIP(r1, 0xae60)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, r2, &(0x7f0000b6e000/0x18000)=nil, &(0x7f0000000680)=[@text64={0x40, &(0x7f0000000200)="f7790066baa00066b86b4266ef66ba420066b8e20066ef0f29902cbb0000c4e2b1ba8c88d9000000666666440f38826b410f7842280f07b8010000000f01d9c4033921820f47a753fd", 0x49}], 0x1, 0x4f, 0x0, 0x0)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_SET_MP_STATE(r2, 0x4004ae99, &(0x7f0000000280)=0x3)
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4040aea0, &(0x7f0000000040)=@arm64={0x0, 0x1, 0xdf, '\x00', 0x2})
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4400ae8f, &(0x7f0000000140)=@x86={0x40, 0x1, 0xc, 0x0, 0x0, 0x0, 0xb6, 0x0, 0x0, 0x7c, 0x9, 0x0, 0x0, 0x0, 0xfffffff8, 0x0, 0xff, 0xff, 0x1})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

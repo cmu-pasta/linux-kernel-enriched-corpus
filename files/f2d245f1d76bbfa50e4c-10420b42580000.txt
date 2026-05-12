@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=19907a18d8ae1518ab5dd97b184bd420595fb49a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_init_net_socket$nfc_llcp(0x27, 0x2, 0x1)
+r1 = openat$nci(0xffffffffffffff9c, &(0x7f0000000080), 0x2, 0x0)
+ioctl$IOCTL_GET_NCIDEV_IDX(r1, 0x0, &(0x7f0000000000)=<r2=>0x0)
+bind$nfc_llcp(r0, &(0x7f0000001040)={0x27, r2, 0xfffffffe, 0x4, 0x0, 0x1, "d92984bd1ca44c226af5160e961711a077609475b78411e88509de050000000000f2170e65e3f50327e422000000000000000000000200000000001900", 0x3f}, 0x60)
+sendto(r0, &(0x7f00000005c0)="a1bfc48ba931fb1ceb70ba6de68925f84d607ce82b9339dda7f5adf00381be33ea1558c858be9d3a5b2aff8f4f59bd095d7034b500b19e0d0524e7bf37b4cec2aad04aacfac1eeca892aa86fe2f21df0a4619b459cb53e0cadf8e3486c5506c18326e1a39911052c19fee16f57ff67c91e3576d08cbca1dbfbdf03bc42498ba5fe9316ab4a80fdaab89a6461775b8f4f23b0f528e97eadd7ca6308c637", 0xfeca, 0x0, &(0x7f0000000700)=@ax25={{0x3, @bcast, 0x5}, [@null, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x3}, @null, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}]}, 0x80)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1ae8310badc9d5ff1d2934b7d99b914d3b4e1062
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+r0 = creat(&(0x7f0000000140)='./file0\x00', 0xe3)
+pipe2$9p(&(0x7f00000001c0)={<r1=>0xffffffffffffffff}, 0x84000)
+mount$9p_fd(0x0, &(0x7f0000000100)='./file0\x00', &(0x7f0000000180), 0x0, &(0x7f0000000340)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r1, @ANYBLOB=',wfdno=', @ANYRESHEX=r0])
+prctl$PR_SET_MM(0x23, 0x6, &(0x7f0000001000/0x4000)=nil)
+brk(0x400000001000)

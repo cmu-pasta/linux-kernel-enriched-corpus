@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b2a2181447f3f46d51ae0c8e14bdf3abcfbc6709
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+inotify_init1(0x0)
+syz_open_procfs(0x0, &(0x7f0000000180)='fd/4\x00')

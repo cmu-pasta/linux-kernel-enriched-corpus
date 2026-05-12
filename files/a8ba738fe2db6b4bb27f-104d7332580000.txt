@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=0300ca2720743960251cfc5105d7419798d3bac2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"wifi":true,"tmpdir":true,"callcomments":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000440)=ANY=[@ANYBLOB="140000001000010000000000000000000000000a20000000000a03000000800000000000070000000900010073797a30000000007c000000090a010400000000000000000700000008000a40000000000900020073797a30000000000900010073797a3000000000080005400000000d38001280140001800c000100636f756e7465720004000280200001800e000100636f6e6e6c696d69740000000c000280080001400000000808000340000001"], 0xc4}}, 0x20050890)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket(0x10, 0x3, 0x0)
+r3 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_KEY(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000000)={0x1c, 0x0, 0x0, 0x0, 0x0, {{}, {@val={0x8}, @void}}}, 0x1c}}, 0x4000004)
+ioctl$sock_SIOCBRDELBR(r3, 0x89a2, &(0x7f0000000000)='bridge0\x00')
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000080)={'bridge0\x00', <r4=>0x0})
+sendmsg$nl_route(r1, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000280)=@newlink={0x3c, 0x10, 0x44b, 0x0, 0x25dfdbfc, {0x7a, 0x0, 0x0, r4}, [@IFLA_LINKINFO={0x1c, 0x12, 0x0, 0x1, @bridge={{0xb}, {0xc, 0x2, 0x0, 0x1, [@IFLA_BR_AGEING_TIME={0x8, 0x8, 0xffffa888}]}}}]}, 0x3c}}, 0x0)
+r5 = socket$nl_route(0x10, 0x3, 0x0)
+r6 = socket(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r6, 0x8933, &(0x7f0000000080)={'bridge0\x00', <r7=>0x0})
+sendmsg$nl_route(r5, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000280)=@newlink={0x3c, 0x10, 0x44b, 0x0, 0x0, {0x7a, 0x0, 0x0, r7}, [@IFLA_LINKINFO={0x1c, 0x12, 0x0, 0x1, @bridge={{0xb}, {0xc, 0x2, 0x0, 0x1, [@IFLA_BR_VLAN_FILTERING={0x5, 0x7, 0x7}]}}}]}, 0x3c}}, 0x0)
+syz_emit_ethernet(0x4e, &(0x7f0000000500)=ANY=[@ANYBLOB="ffffffffffffaaaaaaaaaaaa8100070086dd608a27f200142c00fe"], 0x0)

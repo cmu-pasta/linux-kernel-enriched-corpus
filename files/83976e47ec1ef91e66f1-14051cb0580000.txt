@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=207ec6688c2011bb8b9c187b4ecceeed312ec563
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/devices/platform/vhci_hcd.0/status.15\x00', 0x400, 0x0)
+read$auto_kernfs_file_fops_kernfs_internal(r0, &(0x7f0000001080)=""/98, 0x62)

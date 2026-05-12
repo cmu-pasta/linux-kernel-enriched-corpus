@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9d3902e6e131ea24ead2958eca154c23c7fd5442
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000400)='./file1\x00', 0x0)
+mount$9p_virtio(&(0x7f0000000040), &(0x7f0000000100)='./file1\x00', &(0x7f0000000140), 0x800488, &(0x7f0000000940)=ANY=[@ANYBLOB="7472616e733d76697274696f2c63616368653d667363616368652c63616368657461673d6f7645726c607980de4b5d4d9fb9fa7865a08d4e6849a1b6ec1672a93f72830f515f360dee1f2b49c7c25762f4af485d6a5d597cc80419b1c7861ce952c60b133891bb3b21747d3debe40fd9c0229d2334b45930eb0a3655e97a26597783380e64c67170776b52d5042b01a666647cb4f00d565afc53d38d65b94e7fea3c79036ac46602a8241f6a4832bec30450152ff7f509b5297051cf53cb8dfb5e489d90221b42a44462db10b329a2d44aaf1ba0c2bd6b4e7995b0ed86d36f2d35760ec0a01a9a53bace42e411568f861adaf38dba032410a0b8c81b95562394ed7f79de196db0c36d368737ff94806f8ffa2d4f143e046dfd405d41a5"])
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='net/netlink\x00')
+lseek(r0, 0x339, 0x0)
+read$FUSE(0xffffffffffffffff, &(0x7f0000000a80)={0x2020, 0x0, <r1=>0x0}, 0x2020)
+write$FUSE_INIT(r0, &(0x7f0000000080)={0x50, 0xfffffffffffffff5, r1, {0x7, 0x29, 0x6, 0x8020, 0x1ff, 0x2, 0x5, 0x9, 0x0, 0x0, 0x10, 0x6eb9c3f3}}, 0x50)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=581fa5592eae4411a7b03b65fabad17011441862
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = syz_open_dev$dvb_demux(&(0x7f0000000080), 0x0, 0x20000)
+ioctl$DVB_DEMUX_DMX_SET_PES_FILTER(r0, 0x40146f2c, &(0x7f0000000000)={0xfff, 0x0, 0x3, 0x5, 0x4})
+ioctl$DVB_DEMUX_DMX_ADD_PID(r0, 0x40026f33, &(0x7f00000000c0)=0x7)
+ioctl$DVB_DEMUX_DMX_START(r0, 0x6f29)

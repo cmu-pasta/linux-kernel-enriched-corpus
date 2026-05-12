@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=7ea363dd3a16376336074ef023260e9173f3d23f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000006c0)={0x18, 0xb, &(0x7f0000000640)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020000000000000000000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f00000004c0)='GPL\x00', 0x0, 0x0, 0x0, 0x1f00, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000300)='rcu_utilization\x00', r0}, 0x10) (rerun: 64)
+ioctl$int_in(0xffffffffffffffff, 0x5421, 0x0) (rerun: 64)
+bpf$BPF_PROG_GET_FD_BY_ID(0xd, &(0x7f0000000180), 0x4) (async, rerun: 64)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000080)='sched_switch\x00'}, 0x18)
+r1 = socket$inet6_sctp(0xa, 0x5, 0x84)
+setsockopt(r1, 0x84, 0x7f, &(0x7f0000000040)="020000000980ffff", 0x8)
+bpf$MAP_CREATE(0x0, 0x0, 0x50)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+write$cgroup_pid(0xffffffffffffffff, &(0x7f0000000c40), 0x12) (async, rerun: 64)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0) (async)
+sendmsg$inet(0xffffffffffffffff, 0x0, 0x3) (async, rerun: 64)

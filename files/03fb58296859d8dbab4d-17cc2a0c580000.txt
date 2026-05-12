@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=058738866680f166eb4708296b8e6d12a20e3d45
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = openat$selinux_load(0xffffffffffffff9c, &(0x7f00000000c0), 0x2, 0x0)
+r1 = openat$selinux_policy(0xffffff9c, &(0x7f0000001040), 0x0, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x100000a, 0x12, r1, 0x0)
+openat$pfkey(0xffffffffffffff9c, &(0x7f0000000000), 0x149001, 0x0)
+sendmmsg(0xffffffffffffffff, &(0x7f0000005f40)=[{{0x0, 0x0, 0x0, 0x0, 0x0, 0x10}}, {{0x0, 0x0, &(0x7f0000000100)=[{0x0}, {0x0}, {0x0}, {0x0}, {&(0x7f0000000040)="917b49095790bc8011d7953aed297b2acf1604e3d61387be0db14c3a1275abad0ef5d1ce3294112f2b63d5", 0x2b}, {0x0}], 0x6}}], 0x2, 0x844)
+write$selinux_load(r0, &(0x7f0000000000)=ANY=[], 0x2000)

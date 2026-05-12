@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=27c0916826e46e92a5ded332a79270ebc389c944
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0) (async)
+r1 = socket(0x10, 0x3, 0x0)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, 0x0}, 0x0)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000980)={0x0}, 0x10)
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$sock_int(r2, 0x1, 0x3c, &(0x7f0000000040)=0x1, 0xfff0) (async)
+setsockopt$inet_tcp_TCP_REPAIR(r2, 0x6, 0x13, &(0x7f00000000c0)=0x1, 0x4)
+connect$inet(r2, &(0x7f0000000080)={0x2, 0x0, @loopback}, 0x10)
+setsockopt$inet_tcp_TCP_REPAIR(r2, 0x6, 0x13, &(0x7f00000001c0)=0xffffffffffffffff, 0x4)
+write$binfmt_elf32(r2, &(0x7f00000014c0)=ANY=[], 0x46b)
+sendmmsg$inet(r2, &(0x7f0000000f40)=[{{0x0, 0x0, &(0x7f0000000500)=[{&(0x7f00000006c0)="ed", 0x1}, {&(0x7f0000000200)="b5", 0x1}, {&(0x7f0000000340)='.', 0x1}, {&(0x7f0000000140)='U', 0x1}, {&(0x7f0000000180)="f3", 0x1}], 0x5}}, {{0x0, 0x0, &(0x7f0000000900)=[{&(0x7f0000000580)="f1", 0x1}, {&(0x7f0000000c80)='a', 0x1}, {&(0x7f0000000b40)}, {&(0x7f0000000d80)='o', 0x1}, {&(0x7f0000000e80)='\b', 0x1}], 0x5}, 0x70040000}, {{0x0, 0x0, &(0x7f00000002c0)=[{&(0x7f0000000380)="bb", 0x1}, {&(0x7f00000007c0)="a1", 0x1}, {&(0x7f0000000800)='s', 0x1}, {&(0x7f00000009c0)='\\', 0x1}], 0x4}}, {{0x0, 0x0, &(0x7f0000000dc0)=[{&(0x7f0000000440)="88", 0x1}, {&(0x7f0000000840)="e5", 0x1}, {&(0x7f0000001040)="96", 0x1}], 0x3}}], 0x4, 0x4048841) (async, rerun: 32)
+socket$packet(0x11, 0x3, 0x300) (rerun: 32)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10) (async, rerun: 64)
+ioctl$SIOCSIFMTU(r1, 0x8922, &(0x7f0000000080)={'wg2\x00', 0x75}) (rerun: 64)
+r4 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r5 = syz_genetlink_get_family_id$netlbl_unlabel(&(0x7f0000000040), r4)
+sendmsg$NLBL_UNLABEL_C_STATICADDDEF(r3, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)=ANY=[@ANYBLOB='D\x00\x00\x00', @ANYRES16=r5, @ANYBLOB="410000000000000001000603000014000300060a0004090300f006e8ffff00000000080007003a3a0909140002"], 0x44}, 0x1, 0x1000000}, 0x0) (async)
+sendmsg$nl_route(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000004c0)=@ipv6_getroute={0x2c, 0x1a, 0x1, 0x0, 0x0, {0xa, 0x0, 0x0, 0x10}, [@RTA_MARK={0x8}, @RTA_OIF={0x8}]}, 0x2c}}, 0x0)
+pipe(&(0x7f00000004c0)={0xffffffffffffffff, <r6=>0xffffffffffffffff})
+sendmsg$nl_route(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000000)=ANY=[@ANYBLOB="540000001000010400000000000000ffff000000", @ANYRES32=0x0, @ANYBLOB="0380000000000000240012800c0001006d6163766c616e00140002800800010008000000060002000100000008000500", @ANYRES32=r6, @ANYBLOB='\b\x00\n\x00', @ANYRES32], 0x54}}, 0x0)

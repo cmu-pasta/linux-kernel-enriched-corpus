@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bcf4d9854b82653ed28f1a3184f1fde0720cb4bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+madvise$auto(0x0, 0x7fffffffffffffff, 0xa)
+r0 = syz_clone3(&(0x7f0000000240)={0x6080, 0x0, 0x0, 0x0, {0x23}, 0x0, 0x0, 0x0, 0x0}, 0x58)
+migrate_pages$auto(r0, 0x5a, &(0x7f0000000000)=0x9, &(0x7f0000000040)=0x1)

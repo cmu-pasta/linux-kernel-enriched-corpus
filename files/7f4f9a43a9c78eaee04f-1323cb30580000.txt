@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=324b48e5f9963be369c8bdcfb6cd96528d5e529d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat(0xffffffffffffff9c, &(0x7f0000000400)='./file0\x00', 0x4440, 0x1)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mount$nfs4(&(0x7f0000000000)='overlay\x00', &(0x7f0000000040)='./bus\x00', &(0x7f0000000080), 0x111010, &(0x7f00000000c0)={[{'upperdir'}, {'lowerdir'}, {'[/)'}], [{@appraise_type}, {@measure}]})
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000200), 0x0, &(0x7f0000000180)={[{@upperdir={'upperdir', 0x3d, './file1'}}, {@lowerdir={'lowerdir', 0x3d, '.'}}, {@workdir={'workdir', 0x3d, './bus'}}, {@volatile}], [], 0x2c})

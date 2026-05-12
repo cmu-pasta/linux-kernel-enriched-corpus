@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f9975bd1d0dd91226d174333ce125aeb2c9b14dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$wireguard(&(0x7f0000000040), 0xffffffffffffffff)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r0, 0x8933, &(0x7f00000002c0)={'wg2\x00', <r3=>0x0})
+sendmsg$WG_CMD_SET_DEVICE(r1, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000dc0)={0xe8, r2, 0x5, 0x70bd2a, 0x25dfdbfd, {}, [@WGDEVICE_A_LISTEN_PORT={0x6, 0x6, 0x4e24}, @WGDEVICE_A_PEERS={0xc4, 0x8, 0x0, 0x1, [{0x90, 0x0, 0x0, 0x1, [@WGPEER_A_PUBLIC_KEY={0x24, 0x1, @b_g}, @WGPEER_A_ENDPOINT6={0x20, 0x4, {0xa, 0x4e20, 0x1, @mcast1, 0x2}}, @WGPEER_A_PRESHARED_KEY={0x24, 0x2, "1171ee8da334a5099295af229a5d237a7f4102f01f28b34347d6cbbe135d83ec"}, @WGPEER_A_PUBLIC_KEY={0x24, 0x1, @a_g}]}, {0x28, 0x0, 0x0, 0x1, [@WGPEER_A_PUBLIC_KEY={0x24, 0x1, @neg}]}, {0x4}, {0x4}]}, @WGDEVICE_A_IFINDEX={0x8, 0x1, r3}]}, 0xe8}, 0x1, 0x0, 0x0, 0x4000}, 0x40)

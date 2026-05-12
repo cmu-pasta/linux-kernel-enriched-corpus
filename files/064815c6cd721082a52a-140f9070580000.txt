@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=c2aaa2838ffa26139b53484ca9b2ea95f3449da0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$auto_adf_hb_cfg_fops_adf_heartbeat_dbgfs(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/debug/ieee80211/phy7/netdev:wlan0/tsf\x00', 0x81, 0x0)
+mmap$auto(0x0, 0x20009, 0xdf, 0xeb1, 0x401, 0x8000)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$auto_nl802154(&(0x7f0000002ac0), r1)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000140)={'veth0_to_bond\x00'})
+r2 = fcntl$auto_F_GETFL(r0, 0x3, 0xffffffffffffffff)
+socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$auto_TUNATTACHFILTER(r2, 0x401054d5, 0x0)
+r3 = openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000780)='/proc/sys/net/ipv6/neigh/virt_wifi0/retrans_time\x00', 0x101000, 0x0)
+read$auto(r3, 0x0, 0x1ff)
+write$auto(r0, 0x0, 0x1)

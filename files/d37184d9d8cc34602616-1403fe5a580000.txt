@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d40720f8594f2ac49f04c96adcf6f9de5eebe75e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"tmpdir":true,"callcomments":true}
+syz_usb_connect(0x5, 0x24, &(0x7f0000000000)=ANY=[@ANYBLOB="120100024286bd10b00d815522f90102030109021200019ddb10010904"], 0x0)
+syz_open_dev$dvb_demux(&(0x7f00000000c0), 0x1, 0x20040)

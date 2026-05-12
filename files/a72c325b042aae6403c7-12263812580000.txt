@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=03ee8f5c7a5d055b02c44d629076816966a81b8a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$auto_tracing_buffers_fops_trace(0xffffffffffffff9c, &(0x7f0000000080)='/sys/kernel/tracing/per_cpu/cpu0/trace_pipe_raw\x00', 0x1000, 0x0)
+mmap$auto_tracing_buffers_fops_trace(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1, 0x8e051, r0, 0x0)
+r1 = openat$auto_vmwgfx_driver_fops_vmwgfx_drv(0xffffffffffffff9c, &(0x7f0000000000)='/dev/dri/card1\x00', 0x40000, 0x0)
+mmap$auto_vmwgfx_driver_fops_vmwgfx_drv(&(0x7f0000ffa000/0x3000)=nil, 0x3000, 0x0, 0x11, r1, 0x100000000)

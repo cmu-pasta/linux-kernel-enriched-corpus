@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=194151be8eaebd826005329b2e123aecae714bdb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_binder_fops_binder_internal(0xffffffffffffff9c, &(0x7f0000000700)='/dev/binderfs/binder0\x00', 0x0, 0x0)
+r1 = openat$auto_tracing_buffers_fops_trace(0xffffffffffffff9c, &(0x7f0000000080)='/sys/kernel/tracing/per_cpu/cpu0/trace_pipe_raw\x00', 0x1000, 0x0)
+mmap$auto_tracing_buffers_fops_trace(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1, 0x8e051, r1, 0x0)
+mmap$auto_binder_fops_binder_internal(&(0x7f0000ff9000/0x4000)=nil, 0x4000, 0x1, 0x12, r0, 0x100000000)

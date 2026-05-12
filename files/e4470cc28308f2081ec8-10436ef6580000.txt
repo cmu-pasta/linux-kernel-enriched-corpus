@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1140f3fed56217fccadf22873f88c80d98c4a328
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0xa, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0xf0667000)
+r0 = open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x89901)
+fchdir(r0)
+close(r0)
+open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x81902)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=12ab6ec5e3106a6548e13aa8f5bfdfb4843c96cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+socket$inet(0x2, 0x1, 0x100) (async)
+sendmsg$SOCK_DIAG_BY_FAMILY(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000040)={0x14, 0x14, 0x601, 0x0, 0x0, {0x2b, 0xfa}}, 0x14}}, 0x0)

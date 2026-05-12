@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=214a27042de04b3ec854997bf738ac49b9c7f9f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000100)={0x8, 0x80000100008b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000300)=0x7)
+openat$vnet(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+fcntl$lock(0xffffffffffffffff, 0x6, 0x0)
+fcntl$lock(0xffffffffffffffff, 0x26, 0x0)
+timer_create(0x0, &(0x7f0000000240)={0x0, 0x21, 0x2, @thr={0x0, 0x0}}, &(0x7f0000000300)=<r0=>0x0)
+fcntl$lock(0xffffffffffffffff, 0x6, &(0x7f0000000040)={0x0, 0x0, 0x60d3, 0x5})
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x1)
+timer_settime(r0, 0x1, &(0x7f0000000040)={{}, {0x0, 0x989680}}, 0x0)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=06f06bab8820fbd2881e4e41235dd0e2be123ef7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+mmap$auto(0x0, 0x400008, 0xdf, 0x9b72, 0x2, 0x8000)
+getrandom$auto(0x0, 0x6000000, 0x3)
+semctl$auto(0x0, 0x9, 0x0, 0x2)
+mbind$auto(0x0, 0x2091d2, 0x4, 0x0, 0x6, 0x2)
+r0 = openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ram7\x00', 0x14f602, 0x0)
+mmap$auto(0x0, 0x810004, 0xffb, 0x8000000008011, r0, 0x8000)
+r1 = socket(0x10, 0x2, 0x0)
+sendmsg$auto_NL80211_CMD_GET_REG(r1, 0x0, 0x40)

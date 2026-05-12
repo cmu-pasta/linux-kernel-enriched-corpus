@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=764af1a679bc60c31e82cfaef246e88a01cf1cab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"sysctl":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$HCIINQUIRY(r0, 0x800448f0, &(0x7f00000000c0)={0x0, 0x0, "a4cd91", 0x9})
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+unshare(0x4000400)
+socket(0x1, 0x803, 0x0)
+socket$inet_udp(0x2, 0x2, 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$HCIINQUIRY(r2, 0x400448ca, 0x0)
+syz_init_net_socket$nfc_llcp(0x27, 0x1, 0x1)
+socket$inet(0x2, 0x80001, 0x84)
+write$binfmt_misc(r2, 0x0, 0x4)
+bind$bt_hci(r1, &(0x7f0000000340)={0x1f, 0xffff, 0x3}, 0x6)
+write(r1, &(0x7f0000000040)="05000000010000", 0x7)

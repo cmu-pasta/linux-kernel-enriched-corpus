@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=c0cae9d6330d2b9b9302c695824e47ac9e0d3ef8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000040)={'lo\x00'})
+r1 = socket(0x10, 0x803, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000500)={'lo\x00', <r3=>0x0})
+sendmsg$nl_route(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000a40)=ANY=[@ANYBLOB="340000001400b5952cbc7000ffdbdf250a0080c8", @ANYRES32=r3, @ANYBLOB="140002000000000000000000000000000000000108000900ffffffff56d83ab5db34ba330dc0e355920b1e6dd740e281d71bb5cfa5388ea6d011a3e09770f30d18ceea32f06f8cfa438e60e82713a0dec04eea65d690866cf444d3fe6110c2ccc9816286bf209ed051d3e405b8184081402ac62415ecebcd45bd221b38a8b5fc796201addad4b9fc35e4247deefbe92efab79214aab508f84c71ed985c6f92972ee5deafeedae2a3c8"], 0x34}, 0x1, 0x0, 0x0, 0x20008000}, 0x40040)

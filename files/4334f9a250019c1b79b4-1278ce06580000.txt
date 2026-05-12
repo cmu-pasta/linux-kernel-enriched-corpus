@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=2f3828005562c853cd09f8d1be22e62239c00d4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000640)={0x0, 0x0, &(0x7f0000000540)={&(0x7f0000000500)=ANY=[@ANYBLOB="380000000314770026bd7000fbdbdf2509000200f3797a3200000000080041007369770014003300776c616e3100"/56], 0x38}, 0x1, 0x0, 0x0, 0x48049}, 0x800)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a5d9e402b78ed92768967de5ddf47bb3d8640f5b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"sysctl":true,"tmpdir":true}
+syz_mount_image$bfs(&(0x7f0000000000), &(0x7f0000000240)='./bus\x00', 0x8008, &(0x7f0000000100)=ANY=[@ANYRES64=0x0], 0xf, 0xab, &(0x7f0000010140)="$eJzs1zGKwkAYBeB/s7CbdptFsLBO4x08ilhqI1aK4A3Ei3gVj5DewiKtiCOYiIidRQT5vmLgzWPgtbM7brubIiKtIlLRme7T3Wy+GA8n9Rl8pCwifiMij4jeX50Pg7r7avqyWo7K6vv58c+69b0AAMDrsug/5nNqLk7NL/Aa/m993vI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgHe7BAAA//+dfyiL")
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000200)='rdma.current\x00', 0x275a, 0x0)
+r1 = syz_clone(0x40200, 0x0, 0x49, 0x0, 0x0, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+perf_event_open(0x0, r1, 0x0, 0xffffffffffffffff, 0x0)
+write$binfmt_script(r0, &(0x7f00000008c0), 0xfecc)
+write$binfmt_script(0xffffffffffffffff, 0x0, 0x0)

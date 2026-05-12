@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=a9807a63ad004f4a67c8d2d4e91e28a53b62f8eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000009c0)={0x17, 0x3, &(0x7f00000004c0)=ANY=[@ANYBLOB="c3ae00fe1001000071101a0000000000950000000000000065dcdc741924adb0bbed87854d63332dbfef6c8fc8603a33e2ce107b3a6e60711704e3aac52c108c020400b37f44a327808d5073040e1054bccb5cbedb061d233aa6691381ae337e5b399d627a7b0f28b9f1d01279ca0eaa11daeaecbf1c6b3fb993d557a6e47161688908c62ca0d9c598b04d31fe1c683f64074fc3e03438fd5dfad1881e263fd8e93a3ed23a994ad32ce7e09fbaca6b9982"], &(0x7f0000000480)='syzkaller\x00', 0x6, 0x0, 0x0, 0x0, 0x48, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94)

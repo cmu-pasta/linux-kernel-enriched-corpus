@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=9d3902e6e131ea24ead2958eca154c23c7fd5442
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+r0 = socket$inet6(0xa, 0x80002, 0x0)
+setsockopt$sock_linger(r0, 0x1, 0x3c, &(0x7f0000000180)={0x200000000000001}, 0x8)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x4e27, 0xffffffff, @mcast2, 0x7}, 0x1c)
+sendmmsg$inet6(r0, &(0x7f0000003cc0)=[{{0x0, 0x0, 0x0}}], 0x1, 0x4001c00)
+r1 = socket$packet(0x11, 0x2, 0x300)
+syz_open_dev$radio(&(0x7f0000000040), 0x2, 0x2)
+r2 = socket$inet6(0xa, 0x3, 0x8)
+setsockopt$inet6_int(r2, 0x29, 0x42, &(0x7f0000000000)=0xffffffff, 0x4)
+ioctl$SIOCGSTAMP(r2, 0x8906, 0x0)
+recvfrom$inet6(r2, 0x0, 0x0, 0x10000, 0x0, 0x0)
+getsockopt$packet_int(r1, 0x107, 0x9, 0x0, &(0x7f0000000080)=0xfffffddd)
+r3 = openat$btrfs_control(0xffffffffffffff9c, &(0x7f00000000c0), 0x14600, 0x0)
+r4 = bpf$BPF_PROG_GET_FD_BY_ID(0xd, &(0x7f0000000140)={0xffffffffffffffff}, 0x4)
+bpf$MAP_UPDATE_ELEM_TAIL_CALL(0x2, &(0x7f00000001c0)={{r3}, &(0x7f0000000100), &(0x7f0000000180)=r4}, 0x20)
+mount$9p_virtio(&(0x7f0000000200), &(0x7f0000000240)='./file0\x00', &(0x7f00000002c0), 0x800000, &(0x7f0000000340)=ANY=[@ANYBLOB="7472616e733d76697274696f2c6163636573733d636c070000002c76657273696f6e3d3970323030302e752c0012d73607915a98be61c4f1c12728f7b438af89469d6825dfbf8e00f3bcd31e5a08b6704ee6e65d1956720b3788cb294dd78a933bcde3de741b6238db14a91fcf767dacc171c41e66730a5e6d35de476942b673833a75212679b064f147bffe514806b7cfd6b0a9e96a3266fe41e86df948cb4bb908bce97864bf12cc076e16b86612ee9f44894158c8eb7b7b8594da99a2a1e4204c7d093ccc504bf7088210a0b354b9fcc4920d9c8fe8bfe950ffe4a7166ccf0190c25febd9b01bb336f9b0f59b2c2196c3636a29238fa114bb1cddcf0d8f38aae729c45d733a961b593040b9639cf39d367e9c70070b677d775faa5e79b1d295685878d4e94162bfa2406cc022300649000800001a1143f266ef4c4c1a3d853c1c8e6546fe91d242b0e39c7ee0211e99e5cd67be19a7479e6c7a4b55431f8c9cf7103fb767b9a063664d3f4f5428a2cbb1bda240709d76c1e838465c227c69d0775367b32269faa0695e64bfb5dff722a5ebe517db2020b3149d098710a4c5625ab7d37baabba324ed3d0d6f46fa0240051501bfe0cfc8c808cb3a923340a079f76ad16f449ecc4c647ce3385c8698146d0f4c89ce02b56600a4fcc87540a2cc7cc80b3712e742030c1c05001bced7a612c831211b96d6fd698d36007777ce6b67eb4b27eef6be513724680e91cbfe7d19ea0b6ac2a56e1a0d4704a26778135f9bb35d291d1103e4ae0c39b6915ff88c7e7b15b56fc2913a95fe5319497cd1d771efbf577340bb139165b8813db087cd"])

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=40d25b013afb95e679e665b10647858bea65d12d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"callcomments":true}
+r0 = openat$binfmt_register(0xffffffffffffff9c, &(0x7f0000000040), 0x1, 0x0)
+write$binfmt_register(r0, &(0x7f0000000000)={0x3a, 'syz3', 0x3a, 'M', 0x3a, 0x2, 0x3a, ']', 0x3a, '@', 0x3a, './file0', 0x3a, [0x43, 0x4f]}, 0x2b)
+pipe2$9p(0x0, 0x0)

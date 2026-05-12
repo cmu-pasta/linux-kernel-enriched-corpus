@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=6422f5d21a5b7bb7784dbc1e419bf54cbb3b5e7f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"callcomments":true}
+capset(&(0x7f0000000100)={0x20080522}, &(0x7f0000000140)={0x0, 0x0, 0x0, 0x81, 0xfffffffb})
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=59ea4894db2108f7a82c7675e59d477bb2d6f0a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000000)='ns\x00')
+openat(r1, &(0x7f0000000280)='./cgroup\x00', 0x40, 0x0)
+syz_open_dev$usbmon(&(0x7f0000000080), 0x0, 0x0)
+r2 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+r3 = ioctl$KVM_CREATE_VM(r2, 0xae01, 0x0)
+r4 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+r5 = ioctl$KVM_CREATE_VM(r4, 0xae01, 0x0)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000240)={0x0, 0x3, &(0x7f0000000040)=@framed={{0x18, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffe}}, 0x0}, 0x90)
+r6 = ioctl$KVM_CREATE_VCPU(r5, 0xae41, 0x0)
+r7 = dup(r6)
+ioctl$KVM_SET_MSRS(r7, 0x4048aecb, &(0x7f0000000040)=ANY=[@ANYRES16=r3])

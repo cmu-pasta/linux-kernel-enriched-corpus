@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=43dcde670f6d4a30a149ce55fd32d9dd79f4834d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/self/net/afs/addr_prefs\x00', 0x8f3b7a51b8162d21, 0x0)
+write$auto_proc_reg_file_ops_compat_inode(r0, &(0x7f0000000080)="3bedd92f26638cc0023a8686bd579dcf16f50e9bfa20abfa3a3753ca9aee372a4d6c78e45e8e0396b13b61", 0x2b)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=8a58be398ed632e3773490958041cdf9851d7aec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x2, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f00000000c0), 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000140)=@gcm_128={{0x303}, "87ee8ac6c46dad33", "2607080d7f4fcf00fd4ef2dece6c7c58", '\x00', '#\x00'}, 0x28)
+setsockopt$inet6_group_source_req(0xffffffffffffffff, 0x29, 0x2e, &(0x7f0000000340)={0x1, {{0xa, 0x0, 0x0, @mcast1={0xff, 0x7}, 0x6}}, {{0xa, 0xfffe, 0x0, @private1={0xfc, 0x1, '\x00', 0x1}, 0x3}}}, 0x108)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+writev(r1, &(0x7f00000003c0)=[{&(0x7f0000000280)="390000001300034700bb65e1c3e4ffff01000000010000005600000025000000190004000400000007fd17e5ffff0800040000000000000000", 0x39}], 0x1)
+writev(r1, &(0x7f0000000140)=[{&(0x7f0000000080)="390000001300034700bb5be1c3fbfeff06000000010000004500000025000000190004000400ad000d00000000000006040000000000f93132", 0x39}], 0x1)
+setsockopt$sock_int(r0, 0x1, 0xa, &(0x7f0000000180)=0x288fa1cf, 0x4)
+writev(r0, 0x0, 0x0)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x2, 0x0, 0x0)
+readv(r0, &(0x7f0000000e40)=[{&(0x7f0000000f40)=""/250, 0xff1}], 0x1)

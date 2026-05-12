@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1466684797626866caf7eb7ce1555995744b0238
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000180)='/dev/comedi4\x00', 0x141a00, 0x0)
+ioctl$COMEDI_INSNLIST(r0, 0x8010640b, &(0x7f00001859c0)={0xfffffdaf, 0x0})

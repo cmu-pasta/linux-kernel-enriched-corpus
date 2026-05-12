@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9b7632419f5dcb9a15a3db7aea0b6d186829c684
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"callcomments":true}
+write$cgroup_subtree(0xffffffffffffffff, &(0x7f0000000000)=ANY=[@ANYBLOB="8fed007907001175f37538e486dd6317ce2200102f00fe80000000000000875a65059ff57b00000000000000000000000000ac1414aa"], 0xcfa4)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000140)={0x6, 0x3, &(0x7f0000000680)=ANY=[@ANYBLOB="1800000002000000000000000000000095"], 0x0}, 0x90)
+r0 = bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000200)={0x6, 0x3, &(0x7f0000000680)=ANY=[], &(0x7f00000002c0)='syzkaller\x00'}, 0x94)
+bpf$BPF_PROG_TEST_RUN(0xa, &(0x7f0000000600)={r0, 0x5, 0xb68, 0x0, &(0x7f0000000000)='%', 0x0, 0xd01, 0x88be, 0x0, 0x0, 0x0, 0x0, 0x2}, 0x48)

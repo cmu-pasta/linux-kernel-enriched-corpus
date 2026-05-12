@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=027131a7eada3eb9ffc54819b87516b79c08fd44
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"tmpdir":true}
+socket$inet6_mptcp(0xa, 0x1, 0x106)
+ioctl$sock_SIOCGIFINDEX_80211(0xffffffffffffffff, 0x8933, 0x0)
+socket(0x10, 0x3, 0x0)
+bind$can_j1939(0xffffffffffffffff, 0x0, 0x0)
+connect$can_j1939(0xffffffffffffffff, &(0x7f0000000080), 0x18)
+socket$nl_rdma(0x10, 0x3, 0x14)
+ioctl$USBDEVFS_FREE_STREAMS(0xffffffffffffffff, 0x802c550a, 0x0)
+syz_emit_vhci(&(0x7f0000000300)=ANY=[@ANYBLOB="02c8204d00490001000cfb05000600feff080d7f080002000800000000010df8080009000f000a0008000f01040005007b00110c0200050002010400020001000383080002000000136aac0700015b0200050026db42aec9e47fb72220a280b6d882cec6e41ad1cf0a4982214bf5303844857d91872640e1cb8520784bfc7b58a8bbdbfac7dcb1aafec9af78ea69ab8f724194509a88e8c8973e4d957a2ed4d9a83396348da132dd9b0bccf67c58f1276b2e7ea5cc7c8a47568bc5ff8cd8ac"], 0x52)
+ioctl$USBDEVFS_CONTROL(0xffffffffffffffff, 0x4008550d, 0x0)
+ioctl$UI_DEV_SETUP(0xffffffffffffffff, 0x405c5503, 0x0)
+ioctl$UI_DEV_CREATE(0xffffffffffffffff, 0x5501)

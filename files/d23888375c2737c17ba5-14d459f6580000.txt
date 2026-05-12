@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=dbcb39beb96c35c5b1f579ec77a4c121d60d21a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f0000000000)={0x26, 'skcipher\x00', 0x0, 0x0, 'ecb(des3_ede)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000c18000)="ad56b6c5820fae9d6dcd3292ea54c7beef915d564c90c200", 0x18)
+r1 = accept4(r0, 0x0, 0x0, 0x0)
+sendmmsg$alg(r1, &(0x7f0000000400)=[{0x20000000, 0x0, &(0x7f00000002c0)=[{&(0x7f0000000080)="f78d9ca38fff48f3be52163448412ba8", 0xfffffe1a}], 0x1, &(0x7f0000000380)=[@op={0x18}], 0x18}], 0x4924924924924b9, 0x0)
+recvmsg$can_raw(r1, &(0x7f0000000600)={0x0, 0x0, &(0x7f0000000540)=[{&(0x7f0000000780)=""/4096, 0x1000}], 0x1}, 0x40000003)

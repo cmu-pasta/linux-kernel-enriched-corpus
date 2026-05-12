@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b98be0c44f1a982b284d1150e113042ac4888cfa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = memfd_secret(0x80000)
+mmap$fb(&(0x7f0000000000/0x1000)=nil, 0x1000, 0x0, 0x12, r0, 0xe1000)

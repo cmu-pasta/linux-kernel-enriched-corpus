@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b6a0533f6b07809edc2c0bd37cd156fdbe718fed
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_mount_image$squashfs(&(0x7f0000000180), &(0x7f00000001c0)='./file0\x00', 0x0, &(0x7f0000000600)=ANY=[@ANYBLOB="00e00f334500f3c676b516ff247935e1cf351749b2049c74c69306ddbe47a2fcf33361c6922932c6179b6a717a00"/63], 0x1, 0x17a, &(0x7f00000003c0)="$eJzskr9O+lAUx7+3lD+/32A0cWKBRKI4KKWoMS464u4DSKAisahQEoUw1BjD4GAcfQJew8QX0MH4AMwdiKMxNff29ObWV/B+Br4933vO6T2Hnno9Lwvgez5u4gCCFBbwxhhMAAUWeYER6SPpO+lDJHilvEPyb0nz3nB01nBdp1/cK2IpYQD4FJ60vP0bA4Fo9TEfN/nDMYAwDEPutQCeDgPBV5yTAtBTcvImsCyGCGUfPggP1gBUBt3LijccbXS6jbbTds5tu7ZjbVnWtl056biOFf0y5Ro0CriuA+D7+qecpwHcUc5/JGHK1eicqbUZZYfllWStodTGyvAsa7OI/y/gCKvIAbjymeKWRBcTYqQ6GFIUVE3lftG7cuJgs3nhtiZgYHHZFKbsUZ0hLQNbDWq7fnztCWmJtE46JZ2RFn59MqbocE9R2QcyuG4MBv0qX1L0JD1bevairy6Mv/XJSA73YkCj0Wg0Go1Go9Fo/jo/AQAA///BEnul")
+chdir(&(0x7f0000000140)='./file0\x00')
+execve(&(0x7f0000000180)='./file0\x00', 0x0, 0x0)

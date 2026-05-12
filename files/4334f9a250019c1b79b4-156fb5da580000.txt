@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2f3828005562c853cd09f8d1be22e62239c00d4e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+openat(0xffffffffffffff9c, 0x0, 0x1c1840, 0x0)
+mount(0x0, 0x0, 0x0, 0x1000, 0x0)
+r0 = open(0x0, 0x0, 0x0)
+ioctl$LOOP_SET_STATUS64(r0, 0x4c04, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r1, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000fc0)={&(0x7f00000004c0)={0x38, 0x1403, 0x1, 0x70bd2d, 0x0, "", [{{0x9, 0x2, 'syz0\x00'}, {0x8, 0x41, 'siw\x00'}, {0x14, 0x33, 'lo\x00'}}]}, 0x38}, 0x1, 0x0, 0x0, 0x854}, 0x0)

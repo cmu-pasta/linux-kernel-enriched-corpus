@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3decf6091df2b1c514270c36e111076d7db1b5ce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bind$alg(0xffffffffffffffff, 0x0, 0x0)
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+ioctl$sock_inet6_SIOCADDRT(r0, 0x890b, &(0x7f0000000340)={@private0={0xfc, 0x0, '\x00', 0x1}, @mcast2, @empty, 0xc16, 0x1c10, 0xfff0, 0xc00, 0x7be, 0x202})

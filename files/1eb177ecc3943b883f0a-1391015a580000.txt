@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+timer_create(0x0, &(0x7f0000000200)={0x0, 0x21, 0x2, @tid=0xffffffffffffffff}, &(0x7f0000000300))
+timer_settime(0x0, 0x0, &(0x7f000006b000)={{0x0, 0x8}, {0x0, 0x9}}, 0x0)
+syz_open_dev$dvb_frontend(&(0x7f00000004c0), 0x0, 0x413f)

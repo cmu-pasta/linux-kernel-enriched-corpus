@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=932aa11538a56e45b2c3a97b0b3aeb3bd4027c03
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"tmpdir":true,"callcomments":true}
+syz_mount_image$hfs(&(0x7f0000000080), &(0x7f0000000040)='./bus\x00', 0x808408, &(0x7f0000000380)=ANY=[@ANYBLOB="636f6465706167653d757466382c66696c655f756d61736b3d30303030303030303030303030303030303030303030332c696f636861727365743d63703737352c71756965742c008f7881d185c35a6a28ef06c5b85628f12a02248de249c2a338d049166371583781680d171f47"], 0x1, 0x2df, &(0x7f0000000400)="$eJzs3T9v004cx/HPOUmb/lF//rVFSCygQiVYKgoMiCUIZWVnQkCTShVREW2RgIWCGBEPgJ2nwINgAfEEYGLiAXQzuvPZdVLHaaCJ2/J+SYmc893569oX39dSagH4Z91pfv94/ad9GamiiqRbUiCpLlUlndHZ+rPNnY2dTrtV1FHFtbAvo7ilOVBnbbOd19S2cy280H6qajZbhtGIouj2j7KDQOnc6M8RSJN+HLr19THHNSq70vmyYxi37AE2e9rTc82VGA4A4Bjw1//AXyZmXZFREEjL/rJ/qq7/e2UHcLRudA4URYUNMtd/N7uLjD2+/7lV+/meS+Hs+iDJEg8TTK3n84TiM6trgmkGZZUulmBqfaOqlbXXagV6o4aXqbbo3lvxqZsYEO1STm5aoH9vNd2djvfGzSh7JSGtb3Tak3YhJ/6F4bb498xn89XcN6E+qJXO/6qRsYfJHamw50gFNRv/1f49zrhWtpZ82t9oNIKuKv+7jZzzW/AG7GU9PyPJ9pncINhNIyiK0217Xt23FeK9Wx3QaiGvVZh+6tNqsatVxZ8JK2tPOoW3UkYj2UXz3twzS/qlT2pm5v+BjW9ZmZFZ9FVvXE1/ZsT7M5FfM/3b9HS3P1wu9NacHGq/4A13t+ydHumm5rZfvHxc6XTaW3bhYc7C09kt40tqb6XcOqNfqKigjnb3SyLrVRQdtudolMFfOdIO7fdHWmKHT15lO8rSkmDch+nULdiRkrOq+UVFJ+TJWYgiqc+qUX1N4TjZNslB9wVTJQeEcbPzLhPnf24m72d1LkWyb2HBPL04yVRXj6tpBtc9FZx379NDZXAz/TO4zBav9ckZXc518bJ0KVNoVLjF0Md5SpimvukB9/8BAAAAAAAAAAAAAAAAAABOmiP8OUHyS8YDq0reRQAAAAAAAAAAAAAAAAAAAAAATrw/ev5v3v+Id8//Dcf1/N/iJwMBOJTfAQAA//+YznN8")
+sync()
+r0 = openat(0xffffffffffffff9c, 0x0, 0x143042, 0x0)
+r1 = openat(0xffffffffffffff9c, 0x0, 0x143042, 0x0)
+creat(0x0, 0x119)
+symlink(0x0, 0x0)
+r2 = creat(0x0, 0x0)
+unlinkat(r1, 0x0, 0x0)
+openat$ipvs(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+ioctl$FIONCLEX(r2, 0x5450)
+syz_mount_image$romfs(&(0x7f0000000140), &(0x7f0000000280)='./file0\x00', 0x208008, &(0x7f0000000000)=ANY=[], 0x80, 0x14e, &(0x7f0000000e40)="$eJzs2r9Kw0AcB/AfWBE6OjoFKlHQ/Ne66ljcfIPQ5tLgxZREkPYFxElQOAdfQvAJfISMbroI+hKRmKMmUWxRIR2+n+W+8Gvvfr0rN50WR6HFEo1oe3R19LIaR6HSdfb6zGIuFXpEpOQhzbIbnb54mtbTjPRvPtCs9bdi7Gz64vCCBdyzm24JAAAAAAAAAAAAAAAAAAAAAADmpLZlaA9FeM4C7lmlajKeHLuce3HSUHuNUxX5houY4Lf5/jiV+tYrkbqfp0AcxHndrH7/WoaNoeDP9f01TsORkYwnWhC6vud7J7btdM0d09y1jY+5jPqM6p3sidLs3tQpk6b10nuzx3nem8nzb60F4vKsvtrn+SMg/DX0WvhH/S4s0UK0UQozbpXWzHtnUbSXi3Gw4nQe8vtP70d8IIv/u2dyJaqWmvrhAPCz9wAAAP//MKk80A==")
+r3 = open(0x0, 0x0, 0x194)
+ioctl$FS_IOC_FSSETXATTR(r3, 0x401c5820, 0x0)
+rename(&(0x7f00000003c0)='./file0\x00', 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x101142, 0x0)
+syncfs(r0)

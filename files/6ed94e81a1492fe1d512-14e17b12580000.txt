@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1ae8310badc9d5ff1d2934b7d99b914d3b4e1062
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+creat(&(0x7f0000000280)='./file0\x00', 0x0)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bind$inet6(r0, &(0x7f0000000100)={0xa, 0x4e22, 0x5ccc6e75, @rand_addr, 0x3}, 0x1c)
+listen(r0, 0x3)
+mount$9p_tcp(&(0x7f0000000100), &(0x7f0000000080)='./file0\x00', &(0x7f00000002c0), 0x0, &(0x7f00000003c0)=ANY=[@ANYBLOB='trans=tcp,port=0x0000000000004e22'])
+prctl$PR_SET_MM(0x23, 0x6, &(0x7f0000001000/0x4000)=nil)
+brk(0x200000ffc000)

@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=06a62b218743b65182c953962811f26c9d8be988
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":2,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$audion(&(0x7f0000000000), 0x3, 0x1)
+write$FUSE_INIT(r0, &(0x7f0000002140)={0x50, 0x0, 0x0, {0x7, 0x27, 0x0, 0x14a4014, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x146, 0xfffffffe}}, 0x50)

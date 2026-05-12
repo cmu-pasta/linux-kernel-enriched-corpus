@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d03aad4eb11cef28ae32deaa76832494f73b4eba
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"tmpdir":true}
+r0 = openat$uhid(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+write$UHID_CREATE(r0, &(0x7f0000000300)={0x0, {'syz1\x00', 'syz1\x00', 'syz0\x00', &(0x7f0000000780)=""/4096, 0x1000, 0x8, 0x6700, 0x53, 0x3, 0x492}}, 0x120)

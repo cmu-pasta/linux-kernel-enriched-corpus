@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fabd9d92a44de54e38e3586f8f586458d30e2fda
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$can_bcm(0x1d, 0x2, 0x2)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r1, 0x8933, &(0x7f0000000080)={'vxcan1\x00', <r2=>0x0})
+connect$can_bcm(r0, &(0x7f0000000000)={0x1d, r2}, 0x10)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+r4 = socket$can_bcm(0x1d, 0x2, 0x2)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000000040)={'vxcan1\x00', <r5=>0x0})
+sendmsg$nl_route_sched(r3, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000580)=@getchain={0x24, 0x11, 0x1, 0x70bd27, 0x0, {0x0, 0x0, 0x0, r5, {}, {}, {0x0, 0xb}}}, 0x24}}, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ef5152c26600bb37247933e90d8c8e25e55c2de6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"close_fds":true,"callcomments":true}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r0, &(0x7f0000000740)=@pppol2tpv3={0x18, 0x1, {0x3, r1, {0x2, 0x4e23, @broadcast}, 0x2, 0x0, 0x4}}, 0x2e)
+bind$inet6(r1, &(0x7f0000000000)={0xa, 0xe22, 0x0, @empty}, 0x1c)
+syz_emit_ethernet(0x50, &(0x7f00000002c0)={@link_local, @dev={'\xaa\xaa\xaa\xaa\xaa', 0x34}, @val={@void}, {@ipv6={0x86dd, @udp={0x0, 0x6, '\b\x00', 0x16, 0x11, 0x80, @remote, @local, {[], {0x0, 0xe22, 0x16, 0x0, @gue={{0x2, 0x0, 0x0, 0x51}, "000000008817"}}}}}}}, 0x0)

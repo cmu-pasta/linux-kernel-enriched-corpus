@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mmap$auto(0x0, 0x20009, 0xe2, 0xeb1, 0x405, 0x8000)
+r0 = openat$auto_proc_oom_adj_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/oom_adj\x00', 0x48402, 0x0)
+read$auto(r0, 0x0, 0x1f40)
+r1 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/fail-nth\x00', 0x802, 0x0)
+writev$auto(r1, &(0x7f0000000200)={0x0, 0x7}, 0x3)
+pidfd_send_signal$auto_PIDFD_SELF_THREAD(0xffffffffffffd8ef, 0x3, 0x0, 0x0)
+mmap$auto(0xfa, 0x2, 0x0, 0x3e, 0xffffffffffffffff, 0xffffffffffffffb1)
+openat$auto_dvb_frontend_fops_dvb_frontend(0xffffffffffffff9c, &(0x7f0000000000), 0x1, 0x0)

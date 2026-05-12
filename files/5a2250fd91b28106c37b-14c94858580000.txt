@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0ce020ab87652cba68122120cf673bc0504aa873
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"usb":true,"vhci":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect$cdc_ncm(0x2, 0x7a, &(0x7f0000000140)=ANY=[@ANYBLOB="12010000020000402505a1a44000010203010902680002010040000904000001020e0000052406000105240000000d370f0100000000000000000006241a0000000c241b4800f3ff00050080050905810300020000000904010000020d00000904010102020d0000090582020004000000090503020002"], 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r0, 0x0, &(0x7f00000004c0)={0x44, 0x0, 0x0, 0x0, &(0x7f0000000340)={0x20, 0x80, 0x1c, {0x80, 0x5, 0xfffff671, 0x1, 0xfffc, 0x7, 0x8, 0xfffffffe, 0x7f, 0xfff8, 0x8000, 0x400}}, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$cdc_ncm(r0, 0x0, 0x0)
+pipe2$9p(0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000200)='./file0\x00', &(0x7f0000004500), 0x800, &(0x7f0000000300))

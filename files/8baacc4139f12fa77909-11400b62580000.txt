@@ -1,0 +1,22 @@
+# https://syzkaller.appspot.com/bug?id=8129669e82081e24e67827fe3af257171c4fc626
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000000080)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+connect$unix(r0, &(0x7f0000000980)=@abs={0x0, 0x0, 0x4e20}, 0x6e)
+sendmmsg$unix(r1, &(0x7f00000bd000), 0x318, 0x0)
+recvmmsg(r0, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+sched_setattr(0x0, 0x0, 0x0)
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.net/syz1\x00', 0x1ff)
+r2 = syz_open_dev$dri(&(0x7f0000000000), 0x0, 0x0)
+mmap(&(0x7f0000001000/0x4000)=nil, 0x4000, 0x4, 0x11, r2, 0x100000000)
+mremap(&(0x7f0000001000/0x2000)=nil, 0x2000, 0x1000, 0x3, &(0x7f00003eb000/0x1000)=nil)
+write$FUSE_STATX(0xffffffffffffffff, 0x0, 0x0)
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, &(0x7f0000000300)=ANY=[], 0x2e)
+ioctl$DRM_IOCTL_SYNCOBJ_FD_TO_HANDLE_SYNC_FILE(0xffffffffffffffff, 0xc01064c2, 0x0)
+ioctl$DRM_IOCTL_SYNCOBJ_DESTROY(r2, 0xc00864c0, &(0x7f00000000c0))
+r3 = syz_usb_connect(0x0, 0x24, &(0x7f0000000040)=ANY=[@ANYBLOB="1201000003005740ed0b0011c3ec0000000109021200"], 0x0)
+syz_usb_control_io$uac1(r3, 0x0, &(0x7f00000004c0)={0x44, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+bpf$PROG_LOAD_XDP(0x5, 0x0, 0x0)
+sched_setscheduler(0x0, 0x1, 0x0)

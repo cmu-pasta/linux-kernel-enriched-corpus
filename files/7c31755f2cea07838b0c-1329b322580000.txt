@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1b4abf9c1c6c18ce1e0c1cf85575005fe21f0407
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$fuse(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+r1 = syz_mount_image$fuse(&(0x7f0000000080), &(0x7f00000000c0)='./file0\x00', 0x0, &(0x7f0000002280)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=r0, @ANYBLOB=',rootmode=00000000000000000040000,user_id=', @ANYRESDEC=0x0, @ANYBLOB=',group_id=', @ANYRESDEC=0x0], 0x0, 0x0, 0x0)
+read$FUSE(r0, &(0x7f0000000100)={0x2020, 0x0, <r2=>0x0}, 0x2020)
+write$FUSE_INIT(r0, &(0x7f0000002140)={0x50, 0x0, r2, {0x7, 0x27, 0x0, 0x14a4014, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffe}}, 0x50)
+read$FUSE(r0, &(0x7f000000b040)={0x2020, 0x0, <r3=>0x0}, 0x2020)
+write$FUSE_INTERRUPT(r0, &(0x7f0000002240)={0x10, 0xffffffffffffffda, r3}, 0x10)
+file_getattr(r1, 0x0, &(0x7f0000002300), 0x18, 0x1000)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=6e794d02543b645881dc2e5154bdf4c77ce61871
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"cgroups":true,"close_fds":true,"tmpdir":true,"segv":true,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000100)={0x8, 0x80000100008b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000300)=0x7)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x1, 0x0)
+openat$vnet(0xffffffffffffff9c, &(0x7f0000000180), 0x2, 0x0)
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000400)={0x0, 0x0, 0x0, 0x20002000, &(0x7f0000000000/0x2000)=nil})
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x0)
+syz_kvm_setup_cpu$x86(r1, r0, &(0x7f00003a1000/0x18000)=nil, &(0x7f0000000100)=[@text32={0x20, &(0x7f0000000000)="9a01000000f800b8d58800000f23d00f21f8351000000d0f23f864640f79ea66baf80cb8c85f5480ef66bafc0cecc4c2adac17b9550200000f320f2860c7c4e11751df0f2e2d00000080b9800000c00f3235008000000f30", 0x58}], 0x1, 0x4a, 0x0, 0x0)
+ioctl$KVM_SET_GUEST_DEBUG_x86(r2, 0x4048ae9b, &(0x7f0000000080)={0x40003, 0x0, {[0xffffffffffffffff, 0x0, 0x8, 0xfffffffdefffff16, 0x3, 0x10, 0x4, 0x4]}})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=ef5152c26600bb37247933e90d8c8e25e55c2de6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"close_fds":true,"callcomments":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+bind$inet(r0, &(0x7f0000000040)={0x2, 0x4e20, @empty}, 0x10)
+r1 = socket$pppl2tp(0x18, 0x1, 0x1)
+connect$pppl2tp(r1, &(0x7f0000000100)=@pppol2tpv3in6={0x18, 0x1, {0x0, r0, 0x2, 0x0, 0x2, 0x0, {0xa, 0x4e22, 0xd0bc, @private2={0xfc, 0x2, '\x00', 0x1}, 0xfffffffc}}}, 0x3a)
+syz_emit_ethernet(0x6a, &(0x7f0000000440)={@multicast, @remote, @void, {@ipv4={0x800, @udp={{0x5, 0x4, 0x0, 0x3e, 0x5c, 0x0, 0x0, 0x8, 0x11, 0x0, @empty, @empty}, {0x0, 0x4e20, 0x48, 0x0, @wg=@cookie={0x3, 0x0, "552297c81d4e44cec139232a1e45f0931577e35cfeaa8710", "5ea3f95ef1fcbdb783b387d5479c7bc2844723fa8ad470dc6c6f3dee42379ca4"}}}}}}, 0x0)

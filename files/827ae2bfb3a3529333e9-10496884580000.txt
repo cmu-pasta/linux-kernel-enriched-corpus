@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=6527efc75d87e25d4571e66caae1ab737a8db9b8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+socket(0x2b, 0x1, 0x1)
+bind$inet6(r0, &(0x7f0000000040)={0xa, 0x4e22, 0x0, @empty}, 0x1c)
+listen(r0, 0x5)
+r1 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000000)={0x1, &(0x7f0000000100)=[{0x6, 0x0, 0x0, 0x7fff0000}]})
+r2 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto$inet6(r2, 0x0, 0x0, 0x20004000, &(0x7f00000001c0)={0xa, 0x4e22, 0x40000000, @empty, 0x1}, 0x1c) (async)
+close_range(r1, 0xffffffffffffffff, 0x0)
+socket(0x10, 0x3, 0x0)

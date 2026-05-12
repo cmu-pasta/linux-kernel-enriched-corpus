@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=2db053ac5452375359f016066cdb2e38c59fc437
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mmap$auto(0x0, 0x4, 0x4000000000df, 0x40eb1, 0x401, 0x300000000000)
+sendmsg$auto_OVS_VPORT_CMD_DEL(0xffffffffffffffff, 0x0, 0x4000)
+prctl$auto(0x1000000003b, 0x1, 0x4, 0x5, 0x10004)
+open(0x0, 0x4242, 0xe1d2b27bdc14aabc)
+r0 = openat$auto_def_blk_fops_fs(0xffffffffffffff9c, &(0x7f0000000140)='/dev/loop2\x00', 0x24040, 0x0)
+ioctl$auto_BLKTRACESETUP(r0, 0xc0481273, &(0x7f00000000c0)={"ef65ce6c00cf81000000ffffffffffffff291d000000000700", 0x3ff, 0x100100, 0xfff, 0x400004, 0x200000000040000d})
+ioctl$auto_BLKTRACETEARDOWN(r0, 0x1276, 0x0)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+getrandom$auto(0x0, 0x400000a, 0x400003)

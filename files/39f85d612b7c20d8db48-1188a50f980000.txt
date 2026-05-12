@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5b476877496182e2b099fb7cc1c344a03b90be53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000700)=ANY=[@ANYBLOB], 0x48)
+bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x0, 0xc, &(0x7f0000000240)=ANY=[@ANYBLOB="1800000000000000000000000000000018120000", @ANYRES32=r0, @ANYBLOB="0000000000000000b7080000000000007b8af8ff00000000bfa200000000000007020000f8ffffffb703000000000000b704000000090000850000004300000095"], 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x90)
+bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000240)=ANY=[], &(0x7f0000000200)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x90)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=43dcde670f6d4a30a149ce55fd32d9dd79f4834d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+bind$auto(0x3, &(0x7f0000000040)=@in={0x2, 0x3, @empty}, 0x6a)
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/net/afs/addr_prefs\x00', 0x102, 0x0)
+writev$auto(r0, &(0x7f0000000080)={&(0x7f0000000040), 0x6}, 0x3)

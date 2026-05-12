@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=63d4cf7a7a594070a8a1ca9465e4d22a99903e85
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+mount$afs(0x0, &(0x7f00000001c0)='./file0\x00', &(0x7f00000002c0), 0x0, &(0x7f0000000400)={[{@dyn}]})
+chdir(&(0x7f00000000c0)='./file0\x00')
+syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)

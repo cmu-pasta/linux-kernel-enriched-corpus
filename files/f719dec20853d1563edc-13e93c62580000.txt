@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4aefcd919ec9c6d666817d7b91b971aa70b14147
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"sysctl":true,"tmpdir":true,"callcomments":true}
+socketpair$unix(0x1, 0x3, 0x0, 0x0)
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x4000000004002, 0x0)
+r1 = dup(r0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb, 0x13, r1, 0x2000)
+r2 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x4000000044082, 0x0)
+fallocate(r2, 0x11, 0x0, 0x80000000074000)

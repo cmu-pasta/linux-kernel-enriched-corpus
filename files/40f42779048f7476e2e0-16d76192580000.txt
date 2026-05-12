@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e62321bda4c9a88c4ff2839a02913a1d9a5949ef
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = fsopen(&(0x7f0000000140)='mqueue\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = fsmount(r0, 0x0, 0x0)
+fchdir(r1)
+r2 = fspick(0xffffffffffffff9c, &(0x7f0000000000)='.\x00', 0x0)
+fsconfig$FSCONFIG_SET_FLAG(r2, 0x0, &(0x7f0000000040)='ro\x00', 0x0, 0x0)
+fsconfig$FSCONFIG_CMD_RECONFIGURE(r2, 0x7, 0x0, 0x0, 0x0)
+mq_open(&(0x7f00000004c0)='!\x7f\x00\xca\x00\x00\x00\f\x00\x00\x01E!T\xednux\x02\xc7\x12\xec\xca7\xbc\x1fS\x1c\x05y\x91\xe5\x9aL\xa9u\b\x00\x00\x00\xa0pC\x19\x9b\vY\x186\xa4\xe7\x1eg{`\xfa\xf3n\x8fIj6f\xfb\x13-g\x19(a6\x18\xe24nz\x83w8\xff\xfb\x83\f\x9a\xda\xc5w\x8eo\x02\xa3\xc1\x83\x91\xc6\xfd\x8c\xc4s\x03\x16\xa4+\xce|^\x98K_0\x8a\xb0\xff~\x1e\xd92\xb4r\xd8\xe7', 0x40, 0x110, 0x0)

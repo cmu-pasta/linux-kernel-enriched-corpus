@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=5589fb7e2d42f94884bab53ec2c3655e8a65c401
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = fsopen(&(0x7f0000000100)='hugetlbfs\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = fsmount(r0, 0x0, 0x0)
+fchdir(r1)
+r2 = open(&(0x7f0000000340)='./bus\x00', 0x14927e, 0x100)
+open(&(0x7f0000000340)='./bus\x00', 0x14927e, 0x100) (async)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x27fffff, 0x4002011, r2, 0x0)

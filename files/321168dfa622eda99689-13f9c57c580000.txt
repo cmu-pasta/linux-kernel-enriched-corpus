@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=6d15c8be1766716672a29b7e8c01f5bb83e56cfd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+fanotify_init(0xf00, 0x0) (fail_nth: 1)

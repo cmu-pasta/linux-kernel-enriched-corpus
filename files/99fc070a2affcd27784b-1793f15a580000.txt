@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=1f969a93c051f72e63176ed71ad60bc5a589ecc4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_mount_image$squashfs(&(0x7f00000002c0), &(0x7f0000000580)='./cgroup\x00', 0x5, &(0x7f0000000000)=ANY=[], 0x10, 0x199, &(0x7f00000000c0)="$eJzs0cFrE0EUx/Hvm5nsZgtGUz3VQxcMrCtKm3jzFDy1kAWvIkGXGpvSRLTJwRbFehKk2r/Bkx5F8CZiwbN4EDxoRPBqDsGDeKgru5n8FZ0Pu8z+dnkzO/O6g7sDHzic3F+jScFQ4ZMvGGBRmMvfKTX9JgKPAE+KWNkHQuDyNLMnePn40ua5XazwUli2j5tpr9fZCtGT3yHVHwy2dzbTXj5tUTUWmsiXiV5L5UYiCH11M6Ha4txTdDsgfsaCOcap62iyaI9VlWUSteD40rB/Z2mwvXNho39tvbPeud1oXDR21Vsbvc7yGyR+IsoU2wQ/IYgfUGoTkF8IcVeNtATgtdn/qM+eOT9Gxb/IEN5HY/xvpluZbaoKK5wUnqMTai0Chcke5gutIFfUa6mbz+ZPSVHe1bbkqtJ/PX82QSmqk64Cy7DA/OEBj0fURpzQvBiZn99ZlLcE/MvseZriPF/ZdDrvjce9dDjcqnuUP0iU0MjvKijmOUAlzVor/893tsYOfJ11w3Ecx3Ecx3EcxzkC/gcAAP//+btUYA==")

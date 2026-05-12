@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=2f7b5cf886b2bd4c48eedc383c7c31cbcf47048b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x105042, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000200)='./file1\x00', &(0x7f0000000240), 0x0, &(0x7f0000000300)={'trans=fd,', {'rfdno', 0x3d, r1}, 0x2c, {'wfdno', 0x3d, r0}})

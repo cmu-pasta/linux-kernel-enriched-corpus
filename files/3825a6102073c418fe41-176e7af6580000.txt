@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=213ce330c4b4c7d63d68145c9a7b3f956299a5ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x3, 0x24, &(0x7f0000000140)=ANY=[@ANYBLOB="12010000cc1ef420890b070064ef000000010902120001000000000904"], 0x0)
+write$proc_mixer(0xffffffffffffffff, 0x0, 0x33)
+r0 = syz_open_dev$dvb_demux(&(0x7f00000002c0), 0x1, 0x0)
+ioctl$DVB_DEMUX_DMX_SET_FILTER(r0, 0x403c6f2b, &(0x7f0000000200)={0x7, {"9db867d09ed91aa9c5c29f2f1e4be6bf", "cc6c2d12e0353c0e42899a29fdefe3bc", "9defe9f49655f386b84e6bb715dac54f"}, 0x445, 0x7})

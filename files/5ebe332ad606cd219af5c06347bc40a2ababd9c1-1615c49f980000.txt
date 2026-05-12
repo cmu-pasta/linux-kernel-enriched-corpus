@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5ebe332ad606cd219af5c06347bc40a2ababd9c1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$ETHTOOL_MSG_PRIVFLAGS_GET(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f00000001c0)=ANY=[@ANYBLOB=',\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="010000000000000000002d000000180001801400020069705f767469300000000000000000003b3ea0508f1c2b8e"], 0x2c}}, 0x0)

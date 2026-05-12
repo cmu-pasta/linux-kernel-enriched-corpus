@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=20b7b55fb7940835d9600897d28a4fa556a4a3f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"cgroups":true,"close_fds":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"callcomments":true}
+r0 = socket$unix(0x1, 0x5, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x89f0, &(0x7f0000000080)={'bridge0\x00', &(0x7f00000000c0)=@ethtool_regs={0x4, 0x0, 0x1c, "f42a97b96d025891dd3f75fdda624457ad3d5c36389c308570204262"}})

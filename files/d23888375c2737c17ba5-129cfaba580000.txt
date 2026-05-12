@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=dbcb39beb96c35c5b1f579ec77a4c121d60d21a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r0, &(0x7f00000004c0)={0x26, 'skcipher\x00', 0x0, 0x0, 'ecb-cast6-avx\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r0, 0x117, 0x1, &(0x7f0000000280)="ad56b6c5820fae9d6dcd3292ea54c7beef915d564c90c200", 0x18)
+r1 = accept4(r0, 0x0, 0x0, 0x800)
+sendmmsg$alg(r1, &(0x7f0000000040)=[{0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000080)="f78d9ca38fff48f3be52163448412ba8", 0xfffffe3f}, {&(0x7f0000000140)="ebe3a0e9796cfd1647e299f4e376fdba128280b372219d205e81f4a7f71c1926aae1efd7e0054a863f3d5cfe6cb55b5bb9fa6935849e6098ed884e7cb51726b360fbb37b4fe035bbb095873048"}, {&(0x7f00000003c0)="e8700e444d50a969ff67347cff6127e6ef12ee3819271482a4975a52c1ab9b8b4db3945d1032005eabe97b4dc33a47d3a158da988456d30026b433186f53cdcdb93a4722bf306a10470d50f5cb1ece9ead3459bab1cf1538cd0b157653c5e892962c80f158c443e9c6ad7d2a8103ef2f4b93766b9a21501f94c1568b13756b66f74f46cf801704d2da8b96c34070b233af0afcc436712e58ed25e721193af05a045ad3fdc928f02f3dbad19d3e66eebda2e63f3f46ef4511cee26d7b48241847bf9e343ef4674c45e2a085060f11"}], 0x1, &(0x7f0000000380)=[@op={0x18, 0x117, 0x3, 0x1}], 0x18}], 0x1, 0x40800)
+recvmmsg$unix(r1, &(0x7f0000000900)=[{{0x0, 0x0, &(0x7f0000003e00)=[{&(0x7f0000000c00)=""/4096, 0x1000}], 0x1}}], 0x1, 0x40004041, 0x0)

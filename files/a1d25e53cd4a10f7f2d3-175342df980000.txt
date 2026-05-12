@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f93e97cd824071a2577a40cde9ecd957f59f87eb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_ftrace_set_event_fops_trace_events(0xffffffffffffff9c, &(0x7f0000000100)='/sys/kernel/tracing/set_event\x00', 0x20201, 0x0)
+write$auto(r0, &(0x7f0000000040)='nbd\x00', 0x4) (fail_nth: 2)

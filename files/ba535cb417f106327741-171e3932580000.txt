@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4d7da8b9a9a23db755999d249f31421ac16c77ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+sendmmsg$inet6(r0, &(0x7f0000000480)=[{{&(0x7f0000000000)={0xa, 0x0, 0x0, @private0, 0xfffffffc}, 0x1c, &(0x7f0000000300)=[{&(0x7f00000006c0)="b3", 0x1}], 0x1}}, {{0x0, 0x0, 0x0}}, {{0x0, 0x0, 0x0}}], 0x3, 0x44)
+listen(r0, 0x100101)
+setsockopt$inet_sctp6_SCTP_AUTO_ASCONF(r0, 0x84, 0x1e, &(0x7f00000000c0)=0x6, 0x4)
+accept(r0, 0x0, 0x0)

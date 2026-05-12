@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=12d17d5e420ba648d3b3a8e5be1ade5d311008a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000140)='/proc/sys/kernel/sched_rt_period_us\x00', 0x202, 0x0)
+write$auto(r0, &(0x7f0000000000)='-!\'+\x00', 0xf6) (fail_nth: 3)

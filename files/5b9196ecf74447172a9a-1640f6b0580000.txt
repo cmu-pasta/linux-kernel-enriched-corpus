@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=ddb1f9850ea49c02c07efe60c5487483ba04bb66
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"wifi":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)

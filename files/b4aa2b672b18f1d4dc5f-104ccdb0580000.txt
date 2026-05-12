@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=9049957a255c8e866f022254dfb7cbb886b69003
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"wifi":true,"sysctl":true,"tmpdir":true}
+socket$nl_route(0x10, 0x3, 0x0)
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.events\x00', 0x26e1, 0x0)
+close(r1)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f00000000c0))
+ioctl$SIOCSIFHWADDR(r1, 0x8b06, &(0x7f0000000000)={'wlan1\x00', @random="060000000010"})
+sendmsg$nl_route(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000000c0)=ANY=[@ANYBLOB="300000001000010000003a194618d96d6d2e8553", @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00\b\x00\n\x00', @ANYRES32=0x0, @ANYBLOB="08001b"], 0x30}}, 0x0)
+r2 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r2, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000080)="2e00000010008188e6b62aa73772cc9f1ba1f848480000005e140602000000000e000a000f000000028000001294", 0x2e}], 0x1}, 0x0)
+sendmsg$IPSET_CMD_TEST(0xffffffffffffffff, 0x0, 0x44)

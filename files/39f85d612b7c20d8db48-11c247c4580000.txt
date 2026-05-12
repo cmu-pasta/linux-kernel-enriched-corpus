@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=5b476877496182e2b099fb7cc1c344a03b90be53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route_sched(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000001c40)=@newtaction={0xf0, 0x30, 0x1, 0x0, 0x0, {}, [{0xdc, 0x1, [@m_police={0x6c, 0x1, 0x0, 0x0, {{0xb}, {0x40, 0x2, 0x0, 0x1, [[@TCA_POLICE_TBF={0x3c}]]}, {0x4}, {0xc}, {0xc}}}, @m_police={0x6c, 0x2, 0x0, 0x0, {{0xb}, {0x40, 0x2, 0x0, 0x1, [[@TCA_POLICE_TBF={0x3c, 0x1, {0x1}}]]}, {0x4}, {0xc}, {0xc}}}]}]}, 0xf0}}, 0x0)

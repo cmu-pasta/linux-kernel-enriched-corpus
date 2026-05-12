@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5b6ae821d342c5f941390c5ad8f8d549c20b21a1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_io_uring_setup(0x371d, &(0x7f0000000440)={0x0, 0x0, 0x2, 0x2, 0xe9}, &(0x7f0000000380), &(0x7f0000000400))
+io_uring_register$IORING_REGISTER_PERSONALITY(r0, 0x9, 0x0, 0x0)
+io_uring_register$IORING_UNREGISTER_PERSONALITY(r0, 0xa, 0x0, 0x0)

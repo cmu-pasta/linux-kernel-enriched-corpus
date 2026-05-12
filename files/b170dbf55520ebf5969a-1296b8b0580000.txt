@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=0136009cec982ac5c8f05ed865b3d1cfdc8f1452
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+tkill$auto(0x80000000000001, 0x7)
+mmap$auto(0x0, 0x40009, 0xdf, 0x9b72, 0x7, 0x28000)
+r0 = openat$auto_force_devcoredump_fops_hci_vhci(0xffffffffffffff9c, &(0x7f0000000c40)='/sys/kernel/debug/bluetooth/hci2/force_devcoredump\x00', 0x2, 0x0)
+write$auto(r0, 0x0, 0xe)

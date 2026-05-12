@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=c3271c8427f15baa58ff4e9d69f60a0203321001
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = userfaultfd(0x80001)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f00000000c0))
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000080)={{&(0x7f0000ffd000/0x3000)=nil, 0x3000}, 0x1})
+madvise(&(0x7f0000000000/0x400000)=nil, 0x400000, 0x19)
+r1 = socket$xdp(0x2c, 0x3, 0x0)
+setsockopt$XDP_UMEM_REG(r1, 0x11b, 0x4, &(0x7f0000000340)={&(0x7f0000000000)=""/59, 0x304000, 0x800, 0x0, 0x3}, 0x20)
+ioctl$UFFDIO_COPY(r0, 0xc028aa05, &(0x7f0000000100)={&(0x7f0000ffd000/0x3000)=nil, &(0x7f0000013000/0x4000)=nil, 0x3000, 0x3})
+syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5660d54574d0a993317c7b4186f0172d0dcd3a18
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+sendmsg$auto_NL80211_CMD_GET_REG(0xffffffffffffffff, 0x0, 0x40000)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$auto_ila(&(0x7f0000000440), r0)
+sendmsg$auto_ILA_CMD_ADD(r0, &(0x7f0000000b00)={0x0, 0x0, &(0x7f0000000ac0)={&(0x7f0000000080)={0x1c, r1, 0x201, 0x70bd28, 0x25dfdbff, {}, [@ILA_ATTR_IFINDEX={0x8}]}, 0x1c}, 0x1, 0x0, 0x0, 0x8080}, 0x38) (async)
+sendmsg$auto_ILA_CMD_ADD(r0, &(0x7f0000000b00)={0x0, 0x0, &(0x7f0000000ac0)={&(0x7f0000000080)={0x1c, r1, 0x201, 0x70bd28, 0x25dfdbff, {}, [@ILA_ATTR_IFINDEX={0x8}]}, 0x1c}, 0x1, 0x0, 0x0, 0x8080}, 0x38)

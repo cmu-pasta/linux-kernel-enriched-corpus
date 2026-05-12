@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=d47fcea929219ef53b5b0f700f2102bed78b6202
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+sched_setaffinity(0x0, 0x0, 0x0)
+r0 = syz_open_dev$MSR(&(0x7f0000000300), 0x100040000, 0x0)
+read$msr(r0, &(0x7f0000019680)=""/102392, 0x18ff8)
+ioctl$USBDEVFS_ALLOW_SUSPEND(0xffffffffffffffff, 0x5522)
+sendmsg$NFT_BATCH(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$X25_QBITINCL(0xffffffffffffffff, 0x106, 0x1, 0x0, &(0x7f0000000240)=0xfffffffffffffee0)
+add_key(&(0x7f0000000140)='encrypted\x00', &(0x7f0000000180), &(0x7f0000000100), 0xca, 0xfffffffffffffffe)
+socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cpuacct.usage_sys\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0x400000)=nil, 0x400000, 0x1, 0x10012, r1, 0x0)
+futex(0x0, 0x9, 0x2, 0x0, &(0x7f0000000340)=0x2, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8ed8e8cc30cbe0d86c9a25bd1d6a5775129b8ea3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$video(&(0x7f0000000000), 0x485, 0x0)
+r1 = syz_open_dev$vbi(&(0x7f0000000040), 0x0, 0x2)
+ioctl$VIDIOC_S_INPUT(r1, 0xc0045627, &(0x7f00000001c0)=0x2)
+r2 = syz_open_dev$vim2m(&(0x7f00000002c0), 0x2000000f5, 0x2)
+ioctl$vim2m_VIDIOC_S_CTRL(r2, 0xc008561c, &(0x7f0000000e80)={0xf0f020})
+ioctl$VIDIOC_S_SELECTION(r0, 0xc040565f, &(0x7f0000000080)={0x9})
+read(r2, &(0x7f0000000300)=""/222, 0xde)

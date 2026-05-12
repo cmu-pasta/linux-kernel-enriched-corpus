@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8d5962eb786ecb9cded9906aad76fa06f81b067f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f0000000040)={'team0\x00', <r1=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000580)={&(0x7f0000000480)=ANY=[@ANYBLOB="4400000010000304040000000000000000000400", @ANYRES32=0x0, @ANYBLOB="08000000000000001c0012800b00010062726964676500000c000280080005000100000008000a00", @ANYRES32=r1], 0x44}, 0x1, 0x0, 0x0, 0x4}, 0x8044)

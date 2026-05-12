@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+move_mount(0xffffffffffffff9c, 0x0, 0xffffffffffffffff, 0x0, 0x200)
+unshare(0x62040200)
+ioctl$KVM_RUN(0xffffffffffffffff, 0xae80, 0x0)
+r0 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$inet6_int(r0, 0x29, 0x4c, 0x0, 0x0)

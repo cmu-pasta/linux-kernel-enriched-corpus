@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c1d9ca1beae7c16582d6f3e75735f2e2fb60ced5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+openat$auto_configfs_file_operations_configfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/config/nullb/features\x00', 0x40283, 0x0)
+r0 = openat$auto_configfs_file_operations_configfs_internal(0xffffffffffffff9c, &(0x7f0000006900)='/sys/kernel/config/target/dbroot\x00', 0x189002, 0x0)
+mprotect$auto(0x1ffff000, 0x8000000000000001, 0xd)
+write$auto_configfs_file_operations_configfs_internal(r0, &(0x7f0000000000)="8e79ead6525bbb6605dfe52d1043dc724a8c", 0xfdef)

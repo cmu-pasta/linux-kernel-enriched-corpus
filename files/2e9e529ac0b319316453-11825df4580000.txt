@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=20ff41f40a17b3f5e2f7b6fb51411d267f156e0a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$vsock(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+syz_open_procfs(0x0, &(0x7f00000000c0)='task\x00')
+syz_open_procfs(0x0, &(0x7f0000000140)='smaps\x00')
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nbd(&(0x7f0000000040), 0xffffffffffffffff)
+r2 = openat$nvme_fabrics(0xffffffffffffff9c, &(0x7f0000000000), 0x101100, 0x0)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000180)={<r3=>0xffffffffffffffff})
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000001a80)={&(0x7f00000001c0)=ANY=[@ANYBLOB="80000000", @ANYRES16=r1, @ANYBLOB="01000400000000000000010000000c00060001000000000000000c00020000000000000000005400078008000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32=r2, @ANYBLOB="35000100", @ANYRES32=r2, @ANYBLOB, @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32, @ANYBLOB="08000100", @ANYRES32=r3], 0x80}, 0x1, 0x0, 0x0, 0x20044885}, 0x0)
+sendmsg$NBD_CMD_DISCONNECT(0xffffffffffffffff, 0x0, 0x884)

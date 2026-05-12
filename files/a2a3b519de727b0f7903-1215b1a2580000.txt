@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7bfe3f93d980996d2b746ae1a90f0452b6f5c7ca
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)=ANY=[@ANYBLOB="3000000010000100"/20, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00\b\x00\n\x00', @ANYRES32=0x0, @ANYBLOB="08001b"], 0x30}}, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r1, 0x8933, &(0x7f0000000000)={'team0\x00', <r2=>0x0})
+sendmsg$nl_route(r1, &(0x7f0000000280)={0x0, 0xffffffffffffff72, &(0x7f0000000040)={&(0x7f0000005b40)=@newlink={0x3c, 0x10, 0x1, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x0, 0x3112}, [@IFLA_IFNAME={0x14, 0x3, 'gre0\x00'}, @IFLA_MASTER={0x8, 0xa, r2}]}, 0x3c}, 0x1, 0x0, 0x0, 0xcb3c277183291921}, 0x8014)

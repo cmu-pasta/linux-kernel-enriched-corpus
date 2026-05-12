@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=f92864dbbd42b354f5ca2f14c0f51bf5d54b002a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"usb":true,"ieee802154":true,"tmpdir":true,"callcomments":true}
+r0 = openat$audio(0xffffffffffffff9c, &(0x7f0000000140), 0x40000000040201, 0x0)
+ioctl$SNDCTL_DSP_SETFRAGMENT(r0, 0xc004500a, &(0x7f0000000080))
+ioctl$SNDCTL_DSP_SPEED(r0, 0xc0045002, &(0x7f0000000040)=0xdfe5)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000500)={0xa00, 0x18, 0xfa00, {0x100000000000000, 0x0}}, 0xfc36)

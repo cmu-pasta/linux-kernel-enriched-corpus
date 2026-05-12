@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e8eda7c7b7a999684d5e57f1f949451e39f9cf51
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"sysctl":true,"segv":true}
+r0 = openat$auto_mtd_fops_mtdchar(0xffffffffffffff9c, &(0x7f0000000400)='/dev/mtd0\x00', 0x2a482, 0x0)
+mmap$auto(0x0, 0x20009, 0xdf, 0xeb1, 0x401, 0x8000)
+mprotect$auto(0x1ffff000, 0x8000000000000001, 0xd)
+r1 = syz_open_procfs$namespace(0x0, &(0x7f0000000040)='ns/net\x00')
+getdents64$auto(r1, 0x0, 0x29)
+ioctl$auto(r0, 0x1269, 0x8) (fail_nth: 7)

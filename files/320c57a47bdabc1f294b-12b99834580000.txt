@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ac77f90ee9a3b4694f511c26af00d1be13b55d40
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+syz_mount_image$minix(&(0x7f0000000040), &(0x7f0000000140)='./file1\x00', 0x42, &(0x7f0000000540)=ANY=[], 0xd, 0x1a4, &(0x7f0000000640)="$eJzs271u2lAUwPFj7GKgX7S0HapKRerQLsVAW6Ru7aNQcBGqaaKQBcRA8gJ5hrxfGKIsmULk648oBoNCAIP8/w3Y3HM/zgWudIRkAZBav6QsmmiScd98yBXPSlrSKQHYkql/vZkCSB/92ruWk04EwJZNfouq/S8uRy3Rs2FdENy58XEQz5gz9cPkROS94ce1nOSj9cW5yOdgvFaIDr9yWwph/GkknFXzf/kUrP9MnssLeSlFeSWvpeSv3w7Hv3to+TO7IQAAUkCTyrJ4TIcn6jUvf7uOXVU9I/58V73ceC12/qyK1xfG9Y/x+ZlqfKV14LQX7gPArMzK59+jh+d/PmPJ+QeQnP5g+K/pOPbRDtzk7uczNUU2uKi5C1ve3xtToi3GWmbOx4ZOZV7I/dGsc18j/2Bs9jMcR1vcajrJ79TwVtf9NPhfDEgB67h3aPUHw6/dXrNjd+z/9Wr1Z+PHt1qjbqnK3lpc3wPYX3dlQNKZAAAAAAAAAAAAAACAVb2Rt0mnAAAAAGBLlj4YJIbX8REPGCW9RwAAds5tAAAA//8YBw3V")
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='blkio.bfq.io_queued_recursive\x00', 0x275a, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000040)='./bus\x00', 0x42, 0x0)
+mount(&(0x7f0000000380)=@loop={'/dev/loop', 0x0}, &(0x7f0000000340)='./bus\x00', 0x0, 0x1000, 0x0)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=9d3902e6e131ea24ead2958eca154c23c7fd5442
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+pipe2$watch_queue(&(0x7f00000002c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x80)
+r1 = add_key(&(0x7f0000000140)='cifs.spnego\x00', &(0x7f0000000180)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_WATCH_KEY(0x20, r1, r0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file0\x00', 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+r3 = socket$inet6(0xa, 0x80002, 0x0)
+setsockopt$sock_int(r3, 0x1, 0x28, &(0x7f0000000180)=0x80000004, 0x4)
+bind$inet6(r3, &(0x7f0000000000)={0xa, 0x4e20, 0x0, @empty}, 0x1c)
+syz_emit_ethernet(0x52, &(0x7f00000001c0)={@local, @dev, @void, {@ipv4={0x800, @udp={{0xd, 0x4, 0x0, 0x0, 0x44, 0x0, 0x0, 0x0, 0x11, 0x0, @rand_addr=0x64010100, @empty, {[@timestamp_prespec={0x44, 0xc, 0xe3, 0x3, 0xa, [{@remote, 0x5}]}, @ssrr={0x89, 0x13, 0xb7, [@loopback, @local, @initdev={0xac, 0x1e, 0x1, 0x0}, @dev={0xac, 0x14, 0x14, 0x2b}]}]}}, {0x0, 0x4e20, 0x10, 0x0, @gue={{0x2}}}}}}}, 0x0)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f0000000040)={0x0, <r4=>0x0}, &(0x7f0000000180)=0xc)
+mount$9p_virtio(&(0x7f0000000040), &(0x7f0000000280)='./file0\x00', &(0x7f00000002c0), 0x4, &(0x7f0000000600)={'trans=virtio,', {[{@access_uid={'access', 0x3d, r4}}, {@access_user}, {@uname={'uname', 0x3d, '@'}}], [{@fowner_lt}]}})

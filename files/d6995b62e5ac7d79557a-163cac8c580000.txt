@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1466684797626866caf7eb7ce1555995744b0238
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+add_key$keyring(&(0x7f0000000000), 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000040)='/dev/comedi4\x00', 0x181001, 0x0)
+mprotect(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1)
+ioctl$COMEDI_INSNLIST(r0, 0x8010640b, &(0x7f0000000000)={0x0, 0x0})

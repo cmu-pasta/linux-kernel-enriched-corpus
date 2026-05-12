@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0324f4083a4c17b200113b1c61cd408386ca5f42
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true}
+r0 = openat$ndctl0(0xffffffffffffff9c, &(0x7f0000000000), 0x8082, 0x0)
+ioctl$DRM_IOCTL_GEM_FLINK(r0, 0xc008640a, &(0x7f0000000180)) (rerun: 32)
+getsockopt$inet_sctp6_SCTP_CONTEXT(0xffffffffffffffff, 0x84, 0x11, &(0x7f0000000180)={0x0, 0x2}, 0x0)

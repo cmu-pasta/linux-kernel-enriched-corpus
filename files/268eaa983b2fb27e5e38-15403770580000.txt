@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=dc1aaadc6fe7f900a77f0d6b052ad7dcf5e8393c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket(0x11, 0x3, 0x0)
+ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)
+setsockopt$packet_int(r0, 0x107, 0x7, 0x0, 0x0)
+r1 = openat$tun(0xffffffffffffff9c, 0x0, 0x40a01, 0x0)
+ioctl$TUNSETIFF(r1, 0x400454ca, 0x0)
+getpid()
+socket$nl_netfilter(0x10, 0x3, 0xc)
+preadv(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+syz_emit_vhci(0x0, 0x11)
+sendmsg$nl_generic(0xffffffffffffffff, 0x0, 0x20000000)

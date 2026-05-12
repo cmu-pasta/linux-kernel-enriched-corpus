@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e0ea1d9288d0cf8017c7fefa745690b4dc5c329f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+bpf$BPF_TASK_FD_QUERY(0x14, 0x0, 0x0)

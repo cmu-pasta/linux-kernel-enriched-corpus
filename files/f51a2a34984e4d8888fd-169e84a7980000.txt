@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=24dfd152b6b1712b96b3c8adb38aa034a998ca53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_mount_image$bfs(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x8008, &(0x7f0000001980)=ANY=[@ANYRESOCT, @ANYRES16, @ANYRES16, @ANYRES16, @ANYRESOCT=0x0, @ANYRESOCT, @ANYRES8, @ANYRES32, @ANYBLOB="2fecfb2b47b99181063f4ea9a91ac6f65072f0152c20c39ac1fa3f98a9bf4519f1ddd806e46d4f97e3a0c06d3b224332dd177d91e19dbd12718934e5c33da190f134ef5de5cd25678f897b106a4bcc4956a5b987b8b305cec56493d8d526a15bc1359b9c7c18c1c9cf278f262b8d7fea7e8630bec974d1d44f316f6be8491fa5febafde1aece65252ae1609105a79749c16f8ef0593680b0ab39ae08bb", @ANYRESDEC, @ANYRES8, @ANYRESDEC, @ANYRES64, @ANYRES8], 0xd, 0xb6, &(0x7f00000001c0)="$eJzs1zFKxEAYBeCXCDGtjQgW2qbxDp7F0kqsFEG8gRfxKh4hvYVFOhF1RJNlCdul2IXl+4qBN4+fmfZ//Xw5fe6S8piU7uTmrazd3t1fP+XvTJWZJuyHOslhkjbJ2dGY3y/Hrpr6fni46oeD843h5qOUsvDh7+WjAADAMnUu5vmnTBdf0xb4H45Xfbvl/wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADs2m8AAAD//6ykLvo=")
+openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x275a, 0x0)
+fsopen(&(0x7f0000000180)='aufs\x00', 0x1)
+ioctl$vim2m_VIDIOC_QUERYCAP(0xffffffffffffffff, 0x80685600, 0x0)
+ioctl$BTRFS_IOC_GET_SUBVOL_INFO(0xffffffffffffffff, 0x941c, 0x0)
+syz_clone(0x4008011, 0x0, 0xffffffffffffffe9, 0x0, 0x0, 0x0)
+setsockopt$XDP_UMEM_REG(0xffffffffffffffff, 0x11b, 0x4, 0x0, 0x0)
+move_pages(0x0, 0x0, 0x0, 0x0, 0x0, 0x4)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, 0x0, 0x100002, 0x0)
+r1 = openat$incfs(0xffffffffffffff9c, &(0x7f0000000140)='.pending_reads\x00', 0x1a10c1, 0x0)
+write$FUSE_INIT(r0, &(0x7f0000000300)={0x50, 0x0, 0x0, {0x7, 0x28, 0x1, 0x1000001, 0x2, 0x4, 0x9, 0x7f}}, 0x50)
+write$FUSE_DIRENTPLUS(r1, 0x0, 0x10)
+r2 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000000c0)='memory.events\x00', 0x275a, 0x0)
+syz_open_dev$loop(0x0, 0x0, 0x22400)
+ioctl$LOOP_SET_STATUS(r1, 0x4c02, 0x0)
+write$binfmt_script(r2, &(0x7f0000000100), 0xfecc)

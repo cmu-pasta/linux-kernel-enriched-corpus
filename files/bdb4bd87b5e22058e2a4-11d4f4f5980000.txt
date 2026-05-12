@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=be63bb59ce1661d46dc6951b5bfd151a7d0cab90
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$vsock_stream(0x28, 0x1, 0x0)
+bind$vsock_stream(r0, &(0x7f0000000040)={0x28, 0x0, 0x2710, @local}, 0x10)
+listen(r0, 0x0)
+r1 = socket$vsock_stream(0x28, 0x1, 0x0)
+connect$vsock_stream(r1, &(0x7f0000000640)={0x28, 0x0, 0x2710}, 0x10)
+r2 = accept(r0, 0x0, 0x0)
+r3 = bpf$MAP_CREATE(0x0, &(0x7f0000000580)=@base={0x12, 0x4, 0x4, 0xa4}, 0x48)
+bpf$MAP_UPDATE_ELEM(0x2, &(0x7f0000000140)={r3, &(0x7f0000000300), &(0x7f00000002c0)=@tcp6=r2}, 0x47)
+write$binfmt_misc(r1, &(0x7f00000001c0)={'syz1'}, 0x4)
+recvmsg$can_bcm(r2, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000500)=[{&(0x7f0000000300)=""/146, 0x92}], 0x1}, 0x10042)

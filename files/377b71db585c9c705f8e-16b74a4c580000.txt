@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=e0ea1d9288d0cf8017c7fefa745690b4dc5c329f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+syz_open_dev$loop(0x0, 0x75f, 0xa382)

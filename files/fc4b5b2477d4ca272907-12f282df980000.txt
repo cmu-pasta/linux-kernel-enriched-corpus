@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=85220cc53461774bf5ce5fca476fe14f578f3bc7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"binfmt_misc":true,"close_fds":true,"vhci":true,"wifi":true,"ieee802154":true,"tmpdir":true,"segv":true}
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, &(0x7f0000000000), 0x651, 0x0)
+sendto$inet6(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+ioctl$LOOP_CTL_REMOVE(0xffffffffffffffff, 0x4c81, 0x0)
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+ioctl$int_in(r0, 0x5421, &(0x7f0000001100)=0x2000000009)
+connect$bt_sco(r0, &(0x7f0000000040)={0x1f, @fixed}, 0x8)
+close(r0)

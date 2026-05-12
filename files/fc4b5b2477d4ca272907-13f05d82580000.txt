@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=85220cc53461774bf5ce5fca476fe14f578f3bc7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_emit_vhci(&(0x7f0000000540)=ANY=[@ANYBLOB="043e1f0a0000050000000000fc00ff00d87a970000100010000037ab7d818c7880beaf95677040357bab7d7a05c1bb0aa6aebef67ce4b0c51100f43ed1ed9f97ec6a859d46f82853"], 0x22)
+syz_emit_vhci(&(0x7f0000000280)=@HCI_EVENT_PKT={0x4, @hci_ev_cmd_status={{0xf, 0x4}, {0x9, 0x0, 0x2016}}}, 0x7)

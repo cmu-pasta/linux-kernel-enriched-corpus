@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=24dfd152b6b1712b96b3c8adb38aa034a998ca53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"tmpdir":true,"callcomments":true}
+syz_mount_image$bfs(&(0x7f0000000140), &(0x7f0000000100)='./bus\x00', 0x80, &(0x7f0000000180)=ANY=[], 0xff, 0xb0, &(0x7f0000000500)="$eJzs1z9KA0EcBeC3i/in0QN4hz2BIB5FrEQ7K0XIiXKVHCFtqhRp00wIky3CErKkWQLfBzPwm1fMFNO8xXb+nMekzJJym73S+/n9+3r/rnsGmuERV6fNZ+6S3Kf+gTbJ+q1mTeq83Px/9CvJzdRvBgAALtOmy+vqaO5y6APnjaoCLw8no/I06hoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACe0CAAD//73NIaI=")
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000100)='memory.stat\x00', 0x275a, 0x0)
+syz_clone(0x40000, &(0x7f0000000000), 0x0, 0x0, 0x0, 0x0)
+write$binfmt_script(r0, &(0x7f0000000040), 0x208e24b)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5d46bb230ad8bfba112c607cfba8cdfc8073d250
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true,"callcomments":true}
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+r0 = open(&(0x7f0000000000)='./cgroup.cpu/cgroup.procs\x00', 0x0, 0x10)
+read$auto(r0, 0x0, 0x1)
+statmount$auto(0x0, 0x0, 0x1fe, 0x1)

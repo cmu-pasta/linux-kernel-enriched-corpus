@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e233072dd1479e3b68f903d9f42949348b5839ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"vhci":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true}
+r0 = socket(0x10, 0x2, 0x4)
+sendmsg$auto_NFSD_CMD_THREADS_SET(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000080)=ANY=[@ANYBLOB="2c0000001400c7d2a2e1917949643de42be7"], 0x2c}, 0x1, 0x0, 0x0, 0x4}, 0x400c000) (async)
+socket(0x2, 0x801, 0x100)

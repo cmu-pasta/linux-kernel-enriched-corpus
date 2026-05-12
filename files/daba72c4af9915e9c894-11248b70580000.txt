@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1aed78acf88362655f6263a0e502ab45afe2914e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"swap":true,"tmpdir":true}
+mmap$auto(0x0, 0x400008, 0xdf, 0x9b72, 0x0, 0x100000000008000)
+close_range$auto(0x2, 0x8, 0x0)
+openat$auto_console_fops_tty_io(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+openat$auto_stat_fops_per_vm_kvm_main(0xffffffffffffff9c, &(0x7f0000000280)='/sys/kernel/debug/fail_io_timeout/probability\x00', 0x20000, 0x0)
+read$auto(0x3, 0x0, 0x80)
+r0 = openat$auto_ftrace_subsystem_filter_fops_trace_events(0xffffffffffffff9c, &(0x7f00000006c0)='/sys/kernel/debug/tracing/events/vmalloc/filter\x00', 0x103041, 0x0)
+write$auto(r0, 0x0, 0x9) (fail_nth: 7)

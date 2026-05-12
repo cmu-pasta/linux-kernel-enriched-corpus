@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=e76661443812660bff2ad05c319dee9620634961
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"usb":true,"vhci":true,"swap":true,"tmpdir":true,"callcomments":true}
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+r0 = getpid()
+sched_setscheduler(r0, 0x1, &(0x7f0000000100)=0x5)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_l2cap(r1, &(0x7f0000000000)={0x1f, 0x0, @any, 0x4, 0x1}, 0xe)
+ioctl$SNDCTL_SYNTH_ID(0xffffffffffffffff, 0xc08c5114, 0x0)
+listen(r1, 0x90004)
+syz_emit_vhci(&(0x7f0000000140)=ANY=[@ANYBLOB="043e130100c90001"], 0x16)
+ppoll(&(0x7f00000000c0)=[{r1, 0x60}], 0x1, 0x0, 0x0, 0x0)
+syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$nl802154(0x0, 0xffffffffffffffff)
+r2 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f00000000c0)={0x1, &(0x7f0000000100)=[{0x6, 0x0, 0x0, 0x7fff0006}]})
+close_range(r2, 0xffffffffffffffff, 0x0)

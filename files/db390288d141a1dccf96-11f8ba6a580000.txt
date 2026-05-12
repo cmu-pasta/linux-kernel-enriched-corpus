@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5bc370225e1d2a3e0e16ac6806a3d85110f05275
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap(&(0x7f0000000000/0x200000)=nil, 0x200000, 0x300000b, 0x204031, 0xffffffffffffffff, 0xec776000)
+r0 = shmget$private(0x0, 0x800000, 0x54003f00, &(0x7f0000800000/0x800000)=nil)
+shmat(r0, &(0x7f0000000000/0x4000)=nil, 0xbbdccba4532b703b) (fail_nth: 9)

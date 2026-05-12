@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e8b3dec484275c8c8dc41292d3df39277e002dbc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$auto_tracing_mark_raw_fops_trace(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/tracing/trace_marker_raw\x00', 0x2, 0x0)
+write$auto(r0, &(0x7f0000000040)='\x00', 0xa5f)

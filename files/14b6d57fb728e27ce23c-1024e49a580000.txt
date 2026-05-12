@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=963c1c88aab2318b9bd37eaf80bc357f97fa997e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200))
+sched_setscheduler(0x0, 0x2, 0x0)
+fsmount(0xffffffffffffffff, 0x0, 0xa)
+getdents64(0xffffffffffffffff, 0x0, 0x4f)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+ioctl$sock_bt_hidp_HIDPCONNADD(r0, 0x400448c8, &(0x7f0000000340)={r1, r1, 0xc, 0x0, &(0x7f00000009c0), 0x9, 0x1, 0x10cf, 0x5502, 0x8b, 0x1, 0x80000000, 'syz0\x00'})

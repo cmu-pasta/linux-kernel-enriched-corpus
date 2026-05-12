@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=d945a04f41ba9c4995e6ce8db670d85d1b611113
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"sysctl":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdir(&(0x7f0000000000)='./cgroup/../file0\x00', 0x12)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_pressure(r0, &(0x7f0000000040)='memory.pressure\x00', 0x2, 0x0)
+write$cgroup_pressure(r1, &(0x7f0000000080)={'some', 0x20, 0x2000000008, 0x20, 0x10000000fffff}, 0x2f)
+readv(0xffffffffffffffff, 0x0, 0x0)
+rmdir(&(0x7f0000000100)='./cgroup/../file0\x00')

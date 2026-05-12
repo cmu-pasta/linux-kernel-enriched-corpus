@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=06eb045d91b10cfacae9fbbf88981c5892f42aad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000180)={&(0x7f0000000140)='kmem_cache_free\x00'}, 0x10)
+r0 = socket$pptp(0x18, 0x1, 0x2)
+bind$pptp(r0, &(0x7f0000000000)={0x18, 0x2, {0x0, @remote}}, 0x1e)
+connect$pptp(r0, &(0x7f0000000040)={0x18, 0x2, {0x0, @private=0xa010100}}, 0x1e)
+r1 = openat$ppp(0xffffffffffffff9c, &(0x7f0000000040), 0x1a01, 0x0)
+ioctl$EVIOCGPROP(r1, 0x40047438, &(0x7f0000000180)=""/246)
+write$binfmt_aout(r1, &(0x7f00000002c0)=ANY=[], 0x13)

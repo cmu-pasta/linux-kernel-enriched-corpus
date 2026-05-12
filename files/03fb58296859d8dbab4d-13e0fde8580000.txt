@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=058738866680f166eb4708296b8e6d12a20e3d45
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x6, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @xdp, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x9, @void, @value}, 0x94)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000080)=ANY=[@ANYBLOB="1500000065ffff097b000008003950323030302e4c"], 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000002100)=ANY=[@ANYBLOB="b0000000000000001659ec0889419429aa5db97288b0f8a87ea8e66d9a8b"], 0xb0)
+write$FUSE_DIRENTPLUS(r2, &(0x7f0000000140)=ANY=[@ANYBLOB="10"], 0x10)
+syz_mount_image$fuse(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0, 0x0, 0x0)
+mount$9p_fd(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000b80), 0x0, &(0x7f0000000580)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r2, @ANYBLOB=',posixacl'])

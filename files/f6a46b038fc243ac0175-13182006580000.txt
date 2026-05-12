@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=54982c35eb2e9ab56deba591c75b9f41dfcaa291
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+r0 = openat$kvm(0x0, &(0x7f0000000280), 0x103080, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+syz_kvm_vgic_v3_setup(r1, 0x1, 0x40) (fail_nth: 5)

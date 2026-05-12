@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=998bd404d795161a6cd088f06ff0378b3e724a1f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000040)={0x6, 0x4, &(0x7f0000000400)=ANY=[@ANYBLOB="180200002343ffff0000000000000000850000004100000095"], &(0x7f00000000c0)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x28, '\x00', 0x0, 0x0, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000180)={'syz_tun\x00', <r2=>0x0})
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f0000000300)={r1, r2, 0x25, 0x2, @val=@perf_event={0xff}}, 0x18)
+syz_emit_ethernet(0x11dc0, &(0x7f00000004c0)=ANY=[], 0x0)

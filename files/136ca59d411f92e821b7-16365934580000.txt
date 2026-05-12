@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=b36164c867d96d9ecdb16647e0524e5b0e803f4a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000100)={0x12, 0x4, &(0x7f0000000000)=@framed={{}, [@ldst={0x1, 0x0, 0x3, 0x2, 0x1, 0x3c}]}, &(0x7f0000000040)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0xf}, 0x80)

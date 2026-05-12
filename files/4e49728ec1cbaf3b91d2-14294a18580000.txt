@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=d6752039881b9ec3df4d41b7fb6e3878a36fabe0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+syz_mount_image$minix(&(0x7f0000000300), &(0x7f0000000080)='./bus\x00', 0x4000, &(0x7f0000000340)=ANY=[], 0x1, 0x1ff, &(0x7f00000005c0)="$eJzs3M1O1FAYxvGn0xZGNOJH/IgrExPjRkaBhMxKuQBvwMQFwUImFjXiBmKi3IR7t668BBO9D28AFu5ccUzbQ2Y6MzCnpaXK/H8J05eZ87TnQM5h2oYRgKn1NH305KmdVsaYj3clPX8mKWi4cwBqZez20ACYPn7pqf/iaA0B8F86WPUltfXdk379/rC+b7/aju8fDlZbWeFJ+wP5C675PS/d3gny+TlJF0daj56QmC9Z/r7y+UsFjz83lNcV13w2/gf3FGogf1nSvJTu5qqka5KuS7NJ2xuSWrnjz9jv+vnb2RN7jsMAAAAAAOBEydnnwmnzE3fgS3o09pXkPHijF0fjX50stPnHJfMzNr94yvzS4JOt41p7/TLMNrM2v7D+Jn5Zsg9AWa1i83/ksqDL/D92OtiVIT//Q/fe2CuCG73PhTIAMts7u6/W4jh6V2Xx5KQ2UtEdJitCxT0cX3xNCv3J7ozUfKwyRbLYlo0f3ZCpumOfNLmNcWhznoqg2p/zD3nD8zTITaJv9ndb6SiGFgr/jBcmALXrvN9629ne2X3Y21rbjDaj18sr3e7K8tJit5O+LU8ezXzTvQRQh/4f/aZ7AgAAAAAAAAAAAAAAyrop6VZa/TwsEHP9eA8AAAAA/5Cz+KeopscIAAAAAAAAAAAAAMB59zcAAP//jf04bg==")
+truncate(&(0x7f0000000040)='./file2\x00', 0x80000)
+unlink(&(0x7f0000000300)='./file1\x00')
+creat(&(0x7f0000000040)='./bus\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000020c0)='./file0\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000900)={[{@upperdir={'upperdir', 0x3d, './file1'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@workdir={'workdir', 0x3d, './bus'}}]})
+chdir(&(0x7f00000003c0)='./bus\x00')
+open(&(0x7f0000000080)='./bus\x00', 0x1c5b42, 0x0)

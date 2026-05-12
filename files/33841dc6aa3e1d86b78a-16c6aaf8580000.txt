@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8cbc2fb084dca2e8cbe01f4e651e93d21b83d213
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":false}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000000)={'batadv_slave_0\x00'})
+r1 = syz_init_net_socket$ax25(0x3, 0x5, 0xcb)
+r2 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+setsockopt$ax25_SO_BINDTODEVICE(0xffffffffffffffff, 0x101, 0x19, &(0x7f0000000000)=@bpq0, 0xfffffffffffffe1d)
+ioctl$sock_netdev_private(r2, 0x8914, &(0x7f0000000000))
+setsockopt$ax25_SO_BINDTODEVICE(r1, 0x101, 0x19, &(0x7f0000002500)=@bpq0, 0x10)

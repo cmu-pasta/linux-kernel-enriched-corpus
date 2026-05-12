@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ee15d59333793770daac402b879d840e7d2d62aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"vhci":true,"sysctl":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+r1 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+ioctl$sock_bt_hidp_HIDPCONNADD(r1, 0x400448c8, &(0x7f00000001c0)={r0, r0, 0x2, 0xfffffffffffffea4, &(0x7f0000000500)="22ad35", 0xb8, 0x88, 0xd, 0x2f19, 0xb514, 0x2, 0x2, 'syz0\x00'})

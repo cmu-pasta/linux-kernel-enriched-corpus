@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=2d7b5101c6097e5973db795ca9a4a522e9e29f0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = openat$smackfs_ambient(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+writev(r0, &(0x7f00000078c0)=[{&(0x7f0000007700)='@', 0x1}], 0x1)
+r1 = socket$inet(0x2, 0x4000000000000001, 0x100)
+bind$inet(r1, &(0x7f0000000000)={0x2, 0x4e23, @broadcast}, 0x10)
+sendto$inet(r1, 0x0, 0x0, 0x200007fd, &(0x7f0000000040)={0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x13}}, 0x10)
+sendto$inet(r1, &(0x7f0000000700)="0c268a927f1f6588b967481241ba78600a34f65ac618ded8974895abeaf4b4834ff959bcecc7a95425a3a07e758044ab4ea6f7c555d88fecf90b037511bf746bec66ba", 0x994b6e03113064ae, 0x0, 0x0, 0x0)

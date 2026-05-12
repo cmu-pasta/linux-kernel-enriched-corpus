@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c934d0e3d6da62919c605370fa3c3514e889b655
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+close(r0)
+mknod$loop(&(0x7f0000000140)='./file0\x00', 0xfff, 0x1)
+mount$fuse(0x0, &(0x7f00000020c0)='./file0\x00', &(0x7f0000002100), 0x0, &(0x7f0000002140)=ANY=[@ANYBLOB='fd=', @ANYRESHEX=r0, @ANYBLOB=',rootmode=000000000100000,user_id=', @ANYRESDEC=0x0, @ANYBLOB, @ANYRESDEC=0x0])

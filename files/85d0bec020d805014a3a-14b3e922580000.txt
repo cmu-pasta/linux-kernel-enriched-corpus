@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=5ebd458360102342bb411908ac87514ee56db3c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+socket$tipc(0x1e, 0x2, 0x0)
+r0 = socket$tipc(0x1e, 0x5, 0x0)
+setsockopt$TIPC_GROUP_JOIN(r0, 0x10f, 0x87, &(0x7f0000000900)={0x41, 0x4}, 0x10)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$tipc(&(0x7f0000001600), 0xffffffffffffffff)
+socketpair$tipc(0x1e, 0x2, 0x0, &(0x7f0000000000)={<r3=>0xffffffffffffffff})
+sendmmsg$inet(r3, &(0x7f0000001540)=[{{0x0, 0xfffffffffffffda1, 0x0}}], 0x40001b6, 0x0)
+sendmsg$TIPC_CMD_SHOW_PORTS(r1, &(0x7f00000016c0)={0x0, 0x0, &(0x7f0000001680)={&(0x7f0000001640)={0x1c, r2, 0x1}, 0x1c}}, 0x0)
+close(0x4)

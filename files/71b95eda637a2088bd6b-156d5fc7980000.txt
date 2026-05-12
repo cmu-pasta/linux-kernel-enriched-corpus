@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=11a375d719b6c2a898a06115d279e636266c2fe6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+socket$nl_generic(0x10, 0x3, 0x10)
+pidfd_open$auto(0x1, 0x0)
+socket(0x2, 0x2, 0x1)
+mmap$auto(0x0, 0x8, 0xdf, 0x9b72, 0x2, 0x8000)
+socket(0x1d, 0x3, 0x1)
+socketpair$auto(0xffff, 0x6, 0xfffffffffffffff7, 0xb)
+io_uring_setup$auto(0x3ff, 0x3)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1a6e0d0298795db2c850550b99b08a4554fa1de7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true,"segv":true,"callcomments":true}
+bpf$BPF_BTF_LOAD(0x12, &(0x7f00000002c0)={&(0x7f0000000000)={{0xeb9f, 0x1, 0x0, 0x18, 0x0, 0x1c, 0x1c, 0x2, [@datasec={0x800000, 0x0, 0x0, 0xf, 0x3, [], "63d038"}, @datasec={0x0, 0x0, 0x0, 0xf, 0x1, [], "de"}]}}, 0x0, 0x36}, 0x28)
+r0 = socket(0xa, 0x3, 0x4)
+ioctl$sock_SIOCBRDELBR(r0, 0x89a2, &(0x7f0000000000)='bridge0\x00')

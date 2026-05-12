@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=f51e9980ee781920e79a791407a734539d21521a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+mount$afs(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000080), 0x0, &(0x7f0000000140)=ANY=[@ANYBLOB='dyn'])
+chdir(&(0x7f0000000340)='./file0\x00')
+link(&(0x7f0000000000)='./file0\x00', 0x0)
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x0, 0x1)
+getdents64(r0, &(0x7f00000007c0)=""/85, 0x55)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=ac361c5db546855a3d27a34f1fa5b10793e54ba6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000140)=ANY=[@ANYBLOB="0100000009000000050010000200000000000000", @ANYRES32, @ANYBLOB, @ANYRES32], 0x48)
+sendmsg$nl_route_sched(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000100)=@newqdisc={0x44, 0x24, 0x800, 0x70bd29, 0x25dfdc00, {0x60, 0x0, 0x0, 0x0, {0xfff1, 0xfff2}, {0x1, 0xc}, {0xfff3, 0x8}}, [@qdisc_kind_options=@q_cake={{0x9}, {0x14, 0x2, [@TCA_CAKE_MEMORY={0x8, 0xa, 0x80000000}, @TCA_CAKE_INGRESS={0x8, 0xf, 0x2}]}}]}, 0x44}, 0x1, 0x0, 0x0, 0x44045}, 0x10)
+sendmsg$nl_route(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000100)=ANY=[@ANYBLOB="500000001000010425bbe5ad600027842cf52300", @ANYRES32=0x0, @ANYBLOB="0000000000008000280012800a00010076786c616e"], 0x50}}, 0x4000000)

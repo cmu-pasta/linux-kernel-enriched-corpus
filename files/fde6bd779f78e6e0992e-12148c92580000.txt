@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d39b0c09f39c4dddc460faa44a7fda3c5073b076
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$iommufd(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+ioctl$IOMMU_TEST_OP_MOCK_DOMAIN_FLAGS(r0, 0x3ba0, 0x0)
+ioctl$IOMMU_HWPT_GET_DIRTY_BITMAP(r0, 0x3b8c, &(0x7f0000000100)={0x30, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1000, 0x0})
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$TIOCSETD(r1, 0x5423, &(0x7f0000000080)=0xf)
+ioctl$TCXONC(r1, 0x540a, 0x0)
+ioctl$TCFLSH(r1, 0x400455c8, 0x4)
+ioctl$TIOCVHANGUP(r1, 0x5437, 0x0)

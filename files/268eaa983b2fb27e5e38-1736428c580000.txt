@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=dc1aaadc6fe7f900a77f0d6b052ad7dcf5e8393c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+add_key$keyring(&(0x7f0000000000), 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000040)='/dev/comedi4\x00', 0x181001, 0x0)
+ioctl$COMEDI_INSNLIST(r0, 0x8010640b, 0x0)

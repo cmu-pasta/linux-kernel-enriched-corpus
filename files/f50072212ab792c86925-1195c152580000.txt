@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=8dee4706c618ba9bd8c28462260bd03f4af55d43
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+syz_init_net_socket$bt_hci(0x1f, 0x3, 0x5)
+close(0x4)
+syz_open_procfs$namespace(0x0, &(0x7f0000000040)='ns/cgroup\x00')
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f07ebbeef, 0x8031, 0xffffffffffffffff, 0x215eb000)
+r0 = socket(0x14, 0x2, 0x4)
+ioctl$sock_SIOCGIFINDEX(r0, 0x61d0, 0x0)
+ioctl$sock_inet6_tcp_SIOCINQ(r0, 0x61e1, 0x0)

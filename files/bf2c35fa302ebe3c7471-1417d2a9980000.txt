@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=0970441e6a0f99564916acb5ed89cd91563a1ca4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+madvise(&(0x7f0000a93000/0x4000)=nil, 0x4000, 0xe)
+mremap(&(0x7f0000a96000/0x1000)=nil, 0x1000, 0x800000, 0x3, &(0x7f0000130000/0x800000)=nil)
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)
+mbind(&(0x7f0000400000/0xc00000)=nil, 0xc00000, 0x0, 0x0, 0x0, 0x2)
+syz_clone(0x11, 0x0, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=ac9ffc93c2c8d15e8f7f5bab6455585b8e60145d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$unix(0x1, 0x1, 0x0) (async)
+bind$unix(0xffffffffffffffff, &(0x7f00000001c0)=@file={0x1, '\xe9\x1fq\x89Y\x1e\x923aK\x00'}, 0x56)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000200)={'geneve0\x00'})
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0xb, &(0x7f0000000380)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020000000000000000000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000300)='rcu_utilization\x00', r1}, 0x10) (rerun: 64)
+sendmsg$nl_route(r0, 0x0, 0x40000)
+socket(0x2b, 0x80801, 0x1)
+r2 = socket$unix(0x1, 0x1, 0x0)
+connect$unix(r2, 0x0, 0x0)
+close(0xffffffffffffffff)

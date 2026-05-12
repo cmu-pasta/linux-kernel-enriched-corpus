@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=5788cbcd6917965dfb125173c2b80f29276f4ab6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true,"vhci":true,"segv":true,"callcomments":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+timer_create(0x0, &(0x7f00000000c0)={0x0, 0x21, 0x2}, &(0x7f0000000000)=<r0=>0x0)
+fcntl$lock(0xffffffffffffffff, 0x24, &(0x7f0000000040)={0x0, 0x0, 0x10001, 0x5})
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x1)
+timer_settime(r0, 0x1, &(0x7f0000000040)={{}, {0x77359400}}, 0x0)
+mmap(&(0x7f0000000000/0x200000)=nil, 0x200000, 0x300000b, 0x204031, 0xffffffffffffffff, 0xec776000)
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+syz_mount_image$fuse(0x0, &(0x7f00000000c0)='./bus\x00', 0x3000009, 0x0, 0x2, 0x0, 0x0)
+mount$overlay(0x0, &(0x7f0000000100)='./bus\x00', &(0x7f0000000440), 0x8, &(0x7f0000000200)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, '.'}}, {@upperdir={'upperdir', 0x3d, './file0'}}]})
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./file1\x00', 0x42, 0x0)
+pwrite64(r1, &(0x7f0000000500)='a', 0x20000106, 0x8001)
+chdir(&(0x7f0000000000)='./bus\x00')
+openat(0xffffffffffffff9c, &(0x7f0000000440)='./file1\x00', 0x101042, 0x2)

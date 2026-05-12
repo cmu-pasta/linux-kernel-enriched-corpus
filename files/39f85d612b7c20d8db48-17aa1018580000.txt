@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=5b476877496182e2b099fb7cc1c344a03b90be53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$devlink(&(0x7f0000000080), 0xffffffffffffffff)
+sendmsg$DEVLINK_CMD_GET(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000680)={&(0x7f00000000c0)={0x30, r1, 0x1, 0x0, 0x0, {0x54}, [@pci={{0x8}, {0x11}}]}, 0x30}}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=46c84c10f50039237094bf730f34bc33918d9114
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"vhci":true,"ieee802154":true,"tmpdir":true,"callcomments":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_GUEST_MEMFD(r1, 0xc040aed4, &(0x7f00000001c0)={0x1000200001ee0000, 0x3})
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xa, 0x28011, r2, 0x0)
+madvise(&(0x7f0000000000/0x800000)=nil, 0x800000, 0xe)
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)

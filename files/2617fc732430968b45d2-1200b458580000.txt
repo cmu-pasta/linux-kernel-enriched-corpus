@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3ddacab50d5caf393462f1c418922f8461efd66f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+sched_setaffinity(0x0, 0x8, &(0x7f00000002c0)=0x2)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+connect$unix(0xffffffffffffffff, 0x0, 0x0)
+r0 = bpf$MAP_CREATE_RINGBUF(0x0, &(0x7f0000000740)=ANY=[@ANYBLOB="1b000000000000000000000000000400"], 0x48)
+r1 = bpf$PROG_LOAD(0x5, &(0x7f0000000680)={0x11, 0xf, &(0x7f0000000340)=ANY=[@ANYBLOB="1806000000000000000000000000000018110000", @ANYRES32=r0, @ANYBLOB="0000000000000000b702000014000000b7030000000000008500000083000000bf0900000000000055090100000000009500000000000000bf91000000000000b7020000000000008500000084000000b7000000000000009500"], &(0x7f0000001dc0)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000080)='sched_switch\x00', r1}, 0x2d)
+bind$802154_raw(0xffffffffffffffff, 0x0, 0x0)

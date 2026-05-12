@@ -1,0 +1,20 @@
+# https://syzkaller.appspot.com/bug?id=ad7d3ac863945ac58fbefddcd49f225c9d2e0bce
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"tmpdir":true}
+mknod$loop(&(0x7f0000000140)='./file0\x00', 0xfff, 0x0)
+open(&(0x7f0000000040)='.\x00', 0x100, 0x0)
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000080)=ANY=[@ANYBLOB="12010000000000105509147200ed0000000109022400010000000009040000030300000009210000000122050009058103"], 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f0000000100)={0x2c, &(0x7f0000000280)=ANY=[@ANYBLOB="200617"], 0x0, 0x0, 0x0, 0x0}, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000000), 0xc003f, 0x0)
+socket$rxrpc(0x21, 0x2, 0xa)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+r1 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r1, 0xc018aa3f, 0x0)
+ioctl$UFFDIO_REGISTER(r1, 0xc020aa00, 0x0)
+ioctl$UFFDIO_WRITEPROTECT(r1, 0xc018aa06, 0x0)
+syz_open_dev$vcsu(0x0, 0x0, 0x440200)
+mbind(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x8000, 0x0, 0xfffdfffffffffffc, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, 0x0)
+mbind(&(0x7f0000001000/0x800000)=nil, 0x800000, 0x0, 0x0, 0x0, 0x2)

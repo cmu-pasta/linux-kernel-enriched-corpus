@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=be6aeea336146f6e4de35d97a6c98297d6fcb79b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = creat(&(0x7f0000000340)='./file0\x00', 0x0)
+close(r0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+listen(r1, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x4)
+mount$9p_fd(0x0, &(0x7f0000000240)='./file0\x00', &(0x7f00000000c0), 0x0, &(0x7f0000000780)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}})

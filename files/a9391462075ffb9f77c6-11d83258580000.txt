@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=dfe934fe24fd6d2ce493572ac41ad4502fa4bd52
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000400)={0x1, &(0x7f0000000380)=[{0x6, 0x0, 0x0, 0x7fffffff}]})
+r1 = openat$dma_heap(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$DMA_HEAP_IOCTL_ALLOC(r1, 0xc0184800, &(0x7f0000000100)={0x4004, <r2=>r0, 0x2})
+mmap$dsp(&(0x7f0000fff000/0x1000)=nil, 0x1002, 0x0, 0x11, r2, 0x0)

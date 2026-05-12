@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=300f8a58b17938ed0423d35e3232aaa4d0191047
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+syz_usb_connect(0x0, 0x24, &(0x7f0000000180)=ANY=[@ANYBLOB="12010000c472a440b72040155ab7d29a03010902120001000000000904000000ff"], 0x0)
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ieee802154(&(0x7f0000000ac0), r0)
+sendmsg$IEEE802154_LLSEC_SETPARAMS(r0, &(0x7f0000000b00)={0x0, 0x0, &(0x7f0000000b40)={&(0x7f00000003c0)={0x20, r1, 0x5, 0x0, 0x0, {0x22}, [@IEEE802154_ATTR_DEV_NAME={0xa, 0x1, 'wpan1\x00'}]}, 0x20}}, 0x4000000)

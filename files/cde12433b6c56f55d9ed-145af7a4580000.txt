@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8fc4ac2bd63ac049e7a369676b65f047f65d7736
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x6, 0x0, 0x0, 0x7fff7ffc}]})
+close_range(r0, 0xffffffffffffffff, 0x0)
+r1 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000040), 0x0, 0x0)
+r2 = ioctl$KVM_CREATE_VM(r1, 0xae01, 0x0)
+r3 = openat$ocfs2_control(0xffffffffffffff9c, &(0x7f0000000000), 0x8000, 0x0)
+ioctl$KVM_CREATE_VCPU(r2, 0xae41, 0x2)
+ioctl$KVM_HYPERV_EVENTFD(r2, 0x400caed0, &(0x7f0000000180)={0x2, r3, 0xffffffff})

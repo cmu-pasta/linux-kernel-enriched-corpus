@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=08522ea98d0a137c9a0248c618f082454c4046c9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x0, 0x2d, &(0x7f0000000040)=ANY=[@ANYBLOB="1201000035ffaa20cd0caf104a380102030109021b0001000010000904590201801e2a00090582"], 0x0)

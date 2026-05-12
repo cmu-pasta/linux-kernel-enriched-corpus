@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=8d5962eb786ecb9cded9906aad76fa06f81b067f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000240), 0x0, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f0000000040)={'syzkaller0\x00', 0x7101})
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000400), 0x0, 0x0)
+close(r1)
+socket(0x28, 0x5, 0x0)
+r2 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000180)={0x18, 0x5, &(0x7f0000000480)=ANY=[@ANYBLOB="1801000021000000000000003b810000850000006d000000850000005000000095"], &(0x7f0000000040)='syzkaller\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x94)
+close(r2)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000100)={0x18, 0x6, &(0x7f0000000600)=ANY=[@ANYBLOB="180000000000000000000000ffffff80e500020000000000c500fcff000000008500feffd100000095"], &(0x7f00000000c0)='GPL\x00', 0x5, 0x0, 0x0, 0x0, 0x8, '\x00', 0x0, 0x25, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x4}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f0000000300)='percpu_alloc_percpu\x00', r2, 0x0, 0x10}, 0x18)
+ioctl$SIOCSIFHWADDR(r1, 0x8914, &(0x7f0000002280)={'syzkaller0\x00', @multicast})
+socket$unix(0x1, 0x5, 0x0)
+bpf$BPF_BTF_LOAD(0x12, 0x0, 0x0)

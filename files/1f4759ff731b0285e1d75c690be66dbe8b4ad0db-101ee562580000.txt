@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1f4759ff731b0285e1d75c690be66dbe8b4ad0db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeef, 0x8031, 0xffffffffffffffff, 0x0)
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, &(0x7f0000000040)={0x2, 0x0, @loopback}, 0x10)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600722, 0x19)
+sendmsg$rds(r0, &(0x7f0000001600)={&(0x7f0000000000)={0x2, 0x0, @remote}, 0x10, 0x0, 0x0, &(0x7f0000000780)=[@rdma_args={0x48, 0x114, 0x1, {{}, {0x0, 0x2c}, &(0x7f00000006c0)=[{&(0x7f0000000100)=""/44, 0x410200}], 0x1}}], 0x48}, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=feaf9e9e5ba1cc1a0771c7ebb4dea04bb568773e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000040)={'lo\x00', <r2=>0x0})
+sendmsg$nl_route(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000080)=@ipv6_newnexthop={0x40, 0x68, 0x1, 0x0, 0x0, {}, [@NHA_ENCAP_TYPE={0x6, 0x7, 0x2}, @NHA_ENCAP={0x18, 0x8, 0x0, 0x1, @SEG6_IPTUNNEL_SRH={0x14}}, @NHA_OIF={0x8, 0x5, r2}]}, 0x40}}, 0x0)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r3, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000003c0)=ANY=[@ANYBLOB="240000001800dd8d000000000000000002001000fe0400010000002008001e0002000000d59e90310ecb435fa8e1b9ebd7d4802fed848131239b854aa47201e33f3494d7744e4d0dc77585fb8d282a3d2769f0cc19a438314cdf8c6bfe7f3c9f6787d8ba2c1f071d8437000000000000000832fb85f30f3f008eff686f8e76cce4ef0f617466923608725a4ddb76f24a94279af5d7f2dcbcefc8709ccc391b2bc11d7df8f5c4664b4716652df10272ea69c6fb6cbd8e03e15ba90f7d6e34a767e34b11430e7164ca27bf1706a538c1e84d0ab8570d113e1e148cbd5fb60932176ad3cad14ac14e749321fdd1d842a3245586c7e936acf57814cd88ae481aa480c97eca5bee35ee857440a6516871ae91b5e8aa3808cf1d50786073060bad3d57d4f803a792f316fcf299c085bd5ea9467c37137031e171611ec5aa65ccf6c72612be8d8f4eed6389e34c4285dcaf6e4feb73"], 0x24}, 0x1, 0x0, 0x0, 0x4a044}, 0x4010)
+syz_emit_ethernet(0x32, &(0x7f00000000c0)={@local, @dev, @void, {@ipv4={0x800, @generic={{0x5, 0x4, 0x0, 0x0, 0x24, 0x0, 0x0, 0x0, 0x84, 0x0, @remote={0xac, 0x24}, @remote}, "f2dfbc81cfe0ca1b360883fff0380bc5"}}}}, 0x0)

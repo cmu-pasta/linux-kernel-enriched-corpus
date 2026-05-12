@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=a286d8e9ccf715fcd15b9b592ce69ee31d9ce4a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"tmpdir":true,"callcomments":true}
+syz_mount_image$bfs(&(0x7f0000000000), &(0x7f0000000080)='./file0\x00', 0x8008, &(0x7f0000000100)=ANY=[@ANYRES32=0x0, @ANYRESOCT, @ANYRESOCT, @ANYRES8, @ANYRES16, @ANYRESOCT, @ANYRESDEC, @ANYRES32, @ANYRESDEC, @ANYRES64=0x0], 0xf, 0xb8, &(0x7f0000000200)="$eJzs1zFKxUAQBuBJQkQ9geAJ0lh5AY8idmojVorgFTyFnVfxCOktLNKKOLLJFu+Vr3mBx/fBDvwzLAxstZ8/H+dvQ0S+RuRw9vCVmafvOWuenu+u7x/nGhtug0PRRsRJPeXNS/6+WmZNnY/Ty804dXPvsq8XSzzq1lscAADYWRsX2/kva+N3+QRmRF9KdbzvBQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABW9h8AAP//8Dksog==")
+openat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0, 0x0)
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/syz0\x00', 0x1ff)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=024acda1159f6470ff6bfcc4df99803f9c905c30
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000001100)='/proc/bus/pci/00/03.0\x00', 0xa0581, 0x0)
+write$auto_proc_reg_file_ops_compat_inode(r0, &(0x7f0000001140)="8cbdca", 0x3)
+writev$auto(r0, &(0x7f0000001d40)={0x0, 0x2}, 0x6)

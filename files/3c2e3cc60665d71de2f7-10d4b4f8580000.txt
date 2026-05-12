@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=319f8a1fbdc0e4437e234e7786f1974799002a7b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = getpgid(0x0)
+timer_create(0x0, &(0x7f0000001080)={0x0, 0x12, 0x4, @tid=r0}, &(0x7f0000044000))
+timer_settime(0x0, 0x0, &(0x7f0000040fe0)={{0x0, 0x989680}, {0x0, 0x9}}, 0x0) (async, rerun: 32)
+gettid()

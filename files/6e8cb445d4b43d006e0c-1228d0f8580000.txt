@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x2, 0x0)
+ioctl$sock_SIOCETHTOOL(r0, 0x89b0, &(0x7f0000000000)={'bond0\x00', &(0x7f0000000040)=@ethtool_cmd={0x1, 0x100000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x80000000}})

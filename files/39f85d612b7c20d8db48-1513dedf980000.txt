@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=5b476877496182e2b099fb7cc1c344a03b90be53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$inet_udp(0x2, 0x2, 0x0)
+r0 = syz_init_net_socket$netrom(0x6, 0x5, 0x0)
+r1 = bpf$MAP_CREATE(0x0, &(0x7f00000009c0)=ANY=[@ANYBLOB="0100000004000000070000000700000000000000", @ANYRES32=0x1, @ANYBLOB='\x00'/14, @ANYRES32=0x0, @ANYRES32, @ANYBLOB="0500"/28], 0x50)
+bpf$MAP_UPDATE_BATCH(0x1a, &(0x7f0000000480)={0x0, &(0x7f0000000180)=""/218, &(0x7f0000000300)="15b0f733fd6cffdf0edc23afde8ad0e687e173dfddaf40f93590d94a15b8593291f70c2847915d0762475f29e042259ecda4a4121812abb431e7aae152beecce40888818eeb273142fb1b5a56a58a905e1548b6b7de8370193f91b8cf45ae88a126a36155c", &(0x7f0000000380)="2ee97fded14678892c63d43a8db2bffde1b2d1d075b38c97a172bd7d1466f178a1c813374e82e9cd7ea888c49f5d6c23cab499b69393bd1cd35678101c0c483fa654ec4cbeb2430ac7c6515bda4f0c924e3597814ac4c0a67afd14d341", 0x5, r1, 0x4}, 0x38)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000000)={'batadv_slave_0\x00'})
+r3 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+setsockopt$ax25_SO_BINDTODEVICE(0xffffffffffffffff, 0x101, 0x19, &(0x7f0000000000)=@bpq0, 0xfffffffffffffe1d)
+ioctl$sock_netdev_private(r3, 0x8914, &(0x7f0000000000))
+ioctl$sock_netrom_SIOCADDRT(r0, 0x890b, &(0x7f0000000280)={0x1, @bcast, @rose={'rose', 0x0}, 0xffff, 'syz0\x00', @default, 0xfffffdba, 0x6, [@default, @netrom={0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0x0, 0x0}, @default, @rose={0xbb, 0xbb, 0xbb, 0x1, 0x0}, @default, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x0}, @bcast, @remote={0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0xcc, 0x1}]})
+ioctl$SIOCNRDECOBS(r0, 0x89e2)

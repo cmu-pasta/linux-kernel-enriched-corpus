@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fda5612c81bcce434fe6ba8a1560df12177b823d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"sysctl":true,"swap":true}
+r0 = openat$auto_nsim_udp_tunnels_info_reset_fops_udp_tunnels(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/netdevsim/netdevsim2/ports/3/udp_ports_reset\x00', 0x2, 0x0)
+write$auto_nsim_udp_tunnels_info_reset_fops_udp_tunnels(r0, 0x0, 0x0)

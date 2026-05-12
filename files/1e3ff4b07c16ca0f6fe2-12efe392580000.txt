@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3fc78b30a993dca52e7499bbe87b1465b6a0edf5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true,"callcomments":true}
+mknod$loop(0x0, 0xc000, 0x1)
+sync()
+openat(0xffffffffffffff9c, 0x0, 0x101042, 0x15)
+syz_mount_image$hfs(&(0x7f0000000100), &(0x7f0000000040)='./file0\x00', 0x0, &(0x7f00000000c0)=ANY=[@ANYBLOB="696f636861727365743d63703836332c636f6465706167653d63703935302c747970653d3ae6f8f02c00"], 0x1, 0x2e5, &(0x7f0000000140)="$eJzs3U1PE0Ecx/HfbFsoD8EVMCZeNCiJXoioB+OlxvTq3ZNR25IQG4iAiXoRjUfjC/DuW/BFeNH4BvTkybucHDPTadnCdkvFshS/n4RmOzuz+5/OPsx/Y60A/LfuVL99uP7D/RmpoIKkW1IkqSwVJZ3R2fLTta3VrWajnrWhgm/h/oxaLc2+OrW1RlpT1863CGL3rqjpZBmGw1p7+3veQSB3/uxPEUnj4Tz068tHHNewbEvn847hqCUH2OxoR880k2M4AIBjINz/o3CbmPZFRlEkLYbb/om6/++cnK44N5r7imxmg8T938/urHHje8qv2s33fArn1kftLPEgwZT2vB9T68jqmmCaflmljyWaWFktaqn2SvVIr1UJEtXm/Wu9dei29Yl2ISU3zdB7ayXdnWz1xs8o92qHtLLabIy7hZT45wbb4+GZT+aLuW9ivVe9M/8rWuOGyY9UvGekopKL/2rvLU75Vq6WQtpfqVSiriqn/U7OhT0EfXpZTs9IkttsPyDY7kSQFaff96y6Hyu0erfcp9VcWqu4865Hq/muVoVwJCzV1puZj1KGo91F887cMwv6qY+qJub/kYtvUYkzM+v6aHzNcGTU1vXb2rH0mkVfM953ud09XS50IgjGB+4bpAGflr3VI93UzObzF48LzWZjwy08TFl4Mr1hQknpjZRaZ/gLBWXU0fZuiXVeWnvQLdtDBGb6fRpX+m/n18F36q4fnRJ3+qRVdmdZpyT6B5+8NTkM93FfqH5W1gE5OgvWSj1WDe06hWNk07QHPRRM5BwQjpqbd5lW/udn8mFW51Mk9xJnzNOzk0x1bXG5k8F1TwVn/evkQBncVO8MLrHHaz1yRp9zXbwsXUoUGmXuMQ5xnhCmqq96wPN/AAAAAAAAAAAAAAAAAACAURP+0X/7K5tD+aZBzl0EAAAAAAAAAAAAAAAAAAAAAGDk/dXv/6b9H/H+939jfv8XGCF/AgAA///7WndM")
+mprotect(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1)
+openat(0xffffffffffffff9c, &(0x7f0000000180)='./file1\x00', 0x441, 0x20)
+linkat(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0)
+accept4(0xffffffffffffffff, 0x0, 0x0, 0x80000)
+openat$sequencer2(0xffffffffffffff9c, 0x0, 0x10040, 0x0)

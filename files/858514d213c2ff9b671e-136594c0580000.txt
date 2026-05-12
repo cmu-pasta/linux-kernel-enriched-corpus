@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=bc80599eeb1f29ab09f0dc00a6500ddb340f2f53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true,"segv":true}
+socket$inet6(0xa, 0x2, 0x0)
+syz_usb_connect(0x0, 0x2d, &(0x7f0000000040)=ANY=[@ANYBLOB="12010000eafa7240936901b0293df400100109021b000124a80080090400000103000000090587", @ANYRES16], 0x0)
+socket$inet(0xa, 0x801, 0x84)
+ioctl$KVM_CAP_SPLIT_IRQCHIP(0xffffffffffffffff, 0x4068aea3, 0x0)
+getsockopt$inet_sctp6_SCTP_FRAGMENT_INTERLEAVE(0xffffffffffffffff, 0x84, 0x12, 0x0, 0x0)
+writev(0xffffffffffffffff, 0x0, 0x0)

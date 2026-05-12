@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=737b39836a0d31c3f6a7fb99b6b2225c2cbb5fac
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true}
+r0 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000140)={'syz_tun\x00', <r1=>0x0})
+r2 = bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000780)={0x6, 0x4, &(0x7f0000000580)=ANY=[@ANYBLOB="18020000000000020000000000000000850000001700000095"], &(0x7f00000005c0)='GPL\x00'}, 0x90)
+bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f00000000c0)={r2, r1, 0x25, 0x0, @val=@tcx}, 0x40)
+syz_emit_ethernet(0xfdef, &(0x7f0000000100)={@local, @link_local, @void, {@ipv6={0x86dd, @icmpv6={0x0, 0x6, "ff00", 0x30, 0x3a, 0x0, @initdev={0xfe, 0x88, '\x00', 0x0, 0x0}, @mcast2, {[], @time_exceed={0xb, 0x0, 0x0, 0x0, '\x00', {0x0, 0x6, "fd9063", 0x0, 0x0, 0x0, @mcast1, @loopback={0x0, 0xffffac1414aa}}}}}}}}, 0x0)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5f4ddb828cd4e96a8594422f806500279f4477ea
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$pppl2tp(0x18, 0x1, 0x1)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+connect$pppl2tp(r0, &(0x7f0000000000)=@pppol2tpv3={0x18, 0x1, {0x3, r1, {0x2, 0x0, @dev={0xac, 0x14, 0x14, 0x2a}}, 0x10000002}}, 0x2e)
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+r3 = socket$pppl2tp(0x18, 0x1, 0x1)
+connect$pppl2tp(r3, &(0x7f0000000100)=@pppol2tpv3={0x18, 0x1, {0x3f00, r2, {0x2, 0x0, @loopback}, 0x4}}, 0x2e) (fail_nth: 6)

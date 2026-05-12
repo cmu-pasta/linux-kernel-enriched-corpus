@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b95d39617dd41c65bf672c1fe12db625810e0df1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x800001000088}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000300)=0x7)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+r0 = fsopen(&(0x7f0000000240)='ramfs\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+fsmount(r0, 0x0, 0x0)
+timer_create(0x0, &(0x7f0000000080)={0x0, 0x11, 0x0, @thr={0x0, 0x0}}, &(0x7f0000000000))
+timer_settime(0x0, 0x0, &(0x7f0000000240)={{0x0, 0x8}, {0x0, 0x9}}, 0x0)

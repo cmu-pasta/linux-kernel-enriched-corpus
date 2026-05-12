@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=f5310998abe33065598f90eac03a4f79adac816c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"callcomments":true}
+socket$nl_route(0x10, 0x3, 0x0)
+syz_emit_vhci(&(0x7f0000000080)=ANY=[@ANYBLOB="040e"], 0x6)

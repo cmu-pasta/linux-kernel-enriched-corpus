@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=6755de81f22abcfd7edbe800c56f2a043abfc076
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$inet6_sctp(0xa, 0x1, 0x84)
+r1 = dup(r0)
+setsockopt$inet_sctp6_SCTP_SOCKOPT_BINDX_ADD(r1, 0x84, 0x64, &(0x7f0000000040)=[@in6={0xa, 0x4e24, 0x6, @loopback, 0x3}], 0x1c)
+sendmsg$inet6(r0, &(0x7f0000000800)={&(0x7f0000000080)={0xa, 0x4e24, 0x8, @loopback, 0x4}, 0x1c, &(0x7f0000000480)=[{&(0x7f00000000c0)="88", 0x1}], 0x1}, 0x4048043)
+setsockopt$inet_sctp_SCTP_PEER_ADDR_PARAMS(r1, 0x84, 0x9, &(0x7f0000000200)={0x0, @in6={{0xa, 0xce20, 0x6, @empty, 0x2d}}, 0x7, 0x1, 0xf06, 0x3, 0xb4, 0x7f, 0x9}, 0x9c)
+pipe2$9p(&(0x7f0000000080)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+write$P9_RSETATTR(r3, &(0x7f0000000000)={0x7, 0x1b, 0x2}, 0xffffff9a)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000180)={0x1, &(0x7f0000000100)=[{0x6, 0x1, 0x1, 0x1}]}, 0x10)
+splice(r2, 0x0, r0, 0x0, 0x20000000000002, 0x2)

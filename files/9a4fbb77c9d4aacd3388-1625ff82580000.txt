@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=0cfbbe27a0731c49a7a3e9d1d4ef1e919f5da8dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$tun(0xffffffffffffff9c, &(0x7f0000000080), 0x1c1341, 0x0)
+ioctl$TUNSETIFF(r0, 0x400454ca, &(0x7f00000000c0)={'syzkaller0\x00', 0x84aebfbd6349b7f2})
+r1 = openat$tun(0xffffffffffffff9c, &(0x7f0000000500), 0x400, 0x0)
+close(r1)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000340))
+ioctl$SIOCSIFHWADDR(r1, 0x8914, &(0x7f0000002280)={'syzkaller0\x00', @link_local})
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$tipc(&(0x7f0000000200), 0xffffffffffffffff)
+sendmsg$TIPC_CMD_ENABLE_BEARER(r2, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000680)=ANY=[@ANYBLOB='8\x00\x00\x00', @ANYRES16=r3, @ANYBLOB="010000000d0000000000010000000000000001410000001c001700000000000000006574683a73797a6b616c6c657230"], 0x38}}, 0x0)
+writev(r0, &(0x7f0000000440)=[{&(0x7f0000000140)="89e7ee2c78dad9b4b473fec988ca58e8001d75d38e0d369bd7c50580", 0x1c}, {&(0x7f0000000380)="9c74dfbf7757d9c4135f04770d5606", 0xf}], 0x2)

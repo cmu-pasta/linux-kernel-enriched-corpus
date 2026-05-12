@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5a34035b13d7f4215357b46093ca6d5c45c93f93
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$loop(&(0x7f0000000240), 0x195d, 0xec4d2770249a3ef5)
+r1 = openat$sysfs(0xffffffffffffff9c, &(0x7f0000000000)='/sys/power/pm_freeze_timeout', 0x82803, 0x8e)
+ioctl$LOOP_CONFIGURE(r0, 0x4c0a, &(0x7f0000000080)={r1, 0x0, {0x0, 0x0, 0x0, 0x6, 0x4000000000000ffd, 0x0, 0x0, 0x1d, 0xc, "faf98317e5a1149989fc8dbe43ea6acc96e3a2503dc3bd3fe37d58128bbad0099cebdc25f5d69098c8b534464c516bdd8a0f350000e35abdb80e38f5eb010001", "32d8cc263d9e234b30c50997d3bef4cd4a5d83cdd3dfe7800b2d7b6aa54cc5001fcaed1e831fa79a0000000200", "67523760fd40f78d2cfc03d81a8ca55ba139c01802c4dae4162e43ac61b7ad33", [0x8, 0x5]}})
+ioctl$LOOP_CHANGE_FD(r0, 0x4c06, r1)

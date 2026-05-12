@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=5ddac33368ddb55edb1e152940542d2bd497ba88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"callcomments":true}
+timer_create(0x0, &(0x7f00000000c0)={0x0, 0x21, 0x2}, &(0x7f0000000100))
+timer_settime(0x0, 0x1, &(0x7f0000000040)={{0x0, 0x989680}, {0x0, 0x989680}}, 0x0)
+mmap(&(0x7f0000000000/0x200000)=nil, 0x200000, 0x300000b, 0x204031, 0xffffffffffffffff, 0xec776000)
+syz_open_dev$dvb_frontend(&(0x7f0000000340), 0x0, 0x2)

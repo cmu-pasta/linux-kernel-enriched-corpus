@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=71ac96ad6b91010b7c6e14450873d7cd6e8ef1f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"cgroups":true,"close_fds":true,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xb, &(0x7f0000000180)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020702500000000002020207b1af8ff00000000bfa100000000000007010000f8ffffffb702000005000000b703000000000080850000000400000095"], &(0x7f0000000040)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x90)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f0000000280)='ext4_es_lookup_extent_enter\x00', r0}, 0x10)

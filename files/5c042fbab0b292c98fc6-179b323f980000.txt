@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2e7ea317bcd565c49f885637ad9697943cadf125
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000080)='/proc/thread-self/net/afs/rootcell\x00', 0x48041, 0x0)
+poll$auto(&(0x7f0000000000)={<r1=>r0, 0x435, 0x2}, 0x0, 0x3)
+write$auto_msr_fops_msr(r1, &(0x7f0000000200)="2cdde02c4a23d0bfa2f142fd75faff3d3af64fae3492be4393a7636f05a6c6971625de4c842b45f72910474ce639310135b9a02584e8bb6e95de80ed32512b496df8053e2b6c4373d9ca8ad0d080f779f9be749540b84ba93ab97cf87fcb5e56656076df7458cca87339307dba5397c890b3e0c2eab613b78b0c2941fdb09446876a375cd4dbb3d09fa959514f82fa3eddee04a5067d42403657d10b2c37", 0x9e)

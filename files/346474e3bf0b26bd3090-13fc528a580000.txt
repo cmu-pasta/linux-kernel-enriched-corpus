@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=570b548f1cf8f3040dda661bfea17c318d79ab88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"callcomments":true}
+r0 = syz_init_net_socket$802154_dgram(0x24, 0x2, 0x0)
+r1 = syz_init_net_socket$802154_raw(0x24, 0x3, 0x0)
+recvmmsg(r0, &(0x7f0000000b80)=[{{0x0, 0x0, 0x0}, 0x2}, {{&(0x7f0000000800)=@vsock={0x28, 0x0, 0x0, @local}, 0x80, 0x0}, 0xfffffffc}], 0x2, 0x60012023, 0x0)
+sendmsg$802154_raw(r1, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000000)="e100008e", 0x4}, 0x1, 0x0, 0x0, 0x4008081}, 0x4c0e4)

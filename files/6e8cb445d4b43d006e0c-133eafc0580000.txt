@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+unshare(0x62040200)
+getsockopt$IPT_SO_GET_INFO(0xffffffffffffffff, 0x0, 0x40, 0x0, 0x0)
+r0 = creat(0x0, 0x0)
+prctl$PR_SET_MM_EXE_FILE(0x23, 0xd, r0)
+sendmsg$ETHTOOL_MSG_DEBUG_SET(r0, 0x0, 0x4040004)
+bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, 0x0, 0x0)

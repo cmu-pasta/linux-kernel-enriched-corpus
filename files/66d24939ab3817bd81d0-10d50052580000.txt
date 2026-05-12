@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=b95fe5e794687d86d3431035317ea4955752244a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true,"callcomments":true}
+syz_mount_image$msdos(&(0x7f0000000040), &(0x7f0000000000)='./file0\x00', 0x1000000, &(0x7f0000002880)={[{@nodots}, {@fat=@errors_continue}, {@fat=@uid}, {@nodots}, {@fat=@nfs_stale_rw}, {@fat=@flush}, {@dots}, {@fat=@uid}, {@nodots}, {@nodots}, {@nodots}]}, 0x1, 0x25f, &(0x7f0000000140)="$eJzs3cFqE0EYB/AvTZqsBbVn8bDgxZOobxCkghAQqrkbaL20Imwv0VMeQ/ANfByPPkZPvUXaXVy7LSIl6WS7vx+E/dj/DjuTQCaHmeyHx5+ODj6ffFz++hZZlscgYhFnEbuxFf0o9arj1kU9jGHUFgEAtM3+/mycug+sUO/qqaIYz7YjYnQlm/64pV4BAAAAAAAAAACwYjdZ//836/8BoH2s/7/7imI826l+v11m/T8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQztly+XD5j1fq/gEAq2f+B4DuMf8DQPeY/wGge949qIo8zyJOF/PpfFoey9Ov30z2nucXdutWp/P5dLuqJ3svyjxv5jtV+5fX5sN4+qTMz7NXbyeNfBQH6xw4AAAAAAAAAAAAAAAAAAAAbJBn+R+N/f39Mj+/YBTX5FnE90v/D9DYvz+IR4PbHAkAAAAAAAAAAAAAAAAAAAC018mXr0ez4+PDorPFz35EsrtHr/wYUr8JjeJe3KBVtmmjaFHRj4jDUQxivfd6f///L079zQQAAAAAAAAAAAAAAAAAAN1Tb/pN3RMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASKd+/v/6itRjBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALrhdwAAAP//UhGHcQ==")
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x1c0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./file1\x00', 0x0)
+renameat2(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0xffffffffffffff9c, &(0x7f00000002c0)='./bus\x00', 0x0)
+chdir(&(0x7f0000000300)='./bus\x00')
+syz_mount_image$fuse(0x0, &(0x7f0000002080)='./file0\x00', 0x200000, 0x0, 0x0, 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./bus\x00', 0xa5)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000240)='./file1/file0\x00', 0x100)
+mount$bind(&(0x7f0000000100)='.\x00', &(0x7f0000000280)='./file1/file0\x00', 0x0, 0x1085408, 0x0)

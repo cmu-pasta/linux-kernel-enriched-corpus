@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=239eb5e38a9f3ded54b32531a4d5ececee331b6f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"tmpdir":true}
+syz_usb_connect_ath9k(0x3, 0x5a, &(0x7f0000000080)={{0x12, 0x1, 0x200, 0xff, 0xff, 0xff, 0x40, 0xcf3, 0x9271, 0x108, 0x1, 0x2, 0x3, 0x1, [{{0x9, 0x2, 0xd5}}]}}, 0x0)
+syz_usb_connect(0x0, 0x0, 0x0, 0x0)

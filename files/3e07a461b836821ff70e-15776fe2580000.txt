@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e87c72a0c930d878958ee8b9fcf4aacd602d05db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$inet6_sctp(0xa, 0x1, 0x84)
+r0 = syz_init_net_socket$bt_bnep(0x1f, 0x3, 0x4)
+ioctl$sock_bt_bnep_BNEPCONNADD(r0, 0x400442c8, &(0x7f00000001c0)={0xffffffffffffffff, 0x1, 0x2})
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r1, 0x400448cb, 0x0)
+syz_emit_vhci(&(0x7f0000000040)=ANY=[@ANYBLOB="040e0402030c"], 0x7)

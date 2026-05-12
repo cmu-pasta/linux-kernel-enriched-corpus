@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=22bf56fbdba04c8adf52a17b8c3cb4e12396b77e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket(0x10, 0x2, 0x0)
+sendmmsg$auto(r0, &(0x7f0000000200)={{0x0, 0xfe, &(0x7f0000000100)={0x0, 0xfc2}, 0x2, 0x0, 0x7, 0xa51f}, 0x800}, 0x7, 0x4008)
+readv$auto(0x3, &(0x7f0000000a80)={0x0, 0xffff}, 0x1)
+ioctl$auto_PPPIOCSMRU(0xffffffffffffffff, 0xc004743e, 0x0)
+close_range$auto(0x2, 0x8, 0x0)
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+r1 = openat$auto_rtc_dev_fops_dev(0xffffffffffffff9c, &(0x7f0000000340), 0x189400, 0x0)
+ioctl$auto_RTC_RD_TIME(r1, 0x80247009, 0x0)
+r2 = openat$auto_fb_fops_fb_chrdev(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/fb0\x00', 0x20401, 0x0)
+ioctl$sock_SIOCGIFINDEX(r2, 0x4601, 0x0)
+openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/devices/virtual/vtconsole/vtcon1/bind\x00', 0x182b02, 0x0)
+writev$auto(0x3, &(0x7f0000000100)={0x0, 0x7111}, 0x8)
+r3 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000080)='/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/device:08/adr\x00', 0x0, 0x0)
+read$auto(r3, 0x0, 0x20)
+write$auto(0x3, 0x0, 0xfffffdef)

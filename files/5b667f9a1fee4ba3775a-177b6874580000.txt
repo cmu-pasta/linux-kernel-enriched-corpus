@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4023dcf7b4456b73d1927d1e755ec6b180565e5f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdir(&(0x7f00000000c0)='./bus\x00', 0x40)
+mount$9p_virtio(&(0x7f0000000100), &(0x7f0000000380)='./bus\x00', &(0x7f00000003c0), 0x814004, 0x0)
+setxattr$system_posix_acl(&(0x7f0000000000)='./bus\x00', &(0x7f0000000040)='system.posix_acl_default\x00', &(0x7f0000000480)={{}, {}, [], {}, [], {0x10, 0x6}}, 0x24, 0x3)
+chdir(&(0x7f0000000080)='./bus\x00')
+mkdir(&(0x7f00000000c0)='./bus\x00', 0x40)

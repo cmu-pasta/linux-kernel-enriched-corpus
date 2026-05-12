@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3af8cab827896e644e2b769b40d7fc2595aeff63
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = io_uring_setup(0x146a, &(0x7f0000000180))
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000000)={'lo\x00'})
+bind$bt_l2cap(0xffffffffffffffff, &(0x7f0000000000)={0x1f, 0x0, @any, 0x4}, 0xe)
+r2 = io_uring_register$IORING_REGISTER_PERSONALITY(r0, 0x9, 0x0, 0x0)
+io_uring_register$IORING_UNREGISTER_PERSONALITY(r0, 0x16, 0x20000002, r2) (fail_nth: 3)

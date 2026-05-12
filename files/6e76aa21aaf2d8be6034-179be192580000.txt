@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=6fba72a9b8719ca93a8fc10d362128fe3d15a669
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+sendmsg$sock(r0, &(0x7f0000000a00)={0x0, 0x0, 0x0, 0x0, &(0x7f0000000940)=[@timestamping={{0x14, 0x1, 0x25, 0x3}}], 0x18}, 0x24040800)
+socket$inet_smc(0x2b, 0x1, 0x0)
+setsockopt$inet_sctp_SCTP_SOCKOPT_BINDX_ADD(0xffffffffffffffff, 0x84, 0x64, 0x0, 0x0)
+setsockopt$inet_sctp6_SCTP_ADD_STREAMS(0xffffffffffffffff, 0x84, 0x79, 0x0, 0x0)

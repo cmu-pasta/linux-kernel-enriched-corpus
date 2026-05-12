@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6b53effa5234d16dc2c55e1e8dafc63ba776be90
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+connect$inet6(r0, &(0x7f0000000040)={0xa, 0x4001, 0xfffffffc, @loopback, 0xfffffffa}, 0x1c)
+connect$unix(r0, &(0x7f000057eff8)=@file={0x0, './file0\x00'}, 0x6e)
+connect$inet6(r0, 0x0, 0x0)

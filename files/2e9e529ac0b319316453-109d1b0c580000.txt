@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=20ff41f40a17b3f5e2f7b6fb51411d267f156e0a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nbd(&(0x7f0000000080), 0xffffffffffffffff)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000000)={<r2=>0xffffffffffffffff})
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f0000001ac0)={0x0, 0x0, &(0x7f0000001a80)={&(0x7f0000001b00)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="0100ffffffff00000000010000000c0002000400000000000000100007800c00018008000100", @ANYRES32=r2, @ANYBLOB], 0x3c}}, 0x20000000)
+r3 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nbd(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$NBD_CMD_CONNECT(r3, &(0x7f0000001ac0)={0x0, 0x0, &(0x7f0000001a80)={&(0x7f00000000c0)=ANY=[@ANYBLOB='0\x00\x00\x00', @ANYRES16=r4, @ANYBLOB="01000000000000000000010000000c00060001000100000000000c000200000000000000000004000780"], 0x30}}, 0x0)

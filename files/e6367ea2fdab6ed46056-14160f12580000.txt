@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=f291840edb89cf5710bde3b8abd6021687077d6c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000001000), 0x169802, 0x0)
+ioctl$BLKBSZSET(r0, 0x40081271, &(0x7f0000000100)=0x10000)
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000000), 0x282, 0x0)
+r2 = dup(r1)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2000007, 0x38011, r2, 0x0)
+madvise(&(0x7f0000000000/0x800000)=nil, 0x800000, 0xe)
+madvise(&(0x7f0000000000/0xc00000)=nil, 0xc00000, 0x64)

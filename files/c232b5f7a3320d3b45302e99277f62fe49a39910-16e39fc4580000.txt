@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c232b5f7a3320d3b45302e99277f62fe49a39910
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+sched_setscheduler(0x0, 0x1, 0x0)
+syz_genetlink_get_family_id$nfc(0x0, 0xffffffffffffffff)
+socket$nl_rdma(0x10, 0x3, 0x14)
+openat$rdma_cm(0xffffffffffffff9c, 0x0, 0x2, 0x0)

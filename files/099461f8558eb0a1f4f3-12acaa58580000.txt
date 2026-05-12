@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=23b42017412e73fb730cffe0826ecc55030f8583
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"close_fds":true,"vhci":true,"tmpdir":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+bind$bt_hci(r0, &(0x7f0000000080)={0x1f, 0x1}, 0x6)
+write$bt_hci(r0, &(0x7f0000000000)=ANY=[@ANYBLOB="01"], 0xb)

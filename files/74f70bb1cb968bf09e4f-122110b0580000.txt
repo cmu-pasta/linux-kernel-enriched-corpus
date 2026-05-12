@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=11f7a205fa5e609901b747ea2d4bfeff419b288d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+r0 = socket$packet(0x11, 0x2, 0x300)
+r1 = socket$packet(0x11, 0x3, 0x300)
+r2 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000040)={'lo\x00', <r3=>0x0})
+sendto$packet(r1, &(0x7f0000000080)="a99c383d33c9c607b1b9d49688a883", 0xf, 0x0, &(0x7f0000000000)={0x11, 0x0, r3, 0x1, 0x0, 0x6, @link_local}, 0x14)
+recvmmsg(r0, &(0x7f0000000480)=[{{0x0, 0x0, 0x0}}], 0x1, 0x10022, 0x0) (async)
+recvmmsg(r0, &(0x7f0000000480)=[{{0x0, 0x0, 0x0, 0x0, &(0x7f00000003c0)=""/11, 0x17}}], 0x400000000000179, 0x10022, 0x0)

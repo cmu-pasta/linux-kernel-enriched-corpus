@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=8e030beda49b8e549cfeb17ed369414ed27331e6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+sendto$inet6(0xffffffffffffffff, &(0x7f00000001c0)="5da1e6ae46b5a41829a4f38e47c7b4d466e537e8e283c346a456bcd2bd653a972955458f5d500aa60000b42544dfc9142bd02dbcece4101fa934f9ebacb033ce0322c5a645946d", 0x47, 0x20048005, 0x0, 0x0)
+r0 = bpf$MAP_CREATE(0x0, &(0x7f00000000c0)=@base={0x1f, 0x0, 0x0, 0x1000, 0x0, 0x1, 0x0, '\x00', 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, @void, @value, @void, @value}, 0x48)
+mmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x100000f, 0x28011, r0, 0x1000)
+r1 = syz_open_procfs(0x0, &(0x7f00000001c0)='maps\x00')
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0xc0686611, &(0x7f0000000180)={0x68, 0x0, 0x3f, 0x2000, &(0x7f0000ffe000/0x2000)=nil})

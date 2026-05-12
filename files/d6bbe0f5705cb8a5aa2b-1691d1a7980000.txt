@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=95cab52c10cd2fe8a399192414dd0b68b0e7b7d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$unix(0x1, 0x2, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000100)={'vcan0\x00', <r1=>0x0})
+r2 = socket$can_bcm(0x1d, 0x2, 0x2)
+connect$can_bcm(r2, &(0x7f0000000000), 0x10)
+sendmsg$can_bcm(r2, &(0x7f0000000480)={&(0x7f0000000340)={0x1d, r1, 0x3f420f00}, 0x10, &(0x7f0000000040)={&(0x7f0000000580)=ANY=[@ANYBLOB="01000000d7fe68ca0000000000000000", @ANYRES64=0x0, @ANYRES64=0x0, @ANYRES64=0x0, @ANYRES64=r0, @ANYBLOB="3be91bb9f6"], 0x20000600}, 0x1, 0x0, 0x0, 0x8007}, 0x20040011)
+r3 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$inet_MCAST_JOIN_GROUP(r3, 0x0, 0x2a, 0x0, 0x0)
+sendmsg$NFQNL_MSG_CONFIG(0xffffffffffffffff, 0x0, 0x0)
+sendmsg$nl_netfilter(0xffffffffffffffff, &(0x7f0000000380)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x11}, 0x80)

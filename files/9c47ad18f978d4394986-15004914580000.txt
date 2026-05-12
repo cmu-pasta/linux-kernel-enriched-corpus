@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e63c0c8da08031799e676d3004e1e4b60453cdaf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+write$RDMA_USER_CM_CMD_REJECT(0xffffffffffffffff, &(0x7f0000000100)={0x9, 0x108, 0xfa00, {0xffffffffffffffff, 0x0, '#SP', "d54a1ea6e2b95d3efd47dcdbb5fb1f112aaf0064d79486cdf50f6206540890b35529e047d3829c53d46ee13e92479127dca6a93a8e4c9c21560c97c06c9cbd9f48aa4308e58a1f9a85a0972b8f9f4ad82d37a0f0158b4af6b1021f8a83d5fe55ddd542e294d8ebc0a223dc070c8b065b875d1d8603ba1a62599c9119f09f6879de151b90226df149cae7217a7c43ddc0d68a3d40616fdb186a18cdd5faacaa55875d5640df0b9a89eddad750b037dc480c92603e121562927a598e5c7121dc9934a8497eb43f25962094ad4e8da38859d6f1f0d12630e17a2f1b08882bf06b3f269c403172bd61186a0217a93d47e8798f6f2b00"}}, 0x110)
+prctl$PR_SCHED_CORE(0x4d, 0x1, 0x0, 0x0, 0x0)
+timer_create(0x2, 0x0, 0x0)

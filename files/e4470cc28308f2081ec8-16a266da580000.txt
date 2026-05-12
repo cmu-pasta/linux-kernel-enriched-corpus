@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=1140f3fed56217fccadf22873f88c80d98c4a328
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x89901)
+fchdir(r0)
+close(r0)
+open_tree(0xffffffffffffff9c, &(0x7f0000000100)='\x00', 0x81902)

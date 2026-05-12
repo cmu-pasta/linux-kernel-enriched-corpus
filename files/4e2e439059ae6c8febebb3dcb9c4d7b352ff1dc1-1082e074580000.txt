@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=4e2e439059ae6c8febebb3dcb9c4d7b352ff1dc1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"close_fds":true,"vhci":true,"wifi":true,"sysctl":true,"segv":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+setsockopt$SO_TIMESTAMPING(r0, 0x1, 0x41, &(0x7f0000000180)=0x2efb, 0x4)
+connect$bt_l2cap(r0, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+sendmmsg$inet(r0, &(0x7f0000001200)=[{{0x0, 0x0, 0x0}}], 0x1, 0x8800)
+connect$vsock_stream(0xffffffffffffffff, 0x0, 0x0)
+connect$pppl2tp(0xffffffffffffffff, 0x0, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+ppoll(0x0, 0x0, 0x0, 0x0, 0x0)
+close(0x4)
+openat$cgroup_netprio_ifpriomap(0xffffffffffffffff, 0x0, 0x2, 0x0)

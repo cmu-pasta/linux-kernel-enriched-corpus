@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=097c6c5f0e7b12499f7659c58424c6d9ca0d53dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+setsockopt$inet_sctp6_SCTP_DEFAULT_PRINFO(0xffffffffffffffff, 0x84, 0x72, 0x0, 0x0)
+sendto$inet6(0xffffffffffffffff, 0x0, 0x0, 0x0, &(0x7f0000000480)={0xa, 0x4e23, 0x0, @loopback}, 0x1c)
+setrlimit(0x1, &(0x7f0000000100)={0xffffffffffffffff, 0xffffffffffffffff})
+r0 = creat(&(0x7f0000000000)='./bus\x00', 0x0)
+r1 = open(&(0x7f0000000180)='./bus\x00', 0x14927e, 0x0)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x27fffff, 0x4002011, r1, 0x0)
+ftruncate(r0, 0x1f)
+r2 = open(&(0x7f00000000c0)='./bus\x00', 0xca942, 0x0)
+ftruncate(r2, 0x8002007ffb)
+gettid()
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x87}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000180)=0x4)
+syz_open_dev$MSR(&(0x7f0000000040), 0x0, 0x0)

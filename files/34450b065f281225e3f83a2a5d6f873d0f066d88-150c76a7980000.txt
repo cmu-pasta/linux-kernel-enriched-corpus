@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=34450b065f281225e3f83a2a5d6f873d0f066d88
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet_smc(0x2b, 0x1, 0x0) (fail_nth: 5)

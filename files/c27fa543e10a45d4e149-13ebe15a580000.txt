@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fb76d3214c8f478351eff8db09d8386881c50bf9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mlock(&(0x7f0000ffe000/0x2000)=nil, 0x2000)
+munlock(&(0x7f0000ffc000/0x4000)=nil, 0x4000) (fail_nth: 1)

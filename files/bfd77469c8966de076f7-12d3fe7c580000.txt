@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e74381d026669b803638c15c9cf0aa0b105d007f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+sendmsg$NL80211_CMD_JOIN_IBSS(0xffffffffffffffff, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000580)={&(0x7f00000009c0)={0x80, 0x0, 0x101, 0x70bd2a, 0x80000, {{}, {@val={0x8}, @void}}, [@NL80211_ATTR_PRIVACY={0x4}, @NL80211_ATTR_SSID={0xa, 0x34, @default_ap_ssid}, @chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8, 0x26, @random=0x143c}], @NL80211_ATTR_KEYS={0x4c, 0x51, 0x0, 0x1, [{0x2c, 0x0, 0x0, 0x1, [@NL80211_KEY_CIPHER={0x8, 0x3, 0xfac05}, @NL80211_KEY_DEFAULT={0x4}, @NL80211_KEY_IDX={0x5, 0x2, 0x3}, @NL80211_KEY_DATA_WEP104={0x11, 0x1, "40fd2cad9ee68885bce3d1518e"}]}, {0x1c, 0x0, 0x0, 0x1, [@NL80211_KEY_DATA_WEP40={0x9, 0x1, "8a6a3d172e"}, @NL80211_KEY_IDX={0x5, 0x2, 0x1}, @NL80211_KEY_DEFAULT={0x4}]}]}]}, 0x80}, 0x1, 0x0, 0x0, 0x80}, 0x4804)
+syz_usb_connect(0x2, 0x2d, &(0x7f0000000a00)=ANY=[@ANYBLOB="120100000c9768405e0483020b9901e4020109021b000100000000090400fb015c291d00090509"], 0x0)
+r0 = syz_open_dev$audion(&(0x7f0000000000), 0x3, 0x1)
+write$P9_RVERSION(r0, &(0x7f0000000e00)=ANY=[@ANYBLOB], 0x5ce)

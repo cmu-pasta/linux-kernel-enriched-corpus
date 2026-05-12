@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4962412862d97ca9a4a2c04ece56ca0cb96759fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000001000), 0x48882, 0x0)
+r1 = dup(r0)
+fallocate(r1, 0x11, 0x0, 0x4000000000052000)
+r2 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000240), 0x4000000004002, 0x0)
+mmap(&(0x7f0000000000/0xe7e000)=nil, 0xe7e000, 0x200000e, 0x13, r2, 0x0)

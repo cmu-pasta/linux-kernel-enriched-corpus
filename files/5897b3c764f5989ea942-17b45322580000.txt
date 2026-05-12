@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9fbcadab8fc17a120a08beac176c0ace5c04ef56
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_sco(0x1f, 0x5, 0x2)
+connect$bt_sco(r0, &(0x7f00000000c0), 0x8)
+r1 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000180), 0x40e02, 0x0)
+write$rfkill(r1, &(0x7f0000000300)={0x0, 0x2, 0x3, 0x1, 0x1}, 0x8)

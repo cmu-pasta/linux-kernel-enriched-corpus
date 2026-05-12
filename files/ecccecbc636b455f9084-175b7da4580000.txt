@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=cb6ff9001f08cbb496165a21d9e28063afb4f690
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+unshare(0x2040600)
+r0 = fsopen(&(0x7f0000000040)='cgroup2\x00', 0x1)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)

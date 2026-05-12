@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=d39b0f2c78c10d6d33c465a7de05dc895f517c01
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+socket(0x10, 0x803, 0x0)
+openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000), 0x40)
+syz_open_dev$MSR(&(0x7f00000001c0), 0x0, 0x0)
+fanotify_init(0xf00, 0x1)
+syz_open_procfs$pagemap(0x0, &(0x7f0000000040))
+socket(0x10, 0x2, 0x0)
+syz_usb_connect$hid(0x4, 0x36, &(0x7f00000000c0)=ANY=[], 0x0)
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmsg$inet(r2, &(0x7f0000001b00)={0x0, 0x0, 0x0, 0x0, &(0x7f0000001d80)=ANY=[@ANYBLOB="28010000000000000100000001"], 0x128}, 0x0)
+recvmsg$unix(r1, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x0, &(0x7f0000000f40)=[@cred={{0x1c}}, @cred={{0x1c}}, @cred={{0x1c}}, @rights={{0x18, 0x1, 0x1, [0xffffffffffffffff, <r3=>0xffffffffffffffff]}}], 0x78}, 0x10040)
+sendmsg$NFC_CMD_DEV_UP(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000140)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r3, @ANYBLOB="010028bd70000700000002000000080001"], 0x1c}, 0x1, 0x0, 0x0, 0x40089}, 0x4008004)

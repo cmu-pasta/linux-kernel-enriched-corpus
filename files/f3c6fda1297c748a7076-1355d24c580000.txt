@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=06f06bab8820fbd2881e4e41235dd0e2be123ef7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x4000000004002, 0x0)
+r1 = dup(r0)
+prctl$PR_SET_SYSCALL_USER_DISPATCH_ON(0x3b, 0x1, 0x0, 0x0, &(0x7f0000006680))
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3000007, 0x38011, r1, 0x0)
+mbind(&(0x7f0000000000/0xc00000)=nil, 0xc00000, 0x0, 0x0, 0x0, 0x2)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)

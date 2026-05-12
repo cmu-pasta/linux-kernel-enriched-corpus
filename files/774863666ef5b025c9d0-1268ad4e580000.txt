@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=4520675623ef9abc9afa808566c47d0557b89af6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"callcomments":true}
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x100, 0x0)
+connect$unix(0xffffffffffffffff, 0x0, 0x0)
+sendmmsg$unix(0xffffffffffffffff, &(0x7f00000bd000), 0x318, 0x0)
+r0 = syz_open_dev$loop(&(0x7f0000000080), 0x4, 0x80000)
+ioctl$vim2m_VIDIOC_STREAMOFF(0xffffffffffffffff, 0x40045612, 0x0)
+ioctl$vim2m_VIDIOC_ENUM_FMT(0xffffffffffffffff, 0xc0405602, 0x0)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f0000000000)={'\x00', 0x2, 0xfe000000, 0x1, 0x5, 0xffffffff})
+ioctl$BLKTRACESTART(r0, 0x1274, 0x0)
+setsockopt$IP_VS_SO_SET_ADD(0xffffffffffffffff, 0x0, 0x48f, &(0x7f0000000000)={0x1, @private, 0x0, 0x0, 'sed\x00', 0xa, 0xfffffffb, 0x14}, 0x2c)

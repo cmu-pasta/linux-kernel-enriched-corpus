@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=9f8e1c94eea883130a688ec784b0cc9e8ab79d0c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000500)=ANY=[@ANYBLOB="380100001a000100feffffff00010000fe880000000000000000000000000001fc0100000000000000000000000000010001071c4e230005000000003a000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="ff020000000000000000000000000001000004d46c000000ac14142500000000000000000000000000000000000000009201000000000000a39b000000000000ffff0000000000001c250800000000000500000000000000fcffffffffffffff0000000000000000ffffffffffffffff00000000000000001f00000000000000fefffffffffffffffafffffffcffffff000000008000000000350000020001002000000000000000480003006465666c61746500"/240], 0x138}, 0x1, 0x0, 0x0, 0x8801}, 0x0)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=3ee8ab8cc5807204384954de2e9e6306591f0f7d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$media(&(0x7f00000000c0), 0x103, 0x0)
+socket$inet6_sctp(0xa, 0x5, 0x84)
+ioctl$MEDIA_IOC_REQUEST_ALLOC(r0, 0x80047c05, 0x0) (async, rerun: 64)
+r1 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f0000000400)={0x1, &(0x7f0000000380)=[{0x6, 0x0, 0x0, 0x7fffffff}]})
+r2 = socket$unix(0x1, 0x5, 0x0)
+r3 = dup2(r2, r1)
+close_range(r3, 0xffffffffffffffff, 0x0)

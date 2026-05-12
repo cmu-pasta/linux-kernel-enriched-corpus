@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=364f6f55153459f048e5e4210ca48e2f0d2e76c3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+socket(0xa, 0x3, 0x3a)
+prlimit64(0x0, 0xe, &(0x7f00000007c0)={0x8, 0x88}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+openat$sequencer(0xffffffffffffff9c, &(0x7f0000000300), 0x0, 0x0)
+r0 = syz_open_dev$sndmidi(&(0x7f00000004c0), 0x2, 0x141102)
+writev(r0, &(0x7f0000000840)=[{&(0x7f00000002c0)="94", 0xf000}, {0x0}], 0x2)
+r1 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000080), 0x4000000002a82, 0x0)
+r2 = dup(r1)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x1000006, 0x28011, r2, 0x2f126000)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600002, 0x9)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=44b3aab0203daaff083ef9be19a3040900869a06
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x3, 0x20000000ec071, 0xffffffffffffffff, 0x0)
+r0 = io_uring_setup(0x5594, &(0x7f0000000100)={0x0, 0x10000000, 0x1, 0x1, 0x21e})
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f00000002c0)=[{&(0x7f0000001700)=""/4095, 0x440000}], 0x100000000000011a)

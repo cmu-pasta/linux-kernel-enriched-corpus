@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=3cb2767249edbf9acb4e6c847748c981c9c614dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socket$inet6(0xa, 0x1, 0x100) (fail_nth: 7)

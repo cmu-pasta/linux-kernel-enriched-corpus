@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=8d57bd0e0c00e02bca4a3a0fb39cdd19ae777639
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$MSR(&(0x7f00000001c0), 0x0, 0x0)
+read$msr(r0, &(0x7f0000019680)=""/102392, 0x18ff8)
+madvise(&(0x7f0000000000/0xc00000)=nil, 0xc00003, 0x18)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f0602bbe226ffa4da3702024299f7a7555243d73
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$tipc2(&(0x7f0000000100), 0xffffffffffffffff)
+sendmsg$TIPC_NL_BEARER_ENABLE(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000080)={0x54, r2, 0x1, 0x0, 0x0, {}, [@TIPC_NLA_BEARER={0x40, 0x1, 0x0, 0x1, [@TIPC_NLA_BEARER_UDP_OPTS={0x2c, 0x4, {{0x14, 0x1, @in={0x2, 0x0, @local}}, {0x14, 0x2, @in={0x2, 0x0, @multicast1}}}}, @TIPC_NLA_BEARER_NAME={0xd, 0x1, @udp='udp:syz2\x00'}]}]}, 0x54}}, 0x0)
+sendmsg$TIPC_NL_KEY_SET(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)={0x60, r2, 0x1, 0x0, 0x0, {}, [@TIPC_NLA_NODE={0x4c, 0x6, 0x0, 0x1, [@TIPC_NLA_NODE_KEY={0x3c, 0x4, {'gcm(aes)\x00', 0x14, "e3de3d7b4cd07ec3ee777de774fc7987cca41989"}}, @TIPC_NLA_NODE_KEY_MASTER={0x4}, @TIPC_NLA_NODE_REKEYING={0x8, 0x6, 0xffffffff}]}]}, 0x60}, 0x1, 0x0, 0x0, 0x4}, 0x4000004)

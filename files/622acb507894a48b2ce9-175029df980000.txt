@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=baff5bfd0c148e6a6552e815fba942c1ac5e61b0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = bpf$PROG_LOAD(0x5, &(0x7f00000000c0)={0x11, 0xc, &(0x7f0000000180)=ANY=[@ANYBLOB="18000000ed07449e000000000000000018010000", @ANYRES32, @ANYBLOB="0000000000000000b70800000000396f7b8af8ff00000000bfa200000000000007020000f8ffffffb703000008000000b704000000000000850000002400000095"], &(0x7f0000000980)='GPL\x00', 0x0, 0x0, 0x0, 0x41100, 0x4, '\x00', 0x0, @fallback=0x33, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @void, @value}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f00000003c0)='sched_switch\x00', r0}, 0x18)
+ioctl$sock_inet6_SIOCADDRT(0xffffffffffffffff, 0x890b, &(0x7f0000000a80)={@mcast1, @mcast2, @private2, 0x2, 0x0, 0x0, 0x500, 0x6, 0xca0167}) (fail_nth: 3)

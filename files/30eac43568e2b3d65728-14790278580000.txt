@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6b5f76b3a3783e6b1876d25b2d7a981ac0e0131f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000100)='/proc/stat\x00', 0x0, 0x0)
+r1 = socket$alg(0x26, 0x5, 0x0)
+bind$alg(r1, &(0x7f0000000480)={0x26, 'hash\x00', 0x0, 0x0, 'hmac(sha256)\x00'}, 0x58)
+setsockopt$ALG_SET_KEY(r1, 0x117, 0x1, 0x0, 0x0)
+r2 = accept4(r1, 0x0, 0x0, 0x0)
+sendmsg$alg(r2, &(0x7f0000000640)={0x0, 0x0, 0x0}, 0x8084)
+sendfile(r2, r0, 0x0, 0x8)

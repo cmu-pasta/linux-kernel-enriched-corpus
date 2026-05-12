@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e170e3e1ed6fd0cf371cc327415facb6e0a4f155
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+ioctl$KVM_SET_USER_MEMORY_REGION(0xffffffffffffffff, 0x4020ae46, &(0x7f00000001c0)={0xe886c5ffc5249171, 0x4, 0x0, 0x1000, &(0x7f0000001000/0x1000)=nil})
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='maps\x00')
+ioctl$KVM_SET_USER_MEMORY_REGION(r0, 0xc0686611, &(0x7f0000000180)={0x68, 0x0, 0x18, 0x2000, &(0x7f0000ffd000/0x2000)=nil})

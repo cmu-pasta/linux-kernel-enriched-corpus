@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=24cb20d8223c0f7cbaf6baae69cba27c07576b41
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"close_fds":true,"vhci":true,"sysctl":true,"tmpdir":true}
+r0 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/devices/virtual/block/nbd6/queue/scheduler\x00', 0x189002, 0x0)
+sendfile$auto(r0, r0, 0x0, 0x3)

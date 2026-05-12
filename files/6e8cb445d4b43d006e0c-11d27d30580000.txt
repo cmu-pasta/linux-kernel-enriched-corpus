@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+sync()
+r0 = socket$packet(0x11, 0x3, 0x300)
+mmap(&(0x7f0000ff0000/0x10000)=nil, 0x10000, 0x0, 0x13012, r0, 0x0)
+mmap(&(0x7f0000ff0000/0x10000)=nil, 0x10000, 0x0, 0x13012, r0, 0x0)
+mprotect(&(0x7f0000ff7000/0x1000)=nil, 0x1000, 0xb)
+syz_clone(0x640c7000, 0x0, 0x0, 0x0, 0x0, 0x0)

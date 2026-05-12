@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9a79b8811a34e4105fa7e275831547cd5de07b05
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"tmpdir":true}
+r0 = socket(0x2, 0x5, 0x0)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nbd(&(0x7f0000002600), 0xffffffffffffffff)
+sendmsg$NBD_CMD_CONNECT(r1, &(0x7f00000027c0)={0x0, 0x0, &(0x7f0000002780)={&(0x7f0000000700)={0x48, r2, 0x1, 0x70bd29, 0x25dfdbfb, {}, [@NBD_ATTR_SIZE_BYTES={0xc, 0x2, 0x40d6}, @NBD_ATTR_SOCKETS={0x1c, 0x7, 0x0, 0x1, [{0xc, 0x1, 0x0, 0x1, {0x8, 0x1, r0}}, {0xc, 0x1, 0x0, 0x1, {0x8, 0x1, r0}}]}, @NBD_ATTR_SERVER_FLAGS={0xc, 0x5, 0x101}]}, 0x48}, 0x1, 0x0, 0x0, 0x4000004}, 0x2000c000)

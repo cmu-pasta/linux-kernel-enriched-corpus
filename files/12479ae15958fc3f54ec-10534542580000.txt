@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=039bf53503778d3401b657cb99a68e5803f69eae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true,"ieee802154":true,"sysctl":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mount$tmpfs(0x0, &(0x7f0000000000)='./file1\x00', &(0x7f0000000080), 0x8000, 0x0)
+r0 = landlock_create_ruleset(&(0x7f00000002c0)={0x2001, 0x0, 0x3}, 0x18, 0x0)
+r1 = openat$dir(0xffffffffffffff9c, &(0x7f0000000300)='./file1\x00', 0x200000, 0x0)
+landlock_add_rule$LANDLOCK_RULE_PATH_BENEATH(r0, 0x1, &(0x7f0000000340)={0x2000, r1}, 0x0)
+landlock_restrict_self(r0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1d8bce86d859f383e9348342cd2878e2299ec0f6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x7, 0x100}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000240)=0x7)
+futex(&(0x7f000000cffc)=0x1, 0x6, 0x0, 0x0, 0x0, 0x0)

@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0x20009, 0xe2, 0xeb1, 0x405, 0x7ffe)
+socket(0xa, 0x2, 0x73)
+socketpair$auto(0x1, 0x5, 0x8000000000000000, 0x0)
+unshare$auto(0x40000080)
+socket(0x2, 0x3, 0x6)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=dc1aaadc6fe7f900a77f0d6b052ad7dcf5e8393c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$sock_int(r0, 0x1, 0x3c, &(0x7f0000000040)=0x1, 0xfff0)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f00000000c0)=0x1, 0x4)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x0, @loopback}, 0x10)
+setsockopt$inet_tcp_TCP_REPAIR(r0, 0x6, 0x13, &(0x7f00000001c0)=0xffffffffffffffff, 0x4)
+write$binfmt_elf32(r0, &(0x7f00000014c0)=ANY=[], 0x46b)

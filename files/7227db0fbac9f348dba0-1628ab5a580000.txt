@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b912408d6fe3a838223ddd52385daae5a949e843
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, 0x0)
+chdir(&(0x7f0000000100)='./file0\x00')
+setfsuid(0x0)
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='freezer.self_freezing\x00', 0x275a, 0x0)
+write$binfmt_script(r0, &(0x7f0000000000), 0x208e24b)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=56e7038469d5aa028c916e0733f515710efa75e4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000c00)=ANY=[@ANYBLOB="56c78e3c733d76697274696f2c6e6f657874656e642c6163638173733d616e792c63616368653d667363616368652c76657273696f6e3d3970323030302e75"])
+chdir(&(0x7f00000000c0)='./file0\x00')
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x62881, 0x19d)
+write$P9_RREADLINK(r0, &(0x7f0000000080)={0xa, 0x17, 0x1, {0x1, '.'}}, 0xa)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x62881, 0x19d)
+write$P9_RREADLINK(r1, &(0x7f0000000080)={0xa, 0x17, 0x1, {0x1, '.'}}, 0xa) (fail_nth: 4)

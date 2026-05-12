@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=37aa1f4e89cbec70df262b72b9836f251fe1ae9d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet6(0xa, 0x2, 0x0)
+setsockopt$inet6_udp_int(r0, 0x11, 0x68, &(0x7f0000000080)=0xa40, 0x4)
+setsockopt$inet6_udp_encap(r0, 0x11, 0x64, &(0x7f0000000000)=0x2, 0x4)

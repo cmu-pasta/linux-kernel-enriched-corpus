@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=69daf5662171733f82a5c46ecece52d2cf9eac97
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0xa, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000240)=0x7)
+connect$unix(0xffffffffffffffff, 0x0, 0x0)
+bind$alg(0xffffffffffffffff, &(0x7f00000001c0)={0x26, 'hash\x00', 0x0, 0x0, 'hmac(sha512)\x00'}, 0x58)
+r0 = accept$alg(0xffffffffffffffff, 0x0, 0x0)
+sendmmsg$alg(r0, &(0x7f0000004780)=[{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4800}], 0x1, 0x80)
+syz_mount_image$vfat(&(0x7f0000000880), &(0x7f0000003200)='./file1\x00', 0x4604, &(0x7f0000003240)=ANY=[], 0x3, 0x335, &(0x7f0000000a40)="$eJzs3M9rG0cUwPEnWZYlGVs6lJYWiof20l4WW+25VBQbSgU1tlVqFwxre9UKbSWjFS4qpbZPvZbccwrkYHz0zZD4H/Alt+SSS266BHKICSEb9pf107asyJFjfz8QdjQzTzujGYW3i1f1X///s5i3tLxelXBMSUhE5EQkJWEJhPxj2C1HpdmOfD3+4vHni8srP2Wy2dkFpeYyS9+klVKTUw/++ifudzsck+PUav15+tnxx8ef1t8s/VGwVMFSpXJV6Wqt/LSqr5mG2ihYRU2pedPQLUMVSpZR8drLXnveLG9u1pRe2phIbFYMy1J6qaaKRk1Vy6paqSn9d71QUpqmqYmE4ALOgi7omT6j1wc8GlyRSiWjj4hIvKMltzeUAQEAgKFqz//DTkrfV/4vk27+73Ru5P/7XxxVx385mDx0Ylfrh9Fu+f+3T7z3asn/YyLST/5/Vy6R/3dmRLdLbm+h//wf18NUtKMq1PLKyf8T/vfXtfvb/rRbIP8HAAAAAAAAAAAAAAAAAAAAAOBDcGLbSdu2k8Ex+Nd4hMB/jRvprPUfE5GYs/o263+TLS6vSMx9cM9ZY/O/rdxWzjv6HY5ExBRDpiUpr9394HPKwZNHypGSh+a2G//KOY64LZm8FNz4GUlKqj3etud+zM7OKI8ff/qYUqI5Pi1J+ah7fLo13hn/9lYuKl992RSvSVIerUtZTNlw93Uj/t8ZpX74OdsWH/dOAgAAAADADaApFfIvn1Ot17/e9bumKdW93fuVkUzevU10xv0B7/p6uuv1eST5WWTYswcAAAAA4Hawan8XddM0KucU4nJxn/4Lkd46R9tqRs/rPNI0w17HE3VvZIi867zu9fipthSCP6RoaYr5lf2NJ5j/wNZrp7kmLD1ERdoHP+VUqEuefdefyGlNcNsoesbnLPOd7xM+ZyeMDmw/f3Ln/svBfUG+Owh2wMWdd/s9V6x917mF0av+fwcAAADA+9dI+oOa75ubQ0MZFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAt8yV/KRfW2HYcwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACui7cBAAD//5Oa+gc=")
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000080)='./file2\x00', 0x842, 0x20)
+mmap(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x27ffff7, 0x4012011, r1, 0x0)
+write$UHID_DESTROY(r1, 0x0, 0x0)
+sync_file_range(r1, 0x889, 0x8, 0x2)
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x2, 0x0)
+socket$inet6_sctp(0xa, 0x5, 0x84)
+sendmsg$inet_sctp(0xffffffffffffffff, 0x0, 0x20000855)

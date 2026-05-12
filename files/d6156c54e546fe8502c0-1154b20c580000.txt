@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=ab01cf94dc28ccbceb6d955dc46d9c604d2383c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+prctl$auto(0x4e, 0x1, 0x0, 0x1, 0x0) (async)
+prctl$auto(0x4e, 0x1, 0x0, 0x1, 0x0)

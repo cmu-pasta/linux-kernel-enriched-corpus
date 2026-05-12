@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=1f7741b1ca57d576737e6dc957834fcadc563218
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"swap":true,"tmpdir":true,"callcomments":true}
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x7, 0x4008032, 0xffffffffffffffff, 0xd06d000)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x15)
+mlock(&(0x7f0000000000/0x800000)=nil, 0x800000)
+getsockname$packet(0xffffffffffffffff, 0x0, &(0x7f00000000c0))
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x5)

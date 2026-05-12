@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=274508d9032a588fbe54ec4e0291880b07e4ef47
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$inet6(0xa, 0x80002, 0x0)
+setsockopt$inet6_IPV6_HOPOPTS(r0, 0x29, 0x36, &(0x7f0000000080)={0x0, 0x3, '\x00', [@ra, @pad1, @jumbo={0xc2, 0x4, 0x80000000}, @ra={0x5, 0x2, 0x6}, @jumbo={0xc2, 0x4, 0x1}, @jumbo={0xc2, 0x4, 0x4}]}, 0x28)
+setsockopt$inet6_udp_int(r0, 0x11, 0x67, &(0x7f0000000040)=0x91, 0x4)
+connect$inet6(r0, &(0x7f0000000000)={0xa, 0x0, 0x0, @local, 0x9}, 0x1c)
+sendmmsg$inet6(r0, &(0x7f0000003cc0)=[{{0x0, 0x0, &(0x7f0000001180)=[{&(0x7f0000000140)="c3db32903453b3f3f48e6c6fdceb119f8040466741d8d499447516420e0e19033a1c90ed20e6af3014772bc598433ddd80e128b5dc9878d34b66d9889b055c26f3e5100714d8549c283e3d7bf2d69515786acc71a0a6f2d741b588eb6828f3c355f2d134284c20f07f68d4e9e47618151c7429f7a70d763540b0ba6bf6846da1623f77e40e820d2f85cc44ea255a9976f253", 0x92}], 0x1}}], 0x1, 0x0)

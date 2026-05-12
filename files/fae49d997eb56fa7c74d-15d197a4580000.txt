@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=aa8da4bb5412981d65ff2bc64b065a83211e7679
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+socket$nl_generic(0x10, 0x3, 0x10)
+syz_genetlink_get_family_id$auto_macsec(0x0, 0xffffffffffffffff)
+close_range$auto(0x2, 0x8, 0x0)
+r0 = openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000040)='/proc/sys/net/ipv4/neigh/veth1_macvtap/locktime\x00', 0x103142, 0x0)
+r1 = openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000000)='/proc/sys/net/sctp/udp_port\x00', 0x202, 0x0)
+sendfile$auto(r1, r0, 0x0, 0x6)
+write$auto(0x3, 0x0, 0x100082)
+close_range$auto(0x2, 0x8, 0x0)
+openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000040)='/proc/sys/net/ipv4/neigh/veth1_macvtap/locktime\x00', 0x103142, 0x0)
+openat$auto_proc_sys_file_operations_proc_sysctl(0xffffffffffffff9c, &(0x7f0000000000)='/proc/sys/net/sctp/udp_port\x00', 0x202, 0x0)
+sendfile$auto(r1, r0, 0x0, 0x6)

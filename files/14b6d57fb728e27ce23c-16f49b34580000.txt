@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=963c1c88aab2318b9bd37eaf80bc357f97fa997e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, 0x0, 0x1d0)
+mount(0x0, 0x0, &(0x7f0000000140)='ramfs\x00', 0x10, 0x0)
+syz_clone(0x11, 0x0, 0x0, 0x0, 0x0, 0x0)
+r0 = syz_init_net_socket$bt_hidp(0x1f, 0x3, 0x6)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x2, 0x0)
+connect$bt_l2cap(r1, &(0x7f0000000080)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x7ff}, 0xe)
+ioctl$sock_bt_hidp_HIDPCONNADD(r0, 0x400448c8, &(0x7f0000000340)={r1, r1, 0x9, 0xac, &(0x7f0000000140)="7d3785843ecaea1ed1f794adba5ffef1b324302717e44726bcd021e9e0e9359a98c445fe7892b9d296ab2de8016395866363377d7c8b964c1a921ddcfffab7e61d3bb7cc9f02216b971d200a6a8d1c19d77f6aaaa18e447609606b8eacf051a19eeecc21617d3787f801a40f9e9522b5fb87dbdfc9935bccab1aa3a61a2ae7b65e2078f28e33590b5b0437f053ef510f6c5740a767e773c4e02a4a40c18a55438016cf3654b7ab2b87c9da9b", 0xc, 0xa, 0x63d, 0x1, 0x87, 0x1, 0x9, 'syz0\x00'})

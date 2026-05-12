@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5349602aceca4df6a8ea675a6742185836f25b28
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+r1 = gettid()
+r2 = socket$inet_sctp(0x2, 0x1, 0x84)
+setsockopt$inet_mreqsrc(r2, 0x0, 0x27, 0x0, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000200)=@newlinkprop={0x3c, 0x10, 0x501, 0x0, 0x0, {}, [@IFLA_LINKINFO={0x14, 0x12, 0x0, 0x1, @veth={{0x9}, {0x4, 0x2, 0x0, 0x1, @void}}}, @IFLA_NET_NS_PID={0x8, 0x13, r1}]}, 0x3c}}, 0x0)

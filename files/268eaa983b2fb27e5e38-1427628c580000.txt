@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=dc1aaadc6fe7f900a77f0d6b052ad7dcf5e8393c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"ieee802154":true}
+syz_open_dev$vim2m(&(0x7f0000000000), 0x7f, 0x2)
+r0 = socket$nl_crypto(0x10, 0x3, 0x15)
+socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r0, 0x8933, 0x0)
+ppoll(0x0, 0x0, 0x0, 0x0, 0x0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+listen(r1, 0x6)
+syz_usb_connect(0x5, 0x34, &(0x7f0000000e80)=ANY=[@ANYBLOB="12011001b1fb66101e090300bb35010203010902220001080540040904"], 0x0)
+setsockopt$SO_TIMESTAMPING(r1, 0x1, 0x41, 0x0, 0x0)
+write$cgroup_subtree(0xffffffffffffffff, &(0x7f0000000d80)=ANY=[], 0xc)
+syz_genetlink_get_family_id$tipc2(0x0, 0xffffffffffffffff)
+sendmsg$TIPC_NL_KEY_SET(0xffffffffffffffff, &(0x7f0000000100)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x8200000}, 0xc, &(0x7f00000000c0)={0x0}, 0x1, 0x0, 0x0, 0x80}, 0x4000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x3000001, 0x10010, 0xffffffffffffffff, 0x45809000)
+mremap(&(0x7f00005ab000/0x1000)=nil, 0x1000, 0x1000, 0x7, &(0x7f0000ffe000/0x1000)=nil)

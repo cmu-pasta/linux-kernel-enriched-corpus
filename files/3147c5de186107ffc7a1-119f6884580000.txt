@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=32d1c6d088bc2eb1a7ab4a1b828fcad2335afcbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+r0 = openat$auto_nsim_dev_health_break_fops_health(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/netdevsim/netdevsim2/health/break_health\x00', 0x48081, 0x0)
+write$auto(r0, 0x0, 0x1ff)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=32d088e6c507954a24788b592f0d3c3abdb98121
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true}
+mknodat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0, 0x0)
+write$P9_RVERSION(0xffffffffffffffff, &(0x7f0000000300)=ANY=[@ANYBLOB="1500000065ffff017f000e0800395032303030"], 0x15)
+pipe2$9p(&(0x7f00000001c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000300)=ANY=[], 0x15)
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000000)={0x18}, 0x18)
+write$FUSE_DIRENTPLUS(r2, &(0x7f00000003c0)=ANY=[@ANYBLOB="b0"], 0xb0)
+write$FUSE_GETXATTR(r2, &(0x7f0000000480)={0x18}, 0x18)
+write$FUSE_INIT(r2, &(0x7f0000000600)={0x50, 0x0, 0x0, {0x7, 0x29, 0x3, 0x0, 0x4, 0x53b, 0x7, 0x0, 0x0, 0x0, 0xa0, 0x200}}, 0x50)
+mount$9p_fd(0x0, &(0x7f00000002c0)='./file0\x00', &(0x7f0000000080), 0x80, &(0x7f00000000c0)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}})
+r3 = openat(0xffffffffffffff9c, &(0x7f000000c380)='./file0\x00', 0x20842, 0x0)
+mmap(&(0x7f0000000000/0x1000)=nil, 0x1000, 0x1, 0x12, r3, 0x75e7f000)
+read$FUSE(r3, &(0x7f0000000680)={0x2020}, 0x2020)

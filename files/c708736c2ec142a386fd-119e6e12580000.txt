@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a46aec0f922fccb4fe4b28572d7a47e202732cc9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+bind$alg(0xffffffffffffffff, &(0x7f0000000000)={0x26, 'aead\x00', 0x0, 0x0, 'rfc4543(gcm(aes))\x00'}, 0x58)
+r0 = syz_usb_connect(0x0, 0x2d, &(0x7f0000000000)=ANY=[@ANYBLOB="120100007516b7108c0d0e008f8e0018030109021b0001000000000904080001030000000905", @ANYBLOB="8fcf"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x3)
+ioctl$KIOCSOUND(r1, 0x4b2f, 0x7f)

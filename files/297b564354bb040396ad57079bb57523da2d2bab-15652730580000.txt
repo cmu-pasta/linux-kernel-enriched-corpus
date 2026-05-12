@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=297b564354bb040396ad57079bb57523da2d2bab
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = openat$auto_nsim_dev_health_break_fops_health(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/debug/netdevsim/netdevsim1/health/break_health\x00', 0x101, 0x0)
+write$auto(r0, 0x0, 0x0)

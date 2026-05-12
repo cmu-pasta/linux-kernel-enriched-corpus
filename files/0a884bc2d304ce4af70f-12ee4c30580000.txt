@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=a934412ce1a13296e4629b6a2fc2dec02704d628
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$auto_netdev(&(0x7f0000001500), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000180)={'caif0\x00', <r3=>0x0})
+sendmsg$auto_NETDEV_CMD_QUEUE_GET(r1, &(0x7f0000001640)={0x0, 0x0, &(0x7f0000001600)={&(0x7f00000015c0)={0x2c, r2, 0x1, 0x70bd26, 0x25dfdbfe, {}, [@NETDEV_A_QUEUE_TYPE={0x8}, @NETDEV_A_QUEUE_IFINDEX={0x8, 0x2, r3}, @NETDEV_A_QUEUE_ID={0x8, 0x1, 0x2}]}, 0x2c}, 0x1, 0x0, 0x0, 0x4000}, 0x810)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b653fd8c12eff8ae9d866ea1b983c152c286f59d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+ioctl$TUNATTACHFILTER(0xffffffffffffffff, 0x401054d5, &(0x7f0000000040)={0x4, &(0x7f0000000000)=[{}, {}, {}, {0x6, 0x0, 0x9}]})
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000080)='memory.numa_stat\x00', 0x26e1, 0x0)
+close(r0)
+socketpair$unix(0x1, 0x5, 0x0, &(0x7f00000029c0))
+ioctl$SIOCSIFHWADDR(r0, 0x8b1a, &(0x7f0000000000)={'virt_wifi0\x00', @random="0200002000"})
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r1, 0x8933, &(0x7f0000000000)={'team0\x00', <r2=>0x0})
+sendmsg$nl_route(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000040)={&(0x7f00000002c0)=ANY=[@ANYBLOB="3c00000010000100"/20, @ANYRES32=0x0, @ANYBLOB="000000000000000014000300766972745f776966693000000000000008000a00", @ANYRES32=r2, @ANYBLOB], 0x3c}}, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=a5b99b3ebb8bd2fd0a78fa9d0ffb7fc1eef1cf48
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"cgroups":true,"close_fds":true,"usb":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+openat$nci(0xffffffffffffff9c, &(0x7f0000000040), 0x2, 0x0)
+r0 = openat$rfkill(0xffffffffffffff9c, &(0x7f0000000040), 0x801, 0x0)
+write$rfkill(r0, &(0x7f0000000080)={0x0, 0x0, 0x3, 0x1}, 0x8)
+open_tree(0xffffffffffffff9c, 0x0, 0x81000)

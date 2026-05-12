@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=da764d208d57e059fcc6ac90c684de30286b9fcc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x1, 0x0)
+mount(&(0x7f0000000040)=@nullb, &(0x7f0000000500)='.\x00', &(0x7f0000000540)='adfs\x00', 0x2, 0x0)

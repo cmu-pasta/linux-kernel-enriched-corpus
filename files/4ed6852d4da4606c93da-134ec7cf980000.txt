@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e6352072d1d63b64102ded61902b81b5965e26e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":false,"usb":true,"wifi":true,"sysctl":true,"swap":true,"segv":true}
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$TIOCSETD(r0, 0x5423, &(0x7f00000000c0)=0xf)
+r1 = fcntl$dupfd(r0, 0x0, r0)
+ioctl$TCFLSH(r1, 0x400455c8, 0x1) (async)
+ioctl$TIOCSETD(r1, 0x5412, &(0x7f0000000140)=0xffffffc0)

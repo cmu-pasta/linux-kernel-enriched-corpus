@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=4524c18102bf43fb350830e4efcb16620335a35c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_TEST_OP_MOCK_DOMAIN_FLAGS(r0, 0x3ba0, &(0x7f0000000200)={0x48}) (fail_nth: 23)

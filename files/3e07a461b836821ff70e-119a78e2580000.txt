@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=e87c72a0c930d878958ee8b9fcf4aacd602d05db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"resetnet":true,"close_fds":true,"vhci":true,"tmpdir":true,"callcomments":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+socket$inet6_tcp(0xa, 0x1, 0x0)
+socket$unix(0x1, 0x1, 0x0)
+socket$unix(0x1, 0x1, 0x0)
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+ioctl$sock_bt_hci(r0, 0x400448cb, 0x0)
+syz_emit_vhci(&(0x7f0000000040)=ANY=[@ANYBLOB="040e0402030c"], 0x7)

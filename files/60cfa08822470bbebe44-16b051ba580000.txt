@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=918838181d699471bf7841a59d08dd092aad485d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f00000003c0)='/proc/thread-self/net/rpc/nfsd.export/content\x00', 0x40080, 0x0)
+pread64$auto(r0, 0x0, 0x566, 0x80000002) (rerun: 64)

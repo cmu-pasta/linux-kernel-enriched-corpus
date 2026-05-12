@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a80e74a9109b76b5b3e6cbe79fe9a23fbbefcfc2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+close(r0)
+r1 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x1e, &(0x7f0000000180)=0x400000001, 0xc2)
+setsockopt$inet6_tcp_int(r1, 0x6, 0x2000000000000022, &(0x7f0000000000)=0x1, 0x4)
+connect$inet6(r0, &(0x7f0000000240)={0xa, 0x0, 0x0, @ipv4={'\x00', '\xff\xff', @local}, 0x2000000b}, 0x1c)
+sendto$inet6(r0, 0x0, 0x0, 0x0, 0x0, 0x0) (fail_nth: 1)

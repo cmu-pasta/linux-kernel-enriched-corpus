@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=c07330193c34d920327b64225c0e3815269b4bdc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"callcomments":true}
+syz_socket_connect_nvme_tcp() (fail_nth: 22)

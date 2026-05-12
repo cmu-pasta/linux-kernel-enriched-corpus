@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=2f7b5cf886b2bd4c48eedc383c7c31cbcf47048b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"swap":true}
+mmap$auto(0x0, 0x400005, 0xdf, 0x9b72, 0x5, 0x8000)
+madvise$auto(0x0, 0xffffffffffff0001, 0x15)
+clone3$auto(0x0, 0x40)

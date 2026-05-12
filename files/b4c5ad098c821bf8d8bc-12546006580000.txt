@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=7459f00c49a8bb8538856810c1d19d0e90e4c8af
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket(0x28, 0x5, 0x0)
+socket(0x28, 0x5, 0x0)
+connect$vsock_stream(r0, &(0x7f0000000080), 0x10)
+r1 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000002c0)={0x11, 0x5, &(0x7f0000000480)=ANY=[@ANYBLOB="1801000021000000000000003b810000850000006d000000850000005000000095"], &(0x7f0000000040)='syzkaller\x00', 0x0, 0x0, 0x0, 0x40f00, 0x4, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f00000000c0)={&(0x7f0000000040)='virtio_transport_alloc_pkt\x00', r1}, 0x18) (rerun: 32)

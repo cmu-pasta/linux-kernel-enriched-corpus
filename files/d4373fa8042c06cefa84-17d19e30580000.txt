@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=dd8b708c9f1fe4d0487e677c143168ae8631030f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(r0, 0x10e, 0xb, &(0x7f0000000040)=0x1c, 0x4)
+sendmsg$netlink(r0, &(0x7f0000002b40)={0x0, 0x0, &(0x7f0000000180)=[{&(0x7f00000001c0)={0x20, 0x1e, 0x723, 0x0, 0x0, "", [@nested={0x10, 0xa9, 0x0, 0x1, [@typed={0x8, 0x126, 0x0, 0x0, @ipv4=@rand_addr=0x64010102}, @typed={0x4, 0x7}]}]}, 0x20}], 0x1, 0x0, 0x0, 0x24008015}, 0x0) (rerun: 64)
+syz_genetlink_get_family_id$tipc(&(0x7f0000000080), r0) (rerun: 64)

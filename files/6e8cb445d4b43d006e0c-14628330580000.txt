@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=4946dc7ac24f5406d4686f5c7436725fff5b1f02
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+unshare(0x62040200)
+bpf$BPF_LINK_CREATE_XDP(0x1c, 0x0, 0x0)
+madvise(&(0x7f0000bdc000/0x4000)=nil, 0x86ac726dff2f4713, 0xa)
+openat$cgroup_root(0xffffffffffffff9c, 0x0, 0x200002, 0x0)
+creat(0x0, 0x0)
+syz_genetlink_get_family_id$ethtool(0x0, 0xffffffffffffffff)

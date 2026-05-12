@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=ec1cabe29c9e46df18094175093eb2780c055525
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"usb":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000006c0)={0x18, 0xb, &(0x7f00000000c0)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020000000000000000000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f00000004c0)='GPL\x00', 0x0, 0x0, 0x0, 0x1f00, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000300)='rcu_utilization\x00', r0}, 0x10) (async, rerun: 64)
+ioctl$sock_ipv6_tunnel_SIOCADDTUNNEL(0xffffffffffffffff, 0x89f1, 0x0) (async)
+ioctl$sock_SIOCSIFBR(0xffffffffffffffff, 0x8941, 0x0) (async)
+setsockopt$inet6_int(0xffffffffffffffff, 0x29, 0x4e, &(0x7f0000000100)=0xfffffff7, 0x4) (async)
+unshare(0x600)
+sendmmsg(0xffffffffffffffff, &(0x7f0000007fc0), 0x800001d, 0x0)
+r1 = socket$alg(0x26, 0x5, 0x0)
+r2 = accept4(r1, 0x0, 0x0, 0x0)
+r3 = epoll_create1(0x80000)
+epoll_ctl$EPOLL_CTL_ADD(r3, 0x1, r2, &(0x7f0000000040)={0xc000200a})
+recvmmsg(0xffffffffffffffff, 0x0, 0x0, 0x45833af92e4b39ff, 0x0)

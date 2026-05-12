@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=2a1afab75e8f7da42206876f4443ffdf8c7a331a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+r0 = syz_io_uring_setup(0xbdc, &(0x7f0000000640)={0x0, 0xec25, 0x8, 0xfffffff9, 0x15f}, &(0x7f00000006c0)=<r1=>0x0, &(0x7f00000001c0)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x4, &(0x7f00000000c0)=0xfffffffc, 0x0, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f0000000200)=@IORING_OP_READV=@pass_iovec={0x1, 0x0, 0x4007, @fd, 0x0, &(0x7f0000000340)=[{0x0}, {0x0}], 0x2})
+io_uring_enter(r0, 0x847ba, 0x0, 0xe, 0x0, 0x0)
+sendmsg$nl_route_sched(0xffffffffffffffff, 0x0, 0x20044054)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=0201cd5a9c91c95814c9e82513f7717a586da82d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+r1 = syz_pidfd_open(r0, 0x0)
+ioctl$EXT4_IOC_MIGRATE(r1, 0xff07)

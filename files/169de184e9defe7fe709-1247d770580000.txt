@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=542ef222bc9819b9ee77509df8f61e819aff5e44
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+creat(&(0x7f0000001380)='./file0\x00', 0x4)
+mount(0x0, &(0x7f0000001440)='./file0\x00', &(0x7f0000000000)='rpc_pipefs\x00', 0x0, 0x0)

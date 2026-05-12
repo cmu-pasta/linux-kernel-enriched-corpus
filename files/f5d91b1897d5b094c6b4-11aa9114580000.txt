@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=ddab56f7ce353a16efd67158ba74f9e081d5aa7e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./file1\x00', 0x0)
+r0 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000040), 0x1, 0x0)
+poll(&(0x7f0000001f80)=[{r0, 0x8002}], 0x1, 0x7fffffff)
+ioctl$BLKFRAGET(r0, 0x1265, &(0x7f0000000140))
+mount$fuse(0x0, 0x0, 0x0, 0x0, &(0x7f00000004c0)=ANY=[@ANYBLOB="66870ad891643d", @ANYRESHEX=0x0])
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./file1\x00', 0x0, 0x0)
+ioctl$BTRFS_IOC_TREE_SEARCH_V2(r1, 0xc0709411, 0x0)
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0), 0x80601)
+ioctl$SNDRV_SEQ_IOCTL_SET_PORT_INFO(r2, 0xc0a85320, &(0x7f00000005c0)={{0x80}, 'port0\x00', 0x9a89852df90617f4, 0x12, 0x0, 0x800000c, 0xffffffff, 0x4, 0x3, 0x0, 0x7cce8c743ee810db})
+r3 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+preadv(r3, &(0x7f0000004ec0)=[{&(0x7f0000004bc0)=""/68, 0x44}], 0x1, 0x8000, 0x0)
+r4 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000500), 0x101800, 0x0)
+ioctl$KVM_CREATE_VM(r4, 0xae01, 0x0)
+mount(&(0x7f0000000000)=@nullb, &(0x7f0000000040)='./cgroup\x00', &(0x7f0000000080)='omfs\x00', 0x4002a, 0x0)
+eventfd2(0x180, 0x0)
+ioctl$sock_ipv4_tunnel_SIOCCHGTUNNEL(r3, 0x89f3, &(0x7f0000000340)={'tunl0\x00', &(0x7f0000000540)={'sit0\x00', 0x0, 0x7, 0x80, 0x200, 0x5, {{0x7, 0x4, 0x3, 0x6, 0x1c, 0x64, 0x0, 0x10, 0x2f, 0x0, @multicast1, @loopback, {[@cipso={0x86, 0x6, 0xffffffffffffffff}]}}}}})
+r5 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000800)=ANY=[@ANYBLOB="1201000000000040d90455a01800000000010902240001000000000904010001030000000921000000012205000905810390601466f860164d36e77a956abd319f756c50e4137e527b56dd1c4c1e47e3501db790f44e36f388c48f75784153c7616ca1af7cf01eccd7c18c81bf312e172cd86ec65914f4a47a966129f8d5e3ca1e0e75", @ANYRES16=r1, @ANYRES16=r3, @ANYRES32=r0, @ANYBLOB="8874f37f5a77e4f7979e43d04bf3bd152142a3cd91b447404aeacf43504e2196189904da5455a7917bdc28e3493c8a0dc92ff7b2c26a54ab1bc3708e24e2afd568cf3807056c4da66db9c51f667a0b23"], 0x0)
+syz_usb_control_io$hid(r5, 0x0, 0x0)
+r6 = openat$cgroup_ro(r3, &(0x7f0000000680)='blkio.bfq.io_queued\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x1, 0x10012, r6, 0x0)

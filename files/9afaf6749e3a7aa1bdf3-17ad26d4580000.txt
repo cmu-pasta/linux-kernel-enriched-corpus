@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fde520311d6318a3707c815e1f10140fe8862e1a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+shmctl$auto_SHM_UNLOCK(0xb1e, 0xc, &(0x7f0000000200)={{0xc6d, 0xee01, 0xee01, 0x0, 0x3, 0x40, 0x3}, 0x5, 0xf, 0x1, 0x0, @inferred=0xffffffffffffffff, @raw, 0x5, 0x0, 0x0, &(0x7f0000000100)="1cb85fb873e946292f682382ac340319d2ee142740bebaa2ce7740eee667388918200b2641df6dcc42380e1ba5af5c8a038bf1f058d7bc9a7d654106c8765abf457dbbf8649f2988d5c0fd11f2b353a31bfa5bd8544103c7b7613900c5af97b878b9afd4e7edd3b8eabc33ad6446fa8d7921babae3417eef3a5ab614c39741ab4edd9f50f472938f4948a92b1a511c5263a5f95dcb93e5fdf8b0acd21ec5f5e401a1f1d642350a50c9dca03b373b6f899059f7748a262983527285682aa816e7a2fa83f4c813a44a1faa74ed289aab0cdf27abe5a174e5bebee036a571c77dd2b09c5c4d276f6f2b411389f0435f0129b5747ece5a28b330"})
+futex_wake$auto(&(0x7f0000000140), 0x8, 0x6, 0x6)

@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=214a27042de04b3ec854997bf738ac49b9c7f9f1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"resetnet":true,"close_fds":true,"usb":true,"wifi":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f00000006c0)={0x18, 0xb, &(0x7f0000000640)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020000000000000000000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f00000004c0)='GPL\x00', 0x0, 0x0, 0x0, 0x1f00, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000540)={&(0x7f0000000300)='rcu_utilization\x00', r0}, 0x10) (rerun: 64)
+unshare(0x62040200) (rerun: 64)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+bind$alg(0xffffffffffffffff, 0x0, 0x0)
+recvmmsg$unix(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+socket$l2tp(0x2, 0x2, 0x73)

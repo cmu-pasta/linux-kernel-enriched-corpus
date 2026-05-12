@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=e87c72a0c930d878958ee8b9fcf4aacd602d05db
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1) (async)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+statx(0xffffffffffffffff, 0x0, 0x0, 0x1, 0x0)
+r2 = socket$nl_route(0x10, 0x3, 0x0) (async)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r3, 0x8933, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000140)={0x0, 0x0, 0x0}, 0x0)
+sendmsg$nl_xfrm(r1, 0x0, 0x20000810)
+ioctl$sock_bt_hci(r0, 0x400448cb, 0x0) (async)
+ioctl$HCIINQUIRY(r0, 0x800448f0, 0x0)
+syz_emit_vhci(&(0x7f0000000040)=ANY=[@ANYBLOB="040e0402030c"], 0x7)

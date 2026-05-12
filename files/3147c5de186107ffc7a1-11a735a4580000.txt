@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=32d1c6d088bc2eb1a7ab4a1b828fcad2335afcbe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mmap$auto(0x0, 0x2, 0xdb, 0x9b72, 0x6, 0x100000000)
+r0 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000300)='/sys/module/rcupdate/parameters/rcu_expedited\x00', 0x80000, 0x0)
+read$auto(r0, 0x0, 0x20)
+r1 = openat$auto_nsim_dev_max_vfs_fops_dev(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/netdevsim/netdevsim3/max_vfs\x00', 0x48002, 0x0)
+write$auto(r1, 0x0, 0x1)

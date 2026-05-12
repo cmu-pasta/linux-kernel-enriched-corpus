@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1ae8310badc9d5ff1d2934b7d99b914d3b4e1062
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000000c0), 0x0, 0x0)
+r0 = openat$sw_sync(0xffffffffffffff9c, &(0x7f0000000240), 0x22601, 0x0)
+ioctl$SW_SYNC_IOC_CREATE_FENCE(r0, 0xc0285700, &(0x7f0000000000)={0x2, "94c492eb0165203d36bec70800890100000000000000e1100a0000005900", <r1=>0xffffffffffffffff})
+r2 = syz_open_procfs(0x0, &(0x7f00000000c0)='fd/3\x00')
+mount$9p_fd(0x0, &(0x7f00000001c0)='.\x00', &(0x7f0000000180), 0x0, &(0x7f00000003c0)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESOCT=r1, @ANYBLOB=',wfdno=', @ANYRESHEX=r2])
+prctl$PR_SET_SYSCALL_USER_DISPATCH_ON(0x3b, 0x1, 0x0, 0x63b7, 0x0)

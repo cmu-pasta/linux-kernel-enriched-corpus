@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=579d6a34fef20111db5366ae4a6b85b4a93328aa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPSET_CMD_CREATE(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f00000044c0)={&(0x7f0000000500)=ANY=[@ANYBLOB="600000000206010800000000000000000000000014000780080012400008000005001500050000000500010006000000050005000a00000005000400000000000900020073797a300000000011000300686173683a69702c706f7274"], 0x60}}, 0x0)

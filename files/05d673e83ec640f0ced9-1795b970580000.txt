@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=fde26da14fdd3c5a8b3907ba5118803ba0d00a67
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+openat$auto_kvm_chardev_ops_kvm_main(0xffffffffffffff9c, 0x0, 0x3, 0x0)
+read$auto_proc_single_file_operations_base(0xffffffffffffffff, 0x0, 0x0)
+r0 = openat$auto_tracing_buffers_fops_trace(0xffffffffffffff9c, &(0x7f00000001c0)='/sys/kernel/tracing/per_cpu/cpu1/trace_pipe_raw\x00', 0x0, 0x0)
+mmap$auto_tracing_buffers_fops_trace(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1, 0x8e051, r0, 0x0)
+mmap$auto(0x0, 0x88b, 0xdf, 0x9b72, 0xffffffffffffffff, 0x8000)
+r1 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000040)='/sys/devices/virtual/block/loop14/queue/dma_alignment\x00', 0x80000, 0x0)
+openat$auto_vhost_net_fops_net(0xffffffffffffff9c, 0x0, 0x50b602, 0x0)
+read$auto(r1, 0x0, 0x20)
+close_range$auto(0x2, 0x8, 0x0)
+openat$auto_v4l2_fops_v4l2_dev(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vbi21\x00', 0x149800, 0x0)
+openat$auto_buffer_subbuf_size_fops_trace(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/debug/tracing/buffer_subbuf_size_kb\x00', 0x2, 0x0)
+write$auto(0x3, 0x0, 0xfdef)

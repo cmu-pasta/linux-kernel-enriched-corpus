@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=7c9e031a56d5e2a90dce005167a852d69a7594e2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000240), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+syz_kvm_setup_cpu$x86(0xffffffffffffffff, r2, &(0x7f0000000000/0x18000)=nil, &(0x7f0000000140)=[@text64={0x40, 0x0}], 0x1, 0xe8, 0x0, 0x0)
+r3 = syz_open_dev$evdev(&(0x7f0000000040), 0x0, 0x0)
+syz_usb_disconnect(r3)
+syz_usb_connect(0x4, 0x24, &(0x7f0000000400)=ANY=[], 0x0)
+ioctl$EVIOCRMFF(r3, 0xc0085504, &(0x7f0000000080)=0x3)

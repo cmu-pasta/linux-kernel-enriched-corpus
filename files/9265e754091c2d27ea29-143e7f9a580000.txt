@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=47b450f8fca59036c878f88e735bf3c3511d36b7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+write$binfmt_misc(0xffffffffffffffff, 0x0, 0x0)
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r0, &(0x7f00000002c0)={0x1f, 0x0, @any, 0xfffa}, 0xe)
+listen(r0, 0x0)
+openat$kvm(0xffffffffffffff9c, 0x0, 0x0, 0x0)

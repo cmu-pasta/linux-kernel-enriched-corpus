@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1ae8310badc9d5ff1d2934b7d99b914d3b4e1062
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000300)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+open(&(0x7f0000000200)='./file0\x00', 0x4008040, 0x0)
+pipe2(&(0x7f0000001440)={<r1=>0xffffffffffffffff}, 0x0)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040), 0x800, &(0x7f00000002c0)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r1, @ANYBLOB=',wfdno=', @ANYRESOCT=r0])
+r2 = gettid()
+tkill(r2, 0x4)

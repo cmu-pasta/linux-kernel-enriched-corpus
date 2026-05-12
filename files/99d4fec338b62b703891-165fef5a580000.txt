@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=06a62b218743b65182c953962811f26c9d8be988
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+getrandom(&(0x7f0000000340)=""/4096, 0x412269194f7c77a1, 0x0)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600000, 0x15)
+bpf$BPF_BTF_LOAD(0x12, &(0x7f0000000180)={0x0, &(0x7f00000000c0)=""/156, 0x9d, 0x9c, 0x1, 0x8, 0x10000}, 0x28)
+socket$unix(0x1, 0x1, 0x0)
+socket$unix(0x1, 0x1, 0x0)

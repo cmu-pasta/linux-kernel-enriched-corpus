@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=4591b68160f3674cfc736d405cce0f6b774317c8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = bpf$BPF_PROG_RAW_TRACEPOINT_LOAD(0x5, &(0x7f0000000200)={0x18, 0xb, &(0x7f00000005c0)=ANY=[@ANYBLOB="18000000000000000000000000000000180100002020702500000000730000007b1af8ff00000000bfa100000000000007010000f8ffffffb702000008000000b703000000000000850000000600000095"], &(0x7f0000000100)='GPL\x00', 0x0, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, 0x2}, 0x94)
+bpf$BPF_RAW_TRACEPOINT_OPEN(0x11, &(0x7f0000000200)={&(0x7f0000000040)='contention_begin\x00', r0}, 0x18)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$FOU_CMD_ADD(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000001c0)={0x1c, 0x0, 0x1, 0x0, 0x0, {}, [@FOU_ATTR_TYPE={0x5, 0x4, 0x1}]}, 0x1c}}, 0x0) (fail_nth: 3)

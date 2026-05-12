@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=f6d3032d5cdc5227c24ff132ae834490f4341e2f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_mount_image$erofs(&(0x7f0000000100), &(0x7f0000000300)='./file0\x00', 0x4000, &(0x7f0000000400)={[{@acl}, {@cache_strategy_readahead}, {@cache_strategy_readahead}, {@cache_strategy_readahead}, {@cache_strategy_readaround}, {@noacl}, {@dax_always}]}, 0x1, 0x194, &(0x7f00000006c0)="$eJzsmDFPIkEUx/8zy8Hd5XLXX3PFkYgxLruLGhoKTOxNRI2dRFaCLmBgTYTEwg9gaWFiY+EXsLSy8FtooVY2lNZjZneACRFQEwjG9yte/jPzePPmkfyLBUEQX5bHh+f748V0TupfiCOm9p+Mbg7X8u9O92dOMktnl7cXN5Xfh1e99b4DEALxt94fAXCdNeCrtRBC6OftQjnwjl4Fx7TS62Awld4Ex5rSLhg2lN7RdFXmm+Z2yXPNrapXkMKSwZbBkSHV21/riKGg9RfVzuuN5m7e89zaCMWw+bWyHBmtP/3/as/G0uZng8NWOgWGFaXTiLVnE45E7cv3/4106xva5R99Ehv51EiMQfyZjDbGJEQMmIA2Pofo+pM4Z5jS/Cmi+VPSL+8l643mbKmcL7pFt+I4qQVrzrLmnWRgRGEc4H8/An/6qdX/1ic3yqI4yPt+zQ5jZ+2E8TXH5YH/cST+h2sm6/TtJjxn6ncsUAljQDpBEARBEARBEARBEARBEMQ7+AcWfAUdgrMcZL8EAAD//+T5dYE=")
+chdir(&(0x7f0000000240)='./file0\x00')
+r0 = open$dir(&(0x7f0000000080)='./file0\x00', 0x0, 0x0)
+mmap$xdp(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x0, 0x12, r0, 0x0)
+perf_event_open(&(0x7f00000000c0)={0x8, 0x80, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, @perf_bp={&(0x7f0000000080)}, 0x20}, 0x0, 0x0, 0xffffffffffffffff, 0x0)

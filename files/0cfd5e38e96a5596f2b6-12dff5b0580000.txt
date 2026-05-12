@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9d4b633161c7d40c878dc655164d9bfc56ca1b89
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+pipe2$9p(0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+r0 = syz_open_dev$loop(&(0x7f0000000200), 0x4d21, 0x400)
+openat$vhost_vsock(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+ioctl$BLKTRACESETUP(r0, 0xc0481273, &(0x7f0000005bc0)={'\x00', 0x8, 0x4040000, 0xf, 0x4, 0xffffffff7fffffff})

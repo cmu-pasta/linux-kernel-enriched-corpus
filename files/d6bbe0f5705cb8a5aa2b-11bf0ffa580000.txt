@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=95cab52c10cd2fe8a399192414dd0b68b0e7b7d5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_usb_connect(0x5, 0x2d, &(0x7f0000000000)=ANY=[@ANYBLOB="12010000eafa7240936901b02926f400100109021b000124a800800904000001030000000905", @ANYRES32], 0x0)
+mount(0x0, 0x0, &(0x7f00000000c0)='tracefs\x00', 0x1214040, 0x0)
+read$FUSE(0xffffffffffffffff, &(0x7f0000002780)={0x2020}, 0x5ecfb203)

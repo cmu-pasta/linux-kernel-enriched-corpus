@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=e0ea1d9288d0cf8017c7fefa745690b4dc5c329f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+perf_event_open(0x0, 0x0, 0xffffffffffffffff, 0xffffffffffffffff, 0x0)
+bpf$BPF_PROG_TEST_RUN(0x1c, 0x0, 0x0)

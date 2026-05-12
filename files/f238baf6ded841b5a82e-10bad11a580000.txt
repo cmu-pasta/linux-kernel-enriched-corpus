@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=44e8c8c4727b657917d389936214d1c307706334
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+r0 = openat$comedi(0xffffffffffffff9c, &(0x7f0000000040)='/dev/comedi4\x00', 0x101000, 0x0)
+ioctl$COMEDI_CMD(r0, 0x80506409, &(0x7f0000000180)={0x0, 0x1, 0x2, 0x6dd, 0x10, 0x200, 0x12, 0x0, 0x20, 0xffffffff, 0x20, 0x7, &(0x7f00000000c0)=[0x4], 0x1, 0x0})

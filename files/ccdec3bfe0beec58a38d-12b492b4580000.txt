@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=32fd4b363b76beed9afc7768209924cacd62999c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+openat$auto_tracing_fops_trace(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/kernel/tracing/per_cpu/cpu1/trace\x00', 0x40200, 0x0)
+r0 = openat$auto_buffer_subbuf_size_fops_trace(0xffffffffffffff9c, &(0x7f0000000180)='/sys/kernel/debug/tracing/buffer_subbuf_size_kb\x00', 0x2401, 0x0)
+write$auto(r0, &(0x7f0000000280)='9\x00d1L\xf0\x15\xba\xa17=(\x18\xdd\xff\xec\v\xb5^\xa1/[vv\x19\x00\x7f0\xa30\xc7\x9d\x1f]\xf8\xe04\xe7s\x9a\xd3H\xd3F\x819+\x90S\x10\xb2\b\xf8)\xe4IU\t\xb8\r\x9a\x8e\'Q\xfb\xb5I\x0f\x96;\xc7\\2V\x01g\xf8\xce\xbb\x9d\xa2c2\x00\x7f\xa1:\ax\xbc\x17\xde\x0e<\x00\x00\x00\x00\x00\x00\x00\x06\xc8\xf4\xdf\xcc\x9b\xd7D\xd7ARq', 0x40) (rerun: 64)
+openat$auto_kvm_chardev_ops_kvm_main(0xffffffffffffff9c, 0x0, 0xe0180, 0x0)

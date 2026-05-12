@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e6f01a635d4ad4313f16fa2c1038acb89b12981a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x3, 0x0)
+connect$bt_l2cap(r0, &(0x7f0000000040)={0x1f, 0x0, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}}, 0xe)
+syz_emit_vhci(&(0x7f00000000c0)=ANY=[@ANYBLOB="02c8000c00080002"], 0x11)

@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=19bf5017f8b0d0ebe84e5da9e5aa1748e49ff996
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"wifi":true,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000f80), 0xffffffffffffffff)
+r2 = socket$qrtr(0x2a, 0x2, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r2, 0x8914, &(0x7f0000000000)={'wlan1\x00'})
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f00000000c0)={'wlan1\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r4, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000200)={0x24, r5, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r6}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x7}]}, 0x24}}, 0x0)
+r7 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r7, &(0x7f0000000600)={0x0, 0xc, &(0x7f0000000000)=[{&(0x7f0000000080)="2e00000010008188e6b62aa73772cc9f1ba1f848480000005e140602000000000e000a000f000000028000001294", 0x2e}], 0x1}, 0x0)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f0000000040)={'wlan1\x00', <r8=>0x0})
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000001080)={0x0, 0x0, &(0x7f0000001040)={&(0x7f00000000c0)={0x3c, r1, 0xb97534d5fe9704cf, 0x0, 0x25dfdbfc, {{}, {@val={0x8, 0x3, r8}, @void}}, [@NL80211_ATTR_STA_LISTEN_INTERVAL={0x6}, @NL80211_ATTR_MAC={0xa, 0x6, @device_b}, @NL80211_ATTR_STA_SUPPORTED_RATES={0x4}, @NL80211_ATTR_STA_AID={0x6, 0x10, 0x57d}]}, 0x3c}}, 0x0)

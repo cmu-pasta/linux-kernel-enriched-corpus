@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=d03404941484125a501fb9ef38f3e96b95acd200
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$sg(&(0x7f0000000040), 0x0, 0x0)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f0000000340)=ANY=[@ANYBLOB="00000000000000005a180aff"])

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=097c6c5f0e7b12499f7659c58424c6d9ca0d53dd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true}
+syz_mount_image$erofs(&(0x7f0000000040), &(0x7f00000001c0)='./file0\x00', 0x0, &(0x7f0000000240)=ANY=[], 0x0, 0x17d, &(0x7f0000001ac0)="$eJzsmLFP+kAUx7/vyg/yMy6uLg4SxcHSFjUuxLA5mogaNwlUghYx0EGYdPH/cHZwdvOPMM7qYFwY3Uxqej3oQQR10MT4PsPj+7h313evyXcoGIb5szw+vNyvFe+EAWASaaTU/89GXCO0+tfb83Jraj1/OfeUv041robPIwBB8PnnJwDcFAz4Kg+Cwd1p9VuE6OstCCwovQOCqfQeBLaVdkHYVfpA042w3jT3a55rlhteJRRWGOwwOGHIDffXPSNUtP5IW2+1O4clz3Ob3yg+ml+3IJDX+tPfV282ljY/GwK20jkQNpVeRao3m2gk2v2nE/H5xg/fnwULFr9NxP4UXBDmNX9KaP6R9evH2Va7s1irl6pu1T1ynNyKtWRZy05WGlEUx/jff+lPE9r5/0bUJimJk5LvN+0o9nMniu85rpD+J5CZjfLQ+5Mju4nWSe0jqTLGmHKGYRiGYRiGYRiGYRiGYZgvMAOSX0EldIo4GcDZkNVvAQAA///an3MA")
+mkdir(&(0x7f0000000300)='./bus\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000380), 0x0, &(0x7f0000000400)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1'}}, {@metacopy_on}]})
+chdir(&(0x7f0000000140)='./bus\x00')
+setrlimit(0x1, &(0x7f0000000100)={0xffffffffffffffff, 0xffffffffffffffff})
+r0 = open(&(0x7f00000000c0)='./bus\x00', 0xca942, 0x0)
+ftruncate(r0, 0x8002007ffb)
+open(&(0x7f0000000080)='./bus\x00', 0x400141042, 0x0)

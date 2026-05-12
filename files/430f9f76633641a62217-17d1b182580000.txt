@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=7a9c52e2e9c9e7410e6a95d636c0f9cc160ece74
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$ethtool(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$ETHTOOL_MSG_PAUSE_SET(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000080)={0x3c, r1, 0x431, 0x70bd28, 0xfffffffd, {}, [@ETHTOOL_A_PAUSE_HEADER={0x18, 0x1, 0x0, 0x1, [@ETHTOOL_A_HEADER_DEV_NAME={0x14, 0x2, 'netdevsim0\x00'}]}, @ETHTOOL_A_PAUSE_AUTONEG={0x5, 0x2, 0x1}, @ETHTOOL_A_PAUSE_RX={0x5, 0x3, 0x1}]}, 0x3c}, 0x1, 0x0, 0x0, 0x8000}, 0x40)

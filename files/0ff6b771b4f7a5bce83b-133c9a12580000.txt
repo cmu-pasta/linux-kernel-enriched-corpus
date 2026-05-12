@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=6b53effa5234d16dc2c55e1e8dafc63ba776be90
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"callcomments":true}
+mmap$auto(0x0, 0xa00006, 0x400002, 0x40eb1, 0x602, 0x300000000000)
+r0 = socket(0x2, 0x1, 0x106)
+bind$auto(r0, &(0x7f0000000040)=@in={0x2, 0x3, @multicast2}, 0x6a)
+connect$auto(0x3, &(0x7f0000000080)=@in={0x2, 0x3, @dev={0xac, 0x14, 0x14, 0x10}}, 0x54)
+recvfrom$auto(0x3, 0x0, 0x800000000e, 0x13e, 0x0, 0xfffffffffffffffd)
+write$auto(0x3, 0x0, 0xfffffdef)
+connect$auto(0x3, 0x0, 0x52)

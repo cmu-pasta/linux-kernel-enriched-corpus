@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=e532820da72d5563b7e64be12ec5f4263cd76318
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r0, 0x3b81, &(0x7f0000000100)={0xc, 0x0, <r1=>0x0})
+ioctl$IOMMU_TEST_OP_ADD_RESERVED(r0, 0x3ba0, &(0x7f0000000040)={0x48, 0x1, r1, 0x0, 0x1000005, 0xffffffffffefffff})
+ioctl$IOMMU_TEST_OP_MOCK_DOMAIN_FLAGS(r0, 0x3ba0, &(0x7f00000003c0)={0x48, 0x2, r1})
+ioctl$IOMMU_IOAS_MAP$PAGES(r0, 0x3b85, &(0x7f0000001340)={0x28, 0x2, r1, 0x0, &(0x7f00003bd000/0x3000)=nil, 0x3000, 0x80})

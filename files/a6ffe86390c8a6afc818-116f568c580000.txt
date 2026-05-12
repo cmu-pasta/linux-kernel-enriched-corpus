@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0f30092f61272794f45772c1150a3bb0ecb2c2f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_rdma(0x10, 0x3, 0x14)
+sendmsg$RDMA_NLDEV_CMD_NEWLINK(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000180)=ANY=[@ANYBLOB="380000000314230c2abd7000ff05df250900020073797a310000000008004100727865001400330073797a5f74756e"], 0x38}, 0x1, 0x0, 0x0, 0x48845}, 0x20000094)
+r1 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r1, &(0x7f00000001c0)={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000100)={<r2=>0xffffffffffffffff}, 0x13f, 0x4}}, 0x20)
+write$RDMA_USER_CM_CMD_BIND_IP(r1, &(0x7f0000000180)={0x2, 0x28, 0xfa00, {0x0, {0xa, 0x4e21, 0x8, @local, 0x12}, r2}}, 0x30)
+write$RDMA_USER_CM_CMD_JOIN_MCAST(r1, &(0x7f0000000900)={0x16, 0x98, 0xfa00, {0x0, 0x4, r2, 0x10, 0x0, @in={0x2, 0x6e23, @broadcast}}}, 0xa0)
+write$RDMA_USER_CM_CMD_JOIN_MCAST(r1, &(0x7f0000000900)={0x16, 0x98, 0xfa00, {0x0, 0x4, r2, 0x10, 0x0, @in={0x2, 0x6e23, @broadcast}}}, 0xa0)

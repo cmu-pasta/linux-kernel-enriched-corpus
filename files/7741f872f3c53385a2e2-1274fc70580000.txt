@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=43dcde670f6d4a30a149ce55fd32d9dd79f4834d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mmap$auto(0x0, 0xe983, 0xdf, 0xeb1, 0xffffffffffffffff, 0x8000)
+futimesat$auto(0xffffffffffffffff, 0x0, 0x0)
+connect$auto(0x3, 0x0, 0x54)
+io_uring_setup$auto(0x6, 0x0)
+r0 = openat$auto_proc_reg_file_ops_compat_inode(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/net/afs/addr_prefs\x00', 0x102, 0x0)
+writev$auto(r0, &(0x7f0000000080)={0x0, 0x6}, 0x3)

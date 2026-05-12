@@ -1,0 +1,16 @@
+# https://syzkaller.appspot.com/bug?id=4eaa4adbb4e8ee1e1d54890cb4fda70b6d3cda81
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+mmap$auto(0x0, 0x99, 0xdf, 0xeb1, 0x401, 0x8000)
+close_range$auto(0x2, 0x8, 0x0)
+syz_genetlink_get_family_id$auto_ovs_flow(0x0, 0xffffffffffffffff)
+sendmsg$auto_OVS_DP_CMD_NEW(0xffffffffffffffff, 0x0, 0x4)
+sendmsg$auto_NL80211_CMD_GET_REG(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x2000c000}, 0x4004)
+r0 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000380)='/sys/devices/system/cpu/cpu1/hotplug/target\x00', 0x800, 0x0)
+read$auto(r0, 0x0, 0x7)
+sendmsg$auto_NL80211_CMD_START_SCHED_SCAN(0xffffffffffffffff, 0x0, 0x20000000)
+r1 = openat$auto_proc_fail_nth_operations_base(0xffffffffffffff9c, &(0x7f0000000000)='/proc/thread-self/fail-nth\x00', 0x802, 0x0)
+writev$auto(r1, &(0x7f0000000200)={0x0, 0x7}, 0x3)
+mmap$auto(0x0, 0x8, 0xdf, 0x9b72, 0x2, 0x8000)
+socket(0x2, 0x5, 0x0)
+unshare$auto(0x40000080)

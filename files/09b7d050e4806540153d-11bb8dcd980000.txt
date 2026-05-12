@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=8e030beda49b8e549cfeb17ed369414ed27331e6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap$auto(0x0, 0x4020009, 0x6, 0xeb1, 0x401, 0x8000)
+madvise$auto(0x0, 0xffffffffffff0001, 0x15)
+r0 = openat$auto_proc_pid_maps_operations_internal(0xffffffffffffff9c, &(0x7f0000000040)='/proc/self/maps\x00', 0x1a1000, 0x0)
+ioctl$auto_PROCMAP_QUERY(r0, 0xc0686611, &(0x7f0000000080)={0x67, 0x0, 0x7fff, 0x5, 0x80000000007, 0x1, 0x80000001, 0xff, 0x5, 0x7, 0xfbfffffe, 0x5, 0x7fb, 0x7, 0x9})

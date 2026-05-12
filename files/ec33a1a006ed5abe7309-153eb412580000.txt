@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c9c3daf550085bdf6181c2fda5662d82545c8b17
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"callcomments":true}
+r0 = socket$inet(0xa, 0x801, 0x84)
+connect$inet(r0, &(0x7f0000000340)={0x2, 0x0, @remote={0xac, 0x14, 0xffffffffffffffff}}, 0x10)
+listen(r0, 0x8)
+setsockopt$inet_opts(r0, 0x0, 0x4, 0x0, 0x0)
+accept4(r0, 0x0, 0x0, 0x0)

@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=75450504be729b6d08f900cf9f2f57c9f0ed3df5
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000340)=ANY=[@ANYBLOB="140000001000010000000000000000000000000a28000000000a0101000000005e1affd5020000000900010073797a300000000008000240000000032c000000030a01030000e6ff00000000020000000900010073797a30000000000900030073797a320000000014000000110001"], 0x7c}}, 0x10)
+sendmsg$NFT_BATCH(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000940)={&(0x7f00000004c0)={{0x14, 0x10, 0x1, 0x0, 0x0, {0xa}}, [@NFT_MSG_NEWRULE={0x84, 0x6, 0xa, 0x40b, 0x0, 0x0, {0x2}, [@NFTA_RULE_EXPRESSIONS={0x58, 0x4, 0x0, 0x1, [{0x54, 0x1, 0x0, 0x1, @match={{0xa}, @val={0x44, 0x2, 0x0, 0x1, [@NFTA_MATCH_INFO={0x2c, 0x3, "73ad6153669faaa3221f5223f828b499b49208f8130fe52e3efc770b8878b3c728ec16efbe94fd77"}, @NFTA_MATCH_REV={0x8}, @NFTA_MATCH_NAME={0xb, 0x1, 'nfacct\x00'}]}}}]}, @NFTA_RULE_TABLE={0x9, 0x1, 'syz0\x00'}, @NFTA_RULE_CHAIN={0x9, 0x2, 'syz2\x00'}]}], {0x14, 0x11, 0x1, 0x0, 0x0, {0x3}}}, 0xac}}, 0x0)

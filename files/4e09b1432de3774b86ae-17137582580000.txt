@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=66ade132c7a982f1fde5e45d7cfc85d802958b75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f00000002c0), 0x300, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4040aea0, &(0x7f0000000880)=@arm64={0xae, 0x5, 0x9, '\x00', 0x6})
+ioctl$KVM_SET_VCPU_EVENTS(r2, 0x4040aea0, &(0x7f00000000c0)=@arm64={0x54, 0xf9, 0x8, '\x00', 0x1})

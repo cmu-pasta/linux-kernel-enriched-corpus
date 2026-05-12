@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b464a5bc451c51e7a63786696dc1d547190d6366
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"close_fds":true,"usb":true,"vhci":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, 0x0)
+chdir(&(0x7f0000000100)='./file0\x00')
+syz_clone(0x8100, &(0x7f0000000080), 0x0, 0x0, 0x0, 0x0)

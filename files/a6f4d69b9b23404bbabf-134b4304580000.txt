@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=782fb02af7e2d4b885b23e00671798db3627e185
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"segv":true,"callcomments":true}
+io_uring_setup(0x332, &(0x7f0000000080)={0x0, 0xfffffffe, 0x10})
+syz_io_uring_setup(0x88f, &(0x7f0000000140)={0x0, 0xfda9, 0x800, 0xffffffff, 0xbfe00000}, 0x0, 0x0)
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+pipe2$9p(&(0x7f0000000080), 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000040)='./file1\x00', 0x121042, 0x18)
+sendmsg$inet(r2, &(0x7f0000001b00)={0x0, 0x0, 0x0, 0x0, &(0x7f0000001d80)=ANY=[@ANYBLOB="28010000000000000100000001"], 0x128}, 0x0)
+socket$nl_route(0x10, 0x3, 0x0)
+recvmsg$unix(r1, &(0x7f0000000000)={0x0, 0xfffffffffffffd8c, 0x0, 0x0, &(0x7f0000000f40)=[@cred={{0x1c}}, @cred={{0x1c}}, @cred={{0x1c}}, @rights={{0x18, 0x1, 0x1, [0xffffffffffffffff, <r3=>0xffffffffffffffff]}}], 0x78}, 0x0)
+sendmsg$NFC_CMD_DEV_UP(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000140)=ANY=[@ANYBLOB="1c000000", @ANYRES16=r3, @ANYBLOB="010028bd70000700000002000000080001"], 0x1c}, 0x1, 0x0, 0x0, 0x40c89}, 0x8004)

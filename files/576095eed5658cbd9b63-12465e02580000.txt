@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=237d5a6aaebb1887e6cb69e6af51196a4e3814e8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"callcomments":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nbd(&(0x7f0000000000), 0xffffffffffffffff)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000100)={<r2=>0xffffffffffffffff})
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000080)={<r3=>0xffffffffffffffff})
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f0000001ac0)={0x0, 0x0, &(0x7f0000001a80)={&(0x7f0000000140)=ANY=[@ANYBLOB='l\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="0100ffffffff00000000010000000c0005006c010000000000000c000200ff7f000000000000400007800c00018008000100", @ANYRES32=r2, @ANYBLOB="0c00018008000100", @ANYRES32=r2, @ANYBLOB, @ANYRES32=r2, @ANYBLOB, @ANYRES32=r3], 0x6c}}, 0x20000000)
+close(0x3)
+socket$inet_tcp(0x2, 0x1, 0x0)

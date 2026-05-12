@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c54be2c697985647289b2b0856e8e9f797b0c9e7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/syz1\x00', 0x1ff) (async)
+r0 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000000), 0x200002, 0x0)
+r1 = openat$cgroup_procs(r0, &(0x7f0000000840)='cgroup.procs\x00', 0x2, 0x0)
+write$cgroup_pid(r1, &(0x7f0000000380), 0x12) (async)
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x3, 0x20000000ec071, 0xffffffffffffffff, 0x0)

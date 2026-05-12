@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=6fee8dd4f70448988a752df2aefb45e6a9b457c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$dvb_demux(&(0x7f0000001e00), 0x0, 0x2000)
+ioctl$DVB_DEMUX_DMX_SET_FILTER(r0, 0x403c6f2b, &(0x7f0000001e40)={0x6, {"2ac78e02ff04856afe13be00", "3dfab043e15fad27a639f105b5e9f977", "a7c947420000000000000000ff4a70f3"}, 0x40004, 0x1})
+preadv(r0, &(0x7f0000000480)=[{&(0x7f0000000180)=""/1, 0x1}], 0x1, 0x1, 0xd)

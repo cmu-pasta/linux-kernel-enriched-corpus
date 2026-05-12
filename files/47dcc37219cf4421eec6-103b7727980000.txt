@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=58fb724c96b6f1a90cad4c9b3434a52dd525edd4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket(0x840000000002, 0x1, 0x100)
+sendmsg$ETHTOOL_MSG_COALESCE_SET(r0, &(0x7f00000005c0)={0x0, 0x0, &(0x7f0000000580)={0x0}, 0x1, 0x0, 0x0, 0x4000}, 0x20000000)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000300)=ANY=[@ANYBLOB="6000000010000304000000000000000000000300", @ANYRES32=0x0, @ANYBLOB="00000000000000003800128008000100677470002c00028008000100", @ANYRES32=r2, @ANYBLOB, @ANYRES64=r2], 0x60}}, 0x0)

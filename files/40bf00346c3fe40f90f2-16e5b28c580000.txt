@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=79bf9eb7dfa07f76ff311b85d8be853f9060ae3c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = socket$inet(0x2, 0x1, 0x100)
+sendto$inet(r0, 0x0, 0x0, 0x200007fd, 0x0, 0x0)
+fsetxattr$smack_xattr_label(r0, &(0x7f0000000100)='security.SMACK64IPOUT\x00', &(0x7f0000000140)={'scalable\x00'}, 0xa, 0x0)

@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=7315b46bd274ca3ec707f3db968e12c036904cdb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+bpf$PROG_LOAD_XDP(0x5, &(0x7f0000000040)={0x5, 0x0, 0x0, &(0x7f0000000100)='syzkaller\x00', 0x8001000d, 0x0, 0x0, 0x0, 0x68, '\x00', 0x0, 0x25, 0xffffffffffffffff, 0x8, 0x0, 0x0, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x1, @void, @value}, 0x94)
+ioctl$sock_SIOCGIFINDEX_80211(0xffffffffffffffff, 0x8933, &(0x7f0000000040)={'wlan1\x00'})
+ioctl(r0, 0x8b1a, &(0x7f0000000040))

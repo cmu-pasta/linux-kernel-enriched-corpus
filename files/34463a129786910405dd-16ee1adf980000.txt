@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=9f81f36264dc24fb50efce0818c8fe5d262d13fe
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"wifi":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f00000005c0), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f0000000600)={'wlan1\x00', <r2=>0x0})
+sendmsg$NL80211_CMD_SET_TX_BITRATE_MASK(r0, &(0x7f0000000d40)={0x0, 0x0, &(0x7f0000000d00)={&(0x7f00000002c0)={0x30, r1, 0x31, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_TX_RATES={0x14, 0x5a, 0x0, 0x1, [@NL80211_BAND_2GHZ={0x10, 0x0, 0x0, 0x1, [@NL80211_TXRATE_LEGACY={0x4}, @NL80211_TXRATE_HT={0x5, 0x2, [{0x0, 0x1}]}]}]}]}, 0x30}}, 0x9000000)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r3, 0x8933, &(0x7f00000000c0)={'wlan1\x00', <r5=>0x0})
+sendmsg$NL80211_CMD_SET_INTERFACE(r3, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000180)={0x24, r4, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x2}]}, 0x24}}, 0x0)
+sendmsg$NL80211_CMD_CONNECT(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000000)={0x54, r4, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r5}, @void}}, [@NL80211_ATTR_SSID={0xa, 0x34, @default_ap_ssid}, @NL80211_ATTR_MAC={0xa, 0x6, @from_mac}, @NL80211_ATTR_AUTH_TYPE={0x8}, @chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8}], @NL80211_ATTR_VHT_CAPABILITY_MASK={0x10, 0xb0, {0x20000000, {0x2, 0x1f, 0x4, 0x1}}}]}, 0x54}, 0x1, 0x0, 0x0, 0x20000011}, 0x0)
+syz_80211_inject_frame(&(0x7f00000002c0)=@device_b, &(0x7f0000000640)=ANY=[@ANYBLOB="500000000802110000010802110000000802110000000000000000000000000064000100000602020202020201070284800c1200002c38d87c0293c858a364d280defff7fa42101dafae448aecec768b3c42c40a2ce382353a345f558b6b1d3ef49dea01425cebc6343e993403d16fed551eb7ab9932b21d14c657f06809523b9833b250762ad500c4bade79c407bc37a6126501e81804f814ef12874063650e54011a29336ebf470c83fa9450762d4931ee3d20b51eab71bc2ef1e1be9305cbbe2d649b81e115"], 0x35)

@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=22bf56fbdba04c8adf52a17b8c3cb4e12396b77e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000000)='/sys/devices/virtual/vtconsole/vtcon1/bind\x00', 0x182b02, 0x0)
+mmap$auto(0x0, 0xe983, 0xdf, 0xeb1, 0x401, 0x8000)
+open(&(0x7f0000000040)='./file0\x00', 0x40841, 0x8)
+openat$auto_adf_hb_cfg_fops_adf_heartbeat_dbgfs(0xffffffffffffff9c, &(0x7f0000000200)='/sys/kernel/debug/ieee80211/phy16/rc/name\x00', 0x121c01, 0x0)
+write$auto(0x3, 0x0, 0x1)
+socket(0x11, 0x3, 0x20000006)
+r0 = socket(0xa, 0x3, 0x3c)
+r1 = openat$auto_tty_fops_tty_io(0xffffffffffffff9c, &(0x7f0000000100)='/dev/tty48\x00', 0x800, 0x0)
+r2 = openat$auto_tap_fops_tap(0xffffffffffffff9c, &(0x7f0000000000), 0x80000, 0x0)
+ioctl$auto_SIOCGIFHWADDR(r2, 0x8927, 0x0)
+ioctl$auto(r1, 0x5609, r0)
+r3 = openat$auto_kernfs_file_fops_kernfs_internal(0xffffffffffffff9c, &(0x7f0000000400)='/sys/devices/platform/dummy_hcd.0/usb1/interface_authorized_default\x00', 0x0, 0x0)
+read$auto(r3, 0x0, 0x20)
+write$auto(0x3, 0x0, 0x2)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d78a470edb0c565922f977d1ea39dbceb08bb1de
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true}
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_int(r0, 0x6, 0x13, &(0x7f0000000000)=0x100000001, 0x4)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f00000000c0), 0x4)
+setsockopt$inet6_tcp_TCP_REPAIR_QUEUE(r0, 0x6, 0x14, &(0x7f0000000080)=0x1, 0x4)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x1, &(0x7f0000000140)=@gcm_128={{0x303}, "b39162a1dc8b4c3f", "7ea8f86ac39696dceddf8c421bbdcc0f", '\x00', "f9809fe39a1dafc9"}, 0x28)
+sendmsg$inet(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f00000008c0)=[{&(0x7f0000000240)='n7', 0x2}], 0x1}, 0x0)
+setsockopt$inet6_tcp_TLS_TX(r0, 0x11a, 0x2, &(0x7f0000000680)=@gcm_128={{0x303}, "000037d7009400", "c0b6c5b29ca2b838d41ac2fc7ddf972d", "e9be1eae", "bb10000000000001"}, 0x28)
+mmap(&(0x7f0000000000/0x95c000)=nil, 0x95c000, 0x1000001, 0x8c4b815a5465c2b1, 0xffffffffffffffff, 0x0)
+connect$inet6(r0, &(0x7f0000000200)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+recvfrom$inet6(r0, &(0x7f0000000100)=""/19, 0x1ff4, 0x40, 0x0, 0x0)

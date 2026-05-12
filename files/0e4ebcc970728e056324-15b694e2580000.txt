@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=e76661443812660bff2ad05c319dee9620634961
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x9}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000180)=0x1)
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x1, 0x0)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000300)=ANY=[@ANYBLOB="12000000070000000400", @ANYBLOB="5a9ce97ca6bb6fb4caaa087df785f5233879ffb86468fe6a7be85a9594369e3e1e0b090556290186a14590d6405481b7ce4844d81a03230212bf86bb6d2348ed0da06ada63bfed6c551d9ebe5cdca44afbff5473eca0f2ab5754dc75044b9faefe2ca9d7975cf76168130a21", @ANYBLOB="00ffffffe900000005000000000000000000", @ANYRES32=0x0, @ANYRES32, @ANYRESHEX=r0], 0x50)
+sendmsg$NL80211_CMD_AUTHENTICATE(0xffffffffffffffff, 0x0, 0x80)
+unshare(0x20000400)
+r1 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_l2cap(r1, &(0x7f0000000000)={0x1f, 0x0, @any, 0x4, 0x1}, 0xe)
+listen(r1, 0x90004)
+syz_emit_vhci(&(0x7f0000000100)=ANY=[@ANYBLOB="043e130100c90001"], 0x16)
+ioctl$F2FS_IOC_MOVE_RANGE(0xffffffffffffffff, 0xc020f509, 0x0)
+ppoll(&(0x7f00000000c0)=[{0xffffffffffffffff, 0x80}, {r1, 0x60}], 0x2, 0x0, 0x0, 0x0)

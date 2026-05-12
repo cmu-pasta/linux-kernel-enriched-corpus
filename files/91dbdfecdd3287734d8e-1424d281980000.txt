@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f2cadaaeb6208f1b20a0ce32455b48a6019954c1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+syz_emit_vhci(&(0x7f0000000340)=@HCI_EVENT_PKT={0x4, @hci_ev_hardware_error={{0x10, 0x1}, {0x20}}}, 0x4)
+mkdir(&(0x7f0000000000)='./file0\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdir(&(0x7f00000004c0)='./bus\x00', 0x0)
+mount$overlay(0x0, &(0x7f00000000c0)='./bus\x00', &(0x7f0000000080), 0x0, &(0x7f0000000400)={[{@workdir={'workdir', 0x3d, './bus'}}, {@lowerdir={'lowerdir', 0x3d, './file0'}}, {@upperdir={'upperdir', 0x3d, './file1'}}, {@metacopy_on}]})
+chdir(&(0x7f0000000140)='./bus\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x0)
+mount$bind(&(0x7f00000002c0)='.\x00', &(0x7f0000000200)='./file0\x00', 0x0, 0x101091, 0x0)

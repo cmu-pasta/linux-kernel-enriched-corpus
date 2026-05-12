@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=af9226e58cf1633cfbbe7d324e13befdb0b1d282
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true,"callcomments":true}
+r0 = landlock_create_ruleset(&(0x7f00000002c0)={0x7f6e}, 0x18, 0x0)
+timer_create(0x0, &(0x7f00000000c0)={0x0, 0x21, 0x2, @thr={0x0, 0x0}}, &(0x7f0000000300)=<r1=>0x0)
+fcntl$lock(0xffffffffffffffff, 0x24, &(0x7f0000000040)={0x0, 0x0, 0x10001, 0x5})
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0x1)
+timer_settime(r1, 0x1, &(0x7f0000000040)={{}, {0x0, 0x989680}}, 0x0)
+mmap(&(0x7f0000000000/0x200000)=nil, 0x200000, 0x300000b, 0x204031, 0xffffffffffffffff, 0xec776000)
+r2 = signalfd4(0xffffffffffffffff, &(0x7f0000000080)={[0x2]}, 0x8, 0x80000)
+readv(r2, 0x0, 0x0)
+landlock_restrict_self(0xffffffffffffffff, 0x1)
+landlock_restrict_self(r0, 0xe)
+landlock_restrict_self(r0, 0x9)
+recvmmsg(0xffffffffffffffff, &(0x7f00000000c0), 0x10106, 0x2, 0x0)

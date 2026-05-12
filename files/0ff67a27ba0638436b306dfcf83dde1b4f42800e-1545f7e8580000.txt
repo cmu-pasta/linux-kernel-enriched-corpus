@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=0ff67a27ba0638436b306dfcf83dde1b4f42800e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = openat$auto_nsim_pp_hold_fops_netdev(0xffffffffffffff9c, &(0x7f0000000000)='/sys/kernel/debug/netdevsim/netdevsim3/ports/0/pp_hold\x00', 0x881, 0x0)
+write$auto_nsim_pp_hold_fops_netdev(r0, &(0x7f0000000140)="4633da79ddc0a6150e0233604f77d1212e1094bea3c3623d99297d55f1e98becfaca61d4dc78b25af47222060fce9beb7420377fc5c87e37281f3c43cfb4b7534187c5cf9915620c66b7289e493b894bde6e2da80b3cbe3b40bc1fece1e6164c96cbd58210b1d2928ad49a1cda65f4", 0x6f)

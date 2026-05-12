@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=fe8a5d3a8dbede7f2b6b69338f464a986610191b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+bind$inet(r1, &(0x7f00000001c0)={0x2, 0x0, @local}, 0x10)
+connect$inet(r1, &(0x7f0000000480)={0x2, 0x0, @multicast2}, 0x10)
+sendfile(r1, r0, 0x0, 0x20000023893)

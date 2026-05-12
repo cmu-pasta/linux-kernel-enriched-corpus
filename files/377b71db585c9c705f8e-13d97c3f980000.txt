@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=e0ea1d9288d0cf8017c7fefa745690b4dc5c329f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false}
+getpid()
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeef, 0x8031, 0xffffffffffffffff, 0x0)
+socket$inet6_tcp(0xa, 0x1, 0x0)

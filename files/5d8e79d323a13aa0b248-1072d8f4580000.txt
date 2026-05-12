@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=b2a2181447f3f46d51ae0c8e14bdf3abcfbc6709
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+fsopen(&(0x7f00000001c0)='ramfs\x00', 0x0)
+syz_open_procfs(0x0, &(0x7f00000001c0)='fd/3\x00')

@@ -1,0 +1,23 @@
+# https://syzkaller.appspot.com/bug?id=caa5a96e114e9715dc249374b590ffb4d8a19f0e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+openat$kvm(0xffffffffffffff9c, &(0x7f0000000080), 0x0, 0x0)
+bpf$PROG_LOAD(0x5, 0x0, 0x0)
+socket$inet_udp(0x2, 0x2, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0x8, 0x8b}, 0x0)
+sched_setscheduler(0x0, 0x1, &(0x7f0000000080)=0x7)
+r0 = getpid()
+sched_setscheduler(r0, 0x2, &(0x7f0000000200)=0x4)
+r1 = syz_open_dev$MSR(&(0x7f00000001c0), 0x0, 0x0)
+read$msr(r1, &(0x7f0000019680)=""/102392, 0x18ff8)
+sched_setaffinity(0x0, 0x0, 0x0)
+r2 = syz_clone(0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+ptrace(0x10, r2)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r3 = socket$igmp(0x2, 0x3, 0x2)
+sched_setaffinity(0x0, 0x0, 0x0)
+r4 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r4, &(0x7f0000000000)={0x1f, 0x0, @any, 0x4, 0x1}, 0xe)
+listen(r4, 0x3)
+syz_emit_vhci(&(0x7f0000000540)=ANY=[@ANYBLOB="043e130100c900", @ANYBLOB=' '], 0x16)
+setsockopt$MRT_DONE(r3, 0x0, 0xc9, 0x0, 0x0)

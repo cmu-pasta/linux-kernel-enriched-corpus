@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=188119256e01f196a6698e68d1f54afe843f7f4c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true}
+r0 = openat$cgroup_ro(0xffffffffffffffff, &(0x7f0000000080)='cgroup.controllers\x00', 0x300, 0x0)
+mmap$IORING_OFF_CQ_RING(&(0x7f0000ffa000/0x4000)=nil, 0x4000, 0x7, 0x4000010, 0xffffffffffffffff, 0x8000000)
+r1 = openat$binfmt_register(0xffffffffffffff9c, &(0x7f0000000000), 0x1, 0x0)
+open(&(0x7f0000000000)='./bus\x00', 0x60142, 0x0)
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=ANY=[@ANYBLOB='&\x00\x00\x00\a'], 0x50)
+write(r1, &(0x7f0000000000)='Z', 0x0)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+r3 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000340), 0x0, 0x0)
+r4 = ioctl$KVM_CREATE_VM(r3, 0xae01, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r4, 0x4020ae46, &(0x7f0000000400)={0x0, 0x0, 0x0, 0x20002000, &(0x7f0000000000/0x2000)=nil})
+r5 = ioctl$KVM_CREATE_VCPU(r4, 0xae41, 0x2)
+ioctl$KVM_RUN(r5, 0xae80, 0x0)
+ioctl$KVM_RUN(r5, 0xae80, 0x0)
+ioctl$KVM_GET_FPU(r0, 0x81a0ae8c, 0x0)
+bind$bt_hci(r2, &(0x7f0000000100)={0x1f, 0xffff, 0x3}, 0x6)
+write$binfmt_misc(r2, &(0x7f0000000000), 0xd)

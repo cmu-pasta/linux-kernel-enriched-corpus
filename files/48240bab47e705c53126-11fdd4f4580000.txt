@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=9bb651ad7fbd40fbfc2569a1a11c27b79c184c10
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+socketpair(0x1e, 0x1, 0x0, &(0x7f0000000040)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nbd(&(0x7f0000000040), 0xffffffffffffffff)
+sendmsg$NBD_CMD_CONNECT(r1, &(0x7f0000001ac0)={0x0, 0x0, &(0x7f0000001a80)={&(0x7f0000005140)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r2, @ANYBLOB="01000000000000000000010000000c00020000000000000000001c0007800c00018008000100", @ANYRES32=r0], 0x3c}}, 0x0) (fail_nth: 41)

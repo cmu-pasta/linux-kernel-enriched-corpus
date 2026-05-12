@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=88a5ac8dc8852281ef410027ff2b8521665f378f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+creat(&(0x7f0000000240)='./file0\x00', 0x0)
+pipe2$9p(&(0x7f0000001900)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = dup(r1)
+mount$9p_fd(0x0, &(0x7f0000000000)='./file0\x00', &(0x7f0000000040), 0x0, &(0x7f0000000180)={'trans=fd,', {'rfdno', 0x3d, r0}, 0x2c, {'wfdno', 0x3d, r2}, 0x2c, {[{@cache_mmap}], [], 0x6b}})

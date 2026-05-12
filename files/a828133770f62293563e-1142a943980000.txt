@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=1fa75cc7b4c09af1851a05db665290f8503103a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = syz_open_dev$vbi(&(0x7f0000000000), 0x0, 0x2)
+ioctl$VIDIOC_S_INPUT(r0, 0xc0045627, &(0x7f00000000c0)=0x3)
+ioctl$VIDIOC_SUBDEV_S_DV_TIMINGS(r0, 0xc0845657, &(0x7f0000000200)={0x0, @bt={0x8a5, 0x93, 0x1, 0x1, 0xd59f80, 0x19ef, 0x7, 0x19ef, 0x3, 0x6, 0x27ff, 0x2800, 0x2800, 0xbb6, 0x0, 0x8, {0x8, 0xffffffff}, 0xd0, 0x9}})

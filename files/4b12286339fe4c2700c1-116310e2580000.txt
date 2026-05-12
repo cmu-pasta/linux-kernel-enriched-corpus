@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e05c2432bddd51f0548c62f4bcbbe55f9165a3b4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nbd(&(0x7f0000001e00), 0xffffffffffffffff)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000001e40)={<r2=>0xffffffffffffffff})
+sendmsg$NBD_CMD_CONNECT(r0, &(0x7f0000001f40)={0x0, 0x0, &(0x7f0000001f00)={&(0x7f00000003c0)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r1, @ANYBLOB="01002abd7000fedbdf2501000000100007800c00018008000100", @ANYRES32=r2, @ANYBLOB="0c0005004fc31bfd000000000c0002"], 0x3c}, 0x1, 0x0, 0x0, 0x8000}, 0x0)
+r3 = syz_init_net_socket$bt_l2cap(0x1f, 0x1, 0x0)
+bind$bt_l2cap(r3, 0x0, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000001a00)='./file1\x00', 0xc0, 0x61)
+mount(&(0x7f00000003c0)=@nbd={'/dev/nbd', 0x0}, &(0x7f0000004a00)='./file1\x00', &(0x7f0000000040)='udf\x00', 0x8007, 0x0)

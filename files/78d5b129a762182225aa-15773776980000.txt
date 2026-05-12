@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=37d8a4c85bc415a9233e153ddba724873412b17f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+preadv(r0, &(0x7f00000001c0)=[{&(0x7f00000000c0)=""/223, 0xdf}], 0x1, 0x0, 0x0)
+openat$uinput(0xffffffffffffff9c, &(0x7f0000000140), 0x0, 0x0)
+writev(0xffffffffffffffff, &(0x7f0000000100)=[{&(0x7f00000002c0)}, {0x0}, {0x0}], 0x3)
+pipe2(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+syz_usb_connect$uac1(0x0, 0xa4, &(0x7f0000000080)=ANY=[@ANYBLOB="2a01000020000040b708000000000000030109029200030172e5000904000000010100000a24010000000201020c0d2407000005000000000000000c240000e9fffff5ffffffff092403f3ff000005024524", @ANYRES8=r1, @ANYBLOB="05"], 0x0)

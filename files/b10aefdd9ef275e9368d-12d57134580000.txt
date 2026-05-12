@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=f358c0404db7f6b6041bf20c856da72aa72b2491
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdir(&(0x7f0000000000)='./file0\x00', 0x10)
+pipe2$9p(&(0x7f0000000240)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RVERSION(r1, &(0x7f0000000080)=ANY=[@ANYBLOB="1500000065ffff001000000800395032303030"], 0x15)
+ioctl$UFFDIO_API(0xffffffffffffffff, 0xc018aa3f, &(0x7f0000000000)={0xaa, 0x30})
+r2 = dup(r1)
+write$FUSE_BMAP(r2, &(0x7f0000000100)={0x18}, 0x18)
+write$FUSE_DIRENT(r2, &(0x7f0000000000)=ANY=[], 0x58)
+mount$9p_fd(0x0, &(0x7f00000025c0)='./file0\x00', &(0x7f0000002340), 0x0, &(0x7f0000000280)=ANY=[@ANYBLOB='trans=fd,rfdno=', @ANYRESHEX=r0, @ANYBLOB=',wfdno=', @ANYRESHEX=r1])
+quotactl$Q_SYNC(0xffffffff80000102, 0x0, 0x0, 0x0)

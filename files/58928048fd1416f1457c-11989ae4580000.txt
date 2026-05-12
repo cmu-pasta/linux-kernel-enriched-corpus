@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=b9db224fd336df86c85e1e85a28c4adbb56d2c7e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = syz_io_uring_setup(0x10d, &(0x7f0000000200), &(0x7f0000000380)=<r1=>0x0, &(0x7f0000000280)=<r2=>0x0)
+syz_memcpy_off$IO_URING_METADATA_GENERIC(r1, 0x4, &(0x7f0000000080)=0xfffffffc, 0x0, 0x4)
+syz_io_uring_submit(r1, r2, &(0x7f0000000300)=@IORING_OP_PROVIDE_BUFFERS={0x1f, 0xc, 0x0, 0x7c31, 0x3, 0x0, 0x6})
+io_uring_enter(r0, 0x3f70, 0x0, 0x0, 0x0, 0x0)

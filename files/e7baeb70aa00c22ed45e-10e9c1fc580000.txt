@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=3f6ec6c41ed712601490c6990bbf5516201254f0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap$auto(0x0, 0x2020009, 0x3, 0xeb1, 0xfffffffffffffffa, 0x8000)
+socket(0x10, 0x2, 0x0)
+sendmsg$auto_HSR_C_GET_NODE_STATUS(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000140)=ANY=[@ANYBLOB='h\x00\x00\x00', @ANYRES16=0x0, @ANYBLOB="000226bd7000fedbdf25030000000800030004020000060007000080000008000200", @ANYRES32=0x0, @ANYBLOB="0a00050000000000000000000a00010000000000000000000a0001000000000000000000060007000100000008000200", @ANYRES32=0x0, @ANYBLOB], 0x68}, 0x1, 0x0, 0x0, 0x40080}, 0x40090)
+sendmsg$auto_NL80211_CMD_GET_REG(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000200)={0x0, 0x1ac}, 0x1, 0x0, 0x0, 0x4004810}, 0x800)
+sendmsg$auto_NL80211_CMD_GET_REG(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000180)=ANY=[@ANYBLOB="72010000", @ANYBLOB="13"], 0x1ac}}, 0x4004)
+sendmmsg$auto(0x3, &(0x7f0000000080)={{0x0, 0x2, &(0x7f00000002c0)={0x0, 0xc4}, 0x1, 0x0, 0x0, 0xb}, 0x7}, 0x3, 0x0)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$auto_nfsd(&(0x7f0000000340), 0xffffffffffffffff)
+sendmsg$auto_NFSD_CMD_THREADS_SET(r0, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000440)={&(0x7f0000000200)={0xa8, r1, 0x1, 0x70bd2c, 0x25dfdbfd, {}, [@NFSD_A_SERVER_SCOPE={0x81, 0x4, 'nfsf\x00\xd8\xef\xe4-\x13+r\xf3\fT1Z\xa7J[\x81\a\xcf-\xdf\x90\x1f\x8f\xc8\x13e\xe2R7D\x832j\xce}\xa3V\xb7\xa1o\\\xe6\x13\xbc\f\xe3\xae\xb8~\xd3\xd2+J\'\xc3\xec\xc9\fp\xc8a\xbe\xfe`\xa7\xa9AKDd\'\xa0\x01\xf6\x13y\xe8\xca\xf4Q\x9e\x03*]\xda\x1e\x11t\xe2\xd5uw+\x93\xfc\x04l\xd3\xa6t\x86k\x80\xd9\x14s\xec\xe2H\xc0=(\xf99\x8ac\xa7\x85\x99\x87'}, @NFSD_A_SERVER_LEASETIME={0x8, 0x3, 0x85}, @NFSD_A_SERVER_THREADS={0x8, 0x1, 0x2}]}, 0xa8}}, 0x4000)

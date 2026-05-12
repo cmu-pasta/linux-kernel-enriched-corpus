@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=d6c2ce430dbea606632787c67b5a10bd4d9a7fa9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"binfmt_misc":true,"close_fds":false,"usb":true,"vhci":true,"ieee802154":true,"sysctl":true,"swap":true,"segv":true}
+openat$kvm(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000001a00)='./file1\x00', 0x40, 0xdc)
+r0 = syz_open_dev$ndb(&(0x7f00000000c0), 0x0, 0x80000)
+r1 = socket(0x2, 0x2, 0x0)
+r2 = syz_open_dev$ndb(&(0x7f0000000000), 0x0, 0x0)
+ioctl$NBD_SET_SOCK(r0, 0xab00, r1) (async)
+ioctl$NBD_DO_IT(r2, 0xab03) (async)
+ioctl$NBD_SET_SIZE_BLOCKS(r0, 0xab07, 0x5)
+mount(&(0x7f0000000000)=@nbd={'/dev/nbd', 0x0}, &(0x7f0000004a00)='./file1\x00', &(0x7f0000000080)='udf\x00', 0x14, 0x0)
+r3 = syz_open_dev$dri(0x0, 0x1, 0x0)
+ioctl$DRM_IOCTL_MODE_GETCONNECTOR(r3, 0xc05064a7, &(0x7f0000000280)={0x0, 0x0, 0x0, 0x0})
+mount(&(0x7f0000000180)=@rnullb, 0x0, 0x0, 0x8010, 0x0)

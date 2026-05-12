@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=11f774746574cbefb794019de039da3c9c395956
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"callcomments":true}
+mmap(&(0x7f0000000000/0xff5000)=nil, 0xff5000, 0x1000002, 0x200000005c831, 0xffffffffffffffff, 0x0)
+r0 = syz_io_uring_setup(0x4b5, &(0x7f0000010400)={0x0, 0x86e1, 0x1, 0x8}, &(0x7f0000010080), &(0x7f0000000000))
+io_uring_register$IORING_REGISTER_BUFFERS(r0, 0x0, &(0x7f0000010300)=[{0x0}, {0x0}], 0x2)
+io_uring_register$IORING_REGISTER_BUFFERS_UPDATE(r0, 0x10, &(0x7f0000000600)={0x0, 0x0, &(0x7f0000000540)=[{0x0}, {&(0x7f0000000340), 0xa002a0}], &(0x7f00000005c0), 0x2}, 0x20)
+mbind(&(0x7f0000001000/0x800000)=nil, 0x800000, 0x0, 0x0, 0x0, 0x2)
+madvise(&(0x7f0000000000/0x600000)=nil, 0x600002, 0x9)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=bc93d69ba4f551a3206884bdcff2dcf9d0eb2def
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$unix(0x1, 0x2, 0x0)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r1, 0x8933, &(0x7f0000000100)={'wlan1\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_NEW_INTERFACE(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000140)={0x44, r2, 0x1, 0x70bd28, 0x25dfdbfd, {{}, {@void, @val={0x8, 0x3, r3}, @val={0xc, 0x99, {0x7ff, 0x70}}}}, [@NL80211_ATTR_IFNAME={0x14, 0x4, 'syzkaller0\x00'}, @NL80211_ATTR_IFTYPE={0x8, 0x5, 0x6}]}, 0x44}, 0x1, 0x0, 0x0, 0x81}, 0x24044884)
+r4 = openat$tun(0xffffffffffffff9c, &(0x7f0000000400), 0x0, 0x0)
+close(r4)
+socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$SIOCSIFHWADDR(r4, 0x8914, &(0x7f0000002280)={'syzkaller0\x00', @multicast})
+r5 = socket$qrtr(0x2a, 0x2, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r5, 0x8914, &(0x7f0000000000)={'wlan1\x00'})

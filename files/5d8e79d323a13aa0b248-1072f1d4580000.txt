@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=b2a2181447f3f46d51ae0c8e14bdf3abcfbc6709
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+r0 = io_uring_setup(0x7bda, &(0x7f00000001c0)={0x0, 0x0, 0x0, 0x0, 0x72})
+r1 = io_uring_register$IORING_REGISTER_PERSONALITY(r0, 0x9, 0x0, 0x0)
+io_uring_register$IORING_UNREGISTER_PERSONALITY(r0, 0x16, 0x20000000, r1)
+r2 = syz_open_procfs(0x0, 0x0)
+fchdir(r2)
+r3 = syz_open_procfs(0x0, &(0x7f0000000600)='fd/4\x00')
+ioctl$EXT4_IOC_GROUP_EXTEND(r3, 0x40305839, &(0x7f0000000240))

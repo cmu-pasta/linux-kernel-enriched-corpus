@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e9fd738fd1fd235317f7d1f9dd40b21924cf4a6b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)=ANY=[@ANYBLOB="3000000010000100"/20, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00\b\x00\n\x00', @ANYRES32=0x0, @ANYBLOB="08001b"], 0x30}}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$team(&(0x7f00000044c0), 0xffffffffffffffff)
+ioctl$ifreq_SIOCGIFINDEX_team(r1, 0x8933, &(0x7f0000004700)={'team0\x00', <r3=>0x0})
+sendmsg$TEAM_CMD_OPTIONS_SET(r1, &(0x7f0000004bc0)={0x0, 0x0, &(0x7f0000004b80)={&(0x7f00000047c0)=ANY=[@ANYBLOB='`\x00\x00\x00', @ANYRES16=r2, @ANYBLOB="050427bd7000fedbdf250100000008000100", @ANYRES32=r3, @ANYBLOB="4400028040000100240001006d6f6465000800000000000000000000000000000000000000000000000000000500030005000000100004006c6f616462616c616e636502"], 0x60}, 0x1, 0x0, 0x0, 0x4000401}, 0x44084)
