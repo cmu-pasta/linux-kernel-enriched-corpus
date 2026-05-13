@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=b86cb12d75fdb35b47a63d4bd4796768ceabbd6b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f00000000c0)={0x1, &(0x7f0000000000)=[{0x6, 0x0, 0xfe, 0x7fff0006}]})
+r1 = openat$dma_heap(0xffffffffffffff9c, &(0x7f0000000240), 0xa2003, 0x0)
+ioctl$DMA_HEAP_IOCTL_ALLOC(r1, 0xc0184800, &(0x7f0000000100)={0x20004, <r2=>r0, 0x2})
+r3 = syz_open_dev$dri(&(0x7f0000000280), 0x1ff, 0x140)
+ioctl$DRM_IOCTL_PRIME_FD_TO_HANDLE(r3, 0xc00c642e, &(0x7f00000000c0)={<r4=>0x0, 0x0, r2})
+ioctl$DRM_IOCTL_PRIME_HANDLE_TO_FD(r3, 0xc00c64d2, &(0x7f0000000180)={r4, 0x80000})
