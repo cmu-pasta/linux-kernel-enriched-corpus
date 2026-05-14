@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=52da7651ec0832c97e3e1cf217be3a06ea6a0405
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_usb_connect$hid(0x0, 0x36, &(0x7f0000000400)=ANY=[@ANYBLOB="1201000000000040c41090ea00000000000109022400010000002009040000010300000009210000000122070009058103"], 0x0)
+syz_usb_control_io$hid(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f00000000c0)={0x2c, &(0x7f0000000100)=ANY=[@ANYBLOB='\x00\x00\b'], 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_control_io$hid(r0, 0x0, &(0x7f0000000500)={0x2c, 0x0, 0x0, 0x0, &(0x7f00000003c0)=ANY=[@ANYBLOB="2001d4"], 0x0})
+syz_usb_control_io$hid(r0, 0x0, &(0x7f0000000540)={0x2c, 0x0, 0x0, 0x0, &(0x7f0000000300)=ANY=[@ANYBLOB="20010e"], 0x0})
+syz_usb_control_io(r0, 0x0, 0x0)
+r1 = syz_open_dev$I2C(&(0x7f0000000000), 0x1, 0x402)
+ioctl$I2C_SMBUS(r1, 0x720, &(0x7f0000000040)={0x0, 0x18, 0x8, &(0x7f0000000240)={0x22, "a52422ffd60775c221c469b7d49cc4492d05e2f1000000ff00"}})
