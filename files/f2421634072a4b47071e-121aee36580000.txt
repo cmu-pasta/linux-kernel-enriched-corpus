@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=7ac99918ab830e0945e57dea7757bfbec8ca0f73
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"usb":true,"swap":true,"callcomments":true}
+r0 = socket$kcm(0x2, 0x5, 0x84)
+ioctl$SIOCSIFHWADDR(r0, 0x8931, &(0x7f0000000000)={'dummy0\x00'}) (fail_nth: 6)
