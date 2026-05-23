@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=d50c2c21cd240ed103203b5a0bfcc4e6da8b2796
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = epoll_create(0xa)
+r1 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f00000015c0))
+r2 = inotify_init1(0x80800)
+epoll_ctl$EPOLL_CTL_ADD(r0, 0x1, r2, &(0x7f00000004c0)={0x3008}) (fail_nth: 4)
