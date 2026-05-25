@@ -13,6 +13,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CORPUS_DB_VERSION: 3
     strategy:
       fail-fast: false
 
@@ -27,7 +29,7 @@ jobs:
         cd ..
         git clone --depth 1 https://github.com/google/syzkaller
         cd syzkaller/tools/syz-db
-        go run syz-db.go -os "" -arch "" pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
+        go run syz-db.go -os "" -arch "" -version "$CORPUS_DB_VERSION" pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
         cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
         wget https://storage.googleapis.com/syzkaller/corpus/ci-qemu-upstream-corpus.db -O ../../../linux-kernel-enriched-corpus/ci-qemu-upstream-corpus.db
         echo "Downloaded Corpus From Syz-CI"
@@ -35,7 +37,7 @@ jobs:
         echo "Unpacking Retrived Corpus"
         for f in ../../../linux-kernel-enriched-corpus/files/* ; do cp -v "$f" temp/ ; done
         echo "Packing Enriched Syz-CI Google Corpus"
-        go run syz-db.go -os "" -arch "" pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
+        go run syz-db.go -os "" -arch "" -version "$CORPUS_DB_VERSION" pack temp ../../../linux-kernel-enriched-corpus/enriched-ci-qemu-upstream-corpus.db
         cd ../../../
         rm -vr syzkaller
         cd linux-kernel-enriched-corpus
