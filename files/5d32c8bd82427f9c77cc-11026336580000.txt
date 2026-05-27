@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=fa8999a46a091e54b086fbcfc35e16cfe82e4c9a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_open_dev$dri(&(0x7f0000000040), 0xd21, 0x0)
+ioctl$DRM_IOCTL_MODE_CREATE_LEASE(r0, 0xc01864c6, &(0x7f0000000180)={&(0x7f0000000200)=[0x0], 0xf4240})
