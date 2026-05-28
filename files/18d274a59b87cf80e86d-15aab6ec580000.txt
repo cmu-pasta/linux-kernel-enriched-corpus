@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=09b56d900d511e06f0f5331c2afb941aa083e198
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true,"swap":true,"callcomments":true}
+mlock(&(0x7f0000ffe000/0x2000)=nil, 0x2000)
+munlock(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+madvise(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x15)
+r0 = userfaultfd(0x801)
+ioctl$UFFDIO_API(r0, 0xc018aa3f, &(0x7f0000000040)={0xaa, 0x10})
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000080)={{&(0x7f0000ffd000/0x3000)=nil, 0x3000}, 0x2})
+ioctl$UFFDIO_WRITEPROTECT(r0, 0xc018aa06, &(0x7f00000000c0)={{&(0x7f0000ffe000/0x2000)=nil, 0x2000}, 0x1})
+ioctl$UFFDIO_REGISTER(r0, 0xc020aa00, &(0x7f0000000200)={{&(0x7f0000ffc000/0x3000)=nil, 0x3000}, 0x1})
+ioctl$UFFDIO_UNREGISTER(r0, 0x8010aa01, &(0x7f0000000240)={&(0x7f0000ffb000/0x3000)=nil, 0x3000})
+mlock(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
