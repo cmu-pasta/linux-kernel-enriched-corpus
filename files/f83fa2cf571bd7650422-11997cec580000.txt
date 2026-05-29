@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=00e3a1fdda26ca5e57d814485da4e3f92a9faf6d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = epoll_create(0x7)
+r1 = epoll_create(0x7)
+r2 = epoll_create1(0x0)
+close(0x3)
+bpf$MAP_CREATE(0x0, &(0x7f0000000180)=@base={0xb, 0x7, 0x10001, 0x9, 0x1, 0xffffffffffffffff, 0xfffffffc}, 0x50)
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r1, &(0x7f0000000100))
+epoll_ctl$EPOLL_CTL_ADD(r2, 0x1, r0, &(0x7f0000000040))
+r3 = epoll_create1(0x0)
+epoll_ctl$EPOLL_CTL_ADD(r1, 0x1, r0, &(0x7f0000000140)={0x60000000})
+epoll_ctl$EPOLL_CTL_ADD(r3, 0x1, r2, &(0x7f0000000000))
