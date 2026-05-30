@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=83e91e35d1a158427aea209a1172c277bc93dc55
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"callcomments":true}
+mkdir(&(0x7f0000000040)='./file0\x00', 0x80)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000080)='./file0\x00', &(0x7f00000004c0), 0x0, 0x0)
+r0 = creat(&(0x7f00000002c0)='./file0/file1\x00', 0x4)
+write$cgroup_int(r0, &(0x7f0000000540), 0xfffffdd8)
+umount2(&(0x7f00000001c0)='./file0\x00', 0x1)
