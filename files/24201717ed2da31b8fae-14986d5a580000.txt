@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=58676a0f698531996a42612c552e894a55b9732b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$inet6_udp(0xa, 0x2, 0x0)
+r0 = socket(0x1d, 0x2, 0x6)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r0, 0x8933, &(0x7f0000000000)={'vxcan1\x00', <r1=>0x0})
+bind$can_j1939(r0, &(0x7f00000000c0)={0x1d, r1, 0x8000000000000002, {0x1, 0xf0}, 0xfd}, 0x18)
+r2 = socket(0x1d, 0x2, 0x6)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r2, 0x8933, 0x0)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+r4 = socket$can_raw(0x1d, 0x3, 0x1)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000000180)={'vxcan1\x00', <r5=>0x0})
+sendmsg$nl_route_sched(r3, &(0x7f00000003c0)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000000c0)=@getchain={0x24, 0x11, 0x839, 0x70bd25, 0x0, {0x0, 0x0, 0x0, r5, {0x1}, {0xffff, 0xa}, {0x1}}}, 0x24}}, 0x80)
+close(0x4)
