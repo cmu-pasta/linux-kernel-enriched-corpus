@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=1f7228efc2b6b0e223cadc376c5935a7fb82ab9f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+syz_open_dev$sndmidi(0x0, 0x2, 0x143102)
+r0 = ioctl$KVM_CREATE_VM(0xffffffffffffffff, 0xae01, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r0, 0x4020ae46, 0x0)
+ioctl$KVM_CREATE_VCPU(r0, 0xae41, 0x1)
+openat$nullb(0xffffffffffffff9c, 0x0, 0x4000000004002, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb, 0x13, 0xffffffffffffffff, 0x6000)

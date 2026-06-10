@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=1f7228efc2b6b0e223cadc376c5935a7fb82ab9f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x2, 0x0)
+syz_usb_connect$hid(0x2, 0x3f, 0x0, 0x0)
