@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=a2f8bf0b7d7a8a31a45fd1eeac93a035b49c1a64
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_usb_connect(0x4, 0x0, 0x0, 0x0)
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000380)={0x2, 0x4e22, @empty}, 0x10)
+listen(r0, 0x2400003)
+mount$9p_tcp(&(0x7f0000000000), &(0x7f0000000680)='.\x00', &(0x7f00000006c0), 0x8010, &(0x7f0000000080)=ANY=[@ANYBLOB='trans=tcp,port=0x0000000000404e22'])
+r1 = fsopen(&(0x7f0000000000)='cgroup2\x00', 0x0)
+fsconfig$FSCONFIG_SET_BINARY(r1, 0x6, 0x0, 0x0, 0x0)
+r2 = fsmount(r1, 0x0, 0x0)
+r3 = openat$cgroup_subtree(r2, &(0x7f0000000100), 0x2, 0x0)
+write$cgroup_subtree(r3, &(0x7f0000000300)=ANY=[@ANYBLOB='-cpu'], 0x5)
+write$cgroup_subtree(r3, &(0x7f0000000040)={[{0x2b, 'cpu'}]}, 0x5)
