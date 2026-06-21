@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=d26cf3b32be016ec7c332ba038bf2d025916cbaa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mmap$auto(0x0, 0x400008, 0xdf, 0x9b72, 0x2, 0x8000)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+openat$auto_dvb_frontend_fops_dvb_frontend(0xffffffffffffff9c, &(0x7f0000000000), 0x1, 0x0)
+r1 = landlock_create_ruleset$auto(&(0x7f0000000000)={0xd1d, 0x3, 0x7}, 0x0, 0x10000)
+close_range$auto(0x2, 0x8, 0x0)
+ioctl$auto_BTRFS_IOC_SEND_32(r1, 0x40449426, &(0x7f0000000040)={@inferred=r0, 0xc3c, 0xca, 0xd6, 0x100, 0x7fffffff, "32a7ae7184ac9a6f42440c5db510679da3dd6fafa4418158e5021f49"})
+io_uring_setup$auto(0x6, 0x0)
+io_uring_register$auto(0x2, 0x0, &(0x7f0000000000), 0x1000)
