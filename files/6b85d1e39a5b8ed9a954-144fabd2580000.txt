@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=23eb16a86ae97aa630cbdeb9a7788659b9582ba7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$inet6_sctp(0xa, 0x1, 0x84)
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_tcp_TCP_ULP(r0, 0x6, 0x1f, &(0x7f00000000c0), 0x4) (async)
+sendmsg$nl_route(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000000c0)=@newlink={0x3c, 0x10, 0xffffffffffffffff, 0x70bd2c, 0x25dfdbfb, {0x0, 0x0, 0x0, 0x0, 0x11129, 0x1020}, [@IFLA_LINKINFO={0x14, 0x12, 0x0, 0x1, @macvlan={{0xc}, {0x4}}}, @IFLA_LINKMODE={0x5, 0x11, 0x2}]}, 0x3c}, 0x1, 0x0, 0x0, 0x8014}, 0x40040)
+r1 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nbd(&(0x7f0000000200), r1)
+sendmsg$NBD_CMD_CONNECT(r1, &(0x7f00000027c0)={0x0, 0x0, &(0x7f0000002780)={&(0x7f00000002c0)=ANY=[@ANYBLOB='<\x00\x00\x00', @ANYRES16=r2, @ANYBLOB="010029bd7000fbdbdf25010000000c00020000000000000000001c0007801800018008000100", @ANYBLOB="04"], 0x3c}, 0x1, 0x0, 0x0, 0x4000004}, 0x4000)

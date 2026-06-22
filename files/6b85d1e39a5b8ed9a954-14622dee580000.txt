@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=23eb16a86ae97aa630cbdeb9a7788659b9582ba7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = bpf$BPF_PROG_WITH_BTFID_LOAD(0x5, &(0x7f0000000400)=@bpf_lsm={0x6, 0x3, &(0x7f00000003c0)=ANY=[@ANYBLOB="18000000003f000000000000000000f195"], &(0x7f0000000140)='GPL\x00'}, 0x94)
+r1 = bpf$ITER_CREATE(0xb, &(0x7f00000004c0)={r0}, 0x8)
+close(r1)
+r2 = socket$kcm(0xa, 0x1, 0x0)
+setsockopt$sock_attach_bpf(r2, 0x6, 0x1f, &(0x7f0000000080), 0x4)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = socket$kcm(0x10, 0x2, 0x10)
+sendmsg$kcm(r4, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000480)=[{&(0x7f0000000000)="1400000010003507d25a806f8c6394f90324fc60", 0x14}], 0x1}, 0x200a4800)
+recvmsg$kcm(r4, &(0x7f0000000100)={0x0, 0xfffffffffffffcb4, &(0x7f0000000040)=[{&(0x7f00000004c0)=""/4135, 0x1027}], 0x1}, 0x120)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000540)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x20040041}, 0x800)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x10}, 0x4000880)
+sendmsg$nl_generic(r3, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000000)=ANY=[@ANYBLOB="a81400002a00070127bd700000000000017c00000c00028005007c8028000000040007000c"], 0x14a8}, 0x1, 0x0, 0x0, 0x800}, 0x4040)
