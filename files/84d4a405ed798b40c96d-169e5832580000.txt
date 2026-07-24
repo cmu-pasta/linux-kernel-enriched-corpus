@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=4fa175f2f3aef675bb5dc7a0fe22c2b32a7ea365
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket$netlink(0x10, 0x3, 0x0)
+bind$netlink(r0, &(0x7f0000514ff4)={0x10, 0x0, 0x25dfdbfc, 0x2ffffffff}, 0xc)
+setsockopt$sock_int(r0, 0x1, 0x8, &(0x7f0000000300)=0x8df, 0x4)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+r2 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000000)={'veth1_to_bridge\x00', <r3=>0x0})
+ioctl$sock_inet6_SIOCADDRT(r2, 0x890b, &(0x7f0000000540)={@private2={0xfc, 0x2, '\x00', 0x1}, @rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02', @private1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4400046, r3})
+r4 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+ioctl$sock_SIOCGIFINDEX(r4, 0x8933, &(0x7f0000000000)={'veth1_to_bridge\x00', <r5=>0x0})
+r6 = socket$inet6_mptcp(0xa, 0x1, 0x106)
+ioctl$sock_inet6_SIOCADDRT(r6, 0x890b, &(0x7f0000000540)={@empty, @rand_addr=' \x01\x00', @rand_addr=' \x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01', 0x0, 0x0, 0x0, 0x0, 0x0, 0x6, r5})
+sendmsg$nl_route(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000080)=@ipv6_delroute={0x1c, 0x19, 0x1, 0x0, 0x0, {0xa, 0x0, 0x0, 0x0, 0x0, 0x0, 0xc8, 0x2}}, 0x1c}}, 0x0)

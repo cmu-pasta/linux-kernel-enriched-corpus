@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=a828019172aeac7bdd61d6eb42dce0c5d16c7673
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket(0x10, 0x3, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000180)={'bond0\x00', <r2=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r0, 0x8933, &(0x7f0000000200)={'batadv0\x00', <r3=>0x0})
+sendmsg$nl_route(r1, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000ec0)=ANY=[@ANYBLOB="480000001000010400"/20, @ANYRES32=0x0, @ANYBLOB="21000000000000002800128008000100687372001c00028008000100", @ANYRES32=r2, @ANYBLOB="08000200", @ANYRES32=r3], 0x48}}, 0x0)
+r4 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r4, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000100)=[{&(0x7f00000002c0)="2e00000011008b88040f80ee59acbc04130800480f0000005e2900421803001825800000000000000280000c0012", 0x2e}], 0x1}, 0x0)
