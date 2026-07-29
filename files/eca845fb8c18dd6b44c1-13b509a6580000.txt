@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=595c3a110f75d156bd64ea33caf173d212e26410
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000000)=@newlink={0x40, 0x10, 0x401, 0x0, 0x0, {0x0, 0x0, 0x0, 0x0, 0x28b1b}, [@IFLA_LINKINFO={0x20, 0x12, 0x0, 0x1, @geneve={{0xb}, {0x10, 0x2, 0x0, 0x1, [@IFLA_GENEVE_PORT={0x6, 0x5, 0x4e1f}, @IFLA_GENEVE_COLLECT_METADATA={0x4}]}}}]}, 0x40}}, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$netlink(r1, &(0x7f0000000740)={0x0, 0x0, &(0x7f0000000000)=[{&(0x7f0000000080)=ANY=[@ANYBLOB="2800000010000100000000000000000085ff090045000000000000000000000008001c00c900"], 0x28}], 0x1, 0x0, 0x0, 0xb305e06d8ab48277}, 0x0)
