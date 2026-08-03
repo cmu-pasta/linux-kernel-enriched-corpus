@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=bc473f3bca5c7b8195ddb04780b92b87e08471a6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mount$9p_virtio(&(0x7f0000000140), &(0x7f0000000180)='./file0\x00', &(0x7f00000000c0), 0x2210088, &(0x7f0000000580)=ANY=[@ANYBLOB="74f5026e733d76697274696f2c70726976706f72742c646972656374696f2c63616368653d6c6f6f73652c6d73697a653d307830303030303030303030303031303030"])
+chdir(&(0x7f0000000100)='./file0\x00')
+r0 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000240)='blkio.throttle.io_service_bytes\x00', 0x275a, 0x0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r0, 0x0)
+ftruncate(r0, 0x4a8e)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f00000001c0)='blkio.bfq.io_wait_time_recursive\x00', 0x275a, 0x0)
+sendmsg$kcm(0xffffffffffffffff, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000580)=[{&(0x7f0000002900)="1c3935", 0x3}], 0x1}, 0x40000)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0x2, 0x28011, r1, 0x0) (fail_nth: 4)
