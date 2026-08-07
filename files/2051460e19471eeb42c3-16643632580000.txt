@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e8fc8a623091bac0cd3e4e147993eb0a607653a7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x0, 0x5c, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000200000040c505020000010102030109024a0001010080320904000008ff0000000705810200020007050102000200070582020002000705020200020007058302000200070503020002000705840200020007050402000200"], 0x0)
+mkdir(&(0x7f0000000100)='mnt\x00', 0x1ff)
+mount(0x0, &(0x7f0000000300)='mnt\x00', &(0x7f0000000400)='devtmpfs\x00', 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000400)='mnt/ttyUSB0\x00', 0xe002, 0x0)

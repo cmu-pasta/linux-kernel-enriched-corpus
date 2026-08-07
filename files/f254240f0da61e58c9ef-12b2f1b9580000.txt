@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=e32052ee348ea79fe6c0ce1872333439b3f02eee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_clone3(0x0, 0x0)
+r0 = syz_usb_connect(0x3, 0x40, &(0x7f0000000000)=ANY=[@ANYBLOB="12010002000000407205feca00010000000109022e0001010080fa0904000004ff000000070501020002000705810200020007050202000200070582020002"], 0x0)
+syz_usb_ep_read(r0, 0x1, 0x0, 0x0)
+syz_usb_ep_write(r0, 0x81, 0x40, &(0x7f0000000100)="900100"/64)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xb635773f06ebbeee, 0x8031, 0xffffffffffffffff, 0x0)
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000200)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+sendmmsg$unix(r2, &(0x7f0000000000), 0x651, 0x0)
+recvmmsg(r1, &(0x7f00000000c0), 0x10106, 0x2, 0x0)
+syz_usb_ep_write(r0, 0x81, 0x40, &(0x7f0000000300)="9101000000112233445500"/64)
+syz_usb_ep_read(r0, 0x1, 0x4d, 0x0)
