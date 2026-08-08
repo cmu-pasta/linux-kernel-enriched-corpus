@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c73c0e8f6b39ef1c6fde966e57789d742ef6eda6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = io_uring_setup(0x10, &(0x7f0000000300)={0x0, 0x0, 0x3800, 0x0, 0x0, 0x0, 0x0})
+io_uring_register$IORING_REGISTER_ZCRX_IFQ(r0, 0x20, &(0x7f0000000400)={0x2, 0x0, 0x10, 0x0, &(0x7f0000001000)={&(0x7f0000800000), 0x10000}, &(0x7f0000001800)={&(0x7f0000800000), 0x10000, 0x1}, {}, 0x0, 0x1000}, 0x1)
