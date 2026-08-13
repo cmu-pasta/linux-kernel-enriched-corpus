@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=d7ded066cf0d16de059389b1b30052d295c3f77c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_l2cap(0x1f, 0x5, 0x0)
+bind$bt_l2cap(r0, &(0x7f0000000000)={0x1f, 0x0, @any, 0x3}, 0xe)
+listen(r0, 0xa)
+r1 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+read(r1, &(0x7f0000000800)=""/100, 0x64)
+syz_emit_vhci(&(0x7f0000000100)=@HCI_EVENT_PKT={0x4, @hci_ev_conn_request={{0x4, 0xa}, {@fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, '\x00', 0x1}}}, 0xd)
+syz_emit_vhci(&(0x7f0000000200)=@HCI_EVENT_PKT={0x4, @hci_ev_conn_complete={{0x3, 0xb}, {0x0, 0xc9, @fixed={'\xaa\xaa\xaa\xaa\xaa', 0x10}, 0x1}}}, 0xe)
+syz_emit_vhci(&(0x7f0000000400)=@HCI_EVENT_PKT={0x4, @hci_ev_remote_features={{0xb, 0xb}, {0x0, 0xc9}}}, 0xe)
+syz_emit_vhci(&(0x7f0000000300)=@HCI_EVENT_PKT={0x4, @hci_ev_disconn_complete={{0x5, 0x4}, {0x0, 0xc9, 0x16}}}, 0x7)

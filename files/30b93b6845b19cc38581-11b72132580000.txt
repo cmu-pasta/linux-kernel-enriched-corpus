@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=5faa2e72a252768e827f447445385593021cbd7c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"callcomments":true}
+r0 = socket$packet(0x11, 0x2, 0x300)
+setsockopt$packet_tx_ring(r0, 0x107, 0xd, &(0x7f0000000080)=@req={0x800000, 0x1, 0x1000, 0x800}, 0x10)
+mmap(&(0x7f0000800000/0x800000)=nil, 0x800000, 0x3, 0x11, r0, 0x0)
+pipe2(&(0x7f0000000200)={<r1=>0x0, <r2=>0x0}, 0x0)
+write(r2, &(0x7f0000000210)="01", 0x1)
+read(r1, &(0x7f0000800000)=""/8, 0x8)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r3, 0x8933, &(0x7f0000000280)={'wg0\x00', <r4=>0x0})
+sendto$packet(r0, 0x0, 0x0, 0x4000010, &(0x7f0000000000)={0x11, 0x10, r4, 0x1, 0x0, 0x0, @multicast}, 0x14)
