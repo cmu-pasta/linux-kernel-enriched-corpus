@@ -1,0 +1,5 @@
+# https://syzkaller.appspot.com/bug?id=c3a83e01e18afbb06addefe08aba8b893870cdf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+creat(&(0x7f0000000080)='./bus\x00', 0x0)
+mount(&(0x7f0000000240)=@filename='./bus\x00', &(0x7f0000000280)='./bus\x00', &(0x7f00000002c0)='9p\x00', 0x0, &(0x7f0000000100)='trans=rdma,')

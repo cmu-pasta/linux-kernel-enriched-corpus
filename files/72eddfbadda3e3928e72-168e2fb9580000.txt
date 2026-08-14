@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=c3a83e01e18afbb06addefe08aba8b893870cdf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000540), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000100)={0x0, 0x18, 0xfa00, {0x3, &(0x7f0000000040)={<r1=>0xffffffffffffffff}, 0x111}}, 0x20)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f0000000180)={0x3, 0x40, 0xfa02, {{0x6000000, 0x0, 0x0, @mcast1}, {0xa, 0x0, 0xff8a, @mcast2={0xff, 0x5}}, r1}}, 0x48)

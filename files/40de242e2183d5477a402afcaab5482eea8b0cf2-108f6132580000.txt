@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=40de242e2183d5477a402afcaab5482eea8b0cf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"netdev":true,"close_fds":true,"callcomments":true}
+r0 = socket$inet(0x2, 0x2, 0x11)
+r1 = socket$pppl2tp(0x18, 0x1, 0x1)
+connect$pppl2tp(r1, &(0x7f0000000100)=@pppol2tp={0x18, 0x1, {0x0, r0, {0x2, 0x115c, @loopback}, 0x1, 0x0, 0x1}}, 0x26)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./proc\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./proc\x00', &(0x7f00000000c0)='proc\x00', 0x0, 0x0)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./proc/net/pppol2tp\x00', 0x0, 0x0)
+read(r2, &(0x7f0000000300), 0x1)
+read(r2, &(0x7f0000000500), 0x1000)

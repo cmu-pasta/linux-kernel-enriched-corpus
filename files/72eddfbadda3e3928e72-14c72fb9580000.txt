@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=c3a83e01e18afbb06addefe08aba8b893870cdf2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$rdma_cm(0xffffffffffffff9c, &(0x7f0000000540), 0x2, 0x0)
+write$RDMA_USER_CM_CMD_CREATE_ID(r0, &(0x7f0000000100)={0x0, 0x18, 0xfa00, {0xffffffffffffffff, &(0x7f00000001c0)={<r1=>0xffffffffffffffff}, 0x2}}, 0x20)
+write$RDMA_USER_CM_CMD_RESOLVE_IP(r0, &(0x7f0000000200)={0x3, 0x40, 0xfa02, {{0x6000000, 0x0, 0x0, @loopback}, {0xa, 0xfffd, 0xfffffffd, @remote}, r1, 0xfffffffc}}, 0x48)
+r2 = socket$kcm(0x10, 0x2, 0x0)
+sendmsg$kcm(r2, &(0x7f0000000600)={0x0, 0x0, &(0x7f0000000980)=[{&(0x7f0000000040)="2e00000011008188040f80ec59acbc0413a1f8480b0000005e140602000000000e0027001000000002800000121f", 0x2e}], 0x1}, 0x0)
