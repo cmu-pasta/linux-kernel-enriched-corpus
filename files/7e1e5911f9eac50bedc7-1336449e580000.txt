@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=acfa713d81f49c4c22295f8f94cfd03be627736b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x0, 0x32, &(0x7f0000000000)=ANY=[@ANYBLOB="12010002000000404705352200000102030109022000010100c0010904000002000000000705020200020007058202000200"], 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./sys\x00', &(0x7f00000000c0)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000100)='./sys/bus/usb/drivers/usbtest/new_id\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000200)='0547 2235\n\x00', 0xa)
