@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=9d5401918f3bee146505d56912b0c57dbc0743d9
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+bpf$PROG_LOAD(0x5, &(0x7f000000e000)={0xd, 0x4, &(0x7f0000000980)=ANY=[@ANYBLOB="b4001793a377ea247f0101000038605a992be7bf5df00000000a00006111900000000000c60000a68b87c6bd5ab07a6a89374d3dcb0adfe4481d3cac97817e749bc4e7d2b24918e7c8a1db9f3dd1c62b5d15648dca7079b3ffc242f534d74a274889702ef79c7235b141731bd8fd1a595be998c8fa7980f0ce3ce3a726b85624d25111bc247bfc07c581ca55351d919aea88b2ba79a492547a5124dd943e391bbd51278d2df2d0a8da177a4f4352ba3508848ca642d3f1527c03ca04b330c142c2755dc5def99170d1e977decc67c5efba384b94"], &(0x7f0000003ff6)='GPL\x00', 0x5, 0xfd90, &(0x7f000000cf3d)=""/195, 0x1e00, 0x0, '\x00', 0x0, @sock_ops}, 0x54)
