@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=3ac2b97ff63ca4c9ccb7188b391d5946a1d63d38
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prctl$PR_SET_SECCOMP(0x4e, 0x1, 0x0)
