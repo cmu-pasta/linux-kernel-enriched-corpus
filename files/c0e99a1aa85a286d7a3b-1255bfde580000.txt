@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=41b2c3317a7387d913c029075d26f4c4fa0d1cb3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"segv":true,"callcomments":true}
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000380)={&(0x7f0000000000)=@newsa={0x150, 0x10, 0x1, 0x0, 0x0, {{@in=@loopback, @in=@loopback, 0x0, 0x0, 0x0, 0x0, 0x2, 0x20, 0x20}, {@in=@loopback, 0xbe3412, 0x32}, @in=@loopback, {}, {}, {}, 0x0, 0x1, 0x2}, [@algo_aead={0x60, 0x12, {{'rfc4106(gcm(aes))\x00'}, 0xa0, 0x60, "210466d38547aa140db9a200000000c538c7cb7a"}}]}, 0x150}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000500)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000000)=ANY=[@ANYBLOB="940000002900010000000000000000007f00000100000000000000000000000000be3412020032007f0000020000000000000000000000007f00000100000000000000000000000000000000000000007f0000010000000000000000000000007f000001000000000000000000000000000000000000000002002020000000000000000000000000010000000000000002000000"], 0x94}}, 0x0)
