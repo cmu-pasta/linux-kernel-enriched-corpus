@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=0de7dec36ff1d716d24815302239a6f4fb97370f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect(0x3, 0x40, &(0x7f0000000000)=ANY=[@ANYBLOB="12010002000000407205feca00010000000109022e0001010080fa0904000004ff000000070501020002000705810200020007050202000200070582020002"], 0x0)
+syz_usb_ep_read(r0, 0x1, 0x0, 0x0)
+syz_usb_ep_write(r0, 0x81, 0x40, &(0x7f0000000300)="9101000000112233445500"/64)
+setns(0xc9, 0x0)
+r1 = socket(0x8, 0x2, 0x0)
+setsockopt(r1, 0x108, 0x42020054, &(0x7f0000000000)="010000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000005000000", 0x54)
+bind(r1, &(0x7f0000000100)=@generic={0x8, "0000ffff0100feffffff00"}, 0xc)
