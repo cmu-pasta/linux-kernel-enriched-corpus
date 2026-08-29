@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=e338c5864b12cfa0d66733fa5d2ac5995db3a0ae
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/test\x00', 0x777)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./cgroup.cpu/test/memory.limit_in_bytes\x00', 0x2, 0x0)
+write(r0, &(0x7f0000000180)='10000', 0x5)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./cgroup.cpu/test/cgroup.procs\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000280)='0', 0x1)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./tracefs\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./tracefs\x00', &(0x7f0000000040)='tracefs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000140)='./tracefs/instances/foo\x00', 0x1ff)

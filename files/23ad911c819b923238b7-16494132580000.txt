@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=de442cd936ed8daf585f96248d89eba5b9913b59
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect(0x0, 0x24, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000200000040030431c60001000000010902120001010080fa0904"], 0x0)
+mkdir(&(0x7f0000000100)='./mnt\x00', 0x1ff)
+mount(0x0, &(0x7f0000000300)='./mnt\x00', &(0x7f0000000400)='sysfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000900)='./mnt/bus/i2c/devices/i2c-2/new_device\x00', 0x1, 0x0)
+write(r1, &(0x7f0000000a00)='stm32g0-typec 0x3', 0x11)
+syz_usb_control_io$lan78xx(r0, &(0x7f0000000200)={0x14, 0x0, 0x0}, 0x0)
