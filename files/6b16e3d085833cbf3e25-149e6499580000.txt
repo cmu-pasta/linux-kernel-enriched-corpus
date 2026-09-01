@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b2f44ed1b42d7dad0a67cf2476226d2e1af472d3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f0000000200)='./config\x00', &(0x7f0000000300)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000400)='./config/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000b00)='./config/usb_gadget/g1/configs/c.1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f00000002c0)='./config/usb_gadget/g1/functions/uac2.usb0\x00', 0x1ff)
+symlinkat(&(0x7f0000000300)='./config/usb_gadget/g1/functions/uac2.usb0\x00', 0xffffffffffffff9c, &(0x7f0000000340)='./config/usb_gadget/g1/configs/c.1/uac2.usb0\x00')
+unlinkat(0xffffffffffffff9c, &(0x7f0000000440)='./config/usb_gadget/g1/configs/c.1/uac2.usb0\x00', 0x0)
+unlinkat(0xffffffffffffff9c, &(0x7f0000000480)='./config/usb_gadget/g1/functions/uac2.usb0\x00', 0x200)

@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=6c3e401a21f2ea390d1475fc39fb8b4a2e4c837b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f00000004c0)='./sys\x00', &(0x7f0000000040)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./sys/bus/pci/devices/0000:00:03.0/driver/unbind\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000140)='0000:00:03.0\x00', 0xd)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./sys/bus/pci/devices/0000:00:03.0/driver_override\x00', 0x1, 0x0)
+write(r1, &(0x7f00000001c0)='ata_generic\x00', 0xc)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000100)='./sys/bus/pci/drivers/ata_generic/bind\x00', 0x1, 0x0)
+write(r2, &(0x7f0000000140)='0000:00:03.0\x00', 0xd)

@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=d8b4b153d60560eea7e4ce76780bfd32c68d6a75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect(0x0, 0x3b, &(0x7f0000000040)=ANY=[@ANYBLOB="120100020000004032151d010001000000010902220001010080fa090400000103000000092111010001224e0007058103400001"], 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io(r0, &(0x7f00000002c0)={0x2c, &(0x7f0000000200)=ANY=[@ANYBLOB="00224e00000005010901a101850105091901290315002501950375018102950175058103c00600ff0901a101150026ff0075089540850f0901b102850c09018102850909019102850a09019102850b09018102c0"], 0x0, 0x0, 0x0, 0x0}, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+syz_usb_ep_write(r0, 0x81, 0x0, 0x0)
+nanosleep(&(0x7f0000000000)={0x1}, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000100)='./sys\x00', &(0x7f0000000200)='sysfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000300)='./sys/bus/usb/devices/1-1/power/control\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000700)='auto\x00', 0x4)
