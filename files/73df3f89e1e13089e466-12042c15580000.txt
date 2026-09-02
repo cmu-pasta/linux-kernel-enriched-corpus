@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=1181baf9a45750c390396fb9483189591b20ad19
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = socket$packet(0x11, 0x3, 0x300)
+bind$packet(r0, &(0x7f0000000200)={0x11, 0x15, 0x1, 0x1, 0xff, 0x6, @random="00110400"}, 0x14)
+setsockopt$packet_tx_ring(r0, 0x107, 0xd, &(0x7f00000000c0)=@req={0x1000, 0x4, 0x800, 0x8}, 0x10)
+mmap(&(0x7f0000000000/0x4000)=nil, 0x4000, 0x3, 0x11, r0, 0x0)
+readv(0xffffffffffffffff, &(0x7f0000000000)=[{&(0x7f00000000c0)=""/243, 0xfffffdef}], 0x1)
+write(r0, &(0x7f0000000000)="01", 0x1)
