@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=8145bd66e75443d5edfc7db8a4e4d8acd7a1ac50
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./my_configfs\x00', 0x1ff)
+mount(0x0, &(0x7f0000000100)='./my_configfs\x00', &(0x7f0000000140)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000180)='./my_configfs/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f00000001c0)='./my_configfs/usb_gadget/g1/configs/c.1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000200)='./my_configfs/usb_gadget/g1/functions/midi2.usb0\x00', 0x1ff)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./my_configfs/usb_gadget/g1/functions/midi2.usb0/ep.0/block.0/direction\x00', 0x1, 0x0)
+write(r0, &(0x7f00000002c0)='1', 0x1)
+symlinkat(&(0x7f0000000880)='./my_configfs/usb_gadget/g1/functions/midi2.usb0\x00', 0xffffffffffffff9c, &(0x7f00000008c0)='./my_configfs/usb_gadget/g1/configs/c.1/midi2.usb0\x00')
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000900)='./my_configfs/usb_gadget/g1/UDC\x00', 0x1, 0x0)
+write(r1, &(0x7f0000000940)='dummy_udc.0', 0xb)

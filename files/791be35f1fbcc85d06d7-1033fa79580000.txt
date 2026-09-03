@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=937b2e15270d27da66ffbcfa881624c7f16dec65
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./config\x00', &(0x7f0000000040)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config/usb_gadget/g1/functions/mass_storage.usb0\x00', 0x1ff)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000000)='./config/usb_gadget/g1/functions/mass_storage.usb0/num_buffers\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000000)='0\x00', 0x2)
