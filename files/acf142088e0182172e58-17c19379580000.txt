@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=b47e96994e7d4dfcdaeea11b439b6a7376aff3cf
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+sched_setaffinity(0x0, 0x8, &(0x7f00000002c0)=0x2)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./sys\x00', &(0x7f00000000c0)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000100)='./sys/devices/system/cpu/smt/control\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000140)='off', 0x3)

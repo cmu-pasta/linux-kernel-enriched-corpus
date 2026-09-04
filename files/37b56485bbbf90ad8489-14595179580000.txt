@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=23e031c724279f879f9e6c72bf4e84da679680fa
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = fsopen(&(0x7f00000001c0)='bpf\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
+r1 = bpf$BPF_BTF_LOAD(0x12, &(0x7f0000000380)={&(0x7f0000000080)=ANY=[@ANYBLOB="9feb010018000000000000001c0000001c00000003000000010000000000000e0200000000000000000000000000000504000000002e"], 0x0, 0x37}, 0x20)
+r2 = bpf$MAP_CREATE(0x0, &(0x7f0000004440)=ANY=[@ANYBLOB="0900000004000000040000000700000000000000", @ANYRES32, @ANYBLOB='\x00'/20, @ANYRES32=0x0, @ANYRES32=r1, @ANYBLOB="0000000001"], 0x48)
+bpf$MAP_UPDATE_ELEM_TAIL_CALL(0x2, &(0x7f0000000140)={{r2}, &(0x7f0000000040), &(0x7f0000000100)}, 0x20)
+r3 = fsmount(r0, 0x1, 0xe)
+fchdir(r3)
+bpf$OBJ_PIN_MAP(0x6, &(0x7f00000000c0)=@generic={&(0x7f0000000000)='./file0\x00', r2}, 0x18)
+mprotect(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x1)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/crypto\x00', 0x0, 0x0)
+pread64(r4, &(0x7f0000002240)=""/131, 0x83, 0xe5d6)

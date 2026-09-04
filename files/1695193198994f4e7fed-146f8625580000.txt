@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=dc85862ccbc77f5df9ec456ce6b2e59019ef92cb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./trace\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./trace\x00', &(0x7f0000000100)='tracefs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./trace/set_event\x00', 0x2, 0x0)
+write(r0, &(0x7f0000000340)="2a3a206782", 0x5)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000040)='./sys\x00', &(0x7f0000000080)='sysfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000500)='./sys/class/rnbd-client/ctl/map_device\x00', 0x1, 0x0)
+write(r1, &(0x7f0000000600)='sessname=s1 device_path=/dev/ram0 path=ip:127.0.0.1', 0x33)
