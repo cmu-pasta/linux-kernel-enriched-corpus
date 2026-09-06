@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=97947e18678d4687bc0da7d8be28ed6fb6bbd7f3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_mount_image$ext4(&(0x7f00000002c0)='ext4\x00', &(0x7f0000000740)='./file0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\x00', 0x0, &(0x7f0000000200)={[{@quota}, {@debug}]}, 0x1, 0x246, &(0x7f0000000ac0)="$eJzs3T9oM2UcB/DvXRJf+75BXnURxD8gIloor5vg8rooFKQUEUGFioiL0gq1xa1xcnHQWaWTSxE3q6N0KS6K4FS1Q10ELQ4WBx0iybVS24ja1Jz0Ph+43l3vee73HLnvkyyXBGisq0muJ2klmU7SSVIcb3B3tVw93F2f2l5I+v0nfiqG7ar9ylG/K0l6SR5KslUWeamdrG4+s/fLzmP3vbnSuff9zaenJnqRh/b3dh8/eG/ujY9mH1z94qsf5opcT/dP13X+ihH/axfJLf9Fsf+Jol33CPgn5l/78OtB7m9Ncs8w/52UqV68t5Zv2OrkgXf/qu/bP355+yTHCpy/fr8zeA/s9YHGKZN0U5QzSartspyZqT7Df9O6XL68tPzq9ItLK4sv1D1TAeelm+w++smlj6+cyP/3rSr/wMU1yP+T8xvfDrYPWnWPBpiIO6rVIP/Tz63dH/mHxpF/aC75h+aSf2gu+Yfmkn9oLvmHC6xztNEbeVj+obnkH5pL/qG5jucfAGiW/qW6n0AG6lL3/AMAAAAAAAAAAAAAAAAAAJy2PrW9cLRMquZn7yT7jyRpj6rfGv4ecXLj8O/ln4tBsz8UVbexPHvXmCcY0wc1P31903f11v/8znrrry0mvdeTXGu3T99/xeH9d3Y3/83xzvNjFviXihP7Dz812fon/bZRb/3ZneTTwfxzbdT8U+a24Xr0/NM9/hXLZ/TKr2OeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIn5PQAA//8PK23M")
+openat(0xffffffffffffff9c, &(0x7f0000000080)='file0\x00', 0x42, 0x1ff)
+mkdir(&(0x7f0000000180)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f00000001c0)='./config\x00', &(0x7f0000000200)='configfs\x00', 0x0, 0x0)
+mkdir(&(0x7f0000000240)='./config/usb_gadget/g1\x00', 0x1ff)
+mkdir(&(0x7f00000002c0)='./config/usb_gadget/g1/functions/mass_storage.0\x00', 0x1ff)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000380)='./config/usb_gadget/g1/functions/mass_storage.0/lun.0/file\x00', 0x2, 0x0)
+write(r0, &(0x7f00000003c0)='file0', 0x5)
