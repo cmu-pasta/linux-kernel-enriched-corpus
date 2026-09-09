@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=0b33d772a0ebf98d14172032b4c321bec231edbd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_usb_connect(0x2, 0x57, &(0x7f0000000000)=ANY=[@ANYBLOB="1201100100000040cc1769190001010203010902450001010080320904000002ffffff0007058102400000070501024000000904000104ffffff000705810240000007050102400000070582"], 0x0)
+syz_usb_control_io(r0, 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000280)='./my_debugfs\x00', 0x4)
+mount(0x0, &(0x7f0000000200)='./my_debugfs\x00', &(0x7f0000000300)='debugfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f00000001c0)='./my_debugfs/usb/devices\x00', 0x2, 0x0)
+prlimit64(0x0, 0xe, &(0x7f0000000140)={0xa, 0x400000000008d}, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000080)=0x8)
+sched_setaffinity(0x0, 0x0, 0x0)
+llistxattr(0x0, 0x0, 0x0)
+read$FUSE(r1, &(0x7f00000021c0)={0x2020}, 0x2020)

@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=7f2779c1e329737d441bfab94fc7a75c1a9d1475
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./sys\x00', &(0x7f0000000040)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000080)='./sys/bus/pci/devices/0000:00:01.0/remove\x00', 0x1, 0x0)
+write(r0, &(0x7f00000000c0)='1\x00', 0x1) (fail_nth: 14)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./sys/bus/pci/rescan\x00', 0x1, 0x0)
+write(r1, &(0x7f00000001c0)='1\x00', 0x1)
