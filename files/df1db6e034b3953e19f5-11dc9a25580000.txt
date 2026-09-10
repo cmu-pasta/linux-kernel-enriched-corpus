@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=25378281cdf7d86a2dafaa3eb332fb39f030ee81
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"cgroups":true,"close_fds":true,"tmpdir":true,"callcomments":true}
+pipe(&(0x7f0000000300)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+r1 = fsopen(&(0x7f0000000080)='autofs\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/test\x00', 0x777)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./cgroup.cpu/test/memory.limit_in_bytes\x00', 0x2, 0x0)
+write(r2, &(0x7f0000000180)='10', 0x2)
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./cgroup.cpu/test/cgroup.procs\x00', 0x2, 0x0)
+write(r3, &(0x7f0000000280)='0', 0x1)
+fsconfig$FSCONFIG_SET_FD(r1, 0x5, &(0x7f00000005c0)='fd', 0x0, r0)
+fsconfig$FSCONFIG_CMD_CREATE(r1, 0x6, 0x0, 0x0, 0x0)
