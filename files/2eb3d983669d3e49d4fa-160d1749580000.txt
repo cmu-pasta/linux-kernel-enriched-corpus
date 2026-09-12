@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=f09bbc4ef633d4ecdd0f7b0f297961d2fb85e021
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_usb_control_io$cdc_ncm(0xffffffffffffffff, 0x0, 0x0)
+syz_mount_image$ext4(&(0x7f0000000080)='ext4\x00', &(0x7f0000000280)='./mnt\x00', 0x2000c10, &(0x7f00000002c0)={[{@sysvgroups}, {@inode_readahead_blks={'inode_readahead_blks', 0x3d, 0x4000}}, {@usrjquota}, {@acl}, {@grpjquota}]}, 0xff, 0x23f, &(0x7f0000000540)="$eJzs3T1oLFUYBuB3Zne95t5FrtoI4g+IiAbCtRNsYqMQkBBEBBUiIjZKIsQEu8TKxkJrlVQ2QeyMlpIm2CiCVdQUsRE0WBgstFiZnURisuLPxh1xngdmZ2b3nPnOMPOe3WbYAK11Nclskk6S6SS9JMXpBnfWy9Xj3c2p3cVkMHjsh2LYrt6vnfS7kmQjyQNJdsoiL3STte2nDn7ae+Se11d7d7+7/eTURE/y2OHB/qNH78y/9sHc/WufffHdfJHZ9H93XhevGPFet0hu+jeK/UcU3aZHwF+x8Mr7X1a5vznJXcP891KmvnhvrFy308t9b/9R3ze///zWSY4VuHiDQa/6DtwYAK1TJumnKGeS1NtlOTNT/4b/qnO5fHF55eXp55dXl55reqYCLko/2X/4o0sfXjmT/287df6B/68q/48vbH1dbR91mh4NMBG31asq/9PPrN8b+YfWkX9oL/mH9pJ/aC/5h/aSf2gv+Yf2kn9oL/mH9pJ/aK/T+QcA2mVwqeknkIGmND3/AAAAAAAAAAAAAAAAAAAA521O7S6eLJOq+clbyeFDSbqj6neG/0ecXD98vfxjUTX7TVF3G8vTd4x5gDG91/DT1zd802z9T29vtv76UrLxapJr3e75+684vv/+uRv/5PPes2MW+JuKM/sPPjHZ+mf9stVs/bm95ONq/rk2av4pc8twPXr+6VfXb8z6L/085gEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYmF8DAAD//xFQbUc=")
+openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000040)='cgroup.controllers\x00', 0x275a, 0x0)
+prctl$PR_SET_MM_MAP(0x23, 0xe, &(0x7f0000000080)={&(0x7f0000ff0000/0x1000)=nil, &(0x7f0000ffd000/0x3000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ff8000/0x4000)=nil, &(0x7f0000ff8000/0x3000)=nil, &(0x7f0000ffb000/0x3000)=nil, &(0x7f0000ffb000/0x3000)=nil, &(0x7f0000ffc000/0x3000)=nil, &(0x7f0000ffa000/0x1000)=nil, &(0x7f0000ffa000/0x2000)=nil, 0x0}, 0x68)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, 0x0}, 0x0)
+r0 = io_uring_setup(0x7, &(0x7f0000000040)={0x0, 0xc8a1, 0xc000, 0x8, 0xc1})
+bpf$MAP_CREATE(0x0, &(0x7f0000000000)=ANY=[@ANYBLOB="1700000004"], 0x50)
+io_uring_enter(r0, 0x2219, 0x7721, 0x16, 0x0, 0x0)
+r1 = openat$cgroup_ro(0xffffffffffffff9c, &(0x7f0000000000)='blkio.bfq.io_queued\x00', 0x275a, 0x0)
+ioctl$EXT4_IOC_MOVE_EXT(r1, 0x8004587d, &(0x7f0000000080)={0x0, r1})
