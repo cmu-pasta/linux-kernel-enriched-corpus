@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=08fa6716dc262f42068853d151de29ad19c901ad
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"close_fds":true,"vhci":true,"callcomments":true}
+r0 = syz_init_net_socket$bt_rfcomm(0x1f, 0x1, 0x3)
+bind$bt_rfcomm(r0, &(0x7f0000000000)={0x1f, @any, 0x1}, 0xa)
+listen(r0, 0x5)
+syz_emit_vhci(0x0, 0x15)
+syz_emit_vhci(&(0x7f0000000200)=ANY=[@ANYBLOB="02c8200c00080001000202040003004000"], 0x11)
+syz_emit_vhci(&(0x7f0000000300)=ANY=[@ANYBLOB="02c8200c00080001000403040040000000"], 0x11)
+syz_emit_vhci(&(0x7f0000000400)=ANY=[@ANYBLOB="02c8200e000a00010005010600400000000000"], 0x13)
+syz_emit_vhci(&(0x7f0000000600)=ANY=[@ANYBLOB="02c82012000e00400003ef158311020007007f00000770"], 0x17)

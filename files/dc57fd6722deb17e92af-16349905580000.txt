@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=b568f179dd3a76d8ba8bbbff7dd4b4b7816ba39a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_init_net_socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$net_dm(&(0x7f0000000080), r0)
+write(0xffffffffffffffff, &(0x7f0000000014)="0500010001000000", 0x8)
+sendmsg$NET_DM_CMD_START(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000000)={0x1c, r1, 0x1, 0x0, 0x0, {0x2}}, 0x1c}}, 0x0)
+sendmsg$NET_DM_CMD_START(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000040)={0x14, r1, 0x1}, 0x14}}, 0x0)
+r2 = openat$tun(0xffffffffffffff9c, &(0x7f0000000100), 0x2, 0x0)
+ioctl$TUNSETIFF(r2, 0x400454ca, &(0x7f0000000040)={'syzkaller0\x00', 0x4001})
+r3 = socket$inet(0x2, 0x2, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r3, 0x8914, &(0x7f00000000c0)={'syzkaller0\x00', 0x1})
