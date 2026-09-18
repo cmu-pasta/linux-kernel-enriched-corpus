@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=aa476762adac725bbe19a23877b24cab6f48a276
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080), 0xffffffffffffffff)
+ioctl$sock_SIOCGIFINDEX_80211(r0, 0x8933, &(0x7f00000000c0)={'wlan0\x00', <r2=>0x0})
+r3 = socket$inet(0x2, 0x2, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r3, 0x8914, &(0x7f0000000300)={'wlan0\x00', 0x1000})
+sendmsg$NL80211_CMD_SET_INTERFACE(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000180)={0x24, r1, 0x5, 0x0, 0x0, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_IFTYPE={0x8, 0x5, 0x7}]}, 0x24}}, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r3, 0x8914, &(0x7f0000000000)={'wlan0\x00', 0x1})
+sendmsg$NL80211_CMD_JOIN_MESH(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000dc0)={0x28, r1, 0x1, 0x70bd28, 0x25dfdbfb, {{}, {@val={0x8, 0x3, r2}, @void}}, [@NL80211_ATTR_MESH_ID={0xa}]}, 0x28}, 0x1, 0x0, 0x0, 0x85}, 0x4c040)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040), 0xffffffffffffffff)
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCGIFINDEX_80211(r5, 0x8933, &(0x7f00000003c0)={'wlan0\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_CHANNEL_SWITCH(r5, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000032c0)={0x2c, r4, 0x1, 0x70bd2a, 0x0, {{}, {@val={0x8, 0x3, r6}, @void}}, [@chandef_params=[@NL80211_ATTR_WIPHY_FREQ={0x8}], @NL80211_ATTR_CH_SWITCH_COUNT={0x8, 0xb7, 0xf9}]}, 0x2c}}, 0x0)
