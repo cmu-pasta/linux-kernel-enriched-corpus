@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=5073831ae6fda2a5f8332c1075c7474f260a49f7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"wifi":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./sys\x00', &(0x7f0000000040)='sysfs\x00', 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000180)='./sys/bus/pci/devices/0000:00:01.0/resource0\x00', 0x20002, 0x0)
+mprotect(&(0x7f0000000000/0xf000)=nil, 0xf000, 0xd)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./dbg/netdevsim/netdevsim1/hwstats/l3/enable_ifindex\x00', 0x1, 0x0)
+write(r0, &(0x7f00000001c0)='2', 0x1) (rerun: 32)

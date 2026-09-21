@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=3c19aef8aedbfa716d8ec37512dc9f46a8dec8c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, &(0x7f0000000200)={'veth0_to_bridge\x00'})
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$XFS_IOC_GETBMAP(0xffffffffffffffff, 0xc0205826, 0x0)
+ioctl$sock_SIOCBRDELBR(r1, 0x89a2, &(0x7f0000000200)='bridge0\x00')

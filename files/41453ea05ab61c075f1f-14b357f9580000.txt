@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=3c19aef8aedbfa716d8ec37512dc9f46a8dec8c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000001000)='./dev\x00', 0x1ff)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000002000)='./dev/mapper/control\x00', 0x2, 0x0)
+ioctl(r0, 0xc138fd09, &(0x7f0000003000)="0400000000000000000000006c010032380100000100320000000000000000000000000000000000000000000000000074657374")

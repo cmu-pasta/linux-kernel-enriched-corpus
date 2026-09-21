@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=3c19aef8aedbfa716d8ec37512dc9f46a8dec8c4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+syz_mount_image$vfat(&(0x7f0000000240), &(0x7f0000000280)='./file0\x00', 0x100000, &(0x7f0000000300)=ANY=[@ANYRESHEX], 0x0, 0x25c, &(0x7f0000000840)="$eJzs2k1rXFUYB/DnxpakKelEfKMF6UEX1s2lycqFSIK0IAYUbYQqSG/NjQ65zoTcITAiNm5060dwLS7dCVJx4yYbP4ELd9lk2YV4pZ2meSHgRDuOlt9vMw/3nD/z3DmHw1nMzstffby2WuerRS8msiwmFmIr7mQxGxOxZytefOH6z8++ff3d1xeXlq68ldLVxWtz8ymlcxd/eO/Tb5+73Tv7znfnvp+M7dn3d3Y//2376e3zO39c+6hdp3adOt1eKtLNbrdX3KzKtNKu1/KU3qzKoi5Tu1OXG4fGV6vu+no/FZ2Vmen1jbKuU9Hpp7Wyn3rd1Nvop+LDot1JeZ6nmengn1j+5k7TxG5z+kZke89mfo1WZI+n7ImF7Kkb2TNb2fndpmmNt1FG5MH6N01z5us4e3uY9b80vn55uA4c6lMR1Zeby5vLg8/B+OJqtKOKMi5HK36Pu9vkvkF99bWlK5fTPbPxRXXrfv7W5vJjh/Nz0YrZ4/Nzg3w6nJ+M6YP5+WjFk8fn54/NT8Wl5w/k82jFLx9EN6pYibvZ/fxncym9+sbSkfyFe/MAAB41edozeez9Ld+fcGR8kD/B/fDI/epUXDg13ncnou5/slZUVbmhOElx8aSpqfH3/HCKyYgY+XdN/M14k0X8V36ovyx++vGVl4acnI2+n4XBUXD6wZNxn0z8G/a3wbCJqdE2BAAAAAAAAAAAwFBG+7/CM+N+PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4H/gzwAAAP//3cXKgw==")
+r0 = socket$inet_sctp(0x2, 0x5, 0x84)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+sendto$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r1, 0x0, 0x0, 0x700, 0x0, 0x0)
+prlimit64(0x0, 0xe, 0x0, 0x0)
+sched_setscheduler(0x0, 0x2, &(0x7f0000000200)=0x6)
+r2 = socket$inet_udp(0x2, 0x2, 0x0)
+sendto$inet(r2, &(0x7f0000000c80)="e8", 0x6200, 0x12000000, 0x0, 0x0)
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r3, 0x0, 0x4000000)
+close_range(r0, 0xffffffffffffffff, 0x0)
