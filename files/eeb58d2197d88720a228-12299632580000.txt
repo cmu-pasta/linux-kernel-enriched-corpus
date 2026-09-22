@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=8aa6edf73efcad3a97b234016a4328792eea9f5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket(0x2, 0x1, 0x6)
+bind(r0, &(0x7f00000000c0)=@in={0x2, 0x3039, @loopback}, 0x10)
+listen(r0, 0x1)
+r1 = fsopen(&(0x7f0000000140)='cifs\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r1, 0x1, &(0x7f0000000180)='source\x00', &(0x7f00000001c0)='//127.0.0.1/share\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r1, 0x1, &(0x7f0000000380)='port\x00', &(0x7f00000003c0)='12345\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r1, 0x6, 0x0, 0x0, 0x0)
+r2 = accept(r0, 0x0, 0x0)
+write(r2, 0x0, 0x0)

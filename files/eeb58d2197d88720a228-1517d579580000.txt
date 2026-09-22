@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=8aa6edf73efcad3a97b234016a4328792eea9f5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"close_fds":true,"tmpdir":true,"callcomments":true}
+socketpair$unix(0x1, 0x3, 0x0, &(0x7f0000000080)={<r0=>0xffffffffffffffff})
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r1, &(0x7f0000000100)={0x2, 0x3039, @loopback}, 0x10)
+listen(r1, 0x10)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000200)='./cifs\x00', 0x1ff)
+mount(0x0, &(0x7f0000000200)='./cifs\x00', &(0x7f0000000240)='cifs\x00', 0x0, &(0x7f0000000300)='source=//127.0.0.1/test,username=root,password=root,port=12345,handletimeout=1\x00')
+close_range(r0, 0xffffffffffffffff, 0x0)

@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=8aa6edf73efcad3a97b234016a4328792eea9f5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e20, @loopback}, 0x10)
+listen(r0, 0x10)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./cifs\x00', 0x1ff)
+mount(&(0x7f0000000500)=@filename='\\\\127.0.0.1\\share\x00', &(0x7f0000000100)='./cifs\x00', &(0x7f0000000200)='cifs\x00', 0x0, &(0x7f0000000300)='unc=//127.0.0.1/share,ip=127.0.0.1,port=20000,user=root,pass=root,vers=3.0\x00')
+r1 = accept(r0, 0x0, 0x0)
+sendto$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+sendto$inet(r1, &(0x7f0000002100), 0x0, 0x0, 0x0, 0x0)
+close(r1)

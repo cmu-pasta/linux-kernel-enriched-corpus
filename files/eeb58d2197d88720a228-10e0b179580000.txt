@@ -1,0 +1,14 @@
+# https://syzkaller.appspot.com/bug?id=8aa6edf73efcad3a97b234016a4328792eea9f5c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = socket$inet_tcp(0x2, 0x1, 0x0)
+r1 = socket$nl_route(0x10, 0x3, 0x0)
+prctl$PR_SET_IO_FLUSHER(0x39, 0x0)
+sendmsg$nl_route(r1, &(0x7f0000000080)={0x0, 0x0, &(0x7f0000000040)={&(0x7f00000000c0)=ANY=[], 0x40}, 0x1, 0x0, 0x0, 0x240458c0}, 0x0)
+r2 = syz_open_dev$dri(&(0x7f0000000000), 0x0, 0x402)
+ioctl$DRM_IOCTL_MODE_CREATE_DUMB(r2, 0xc02064b2, &(0x7f0000000040)={0x9, 0x5, 0x20ffd})
+mmap(&(0x7f0000001000/0x4000)=nil, 0x4000, 0x100000c, 0x12, r2, 0x100000000)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x1bd, @loopback}, 0x10)
+listen(r0, 0xa)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./mnt\x00', 0x1ff)
+mount(&(0x7f0000000200)=@filename='\\\\127.0.0.1\\share\x00', &(0x7f0000000300)='./mnt\x00', &(0x7f0000000400)='cifs\x00', 0x2000042, &(0x7f0000000500)='username=guest,password=guest,nodfs,vers=3.0\x00')
