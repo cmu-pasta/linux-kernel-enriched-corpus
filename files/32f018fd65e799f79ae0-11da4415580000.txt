@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7d8f0a4df9245979dff644dd3f053751b6f9a75
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./sys\x00', 0x1ed)
+mount(0x0, &(0x7f00000000c0)='./sys\x00', &(0x7f00000001c0)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./sys/bus/platform/drivers/vidtv/unbind\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000300)='vidtv.0', 0x7)

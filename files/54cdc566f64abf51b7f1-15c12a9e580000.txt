@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=af7713629fbe551d065b848548842f4afc48a981
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./nfsd\x00', 0x1ff)
+socket$inet_udp(0x2, 0x2, 0x0)
+mount(0x0, &(0x7f00000000c0)='./nfsd\x00', &(0x7f0000000100)='nfsd\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./nfsd/portlist\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000240)='3', 0x1)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./nfsd/versions\x00', 0x1, 0x0)
+write(r1, &(0x7f00000001c0)='-2 -3\n', 0x6)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./nfsd/portlist\x00', 0x1, 0x0)
+write(r2, &(0x7f0000000240)='3', 0x1)
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x18}}, 0x10)

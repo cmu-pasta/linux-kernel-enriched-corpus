@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=928e57747811470fbf24307d324a86e066ac2fe2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"namespace","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = openat$kvm(0xffffffffffffff9c, &(0x7f0000000340), 0x0, 0x0)
+r1 = ioctl$KVM_CREATE_VM(r0, 0xae01, 0x0)
+ioctl$KVM_SET_USER_MEMORY_REGION(r1, 0x4020ae46, &(0x7f0000000400)={0x0, 0x0, 0x0, 0x20002000, &(0x7f0000000000/0x2000)=nil})
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f0000000180)={0x3000, 0x0, 0x1})
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f0000000380)={0x2, 0x34000, 0x1})
+r2 = ioctl$KVM_CREATE_VCPU(r1, 0xae41, 0x2)
+ioctl$KVM_RUN(r2, 0xae80, 0x0)
+ioctl$KVM_REGISTER_COALESCED_MMIO(r1, 0x4010ae67, &(0x7f0000000000)={0xeeee8000, 0x102000, 0x1})
+ioctl$KVM_RUN(r2, 0xae80, 0x0)

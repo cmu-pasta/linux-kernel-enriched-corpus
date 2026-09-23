@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=17cceb3c3086b0fcc8252096ca5dc980d58202a2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":false,"vhci":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./debug\x00', 0x1ff)
+mount(0x0, &(0x7f00000000c0)='./debug\x00', &(0x7f0000000100)='debugfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000400)='./debug/dynamic_debug/control\x00', 0x2, 0x0)
+write(r0, &(0x7f0000000500)=' +p\n\x00'/18, 0x12)
+r1 = syz_init_net_socket$nfc_llcp(0x27, 0x2, 0x1)
+bind$nfc_llcp(r1, &(0x7f0000001040)={0x27, 0x0, 0xfffffffe, 0x4, 0x0, 0x1, "d92984bd1ca44c226af5160e961711a077609475b78411e88509de050000000000f2170e65e3f50327e422000000000000000000000200000000001900", 0x1c}, 0x60)
