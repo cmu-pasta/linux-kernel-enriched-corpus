@@ -1,0 +1,15 @@
+# https://syzkaller.appspot.com/bug?id=1bf0dfe9bde6ff3d50eac8ddf751586749604fd6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = syz_usb_connect(0x5, 0x35, &(0x7f0000000500)=ANY=[@ANYBLOB="120100004aaf36207205a5580a27010203010902230001000000000904010901a37d7e03090500004000020401080b01"], 0x0)
+syz_usb_disconnect(r0)
+r1 = syz_usb_connect(0x0, 0x24, &(0x7f0000000040)=ANY=[], 0x0)
+syz_usb_control_io$printer(r1, 0x0, 0x0)
+syz_usb_control_io$hid(r1, 0x0, 0x0)
+syz_usb_control_io$cdc_ecm(r1, 0x0, 0x0)
+syz_usb_control_io$cdc_ecm(r1, 0x0, 0x0)
+syz_usb_control_io$cdc_ncm(r1, 0x0, 0x0)
+syz_usb_control_io$printer(r1, 0x0, 0x0)
+syz_usb_control_io$lan78xx(r1, 0x0, &(0x7f0000000780)={0x34, &(0x7f0000000580)={0x20, 0x16, 0x1, "c2"}, 0x0, 0x0, 0x0, 0x0, 0x0})
+r2 = syz_open_dev$I2C(&(0x7f0000000000), 0x1, 0x402)
+read$FUSE(r2, 0x0, 0x700)
