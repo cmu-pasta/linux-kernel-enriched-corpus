@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=dc13da0d4155b6945048237920a3058de5a08717
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='sys_mnt\x00', 0x1ff)
+mount(0x0, &(0x7f00000000c0)='sys_mnt\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f00000003c0)='sys_mnt/block/zram0/disksize\x00', 0x1, 0x0)
+write$cgroup_pid(r0, &(0x7f0000000000)=0xffffffffffffffff, 0x12)

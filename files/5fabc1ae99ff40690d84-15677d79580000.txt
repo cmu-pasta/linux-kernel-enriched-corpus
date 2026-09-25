@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=00e3c7d6c844c6a8617bb49151af14839eb5412b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x5, 0x4e, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000200000040cd06350100010000000109023c0001010080320904000006ff000000070581024000000705010240"], 0x0)
+mkdir(&(0x7f00000000c0)='mnt\x00', 0x10d)
+mount(0x0, &(0x7f0000000300)='mnt\x00', &(0x7f0000000400)='devtmpfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000400)='mnt/ttyUSB0\x00', 0x2, 0x0)
+ioctl$TIOCVHANGUP(r0, 0x5437, 0x0)
