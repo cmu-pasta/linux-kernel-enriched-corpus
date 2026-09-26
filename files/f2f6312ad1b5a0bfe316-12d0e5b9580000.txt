@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=694730c73e5f2a0ecb71e37ea07ced974931a3bd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='proc\x00', 0x1ff)
+mount(0x0, &(0x7f00000000c0)='proc\x00', &(0x7f0000000100)='proc\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000340)='proc/sys/net/ipv4/conf/default/forwarding\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000380)='1', 0x1)
+r1 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f0000000180)={'netdevsim0\x00', <r2=>0x0})
+r3 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$nl_route(r3, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000001140)={&(0x7f00000002c0)=ANY=[@ANYBLOB="500000001000030500"/20, @ANYRES32=0x0, @ANYBLOB="2be27de13db01225280012800b0001006d616373656300001800028005000f00020000000c004200feffff7fa100000008000500", @ANYRES32=r2], 0x50}}, 0x0)
