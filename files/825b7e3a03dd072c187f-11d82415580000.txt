@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=4bf895ecfe2a0d2f69834019c8780d7430506125
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_usb_connect$midi(0x0, 0xbd, &(0x7f00000003c0)=ANY=[@ANYBLOB="120101020000001044060f804000010203010902ab00010101200209040000060103303a0624020144040f2403000a0408010101020603029c06240207050609050d00080081b6051125010df0552f91ffb555f13d7eb3a44a09050604200002650404250100090500102000ff590005250101490905801020000204071025010c6d95655c0cab605266fc635f09050303200006040514250110"], &(0x7f0000000380)={0x0, 0x0, 0x0, 0x0, 0x1, [{0x0, 0x0}]})
+openat$sequencer2(0xffffff9c, &(0x7f0000000000), 0x1, 0x0)
+unshare(0x28040680)
