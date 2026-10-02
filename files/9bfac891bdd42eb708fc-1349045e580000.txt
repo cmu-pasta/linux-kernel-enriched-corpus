@@ -1,0 +1,18 @@
+# https://syzkaller.appspot.com/bug?id=d317945b44beba634d9f763d9b314ef252cc87a8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"sysctl":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./debug\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./debug\x00', &(0x7f00000000c0)='debugfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000080)='./debug/dynamic_debug/control\x00', 0x2, 0x0)
+write(r0, &(0x7f0000000100)='+p', 0x2)
+r1 = syz_usb_connect(0x0, 0x371, &(0x7f0000000280)=ANY=[@ANYBLOB="1201000057ec0020c215dcff30bd0102030109025f03019b000000090400000b403b4e000905e2379c"], 0x0)
+syz_usb_control_io$cdc_ncm(r1, 0x0, 0x0)
+fchmodat(0xffffffffffffff9c, &(0x7f0000000300)='.\x00', 0xffffffd3)
+setsockopt$ALG_SET_KEY(0xffffffffffffffff, 0x117, 0x1, 0x0, 0x0)
+socket(0x10, 0x3, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000180), 0x0, 0x0)
+syz_usb_control_io$hid(r1, 0x0, 0x0)
+r2 = syz_clone(0x27000911, 0x0, 0x0, 0x0, 0x0, 0x0)
+exit(0x100000000000035)
+tkill(r2, 0x6)
+syz_open_dev$char_usb(0xc, 0xb4, 0x80000000)

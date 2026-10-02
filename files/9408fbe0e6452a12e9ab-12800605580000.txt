@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=e9493e8a619498d5b3ecd8359b5f5c7ce59df060
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"close_fds":false,"callcomments":true}
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./proc\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./proc\x00', &(0x7f00000000c0)='proc\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./proc/sys/net/ipv6/seg6_flowlabel\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000180)='1\n', 0x2)
+r2 = socket$nl_route(0x10, 0x3, 0x0)
+sendmsg$nl_route(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000200)=ANY=[@ANYBLOB="5800000018000104000000000000000002180000fe03000100000000080001000a01010008000400010000000600150005000000240016002000010001000000000204000000000000000000000000000000000000000001"], 0x58}}, 0x0)
+r3 = syz_genetlink_get_family_id$tipc2(&(0x7f00000001c0), 0xffffffffffffffff)
+sendmsg$TIPC_NL_KEY_SET(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000000)={0x54, r3, 0x1, 0x0, 0x25dfdbfc, {0x3}, [@TIPC_NLA_BEARER={0x40, 0x1, 0x0, 0x1, [@TIPC_NLA_BEARER_UDP_OPTS={0x2c, 0x4, {{0x14, 0x1, @in={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0x3b}}}, {0x14, 0x2, @in={0x2, 0x0, @private=0xa010100}}}}, @TIPC_NLA_BEARER_NAME={0xd, 0x1, @udp='udp:syz1\x00'}]}]}, 0x54}}, 0x0)
