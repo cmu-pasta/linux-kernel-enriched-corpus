@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=b3a3f3c5847b6abc44d26cdbef71e61d909e8f92
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = bpf$MAP_CREATE(0x0, &(0x7f0000000840)=ANY=[@ANYBLOB="230000000800000002000000ffff000005"], 0x48)
+bpf$MAP_UPDATE_ELEM_TAIL_CALL(0x2, &(0x7f0000000140)={{r0, <r1=>0xffffffffffffffff}, &(0x7f00000000c0), &(0x7f0000000100)}, 0x20)
+bpf$BPF_MAP_LOOKUP_AND_DELETE_BATCH(0x19, &(0x7f00000018c0)={0x0, 0x0, 0x0, 0x0, 0x2, r1}, 0x38)
