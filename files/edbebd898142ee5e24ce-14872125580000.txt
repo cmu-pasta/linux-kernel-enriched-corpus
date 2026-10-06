@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=0758f0452630d5959be551e0efddaa797c2c12c7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000a00)='./nfsd\x00', 0x1ff)
+mount(0x0, &(0x7f0000000a00)='./nfsd\x00', &(0x7f0000000b00)='nfsd\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000300)='./rpc_pipefs\x00', 0x1ff)
+mount(0x0, &(0x7f0000000300)='./rpc_pipefs\x00', &(0x7f0000000400)='rpc_pipefs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000c00)='./nfsd/versions\x00', 0x2, 0x0)
+write(r0, &(0x7f0000000d00)='-2 -3 +4\n', 0x9)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000e00)='./nfsd/portlist\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000f00)='tcp 2049\n', 0x9)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000000)='./nfsd/threads\x00', 0x2, 0x0)
+write(r2, &(0x7f0000000100)='0\n', 0x2)
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000200)='./rpc_pipefs/nfsd/cld\x00', 0x2, 0x0)
+nanosleep(&(0x7f0000000500)={0x0, 0x5f5e100}, 0x0)
+nanosleep(&(0x7f0000000500)={0x0, 0x5f5e100}, 0x0)
+read(r3, &(0x7f00000000c0), 0x40a)
