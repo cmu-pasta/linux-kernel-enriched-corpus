@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=cd720570efa63a96dbbaab6767e7428738b094f8
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdir(&(0x7f00000001c0)='./dev\x00', 0x0)
+mount(0x0, &(0x7f0000000080)='./dev\x00', &(0x7f00000000c0)='devtmpfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./dev/mapper/control\x00', 0x2, 0x0)
+ioctl(r0, 0xc138fd02, &(0x7f0000000000)="0400000000000000000000003101000000000000000000000200000000000000000000000000000000000000000000006d79706f")
