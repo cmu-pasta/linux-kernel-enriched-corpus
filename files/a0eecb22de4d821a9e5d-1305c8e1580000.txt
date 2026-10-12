@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=386c42c7796b556fde3ec8283905ae52c37ebbd2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = landlock_create_ruleset(&(0x7f00000000c0)={0x100}, 0x30, 0x0)
+landlock_restrict_self(r0, 0x0)
+r1 = landlock_create_ruleset(&(0x7f0000000240)={0x20}, 0x30, 0x0)
+landlock_restrict_self(r1, 0x0)

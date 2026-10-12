@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=386c42c7796b556fde3ec8283905ae52c37ebbd2
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+socket$netlink(0x10, 0x3, 0x0)
+r0 = landlock_create_ruleset(&(0x7f0000000300)={0x7f6e}, 0x30, 0x0)
+landlock_restrict_self(r0, 0x0)
+landlock_restrict_self(r0, 0x0)
+socket$unix(0x1, 0x1, 0x0)
+syz_open_dev$radio(0x0, 0xffffffffffffffff, 0x2) (async)
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205648, &(0x7f0000002700)={0xf010000, 0x0, 0x1ff, 0xffffffffffffffff, 0x0, 0x0})
+bind$unix(0xffffffffffffffff, &(0x7f0000000000)=@file={0x1, './file0\x00'}, 0x6e) (async)
