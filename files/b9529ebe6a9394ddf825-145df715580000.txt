@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=862ab04a26d663a169f29bfc08f7baa4efe440a0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+add_key$user(&(0x7f0000000200), &(0x7f0000000100), &(0x7f00000001c0)="e2", 0x1, 0xfffffffffffffffd)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000440)='./mnt\x00', 0x1ff)
+mount(&(0x7f0000000400)=@filename='\x00', &(0x7f0000000000)='./mnt\x00', &(0x7f0000000480)='ecryptfs\x00', 0x0, &(0x7f0000000500)='ecryptfs_sig=syz,ecryptfs_fnek_sig=syz,ecryptfs_cipher=aes,ecryptfs_key_bytes=16\x00')
