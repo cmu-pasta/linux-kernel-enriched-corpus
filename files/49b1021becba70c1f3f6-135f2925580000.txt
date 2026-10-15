@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=f33cca98586021331cba23944d6d124937f6fa94
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+fsconfig$FSCONFIG_SET_BINARY(0xffffffffffffffff, 0x2, &(0x7f0000000040)='mem\x00\xffEev\xf2r\xf1\x18\x1d\xb9\x00y_hug$\bo-\x03Q`]o\x8cr\x9d_etl\xf9\xdd\a\xad\\H\xe94\b,H\xbf', 0x0, 0x0)
+r0 = syz_open_procfs(0x0, &(0x7f0000000040))
+mkdir(&(0x7f0000000000)='my_sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000200)='my_sys\x00', &(0x7f0000000300)='sysfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000500)='my_sys/bus/pci/devices/0000:00:03.0/resource1\x00', 0x2, 0x0)
+mmap$IORING_OFF_SQ_RING(0x0, 0x4, 0x1000002, 0x12, r1, 0x0)
+syz_ublk_add_dev(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+readv(r0, &(0x7f0000000100)=[{&(0x7f0000000000)=""/31, 0x1f}, {0x0}], 0x2)
