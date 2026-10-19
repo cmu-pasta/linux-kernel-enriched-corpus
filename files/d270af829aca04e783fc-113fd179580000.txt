@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=786a6b4955bb68cff4085c588ad26c6bd6bbdc77
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+syz_usb_connect$uac1(0x0, 0x81, &(0x7f0000000000)=ANY=[@ANYBLOB="1201010200000040fd07040040000102030109026f00030103a00209040000003b4f12450a240102000a00020102090401000001020000090401010101020000072401040b020008240201030206040905010910000206000725010c0040000904020000010200000904020101010200000905820900020303100725010c08ffb45db7be5fd88df2692fee64be6600dd"], 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./sys\x00', &(0x7f00000000c0)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000180)='./sys/bus/platform/drivers/dummy_hcd/unbind\x00', 0x1, 0x0)
+write(r0, &(0x7f00000001c0)='dummy_hcd.0\x00', 0xc)

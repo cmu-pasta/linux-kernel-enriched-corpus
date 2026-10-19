@@ -1,0 +1,12 @@
+# https://syzkaller.appspot.com/bug?id=c1d06c49d42a53a0b9d60810ea48c18255ad291e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":10,"sandbox":"none","sandbox_arg":0,"cgroups":true,"close_fds":true,"tmpdir":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./gadget\x00', 0x1ff)
+mount(0x0, &(0x7f0000000100)='./gadget\x00', &(0x7f0000000200)='gadgetfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000300)='./gadget/dummy_udc\x00', 0x802, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/test\x00', 0x777)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./cgroup.cpu/test/memory.limit_in_bytes\x00', 0x2002, 0x8)
+write(r1, &(0x7f0000000180)='1', 0x1)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./cgroup.cpu/test/cgroup.procs\x00', 0x2, 0x0)
+write(r2, &(0x7f0000000280)='0', 0x1)
+write(r0, &(0x7f0000000400)="0000000009020900010100803212010002000000402505a0a4000100000001", 0x1f)
