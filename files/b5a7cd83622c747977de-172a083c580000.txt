@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c7c7467a5062417875069f21ee7696be4f9864dc
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"none","sandbox_arg":0,"close_fds":true,"vhci":true,"wifi":true,"ieee802154":true,"tmpdir":true,"callcomments":true}
+r0 = openat$uhid(0xffffffffffffff9c, &(0x7f0000000000), 0x2, 0x0)
+sendmsg$IPSET_CMD_CREATE(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000002c0)={0x58, 0x2, 0x6, 0x801, 0x0, 0x0, {0x0, 0x0, 0x2}, [@IPSET_ATTR_DATA={0xc, 0x7, 0x0, 0x1, [@IPSET_ATTR_BUCKETSIZE={0x5, 0x15, 0x7}]}, @IPSET_ATTR_PROTOCOL={0x5, 0x1, 0x6}, @IPSET_ATTR_FAMILY={0x5, 0x5, 0xa}, @IPSET_ATTR_REVISION={0x5}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_TYPENAME={0x13, 0x3, 'hash:net,iface\x00'}]}, 0x58}}, 0x80)
+write$UHID_CREATE2(r0, &(0x7f0000001000)={0xb, {'syz0\x00', 'syz0\x00', 'syz0\x00', 0x1d, 0x3, 0x56a, 0x3f, 0x0, 0x0, "05010905a10105091901290a150025017501950a8102950175068103c0"}}, 0x135)
+write$UHID_INPUT2(r0, &(0x7f0000000300)=ANY=[@ANYBLOB="0c0000000a17"], 0x10)
