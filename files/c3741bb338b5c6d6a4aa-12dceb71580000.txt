@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=ca6c4caa5962008a01df1646255596a566f06885
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mmap(&(0x7f0000000000/0x3000)=nil, 0x3000, 0x380000f, 0x11, 0xffffffffffffffff, 0x0)
+setns(0xc9, 0x0)
+r0 = socket$rds(0x15, 0x5, 0x0)
+bind$rds(r0, &(0x7f0000000080)={0x2, 0x4e21, @local}, 0x10)
+sendmsg$rds(r0, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, 0x0) (async)
+sendmsg$rds(r0, &(0x7f00000000c0)={&(0x7f0000000100)={0x2, 0x4e21, @private=0xa010102}, 0x10, 0x0, 0x0, 0x0, 0x0, 0x40}, 0x0)
