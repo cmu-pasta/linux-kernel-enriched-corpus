@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=0f68e0a7761086dc2bd3265cacc37f60f2b1940c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"segv":true,"callcomments":true}
+getsockopt$TIPC_DEST_DROPPABLE(0xffffffffffffffff, 0x10f, 0x81, &(0x7f0000000080), &(0x7f00000000c0)=0x4)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./mnt\x00', 0x1ff)
+add_key$user(&(0x7f00000003c0), &(0x7f0000000440), &(0x7f00000000c0), 0xc9, 0xfffffffffffffffd)
+mount(&(0x7f0000000400)=@filename='\x00', &(0x7f0000000000)='./mnt\x00', &(0x7f0000000480)='ecryptfs\x00', 0x0, &(0x7f0000000500)='ecryptfs_sig=syz,ecryptfs_fnek_sig=syz,ecryptfs_cipher=aes,ecryptfs_key_bytes=16\x00')
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000040)='./mnt\x00', 0x8000, 0x12)
+mkdirat(r0, &(0x7f0000000100)='./mnt\x00', 0x80)
