@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=186780e3274fd3e622f628a8283f5ff93518a8ee
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"sysctl":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000040)='./sys\x00', &(0x7f0000000080)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f00000002c0)='./sys/block/md0/md/level\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000300)='raid5', 0x5)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000540)='./sys/block/md0/md/new_dev\x00', 0x1, 0x0)
+write(r1, &(0x7f00000005c0)='1:1', 0x3)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000400)='./sys/module/md_mod/parameters/new_array\x00', 0x1, 0x0)
+write(r2, &(0x7f0000000500)='md0\n', 0x4)
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000800)='./sys/block/md0/md/level\x00', 0x1, 0x0)
+write(r3, &(0x7f0000000900)='raid1\n', 0x6)
+r4 = openat(0xffffffffffffff9c, &(0x7f0000000a00)='./sys/block/md0/md/raid_disks\x00', 0x1, 0x0)
+write(r4, &(0x7f0000000b00)='2\n', 0x2)
+r5 = openat(0xffffffffffffff9c, &(0x7f0000001000)='./sys/block/md0/md/array_state\x00', 0x1, 0x0)
+write(r5, &(0x7f0000001100)='active\n', 0x7)
+r6 = openat(0xffffffffffffff9c, &(0x7f0000001400)='./sys/block/md0/md/dev-ram1/slot\x00', 0x1, 0x0)
+write(r6, &(0x7f0000001500)='1\n', 0x2)
