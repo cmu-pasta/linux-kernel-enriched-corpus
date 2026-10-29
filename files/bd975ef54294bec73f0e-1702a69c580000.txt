@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=3a19a37460884d515a7ac660c32fe274550f264b
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$nullb(0xffffffffffffff9c, &(0x7f0000000040), 0x4000000004002, 0x0)
+r1 = dup(r0)
+mmap(&(0x7f0000000000/0xb36000)=nil, 0xb36000, 0xa, 0x13, r1, 0x5000)
+madvise(&(0x7f0000000000/0xc00000)=nil, 0xc00000, 0x17)
+write$binfmt_aout(r1, 0x0, 0xffffffdb)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x89b0, &(0x7f0000000240)={'macvtap0\x00', 0x0})

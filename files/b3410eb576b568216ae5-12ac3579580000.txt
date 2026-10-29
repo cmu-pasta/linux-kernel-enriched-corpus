@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=e9db5e948f018b787b5ae34e352beb010a24a36e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./myconfig\x00', 0x1ff)
+mount(0x0, &(0x7f0000000100)='./myconfig\x00', &(0x7f0000000200)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000400)='./myconfig/usb_gadget/g1/strings/0x409\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000500)='./myconfig/usb_gadget/g1/strings/0x409/s1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000600)='./myconfig/usb_gadget/g1/functions/uvc.usb0\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000700)='./myconfig/usb_gadget/g1/functions/uvc.usb0/control/extensions/ext.0\x00', 0x1ff)
+symlinkat(&(0x7f0000000800)='./myconfig/usb_gadget/g1/strings/0x409/s1\x00', 0xffffffffffffff9c, &(0x7f0000000900)='./myconfig/usb_gadget/g1/functions/uvc.usb0/control/extensions/ext.0/str\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./config\x00', &(0x7f0000000100)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000300)='./config/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000500)='./config/usb_gadget/g1/functions/tcm.usb0\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000e00)='./config/target/usb_gadget\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000f00)='./config/target/usb_gadget/naa.1234567890123456\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000001000)='./config/target/usb_gadget/naa.1234567890123456/tpgt_1\x00', 0x1ff)

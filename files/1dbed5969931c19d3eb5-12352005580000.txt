@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=6826206fdf6855bcd07c22ffeb2ac531ef5abe53
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = fsopen(&(0x7f0000000000)='ceph\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r0, 0x1, &(0x7f0000000100)='source\x00', &(0x7f0000000200)='client.admin@00000000-0000-0000-0000-000000000000.ceph=/\x00', 0x0)
+fsconfig$FSCONFIG_SET_STRING(r0, 0x1, &(0x7f0000000300)='mon_addr\x00', &(0x7f0000000400)='127.0.0.\x03:6789\x00', 0x0)
+fsconfig$FSCONFIG_CMD_CREATE(r0, 0x6, 0x0, 0x0, 0x0)
