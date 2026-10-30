@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=fd7b1d7e6601a3aa4899ac2778593cb626e19261
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./my_configfs\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./my_configfs\x00', &(0x7f00000000c0)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./my_configfs/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f00000001c0)='./my_configfs/usb_gadget/g1/functions/obex.usb1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f00000000a0)='./dev\x00', 0x1ff)
+mount(0x0, &(0x7f00000000a0)='./dev\x00', &(0x7f00000000c0)='devtmpfs\x00', 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000000800)='./dev/ttyGS0\x00', 0x2, 0x0)
+rmdir(&(0x7f0000000440)='./my_configfs/usb_gadget/g1/functions/obex.usb1\x00')

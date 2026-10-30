@@ -1,0 +1,21 @@
+# https://syzkaller.appspot.com/bug?id=9c0b61a007c7ff8c0167a150d86a26563f3e1406
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000340)='./file1\x00', 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./cgroup.cpu/test\x00', 0x777)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000140)='./cgroup.cpu/test/memory.limit_in_bytes\x00', 0x142, 0x80)
+write(r0, &(0x7f0000000180)='100000', 0x6)
+r1 = openat(0xffffffffffffff9c, &(0x7f00000001c0)='./cgroup.cpu/test/memory.oom_control\x00', 0x2, 0x0)
+write(r1, &(0x7f0000000200)='1', 0x1)
+r2 = syz_init_net_socket$bt_hci(0x1f, 0x3, 0x1)
+getsockopt$inet_sctp_SCTP_ASSOCINFO(r2, 0x84, 0x1, 0x0, &(0x7f0000000100))
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000240)='./cgroup.cpu/test/cgroup.procs\x00', 0x2, 0x0)
+write(r3, &(0x7f0000000280)='0', 0x1)
+bpf$MAP_CREATE_TAIL_CALL(0x0, &(0x7f00000009c0)=ANY=[@ANYBLOB="0300000004000000040000000a"], 0x50)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+syz_mount_image$minix(&(0x7f00000002c0), &(0x7f0000000300)='./file1\x00', 0x8010, &(0x7f0000000440)=ANY=[@ANYBLOB="00e611ed6229b237ad2a184a94283e2b34c24caf7280c18475708140abe763dfb52cdb0ba0cdc8c572346d0a832984b36248c4fa844eda0af4b1652605421a7821dcfde12aa77458d811a84538a156b05b0ec3eaf24a90ceb5b7463d9fd38b49d41fbfa868653605702abe43d9c2c30aed4da0b8cc18c6b369f086a965442c1217f19a67a534064b7236a6660000000000"], 0x2, 0x18a, &(0x7f0000000540)="$eJzs271u2mAUxvHHxnwU+kFLP6SqQ6eqSzFQibZbeykIXIRiEhSygCIluY8s2XJVuYIwZMsUIoztBIeJYJuE/2/hHB+9+DC8vEcIC8DW+quvMmQoN0u+FMpHFSPtlgAkZOq/3kx9pSmArZG5TrsDAOmY/JMGki6vDtvK5IKx4FMQzOqFIDHzD+aHyYmpz5a/3ijoRXS+OJO+Be9vFJesl4phveRdsyL17yrP6+ZLvdJrvVFZb/VOFb/eCdd/fNwwBADAljBUjeYLF0z977lOLcyzXl5X0T+kc17eCOvz/GeY57282t5zOzF+CgCrMFU9v59H938msv8tf/8DePqGo/FOy3Wd/YSC4PeBRG+6nkDHG9HGWoKsNqINgiWBpYRverG0lPIXE4DY2Qf9gT0cjX/0+q2u03V2m41m80/t96+67Q3+9uL4D+AZuTv00+4EAAAAAAAAAAAAAACs6r0+pN0CAAAAgITE9lyRIelU/LMYAAAAAAAAAAAAAAAAAIAY3AYAAP//XTAW7A==")
+mkdirat(0xffffffffffffff9c, &(0x7f0000000700)='./file0/file6\x00', 0x1c0)
+socket$kcm(0x11, 0x200000000000002, 0x300)
+socket$nl_netfilter(0x10, 0x3, 0xc)
+creat(0x0, 0x8)
