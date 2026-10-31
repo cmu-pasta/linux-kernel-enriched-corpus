@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=b23606205fccceda85778047af24a2de49547228
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"ieee802154":true,"callcomments":true}
+mkdir(&(0x7f00000002c0)='./file0\x00', 0x1e)
+mount$9p_virtio(&(0x7f00000001c0), &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000c00)=ANY=[@ANYBLOB="56c78e3c733d766972742aa3e2946f657874656e642c6163638173733d616e792c63616368653d667363616368652c"])
+symlink(0x0, 0x0)
+mount$9p_virtio(0x0, &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x0, &(0x7f0000000c00)=ANY=[@ANYBLOB="56c78e3c733d766972742aa3e2946f657874656e642c6163638173733d616e792c63616368653d667363616368652c"]) (async)
+chdir(&(0x7f0000000080)='./file0\x00') (async)
+unlink(&(0x7f00000002c0)='./file0\x00') (async)
+symlink(&(0x7f0000000000)='./file0\x00', &(0x7f0000000040)='./file0\x00')
+openat(0xffffffffffffff9c, 0x0, 0x1a3e42, 0x2c)
