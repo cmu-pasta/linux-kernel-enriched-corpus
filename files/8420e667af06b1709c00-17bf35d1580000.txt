@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=04d8afe5cbb4375543c2549e956053958c3847ec
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+syz_mount_image$minix(&(0x7f0000000180), &(0x7f0000000000)='./file1\x00', 0x8010, &(0x7f0000000480)=ANY=[@ANYBLOB="00e611ed6229b237ad2a184a94283e2b34c24caf7280c18475708140abe763dfb52cdb0ba0cdc8c572346d0a832984b36248c4fa844eda0af4b1652605421a7821dcfde12aa77458d811a84538a156b05b0ec3eaf24a90ceb5b7463d9fd38b49d41fbfa868653605702abe43d9c2c30aed4da0b8cc18c6b369f086a965442c1217f19a67a534064b7236a6660000000000"], 0x2, 0x197, &(0x7f00000001c0)="$eJzs282O0lAYxvHnlPIh+IHiR2JcuDJubAET1J1eCoFKiEWJuIGYgPfhxp1X4OV4BbJw58oaSltiZeMMbYfh/9vMeebN6TklOfQNAQE4WS/1UEZGlU14UGsuW6boLQHISRD9/R1EGgGAk1H6VfQOABRj/UqaSvrx8+NApUrcFtyLB5t6Le4VTPWf/mH9ydJ9O5pvarqS7i++SI/i65v6nvlSPak3wv/ZqfpjNbd166qu6bpuqKmbuqVWVB8m8++esxsCAOA0GDnp7EhWki29HvteO8nlMHdUjx7SlTB3k/o2P01yNczO4J0/zPZGAPw3S85XBUGwjPL2/O+UUuffjs4/gOM3my/e9H3fe5/TIP58INdFDzPQKq+1Vsp6ibIuyqt69INvh76grZzv4vveUsFvTAAy536YTN3ZfPFkPOmPvJH3ttft9V60nz/ruGHj7/7d/gO4RHYP/aJ3AgAAAAAAAAAAAAAAzuq27hS9BQAAAAA5yex3RUbSZ/HNYgAAAAAAAAAAAAAAAAAAMvAnAAD//4/pG0Y=")
+r0 = openat(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+read$FUSE(0xffffffffffffffff, &(0x7f0000000480)={0x2020}, 0x2020)
+ioctl$sock_SIOCGIFINDEX(r0, 0x8933, 0x0)
+syz_emit_ethernet(0x0, 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000024c0)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000002500)='./sys\x00', &(0x7f0000002540)='sysfs\x00', 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f0000002580)='./sys/class/scsi_host/host0/scan\x00', 0x1, 0x0)

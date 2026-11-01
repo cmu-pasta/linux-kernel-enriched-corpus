@@ -1,0 +1,19 @@
+# https://syzkaller.appspot.com/bug?id=aa4c65b436cc1b5ee3af6791b61005da1768dfb6
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":5,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f00000000c0)='./config\x00', &(0x7f0000000140)='configfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000500)='./config/nvmet/ports/1/addr_trtype\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000540)='tcp\n', 0x4)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000580)='./config/nvmet/ports/1/addr_adrfam\x00', 0x1, 0x0)
+write(r1, &(0x7f00000005c0)='ipv4\n', 0x5)
+r2 = openat(0xffffffffffffff9c, &(0x7f0000000600)='./config/nvmet/ports/1/addr_traddr\x00', 0x1, 0x0)
+write(r2, &(0x7f0000000640)='127.0.0.1\n', 0xa)
+r3 = openat(0xffffffffffffff9c, &(0x7f0000000680)='./config/nvmet/ports/1/addr_trsvcid\x00', 0x1, 0x0)
+write(r3, &(0x7f00000006c0)='4420\n', 0x5)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000400)='./config/nvmet/subsystems/testsubsys\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000500)='./config/nvmet/ports/1\x00', 0x1ff)
+r4 = openat(0xffffffffffffff9c, &(0x7f0000000540)='./config/nvmet/ports/1/addr_trtype\x00', 0x1, 0x0)
+write(r4, &(0x7f0000000580)='fc\n', 0x3)
+symlinkat(&(0x7f0000000700)='./config/nvmet/subsystems/testsubsys\x00', 0xffffffffffffff9c, &(0x7f0000000780)='./config/nvmet/ports/1/subsystems/testsubsys\x00')
+unlinkat(0xffffffffffffff9c, &(0x7f0000000780)='./config/nvmet/ports/1/subsystems/testsubsys\x00', 0x0)
