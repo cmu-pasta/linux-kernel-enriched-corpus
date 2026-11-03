@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=017444d6589455cf506c73f9564f0f09acdbf476
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_usb_connect(0x3, 0x34, &(0x7f0000000000)=ANY=[@ANYBLOB="1201000200000040f71d00250001000000010902220001010080000904"], 0x0)
+r0 = syz_open_dev$usbfs(&(0x7f0000000880), 0x19, 0x2)
+ioctl$USBDEVFS_IOCTL(r0, 0xc0105512, &(0x7f00000008c0))
+ioctl$USBDEVFS_IOCTL(r0, 0xc0105512, &(0x7f0000000900)=@usbdevfs_connect) (fail_nth: 12)
