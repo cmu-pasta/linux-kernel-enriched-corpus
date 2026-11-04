@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=0a557b5640efcff9b933c25e4f03079c5fd9dec7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = syz_usb_connect(0x0, 0x36, &(0x7f0000000540)=ANY=[@ANYBLOB="120100009f187620ef170372362e010203010902240001000010000904bc00029e8833000905020200020200000905820220"], 0x0)
+syz_usb_connect$cdc_ncm(0x1, 0x0, 0x0, 0x0)
+syz_usb_control_io$rtl8150(r0, 0x0, 0x0) (async)
+syz_usb_connect(0x3, 0x2d, 0x0, 0x0)
+syz_usb_control_io$rtl8150(r0, 0x0, &(0x7f00000029c0)={0x2c, &(0x7f0000000400)=ANY=[@ANYRES16=r0, @ANYRES64=r0], 0x0, 0x0, 0x0, 0x0}) (async, rerun: 32)
+syz_usb_control_io$uac1(r0, 0x0, &(0x7f0000002640)={0x44, &(0x7f0000000000)={0x20, 0xe, 0x2, "02cf"}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}) (async, rerun: 32)
+syz_usb_control_io(r0, 0x0, &(0x7f0000000a80)={0x44, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, &(0x7f0000000840)={0x40, 0xb, 0x2, "31fb"}, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0})
+syz_usb_control_io$hid(r0, 0x0, 0x0) (rerun: 64)
+syz_usb_control_io$uac3(r0, 0x0, &(0x7f0000000d80)={0x44, &(0x7f0000000b40)={0x0, 0x3, 0x71, "49becc3038183dccb333152b33ab7039f97e282d86204331b9248ea07628f64ceb7c7d996a0d13d13ab56611214f2d043fc7ef4aac5272fb3c078b9f75227e1eb574bc6138d07d172c1f9968656aa9a1897b5bc061ada0641320605e1840b47a5d2a26170649a6cdc4c34973be2c889f77"}, 0x0, 0x0, &(0x7f0000000c40)={0x20, 0x81, 0x1, 'F'}, 0x0, 0x0, 0x0, 0x0}) (rerun: 64)
+syz_usb_control_io$lan78xx(r0, 0x0, 0x0)
