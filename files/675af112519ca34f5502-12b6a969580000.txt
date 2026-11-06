@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=bee32f7e81ba30eaf1cab7be0d487780b5550e3a
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+prctl$PR_SET_MM_MAP(0x23, 0xe, &(0x7f0000000080)={&(0x7f0000ff0000/0x1000)=nil, &(0x7f0000ffc000/0x1000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f0000ffc000/0x4000)=nil, &(0x7f000000c000/0x2000)=nil, &(0x7f0000ff8000/0x3000)=nil, &(0x7f0000ff0000/0x1000)=nil, &(0x7f0000ffb000/0x3000)=nil, &(0x7f000000b000/0x2000)=nil, &(0x7f0000ffa000/0x1000)=nil, &(0x7f0000ffa000/0x2000)=nil, 0x0}, 0x68)
+sendmsg$NFT_BATCH(0xffffffffffffffff, &(0x7f0000000080)={0x0, 0x0, 0x0}, 0x0)
+io_uring_setup(0x56ab, &(0x7f0000000040)={0x0, 0x36d, 0xc002, 0xc, 0xa0002f5})
