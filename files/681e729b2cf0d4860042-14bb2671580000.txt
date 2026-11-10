@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=9304aedfeabd15344b88ca3fce5fb8d5e19b22bb
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"resetnet":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"sysctl":true,"swap":true,"tmpdir":true,"callcomments":true}
+prctl$PR_SCHED_CORE(0x3e, 0x1, 0x0, 0x1, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000500)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000540)='./sys\x00', &(0x7f0000000580)='sysfs\x00', 0x800040, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f00000005c0)='./sys/devices/system/cpu/smt/control\x00', 0x80001, 0x0)
+write(r0, &(0x7f0000000600)='off', 0x3)
+write(r0, &(0x7f0000000640)='on', 0x2)
