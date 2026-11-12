@@ -1,0 +1,8 @@
+# https://syzkaller.appspot.com/bug?id=5f77f280704936812bf13cbde29c51dfa9f0a8a4
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdir(&(0x7f0000000040)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./config\x00', &(0x7f00000000c0)='configfs\x00', 0x0, 0x0)
+mkdir(&(0x7f0000000200)='./config/nvmet/ports/1\x00', 0x1ff)
+rmdir(&(0x7f0000000600)='./config/nvmet/ports/1\x00')
+symlinkat(&(0x7f0000000440)='./config/nvmet/subsystems/testsubsys\x00', 0xffffffffffffff9c, &(0x7f0000000480)='./config/nvmet/ports/1/subsystems/testsubsys\x00')
