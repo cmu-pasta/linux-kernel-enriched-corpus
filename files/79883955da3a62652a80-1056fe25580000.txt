@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=e7a071775eb379233731d1b89b80cc5ddd5f9c47
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x39)
+mount(0x0, &(0x7f0000000180)='./sys\x00', &(0x7f0000000300)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000c00)='./sys/power/state\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000d00)='mem', 0x3)

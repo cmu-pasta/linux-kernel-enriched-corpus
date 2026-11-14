@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=e7a071775eb379233731d1b89b80cc5ddd5f9c47
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+socket$kcm(0x2, 0x3, 0x2)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000280)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000340)='./sys\x00', &(0x7f0000000380)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000002540)='./sys/power/state\x00', 0x1, 0x0)
+write(r0, &(0x7f0000002580)='mem\n', 0x4)
+close(0xffffffffffffffff)
