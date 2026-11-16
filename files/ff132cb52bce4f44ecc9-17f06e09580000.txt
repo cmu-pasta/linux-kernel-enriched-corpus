@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=53bdddd8f9eeb4de7227808d837f9903b62b89e0
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$dm_control(0xffffff9c, &(0x7f00000001c0), 0x80, 0x0)
+ioctl$DM_DEV_CREATE(r0, 0xc138fd03, &(0x7f0000000200)={0x4, 0x0, 0x0, 0x138, 0x138, 0x0, 0x0, 0x0, 0x0, 0x0, {<r1=>0x0, {'syz', 0x0, '1\x00'}}})
+ioctl$DM_TABLE_LOAD(r0, 0xc138fd09, &(0x7f0000000540)={0x4, 0x0, 0x0, 0x228, 0x138, 0x1, 0x0, 0x80800, 0x0, 0x0, @by_dev={r1}, [@crypt={0x0, 0x3050, 0x0, 0xf0, 'crypt\x00', {'capi:rfc7539(chacha20,poly1305)-random', 0x20, @fixed='0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef', 0x20, '0', 0x20, {@ram={'/dev/ram', 0x1}, 0x20, '4096'}, ' 2 integrity:32:aead integrity_key_size:32'}}]})

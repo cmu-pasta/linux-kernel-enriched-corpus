@@ -1,0 +1,6 @@
+# https://syzkaller.appspot.com/bug?id=21ba4f33a9ab0bb2a23933286788021cfc28486f
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+r0 = openat$dm_control(0xffffffffffffff9c, &(0x7f00000001c0), 0x883, 0x0)
+ioctl$DM_DEV_CREATE(r0, 0xc138fd03, &(0x7f0000000200)={0x4, 0x0, 0x0, 0x138, 0x138, 0x0, 0x0, 0x0, 0x0, 0x0, {<r1=>0x0, {'syz', 0x0, '1\x00'}}})
+ioctl$DM_TABLE_LOAD(r0, 0xc138fd09, &(0x7f0000000640)={0x4, 0x0, 0x0, 0x1a0, 0x138, 0x1, 0x0, 0x9000, 0x0, 0x0, @by_dev={r1}, [@snapshot={0x0, 0x400, 0x0, 0x68, 'snapshot\x00', {@ram={'/dev/ram', 0x1}, 0x20, @ram_num={'1:', 0x0}, 0x20, 'P', 0x20, '32', ' 1 discard_zeroes_cow'}}]})
