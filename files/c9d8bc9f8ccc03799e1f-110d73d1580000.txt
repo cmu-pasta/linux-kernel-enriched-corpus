@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=c706477fe19025774583b1ace6c30ebb3c5312b7
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"leak":true,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000005200)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000005240)='./sys\x00', &(0x7f0000005280)='sysfs\x00', 0x0, 0x0)
+r0 = openat(0xffffffffffffff9c, &(0x7f0000005340)='./sys/module/phram/parameters/phram\x00', 0x1, 0x0)
+write(r0, &(0x7f0000005380)='p0,0x8000000000000000,0', 0x17)
