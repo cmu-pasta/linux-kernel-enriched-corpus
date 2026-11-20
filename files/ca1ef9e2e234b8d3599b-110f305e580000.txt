@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=ec02119d1dcdd78aa785dc38715c876c567d74cd
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f0000000080)='./sys\x00', &(0x7f00000000c0)='sysfs\x00', 0x0, 0x0)
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000100)='./sys/bus/pci/devices/0000:00:01.0\x00', 0x0, 0x0)
+r1 = openat(r0, &(0x7f0000000200)='driver/unbind\x00', 0x1, 0x0)
+write(r1, &(0x7f0000000300)='0000:00:01.0\x00', 0xd)
+r2 = openat(r0, &(0x7f0000000400)='driver_override\x00', 0x1, 0x0)
+write(r2, &(0x7f0000000500)='e1000\x00', 0x6)
+r3 = openat$dir(0xffffffffffffff9c, &(0x7f0000000600)='./sys/bus/pci/drivers/e1000\x00', 0x0, 0x0)
+r4 = openat(r3, &(0x7f0000000700)='bind\x00', 0x1, 0x0)
+write(r4, &(0x7f0000000800)='0000:00:01.0\x00', 0xd)
