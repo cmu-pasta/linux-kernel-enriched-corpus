@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=39a2f15cd5e1715da28ebeb63d36d83cd3352e9d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"callcomments":true}
+mkdirat(0xffffffffffffff9c, &(0x7f0000000000)='./config\x00', 0x1ff)
+mount(0x0, &(0x7f0000000000)='./config\x00', &(0x7f0000000400)='configfs\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000080)='./config/usb_gadget/g1\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000100)='./config/usb_gadget/g1/functions/uac1_legacy.usb0\x00', 0x1ff)
+mkdirat(0xffffffffffffff9c, &(0x7f0000000180)='./config/usb_gadget/g1/configs/c.1\x00', 0x1ff)
+symlinkat(&(0x7f0000000200)='./config/usb_gadget/g1/functions/uac1_legacy.usb0\x00', 0xffffffffffffff9c, &(0x7f0000000280)='./config/usb_gadget/g1/configs/c.1/uac1_legacy.usb0\x00')
+r0 = openat(0xffffffffffffff9c, &(0x7f0000000300)='./config/usb_gadget/g1/UDC\x00', 0x1, 0x0)
+write(r0, &(0x7f0000000400)='dummy_udc.0\n\x00', 0xc)

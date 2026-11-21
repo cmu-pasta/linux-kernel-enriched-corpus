@@ -1,0 +1,13 @@
+# https://syzkaller.appspot.com/bug?id=4aacada57d78ea148cd4ca4a2f60d5bea15ba697
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":6,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+syz_mount_image$vfat(&(0x7f0000000400), &(0x7f0000000280)='./file0\x00', 0x414, &(0x7f0000000000)=ANY=[@ANYBLOB="6e6f6e756d7461696c2c6e66732c73686f72746e616d653d6c6f7765722c757466383d312c64656275672c696f636861727365743d757466382c73686f72746e616d653d6d697865642c757466383d312c004845160000000000"], 0x1, 0x2bb, &(0x7f0000000440)="$eJzs3UFrE1sYxvGnTW+TprTJhcuFe0E96EY3oY0fQIO0IAaU2hR1IUztREPGpMyESkRsNuLWD+Gq6M6doC7ddCNu3LsrguCmC3HETNImbVrTNklj+/9BmTd5z8OcttPyptDJ2o1n9/NZL5G1ShqMGA1KFa1L8V9VzUDtOFith9WoonOj3z6duH7z1pVUOj01Y8x0avZ80hgzfurNg0cvTr8rjc69Gn8d1mr89trX5OfVf1f/W/sxey/nmZxnCsWSscx8sViy5h3bLOS8fMKYa45tebbJFTzbbepnneLiYtlYhYWx6KJre56xCmWTt8umVDQlt2ysu1auYBKJhBmL6ngbamNNZmVmxkrt2PZDHd0Rum6k1ZOum6q0bmZWerAnAADQZ3af/4NZf+f5Pz0XHNua/18+l9qb/6VOzv8DPf2C9rlK06PfzP84Elw3ZUVrP7/NmP8BAAAAAAAAAAAAAAAAAAAAAPgTrPt+zPf9WP1Y/whLikiqPz7sfaI79vn9v3BI20WHNfzjXkRyni5lljLBMeinssrJka0JxfS9ej3UBPX05fTUhKmK662zXMsvL2VCCtfzdfFW+ZN/TwZ505z/S9HG8ycV0z+tz59smR/W2TMN+YRi+nBHRTlaqF7Xm/nHk8Zcuprekh+prgMAAAAA4ChImA3bXr9X+9UFEW3vB/k9/H1gy+vrIf3fzi0qAQAAAADAgXnlh3nLcWx3H0VY0gHieyj8ga6fonNFSH2xjS3FRUl9sI1eFRFJwTNmP/EvG/G2Un4ba4YkHfTzivTw0jrs30wAAAAAOm1z6N9D6OOTLu4IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDjp937gdXXb2vVG7vEG04X0vuNtwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjp2fAQAA//91iCZA")
+r0 = open$dir(&(0x7f0000000240)='.\x00', 0x0, 0x0)
+renameat(r0, &(0x7f0000000400)='./file0\x00', r0, &(0x7f0000000440)='./file1\x00')
+mkdirat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x0)
+mknodat(0xffffffffffffff9c, &(0x7f00000000c0)='./file1/file2\x00', 0x0, 0x0)
+open(&(0x7f0000000180)='./bus\x00', 0x1492fe, 0x0)
+mount(&(0x7f0000000380)=@loop={'/dev/loop', 0x0}, &(0x7f0000000140)='./bus\x00', 0x0, 0x1000, 0x0)
+r1 = open(&(0x7f0000000500)='./bus\x00', 0x0, 0x0)
+ioctl$LOOP_SET_STATUS64(r1, 0x4c04, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x0, 0x7fff, 0x0, 0x0, 0x0, 0x0, "ef359f413bb93852f7d6a4ae6dddfbd1ce5d29c2ee5e5c9d000ff8ee09e737ff0edf110ff4117639c2eb4b78c66ee677df701905b9aafab4afaaf755a3f6a004", "cba3d625780820d1cbf7db71038259ca171ce1a311ef97e4298d1e14ef01060000e9009600fdff00000000000000000000000000000000000400", "be1d0000ae9ef30bea2a004000010000000000008000"})
+renameat2(0xffffffffffffff9c, &(0x7f0000000480)='./file1/file2\x00', 0xffffffffffffff9c, &(0x7f00000004c0)='./file0\x00', 0x2)
