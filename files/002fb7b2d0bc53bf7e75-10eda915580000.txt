@@ -1,0 +1,17 @@
+# https://syzkaller.appspot.com/bug?id=f318ac4742bf8703535c973a869898a21fb10e3e
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+r0 = seccomp$SECCOMP_SET_MODE_FILTER_LISTENER(0x1, 0x0, &(0x7f00000000c0)={0x1, &(0x7f0000000080)=[{0x6, 0x0, 0x0, 0x7fff0000}]})
+r1 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000000c0)='/sys/power/pm_test', 0x141a82, 0x0)
+sendfile(r0, r1, 0x0, 0x4)
+pipe(&(0x7f0000000140)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+r3 = fsopen(&(0x7f0000000080)='autofs\x00', 0x0)
+fsconfig$FSCONFIG_SET_FD(r3, 0x5, &(0x7f00000005c0)='fd', 0x0, r2)
+fsconfig$FSCONFIG_CMD_CREATE(r3, 0x6, 0x0, 0x0, 0x0)
+r4 = fsmount(r3, 0x0, 0x2)
+fchdir(r4)
+r5 = syz_clone(0x11, 0x0, 0x0, 0x0, 0x0, 0x0)
+setpgid(r5, r5)
+setpgid(0x0, r5)
+r6 = openat$sysfs(0xffffffffffffff9c, &(0x7f00000002c0)='/sys/power/resume', 0xa82, 0x0)
+write$cgroup_int(r6, &(0x7f0000000040)=0x4000921, 0x12)
