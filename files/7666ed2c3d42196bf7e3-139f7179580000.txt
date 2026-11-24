@@ -1,0 +1,7 @@
+# https://syzkaller.appspot.com/bug?id=64e9c558262626af268c96df24c84f453ca35aa1
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":7,"slowdown":1,"sandbox":"none","sandbox_arg":0,"leak":true,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"vhci":true,"wifi":true,"ieee802154":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true,"callcomments":true}
+socket$inet6_tcp(0xa, 0x1, 0x0)
+r0 = openat$iommufd(0xffffffffffffff9c, &(0x7f0000000000), 0x0, 0x0)
+ioctl$IOMMU_IOAS_ALLOC(r0, 0x3b81, &(0x7f0000000040)={0xc})
+ioctl(r0, 0x3b8f, &(0x7f00000000c0)="2800000006000000010000000400000000000000000000000010")
