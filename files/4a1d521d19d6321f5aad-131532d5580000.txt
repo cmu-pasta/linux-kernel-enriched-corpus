@@ -1,0 +1,11 @@
+# https://syzkaller.appspot.com/bug?id=901fad1ef89b918e650e5ecccacb1ec279dc28c3
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":4,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"callcomments":true}
+mkdirat(0xffffffffffffff9c, 0x0, 0x1ff)
+openat(0xffffffffffffff9c, 0x0, 0x2, 0x0)
+r0 = openat$nvme_fabrics(0xffffffffffffff9c, &(0x7f0000000300), 0x2, 0x0)
+write(r0, &(0x7f0000000340)='transport=loop,nqn=testnqn\x00', 0x1a)
+mkdirat(0xffffffffffffff9c, &(0x7f00000003c0)='./sys\x00', 0x1ff)
+mount(0x0, &(0x7f00000003c0)='./sys\x00', &(0x7f0000000400)='sysfs\x00', 0x0, 0x0)
+r1 = openat(0xffffffffffffff9c, &(0x7f0000000440)='./sys/class/nvme/nvme0/reset_controller\x00', 0x1, 0x0)
+write(r1, &(0x7f0000000480)='1\x00', 0x1)
